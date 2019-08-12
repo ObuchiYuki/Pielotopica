@@ -25,6 +25,8 @@ struct TPCommon {
     struct FontName {
         static let topica = "KorneuburgSlabBold-Bold"
         static let logo = "Silom"
+        static let pixcel = "5squared-pixel"
+        
     }
     struct AttributeText {
         static let logo = _createLogoAttributeText(with: TPCommon.Color.text)

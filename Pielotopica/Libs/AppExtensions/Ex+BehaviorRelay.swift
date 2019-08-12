@@ -9,7 +9,6 @@
 import RxSwift
 import RxCocoa
 
-
 // =============================================================== //
 // - Ex + Operators -
 extension BehaviorRelay where Element: Numeric {

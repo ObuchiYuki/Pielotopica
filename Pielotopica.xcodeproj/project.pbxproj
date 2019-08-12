@@ -55,6 +55,7 @@
 		B61E94182300E395008CB325 /* TP_core.scn in Resources */ = {isa = PBXBuildFile; fileRef = B61E94162300E394008CB325 /* TP_core.scn */; };
 		B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94192300FEFA008CB325 /* GK3DSceneController.swift */; };
 		B61E941C2300FF8C008CB325 /* Ex+SceneKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E941B2300FF8C008CB325 /* Ex+SceneKit.swift */; };
+		B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62279BC2301A7A7009EF60F /* TPDebug.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		B61E94162300E394008CB325 /* TP_core.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_core.scn; sourceTree = "<group>"; };
 		B61E94192300FEFA008CB325 /* GK3DSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GK3DSceneController.swift; sourceTree = "<group>"; };
 		B61E941B2300FF8C008CB325 /* Ex+SceneKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SceneKit.swift"; sourceTree = "<group>"; };
+		B62279BC2301A7A7009EF60F /* TPDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDebug.swift; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +182,7 @@
 				B61E93BA2300E361008CB325 /* ViewController.swift */,
 				B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */,
 				B61E93B62300E356008CB325 /* TPCommon.swift */,
+				B62279BC2301A7A7009EF60F /* TPDebug.swift */,
 				B61E93D42300E376008CB325 /* Resources */,
 				B61E93B023005E2C008CB325 /* Info.plist */,
 				B61E93AA23005E2C008CB325 /* Preview Content */,
@@ -198,10 +201,10 @@
 		B61E93BE2300E36C008CB325 /* RMKit */ = {
 			isa = PBXGroup;
 			children = (
+				B61E93C92300E36C008CB325 /* RMTapicEngine.swift */,
 				B61E93BF2300E36C008CB325 /* RMStorage.swift */,
 				B61E93C02300E36C008CB325 /* RMBindCenter.swift */,
 				B61E93C12300E36C008CB325 /* extensions */,
-				B61E93C92300E36C008CB325 /* RMTapicEngine.swift */,
 			);
 			path = RMKit;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,
 				B61E94092300E390008CB325 /* _TPStartSceneTabItem.swift in Sources */,
+				B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */,
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,
