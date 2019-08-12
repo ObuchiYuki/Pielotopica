@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SceneKit
 
 #if DEBUG
 public extension TSBlock {
