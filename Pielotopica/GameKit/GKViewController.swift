@@ -12,7 +12,11 @@ import SceneKit
 // =============================================================== //
 // MARK: - GKGameViewController -
 
-public class GKGameViewController:UIViewController {
+/// ゲーム画面を管理する基本のViewControllerです。
+/// 3D, 2DどちらのSceneも表示することができます。
+/// InterfaceBuilderを組み合わせることも可能です。
+/// その場合、viewはSCNViewに設定してください。
+public class GKGameViewController: UIViewController {
     // =============================================================== //
     // MARK: - Properties -
     /// 現在のSKViewです。
@@ -25,36 +29,63 @@ public class GKGameViewController:UIViewController {
     override public func loadView() {
         super.loadView()
             
-        if !(self.view is SCNView) { // IB Check
+        if !(self.view is SCNView) { // もしIBで設定済みだった場合。
             self.view = SCNView()
         }
         
     }
     
-    public func presentScene(with sceneHolder:GKSceneHolder, with transition:SKTransition? = nil) {
-        if let scene3d = sceneHolder.generate3DBackgronudScene() {
-            if let transition = transition {
-                self.scnView.present(scene3d, with: transition, incomingPointOfView: nil, completionHandler: nil)
-            }else{
-                self.scnView.scene = scene3d
-            }
-        }else{
-            self.scnView.scene = SCNScene()
-        }
+    /// Sceneを変更します。
+    /// sceneHolderにSceneを渡してください。
+    public func presentScene(with sceneHolder: GKSceneHolder, with transition:SKTransition? = nil, _ completion: (()->Void)? = {}) {
+        _load3DScene(sceneHolder, with: transition, completion)
+        _loadBackgroundScene(sceneHolder)
+        _loadSafeScene(sceneHolder)
         
+    }
+    
+    // =============================================================== //
+    // MARK: - Private Methods -
+    
+    /// SCNSceneを読み込みます。SKTransitionつけれます。
+    private func _load3DScene(_ sceneHolder:GKSceneHolder, with transition:SKTransition?, _ completion: (()->Void)?) {
+        
+        if let scene3d = sceneHolder.generate3DBackgronudScene() {
+            _realPresentScene(to: scene3d, with: transition, completion)
+        }else{
+            /// なければ新規作成
+            _realPresentScene(to: SCNScene(), with: transition, completion)
+        }
+    }
+    
+    /// 背景シーンを読み込みます。
+    private func _loadBackgroundScene(_ sceneHolder:GKSceneHolder) {
         if let scenebackground = sceneHolder.generateBackgronudScene() {
             self.scnView.overlaySKScene = scenebackground
         }else{
             self.scnView.overlaySKScene = SKScene();
+            self.scnView.overlaySKScene?.backgroundColor = .clear
         }
         
         self.scnView.overlaySKScene?.size = GKSafeScene.sceneSize
         self.scnView.overlaySKScene?.scaleMode = .aspectFill
         
+    }
+    
+    /// UIシーンを読み込みます。
+    private func _loadSafeScene(_ sceneHolder:GKSceneHolder) {
         let safeScene = sceneHolder.generateSafeScene()
         safeScene.gameViewContoller = self
+        
         let rootNode = safeScene.rootNode
+
+        _loadRootNode(rootNode)
+    }
+    
+    /// RootNodeのサイズ変化などを行い読み込みます。・
+    private func _loadRootNode(_ rootNode:SKSpriteNode) {
         rootNode.removeFromParent()
+        rootNode.name = "root"
         
         rootNode.size = GKSafeScene.sceneSize
         rootNode.position = GKSafeScene.sceneSize.point / 2
@@ -63,7 +94,16 @@ public class GKGameViewController:UIViewController {
         rootNode.setScale(rootNodeScale)
         
         self.scnView.overlaySKScene?.addChild(rootNode)
-        
+    }
+    
+    /// 実際にシーンを変更します。
+    private func _realPresentScene(to scene:SCNScene, with transition:SKTransition?, _ completion: (()->Void)?) {
+        if let transition = transition {
+            self.scnView.present(scene, with: transition, incomingPointOfView: nil, completionHandler: completion)
+        }else{
+            self.scnView.scene = scene
+            completion?()
+        }
     }
     
     private func _calculateRootNodeScale(with viewSize:CGSize) -> CGFloat {
