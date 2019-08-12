@@ -125,25 +125,32 @@ open class TSBlock {
     
     //========================================================================
     // MARK: - Constructors -
-    init(nodeNamed nodeName:String) {
+    init(nodeNamed nodeName:String, index:Int) {
         self.identifier = nodeName
-        self.index = _lastRegisteredIndex
+        self.index = UInt16(index)
         self.isAir = false
         
-        _lastRegisteredIndex += 1
+        #if DEBUG
+        assert(!TSBlock._registerdBlock.contains(self), "The Block indexed \(index) already exists. Try use other index")
+        TSBlock._registerdBlock.append(self)
+        
+        #endif
     }
     init() {
         self.identifier = "TP_Air"
         self.index = 0
         self.isAir = true
         
-        _lastRegisteredIndex += 1
     }
+    
+    #if DEBUG
+    private static var _registerdBlock = [TSBlock]()
+    #endif
 }
 
 extension TSBlock :Equatable{
     static public func == (left:TSBlock, right:TSBlock) -> Bool {
-        return left === right
+        return left.index == right.index
     }
 }
 public extension TSBlock {

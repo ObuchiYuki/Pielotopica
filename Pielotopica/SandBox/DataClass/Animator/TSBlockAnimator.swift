@@ -14,6 +14,8 @@ import RxSwift
 // MARK: - TSBlockAnimator -
 
 /**
+ このクラスの使用方法がわからない
+ 前任者教えて
  */
 class TSBlockAnimator {
     // =============================================================== //

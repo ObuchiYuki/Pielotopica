@@ -69,8 +69,6 @@
 		B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A192301AB83009EF60F /* TSItemBarInventory.swift */; };
 		B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1A2301AB83009EF60F /* TSItemStack.swift */; };
 		B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1C2301AB83009EF60F /* TSLevel.swift */; };
-		B6227A3B2301AB84009EF60F /* TSChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1E2301AB83009EF60F /* TSChunk.swift */; };
-		B6227A3C2301AB84009EF60F /* _TSLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1F2301AB83009EF60F /* _TSLevel.swift */; };
 		B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A202301AB83009EF60F /* TSNodeGenerator.swift */; };
 		B6227A3E2301AB84009EF60F /* TSItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A222301AB83009EF60F /* TSItemCollectionViewController.swift */; };
 		B6227A3F2301AB84009EF60F /* TSitemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A232301AB83009EF60F /* TSitemButton.swift */; };
@@ -151,8 +149,6 @@
 		B6227A192301AB83009EF60F /* TSItemBarInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemBarInventory.swift; sourceTree = "<group>"; };
 		B6227A1A2301AB83009EF60F /* TSItemStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemStack.swift; sourceTree = "<group>"; };
 		B6227A1C2301AB83009EF60F /* TSLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSLevel.swift; sourceTree = "<group>"; };
-		B6227A1E2301AB83009EF60F /* TSChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSChunk.swift; sourceTree = "<group>"; };
-		B6227A1F2301AB83009EF60F /* _TSLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TSLevel.swift; sourceTree = "<group>"; };
 		B6227A202301AB83009EF60F /* TSNodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSNodeGenerator.swift; sourceTree = "<group>"; };
 		B6227A222301AB83009EF60F /* TSItemCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemCollectionViewController.swift; sourceTree = "<group>"; };
 		B6227A232301AB83009EF60F /* TSitemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSitemButton.swift; sourceTree = "<group>"; };
@@ -435,19 +431,9 @@
 			isa = PBXGroup;
 			children = (
 				B6227A1C2301AB83009EF60F /* TSLevel.swift */,
-				B6227A1D2301AB83009EF60F /* __ChunkSystem */,
 				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 			);
 			path = Level;
-			sourceTree = "<group>";
-		};
-		B6227A1D2301AB83009EF60F /* __ChunkSystem */ = {
-			isa = PBXGroup;
-			children = (
-				B6227A1E2301AB83009EF60F /* TSChunk.swift */,
-				B6227A1F2301AB83009EF60F /* _TSLevel.swift */,
-			);
-			path = __ChunkSystem;
 			sourceTree = "<group>";
 		};
 		B6227A212301AB83009EF60F /* UIComponent */ = {
@@ -628,7 +614,6 @@
 				B6227A452301AB84009EF60F /* TSItemManager.swift in Sources */,
 				B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,
-				B6227A3C2301AB84009EF60F /* _TSLevel.swift in Sources */,
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */,
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
@@ -667,7 +652,6 @@
 				B61E93CD2300E36C008CB325 /* Ex+Swift.swift in Sources */,
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
-				B6227A3B2301AB84009EF60F /* TSChunk.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* EX+SpriteKit.swift in Sources */,
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,

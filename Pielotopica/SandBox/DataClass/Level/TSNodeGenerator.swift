@@ -27,6 +27,7 @@ public class TSNodeGenerator {
     
     /// 生成済みのノードです。
     /// 直接編集せず _generateNode(_:, _:) _getNode(_:) を使用してください。
+    /// (Privateだから直接編集とかないのでは？)
     private var allNodes:[[[SCNNode?]]] =
         Array(repeating: Array(repeating: Array(repeating: nil, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
     

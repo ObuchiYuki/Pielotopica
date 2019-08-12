@@ -9,6 +9,8 @@
 import Foundation
 import RxCocoa
 
+///  プレイヤーの持ち物を表します。
+
 public class TSInventry {
     // ===================================================================== //
     // MARK: - Public Properties -
