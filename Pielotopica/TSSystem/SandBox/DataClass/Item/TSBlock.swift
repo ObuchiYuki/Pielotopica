@@ -130,22 +130,23 @@ open class TSBlock {
         self.index = UInt16(index)
         self.isAir = false
         
-        #if DEBUG
         assert(!TSBlock._registerdBlock.contains(self), "The Block indexed \(index) already exists. Try use other index")
-        TSBlock._registerdBlock.append(self)
         
-        #endif
+        TSBlock._registerdBlock.append(self)
     }
     init() {
         self.identifier = "TP_Air"
         self.index = 0
         self.isAir = true
         
+        TSBlock._registerdBlock.append(self)
     }
-    
-    #if DEBUG
+}
+
+extension TSBlock {
+    /// 作成済みのBlock一覧です。
     private static var _registerdBlock = [TSBlock]()
-    #endif
+    
 }
 
 extension TSBlock :Equatable{
@@ -155,14 +156,15 @@ extension TSBlock :Equatable{
 }
 public extension TSBlock {
     static func block(for index:UInt16) -> TSBlock {
-        guard let block = TSBlockManager.default.block(for: index) else {
+        guard let block = _registerdBlock.first(where: {$0.index == index}) else {
             fatalError("Error in finding TSBlock indexed \(index)")
         }
+        
         return block
     }
     static func block(for idetifier:String) -> TSBlock {
-        guard let block = TSBlockManager.default.block(for: idetifier) else {
-            fatalError("Error in finding TSBlock idetified \(idetifier)")
+        guard let block = _registerdBlock.first(where: {$0.identifier == identifier}) else {
+            fatalError("Error in finding TSBlock indexed \(index)")
         }
         return block
     }

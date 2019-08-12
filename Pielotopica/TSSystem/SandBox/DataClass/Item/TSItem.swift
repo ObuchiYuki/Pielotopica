@@ -45,6 +45,19 @@ public class TSItem {
     }
 }
 
+extension TSItem {
+    private static _registerdItem = [TSItem]()
+    
+    static func item(for index:UInt16) -> TSItem {
+        guard let block = _registerdItem.first(where: {$0.index == index}) else {
+            fatalError("Error in finding TSItem indexed \(index)")
+        }
+        
+        return block
+    }
+}
+
+
 extension TSItem: CustomStringConvertible {
     public var description: String {
         return "[TSItem name: \(self.name)]" 

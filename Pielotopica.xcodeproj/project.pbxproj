@@ -77,9 +77,6 @@
 		B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A272301AB84009EF60F /* Ex+TSVector3.swift */; };
 		B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A282301AB84009EF60F /* Ex+TSVector2.swift */; };
 		B6227A442301AB84009EF60F /* Ex+TSBlock+TSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */; };
-		B6227A452301AB84009EF60F /* TSItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A2B2301AB84009EF60F /* TSItemManager.swift */; };
-		B6227A462301AB84009EF60F /* TSSandboxPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A2C2301AB84009EF60F /* TSSandboxPlayerManager.swift */; };
-		B6227A472301AB84009EF60F /* TSBlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A2D2301AB84009EF60F /* TSBlockManager.swift */; };
 		B6227A4C2301AE37009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A492301AE37009EF60F /* Ex+TSVector3.swift */; };
 		B6227A4D2301AE37009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4A2301AE37009EF60F /* Ex+TSVector2.swift */; };
 		B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */; };
@@ -160,9 +157,6 @@
 		B6227A272301AB84009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A282301AB84009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
 		B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSBlock+TSItem.swift"; sourceTree = "<group>"; };
-		B6227A2B2301AB84009EF60F /* TSItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemManager.swift; sourceTree = "<group>"; };
-		B6227A2C2301AB84009EF60F /* TSSandboxPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSSandboxPlayerManager.swift; sourceTree = "<group>"; };
-		B6227A2D2301AB84009EF60F /* TSBlockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBlockManager.swift; sourceTree = "<group>"; };
 		B6227A492301AE37009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A4A2301AE37009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
 		B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Impl+TSBlock+Item.swift"; sourceTree = "<group>"; };
@@ -383,7 +377,6 @@
 			children = (
 				B6227A0B2301AB83009EF60F /* DataClass */,
 				B6227A262301AB84009EF60F /* Extensions */,
-				B6227A2A2301AB84009EF60F /* Manager */,
 				B6227A212301AB83009EF60F /* UIComponent */,
 			);
 			path = SandBox;
@@ -461,16 +454,6 @@
 				B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		B6227A2A2301AB84009EF60F /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				B6227A2B2301AB84009EF60F /* TSItemManager.swift */,
-				B6227A2C2301AB84009EF60F /* TSSandboxPlayerManager.swift */,
-				B6227A2D2301AB84009EF60F /* TSBlockManager.swift */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		B6227A482301AE37009EF60F /* Extensions */ = {
@@ -645,13 +628,11 @@
 				B61E93F52300E38A008CB325 /* GKViewController.swift in Sources */,
 				B6227A4C2301AE37009EF60F /* Ex+TSVector3.swift in Sources */,
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
-				B6227A452301AB84009EF60F /* TSItemManager.swift in Sources */,
 				B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */,
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
-				B6227A472301AB84009EF60F /* TSBlockManager.swift in Sources */,
 				B6227A4D2301AE37009EF60F /* Ex+TSVector2.swift in Sources */,
 				B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */,
 				B6227A342301AB84009EF60F /* TSInventry.swift in Sources */,
@@ -673,7 +654,6 @@
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,
 				B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */,
-				B6227A462301AB84009EF60F /* TSSandboxPlayerManager.swift in Sources */,
 				B6227A402301AB84009EF60F /* TSItemBarView.swift in Sources */,
 				B61E94092300E390008CB325 /* _TPStartSceneTabItem.swift in Sources */,
 				B6227A3F2301AB84009EF60F /* TSitemButton.swift in Sources */,
