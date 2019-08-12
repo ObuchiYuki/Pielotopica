@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
+		B6030EEC2301A4E5005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EEB2301A4E5005C4312 /* Ex+BehaviorRelay.swift */; };
 		B61E93AC23005E2C008CB325 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61E93AB23005E2C008CB325 /* Preview Assets.xcassets */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
@@ -56,6 +58,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.release.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.release.xcconfig"; sourceTree = "<group>"; };
+		1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.debug.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.debug.xcconfig"; sourceTree = "<group>"; };
+		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6030EEB2301A4E5005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93AB23005E2C008CB325 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,17 +118,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6DC2E650B647248AB0BA94C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */,
+				05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B6030EE92301A4D4005C4312 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				B6030EEA2301A4E5005C4312 /* AppExtensions */,
+				B61E93EC2300E38A008CB325 /* GameKit */,
+				B61E93BE2300E36C008CB325 /* RMKit */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		B6030EEA2301A4E5005C4312 /* AppExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				B6030EEB2301A4E5005C4312 /* Ex+BehaviorRelay.swift */,
+			);
+			name = AppExtensions;
+			path = ../../../../Swift/Apps/SandboxSample/SandboxSample/Libs/ETKit/AppExtensions;
+			sourceTree = "<group>";
+		};
 		B61E939623005E28008CB325 = {
 			isa = PBXGroup;
 			children = (
 				B61E93A123005E28008CB325 /* Pielotopica */,
 				B61E93A023005E28008CB325 /* Products */,
+				6DC2E650B647248AB0BA94C5 /* Pods */,
+				C5EEAD015C040741A850ECDC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,9 +174,8 @@
 		B61E93A123005E28008CB325 /* Pielotopica */ = {
 			isa = PBXGroup;
 			children = (
+				B6030EE92301A4D4005C4312 /* Libs */,
 				B61E93BC2300E368008CB325 /* AppDelegate.swift */,
-				B61E93BE2300E36C008CB325 /* RMKit */,
-				B61E93EC2300E38A008CB325 /* GameKit */,
 				B61E93FA2300E390008CB325 /* StartScene */,
 				B61E94132300E394008CB325 /* StoryScene */,
 				B61E93BA2300E361008CB325 /* ViewController.swift */,
@@ -285,6 +321,14 @@
 			path = Object;
 			sourceTree = "<group>";
 		};
+		C5EEAD015C040741A850ECDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,9 +336,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B61E93B323005E2C008CB325 /* Build configuration list for PBXNativeTarget "Pielotopica" */;
 			buildPhases = (
+				3F11EF6189C58675A84562A4 /* [CP] Check Pods Manifest.lock */,
 				B61E939B23005E28008CB325 /* Sources */,
 				B61E939C23005E28008CB325 /* Frameworks */,
 				B61E939D23005E28008CB325 /* Resources */,
+				1427FE48C02B955BB32E6A74 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,6 +409,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1427FE48C02B955BB32E6A74 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pielotopica/Pods-Pielotopica-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pielotopica/Pods-Pielotopica-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pielotopica/Pods-Pielotopica-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F11EF6189C58675A84562A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pielotopica-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B61E939B23005E28008CB325 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -378,6 +466,7 @@
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */,
 				B61E93BB2300E361008CB325 /* ViewController.swift in Sources */,
+				B6030EEC2301A4E5005C4312 /* Ex+BehaviorRelay.swift in Sources */,
 				B61E941C2300FF8C008CB325 /* Ex+SceneKit.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
@@ -541,6 +630,7 @@
 		};
 		B61E93B423005E2C008CB325 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -564,6 +654,7 @@
 		};
 		B61E93B523005E2C008CB325 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
