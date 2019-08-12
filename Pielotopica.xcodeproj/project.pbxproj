@@ -104,6 +104,7 @@
 		B61E94162300E394008CB325 /* TP_core.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_core.scn; sourceTree = "<group>"; };
 		B61E94192300FEFA008CB325 /* GK3DSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GK3DSceneController.swift; sourceTree = "<group>"; };
 		B61E941B2300FF8C008CB325 /* Ex+SceneKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SceneKit.swift"; sourceTree = "<group>"; };
+		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,11 +213,12 @@
 		B61E93EC2300E38A008CB325 /* GameKit */ = {
 			isa = PBXGroup;
 			children = (
+				B63FD47223019E480020EEC1 /* README.md */,
 				B61E93EE2300E38A008CB325 /* GKViewController.swift */,
 				B61E93ED2300E38A008CB325 /* GKSceneHolder.swift */,
+				B61E93F22300E38A008CB325 /* GKSafeScene.swift */,
 				B61E93EF2300E38A008CB325 /* GKActionTimingMode.swift */,
 				B61E93F02300E38A008CB325 /* Extensions */,
-				B61E93F22300E38A008CB325 /* GKSafeScene.swift */,
 				B61E93F32300E38A008CB325 /* GKButtonNode.swift */,
 				B61E94192300FEFA008CB325 /* GK3DSceneController.swift */,
 			);

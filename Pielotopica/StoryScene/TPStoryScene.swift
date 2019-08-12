@@ -49,8 +49,15 @@ class TPStoryBackgroundSceneController: GK3DSceneController {
     }()
     
     override func sceneDidLoad() {
-
-        self.rootNode.addChildNode(node)
+        
+        self.scene.background.contents = [
+            UIImage(named: "sky-0"),
+            UIImage(named: "sky-1"),
+            UIImage(named: "sky-2"),
+            UIImage(named: "sky-3"),
+            UIImage(named: "sky-4"),
+            UIImage(named: "sky-5"),
+        ]
     }
 }
 

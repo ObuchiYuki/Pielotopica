@@ -13,7 +13,9 @@ import SceneKit
 // MARK: - GKSceneHolder -
 
 /**
+ 一場面の複数のSceneを保持します。
  同じ背景シーンとSafeシーンの組を都度生成します。
+ 
  */
 public class GKSceneHolder {
     // =============================================================== //
