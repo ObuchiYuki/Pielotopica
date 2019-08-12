@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
-		B6030EEC2301A4E5005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EEB2301A4E5005C4312 /* Ex+BehaviorRelay.swift */; };
+		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B61E93AC23005E2C008CB325 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61E93AB23005E2C008CB325 /* Preview Assets.xcassets */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
@@ -61,7 +61,7 @@
 		05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.release.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.release.xcconfig"; sourceTree = "<group>"; };
 		1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.debug.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.debug.xcconfig"; sourceTree = "<group>"; };
 		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6030EEB2301A4E5005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
+		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93AB23005E2C008CB325 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,20 +137,19 @@
 		B6030EE92301A4D4005C4312 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				B6030EEA2301A4E5005C4312 /* AppExtensions */,
+				B6030EEF2301A523005C4312 /* AppExtensions */,
 				B61E93EC2300E38A008CB325 /* GameKit */,
 				B61E93BE2300E36C008CB325 /* RMKit */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
 		};
-		B6030EEA2301A4E5005C4312 /* AppExtensions */ = {
+		B6030EEF2301A523005C4312 /* AppExtensions */ = {
 			isa = PBXGroup;
 			children = (
-				B6030EEB2301A4E5005C4312 /* Ex+BehaviorRelay.swift */,
+				B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */,
 			);
-			name = AppExtensions;
-			path = ../../../../Swift/Apps/SandboxSample/SandboxSample/Libs/ETKit/AppExtensions;
+			path = AppExtensions;
 			sourceTree = "<group>";
 		};
 		B61E939623005E28008CB325 = {
@@ -466,7 +465,7 @@
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */,
 				B61E93BB2300E361008CB325 /* ViewController.swift in Sources */,
-				B6030EEC2301A4E5005C4312 /* Ex+BehaviorRelay.swift in Sources */,
+				B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */,
 				B61E941C2300FF8C008CB325 /* Ex+SceneKit.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
