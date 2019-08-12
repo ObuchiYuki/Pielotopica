@@ -27,7 +27,7 @@ class TPStoryScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Methods -
     override func sceneDidLoad() {
-        self.rootNode.color = .clear
+        
         
     }
     // =============================================================== //
