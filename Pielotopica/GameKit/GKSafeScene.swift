@@ -1,0 +1,44 @@
+//
+//  GKSafeScene.swift
+//  TPStartScene
+//
+//  Created by yuki on 2019/07/06.
+//  Copyright © 2019 yuki. All rights reserved.
+//
+
+import SpriteKit
+
+// =============================================================== //
+// MARK: - GKSafeScene -
+
+/**
+ SafeAreaのみに表示されるSKSceneです。
+ Nodeの追加はrootNodeに対して行ってください。
+ */
+public class GKSafeScene: SKScene {
+    // =============================================================== //
+    // MARK: - Properties -
+    
+    public var rootNode = SKSpriteNode()
+    
+    public weak var gameViewContoller:GKGameViewController!
+    
+    // =============================================================== //
+    // MARK: - Methods -
+    
+    /// 次のシーンに切り替えます。
+    func present(to sceneHalder: GKSceneHolder,delayed delay: TimeInterval = 0, with transition: SKTransition? = nil) {
+        Timer.scheduledTimer(withTimeInterval: delay, repeats: false, block: {[weak self] timer in
+            self?.gameViewContoller.presentScene(with: sceneHalder, with: transition)
+            
+            timer.invalidate()
+        })
+    }
+    
+}
+
+extension GKSafeScene {
+    
+    /// SceneのSriteKit上でのサイズは常時このサイズです。
+    public static let sceneSize = CGSize(width: 375, height: 700)
+}
