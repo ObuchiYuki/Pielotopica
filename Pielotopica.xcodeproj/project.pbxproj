@@ -77,8 +77,6 @@
 		B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A272301AB84009EF60F /* Ex+TSVector3.swift */; };
 		B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A282301AB84009EF60F /* Ex+TSVector2.swift */; };
 		B6227A442301AB84009EF60F /* Ex+TSBlock+TSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */; };
-		B6227A4C2301AE37009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A492301AE37009EF60F /* Ex+TSVector3.swift */; };
-		B6227A4D2301AE37009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4A2301AE37009EF60F /* Ex+TSVector2.swift */; };
 		B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */; };
 /* End PBXBuildFile section */
 
@@ -157,8 +155,6 @@
 		B6227A272301AB84009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A282301AB84009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
 		B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSBlock+TSItem.swift"; sourceTree = "<group>"; };
-		B6227A492301AE37009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
-		B6227A4A2301AE37009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
 		B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Impl+TSBlock+Item.swift"; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -456,21 +452,11 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B6227A482301AE37009EF60F /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				B6227A492301AE37009EF60F /* Ex+TSVector3.swift */,
-				B6227A4A2301AE37009EF60F /* Ex+TSVector2.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		B6227A4F2301AE8D009EF60F /* TSSystem */ = {
 			isa = PBXGroup;
 			children = (
 				B6227A502301AE9B009EF60F /* Impl */,
 				B62279BE2301AB2D009EF60F /* SandBox */,
-				B6227A482301AE37009EF60F /* Extensions */,
 			);
 			path = TSSystem;
 			sourceTree = "<group>";
@@ -626,14 +612,12 @@
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
 				B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */,
 				B61E93F52300E38A008CB325 /* GKViewController.swift in Sources */,
-				B6227A4C2301AE37009EF60F /* Ex+TSVector3.swift in Sources */,
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
 				B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */,
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
-				B6227A4D2301AE37009EF60F /* Ex+TSVector2.swift in Sources */,
 				B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */,
 				B6227A342301AB84009EF60F /* TSInventry.swift in Sources */,
 				B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */,
