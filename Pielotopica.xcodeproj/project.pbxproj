@@ -70,14 +70,14 @@
 		B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1A2301AB83009EF60F /* TSItemStack.swift */; };
 		B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1C2301AB83009EF60F /* TSLevel.swift */; };
 		B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A202301AB83009EF60F /* TSNodeGenerator.swift */; };
-		B6227A3E2301AB84009EF60F /* TSItemCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A222301AB83009EF60F /* TSItemCollectionViewController.swift */; };
-		B6227A3F2301AB84009EF60F /* TSitemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A232301AB83009EF60F /* TSitemButton.swift */; };
-		B6227A402301AB84009EF60F /* TSItemBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A242301AB83009EF60F /* TSItemBarView.swift */; };
-		B6227A412301AB84009EF60F /* TSItemCountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A252301AB83009EF60F /* TSItemCountLabel.swift */; };
 		B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A272301AB84009EF60F /* Ex+TSVector3.swift */; };
 		B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A282301AB84009EF60F /* Ex+TSVector2.swift */; };
 		B6227A442301AB84009EF60F /* Ex+TSBlock+TSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */; };
 		B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */; };
+		B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */; };
+		B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A592301B13B009EF60F /* Ex+SCNNode.swift */; };
+		B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */; };
+		B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,14 +148,14 @@
 		B6227A1A2301AB83009EF60F /* TSItemStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemStack.swift; sourceTree = "<group>"; };
 		B6227A1C2301AB83009EF60F /* TSLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSLevel.swift; sourceTree = "<group>"; };
 		B6227A202301AB83009EF60F /* TSNodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSNodeGenerator.swift; sourceTree = "<group>"; };
-		B6227A222301AB83009EF60F /* TSItemCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemCollectionViewController.swift; sourceTree = "<group>"; };
-		B6227A232301AB83009EF60F /* TSitemButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSitemButton.swift; sourceTree = "<group>"; };
-		B6227A242301AB83009EF60F /* TSItemBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemBarView.swift; sourceTree = "<group>"; };
-		B6227A252301AB83009EF60F /* TSItemCountLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemCountLabel.swift; sourceTree = "<group>"; };
 		B6227A272301AB84009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A282301AB84009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
 		B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSBlock+TSItem.swift"; sourceTree = "<group>"; };
 		B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Impl+TSBlock+Item.swift"; sourceTree = "<group>"; };
+		B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNVector3.swift"; sourceTree = "<group>"; };
+		B6227A592301B13B009EF60F /* Ex+SCNNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNNode.swift"; sourceTree = "<group>"; };
+		B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNMatrix4.swift"; sourceTree = "<group>"; };
+		B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNAction.swift"; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -311,6 +311,10 @@
 		B61E93F02300E38A008CB325 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */,
+				B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */,
+				B6227A592301B13B009EF60F /* Ex+SCNNode.swift */,
+				B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */,
 				B61E93F12300E38A008CB325 /* Ex+SKAction.swift */,
 				B61E941B2300FF8C008CB325 /* Ex+SceneKit.swift */,
 			);
@@ -373,7 +377,6 @@
 			children = (
 				B6227A0B2301AB83009EF60F /* DataClass */,
 				B6227A262301AB84009EF60F /* Extensions */,
-				B6227A212301AB83009EF60F /* UIComponent */,
 			);
 			path = SandBox;
 			sourceTree = "<group>";
@@ -429,17 +432,6 @@
 				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 			);
 			path = Level;
-			sourceTree = "<group>";
-		};
-		B6227A212301AB83009EF60F /* UIComponent */ = {
-			isa = PBXGroup;
-			children = (
-				B6227A222301AB83009EF60F /* TSItemCollectionViewController.swift */,
-				B6227A232301AB83009EF60F /* TSitemButton.swift */,
-				B6227A242301AB83009EF60F /* TSItemBarView.swift */,
-				B6227A252301AB83009EF60F /* TSItemCountLabel.swift */,
-			);
-			path = UIComponent;
 			sourceTree = "<group>";
 		};
 		B6227A262301AB84009EF60F /* Extensions */ = {
@@ -609,7 +601,10 @@
 				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,
 				B61E93F72300E38A008CB325 /* Ex+SKAction.swift in Sources */,
 				B61E93BD2300E368008CB325 /* AppDelegate.swift in Sources */,
+				B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */,
+				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
+				B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */,
 				B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */,
 				B61E93F52300E38A008CB325 /* GKViewController.swift in Sources */,
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
@@ -623,7 +618,6 @@
 				B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */,
 				B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */,
 				B61E93BB2300E361008CB325 /* ViewController.swift in Sources */,
-				B6227A3E2301AB84009EF60F /* TSItemCollectionViewController.swift in Sources */,
 				B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */,
 				B6227A302301AB84009EF60F /* TSPlayer.swift in Sources */,
 				B61E941C2300FF8C008CB325 /* Ex+SceneKit.swift in Sources */,
@@ -638,11 +632,8 @@
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,
 				B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */,
-				B6227A402301AB84009EF60F /* TSItemBarView.swift in Sources */,
 				B61E94092300E390008CB325 /* _TPStartSceneTabItem.swift in Sources */,
-				B6227A3F2301AB84009EF60F /* TSitemButton.swift in Sources */,
 				B6227A362301AB84009EF60F /* TSItem.swift in Sources */,
-				B6227A412301AB84009EF60F /* TSItemCountLabel.swift in Sources */,
 				B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */,
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
@@ -658,6 +649,7 @@
 				B61E940F2300E390008CB325 /* _TPStartScenePlayButton.swift in Sources */,
 				B6227A352301AB84009EF60F /* TSBlockItem.swift in Sources */,
 				B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */,
+				B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */,
 				B61E93CC2300E36C008CB325 /* Ex+UIImage.swift in Sources */,
 				B61E93D22300E36C008CB325 /* Ex+CoreGraphics.swift in Sources */,
 			);

@@ -46,7 +46,7 @@ public class TSItem {
 }
 
 extension TSItem {
-    private static _registerdItem = [TSItem]()
+    private static var _registerdItem = [TSItem]()
     
     static func item(for index:UInt16) -> TSItem {
         guard let block = _registerdItem.first(where: {$0.index == index}) else {
