@@ -27,7 +27,7 @@ public class GKSceneHolder {
     // MARK: - Methods -
         
     /// 呼び出すたびに新規にSCNSceneを作成します。
-    public func generate3DBackgronudScene() -> SCNScene? {
+    public func generate3DBackgronudScene() -> GK3DSceneController? {
         return _background3DScenegenerator?()
     }
     
@@ -47,7 +47,7 @@ public class GKSceneHolder {
     /// ジェネレータ
     private let _safeSceneGeneratror: () -> (GKSafeScene)
     private let _backgroundSceneGenerator: (()->(SKScene))?
-    private let _background3DScenegenerator: (()->(SCNScene))?
+    private let _background3DScenegenerator: (()->(GK3DSceneController))?
     
     // =============================================================== //
     // MARK: - Constructor -
@@ -66,7 +66,7 @@ public class GKSceneHolder {
     
     init(
         safeScene safeSceneGeneratror:@escaping @autoclosure () -> (GKSafeScene),
-        background3DScene background3DScenegenerator:@escaping @autoclosure ()->(SCNScene))
+        background3DScene background3DScenegenerator:@escaping @autoclosure ()->(GK3DSceneController))
     {
         self._safeSceneGeneratror = safeSceneGeneratror
         self._background3DScenegenerator = background3DScenegenerator

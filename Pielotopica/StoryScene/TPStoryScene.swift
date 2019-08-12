@@ -13,11 +13,11 @@ import GameplayKit
 // MARK: - TPStoryScene -
 
 public extension GKSceneHolder {
-    static let storyScene = GKSceneHolder(safeScene: TPStoryScene(), background3DScene: TPStoryBackgroundScene())
+    static let storyScene = GKSceneHolder(safeScene: TPStoryScene(), background3DScene: TPStoryBackgroundSceneController())
     
 }
 
-class TPStoryScene:GKSafeScene {
+class TPStoryScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
     
@@ -26,7 +26,10 @@ class TPStoryScene:GKSafeScene {
     
     // =============================================================== //
     // MARK: - Methods -
-    
+    override func sceneDidLoad() {
+        self.rootNode.color = .clear
+        
+    }
     // =============================================================== //
     // MARK: - Constructor -
     
@@ -35,7 +38,19 @@ class TPStoryScene:GKSafeScene {
 }
 
 
-class TPStoryBackgroundScene: SCNScene {
+class TPStoryBackgroundSceneController: GK3DSceneController {
+    var node:SCNNode = {
+        let node = SCNNode()
+        let box = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+        
+        node.geometry = box
+        
+        return node
+    }()
     
+    override func sceneDidLoad() {
+
+        self.rootNode.addChildNode(node)
+    }
 }
 

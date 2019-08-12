@@ -27,12 +27,11 @@ public class GKSafeScene: SKScene {
     // MARK: - Methods -
     
     /// 次のシーンに切り替えます。
-    func present(to sceneHalder: GKSceneHolder,delayed delay: TimeInterval = 0, with transition: SKTransition? = nil) {
-        Timer.scheduledTimer(withTimeInterval: delay, repeats: false, block: {[weak self] timer in
-            self?.gameViewContoller.presentScene(with: sceneHalder, with: transition)
+    func present(to sceneHalder: GKSceneHolder, delayed delay: TimeInterval = 0, with transition: SKTransition? = nil) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            self.gameViewContoller.presentScene(with: sceneHalder, with: transition)
             
-            timer.invalidate()
-        })
+        }
     }
     
 }

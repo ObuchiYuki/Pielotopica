@@ -24,6 +24,9 @@ public class GKGameViewController: UIViewController {
         return self.view as! SCNView
     }
     
+    /// 現在のSafeSceneです。
+    private var safeScene:GKSafeScene!
+    
     // =============================================================== //
     // MARK: - Methods -
     override public func loadView() {
@@ -50,8 +53,9 @@ public class GKGameViewController: UIViewController {
     /// SCNSceneを読み込みます。SKTransitionつけれます。
     private func _load3DScene(_ sceneHolder:GKSceneHolder, with transition:SKTransition?, _ completion: (()->Void)?) {
         
-        if let scene3d = sceneHolder.generate3DBackgronudScene() {
-            _realPresentScene(to: scene3d, with: transition, completion)
+        if let scene3dController = sceneHolder.generate3DBackgronudScene() {
+            scene3dController._startloading(self)
+            _realPresentScene(to: scene3dController.scene, with: transition, completion)
         }else{
             /// なければ新規作成
             _realPresentScene(to: SCNScene(), with: transition, completion)
@@ -74,7 +78,7 @@ public class GKGameViewController: UIViewController {
     
     /// UIシーンを読み込みます。
     private func _loadSafeScene(_ sceneHolder:GKSceneHolder) {
-        let safeScene = sceneHolder.generateSafeScene()
+        safeScene = sceneHolder.generateSafeScene()
         safeScene.gameViewContoller = self
         
         let rootNode = safeScene.rootNode

@@ -59,7 +59,7 @@ class _TPStartSceneTabItem:GKButtonNode {
         RMTapticEngine.impact.feedback(.medium)
         
         insideFrame.run(
-            .scale(to: 0.9, duration: _animationDuration)
+            .scale(to: 0.95, duration: _animationDuration)
         )
         outsideFrame.run(
             .scale(to: 1.1, duration: _animationDuration)

@@ -55,8 +55,10 @@ class TPStartScene:GKSafeScene {
     // =============================== //
     // MARK: - Handlers -
     @objc private func onRingSelected(_ sender:GKButtonNode) {
+        _endup()
         
-        self.present(to: .storyScene, delayed: 0.1, with: .fade(withDuration: 0.3))
+        self.present(to: .storyScene, delayed: 0.8)
+        
     }
     
     // =============================== //
@@ -67,6 +69,9 @@ class TPStartScene:GKSafeScene {
         _setupBars()
         _setupRing()
         _setupLogo()
+    }
+    private func _endup() {
+        
     }
     
     private func _setupTabitem() {

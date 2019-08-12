@@ -146,12 +146,13 @@ public class GKButtonNode: SKSpriteNode {
         
         isSelected = false
         buttonDidUnselect()
-        
+
         // touchUpInside
         if (targetTouchUpInside != nil && targetTouchUpInside!.responds(to: actionTouchUpInside!)) {
             guard let touchLocation = touches.first?.location(in: parent!) else {return}
             
             if (frame.contains(touchLocation) ) {
+
                 UIApplication.shared.sendAction(actionTouchUpInside!, to: targetTouchUpInside, from: self, for: nil)
             }
             
