@@ -82,7 +82,7 @@
 		B6227A472301AB84009EF60F /* TSBlockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A2D2301AB84009EF60F /* TSBlockManager.swift */; };
 		B6227A4C2301AE37009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A492301AE37009EF60F /* Ex+TSVector3.swift */; };
 		B6227A4D2301AE37009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4A2301AE37009EF60F /* Ex+TSVector2.swift */; };
-		B6227A4E2301AE37009EF60F /* Ex+TSBlock+TSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Ex+TSBlock+TSItem.swift */; };
+		B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,7 +165,7 @@
 		B6227A2D2301AB84009EF60F /* TSBlockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBlockManager.swift; sourceTree = "<group>"; };
 		B6227A492301AE37009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A4A2301AE37009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
-		B6227A4B2301AE37009EF60F /* Ex+TSBlock+TSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSBlock+TSItem.swift"; sourceTree = "<group>"; };
+		B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Impl+TSBlock+Item.swift"; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,9 +229,7 @@
 		B61E93A123005E28008CB325 /* Pielotopica */ = {
 			isa = PBXGroup;
 			children = (
-				B6227A4B2301AE37009EF60F /* Ex+TSBlock+TSItem.swift */,
-				B6227A482301AE37009EF60F /* Extensions */,
-				B62279BE2301AB2D009EF60F /* SandBox */,
+				B6227A4F2301AE8D009EF60F /* TSSystem */,
 				B6030EE92301A4D4005C4312 /* Libs */,
 				B61E93BC2300E368008CB325 /* AppDelegate.swift */,
 				B61E93FA2300E390008CB325 /* StartScene */,
@@ -484,6 +482,24 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B6227A4F2301AE8D009EF60F /* TSSystem */ = {
+			isa = PBXGroup;
+			children = (
+				B6227A502301AE9B009EF60F /* Impl */,
+				B62279BE2301AB2D009EF60F /* SandBox */,
+				B6227A482301AE37009EF60F /* Extensions */,
+			);
+			path = TSSystem;
+			sourceTree = "<group>";
+		};
+		B6227A502301AE9B009EF60F /* Impl */ = {
+			isa = PBXGroup;
+			children = (
+				B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */,
+			);
+			path = Impl;
+			sourceTree = "<group>";
+		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,7 +687,7 @@
 				B61E93CD2300E36C008CB325 /* Ex+Swift.swift in Sources */,
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
-				B6227A4E2301AE37009EF60F /* Ex+TSBlock+TSItem.swift in Sources */,
+				B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* EX+SpriteKit.swift in Sources */,
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,
