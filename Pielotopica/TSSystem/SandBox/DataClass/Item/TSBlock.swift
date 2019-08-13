@@ -64,7 +64,7 @@ open class TSBlock {
     open func willDestroy(at point:TSVector3) {}
     /// 破壊後に呼び出されます。Overrideする時は必ずsuperを呼び出してください。
     open func didDestroy(at point:TSVector3) {
-        self.destoryNBData(at: point)
+        //self.destoryNBData(at: point)
     }
     /// 破壊可能かどうかを返してください。
     open func canDestroy(at point:TSVector3) -> Bool {return true}
@@ -162,9 +162,9 @@ public extension TSBlock {
         
         return block
     }
-    static func block(for idetifier:String) -> TSBlock {
+    static func block(for identifier:String) -> TSBlock {
         guard let block = _registerdBlock.first(where: {$0.identifier == identifier}) else {
-            fatalError("Error in finding TSBlock indexed \(index)")
+            fatalError("Error in finding TSBlock with identifier: \(identifier)")
         }
         return block
     }

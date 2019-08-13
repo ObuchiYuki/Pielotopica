@@ -10,11 +10,11 @@ import SceneKit
 
 // MARK: - SCNNode Extensions
 public extension SCNNode {
-    var tsNode:SCNNode? {
+    var fnode:SCNNode? {
         return self.childNodes.first
     }
-    var tsMaterial:SCNMaterial? {
-        return self.tsNode?.geometry?.firstMaterial
+    var material:SCNMaterial? {
+        return self.fnode?.geometry?.firstMaterial
     }
     
     /// ファイル名からSCNNodeを初期化します。
@@ -32,6 +32,33 @@ public extension SCNNode {
         }
         for childNode in modelScene.rootNode.childNodes {
             self.addChildNode(childNode)
+        }
+    }
+    
+    /// ファイル名からSCNNodeを初期化します。
+    convenience init?(named name:String,withExtension ex:String = "dae") {
+        self.init()
+        guard let nodeFromFile = SCNNode.fromFile(named: name,withExtension: ex) else {return nil}
+        
+        self.addChildNode(nodeFromFile)
+    }
+    
+    /// ファイル名から新規にSCNNodeを作成します。
+    static func fromFile(named name:String,withExtension ex:String = "dae", identifier:String? = nil) -> SCNNode? {
+        if let identifier = identifier {
+            guard
+                let url = Bundle.main.url(forResource: name, withExtension: ex),
+                let sceneSource = SCNSceneSource(url: url, options: nil)
+                else {return nil}
+            
+            
+            guard let node = sceneSource.entryWithIdentifier(identifier, withClass: SCNNode.self) else {
+                    return nil
+            }
+            return node
+        }else{
+            guard let url = Bundle.main.url(forResource: name, withExtension: ex) else {return nil}
+            return try? SCNScene(url: url, options: nil).rootNode
         }
     }
 }

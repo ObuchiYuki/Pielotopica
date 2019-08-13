@@ -10,35 +10,17 @@
 
 import SceneKit
 
-public class TSSandboxBlockSystem {
-    /// ブロックを登録してください。
-    
-    func registerBlocks(manager: TSBlockManager) {
-        manager.registerBlock(.air)
-        manager.registerBlock(.largeJapanaeseHouse)
-        manager.registerBlock(.japaneseHouse2)
-        manager.registerBlock(.normalFloar5x5)
-    }
-}
-
-extension TSSandboxBlockSystem {
-    static let `default` = TSSandboxBlockSystem()
-    
-    public func applicationDidLuanched() {
-        self.registerBlocks(manager: TSBlockManager.default)
-        
-    }
-}
-
-
 // TSBlockへの登録
 public extension TSBlock {
-    
+
     /// air
-    static let air:TSBlock = TSBlock.init()
+    static let air:TSBlock = TSBlock()
     
-    /// japaneseHouse2
-    static let japaneseHouse2:TSBlock = TSBlock(nodeNamed: "TP_japanese_house_2")
+    static let largeJapanaeseHouse:TSBlock = LargeJapaneseHouse(nodeNamed: "TP_japanese_house_1", index: 3)
+    
+    static let japaneseHouse2:TSBlock = TSBlock(nodeNamed: "TP_japanese_house_2", index: 1)
+    
+    static let normalFloar5x5:TSBlock = NormalFloar5x5(nodeNamed: "TP_floar_5x5", index: 2)
 }
 
 // TSItemへの登録

@@ -54,7 +54,6 @@
 		B61E94172300E395008CB325 /* TPStoryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94142300E394008CB325 /* TPStoryScene.swift */; };
 		B61E94182300E395008CB325 /* TP_core.scn in Resources */ = {isa = PBXBuildFile; fileRef = B61E94162300E394008CB325 /* TP_core.scn */; };
 		B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94192300FEFA008CB325 /* GK3DSceneController.swift */; };
-		B61E941C2300FF8C008CB325 /* Ex+SceneKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E941B2300FF8C008CB325 /* Ex+SceneKit.swift */; };
 		B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62279BC2301A7A7009EF60F /* TPDebug.swift */; };
 		B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A0D2301AB83009EF60F /* TSVector3.swift */; };
 		B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A0E2301AB83009EF60F /* TSVector2.swift */; };
@@ -72,12 +71,13 @@
 		B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A202301AB83009EF60F /* TSNodeGenerator.swift */; };
 		B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A272301AB84009EF60F /* Ex+TSVector3.swift */; };
 		B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A282301AB84009EF60F /* Ex+TSVector2.swift */; };
-		B6227A442301AB84009EF60F /* Ex+TSBlock+TSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */; };
 		B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */; };
 		B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */; };
 		B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A592301B13B009EF60F /* Ex+SCNNode.swift */; };
 		B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */; };
 		B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */; };
+		B6227A6323023732009EF60F /* LargeJapaneseHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6123023732009EF60F /* LargeJapaneseHouse.swift */; };
+		B6227A6423023732009EF60F /* NormalFloar5x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6223023732009EF60F /* NormalFloar5x5.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,7 +132,6 @@
 		B61E94142300E394008CB325 /* TPStoryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPStoryScene.swift; sourceTree = "<group>"; };
 		B61E94162300E394008CB325 /* TP_core.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_core.scn; sourceTree = "<group>"; };
 		B61E94192300FEFA008CB325 /* GK3DSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GK3DSceneController.swift; sourceTree = "<group>"; };
-		B61E941B2300FF8C008CB325 /* Ex+SceneKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SceneKit.swift"; sourceTree = "<group>"; };
 		B62279BC2301A7A7009EF60F /* TPDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDebug.swift; sourceTree = "<group>"; };
 		B6227A0D2301AB83009EF60F /* TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSVector3.swift; sourceTree = "<group>"; };
 		B6227A0E2301AB83009EF60F /* TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSVector2.swift; sourceTree = "<group>"; };
@@ -150,12 +149,13 @@
 		B6227A202301AB83009EF60F /* TSNodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSNodeGenerator.swift; sourceTree = "<group>"; };
 		B6227A272301AB84009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A282301AB84009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
-		B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSBlock+TSItem.swift"; sourceTree = "<group>"; };
 		B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Impl+TSBlock+Item.swift"; sourceTree = "<group>"; };
 		B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNVector3.swift"; sourceTree = "<group>"; };
 		B6227A592301B13B009EF60F /* Ex+SCNNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNNode.swift"; sourceTree = "<group>"; };
 		B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNMatrix4.swift"; sourceTree = "<group>"; };
 		B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNAction.swift"; sourceTree = "<group>"; };
+		B6227A6123023732009EF60F /* LargeJapaneseHouse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeJapaneseHouse.swift; sourceTree = "<group>"; };
+		B6227A6223023732009EF60F /* NormalFloar5x5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalFloar5x5.swift; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,7 +316,6 @@
 				B6227A592301B13B009EF60F /* Ex+SCNNode.swift */,
 				B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */,
 				B61E93F12300E38A008CB325 /* Ex+SKAction.swift */,
-				B61E941B2300FF8C008CB325 /* Ex+SceneKit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -439,7 +438,6 @@
 			children = (
 				B6227A272301AB84009EF60F /* Ex+TSVector3.swift */,
 				B6227A282301AB84009EF60F /* Ex+TSVector2.swift */,
-				B6227A292301AB84009EF60F /* Ex+TSBlock+TSItem.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -456,9 +454,19 @@
 		B6227A502301AE9B009EF60F /* Impl */ = {
 			isa = PBXGroup;
 			children = (
+				B6227A6023023732009EF60F /* Blocks */,
 				B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */,
 			);
 			path = Impl;
+			sourceTree = "<group>";
+		};
+		B6227A6023023732009EF60F /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				B6227A6123023732009EF60F /* LargeJapaneseHouse.swift */,
+				B6227A6223023732009EF60F /* NormalFloar5x5.swift */,
+			);
+			path = Blocks;
 			sourceTree = "<group>";
 		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
@@ -620,11 +628,10 @@
 				B61E93BB2300E361008CB325 /* ViewController.swift in Sources */,
 				B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */,
 				B6227A302301AB84009EF60F /* TSPlayer.swift in Sources */,
-				B61E941C2300FF8C008CB325 /* Ex+SceneKit.swift in Sources */,
+				B6227A6323023732009EF60F /* LargeJapaneseHouse.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
-				B6227A442301AB84009EF60F /* Ex+TSBlock+TSItem.swift in Sources */,
 				B61E93CB2300E36C008CB325 /* RMBindCenter.swift in Sources */,
 				B6227A372301AB84009EF60F /* TSBlock.swift in Sources */,
 				B61E94172300E395008CB325 /* TPStoryScene.swift in Sources */,
@@ -643,6 +650,7 @@
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
 				B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */,
+				B6227A6423023732009EF60F /* NormalFloar5x5.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* EX+SpriteKit.swift in Sources */,
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,
