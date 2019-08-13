@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
-		B61E93AC23005E2C008CB325 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61E93AB23005E2C008CB325 /* Preview Assets.xcassets */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
 		B61E93BB2300E361008CB325 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93BA2300E361008CB325 /* ViewController.swift */; };
@@ -71,13 +70,18 @@
 		B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A202301AB83009EF60F /* TSNodeGenerator.swift */; };
 		B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A272301AB84009EF60F /* Ex+TSVector3.swift */; };
 		B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A282301AB84009EF60F /* Ex+TSVector2.swift */; };
-		B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */; };
+		B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Impl+Block.swift */; };
 		B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */; };
 		B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A592301B13B009EF60F /* Ex+SCNNode.swift */; };
 		B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */; };
 		B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */; };
 		B6227A6323023732009EF60F /* LargeJapaneseHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6123023732009EF60F /* LargeJapaneseHouse.swift */; };
 		B6227A6423023732009EF60F /* NormalFloar5x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6223023732009EF60F /* NormalFloar5x5.swift */; };
+		B6227A6B2302391A009EF60F /* TP_building_1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A672302391A009EF60F /* TP_building_1.scn */; };
+		B6227A6C2302391A009EF60F /* TP_floar_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A682302391A009EF60F /* TP_floar_5x5.scn */; };
+		B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A692302391A009EF60F /* TP_japanese_house_1.scn */; };
+		B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */; };
+		B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A70230239DB009EF60F /* Impl+Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,7 +90,6 @@
 		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B61E93AB23005E2C008CB325 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61E93B62300E356008CB325 /* TPCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCommon.swift; sourceTree = "<group>"; };
 		B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPStartBackgroundScene.swift; sourceTree = "<group>"; };
@@ -149,13 +152,19 @@
 		B6227A202301AB83009EF60F /* TSNodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSNodeGenerator.swift; sourceTree = "<group>"; };
 		B6227A272301AB84009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A282301AB84009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
-		B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Impl+TSBlock+Item.swift"; sourceTree = "<group>"; };
+		B6227A4B2301AE37009EF60F /* Impl+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Impl+Block.swift"; sourceTree = "<group>"; };
 		B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNVector3.swift"; sourceTree = "<group>"; };
 		B6227A592301B13B009EF60F /* Ex+SCNNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNNode.swift"; sourceTree = "<group>"; };
 		B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNMatrix4.swift"; sourceTree = "<group>"; };
 		B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNAction.swift"; sourceTree = "<group>"; };
 		B6227A6123023732009EF60F /* LargeJapaneseHouse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeJapaneseHouse.swift; sourceTree = "<group>"; };
 		B6227A6223023732009EF60F /* NormalFloar5x5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NormalFloar5x5.swift; sourceTree = "<group>"; };
+		B6227A6523023912009EF60F /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
+		B6227A672302391A009EF60F /* TP_building_1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_building_1.scn; sourceTree = "<group>"; };
+		B6227A682302391A009EF60F /* TP_floar_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_floar_5x5.scn; sourceTree = "<group>"; };
+		B6227A692302391A009EF60F /* TP_japanese_house_1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_1.scn; sourceTree = "<group>"; };
+		B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_2.scn; sourceTree = "<group>"; };
+		B6227A70230239DB009EF60F /* Impl+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Item.swift"; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,28 +228,17 @@
 		B61E93A123005E28008CB325 /* Pielotopica */ = {
 			isa = PBXGroup;
 			children = (
-				B6227A4F2301AE8D009EF60F /* TSSystem */,
-				B6030EE92301A4D4005C4312 /* Libs */,
 				B61E93BC2300E368008CB325 /* AppDelegate.swift */,
-				B61E93FA2300E390008CB325 /* StartScene */,
-				B61E94132300E394008CB325 /* StoryScene */,
 				B61E93BA2300E361008CB325 /* ViewController.swift */,
-				B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */,
+				B6227A4F2301AE8D009EF60F /* SandBox */,
+				B6030EE92301A4D4005C4312 /* Libs */,
+				B6227A6F23023983009EF60F /* Scenes */,
 				B61E93B62300E356008CB325 /* TPCommon.swift */,
 				B62279BC2301A7A7009EF60F /* TPDebug.swift */,
-				B61E93D42300E376008CB325 /* Resources */,
 				B61E93B023005E2C008CB325 /* Info.plist */,
-				B61E93AA23005E2C008CB325 /* Preview Content */,
+				B61E93D42300E376008CB325 /* Resources */,
 			);
 			path = Pielotopica;
-			sourceTree = "<group>";
-		};
-		B61E93AA23005E2C008CB325 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				B61E93AB23005E2C008CB325 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		B61E93BE2300E36C008CB325 /* RMKit */ = {
@@ -257,8 +255,8 @@
 		B61E93C12300E36C008CB325 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B61E93C22300E36C008CB325 /* Ex+UIImage.swift */,
 				B61E93C32300E36C008CB325 /* Ex+Swift.swift */,
+				B61E93C22300E36C008CB325 /* Ex+UIImage.swift */,
 				B61E93C42300E36C008CB325 /* Ex+Foundation.swift */,
 				B61E93C52300E36C008CB325 /* EX+SpriteKit.swift */,
 				B61E93C62300E36C008CB325 /* Ex+UIKit.swift */,
@@ -274,6 +272,7 @@
 				B61E93D52300E376008CB325 /* Assets.xcassets */,
 				B61E93D62300E376008CB325 /* LaunchScreen.storyboard */,
 				B61E93D82300E376008CB325 /* Main.storyboard */,
+				B6227A662302391A009EF60F /* Object */,
 				B61E93DA2300E376008CB325 /* Fonts */,
 			);
 			path = Resources;
@@ -282,6 +281,7 @@
 		B61E93DA2300E376008CB325 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B6227A6523023912009EF60F /* 5squared-pixel.ttf */,
 				B61E93DB2300E376008CB325 /* Silom.ttf */,
 				B61E93DC2300E376008CB325 /* Korneuburg-Slab-Bold_Slanted.ttf */,
 				B61E93DD2300E376008CB325 /* Korneuburg-Slab-Light-Slanted.ttf */,
@@ -301,9 +301,9 @@
 				B61E93ED2300E38A008CB325 /* GKSceneHolder.swift */,
 				B61E93F22300E38A008CB325 /* GKSafeScene.swift */,
 				B61E93EF2300E38A008CB325 /* GKActionTimingMode.swift */,
-				B61E93F02300E38A008CB325 /* Extensions */,
 				B61E93F32300E38A008CB325 /* GKButtonNode.swift */,
 				B61E94192300FEFA008CB325 /* GK3DSceneController.swift */,
+				B61E93F02300E38A008CB325 /* Extensions */,
 			);
 			path = GameKit;
 			sourceTree = "<group>";
@@ -324,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				B61E93FB2300E390008CB325 /* TPStartScene.swift */,
+				B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */,
 				B61E93FC2300E390008CB325 /* Components */,
 				B61E94052300E390008CB325 /* Particle */,
 			);
@@ -394,8 +395,8 @@
 		B6227A0C2301AB83009EF60F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B6227A0D2301AB83009EF60F /* TSVector3.swift */,
 				B6227A0E2301AB83009EF60F /* TSVector2.swift */,
+				B6227A0D2301AB83009EF60F /* TSVector3.swift */,
 				B6227A0F2301AB83009EF60F /* TSPlayer.swift */,
 			);
 			path = Core;
@@ -442,20 +443,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		B6227A4F2301AE8D009EF60F /* TSSystem */ = {
+		B6227A4F2301AE8D009EF60F /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
 				B6227A502301AE9B009EF60F /* Impl */,
 				B62279BE2301AB2D009EF60F /* SandBox */,
 			);
-			path = TSSystem;
+			path = SandBox;
 			sourceTree = "<group>";
 		};
 		B6227A502301AE9B009EF60F /* Impl */ = {
 			isa = PBXGroup;
 			children = (
+				B6227A4B2301AE37009EF60F /* Impl+Block.swift */,
+				B6227A70230239DB009EF60F /* Impl+Item.swift */,
 				B6227A6023023732009EF60F /* Blocks */,
-				B6227A4B2301AE37009EF60F /* Impl+TSBlock+Item.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -467,6 +469,26 @@
 				B6227A6223023732009EF60F /* NormalFloar5x5.swift */,
 			);
 			path = Blocks;
+			sourceTree = "<group>";
+		};
+		B6227A662302391A009EF60F /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				B6227A672302391A009EF60F /* TP_building_1.scn */,
+				B6227A682302391A009EF60F /* TP_floar_5x5.scn */,
+				B6227A692302391A009EF60F /* TP_japanese_house_1.scn */,
+				B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		B6227A6F23023983009EF60F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B61E93FA2300E390008CB325 /* StartScene */,
+				B61E94132300E394008CB325 /* StoryScene */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
@@ -543,8 +565,8 @@
 				B61E93E82300E376008CB325 /* Korneuburg-Slab-Light.ttf in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
 				B61E93E72300E376008CB325 /* Korneuburg-Slab-Light-Slanted.ttf in Resources */,
-				B61E93AC23005E2C008CB325 /* Preview Assets.xcassets in Resources */,
 				B6227A312301AB84009EF60F /* bokeh.png in Resources */,
+				B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */,
 				B61E94182300E395008CB325 /* TP_core.scn in Resources */,
 				B61E93E52300E376008CB325 /* Silom.ttf in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
@@ -552,7 +574,10 @@
 				B61E93E42300E376008CB325 /* Main.storyboard in Resources */,
 				B61E93EB2300E376008CB325 /* Korneuburg-Slab-Bold.ttf in Resources */,
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
+				B6227A6B2302391A009EF60F /* TP_building_1.scn in Resources */,
 				B61E93E92300E376008CB325 /* Korneuburg-Slab-Regular-Slanted.ttf in Resources */,
+				B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */,
+				B6227A6C2302391A009EF60F /* TP_floar_5x5.scn in Resources */,
 				B61E93E62300E376008CB325 /* Korneuburg-Slab-Bold_Slanted.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +656,7 @@
 				B6227A6323023732009EF60F /* LargeJapaneseHouse.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
+				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
 				B61E93CB2300E36C008CB325 /* RMBindCenter.swift in Sources */,
 				B6227A372301AB84009EF60F /* TSBlock.swift in Sources */,
@@ -649,7 +675,7 @@
 				B61E93CD2300E36C008CB325 /* Ex+Swift.swift in Sources */,
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
-				B6227A4E2301AE37009EF60F /* Impl+TSBlock+Item.swift in Sources */,
+				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
 				B6227A6423023732009EF60F /* NormalFloar5x5.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* EX+SpriteKit.swift in Sources */,
@@ -806,7 +832,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "Pielotopica/Preview\\ Content";
 				DEVELOPMENT_TEAM = 4NN4TCPLE3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Pielotopica/Info.plist;
@@ -830,7 +855,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "Pielotopica/Preview\\ Content";
 				DEVELOPMENT_TEAM = 4NN4TCPLE3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Pielotopica/Info.plist;

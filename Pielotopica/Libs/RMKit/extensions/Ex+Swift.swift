@@ -20,6 +20,9 @@ extension Array where Element: Equatable & Hashable {
     public var unique: [Element] {
         return Array(Set(self))
     }
+    public var uniqueWithOrder: [Element] {
+        return reduce(into: [Element]()) {$0.contains($1) ? nil : $0.append($1)}
+    }
     
     /// Remove a specific element from the array.
     ///

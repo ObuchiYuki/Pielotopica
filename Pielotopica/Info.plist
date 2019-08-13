@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>5squared-pixel.ttf</string>
 		<string>Silom.ttf</string>
 		<string>Korneuburg-Slab-Bold.ttf</string>
 	</array>
