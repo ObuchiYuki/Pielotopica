@@ -21,6 +21,22 @@ extension NotificationCenter{
         return self.addObserver(forName: name, object: nil, queue: .main, using: block)
     }
 }
+extension URL {
+    public var paramators:[String: String?] {
+        get{
+            guard let component = URLComponents(url: self, resolvingAgainstBaseURL: true) else {return [:]}
+            
+            return component.paramators
+        }
+        set{
+            guard var component = URLComponents(url: self, resolvingAgainstBaseURL: true) else {return}
+            
+            component.paramators = newValue
+            
+            self = component.url!
+        }
+    }
+}
 
 // MARK: - URLComponents Extensions
 extension URLComponents{

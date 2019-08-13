@@ -18,7 +18,7 @@
 		B61E93CC2300E36C008CB325 /* Ex+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93C22300E36C008CB325 /* Ex+UIImage.swift */; };
 		B61E93CD2300E36C008CB325 /* Ex+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93C32300E36C008CB325 /* Ex+Swift.swift */; };
 		B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93C42300E36C008CB325 /* Ex+Foundation.swift */; };
-		B61E93CF2300E36C008CB325 /* EX+SpriteKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93C52300E36C008CB325 /* EX+SpriteKit.swift */; };
+		B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93C52300E36C008CB325 /* Ex+SKScene.swift */; };
 		B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93C62300E36C008CB325 /* Ex+UIKit.swift */; };
 		B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93C72300E36C008CB325 /* Ex+UIColor.swift */; };
 		B61E93D22300E36C008CB325 /* Ex+CoreGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93C82300E36C008CB325 /* Ex+CoreGraphics.swift */; };
@@ -100,7 +100,7 @@
 		B61E93C22300E36C008CB325 /* Ex+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIImage.swift"; sourceTree = "<group>"; };
 		B61E93C32300E36C008CB325 /* Ex+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+Swift.swift"; sourceTree = "<group>"; };
 		B61E93C42300E36C008CB325 /* Ex+Foundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+Foundation.swift"; sourceTree = "<group>"; };
-		B61E93C52300E36C008CB325 /* EX+SpriteKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EX+SpriteKit.swift"; sourceTree = "<group>"; };
+		B61E93C52300E36C008CB325 /* Ex+SKScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SKScene.swift"; sourceTree = "<group>"; };
 		B61E93C62300E36C008CB325 /* Ex+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIKit.swift"; sourceTree = "<group>"; };
 		B61E93C72300E36C008CB325 /* Ex+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+UIColor.swift"; sourceTree = "<group>"; };
 		B61E93C82300E36C008CB325 /* Ex+CoreGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+CoreGraphics.swift"; sourceTree = "<group>"; };
@@ -256,10 +256,9 @@
 			isa = PBXGroup;
 			children = (
 				B61E93C32300E36C008CB325 /* Ex+Swift.swift */,
-				B61E93C22300E36C008CB325 /* Ex+UIImage.swift */,
 				B61E93C42300E36C008CB325 /* Ex+Foundation.swift */,
-				B61E93C52300E36C008CB325 /* EX+SpriteKit.swift */,
 				B61E93C62300E36C008CB325 /* Ex+UIKit.swift */,
+				B61E93C22300E36C008CB325 /* Ex+UIImage.swift */,
 				B61E93C72300E36C008CB325 /* Ex+UIColor.swift */,
 				B61E93C82300E36C008CB325 /* Ex+CoreGraphics.swift */,
 			);
@@ -311,11 +310,12 @@
 		B61E93F02300E38A008CB325 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B61E93C52300E36C008CB325 /* Ex+SKScene.swift */,
+				B61E93F12300E38A008CB325 /* Ex+SKAction.swift */,
 				B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */,
 				B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */,
 				B6227A592301B13B009EF60F /* Ex+SCNNode.swift */,
 				B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */,
-				B61E93F12300E38A008CB325 /* Ex+SKAction.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -678,7 +678,7 @@
 				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
 				B6227A6423023732009EF60F /* NormalFloar5x5.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
-				B61E93CF2300E36C008CB325 /* EX+SpriteKit.swift in Sources */,
+				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,
 				B61E940F2300E390008CB325 /* _TPStartScenePlayButton.swift in Sources */,
 				B6227A352301AB84009EF60F /* TSBlockItem.swift in Sources */,
