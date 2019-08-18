@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
-		B601C71323096DD500D134F6 /* GKBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B601C71223096DD500D134F6 /* GKBackgroundScene.swift */; };
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
@@ -93,7 +92,6 @@
 		05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.release.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.release.xcconfig"; sourceTree = "<group>"; };
 		1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.debug.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.debug.xcconfig"; sourceTree = "<group>"; };
 		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B601C71223096DD500D134F6 /* GKBackgroundScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKBackgroundScene.swift; sourceTree = "<group>"; };
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -309,7 +307,6 @@
 				B61E93EE2300E38A008CB325 /* GKGameViewController.swift */,
 				B61E93ED2300E38A008CB325 /* GKSceneHolder.swift */,
 				B61E93F22300E38A008CB325 /* GKSafeScene.swift */,
-				B601C71223096DD500D134F6 /* GKBackgroundScene.swift */,
 				B61E93F32300E38A008CB325 /* GKButtonNode.swift */,
 				B61E94192300FEFA008CB325 /* GK3DSceneController.swift */,
 				B61E93EF2300E38A008CB325 /* GKActionTimingMode.swift */,
@@ -369,10 +366,10 @@
 		B61E94132300E394008CB325 /* StoryScene */ = {
 			isa = PBXGroup;
 			children = (
-				B67A965D23094E4000BD408D /* Helper */,
 				B61E94142300E394008CB325 /* TPStorySceneUI.swift */,
-				B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */,
 				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
+				B67A965D23094E4000BD408D /* Helper */,
+				B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */,
 			);
 			path = StoryScene;
 			sourceTree = "<group>";
@@ -696,7 +693,6 @@
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
 				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
 				B6227A6423023732009EF60F /* NormalFloar5x5.swift in Sources */,
-				B601C71323096DD500D134F6 /* GKBackgroundScene.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,

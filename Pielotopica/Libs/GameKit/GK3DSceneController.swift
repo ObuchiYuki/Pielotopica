@@ -111,7 +111,6 @@ open class GK3DSceneController :NSObject {
         self.gkViewController.scnView.removeGestureRecognizer(gestureRecognizer)
     }
     
-    
     // ============================================================== //
     // MARK: - Handler Methods -
     
@@ -207,7 +206,9 @@ open class GK3DSceneController :NSObject {
     open func touchesEnd(at locations:[CGPoint]) {}
     
     /// 画面へのタッチが中断された場合に呼び出されます。(電話がかかってきた、急に電源が切られた。)
-    open func touchesCanceled(at locations:[CGPoint]) {}
+    open func touchesCanceled(at locations:[CGPoint]) {
+        touchesEnd(at: locations)
+    }
     
     // ================================================================================ //
     // MARK: - Constructor -

@@ -36,6 +36,7 @@ public class GKGameViewController: UIViewController {
         if !(self.view is SCNView) { // もしIBで設定済みだった場合。
             self.view = SCNView()
         }
+        
     }
     
     /// Sceneを変更します。
@@ -44,7 +45,6 @@ public class GKGameViewController: UIViewController {
         _load3DScene(sceneHolder, with: transition, completion)
         _loadBackgroundScene(sceneHolder)
         _loadSafeScene(sceneHolder)
-        
     }
     
     //==================================================================
@@ -63,8 +63,7 @@ public class GKGameViewController: UIViewController {
         self.background3dSceneController?.touchesMoved(at: locations)
     }
     open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let locations = _excludeLocations(from: touches)
-        self.background3dSceneController?.touchesCanceled(at: locations)
+        touchesEnded(touches, with: event)
     }
     
     // =============================================================== //
@@ -93,14 +92,13 @@ public class GKGameViewController: UIViewController {
         if let scenebackground = sceneHolder.generateBackgronudScene() {
             self.scnView.overlaySKScene = scenebackground
         }else{
-            self.scnView.overlaySKScene = SKScene();
+            self.scnView.overlaySKScene = SKScene()
             self.scnView.overlaySKScene?.backgroundColor = .clear
         }
         
+        self.scnView.overlaySKScene?.isUserInteractionEnabled = false
         self.scnView.overlaySKScene?.size = GKSafeScene.sceneSize
         self.scnView.overlaySKScene?.scaleMode = .aspectFill
-        self.scnView.overlaySKScene?.isUserInteractionEnabled = false
-        
     }
     
     /// UIシーンを読み込みます。
@@ -118,6 +116,7 @@ public class GKGameViewController: UIViewController {
         rootNode.removeFromParent()
         rootNode.name = "root"
         
+        rootNode.isUserInteractionEnabled = false
         rootNode.size = GKSafeScene.sceneSize
         rootNode.position = GKSafeScene.sceneSize.point / 2
         

@@ -58,7 +58,6 @@ class TPSandboxSceneController: GK3DSceneController {
         self.sceneModel.hitTestDidEnd(at: TSVector3(coordinate))
     }
     
-    
     override func sceneDidLoad() {
         self.sceneModel.sceneDidLoad()
         
@@ -140,7 +139,7 @@ extension TPSandboxSceneController {
         camera.screenSpaceAmbientOcclusionIntensity = 1
         
         cameraNode.eulerAngles = [-.pi/12, .pi/4, 0]
-        cameraNode.position = [100, 25, 100]
+        cameraNode.position = [100, 32, 100]
     }
     func setupSkybox() {
         self.scene.background.contents = [

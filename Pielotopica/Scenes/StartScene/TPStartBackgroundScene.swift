@@ -42,7 +42,6 @@ class TPStartBackgroundScene:SKScene {
         emitterNode.zPosition = -1000
         emitterNode.position = [GKSafeScene.sceneSize.width/2 ,GKSafeScene.sceneSize.height]
         
-        
         self.addChild(emitterNode)
         self.addChild(overray)
     }

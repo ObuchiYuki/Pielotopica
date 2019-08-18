@@ -109,7 +109,7 @@ class TPSandboxSceneModel {
     
     /// タッチ開始時に呼び出してください。
     func onTouchStart(at point:CGPoint, numberOfTouches:Int) {
-        
+
         // モード設定
         if isPlacingBlockMode.value && numberOfTouches == 1 {
             self.dragControleState = .blockPlacing

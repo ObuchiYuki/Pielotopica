@@ -20,17 +20,16 @@ public extension GKSceneHolder {
 class TPStoryScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
-    let button = GKButtonNode(size: [100, 100])
+    private let tabitemSetting = _TPStartSceneTabItem(iconImageNamed: "TP_startmenu_tabitem_icon_setting", title: "setting")
     // =============================================================== //
     // MARK: - Private Properties -
     
     // =============================================================== //
     // MARK: - Methods -
     override func sceneDidLoad() {
-        button.defaultTexture = SKTexture(image: #imageLiteral(resourceName: "TP_startmenu_playbutton_background"))
-        button.position = rootNode.position
-        button.addTarget(self, action: #selector(tap(_:)), for: .touchUpInside)
-        rootNode.addChild(button)
+        tabitemSetting.position = rootNode.position
+        tabitemSetting.addTarget(self, action: #selector(tap(_:)), for: .touchUpInside)
+        rootNode.addChild(tabitemSetting)
     }
     // =============================================================== //
     // MARK: - Constructor -

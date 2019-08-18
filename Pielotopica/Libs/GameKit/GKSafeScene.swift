@@ -21,7 +21,7 @@ public class GKSafeScene: SKScene {
     public var rootNode = SKSpriteNode()
     
     public weak var gameViewContoller:GKGameViewController!
-    
+
     // =============================================================== //
     // MARK: - Methods -
     
