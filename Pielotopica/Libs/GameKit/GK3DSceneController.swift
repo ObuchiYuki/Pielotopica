@@ -10,16 +10,14 @@ import UIKit
 import SceneKit
 import SpriteKit
 
-/**
- GK3DSceneControllerはSCNSceneの管理を提供します。
- 継承して使うことを想定しています。
- initにGKGameViewControllerを使いますが、参照を保持しません。
- 
- - sceneWillLoad()
- はscene初期化前に呼び出されます。まだsceneはnilです。
- - sceneDidLoad()
- はscene初期化後に呼び出されます。sceneにはSCNSceneが代入されています。
- */
+
+/// GK3DSceneControllerはSCNSceneの管理を提供します。
+/// 継承して使うことを想定しています。
+/// initにGKGameViewControllerを使いますが、参照を保持しません。
+/// - sceneWillLoad()
+/// はscene初期化前に呼び出されます。まだsceneはnilです。
+/// - sceneDidLoad()
+/// はscene初期化後に呼び出されます。sceneにはSCNSceneが代入されています。
 open class GK3DSceneController: UIResponder {
     // ================================================================
     // MARK: - Properties

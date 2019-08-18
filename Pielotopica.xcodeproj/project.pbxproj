@@ -230,8 +230,8 @@
 			children = (
 				B61E93BC2300E368008CB325 /* AppDelegate.swift */,
 				B61E93BA2300E361008CB325 /* ViewController.swift */,
-				B6227A4F2301AE8D009EF60F /* SandBox */,
 				B6030EE92301A4D4005C4312 /* Libs */,
+				B6227A4F2301AE8D009EF60F /* SandBox */,
 				B6227A6F23023983009EF60F /* Scenes */,
 				B61E93B62300E356008CB325 /* TPCommon.swift */,
 				B62279BC2301A7A7009EF60F /* TPDebug.swift */,
@@ -299,9 +299,9 @@
 				B61E93EE2300E38A008CB325 /* GKViewController.swift */,
 				B61E93ED2300E38A008CB325 /* GKSceneHolder.swift */,
 				B61E93F22300E38A008CB325 /* GKSafeScene.swift */,
-				B61E93EF2300E38A008CB325 /* GKActionTimingMode.swift */,
 				B61E93F32300E38A008CB325 /* GKButtonNode.swift */,
 				B61E94192300FEFA008CB325 /* GK3DSceneController.swift */,
+				B61E93EF2300E38A008CB325 /* GKActionTimingMode.swift */,
 				B61E93F02300E38A008CB325 /* Extensions */,
 			);
 			path = GameKit;

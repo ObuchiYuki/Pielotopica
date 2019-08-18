@@ -11,6 +11,8 @@ import SpriteKit
 // =============================================================== //
 // MARK: - GKButtonNode -
 
+/// SpriteKitでのボタン使用のために作成
+/// 使用方法はほとんど `UIButton` と同様
 public class GKButtonNode: SKSpriteNode {
     // =============================================================== //
     // MARK: - enum -
@@ -133,23 +135,23 @@ public class GKButtonNode: SKSpriteNode {
     }
     
     public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard isEnabled else { return }
+        guard isEnabled, let parent = parent else { return }
         
-        guard let touchLocation = touches.first?.location(in: parent!) else {return}
+        guard let touchLocation = touches.first?.location(in: parent) else {return}
         
         isSelected = frame.contains(touchLocation)
         
     }
     
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard isEnabled else { return }
+        guard isEnabled, let parent = parent else { return }
         
         isSelected = false
         buttonDidUnselect()
 
         // touchUpInside
         if (targetTouchUpInside != nil && targetTouchUpInside!.responds(to: actionTouchUpInside!)) {
-            guard let touchLocation = touches.first?.location(in: parent!) else {return}
+            guard let touchLocation = touches.first?.location(in: parent) else {return}
             
             if (frame.contains(touchLocation) ) {
 

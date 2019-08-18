@@ -11,10 +11,9 @@ import SpriteKit
 // =============================================================== //
 // MARK: - GKSafeScene -
 
-/**
- SafeAreaのみに表示されるSKSceneです。
- Nodeの追加はrootNodeに対して行ってください。
- */
+/// SafeAreaのみに表示されるSKSceneです。
+/// UIはこのScene上に構成してください。全てのiPhoneで適切なサイズで表示されます。
+/// Nodeの追加はrootNodeに対して行ってください。
 public class GKSafeScene: SKScene {
     // =============================================================== //
     // MARK: - Properties -
