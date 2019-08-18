@@ -31,8 +31,7 @@ public class GKSafeScene: SKScene {
             self.gameViewContoller.presentScene(with: sceneHalder, with: transition)
             
         }
-    }
-    
+    }    
 }
 
 extension GKSafeScene {

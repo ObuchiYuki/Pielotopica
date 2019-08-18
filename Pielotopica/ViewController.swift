@@ -13,9 +13,9 @@ class ViewController: GKGameViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // MARK: - For Debug - 
-        scnView.allowsCameraControl = true
+        // MARK: - For Debug -
         
-        self.presentScene(with: .startScene)
+        self.presentScene(with: .storyScene)
+        
     }
 }

@@ -26,6 +26,7 @@ public class GKGameViewController: UIViewController {
     
     /// 現在のSafeSceneです。
     private var safeScene:GKSafeScene!
+    private var background3dSceneController:GK3DSceneController?
     
     // =============================================================== //
     // MARK: - Methods -
@@ -35,7 +36,6 @@ public class GKGameViewController: UIViewController {
         if !(self.view is SCNView) { // もしIBで設定済みだった場合。
             self.view = SCNView()
         }
-        
     }
     
     /// Sceneを変更します。
@@ -47,15 +47,41 @@ public class GKGameViewController: UIViewController {
         
     }
     
+    //==================================================================
+    // MARK: - UIResponder Override Metheods -
+    
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let locations = _excludeLocations(from: touches)
+        self.background3dSceneController?.touchesBegan(at: locations)
+    }
+    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let locations = _excludeLocations(from: touches)
+        self.background3dSceneController?.touchesEnd(at: locations)
+    }
+    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let locations = _excludeLocations(from: touches)
+        self.background3dSceneController?.touchesMoved(at: locations)
+    }
+    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let locations = _excludeLocations(from: touches)
+        self.background3dSceneController?.touchesCanceled(at: locations)
+    }
+    
     // =============================================================== //
     // MARK: - Private Methods -
     
+    ///　touchesの最初の場所を取り出します。
+    private func _excludeLocations(from touches:Set<UITouch>) -> [CGPoint] {
+        return touches.compactMap{touch in touch.view.map{touch.location(in: $0)}}
+    }
     /// SCNSceneを読み込みます。SKTransitionつけれます。
     private func _load3DScene(_ sceneHolder:GKSceneHolder, with transition:SKTransition?, _ completion: (()->Void)?) {
         
         if let scene3dController = sceneHolder.generate3DBackgronudScene() {
-            scene3dController._startloading(self)
+            scene3dController._loadParentViewController(self)
             _realPresentScene(to: scene3dController.scene, with: transition, completion)
+            
+            self.background3dSceneController = scene3dController
         }else{
             /// なければ新規作成
             _realPresentScene(to: SCNScene(), with: transition, completion)
@@ -73,6 +99,7 @@ public class GKGameViewController: UIViewController {
         
         self.scnView.overlaySKScene?.size = GKSafeScene.sceneSize
         self.scnView.overlaySKScene?.scaleMode = .aspectFill
+        self.scnView.overlaySKScene?.isUserInteractionEnabled = false
         
     }
     

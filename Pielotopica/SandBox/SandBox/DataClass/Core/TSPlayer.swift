@@ -26,4 +26,7 @@ public class TSPlayer {
     init(named name:String) {
         self.name = name
     }
+    
+    /// 仮
+    public static let him = TSPlayer(named: "Kai.e3")
 }
