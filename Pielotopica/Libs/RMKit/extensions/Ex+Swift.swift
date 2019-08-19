@@ -1,3 +1,11 @@
+//
+//  Extensions.swift
+//  DANMAKER
+//
+//  Created by yuki on 2015/02/14.
+//  Copyright © 2015 yuki. All rights reserved.
+//
+
 // MARK: - LibSwift Extensions
 
 // MARK: - General Array Extensions

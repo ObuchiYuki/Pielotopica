@@ -46,9 +46,12 @@ class TPSandboxSceneController: GK3DSceneController {
         let point = recognizer.location(in: scnView)
         guard shouldRespondToTouch(at: point) else { return }
         
-        sceneModel.onTapGesture()
-        
-        gkViewController.runRayTrace(with: point)
+        if !sceneModel.isPlacingBlockMode.value {
+            gkViewController.runRayTrace(with: point)
+            return
+        }else{
+            sceneModel.onTapGesture()
+        }
     }
 
     // ================================ //
@@ -76,6 +79,8 @@ class TPSandboxSceneController: GK3DSceneController {
         self.setupSkybox()
         self.setupCamera()
         self.setupDirectionalLight()
+        
+        
     }
 }
 

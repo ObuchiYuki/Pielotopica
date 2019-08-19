@@ -134,7 +134,6 @@ class TSBlockPlaceHelper {
             blockNode.material?.selfIllumination.contents = UIColor.black
         }
     }
-    
 
     /// 現在の場所にブロックを設置できるかを返します。
     func canEndBlockPlacing() -> Bool {

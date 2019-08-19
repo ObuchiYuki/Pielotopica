@@ -20,26 +20,17 @@ public extension GKSceneHolder {
 class TPStoryScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
-    private let tabitemSetting = _TPStartSceneRing()
+    
     // =============================================================== //
     // MARK: - Private Properties -
     
     // =============================================================== //
     // MARK: - Methods -
-    override func sceneDidLoad() {
-        tabitemSetting.position = rootNode.position
-        tabitemSetting.addTarget(self, action: #selector(tap(_:)), for: .touchUpInside)
-        
-        rootNode.addChild(tabitemSetting)
-    }
+    
     // =============================================================== //
     // MARK: - Constructor -
     
     // =============================================================== //
     // MARK: - Private Methods -
-    
-    @objc func tap(_ s:Any) {
-        print("tappes")
-    }
 }
 

@@ -30,6 +30,7 @@ public extension SCNNode {
             debugPrint(".scn file named \(name) is not found.")
             return nil
         }
+        
         for childNode in modelScene.rootNode.childNodes {
             self.addChildNode(childNode)
         }

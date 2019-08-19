@@ -420,10 +420,10 @@
 		B6227A142301AB83009EF60F /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				B6227A152301AB83009EF60F /* TSInventry.swift */,
-				B6227A162301AB83009EF60F /* TSBlockItem.swift */,
 				B6227A172301AB83009EF60F /* TSItem.swift */,
 				B6227A182301AB83009EF60F /* TSBlock.swift */,
+				B6227A152301AB83009EF60F /* TSInventry.swift */,
+				B6227A162301AB83009EF60F /* TSBlockItem.swift */,
 				B6227A192301AB83009EF60F /* TSItemBarInventory.swift */,
 				B6227A1A2301AB83009EF60F /* TSItemStack.swift */,
 			);

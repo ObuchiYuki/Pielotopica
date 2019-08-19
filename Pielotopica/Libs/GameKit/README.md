@@ -1,5 +1,7 @@
 #  GameKit
 
+**© 2019 / 8 / 20 Obuchi Yuki. All rights reserved.**
+
 `GameKit` は `SpriteKit` と `SceneKit` の結合、より良い使用を提供します。
 
 ###  Classes
