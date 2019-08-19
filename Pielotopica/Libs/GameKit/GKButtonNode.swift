@@ -26,8 +26,12 @@ public class GKButtonNode: SKSpriteNode {
     // =============================================================== //
     // MARK: - Properties -
     
+    override var needsHandleReaction: Bool {
+        return true
+    }
     // ================================= //
     // MARK: - State Controllers -
+    
     /// ボタンが有効かどうかです。
     /// 無効の場合は、disabledTextureが表示されます。
     public var isEnabled: Bool = true {
@@ -81,9 +85,7 @@ public class GKButtonNode: SKSpriteNode {
     
     public init(size:CGSize, defaultTexture: SKTexture?=nil, selectedTexture:SKTexture?=nil, disabledTexture: SKTexture?=nil) {
         super.init(texture: defaultTexture, color: .clear, size: size)
-        
-        self.isUserInteractionEnabled = true
-        
+                
         if let defaultTexture = defaultTexture {
             self.defaultTexture = defaultTexture
             self.selectedTexture = selectedTexture ?? generateSelectedTexture(from: defaultTexture)

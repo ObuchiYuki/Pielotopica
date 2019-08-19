@@ -104,6 +104,11 @@ open class GK3DSceneController :NSObject {
     // ================================================================================ //
     // MARK: - Methods
     
+    /// 3DSceneがタッチに反応する必要があるかどうかです。
+    public func shouldRespondToTouch(at point:CGPoint) -> Bool {
+        return gkViewController.should3DSceneRespondToTouch(at: point)
+    }
+    
     public func addGestureRecognizer(_ gestureRecognizer:UIGestureRecognizer) {
         self.gkViewController.scnView.addGestureRecognizer(gestureRecognizer)
     }

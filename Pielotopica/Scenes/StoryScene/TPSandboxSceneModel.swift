@@ -144,7 +144,6 @@ class TPSandboxSceneModel {
                 
                 blockPlaceHelper.startBlockPlacing(from: worldCoordinate)
                 
-                
             }
         }
     }

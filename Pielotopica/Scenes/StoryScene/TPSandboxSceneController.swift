@@ -40,8 +40,12 @@ class TPSandboxSceneController: GK3DSceneController {
         sceneModel.onPanGesture(with: vector, numberOfTouches: recognizer.numberOfTouches)
     }
     @objc func handleTapGesture(_ recognizer:UITapGestureRecognizer) {
+        let point = recognizer.location(in: scnView)
+        guard shouldRespondToTouch(at: point) else { return }
         
         sceneModel.onTapGesture()
+        
+        gkViewController.runRayTrace(with: point)
     }
 
     // ================================ //

@@ -14,8 +14,6 @@ import SceneKit
 
 /// ゲーム画面を管理する基本のViewControllerです。
 /// 3D, 2DどちらのSceneも表示することができます。
-/// InterfaceBuilderを組み合わせることも可能です。
-/// その場合、viewはSCNViewに設定してください。
 public class GKGameViewController: UIViewController {
     // =============================================================== //
     // MARK: - Properties -
@@ -27,7 +25,7 @@ public class GKGameViewController: UIViewController {
     /// 現在のSafeSceneです。
     private var safeScene:GKSafeScene!
     private var background3dSceneController:GK3DSceneController?
-    
+        
     // =============================================================== //
     // MARK: - Methods -
     override public func loadView() {
@@ -36,7 +34,6 @@ public class GKGameViewController: UIViewController {
         if !(self.view is SCNView) { // もしIBで設定済みだった場合。
             self.view = SCNView()
         }
-        
     }
     
     /// Sceneを変更します。
@@ -47,32 +44,81 @@ public class GKGameViewController: UIViewController {
         _loadSafeScene(sceneHolder)
     }
     
+    public func runRayTrace(with location: CGPoint) {
+        let hitResults = scnView.hitTest(location, options: [:])
+        
+        self.background3dSceneController?.hitTestDidEnd(hitResults)
+    }
+
+    /// 3DSceneがタッチに反応する必要があるかどうかです。
+    public func should3DSceneRespondToTouch(at point:CGPoint) -> Bool {
+        return _nodesOnOverlayScene(at: point).isEmpty
+    }
+    
     //==================================================================
     // MARK: - UIResponder Override Metheods -
+
+    /// 現在タッチ中のノードです。
+    private var _nodesOnTouch = [SKNode]()
     
-    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let locations = _excludeLocations(from: touches)
-        self.background3dSceneController?.touchesBegan(at: locations)
+    /// OverlayのノードのうちneedsHandleReactionがtrueのものを返します。
+    private func _nodesOnOverlayScene(at point:CGPoint) -> [SKNode] {
+        guard let ps = scnView.overlaySKScene?.convertPoint(fromView: point) else {return []}
+        
+        return scnView.overlaySKScene?.nodes(at: ps).filter{$0.needsHandleReaction} ?? []
     }
-    open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let locations = _excludeLocations(from: touches)
-        self.background3dSceneController?.touchesEnd(at: locations)
+    
+    /// 2D画面が被さってた場合は、2Dに通知、そうでなければ3Dに通知
+    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let point = touches.first?.location(in: scnView) else { return }
+        let nodes = _nodesOnOverlayScene(at: point)
+        
+        if !nodes.isEmpty {
+            nodes.forEach{$0.touchesBegan(touches, with: event)}
+            _nodesOnTouch.append(contentsOf: nodes)
+            return
+        }
+        
+        touchesBegan3D(touches, with: event)
     }
-    open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let locations = _excludeLocations(from: touches)
-        self.background3dSceneController?.touchesMoved(at: locations)
+    
+    
+    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if _nodesOnTouch.isEmpty {
+            touchesMoved3D(touches, with: event)
+        }else{
+            _nodesOnTouch.forEach{$0.touchesMoved(touches, with: event)}
+        }
     }
-    open override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if _nodesOnTouch.isEmpty {
+            touchesEnded3D(touches, with: event)
+        }else{
+            _nodesOnTouch.forEach{$0.touchesEnded(touches, with: event)}
+            _nodesOnTouch = []
+        }
+        
+    }
+    
+    override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchesEnded(touches, with: event)
     }
     
     // =============================================================== //
     // MARK: - Private Methods -
-    
-    ///　touchesの最初の場所を取り出します。
-    private func _excludeLocations(from touches:Set<UITouch>) -> [CGPoint] {
-        return touches.compactMap{touch in touch.view.map{touch.location(in: $0)}}
+    private func touchesBegan3D(_ touches: Set<UITouch>, with event: UIEvent?) {
+        background3dSceneController?.touchesBegan(at: touches.compactMap{$0.location(in: scnView)})
     }
+    
+    private func touchesMoved3D(_ touches: Set<UITouch>, with event: UIEvent?) {
+        background3dSceneController?.touchesMoved(at: touches.compactMap{$0.location(in: scnView)})
+    }
+    
+    private func touchesEnded3D(_ touches: Set<UITouch>, with event: UIEvent?) {
+        background3dSceneController?.touchesEnd(at: touches.compactMap{$0.location(in: scnView)})
+    }
+    
     /// SCNSceneを読み込みます。SKTransitionつけれます。
     private func _load3DScene(_ sceneHolder:GKSceneHolder, with transition:SKTransition?, _ completion: (()->Void)?) {
         

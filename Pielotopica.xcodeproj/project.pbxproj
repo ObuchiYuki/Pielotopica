@@ -86,6 +86,7 @@
 		B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */; };
 		B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */; };
 		B67A966323094E6300BD408D /* TPSandboxSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */; };
+		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -174,6 +175,7 @@
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
 		B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCameraGestureHelper.swift; sourceTree = "<group>"; };
 		B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneModel.swift; sourceTree = "<group>"; };
+		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,6 +326,7 @@
 				B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */,
 				B6227A592301B13B009EF60F /* Ex+SCNNode.swift */,
 				B6227A582301B13B009EF60F /* Ex+SCNVector3.swift */,
+				B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -649,6 +652,7 @@
 				B61E93F52300E38A008CB325 /* GKGameViewController.swift in Sources */,
 				B67A966323094E6300BD408D /* TPSandboxSceneModel.swift in Sources */,
 				B61E93BD2300E368008CB325 /* AppDelegate.swift in Sources */,
+				B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */,
 				B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */,
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
