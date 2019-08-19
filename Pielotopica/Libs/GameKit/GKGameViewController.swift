@@ -52,11 +52,7 @@ public class GKGameViewController: UIViewController {
 
     /// 3DSceneがタッチに反応する必要があるかどうかです。
     public func should3DSceneRespondToTouch(at point:CGPoint) -> Bool {
-        if isMoving {
-            return _nodesOnTouch.isEmpty
-        }else{
-            return _nodesOnOverlayScene(at: point).isEmpty
-        }
+         return _nodesOnOverlayScene(at: point).isEmpty
     }
     
     //==================================================================
