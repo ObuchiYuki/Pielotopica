@@ -35,6 +35,9 @@ class TPSandboxSceneController: GK3DSceneController {
     }
     
     @objc func handlePanGesture(_ recognizer:UIPanGestureRecognizer) {
+        let point = recognizer.location(in: scnView)
+        guard shouldRespondToTouch(at: point) else { return }
+        
         let vector = recognizer.translation(in: scnView)
         
         sceneModel.onPanGesture(with: vector, numberOfTouches: recognizer.numberOfTouches)

@@ -20,7 +20,7 @@ public extension GKSceneHolder {
 class TPStoryScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
-    private let tabitemSetting = _TPStartSceneTabItem(iconImageNamed: "TP_startmenu_tabitem_icon_setting", title: "setting")
+    private let tabitemSetting = _TPStartSceneRing()
     // =============================================================== //
     // MARK: - Private Properties -
     
@@ -29,6 +29,7 @@ class TPStoryScene: GKSafeScene {
     override func sceneDidLoad() {
         tabitemSetting.position = rootNode.position
         tabitemSetting.addTarget(self, action: #selector(tap(_:)), for: .touchUpInside)
+        
         rootNode.addChild(tabitemSetting)
     }
     // =============================================================== //
