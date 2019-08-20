@@ -2,11 +2,11 @@
 import UIKit
 
 
-class ViewController: UIViewController {
+class CaptureViewController: UIViewController {
     // ======================================================================== //
     // MARK: - Private Properties -
     private let detector = RKObjectDetector()
-    private let videoCapture = CRVideoCapture()
+    private let videoCapture = RKVideoCapture()
     
     private var boundingBoxes = [BoundingBox]()
     private var colors: [UIColor] = []
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: RKObjectDetectorDelegate {
+extension CaptureViewController: RKObjectDetectorDelegate {
     func detector(_ detector: RKObjectDetector, didDetectObjectsWith predictions: [RKObjectDetector.Prediction]) {
         
         self.showBoundingBoxes(predictions: predictions)

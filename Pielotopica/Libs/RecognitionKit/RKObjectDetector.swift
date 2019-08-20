@@ -16,7 +16,6 @@ public protocol RKObjectDetectorDelegate:class {
 // MARK: - RKObjectDetector -
 
 /**
- RecognitionKitで唯一外部から使用可能なクラスです。
  画像を認識し、結果を返します。
  */
 public class RKObjectDetector {

@@ -8,20 +8,73 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XV9-0j-sKJ">
+                                <rect key="frame" x="187" y="320" width="41" height="30"/>
+                                <state key="normal" title="Game"/>
+                                <connections>
+                                    <segue destination="ssd-7Z-w0K" kind="show" id="xzN-p6-puI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y13-b4-V6E">
+                                <rect key="frame" x="183" y="419" width="55" height="30"/>
+                                <state key="normal" title="Capture"/>
+                                <connections>
+                                    <segue destination="oKs-bt-sWB" kind="show" id="Ydb-Va-jO0"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="y13-b4-V6E" firstAttribute="top" secondItem="XV9-0j-sKJ" secondAttribute="bottom" constant="69" id="1vf-7D-1US"/>
+                            <constraint firstItem="XV9-0j-sKJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ene-G9-DDk"/>
+                            <constraint firstItem="XV9-0j-sKJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="187" id="QeC-9y-8d4"/>
+                            <constraint firstItem="XV9-0j-sKJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="276" id="aON-BR-Isg"/>
+                            <constraint firstItem="y13-b4-V6E" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="183" id="bgk-bU-nOu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="126"/>
+        </scene>
+        <!--Capture View Controller-->
+        <scene sceneID="AAN-uh-uCH">
+            <objects>
+                <viewController id="oKs-bt-sWB" customClass="CaptureViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R7W-Mn-K7r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ihe-9w-pPa"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MMV-Qe-7oC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015" y="621"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="pTJ-co-Wb6">
+            <objects>
+                <viewController id="ssd-7Z-w0K" customClass="GameViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VMl-9M-HLj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="IVE-uF-c65"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d3E-gP-NKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1053" y="-24"/>
         </scene>
     </scenes>
 </document>

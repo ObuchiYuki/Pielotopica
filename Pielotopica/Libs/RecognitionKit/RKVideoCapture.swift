@@ -1,11 +1,20 @@
+//
+//  RKVideoCapture.swift
+//  TPStartScene
+//
+//  Created by yuki on 2019/07/03.
+//  Copyright © 2019 yuki. All rights reserved.
+//
+
+
 import UIKit
 import AVFoundation
 import CoreVideo
 
 // =============================================================== //
-// MARK: - CRVideoCapture -
+// MARK: - RKVideoCapture -
 
-public class CRVideoCapture: NSObject {
+public class RKVideoCapture: NSObject {
     // =============================================================== //
     // MARK: - Properties -
     public var objectDetectingFPS = 30
@@ -96,7 +105,6 @@ public class CRVideoCapture: NSObject {
         let videoOutput = AVCaptureVideoDataOutput()
         
         videoOutput.videoSettings = settings
-        videoOutput.alwaysDiscardsLateVideoFrames = true
         videoOutput.setSampleBufferDelegate(self, queue: queue)
         
         if !captureSession.canAddOutput(videoOutput) {
@@ -108,11 +116,10 @@ public class CRVideoCapture: NSObject {
     
 }
 
-extension CRVideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension RKVideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
     
     public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         assert(detector != nil, "Error: You must set CRObjectDetector before starting camera.")
-        print("useful")
         
         let timestamp = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
         let deltaTime = timestamp - lastTimestamp
@@ -120,6 +127,7 @@ extension CRVideoCapture: AVCaptureVideoDataOutputSampleBufferDelegate {
         if deltaTime >= CMTimeMake(value: 1, timescale: Int32(self.objectDetectingFPS)) {
             
             lastTimestamp = timestamp
+            
             guard let imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
             
             detector.predictObjects(from: imageBuffer)
