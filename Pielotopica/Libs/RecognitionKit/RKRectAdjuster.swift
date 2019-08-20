@@ -1,5 +1,5 @@
 //
-//  CRRectAdjuster.swift
+//  RKRectAdjuster.swift
 //  YOLOv3-CoreML
 //
 //  Created by yuki on 2019/07/11.
@@ -13,7 +13,7 @@ import CoreGraphics
 
 /**
  */
-class CRRectAdjuster {
+class RKRectAdjuster {
     // =============================================================== //
     // MARK: - Methods -
     

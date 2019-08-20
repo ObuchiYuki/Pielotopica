@@ -1,5 +1,5 @@
 //
-//  CRObjectNameMapper.swift
+//  RKObjectNameMapper.swift
 //  TPCaptureScene
 //
 //  Created by yuki on 2019/07/11.
@@ -14,7 +14,7 @@ import Foundation
 /**
  YOLOの認識によって得られたClassIndexを表示名に変更します。
  */
-class CRObjectNameMapper {    
+class RKObjectNameMapper {    
     // =============================================================== //
     // MARK: - Methods -
     func name_jp(for classIndex:Int) -> String {

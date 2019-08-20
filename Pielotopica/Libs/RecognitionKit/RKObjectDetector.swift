@@ -1,5 +1,5 @@
 //
-//  CRObjectDetector.swift
+//  RKObjectDetector.swift
 //  YOLOv3-CoreML
 //
 //  Created by yuki on 2019/07/11.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-public protocol CRObjectDetectorDelegate:class {
-    func detector(_ detector:CRObjectDetector, didDetectObjectsWith predictions:[CRObjectDetector.Prediction])
+public protocol RKObjectDetectorDelegate:class {
+    func detector(_ detector:RKObjectDetector, didDetectObjectsWith predictions:[RKObjectDetector.Prediction])
 }
 
 // =============================================================== //
@@ -19,17 +19,17 @@ public protocol CRObjectDetectorDelegate:class {
  画像認識の一番外側のラッパークラスです。
  
  */
-public class CRObjectDetector {
+public class RKObjectDetector {
     // =============================================================== //
     // MARK: - Properties -
-    public weak var delegate:CRObjectDetectorDelegate?
+    public weak var delegate:RKObjectDetectorDelegate?
     
     // =============================================================== //
     // MARK: - Private Properties -
     
     private let yolo = YOLO()
-    private let imageResizer = CRImageResizer()
-    private let nameMapper = CRObjectNameMapper()
+    private let imageResizer = RKImageResizer()
+    private let nameMapper = RKObjectNameMapper()
     
     // =============================================================== //
     // MARK: - Methods -
@@ -51,11 +51,11 @@ public class CRObjectDetector {
     }
 }
 
-extension CRObjectDetector {
+extension RKObjectDetector {
     /// 認識結果を表します。
     public struct Prediction{
         
-        static private let rectAdjuster = CRRectAdjuster()
+        static private let rectAdjuster = RKRectAdjuster()
         // =============================================================== //
         // MARK: - Properties -
         /// 対象物の名称です。

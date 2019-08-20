@@ -1,5 +1,5 @@
 //
-//  CRImageResizer.swift
+//  RKImageResizer.swift
 //  YOLOv3-CoreML
 //
 //  Created by yuki on 2019/07/11.
@@ -14,7 +14,7 @@ import CoreImage
 
 /**
  */
-internal class CRImageResizer {
+internal class RKImageResizer {
 
     // =============================================================== //
     // MARK: - Private Properties -
