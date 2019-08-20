@@ -14,26 +14,26 @@ import Foundation
 /**
  YOLOの認識によって得られたClassIndexを表示名に変更します。
  */
-class RKObjectNameMapper {    
-    // =============================================================== //
-    // MARK: - Methods -
-    func name_jp(for classIndex:Int) -> String {
-        assert(0 <= classIndex && classIndex < 80)
+
+
+internal class RKObjectNameMapper {
+    
+    internal func name(at classIndex:Int, for region:RKObjectDetector.Region) -> String {
+        assert(0 <= classIndex && classIndex < 80 , "ClassIndex must be between 0 and 80.")
         
-        return yoloObjectLabel_ja[classIndex]
-        
-    }
-    func name_en(for classIndex:Int) -> String {
-        assert(0 <= classIndex && classIndex < 80)
-        
-        return yoloObjectLabel_en[classIndex]
+        switch region {
+        case .japanese:
+            return yoloObjectLabel_ja[classIndex]
+        case .english:
+            return yoloObjectLabel_en[classIndex]
+        }
     }
 }
 
 // The labels for the 80 classes.
 private let yoloObjectLabel_ja = [
     "人","自転車","車","バイク","飛行機","バス","電車","トラック","ボート","信号機",
-    "消火栓","Stop","パーキングメーター","ベンチ","鳥","猫","犬","馬","羊","牛",
+    "消火栓","停止","パーキングメーター","ベンチ","鳥","猫","犬","馬","羊","牛",
     "ゾウ","クマ","ゼブラ","キリン","バックパック","傘","ハンドバッグ","ネクタイ","スーツケース","フリスビー",
     "スキー","スノーボード","スポーツボール","タコ","野球用バット","野球用グローブ","スケートボード","サーフボード","テニスラケット","ボトル",
     "ワイングラス","カップ","フォーク","ナイフ","スプーン","ボール","バナナ","アップル","サンドイッチ","オレンジ",

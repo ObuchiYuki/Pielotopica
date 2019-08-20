@@ -11,8 +11,10 @@ public class YOLO {
     public static let maxBoundingBoxes = 10
     
     // confidenceThreshold をあげれば、認識される物体数は減少します。
-    let confidenceThreshold: Float = 0.9
-    let iouThreshold: Float = 0.5
+    var confidenceThreshold: Float = 0.7
+    
+    /// iouThresholdを下げれば、物体の重複認識は減ります。
+    var iouThreshold: Float = 0.3
     
     public struct Prediction {
         public let classIndex: Int
@@ -84,7 +86,7 @@ public class YOLO {
                         // b = 1では、チャンネル25〜49を読み取る必要があります。
                         let channel = b*(numClasses + 5)
                         
-                        // いっちゃん早い
+                        // 多分これが一番早いと思います。
                         let tx = Float(featurePointer[offset(channel    , cx, cy)])
                         let ty = Float(featurePointer[offset(channel + 1, cx, cy)])
                         let tw = Float(featurePointer[offset(channel + 2, cx, cy)])

@@ -13,16 +13,31 @@ public protocol RKObjectDetectorDelegate:class {
 }
 
 // =============================================================== //
-// MARK: - CRObjectDetector -
+// MARK: - RKObjectDetector -
 
 /**
- 画像認識の一番外側のラッパークラスです。
- 
+ RecognitionKitで唯一外部から使用可能なクラスです。
+ 画像を認識し、結果を返します。
  */
 public class RKObjectDetector {
     // =============================================================== //
     // MARK: - Properties -
+    /// delegate of RKObjectDetector
     public weak var delegate:RKObjectDetectorDelegate?
+    
+    /// confidenceThreshold をあげれば、認識される物体の確度が上がります。(認識されるものの数は減ります。)
+    /// default = 0.7
+    public var confidenceThreshold: Float {
+        get { return yolo.confidenceThreshold }
+        set {yolo.confidenceThreshold = newValue}
+    }
+    
+    /// iouThresholdを下げれば、物体の重複認識は減ります。(近くにあるものが省略される可能性が上がります。)
+    /// default = 0.3
+    public var iouThreshold: Float {
+        get { return yolo.iouThreshold }
+        set {yolo.iouThreshold = newValue}
+    }
     
     // =============================================================== //
     // MARK: - Private Properties -
@@ -33,12 +48,19 @@ public class RKObjectDetector {
     
     // =============================================================== //
     // MARK: - Methods -
-    func predictObjects(from pixelBuffer:CVPixelBuffer) {
+    
+    /// 認識オブジェクトの翻訳を選択させます。
+    public enum Region {
+        case japanese
+        case english
+    }
+    
+    public func predictObjects(from pixelBuffer:CVPixelBuffer,for region: Region = .japanese) {
         let resizedPixelBuffer = imageResizer.resize(pixelBuffer: pixelBuffer)
         
         let predictions = yolo.predict(image: resizedPixelBuffer).map {
             Prediction(
-                name: nameMapper.name_jp(for: $0.classIndex),
+                name: nameMapper.name(at: $0.classIndex, for: region),
                 confidence: $0.score * 100,
                 rect: $0.rect ,
                 classIndex: $0.classIndex
