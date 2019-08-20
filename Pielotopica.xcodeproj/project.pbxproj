@@ -82,6 +82,14 @@
 		B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A692302391A009EF60F /* TP_japanese_house_1.scn */; };
 		B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */; };
 		B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A70230239DB009EF60F /* Impl+Item.swift */; };
+		B667BA59230B776C0038B098 /* CRRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* CRRectAdjuster.swift */; };
+		B667BA5A230B776C0038B098 /* CRImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA51230B776C0038B098 /* CRImageResizer.swift */; };
+		B667BA5B230B776C0038B098 /* CRObjectNameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA52230B776C0038B098 /* CRObjectNameMapper.swift */; };
+		B667BA5C230B776C0038B098 /* YOLO+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA54230B776C0038B098 /* YOLO+Helpers.swift */; };
+		B667BA5D230B776C0038B098 /* Ex+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA55230B776C0038B098 /* Ex+CVPixelBuffer.swift */; };
+		B667BA5E230B776C0038B098 /* YOLOv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B667BA56230B776C0038B098 /* YOLOv3.mlmodel */; };
+		B667BA5F230B776C0038B098 /* YOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA57230B776C0038B098 /* YOLO.swift */; };
+		B667BA60230B776C0038B098 /* CRObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA58230B776C0038B098 /* CRObjectDetector.swift */; };
 		B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */; };
 		B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */; };
 		B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */; };
@@ -171,6 +179,14 @@
 		B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_2.scn; sourceTree = "<group>"; };
 		B6227A70230239DB009EF60F /* Impl+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Item.swift"; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B667BA50230B776C0038B098 /* CRRectAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRRectAdjuster.swift; sourceTree = "<group>"; };
+		B667BA51230B776C0038B098 /* CRImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRImageResizer.swift; sourceTree = "<group>"; };
+		B667BA52230B776C0038B098 /* CRObjectNameMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRObjectNameMapper.swift; sourceTree = "<group>"; };
+		B667BA54230B776C0038B098 /* YOLO+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "YOLO+Helpers.swift"; sourceTree = "<group>"; };
+		B667BA55230B776C0038B098 /* Ex+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		B667BA56230B776C0038B098 /* YOLOv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3.mlmodel; sourceTree = "<group>"; };
+		B667BA57230B776C0038B098 /* YOLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YOLO.swift; sourceTree = "<group>"; };
+		B667BA58230B776C0038B098 /* CRObjectDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CRObjectDetector.swift; sourceTree = "<group>"; };
 		B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneController.swift; sourceTree = "<group>"; };
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
 		B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCameraGestureHelper.swift; sourceTree = "<group>"; };
@@ -202,6 +218,7 @@
 		B6030EE92301A4D4005C4312 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				B667BA4F230B776C0038B098 /* RecognitionKit */,
 				B6030EEF2301A523005C4312 /* AppExtensions */,
 				B61E93EC2300E38A008CB325 /* GameKit */,
 				B61E93BE2300E36C008CB325 /* RMKit */,
@@ -497,6 +514,29 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		B667BA4F230B776C0038B098 /* RecognitionKit */ = {
+			isa = PBXGroup;
+			children = (
+				B667BA50230B776C0038B098 /* CRRectAdjuster.swift */,
+				B667BA51230B776C0038B098 /* CRImageResizer.swift */,
+				B667BA52230B776C0038B098 /* CRObjectNameMapper.swift */,
+				B667BA53230B776C0038B098 /* YOLO */,
+				B667BA58230B776C0038B098 /* CRObjectDetector.swift */,
+			);
+			path = RecognitionKit;
+			sourceTree = "<group>";
+		};
+		B667BA53230B776C0038B098 /* YOLO */ = {
+			isa = PBXGroup;
+			children = (
+				B667BA57230B776C0038B098 /* YOLO.swift */,
+				B667BA54230B776C0038B098 /* YOLO+Helpers.swift */,
+				B667BA55230B776C0038B098 /* Ex+CVPixelBuffer.swift */,
+				B667BA56230B776C0038B098 /* YOLOv3.mlmodel */,
+			);
+			path = YOLO;
+			sourceTree = "<group>";
+		};
 		B67A965D23094E4000BD408D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,6 +705,7 @@
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */,
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
+				B667BA5F230B776C0038B098 /* YOLO.swift in Sources */,
 				B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */,
 				B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */,
 				B6227A342301AB84009EF60F /* TSInventry.swift in Sources */,
@@ -680,6 +721,7 @@
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
 				B61E93CB2300E36C008CB325 /* RMBindCenter.swift in Sources */,
 				B6227A372301AB84009EF60F /* TSBlock.swift in Sources */,
+				B667BA59230B776C0038B098 /* CRRectAdjuster.swift in Sources */,
 				B61E94172300E395008CB325 /* TPStorySceneUI.swift in Sources */,
 				B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */,
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
@@ -691,6 +733,7 @@
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,
+				B667BA5C230B776C0038B098 /* YOLO+Helpers.swift in Sources */,
 				B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */,
 				B61E93CD2300E36C008CB325 /* Ex+Swift.swift in Sources */,
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
@@ -700,8 +743,13 @@
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,
+				B667BA5D230B776C0038B098 /* Ex+CVPixelBuffer.swift in Sources */,
 				B61E940F2300E390008CB325 /* _TPStartScenePlayButton.swift in Sources */,
 				B6227A352301AB84009EF60F /* TSBlockItem.swift in Sources */,
+				B667BA5B230B776C0038B098 /* CRObjectNameMapper.swift in Sources */,
+				B667BA5E230B776C0038B098 /* YOLOv3.mlmodel in Sources */,
+				B667BA5A230B776C0038B098 /* CRImageResizer.swift in Sources */,
+				B667BA60230B776C0038B098 /* CRObjectDetector.swift in Sources */,
 				B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */,
 				B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */,
 				B61E93CC2300E36C008CB325 /* Ex+UIImage.swift in Sources */,
