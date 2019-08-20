@@ -295,6 +295,7 @@
 		B61E93D42300E376008CB325 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B667BA56230B776C0038B098 /* YOLOv3.mlmodel */,
 				B61E93D52300E376008CB325 /* Assets.xcassets */,
 				B61E93D62300E376008CB325 /* LaunchScreen.storyboard */,
 				B61E93D82300E376008CB325 /* Main.storyboard */,
@@ -532,7 +533,6 @@
 				B667BA57230B776C0038B098 /* YOLO.swift */,
 				B667BA54230B776C0038B098 /* YOLO+Helpers.swift */,
 				B667BA55230B776C0038B098 /* Ex+CVPixelBuffer.swift */,
-				B667BA56230B776C0038B098 /* YOLOv3.mlmodel */,
 			);
 			path = YOLO;
 			sourceTree = "<group>";
