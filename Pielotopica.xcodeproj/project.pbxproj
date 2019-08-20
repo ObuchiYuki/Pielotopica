@@ -82,6 +82,7 @@
 		B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A692302391A009EF60F /* TP_japanese_house_1.scn */; };
 		B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */; };
 		B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A70230239DB009EF60F /* Impl+Item.swift */; };
+		B634BB0A230C03B800A896A8 /* recognition_object_item_map.json in Resources */ = {isa = PBXBuildFile; fileRef = B634BB09230C03B800A896A8 /* recognition_object_item_map.json */; };
 		B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* RKRectAdjuster.swift */; };
 		B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA51230B776C0038B098 /* RKImageResizer.swift */; };
 		B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */; };
@@ -182,6 +183,7 @@
 		B6227A692302391A009EF60F /* TP_japanese_house_1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_1.scn; sourceTree = "<group>"; };
 		B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_2.scn; sourceTree = "<group>"; };
 		B6227A70230239DB009EF60F /* Impl+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Item.swift"; sourceTree = "<group>"; };
+		B634BB09230C03B800A896A8 /* recognition_object_item_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recognition_object_item_map.json; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B667BA50230B776C0038B098 /* RKRectAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKRectAdjuster.swift; sourceTree = "<group>"; };
 		B667BA51230B776C0038B098 /* RKImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKImageResizer.swift; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				B61E93D82300E376008CB325 /* Main.storyboard */,
 				B6227A662302391A009EF60F /* Object */,
 				B61E93DA2300E376008CB325 /* Fonts */,
+				B634BB09230C03B800A896A8 /* recognition_object_item_map.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				B6227A312301AB84009EF60F /* bokeh.png in Resources */,
 				B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */,
 				B61E94182300E395008CB325 /* TP_core.scn in Resources */,
+				B634BB0A230C03B800A896A8 /* recognition_object_item_map.json in Resources */,
 				B61E93E52300E376008CB325 /* Silom.ttf in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
 				B61E93E22300E376008CB325 /* Assets.xcassets in Resources */,

@@ -17,7 +17,7 @@ import CoreVideo
 public class RKVideoCapture: NSObject {
     // =============================================================== //
     // MARK: - Properties -
-    public var objectDetectingFPS = 30
+    public var objectDetectingFPS = 10
 
     // =============================================================== //
     // MARK: - Private Properties -
@@ -57,7 +57,7 @@ public class RKVideoCapture: NSObject {
     
     public func createPreviewLayer() -> CALayer {
         let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.videoGravity = AVLayerVideoGravity.resizeAspect
+        previewLayer.videoGravity = .resizeAspectFill
         previewLayer.connection?.videoOrientation = .portrait
         
         return previewLayer

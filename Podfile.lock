@@ -1,42 +1,26 @@
 PODS:
-  - ObjcExceptionBridging (1.0.1):
-    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
-  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
-  - SwiftyJSON (5.0.0)
-  - XCGLogger (7.0.0):
-    - XCGLogger/Core (= 7.0.0)
-  - XCGLogger/Core (7.0.0):
-    - ObjcExceptionBridging
 
 DEPENDENCIES:
   - RxCocoa
   - RxSwift
-  - SwiftyJSON
-  - XCGLogger
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - ObjcExceptionBridging
     - RxCocoa
     - RxRelay
     - RxSwift
-    - SwiftyJSON
-    - XCGLogger
 
 SPEC CHECKSUMS:
-  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
-  XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 0fc01403dd833c9971c94c60b24d482e15694192
+PODFILE CHECKSUM: d6867c840c9b01194f9174729961170decd9b799
 
 COCOAPODS: 1.7.5

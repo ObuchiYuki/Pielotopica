@@ -1,0 +1,16 @@
+{
+    "map": [
+        {
+            "name" : "clock",
+            "item": [
+                {
+                    "iron": 5,
+                    "circuit": 1
+                }
+            ]
+        },
+        {
+            "name" : "clock",
+        }
+    ]
+}
