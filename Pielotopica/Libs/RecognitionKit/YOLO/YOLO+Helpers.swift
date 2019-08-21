@@ -1,5 +1,11 @@
-// From YOLO Libs
-// Customed by obuchi yuki.
+//
+//  YOLO+Helpers.swift
+//  TPCaptureScene
+//
+//  Created by yuki on 2019/05/11.
+//  Copyright © 2019 yuki. All rights reserved.
+//
+
 
 import Foundation
 import UIKit
@@ -7,38 +13,28 @@ import CoreML
 import Accelerate
 
 
-/**
- Removes bounding boxes that overlap too much with other boxes that have
- a higher score.
- 
- Based on code from https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/kernels/non_max_suppression_op.cc
- 
- - Parameters:
- - boxes: an array of bounding boxes and their scores
- - limit: the maximum number of boxes that will be selected
- - threshold: used to decide whether boxes overlap too much
- */
+/// IOUアルゴリズムを用いて、閾値以上の重複のあるRectを省きます。
+/// (ちょっと遅い、改善の余地あり？)
+///
+/// - Parameter boxes: 認識結果を渡してください。
+/// - Parameter limit: Boxの最大数を渡してください。
+/// - Parameter threshold: IOUの閾値を渡してください。
 func nonMaxSuppression(boxes: [YOLO.Prediction], limit: Int, threshold: Float) -> [YOLO.Prediction] {
     
-    // Do an argsort on the confidence scores, from high to low.
     let sortedIndices = boxes.indices.sorted { boxes[$0].score > boxes[$1].score }
     
     var selected: [YOLO.Prediction] = []
     var active = [Bool](repeating: true, count: boxes.count)
     var numActive = active.count
     
-    // The algorithm is simple: Start with the box that has the highest score.
-    // Remove any remaining boxes that overlap it more than the given threshold
-    // amount. If there are any boxes left (i.e. these did not overlap with any
-    // previous boxes), then repeat this procedure, until no more boxes remain
-    // or the limit has been reached.
-    outer: for i in 0..<boxes.count {
+    let c = boxes.count
+    outer: for i in 0..<c{
         if active[i] {
             let boxA = boxes[sortedIndices[i]]
             selected.append(boxA)
             if selected.count >= limit { break }
             
-            for j in i+1..<boxes.count {
+            for j in i+1..<c {
                 if active[j] {
                     let boxB = boxes[sortedIndices[j]]
                     if IOU(a: boxA.rect, b: boxB.rect) > threshold {
@@ -53,9 +49,7 @@ func nonMaxSuppression(boxes: [YOLO.Prediction], limit: Int, threshold: Float) -
     return selected
 }
 
-/**
- Computes intersection-over-union overlap between two bounding boxes.
- */
+/// 2つのRectのIOU値を返します。
 public func IOU(a: CGRect, b: CGRect) -> Float {
     let areaA = a.width * a.height
     if areaA <= 0 { return 0 }
@@ -67,51 +61,37 @@ public func IOU(a: CGRect, b: CGRect) -> Float {
     let intersectionMinY = max(a.minY, b.minY)
     let intersectionMaxX = min(a.maxX, b.maxX)
     let intersectionMaxY = min(a.maxY, b.maxY)
-    let intersectionArea = max(intersectionMaxY - intersectionMinY, 0) *
-        max(intersectionMaxX - intersectionMinX, 0)
+    let intersectionArea = max(intersectionMaxY - intersectionMinY, 0) * max(intersectionMaxX - intersectionMinX, 0)
+    
     return Float(intersectionArea / (areaA + areaB - intersectionArea))
 }
 
 extension Array where Element: Comparable {
-    /**
-     Returns the index and value of the largest element in the array.
-     */
-    public func argmax() -> (Int, Element) {
-        precondition(self.count > 0)
+    
+    internal func argmax() -> (Int, Element) {
+        
         var maxIndex = 0
         var maxValue = self[0]
-        for i in 1..<self.count {
+        let c = self.count
+        
+        for i in 1..<c{
             if self[i] > maxValue {
                 maxValue = self[i]
                 maxIndex = i
             }
         }
+        
         return (maxIndex, maxValue)
     }
 }
 
-/**
- Logistic sigmoid.
- */
-public func sigmoid(_ x: Float) -> Float {
+/// sigmoidの実装
+internal func sigmoid(_ x: Float) -> Float {
     return 1 / (1 + exp(-x))
 }
 
-/**
- Computes the "softmax" function over an array.
- 
- Based on code from https://github.com/nikolaypavlov/MLPNeuralNet/
- 
- This is what softmax looks like in "pseudocode" (actually using Python
- and numpy):
- 
- x -= np.max(x)
- exp_scores = np.exp(x)
- softmax = exp_scores / np.sum(exp_scores)
- 
- First we shift the values of x so that the highest value in the array is 0.
- This ensures numerical stability with the exponents, so they don't blow up.
- */
+/// Copied from
+/// https://github.com/nikolaypavlov/MLPNeuralNet/
 public func softmax(_ x: [Float]) -> [Float] {
     var x = x
     let len = vDSP_Length(x.count)

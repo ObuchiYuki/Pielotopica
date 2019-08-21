@@ -3,7 +3,7 @@
 //  YOLOv3-CoreML
 //
 //  Created by yuki on 2019/07/11.
-//  Copyright © 2019 MachineThink. All rights reserved.
+//  Copyright © 2019 yuki. All rights reserved.
 //
 
 import CoreGraphics

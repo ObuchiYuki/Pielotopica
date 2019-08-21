@@ -25,7 +25,7 @@ public class RKVideoCapture: NSObject {
     private var detector: RKObjectDetector!
     private var lastTimestamp = CMTime()
     private let captureSession = AVCaptureSession()
-    private let queue = DispatchQueue(label: "com.pielotopica.camera-queue")
+    private let queue = DispatchQueue(label: "com.pielotopica.buffer-queue")
     
     // =============================================================== //
     // MARK: - Methods -
@@ -35,7 +35,7 @@ public class RKVideoCapture: NSObject {
     }
     
     public func setUp(sessionPreset: AVCaptureSession.Preset = .medium, completion: @escaping (Bool) -> Void) {
-        queue.async {
+        DispatchQueue.global().async {
             let success = self.setUpCamera(sessionPreset: sessionPreset)
             DispatchQueue.main.async {
                 completion(success)

@@ -5,26 +5,22 @@ PODS:
   - RxRelay (5.0.0):
     - RxSwift (~> 5)
   - RxSwift (5.0.0)
-  - SwiftyAttributedString (1.0.1)
 
 DEPENDENCIES:
   - RxCocoa
   - RxSwift
-  - SwiftyAttributedString
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - RxCocoa
     - RxRelay
     - RxSwift
-    - SwiftyAttributedString
 
 SPEC CHECKSUMS:
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
-  SwiftyAttributedString: 0a90d4e6d8a7ebf9432edd75cf992ae2d09ffdcd
 
-PODFILE CHECKSUM: e1788845f9fd69bb36fe22b47ad95289aecdf2db
+PODFILE CHECKSUM: 676cdfe9340f5ff41a98dc3c57e054f6a77cc453
 
 COCOAPODS: 1.7.5

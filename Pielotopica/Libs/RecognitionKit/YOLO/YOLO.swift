@@ -1,3 +1,11 @@
+//
+//  YOLO.swift
+//  TPCaptureScene
+//
+//  Created by yuki on 2019/07/11.
+//  Copyright © 2019 yuki. All rights reserved.
+//
+
 import Foundation
 import UIKit
 import CoreML
@@ -6,16 +14,20 @@ private let anchors: [[Float]] = [[116,90,  156,198,  373,326], [30,61,  62,45, 
 
 public class YOLO {
     
+    // ===================================================================== //
+    // MARK: - Properties -
     public static let inputWidth = 416
     public static let inputHeight = 416
     public static let maxBoundingBoxes = 10
     
-    // confidenceThreshold をあげれば、認識される物体数は減少します。
+    /// 確証度の閾値です。
+    /// confidenceThreshold をあげれば、認識される物体数は減少します。
     var confidenceThreshold: Float = 0.7
     
+    /// IOU(物体の重複を防ぐ)の閾値です。
     /// iouThresholdを下げれば、物体の重複認識は減ります。
     var iouThreshold: Float = 0.3
-    
+     
     public struct Prediction {
         public let classIndex: Int
         public let score: Float
@@ -24,8 +36,10 @@ public class YOLO {
     
     let model = YOLOv3()
     
-    public init() { }
+    // ===================================================================== //
+    // MARK: - Methods -
     
+    /// バッファーに入ってきた画像を同期的に解析します。
     public func predict(image: CVPixelBuffer) -> [Prediction] {
         if let output = try? model.prediction(input1: image) {
             return computeBoundingBoxes(features: [output.output1, output.output2, output.output3])
