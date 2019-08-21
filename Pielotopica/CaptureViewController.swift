@@ -14,7 +14,7 @@ class CaptureViewController: UIViewController {
     private let detector = RKObjectDetector()
     private let videoCapture = RKVideoCapture()
     
-    private var boundingBoxes = [BoundingBox]()
+    private var boundingBoxeProviders = [BoundingBoxProvider]()
     private var colors = [UIColor]()
     
     lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CaptureViewController.handleTap(_:)))
@@ -49,10 +49,7 @@ class CaptureViewController: UIViewController {
         
         detector.iouThreshold = 0.2
         
-        previewView.isUserInteractionEnabled = true
         previewView.clipsToBounds = true
-        
-        tapGestureRecognizer.numberOfTapsRequired = 1
         previewView.addGestureRecognizer(tapGestureRecognizer)
         
         setUpBoundingBoxes()
@@ -69,16 +66,14 @@ class CaptureViewController: UIViewController {
     private func showBoundingBoxes(predictions: [RKObjectDetector.Prediction]) {
         currentShowingPredictions = predictions
         
-        for i in 0..<boundingBoxes.count {
+        for i in 0..<boundingBoxeProviders.count {
             if i < predictions.count {
                 let prediction = predictions[i]
                 let label = prediction.name
-                
-                let color = colors[prediction.classIndex]
-                
-                boundingBoxes[i].show(frame: prediction.rect(for: previewView.frame.size), label: label, color: color)
+                                
+                boundingBoxeProviders[i].show(at: prediction.rect(for: previewView.frame.size).origin, with: label)
             } else {
-                boundingBoxes[i].hide()
+                boundingBoxeProviders[i].hide()
             }
         }
     }
@@ -102,7 +97,7 @@ class CaptureViewController: UIViewController {
             previewLayer.frame.size = self.previewView.frame.size
             self.previewView.layer.insertSublayer(previewLayer, at: 0)
             
-            for box in self.boundingBoxes {
+            for box in self.boundingBoxeProviders {
                 box.addToLayer(self.previewView.layer)
             }
             
@@ -113,15 +108,7 @@ class CaptureViewController: UIViewController {
     
     private func setUpBoundingBoxes() {
         for _ in 0..<YOLO.maxBoundingBoxes {
-            boundingBoxes.append(BoundingBox())
-        }
-        
-        for r: CGFloat in [0.2, 0.4, 0.6, 0.8, 1.0] {
-            for g: CGFloat in [0.3, 0.7, 0.6, 0.8] {
-                for b: CGFloat in [0.4, 0.8, 0.6, 1.0] {
-                    colors.append(UIColor(red: r, green: g, blue: b, alpha: 1))
-                }
-            }
+            boundingBoxeProviders.append(BoundingBoxProvider())
         }
     }
 }

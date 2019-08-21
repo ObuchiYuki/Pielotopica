@@ -198,6 +198,16 @@
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
 		B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCameraGestureHelper.swift; sourceTree = "<group>"; };
 		B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneModel.swift; sourceTree = "<group>"; };
+		B68AA6E6230D4FA000E752D9 /* ヒラギノ角ゴシック W0.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W0.ttc"; sourceTree = "<group>"; };
+		B68AA6E7230D4FA100E752D9 /* ヒラギノ角ゴシック W6.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W6.ttc"; sourceTree = "<group>"; };
+		B68AA6E8230D4FA200E752D9 /* ヒラギノ角ゴシック W8.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W8.ttc"; sourceTree = "<group>"; };
+		B68AA6E9230D4FA300E752D9 /* ヒラギノ角ゴシック W3.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W3.ttc"; sourceTree = "<group>"; };
+		B68AA6EA230D4FA400E752D9 /* ヒラギノ角ゴシック W9.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W9.ttc"; sourceTree = "<group>"; };
+		B68AA6EB230D4FA500E752D9 /* ヒラギノ角ゴシック W5.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W5.ttc"; sourceTree = "<group>"; };
+		B68AA6EC230D4FA600E752D9 /* ヒラギノ角ゴシック W7.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W7.ttc"; sourceTree = "<group>"; };
+		B68AA6ED230D4FA700E752D9 /* ヒラギノ角ゴシック W2.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W2.ttc"; sourceTree = "<group>"; };
+		B68AA6EE230D4FA800E752D9 /* ヒラギノ角ゴシック W1.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W1.ttc"; sourceTree = "<group>"; };
+		B68AA6EF230D4FA900E752D9 /* ヒラギノ角ゴシック W4.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W4.ttc"; sourceTree = "<group>"; };
 		B6A89CB6230B803F007F5416 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +332,16 @@
 		B61E93DA2300E376008CB325 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				B68AA6E6230D4FA000E752D9 /* ヒラギノ角ゴシック W0.ttc */,
+				B68AA6EE230D4FA800E752D9 /* ヒラギノ角ゴシック W1.ttc */,
+				B68AA6ED230D4FA700E752D9 /* ヒラギノ角ゴシック W2.ttc */,
+				B68AA6E9230D4FA300E752D9 /* ヒラギノ角ゴシック W3.ttc */,
+				B68AA6EF230D4FA900E752D9 /* ヒラギノ角ゴシック W4.ttc */,
+				B68AA6EB230D4FA500E752D9 /* ヒラギノ角ゴシック W5.ttc */,
+				B68AA6E7230D4FA100E752D9 /* ヒラギノ角ゴシック W6.ttc */,
+				B68AA6EC230D4FA600E752D9 /* ヒラギノ角ゴシック W7.ttc */,
+				B68AA6E8230D4FA200E752D9 /* ヒラギノ角ゴシック W8.ttc */,
+				B68AA6EA230D4FA400E752D9 /* ヒラギノ角ゴシック W9.ttc */,
 				B6227A6523023912009EF60F /* 5squared-pixel.ttf */,
 				B61E93DB2300E376008CB325 /* Silom.ttf */,
 				B61E93DC2300E376008CB325 /* Korneuburg-Slab-Bold_Slanted.ttf */,
