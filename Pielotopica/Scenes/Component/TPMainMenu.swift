@@ -41,7 +41,7 @@ class TPMainMenu: SKSpriteNode {
         
         self.position = CGPoint(
             x: -GKSafeScene.sceneSize.width/2 + 23,
-            y: -GKSafeScene.sceneSize.height/2 + 76/2
+            y: -GKSafeScene.sceneSize.height/2 + 16
         )
         
     }

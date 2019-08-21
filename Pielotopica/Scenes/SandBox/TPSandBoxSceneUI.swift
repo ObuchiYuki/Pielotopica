@@ -21,6 +21,7 @@ class TPStoryScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
     let mainmenu = TPMainMenu()
+    let header = TPHeader()
     
     // =============================================================== //
     // MARK: - Private Properties -
@@ -29,8 +30,10 @@ class TPStoryScene: GKSafeScene {
     // MARK: - Methods -
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        rootNode.color = UIColor.black.withAlphaComponent(0.4)
         
         self.rootNode.addChild(mainmenu)
+        self.rootNode.addChild(header)
     }
     
     // =============================================================== //

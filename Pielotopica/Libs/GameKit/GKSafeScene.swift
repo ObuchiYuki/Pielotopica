@@ -34,8 +34,10 @@ public class GKSafeScene: SKScene {
     }
     
     public override func addChild(_ node: SKNode) {
+        
         fatalError("You cannot add a node directly to GKSafeScene. Use rootNode instead.")
     }
+    
 }
 
 extension GKSafeScene {

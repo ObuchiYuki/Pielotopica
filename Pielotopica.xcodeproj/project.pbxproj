@@ -102,6 +102,7 @@
 		B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */; };
 		B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02A8230D6ED400F0FF48 /* TPMainMenu.swift */; };
 		B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02AA230D78B800F0FF48 /* RMTimeStamp.swift */; };
+		B6AA02AD230D7EBE00F0FF48 /* TPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02AC230D7EBE00F0FF48 /* TPHeader.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -218,6 +219,7 @@
 		B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMainMenuItem.swift; sourceTree = "<group>"; };
 		B6AA02A8230D6ED400F0FF48 /* TPMainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMainMenu.swift; sourceTree = "<group>"; };
 		B6AA02AA230D78B800F0FF48 /* RMTimeStamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMTimeStamp.swift; sourceTree = "<group>"; };
+		B6AA02AC230D7EBE00F0FF48 /* TPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPHeader.swift; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -283,9 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				B61E93BC2300E368008CB325 /* AppDelegate.swift */,
-				B66D41CA230BD218004BBE8E /* MainViewController.swift */,
-				B61E93BA2300E361008CB325 /* GameViewController.swift */,
-				B6A89CB8230B8040007F5416 /* CaptureViewController.swift */,
+				B6AA02AE230D803F00F0FF48 /* View */,
 				B6A89CB6230B803F007F5416 /* BoundingBox.swift */,
 				B6030EE92301A4D4005C4312 /* Libs */,
 				B6227A4F2301AE8D009EF60F /* SandBox */,
@@ -596,8 +596,19 @@
 			children = (
 				B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */,
 				B6AA02A8230D6ED400F0FF48 /* TPMainMenu.swift */,
+				B6AA02AC230D7EBE00F0FF48 /* TPHeader.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		B6AA02AE230D803F00F0FF48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B61E93BA2300E361008CB325 /* GameViewController.swift */,
+				B66D41CA230BD218004BBE8E /* MainViewController.swift */,
+				B6A89CB8230B8040007F5416 /* CaptureViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
@@ -791,6 +802,7 @@
 				B61E94092300E390008CB325 /* _TPStartSceneTabItem.swift in Sources */,
 				B6227A362301AB84009EF60F /* TSItem.swift in Sources */,
 				B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */,
+				B6AA02AD230D7EBE00F0FF48 /* TPHeader.swift in Sources */,
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,

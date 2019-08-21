@@ -19,9 +19,6 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XV9-0j-sKJ">
                                 <rect key="frame" x="187" y="320" width="41" height="30"/>
                                 <state key="normal" title="Game"/>
-                                <connections>
-                                    <segue destination="ssd-7Z-w0K" kind="show" id="xzN-p6-puI"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y13-b4-V6E">
                                 <rect key="frame" x="183" y="419" width="55" height="30"/>
@@ -99,19 +96,31 @@
             <objects>
                 <viewController id="ssd-7Z-w0K" customClass="GameViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VMl-9M-HLj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_overray_dark" translatesAutoresizingMaskIntoConstraints="NO" id="hUP-1a-tSX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hUP-1a-tSX" firstAttribute="leading" secondItem="IVE-uF-c65" secondAttribute="leading" id="IUx-zZ-xOQ"/>
+                            <constraint firstItem="hUP-1a-tSX" firstAttribute="top" secondItem="VMl-9M-HLj" secondAttribute="top" id="Mg6-zC-wzM"/>
+                            <constraint firstAttribute="bottom" secondItem="hUP-1a-tSX" secondAttribute="bottom" id="bfx-WG-1Cb"/>
+                            <constraint firstItem="hUP-1a-tSX" firstAttribute="trailing" secondItem="IVE-uF-c65" secondAttribute="trailing" id="r9q-Uf-SSD"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IVE-uF-c65"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3E-gP-NKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1053" y="-24"/>
+            <point key="canvasLocation" x="1050.7246376811595" y="-24.107142857142858"/>
         </scene>
     </scenes>
     <resources>
         <image name="TP_cap_background" width="375" height="667"/>
         <image name="TP_cap_preview_frame" width="364" height="365"/>
+        <image name="TP_overray_dark" width="375" height="667"/>
     </resources>
 </document>
