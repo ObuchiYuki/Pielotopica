@@ -20,6 +20,7 @@ protocol TPCameraGestureHelperDelegate:class {
 class TPSandboxCameraGestureHelper {
     weak var delegate:TPCameraGestureHelperDelegate!
     
+    private var timeStamp = RMTimeStamp()
     private var pinchScale:Float = 1.0
     private var originalPinchScale:Float = 1.0
     private var cameraStartPosition = SCNVector3.zero
@@ -39,6 +40,10 @@ class TPSandboxCameraGestureHelper {
     
     /// パン時に呼び出してください。
     func panned(to vector:CGPoint) {
+        guard timeStamp.isSameFrame()  else { return } // まあ、Appleのバグなので...
+        
+        timeStamp.press()
+        
         let dx:Float = Float(vector.x) / 50 * Float(1.0 / pinchScale)
         let dy:Float = Float(vector.y) / 40 * Float(1.0 / pinchScale)
         
@@ -51,5 +56,7 @@ class TPSandboxCameraGestureHelper {
     func onTouch(cameraStartedAt position:SCNVector3) {
         originalPinchScale = pinchScale
         cameraStartPosition = position
+        
+        timeStamp.press()
     }
 }

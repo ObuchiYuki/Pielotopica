@@ -52,7 +52,9 @@ public class GKGameViewController: UIViewController {
 
     /// 3DSceneがタッチに反応する必要があるかどうかです。
     public func should3DSceneRespondToTouch(at point:CGPoint) -> Bool {
-         return _nodesOnOverlayScene(at: point).isEmpty
+        
+        
+        return _nodesOnTouch.isEmpty && _nodesOnOverlayScene(at: point).isEmpty
     }
     
     //==================================================================
@@ -98,7 +100,7 @@ public class GKGameViewController: UIViewController {
             _nodesOnTouch.forEach{$0.touchesEnded(touches, with: event)}
             _nodesOnTouch = []
         }
-        
+
     }
     
     override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

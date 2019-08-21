@@ -80,6 +80,8 @@ class TSBlockPlaceHelper {
     
     private var isPlacingEnd = false
     
+    private var timeStamp = RMTimeStamp()
+    
     /// ブロック仮設置用ノードです。
     private lazy var blockNode:SCNNode? = {
         guard block.canCreateNode() else {return nil}
@@ -118,10 +120,14 @@ class TSBlockPlaceHelper {
     func onTouch() {
         blockNode.map{TSVector3($0.position)}.map{initialNodePosition = $0}
         
+        timeStamp.press()
     }
     
     /// 画面がドラッグされたら呼びだしてください。
     func blockDidDrag(with vector:CGPoint) {
+        guard timeStamp.isSameFrame() else { return }
+        timeStamp.press()
+        
         guard let blockNode = blockNode else {return}
         
         nodePosition = initialNodePosition + _convertToNodeMovement(from: TSVector2(vector)) // ノードの場所計算
