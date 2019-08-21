@@ -21,9 +21,10 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Let's do some deep learning!</string>
+	<string>Let&apos;s do some deep learning!</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>ヒラギノ角ゴシック W6.ttc</string>
 		<string>5squared-pixel.ttf</string>
 		<string>Silom.ttf</string>
 		<string>Korneuburg-Slab-Bold.ttf</string>

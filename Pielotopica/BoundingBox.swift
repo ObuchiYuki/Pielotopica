@@ -6,7 +6,7 @@ class BoundingBoxProvider {
     // =============================================================== //
     // MARK: - Properties -
     private static let fontSize:CGFloat = 16
-    private static let font = UIFont(name: "Avenir", size: fontSize)
+    private static let font = UIFont(name: TPCommon.FontName.hiraBold, size: fontSize)
 
     private static let attributes:[NSAttributedString.Key: Any] = [
         .font: BoundingBoxProvider.font as Any,
