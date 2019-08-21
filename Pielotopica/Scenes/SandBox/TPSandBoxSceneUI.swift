@@ -30,7 +30,7 @@ class TPStoryScene: GKSafeScene {
     // MARK: - Methods -
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        rootNode.color = UIColor.black.withAlphaComponent(0.4)
+        //rootNode.color = UIColor.black.withAlphaComponent(0.4)
         
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)

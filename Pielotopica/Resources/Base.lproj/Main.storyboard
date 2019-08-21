@@ -95,7 +95,7 @@
         <scene sceneID="pTJ-co-Wb6">
             <objects>
                 <viewController id="ssd-7Z-w0K" customClass="GameViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="VMl-9M-HLj">
+                    <view key="view" contentMode="scaleToFill" id="VMl-9M-HLj" customClass="SCNView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
