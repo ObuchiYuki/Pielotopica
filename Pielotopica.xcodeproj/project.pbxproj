@@ -92,11 +92,13 @@
 		B667BA5F230B776C0038B098 /* YOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA57230B776C0038B098 /* YOLO.swift */; };
 		B667BA60230B776C0038B098 /* RKObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA58230B776C0038B098 /* RKObjectDetector.swift */; };
 		B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690596230E245E008AE24F /* TPBuildItemBar.swift */; };
+		B6690599230E2861008AE24F /* TPDropButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690598230E2861008AE24F /* TPDropButton.swift */; };
 		B66D41CB230BD218004BBE8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D41CA230BD218004BBE8E /* MainViewController.swift */; };
 		B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */; };
 		B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */; };
 		B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */; };
 		B67A966323094E6300BD408D /* TPSandboxSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */; };
+		B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */; };
 		B6A89CB9230B8040007F5416 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* BoundingBox.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* CaptureViewController.swift */; };
@@ -202,6 +204,7 @@
 		B667BA57230B776C0038B098 /* YOLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YOLO.swift; sourceTree = "<group>"; };
 		B667BA58230B776C0038B098 /* RKObjectDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKObjectDetector.swift; sourceTree = "<group>"; };
 		B6690596230E245E008AE24F /* TPBuildItemBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBar.swift; sourceTree = "<group>"; };
+		B6690598230E2861008AE24F /* TPDropButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDropButton.swift; sourceTree = "<group>"; };
 		B66D41CA230BD218004BBE8E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneController.swift; sourceTree = "<group>"; };
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
@@ -217,6 +220,7 @@
 		B68AA6ED230D4FA700E752D9 /* ヒラギノ角ゴシック W2.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W2.ttc"; sourceTree = "<group>"; };
 		B68AA6EE230D4FA800E752D9 /* ヒラギノ角ゴシック W1.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W1.ttc"; sourceTree = "<group>"; };
 		B68AA6EF230D4FA900E752D9 /* ヒラギノ角ゴシック W4.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W4.ttc"; sourceTree = "<group>"; };
+		B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPFlatButton.swift; sourceTree = "<group>"; };
 		B6A89CB6230B803F007F5416 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* CaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
@@ -607,6 +611,8 @@
 				B6AA02AC230D7EBE00F0FF48 /* TPHeader.swift */,
 				B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */,
 				B6690596230E245E008AE24F /* TPBuildItemBar.swift */,
+				B6690598230E2861008AE24F /* TPDropButton.swift */,
+				B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -795,6 +801,7 @@
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
 				B667BA5F230B776C0038B098 /* YOLO.swift in Sources */,
 				B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */,
+				B6690599230E2861008AE24F /* TPDropButton.swift in Sources */,
 				B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */,
 				B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */,
 				B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */,
@@ -807,6 +814,7 @@
 				B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */,
 				B6227A302301AB84009EF60F /* TSPlayer.swift in Sources */,
 				B6227A6323023732009EF60F /* LargeJapaneseHouse.swift in Sources */,
+				B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
