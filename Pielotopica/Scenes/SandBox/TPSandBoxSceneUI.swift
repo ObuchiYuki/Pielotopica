@@ -38,6 +38,7 @@ class TPStoryScene: GKSafeScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
+        rootNode.color = UIColor.black.withAlphaComponent(0.5)
         mainmenu.buildItem.addTarget(self, action: #selector(buildItemTap(_:)), for: .touchUpInside)
         
         self.rootNode.addChild(mainmenu)
@@ -46,9 +47,6 @@ class TPStoryScene: GKSafeScene {
         
         header.helthSlider.value = 50
         header.oilSlider.value = 60
-        
-        itemBar.position = [0, -500]
-        itemBar.isHidden = true
     }
     
     // =============================================================== //
@@ -58,9 +56,7 @@ class TPStoryScene: GKSafeScene {
     // MARK: - Private Methods -
     @objc private func buildItemTap(_ button:GKButtonNode) {
         mainmenu.hide()
-        
-        itemBar.isHidden = false
-        itemBar.run(.moveTo(y: -300, duration: 0.3))
+        itemBar.show()
     }
 }
 

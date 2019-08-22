@@ -13,11 +13,15 @@ class TPFlatButton: GKButtonNode {
         super.init(
             size: [75, 26],
             defaultTexture: .init(imageNamed: name),
-            selectedTexture: nil,
+            selectedTexture: .init(imageNamed: name+"_pressed"),
             disabledTexture: nil
         )
         
         self.anchorPoint = .zero
+    }
+    
+    override func buttonDidUnselect() {
+        RMTapticEngine.impact.feedback(.medium)
     }
     
     required init(coder: NSCoder) {
