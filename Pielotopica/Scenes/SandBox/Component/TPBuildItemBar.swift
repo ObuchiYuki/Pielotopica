@@ -10,7 +10,6 @@ import RxSwift
 import RxCocoa
 import SpriteKit
 
-// おかゆんカッコいい...惚れそう
 class TPBuildItemBar: GKSpriteNode {
     // ============================================================ //
     // MARK: - Nodes -
@@ -29,6 +28,11 @@ class TPBuildItemBar: GKSpriteNode {
         selectedTexture: .init(imageNamed: "TP_build_itembar_morebutton_pressed"),
         disabledTexture: nil
     )
+    
+    private let allBarItems = [
+        TPBuildItemBarItem(), TPBuildItemBarItem(),
+        TPBuildItemBarItem(), TPBuildItemBarItem(),
+    ]
     
     private var allDropButtons:[SKSpriteNode] {
         return [placeButton, moveButton, destoryButton]
@@ -98,6 +102,7 @@ class TPBuildItemBar: GKSpriteNode {
         
         _setupButtons()
         _setupInventoryNodes()
+        _setupBarItems()
     }
     
     // ============================================================ //
@@ -117,6 +122,22 @@ class TPBuildItemBar: GKSpriteNode {
         self.inventory.selectedItemIndex.bind{[weak self] e in
             self?.moveFrame(to: e)
         }.disposed(by: bag)
+        
+        self.inventory.itemStacks.bind{[weak self] itemStack in
+            guard let self = self else {return}
+            
+            for (i, baritem) in self.allBarItems.enumerated() {
+                baritem.setItemStack(itemStack[i])
+            }
+        }.disposed(by: bag)
+    }
+    
+    private func _setupBarItems() {
+        allBarItems.enumerated().forEach{(i, e) in
+            e.position = [CGFloat(41 + 57.5 * Double(i)) , 41]
+            
+            self.addChild(e)
+        }
     }
     
     private func moveFrame(to index:Int) {

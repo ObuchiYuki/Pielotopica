@@ -17,6 +17,34 @@ public extension GKSceneHolder {
     
 }
 
+class TPSandBoxSceneUIModel {
+    func onBuildPlaceButtonTap() {
+        
+    }
+    func onBuildMoveButtonTap() {
+        
+    }
+    func onBuildDestroyButtonTap() {
+        
+    }
+    func onBuildBackButtonTap() {
+        
+    }
+    
+    func onMainMenuMenuItemTap() {
+        
+    }
+    func onMainMenuBuildItemTap() {
+        
+    }
+    func onMainMenuCaptureItemTap() {
+        
+    }
+    func onMainMenuShopItemTap() {
+        
+    }
+}
+
 class TPSandBoxScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
@@ -40,7 +68,6 @@ class TPSandBoxScene: GKSafeScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
-        rootNode.color = UIColor.black.withAlphaComponent(0.5)
         mainmenu.buildItem.addTarget(self, action: #selector(buildItemTap(_:)), for: .touchUpInside)
         mainmenu.captureItem.addTarget(self, action: #selector(buildCaptureTap(_:)), for: .touchUpInside)
         itemBar.backButton.addTarget(self, action: #selector(buildBackTap(_:)), for: .touchUpInside)
@@ -48,9 +75,6 @@ class TPSandBoxScene: GKSafeScene {
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
         self.rootNode.addChild(itemBar)
-        
-        header.helthSlider.value = 50
-        header.oilSlider.value = 60
     }
     
     // =============================================================== //
@@ -68,11 +92,15 @@ class TPSandBoxScene: GKSafeScene {
     @objc private func buildItemTap(_ button:GKButtonNode) {
         mainmenu.hide()
         itemBar.show()
+        
+        sceneModel.canEnterBlockPlaingMode = true
     }
     
     @objc private func buildBackTap(_ button:GKButtonNode) {
         mainmenu.show()
         itemBar.hide()
+        
+        sceneModel.canEnterBlockPlaingMode = false
     }
 }
 

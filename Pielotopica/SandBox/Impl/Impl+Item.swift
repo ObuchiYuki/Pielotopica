@@ -11,7 +11,7 @@ import Foundation
 
 // TSItemへの登録
 public extension TSItem {
-    static let none = TSItem(name: "<nil>", index: 0, textureNamed: "TP_nil")
+    static let none = TSItem(name: "<none>", index: 0, textureNamed: "TP_none")
     
     static let japaneseHouse1 = TSBlockItem(name: "オオキナニホンカオク", textureNamed: "TP_item_thumb_japanese_house_1", block: .largeJapanaeseHouse)
     
