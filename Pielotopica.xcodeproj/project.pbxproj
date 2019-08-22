@@ -99,6 +99,7 @@
 		B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */; };
 		B67A966323094E6300BD408D /* TPSandboxSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */; };
 		B6931446230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */; };
+		B6931448230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */; };
 		B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */; };
 		B69CE2F7230E6CE600CE04E6 /* Ex+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */; };
 		B6A89CB9230B8040007F5416 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* BoundingBox.swift */; };
@@ -223,6 +224,7 @@
 		B68AA6EE230D4FA800E752D9 /* ヒラギノ角ゴシック W1.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W1.ttc"; sourceTree = "<group>"; };
 		B68AA6EF230D4FA900E752D9 /* ヒラギノ角ゴシック W4.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W4.ttc"; sourceTree = "<group>"; };
 		B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBarItem.swift; sourceTree = "<group>"; };
+		B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandBoxSceneUIModel.swift; sourceTree = "<group>"; };
 		B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPFlatButton.swift; sourceTree = "<group>"; };
 		B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+UIStoryboard.swift"; sourceTree = "<group>"; };
 		B6A89CB6230B803F007F5416 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 			children = (
 				B61E94142300E394008CB325 /* TPSandBoxScene.swift */,
 				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
+				B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */,
 				B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */,
 				B6AA02A5230D6E5A00F0FF48 /* Component */,
 				B67A965D23094E4000BD408D /* Helper */,
@@ -829,6 +832,7 @@
 				B6A89CB9230B8040007F5416 /* BoundingBox.swift in Sources */,
 				B61E93CB2300E36C008CB325 /* RMBindCenter.swift in Sources */,
 				B6227A372301AB84009EF60F /* TSBlock.swift in Sources */,
+				B6931448230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift in Sources */,
 				B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */,
 				B61E94172300E395008CB325 /* TPSandBoxScene.swift in Sources */,
 				B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */,

@@ -17,34 +17,6 @@ public extension GKSceneHolder {
     
 }
 
-class TPSandBoxSceneUIModel {
-    func onBuildPlaceButtonTap() {
-        
-    }
-    func onBuildMoveButtonTap() {
-        
-    }
-    func onBuildDestroyButtonTap() {
-        
-    }
-    func onBuildBackButtonTap() {
-        
-    }
-    
-    func onMainMenuMenuItemTap() {
-        
-    }
-    func onMainMenuBuildItemTap() {
-        
-    }
-    func onMainMenuCaptureItemTap() {
-        
-    }
-    func onMainMenuShopItemTap() {
-        
-    }
-}
-
 class TPSandBoxScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
@@ -61,16 +33,22 @@ class TPSandBoxScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Private Properties -
     
-    private var sceneModel:TPSandboxSceneModel { TPSandboxSceneModel.initirized! }
+    private lazy var sceneModel = TPSandBoxSceneUIModel(self)
     
     // =============================================================== //
     // MARK: - Methods -
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
-        mainmenu.buildItem.addTarget(self, action: #selector(buildItemTap(_:)), for: .touchUpInside)
-        mainmenu.captureItem.addTarget(self, action: #selector(buildCaptureTap(_:)), for: .touchUpInside)
-        itemBar.backButton.addTarget(self, action: #selector(buildBackTap(_:)), for: .touchUpInside)
+        mainmenu.menuItem.addTarget(self, action: #selector(mainMenuItemDidTap), for: .touchUpInside)
+        mainmenu.buildItem.addTarget(self, action: #selector(mainBuildItemDidTap), for: .touchUpInside)
+        mainmenu.captureItem.addTarget(self, action: #selector(mainCaptureItemDidTap), for: .touchUpInside)
+        mainmenu.buildItem.addTarget(self, action: #selector(mainShopItemDidTap), for: .touchUpInside)
+        
+        itemBar.backButton.addTarget(self, action: #selector(buildBackButtonDidTap), for: .touchUpInside)
+        itemBar.placeButton.addTarget(self, action: #selector(buildPlaceButtonDidTap), for: .touchUpInside)
+        itemBar.moveButton.addTarget(self, action: #selector(buildMoveButtonDidTap), for: .touchUpInside)
+        itemBar.destoryButton.addTarget(self, action: #selector(buildDestoryButtonDidTap), for: .touchUpInside)
         
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
@@ -83,24 +61,51 @@ class TPSandBoxScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Private Methods -
     
-    @objc private func buildCaptureTap(_ button:GKButtonNode) {
-        (gkViewContoller.presentingViewController as! RouterViewController).route = .capture
-        
-        gkViewContoller.dismiss(animated: false, completion: {})
+    // MARK: - Main Menu Button Handlers -
+    @objc private func mainMenuItemDidTap(_ button:GKButtonNode) {
+        sceneModel.onMainMenuMenuItemTap()
+    }
+    @objc private func mainBuildItemDidTap(_ button:GKButtonNode) {
+        sceneModel.onMainMenuBuildItemTap()
+    }
+    @objc private func mainCaptureItemDidTap(_ button:GKButtonNode) {
+        sceneModel.onMainMenuCaptureItemTap()
+    }
+    @objc private func mainShopItemDidTap(_ button:GKButtonNode) {
+        sceneModel.onMainMenuShopItemTap()
     }
     
-    @objc private func buildItemTap(_ button:GKButtonNode) {
-        mainmenu.hide()
-        itemBar.show()
-        
-        sceneModel.canEnterBlockPlaingMode = true
+    // MARK: - Build Scene Button Handlers -
+    @objc private func buildBackButtonDidTap(_ button:GKButtonNode) {
+        sceneModel.onBuildBackButtonTap()
     }
-    
-    @objc private func buildBackTap(_ button:GKButtonNode) {
-        mainmenu.show()
-        itemBar.hide()
-        
-        sceneModel.canEnterBlockPlaingMode = false
+    @objc private func buildPlaceButtonDidTap(_ button:GKButtonNode) {
+        sceneModel.onBuildPlaceButtonTap()
+    }
+    @objc private func buildMoveButtonDidTap(_ button:GKButtonNode) {
+        sceneModel.onBuildMoveButtonTap()
+    }
+    @objc private func buildDestoryButtonDidTap(_ button:GKButtonNode) {
+        sceneModel.onBuildDestroyButtonTap()
     }
 }
 
+extension TPSandBoxScene: TPSandBoxSceneUIModelBinder {
+    var __viewController: UIViewController {
+        return super.gkViewContoller
+    }
+    
+    func __showMainMenu() {
+        mainmenu.show()
+    }
+    func __hideMainMenu() {
+        mainmenu.hide()
+    }
+    
+    func __showItemBar() {
+        itemBar.show()
+    }
+    func __hideItemBar() {
+        itemBar.hide()
+    }
+}
