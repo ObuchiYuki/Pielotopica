@@ -13,7 +13,7 @@ import GameplayKit
 // MARK: - TPSandBoxUI -
 
 public extension GKSceneHolder {
-    static let storyScene = GKSceneHolder(safeScene: TPStoryScene(), background3DScene: TPSandboxSceneController())
+    static let storyScene = GKSceneHolder(safeScene: TPSandBoxScene(), background3DScene: TPSandboxSceneController())
     
 }
 
@@ -33,6 +33,8 @@ class TPSandBoxScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Private Properties -
     
+    private var sceneModel:TPSandboxSceneModel { TPSandboxSceneModel.initirized! }
+    
     // =============================================================== //
     // MARK: - Methods -
     override func sceneDidLoad() {
@@ -40,6 +42,7 @@ class TPSandBoxScene: GKSafeScene {
         
         rootNode.color = UIColor.black.withAlphaComponent(0.5)
         mainmenu.buildItem.addTarget(self, action: #selector(buildItemTap(_:)), for: .touchUpInside)
+        itemBar.backButton.addTarget(self, action: #selector(buildBackTap(_:)), for: .touchUpInside)
         
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
@@ -57,6 +60,11 @@ class TPSandBoxScene: GKSafeScene {
     @objc private func buildItemTap(_ button:GKButtonNode) {
         mainmenu.hide()
         itemBar.show()
+    }
+    
+    @objc private func buildBackTap(_ button:GKButtonNode) {
+        mainmenu.show()
+        itemBar.hide()
     }
 }
 

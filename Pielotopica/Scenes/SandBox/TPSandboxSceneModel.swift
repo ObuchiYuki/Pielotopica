@@ -37,6 +37,9 @@ protocol TPSandboxSceneModelBinder: class {
 /// ゲームシステムとの仲介役です。
 /// イベントを受け取って管理します。
 class TPSandboxSceneModel {
+    
+    static weak var initirized:TPSandboxSceneModel?
+    
     // ================================================================== //
     // MARK: - Properties -
     
@@ -185,6 +188,7 @@ class TPSandboxSceneModel {
     
     init(_ binder:TPSandboxSceneModelBinder) {
         self.binder = binder
+        TPSandboxSceneModel.initirized = self
     }
 }
 

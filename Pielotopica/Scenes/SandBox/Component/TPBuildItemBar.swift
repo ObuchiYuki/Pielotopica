@@ -37,8 +37,17 @@ class TPBuildItemBar: GKSpriteNode {
     }
     
     func show() {
-        
+        isHidden = false
         self.run(.moveTo(y: -340, duration: 0.3))
+    }
+    
+    func hide() {
+        self.run(
+            SKAction.sequence([
+                .moveTo(y: -570, duration: 0.3),
+                .run { self.isHidden = true }
+            ])
+        )
     }
     
     required init?(coder aDecoder: NSCoder) {

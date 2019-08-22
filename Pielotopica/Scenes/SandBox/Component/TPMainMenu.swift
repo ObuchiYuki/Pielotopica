@@ -20,8 +20,11 @@ class TPMainMenu: SKSpriteNode {
         return [menuItem, buildItem, captureItem, shopItem]
     }
     func hide() {
-        
         allItems.enumerated().forEach{i, e in e.run(_hideAction(at: i))}
+    }
+    
+    func show() {
+        allItems.enumerated().forEach{i, e in e.run(_showAction(at: i))}
     }
     
     init() {
@@ -34,13 +37,16 @@ class TPMainMenu: SKSpriteNode {
             y: -GKSafeScene.sceneSize.height/2 + 16
         )
         
+        show()
+        
     }
+    
     
     private func _setupItem(item:SKSpriteNode, index:Int) {
         item.position = [CGFloat((76+8) * index), -180]
         
         addChild(item)
-        item.run(_showAction(at: index))
+        
     }
     
     private func _hideAction(at index:Int) -> SKAction {

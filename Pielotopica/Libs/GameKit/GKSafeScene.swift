@@ -20,7 +20,7 @@ public class GKSafeScene: SKScene {
     
     public var rootNode = SKSpriteNode()
     
-    public weak var gameViewContoller:GKGameViewController!
+    public weak var gkViewContoller:GKGameViewController!
 
     // =============================================================== //
     // MARK: - Methods -
@@ -28,7 +28,7 @@ public class GKSafeScene: SKScene {
     /// 次のシーンに切り替えます。
     func present(to sceneHalder: GKSceneHolder, delayed delay: TimeInterval = 0, with transition: SKTransition? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-            self.gameViewContoller.presentScene(with: sceneHalder, with: transition)
+            self.gkViewContoller.presentScene(with: sceneHalder, with: transition)
             
         }
     }
