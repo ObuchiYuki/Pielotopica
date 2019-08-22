@@ -34,6 +34,9 @@ class TPStoryScene: GKSafeScene {
         
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
+        
+        header.helthSlider.value = 50
+        header.oilSlider.value = 60
     }
     
     // =============================================================== //

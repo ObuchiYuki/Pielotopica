@@ -19,11 +19,6 @@ class TPMainMenu: SKSpriteNode {
     init() {
         super.init(texture: nil, color: .clear, size: [328, 76])
         
-        menuItem.anchorPoint = .zero
-        buildItem.anchorPoint = .zero
-        captureItem.anchorPoint = .zero
-        shopItem.anchorPoint = .zero
-        
         menuItem.position = [0, -180]
         buildItem.position = [CGFloat((76+8) * 1), -180]
         captureItem.position = [CGFloat((76+8) * 2), -180]
