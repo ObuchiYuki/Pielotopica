@@ -50,7 +50,7 @@
 		B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94042300E390008CB325 /* _TPStartSceneRing.swift */; };
 		B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = B61E94062300E390008CB325 /* TPStartSceneBackgroundParticle.sks */; };
 		B61E94122300E390008CB325 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B61E94072300E390008CB325 /* Assets.xcassets */; };
-		B61E94172300E395008CB325 /* TPSandBoxSceneUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94142300E394008CB325 /* TPSandBoxSceneUI.swift */; };
+		B61E94172300E395008CB325 /* TPSandBoxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94142300E394008CB325 /* TPSandBoxScene.swift */; };
 		B61E94182300E395008CB325 /* TP_core.scn in Resources */ = {isa = PBXBuildFile; fileRef = B61E94162300E394008CB325 /* TP_core.scn */; };
 		B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94192300FEFA008CB325 /* GK3DSceneController.swift */; };
 		B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62279BC2301A7A7009EF60F /* TPDebug.swift */; };
@@ -160,7 +160,7 @@
 		B61E94042300E390008CB325 /* _TPStartSceneRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TPStartSceneRing.swift; sourceTree = "<group>"; };
 		B61E94062300E390008CB325 /* TPStartSceneBackgroundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TPStartSceneBackgroundParticle.sks; sourceTree = "<group>"; };
 		B61E94072300E390008CB325 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B61E94142300E394008CB325 /* TPSandBoxSceneUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPSandBoxSceneUI.swift; sourceTree = "<group>"; };
+		B61E94142300E394008CB325 /* TPSandBoxScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPSandBoxScene.swift; sourceTree = "<group>"; };
 		B61E94162300E394008CB325 /* TP_core.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_core.scn; sourceTree = "<group>"; };
 		B61E94192300FEFA008CB325 /* GK3DSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GK3DSceneController.swift; sourceTree = "<group>"; };
 		B62279BC2301A7A7009EF60F /* TPDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDebug.swift; sourceTree = "<group>"; };
@@ -442,10 +442,10 @@
 			isa = PBXGroup;
 			children = (
 				B6AA02A5230D6E5A00F0FF48 /* Component */,
-				B61E94142300E394008CB325 /* TPSandBoxSceneUI.swift */,
+				B61E94142300E394008CB325 /* TPSandBoxScene.swift */,
 				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
-				B67A965D23094E4000BD408D /* Helper */,
 				B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */,
+				B67A965D23094E4000BD408D /* Helper */,
 			);
 			path = SandBox;
 			sourceTree = "<group>";
@@ -824,7 +824,7 @@
 				B61E93CB2300E36C008CB325 /* RMBindCenter.swift in Sources */,
 				B6227A372301AB84009EF60F /* TSBlock.swift in Sources */,
 				B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */,
-				B61E94172300E395008CB325 /* TPSandBoxSceneUI.swift in Sources */,
+				B61E94172300E395008CB325 /* TPSandBoxScene.swift in Sources */,
 				B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */,
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,

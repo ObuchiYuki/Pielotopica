@@ -17,7 +17,7 @@ public extension GKSceneHolder {
     
 }
 
-class TPStoryScene: GKSafeScene {
+class TPSandBoxScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
     

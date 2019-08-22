@@ -28,6 +28,8 @@ class TPBuildItemBar: GKSpriteNode {
         
         self.position = [-GKSafeScene.sceneSize.width / 2 + 30, -570]
         
+        placeButton.isSelected = true
+        
         addChild(backButton)
         addChild(placeButton)
         addChild(moveButton)
