@@ -375,7 +375,6 @@
 				B61E93EE2300E38A008CB325 /* GKGameViewController.swift */,
 				B61E93ED2300E38A008CB325 /* GKSceneHolder.swift */,
 				B61E93F22300E38A008CB325 /* GKSafeScene.swift */,
-				B61E93F32300E38A008CB325 /* GKButtonNode.swift */,
 				B61E94192300FEFA008CB325 /* GK3DSceneController.swift */,
 				B61E93EF2300E38A008CB325 /* GKActionTimingMode.swift */,
 				B6AA02B1230E119A00F0FF48 /* Node */,
@@ -622,6 +621,7 @@
 		B6AA02B1230E119A00F0FF48 /* Node */ = {
 			isa = PBXGroup;
 			children = (
+				B61E93F32300E38A008CB325 /* GKButtonNode.swift */,
 				B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */,
 				B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */,
 			);

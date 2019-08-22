@@ -15,7 +15,7 @@ protocol TPCameraGestureHelperDelegate:class {
 }
 
 /// ジェスチャーの稼働を助けます。
-/// カメラの方向は（x: -π/12, y: π/4, z: 0）を前提に作っています。
+/// カメラの方向は（x: -π/6, y: π/4, z: 0）を前提に作っています。
 /// 変わったらその時改修
 class TPSandboxCameraGestureHelper {
     weak var delegate:TPCameraGestureHelperDelegate!
@@ -39,7 +39,7 @@ class TPSandboxCameraGestureHelper {
     }
     
     /// パン時に呼び出してください。
-    func panned(to vector:CGPoint) {
+    func panned(to vector:CGPoint, at velocity:CGPoint) {
         guard timeStamp.isSameFrame()  else { return } // まあ、Appleのバグなので...
         
         timeStamp.press()

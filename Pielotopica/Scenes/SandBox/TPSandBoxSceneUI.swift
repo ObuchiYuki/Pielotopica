@@ -20,8 +20,15 @@ public extension GKSceneHolder {
 class TPStoryScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Properties -
-    let mainmenu = TPMainMenu()
+    
+    // MARK: - Global -
     let header = TPHeader()
+    
+    // MARK: - Main Menu -
+    let mainmenu = TPMainMenu()
+    
+    // MARK: - Block Plaing -
+    
     
     // =============================================================== //
     // MARK: - Private Properties -
@@ -30,7 +37,9 @@ class TPStoryScene: GKSafeScene {
     // MARK: - Methods -
     override func sceneDidLoad() {
         super.sceneDidLoad()
-        //rootNode.color = UIColor.black.withAlphaComponent(0.4)
+        
+        mainmenu.buildItem.addTarget(self, action: #selector(buildItemTap(_:)), for: .touchUpInside)
+        
         
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
@@ -44,5 +53,8 @@ class TPStoryScene: GKSafeScene {
     
     // =============================================================== //
     // MARK: - Private Methods -
+    @objc private func buildItemTap(_ button:GKButtonNode) {
+        mainmenu.hide()
+    }
 }
 

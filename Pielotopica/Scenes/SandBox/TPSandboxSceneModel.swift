@@ -47,6 +47,12 @@ class TPSandboxSceneModel {
     // =============================== //
     // MARK: - System Connection -
     
+    // MARK: - Public -
+    public var isPlacingBlockMode = BehaviorRelay(value: false)
+    public var canEnterBlockPlaingMode = false
+    
+    // MARK: - Private -
+    
     // - Level -
     private let level = TSLevel.current()
     internal lazy var nodeGenerator = TSNodeGenerator(level: level)
@@ -57,10 +63,6 @@ class TPSandboxSceneModel {
     // - Helper -
     private var blockPlaceHelper:TSBlockPlaceHelper?
     private lazy var cameraGestutreHelper = TPSandboxCameraGestureHelper(delegate: self)
-    
-    
-    // - Variables -
-    public var isPlacingBlockMode = BehaviorRelay(value: false)
     
     /// 現在のドラッグを受け取る状態です。
     private var dragControleState:DragControleState = .cameraMoving
@@ -79,7 +81,7 @@ class TPSandboxSceneModel {
     }
     
     /// パンジェスチャーで呼び出してください。
-    func onPanGesture(with vector:CGPoint, numberOfTouches:Int) {
+    func onPanGesture(with vector:CGPoint, at velocity:CGPoint, numberOfTouches:Int) {
         switch dragControleState {
         case .blockPlacing:
             if numberOfTouches != 1 { // もし途中で変わったら変更する。
@@ -88,12 +90,14 @@ class TPSandboxSceneModel {
             }
             blockPlaceHelper?.blockDidDrag(with: vector)
         case .cameraMoving:
-            cameraGestutreHelper.panned(to: vector)
+            cameraGestutreHelper.panned(to: vector, at: velocity)
         }
     }
     
     /// タップジェスチャーで呼び出してください。
     func onTapGesture() {
+        guard canEnterBlockPlaingMode else { return }
+        
         if isPlacingBlockMode.value {
             guard let blockPlaceHelper = blockPlaceHelper else {return}
             
@@ -131,6 +135,8 @@ class TPSandboxSceneModel {
     
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3) {
+        guard canEnterBlockPlaingMode else { return }
+        
         do { // ここの直呼び出しは今後変更あるかも？
             if itemBarInventory.canUseCurrentItem() {
                 isPlacingBlockMode.accept(true)

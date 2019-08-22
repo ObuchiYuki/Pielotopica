@@ -39,8 +39,9 @@ class TPSandboxSceneController: GK3DSceneController {
         guard shouldRespondToTouch(at: point) else { return }
         
         let vector = recognizer.translation(in: scnView)
+        let velocity = recognizer.velocity(in: scnView)
         
-        sceneModel.onPanGesture(with: vector, numberOfTouches: recognizer.numberOfTouches)
+        sceneModel.onPanGesture(with: vector,at: velocity, numberOfTouches: recognizer.numberOfTouches)
     }
     @objc func handleTapGesture(_ recognizer:UITapGestureRecognizer) {
         let point = recognizer.location(in: scnView)
@@ -150,8 +151,8 @@ extension TPSandboxSceneController {
         camera.screenSpaceAmbientOcclusionRadius = 1
         camera.screenSpaceAmbientOcclusionIntensity = 1
         
-        cameraNode.eulerAngles = [-.pi/12, .pi/4, 0]
-        cameraNode.position = [100, 32, 100]
+        cameraNode.eulerAngles = [-.pi/6, .pi/4, 0]
+        cameraNode.position = [100, 68, 100]
     }
     func setupSkybox() {
         self.scene.background.contents = [
