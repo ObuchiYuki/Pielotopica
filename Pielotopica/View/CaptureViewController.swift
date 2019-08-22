@@ -8,11 +8,10 @@ class CaptureViewController: UIViewController {
     
     @IBOutlet weak var previewView: UIView!
     
-    @IBOutlet weak var textView: UITextView!
     // ======================================================================== //
     // MARK: - Private Properties -
-    private let detector = RKObjectDetector()
-    private let videoCapture = RKVideoCapture()
+    private var detector:RKObjectDetector!
+    private var videoCapture:RKVideoCapture!
     
     private var boundingBoxeProviders = [BoundingBoxProvider]()
     private var colors = [UIColor]()
@@ -20,29 +19,23 @@ class CaptureViewController: UIViewController {
     lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CaptureViewController.handleTap(_:)))
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer) {
-        let location = sender.location(in: previewView)
+        //let location = sender.location(in: previewView)
         
-        if let name = prediction(at: location)?.name {
-            textView.text.append(name + "\n")
-        }
     }
     
-    var currentShowingPredictions = [RKObjectDetector.Prediction]()
+    private var currentShowingPredictions = [RKObjectDetector.Prediction]()
     
-    private func prediction(at point: CGPoint) -> RKObjectDetector.Prediction? {
-        for prediction in currentShowingPredictions {
-            let rect = prediction.rect(for: previewView.frame.size)
-            if rect.contains(point) {
-                return prediction
-            }
-        }
-        
-        return nil
-    }
     
     // ======================================================================== //
     // MARK: - Methods -
     
+    /// AIを読み込みます。 思い処理です。(3-5秒)
+    /// Presentationより前に呼び出してください。
+    /// 別にallocしかからといってfreeは必要ないです。
+    public func allocAI() {
+        detector = RKObjectDetector()
+        videoCapture = RKVideoCapture()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +103,17 @@ class CaptureViewController: UIViewController {
         for _ in 0..<YOLO.maxBoundingBoxes {
             boundingBoxeProviders.append(BoundingBoxProvider())
         }
+    }
+    
+    private func getPrediction(at point: CGPoint) -> RKObjectDetector.Prediction? {
+        for prediction in currentShowingPredictions {
+            let rect = prediction.rect(for: previewView.frame.size)
+            if rect.contains(point) {
+                return prediction
+            }
+        }
+        
+        return nil
     }
 }
 

@@ -10,6 +10,9 @@ import UIKit
 import SpriteKit
 
 class GameViewController: GKGameViewController {
+    deinit {
+        print("GameViewController deinit")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

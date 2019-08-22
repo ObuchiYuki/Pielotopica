@@ -42,6 +42,7 @@ class TPSandBoxScene: GKSafeScene {
         
         rootNode.color = UIColor.black.withAlphaComponent(0.5)
         mainmenu.buildItem.addTarget(self, action: #selector(buildItemTap(_:)), for: .touchUpInside)
+        mainmenu.captureItem.addTarget(self, action: #selector(buildCaptureTap(_:)), for: .touchUpInside)
         itemBar.backButton.addTarget(self, action: #selector(buildBackTap(_:)), for: .touchUpInside)
         
         self.rootNode.addChild(mainmenu)
@@ -57,6 +58,13 @@ class TPSandBoxScene: GKSafeScene {
     
     // =============================================================== //
     // MARK: - Private Methods -
+    
+    @objc private func buildCaptureTap(_ button:GKButtonNode) {
+        (gkViewContoller.presentingViewController as! RouterViewController).route = .capture
+        
+        gkViewContoller.dismiss(animated: false, completion: {})
+    }
+    
     @objc private func buildItemTap(_ button:GKButtonNode) {
         mainmenu.hide()
         itemBar.show()

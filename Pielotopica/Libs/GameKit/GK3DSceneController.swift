@@ -90,17 +90,7 @@ open class GK3DSceneController :NSObject {
     // MARK: - Private Properties
     /// 親のESViewControllerです。（参照は保持していません。）
     public weak var gkViewController:GKGameViewController!
-    
-    /// update更新用の`DisplayLink`です。
-    private lazy var _displayLink = CADisplayLink(target: self, selector: #selector(GK3DSceneController._update(displayLink:)))
-    
-    // ========================================= //
-    // MARK: - Flag -
-    /// viewDidAppear用
-    private var _firstDidAppearFlag = false
-    /// viewWillAppear用
-    private var _firstWillAppearFlag = false
-    
+        
     // ================================================================================ //
     // MARK: - Methods
     
@@ -115,15 +105,7 @@ open class GK3DSceneController :NSObject {
     public func removeGustureRecognizer(_ gestureRecognizer:UIGestureRecognizer) {
         self.gkViewController.scnView.removeGestureRecognizer(gestureRecognizer)
     }
-    
-    // ============================================================== //
-    // MARK: - Handler Methods -
-    
-    @objc private func _update(displayLink: CADisplayLink) {
-        // 毎フレーム呼び出し。
-        self.update(displayLink.duration)
-    }
-    
+
     // ============================================================== //
     // MARK: - Overridable Methods -
     
@@ -138,22 +120,13 @@ open class GK3DSceneController :NSObject {
     }
     /// scene初期化後に呼び出されます。sceneにはSCNSceneが代入されています。
     open func sceneDidLoad(){}
-    
-    /// scene表示前に呼び出されます。
-    open func sceneWillAppear() {}
-    
-    /// scene表示後に呼び出されます。
-    open func sceneDidAppear() {}
-    
+
     /// scene非表示後に呼び出されます。
     open func sceneDidDisappear() {}
     
     // ===================================== //
     // MARK: - Rendering Methods -
-    /// シーンのアップデート時に呼び出されます。
-    /// この処理は描画毎に常に呼び出されます。
-    open func update(_ duration:Double) {}
-    
+
     /// 毎フレームのアニメーション処理完了後に呼び出されます。
     /// この処理は処理がある時のみ呼ばれます。
     open func didAnimationRendered() {}
@@ -227,18 +200,13 @@ open class GK3DSceneController :NSObject {
         self.sceneWillLoad()
         self.loadScene()
         self.sceneDidLoad()
-            
-        // update処理
-        self._displayLink.add(to: .main, forMode: .common)
-        
+                    
         // Defaultノード読み込み
         self.loadDefaultObject()
     }
     
     deinit {
         self.sceneDidDisappear()
-        // update呼び出し解除
-        self._displayLink.remove(from: .main, forMode: .common)
     }
 }
 
@@ -252,18 +220,10 @@ extension GK3DSceneController: SCNSceneRendererDelegate{
         self.didSimulatePhysics()
     }
     public func renderer(_ renderer: SCNSceneRenderer, willRenderScene scene: SCNScene, atTime time: TimeInterval) {
-        if !_firstWillAppearFlag {
-            _firstWillAppearFlag = true
-            assert(gkViewController != nil, "GK3DSceneController._loadParentViewController must be called before load scene.")
-            self.sceneDidAppear()
-        }
         self.willRenderScene()
     }
     public func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval) {
-        if !_firstDidAppearFlag {
-            _firstDidAppearFlag = true
-            self.sceneDidAppear()
-        }
+    
         self.didRenderScene()
     }
 }
