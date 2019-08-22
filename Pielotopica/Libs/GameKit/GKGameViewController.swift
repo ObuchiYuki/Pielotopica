@@ -152,7 +152,7 @@ public class GKGameViewController: UIViewController {
     /// UIシーンを読み込みます。
     private func _loadSafeScene(_ sceneHolder:GKSceneHolder) {
         safeScene = sceneHolder.generateSafeScene()
-        safeScene.gameViewContoller = self
+        safeScene.gkViewContoller = self
         
         let rootNode = safeScene.rootNode
 

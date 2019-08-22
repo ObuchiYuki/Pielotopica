@@ -17,7 +17,6 @@ class TPDropButton: GKButtonNode {
             disabledTexture: nil
         )
         
-        self.anchorPoint = .zero
     }
     
     override func buttonDidUnselect() {
