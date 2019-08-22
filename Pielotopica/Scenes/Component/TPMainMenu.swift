@@ -16,23 +16,18 @@ class TPMainMenu: SKSpriteNode {
     let captureItem = TPMainMenuItem(textureNamed: "TP_mm_capture")
     let shopItem = TPMainMenuItem(textureNamed: "TP_mm_shop")
     
+    private var allItems:[SKSpriteNode] {
+        return [menuItem, buildItem, captureItem, shopItem]
+    }
+    func hide() {
+        
+        allItems.enumerated().forEach{i, e in e.run(_hideAction(at: i))}
+    }
+    
     init() {
         super.init(texture: nil, color: .clear, size: [328, 76])
         
-        menuItem.position = [0, -180]
-        buildItem.position = [CGFloat((76+8) * 1), -180]
-        captureItem.position = [CGFloat((76+8) * 2), -180]
-        shopItem.position = [CGFloat((76+8) * 3), -180]
-        
-        addChild(menuItem)
-        addChild(buildItem)
-        addChild(captureItem)
-        addChild(shopItem)
-        
-        menuItem.run(_showAction(at: 0))
-        buildItem.run(_showAction(at: 1))
-        captureItem.run(_showAction(at: 2))
-        shopItem.run(_showAction(at: 3))
+        allItems.enumerated().forEach{i, e in _setupItem(item: e, index: i)}
         
         self.position = CGPoint(
             x: -GKSafeScene.sceneSize.width/2 + 23,
@@ -41,6 +36,19 @@ class TPMainMenu: SKSpriteNode {
         
     }
     
+    private func _setupItem(item:SKSpriteNode, index:Int) {
+        item.position = [CGFloat((76+8) * index), -180]
+        
+        addChild(item)
+        item.run(_showAction(at: index))
+    }
+    
+    private func _hideAction(at index:Int) -> SKAction {
+        return SKAction.sequence([
+            SKAction.wait(forDuration: Double(allItems.count - index - 1) * 0.1),
+            SKAction.moveTo(y: -180, duration: 0.3).setEase(.easeInEaseOut)
+        ])
+    }
     private func _showAction(at index: Int) -> SKAction {
         return SKAction.sequence([
             SKAction.wait(forDuration: Double(index) * 0.1),

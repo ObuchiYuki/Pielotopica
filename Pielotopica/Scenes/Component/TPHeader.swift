@@ -33,11 +33,10 @@ class TPHeader: GKSpriteNode {
         }
     }
     
-    
     private func setLabel(with labelNode:GKShadowLabelNode, at index:Int) {
         labelNode.horizontalAlignmentMode = .right
         labelNode.fontSize = 13
-        labelNode.position = [GKSafeScene.sceneSize.width - 75, 33 + 21 * CGFloat(index)]
+        labelNode.position = [GKSafeScene.sceneSize.width - 70, 33 + 21 * CGFloat(index)]
         labelNode.text = "12 x"
         
         labelNode.barnShadow()
