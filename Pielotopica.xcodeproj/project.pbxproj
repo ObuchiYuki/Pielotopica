@@ -91,6 +91,7 @@
 		B667BA5E230B776C0038B098 /* YOLOv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B667BA56230B776C0038B098 /* YOLOv3.mlmodel */; };
 		B667BA5F230B776C0038B098 /* YOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA57230B776C0038B098 /* YOLO.swift */; };
 		B667BA60230B776C0038B098 /* RKObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA58230B776C0038B098 /* RKObjectDetector.swift */; };
+		B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690596230E245E008AE24F /* TPBuildItemBar.swift */; };
 		B66D41CB230BD218004BBE8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D41CA230BD218004BBE8E /* MainViewController.swift */; };
 		B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */; };
 		B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */; };
@@ -200,6 +201,7 @@
 		B667BA56230B776C0038B098 /* YOLOv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3.mlmodel; sourceTree = "<group>"; };
 		B667BA57230B776C0038B098 /* YOLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YOLO.swift; sourceTree = "<group>"; };
 		B667BA58230B776C0038B098 /* RKObjectDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKObjectDetector.swift; sourceTree = "<group>"; };
+		B6690596230E245E008AE24F /* TPBuildItemBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBar.swift; sourceTree = "<group>"; };
 		B66D41CA230BD218004BBE8E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneController.swift; sourceTree = "<group>"; };
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 				B6AA02A8230D6ED400F0FF48 /* TPMainMenu.swift */,
 				B6AA02AC230D7EBE00F0FF48 /* TPHeader.swift */,
 				B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */,
+				B6690596230E245E008AE24F /* TPBuildItemBar.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
 				B667BA5F230B776C0038B098 /* YOLO.swift in Sources */,
 				B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */,
+				B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */,
 				B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */,
 				B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */,
 				B6227A342301AB84009EF60F /* TSInventry.swift in Sources */,
