@@ -435,6 +435,7 @@
 		B61E94132300E394008CB325 /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
+				B6AA02A5230D6E5A00F0FF48 /* Component */,
 				B61E94142300E394008CB325 /* TPSandBoxSceneUI.swift */,
 				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
 				B67A965D23094E4000BD408D /* Helper */,
@@ -557,7 +558,6 @@
 		B6227A6F23023983009EF60F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B6AA02A5230D6E5A00F0FF48 /* Component */,
 				B61E93FA2300E390008CB325 /* StartScene */,
 				B61E94132300E394008CB325 /* SandBox */,
 			);
