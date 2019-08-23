@@ -29,6 +29,7 @@ class TPSandBoxScene: GKSafeScene {
     
     // MARK: - Build -
     let itemBar = TPBuildItemBar(inventory: TSPlayer.him.itemBarInventory)
+    let buildSideMenu = TPBuildSideMenu()
     
     // =============================================================== //
     // MARK: - Private Properties -
@@ -50,6 +51,7 @@ class TPSandBoxScene: GKSafeScene {
         itemBar.moveButton.addTarget(self, action: #selector(buildMoveButtonDidTap), for: .touchUpInside)
         itemBar.destoryButton.addTarget(self, action: #selector(buildDestoryButtonDidTap), for: .touchUpInside)
         
+        self.rootNode.addChild(buildSideMenu)
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
         self.rootNode.addChild(itemBar)
@@ -121,5 +123,9 @@ extension TPSandBoxScene: TPSandBoxSceneUIModelBinder {
             
         default: break
         }
+    }
+    
+    func __setBuildSideMenuMode(to mode:TPItemBarSelectionState) {
+        buildSideMenu.show(as: mode)
     }
 }

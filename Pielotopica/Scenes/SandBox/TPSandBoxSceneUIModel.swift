@@ -18,6 +18,7 @@ protocol TPSandBoxSceneUIModelBinder: class {
     func __hideMainMenu()
     
     func __setItemBarSelectionState(to state: TPItemBarSelectionState)
+    func __setBuildSideMenuMode(to mode:TPItemBarSelectionState)
 }
 
 enum TPItemBarSelectionState {
@@ -35,7 +36,6 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
     private enum Mode {
         case mainmenu
         
-        case buildNone
         case buildPlace
         case buildMove
         case buildDestory
@@ -55,7 +55,7 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
         binder.__hideMainMenu()
         binder.__showItemBar()
         
-        self.mode = .buildNone
+        self.mode = .buildPlace
     }
     func onMainMenuCaptureItemTap() {
         presentViewControllerToCapture()
@@ -83,22 +83,25 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
     
     // ========================================================= //
     // MARK: - Private Methods -
-    private func presentViewControllerToCapture() {
-        (self.binder.__viewController.presentingViewController as! RouterViewController).route = .capture
-        
-        self.binder.__viewController.dismiss(animated: false, completion: {})
-    }
     private func _modeDidChanged() {
         sceneModel.canEnterBlockPlaingMode = mode == .buildPlace
         
         let itemBarState = _convertMode(self.mode)
         
+        
         binder.__setItemBarSelectionState(to: itemBarState)
+        binder.__setBuildSideMenuMode(to: itemBarState)
+    }
+    
+    private func presentViewControllerToCapture() {
+        (self.binder.__viewController.presentingViewController as! RouterViewController).route = .capture
+        
+        self.binder.__viewController.dismiss(animated: false, completion: {})
     }
     
     private func _convertMode(_ mode: Mode) -> TPItemBarSelectionState {
         switch mode {
-        case .mainmenu , .buildNone: return  .none
+        case .mainmenu: return  .none
         case .buildMove: return .move
         case .buildPlace:return .place
         case .buildDestory:return .destory

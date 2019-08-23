@@ -471,8 +471,8 @@
 			isa = PBXGroup;
 			children = (
 				B61E94142300E394008CB325 /* TPSandBoxScene.swift */,
-				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
 				B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */,
+				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
 				B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */,
 				B6AA02A5230D6E5A00F0FF48 /* Component */,
 				B67A965D23094E4000BD408D /* Helper */,

@@ -9,30 +9,29 @@
 import SpriteKit
 
 class TPBuildSideMenu: GKSpriteNode {
-    enum ShowMode {
-        case place
-        case move
-        case destory
-    }
+
     let rotateItem = TPBuildSideMenuItem(imageNamed: "TP_build_button_rotate")
     
     init() {
-        super.init(texture: nil, color: .red, size: [94, 200])
+        super.init(texture: nil, color: .clear, size: [94, 200])
         
-        rotateItem.position = [-100 , 0]
+        self.position = [-170, 40]
+        rotateItem.position = [-100 , 175]
         
         self.addChild(rotateItem)
+        
+        hide()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func show(as mode:ShowMode) {
+    func show(as mode: TPItemBarSelectionState) {
         switch mode {
         case .place:
             rotateItem.run(SKAction.moveTo(x: 47, duration: 0.3).setEase(.easeInEaseOut))
-        default: break
+        default: hide()
         }
     }
     func hide() {
