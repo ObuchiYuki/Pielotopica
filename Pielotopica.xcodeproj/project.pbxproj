@@ -122,6 +122,7 @@
 		B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */; };
 		B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */; };
 		B6EDB123230F81350042CA02 /* TPBuildSideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */; };
+		B6EDB125230F8B200042CA02 /* TSBlockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB124230F8B200042CA02 /* TSBlockState.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -258,6 +259,7 @@
 		B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSoundPlayer.swift; sourceTree = "<group>"; };
 		B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenu.swift; sourceTree = "<group>"; };
 		B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenuItem.swift; sourceTree = "<group>"; };
+		B6EDB124230F8B200042CA02 /* TSBlockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockState.swift; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -492,6 +494,7 @@
 		B6227A0B2301AB83009EF60F /* DataClass */ = {
 			isa = PBXGroup;
 			children = (
+				B6EDB126230F8C7A0042CA02 /* Data */,
 				B6227A0C2301AB83009EF60F /* Core */,
 				B6227A102301AB83009EF60F /* Animator */,
 				B6227A142301AB83009EF60F /* Item */,
@@ -684,6 +687,14 @@
 			path = Sound;
 			sourceTree = "<group>";
 		};
+		B6EDB126230F8C7A0042CA02 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B6EDB124230F8B200042CA02 /* TSBlockState.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,6 +842,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EDB125230F8B200042CA02 /* TSBlockState.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
 				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,
 				B61E93F72300E38A008CB325 /* Ex+SKAction.swift in Sources */,

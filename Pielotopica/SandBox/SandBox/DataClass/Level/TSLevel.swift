@@ -103,7 +103,7 @@ public class TSLevel {
     }
     
     /// アンカーポイントにブロックを設置します。
-    /// 指定するanchorPointは事前に`calculatePlacablePosition(_:,_:)`で計算されたものである必要があります。
+    /// 指定するanchorPointは事前に`calculatePlacablePosition(for:, at:)`で計算されたものである必要があります。
     /// forceオプションに速度的な差はありません。
     public func placeBlock(_ block:TSBlock, at anchorPoint:TSVector3, forced:Bool = false) {
         if !forced { // 強制でないなら
