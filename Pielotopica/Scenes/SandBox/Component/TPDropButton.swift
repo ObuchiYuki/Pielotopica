@@ -9,6 +9,12 @@
 import SpriteKit
 
 class TPDropButton: GKButtonNode {
+    var selectionState = true {
+        didSet {
+            isSelected = self.selectionState
+        }
+    }
+    
     init(textureNamed name:String) {
         super.init(
             size: [47, 47],
@@ -19,8 +25,13 @@ class TPDropButton: GKButtonNode {
         
     }
     
+    override func buttonDidSelect() {
+        self.isSelected = selectionState
+    }
     override func buttonDidUnselect() {
         RMTapticEngine.impact.feedback(.medium)
+        
+        self.isSelected = selectionState
     }
     
     required init(coder: NSCoder) {

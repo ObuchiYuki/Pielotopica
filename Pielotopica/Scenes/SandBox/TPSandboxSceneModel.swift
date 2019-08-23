@@ -162,10 +162,14 @@ class TPSandboxSceneModel {
         level.delegate = self
     
         /// 床設置 (仮)
-        for x in 1...5 {
-            for z in 1...5 {
+        for x in -2...2 {
+            for z in -2...2 {
                 
-                level.placeBlock(.normalFloar5x5, at: TSVector3(x * 5, 0, z * 5), forced: true)
+                if abs(x) == 2 || abs(z) == 2 {
+                    level.placeBlock(.ground5x5Edge, at: TSVector3(x * 5, 0, z * 5), forced: true)
+                }else {
+                    level.placeBlock(.ground5x5, at: TSVector3(x * 5, 0, z * 5), forced: true)
+                }
             }
         }
     }

@@ -16,12 +16,33 @@ protocol TPSandBoxSceneUIModelBinder: class {
     
     func __showMainMenu()
     func __hideMainMenu()
+    
+    func __setItemBarSelectionState(to state: TPItemBarSelectionState)
+}
+
+enum TPItemBarSelectionState {
+    case none
+    case place
+    case move
+    case destory
 }
 
 class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
     // ========================================================= //
     // MARK: - Properties -
-    weak var binder:Binder!
+    private weak var binder:Binder!
+    
+    private enum Mode {
+        case mainmenu
+        
+        case buildNone
+        case buildPlace
+        case buildMove
+        case buildDestory
+    }
+    
+    private var mode:Mode = .mainmenu { didSet {_modeDidChanged()} }
+    private var sceneModel:TPSandboxSceneModel { return TPSandboxSceneModel.initirized! }
     
     // ========================================================= //
     // MARK: - Handlers -
@@ -33,6 +54,8 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
     func onMainMenuBuildItemTap() {
         binder.__hideMainMenu()
         binder.__showItemBar()
+        
+        self.mode = .buildNone
     }
     func onMainMenuCaptureItemTap() {
         presentViewControllerToCapture()
@@ -45,15 +68,17 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
     func onBuildBackButtonTap() {
         binder.__showMainMenu()
         binder.__hideItemBar()
+        
+        self.mode = .mainmenu
     }
     func onBuildPlaceButtonTap() {
-        
+        self.mode = .buildPlace
     }
     func onBuildMoveButtonTap() {
-        
+        self.mode = .buildMove
     }
     func onBuildDestroyButtonTap() {
-        
+        self.mode = .buildDestory
     }
     
     // ========================================================= //
@@ -62,6 +87,22 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
         (self.binder.__viewController.presentingViewController as! RouterViewController).route = .capture
         
         self.binder.__viewController.dismiss(animated: false, completion: {})
+    }
+    private func _modeDidChanged() {
+        sceneModel.canEnterBlockPlaingMode = mode == .buildPlace
+        
+        let itemBarState = _convertMode(self.mode)
+        
+        binder.__setItemBarSelectionState(to: itemBarState)
+    }
+    
+    private func _convertMode(_ mode: Mode) -> TPItemBarSelectionState {
+        switch mode {
+        case .mainmenu , .buildNone: return  .none
+        case .buildMove: return .move
+        case .buildPlace:return .place
+        case .buildDestory:return .destory
+        }
     }
     
     init(_ binder:Binder) {

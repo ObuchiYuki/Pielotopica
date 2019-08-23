@@ -14,7 +14,7 @@ import RxSwift
 // MARK: - NormalFloar5x5 -
 
 /// 普通の床です。(5, 1, 5)
-class NormalFloar5x5:TSBlock {
+class TPFloar:TSBlock {
     // =============================================================== //
     // MARK: - Methods -
     override func canPlaceBlockOnTop(_ block: TSBlock, at point: TSVector3) -> Bool {

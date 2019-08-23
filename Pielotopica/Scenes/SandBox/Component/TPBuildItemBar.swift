@@ -16,6 +16,7 @@ class TPBuildItemBar: GKSpriteNode {
     
     // MARK: - Buttons -
     let backButton = TPFlatButton(textureNamed: "TP_flatbutton_back")
+    
     let placeButton = TPDropButton(textureNamed: "TP_dropbutton_place")
     let moveButton = TPDropButton(textureNamed: "TP_dropbutton_move")
     let destoryButton = TPDropButton(textureNamed: "TP_dropbutton_destory")

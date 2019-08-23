@@ -43,7 +43,7 @@ class TPSandBoxScene: GKSafeScene {
         mainmenu.menuItem.addTarget(self, action: #selector(mainMenuItemDidTap), for: .touchUpInside)
         mainmenu.buildItem.addTarget(self, action: #selector(mainBuildItemDidTap), for: .touchUpInside)
         mainmenu.captureItem.addTarget(self, action: #selector(mainCaptureItemDidTap), for: .touchUpInside)
-        mainmenu.buildItem.addTarget(self, action: #selector(mainShopItemDidTap), for: .touchUpInside)
+        mainmenu.shopItem.addTarget(self, action: #selector(mainShopItemDidTap), for: .touchUpInside)
         
         itemBar.backButton.addTarget(self, action: #selector(buildBackButtonDidTap), for: .touchUpInside)
         itemBar.placeButton.addTarget(self, action: #selector(buildPlaceButtonDidTap), for: .touchUpInside)
@@ -107,5 +107,19 @@ extension TPSandBoxScene: TPSandBoxSceneUIModelBinder {
     }
     func __hideItemBar() {
         itemBar.hide()
+    }
+    
+    func __setItemBarSelectionState(to state: TPItemBarSelectionState) {
+        itemBar.placeButton.selectionState = false
+        itemBar.moveButton.selectionState = false
+        itemBar.destoryButton.selectionState = false
+        
+        switch state {
+        case .place:  itemBar.placeButton.selectionState = true
+        case .move:   itemBar.moveButton.selectionState = true
+        case .destory:itemBar.destoryButton.selectionState = true
+            
+        default: break
+        }
     }
 }

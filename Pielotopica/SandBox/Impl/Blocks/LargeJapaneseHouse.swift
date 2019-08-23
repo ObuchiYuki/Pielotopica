@@ -34,7 +34,3 @@ class LargeJapaneseHouse:TSBlock {
     // =============================================================== //
     // MARK: - Private Methods -
 }
-
-extension TSBlock {
-    
-}
