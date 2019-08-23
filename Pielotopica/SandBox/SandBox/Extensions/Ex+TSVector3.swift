@@ -31,16 +31,69 @@ extension TSVector3 {
         return simd_float3(simd)
         
     }
-    
 }
 
 // =============================================================== //
 // MARK: - Method Extension -
 extension TSVector3 {
-    public func rotated(x: UInt8, y:UInt8, z:UInt8) -> TSVector3 {
-        
+    /**
+    
+          (screen-back)                -z
+           _ _ _ _ _                   |
+           |       |              -x -+y-- +x
+    (left) | (top) | (right)           |
+           |       |                   +z
+           - - - - -
+         (screen-front)
+    
+    rotate(x: 1, y: 0, z: 0)
+    
+          -y
+          |
+     -x  -z  +x
+          |
+          +y
+    
+    +方向から見て反時計回りに (90˚ x 入力 )回転
+
+     整数オンリーなので行列は使わず高速化
+     もし、ある次元にのみ回転させる場合は
+     rotated(x:), rotated(y:), rotated(z:) を用いてください。
+    */
+    public func rotated(x rx:UInt8, y ry:UInt8, z rz:UInt8) -> TSVector3 {
+        return rotated(x: rx).rotated(y: ry).rotated(z: rz)
+    }
+    
+    public func rotated(x rx:UInt8) -> TSVector3 {
+        switch rx % 4 {
+        case 0: return self
+        case 1: return TSVector3( x16, -z16,  y16)
+        case 2: return TSVector3( x16, -y16, -z16)
+        case 3: return TSVector3( x16,  z16, -y16)
+        default: fatalError()
+        }
+    }
+    public func rotated(y ry:UInt8) -> TSVector3 {
+        switch ry % 4 {
+        case 0: return self
+        case 1: return TSVector3(-z16,  y16,  x16)
+        case 2: return TSVector3(-x16,  y16, -z16)
+        case 3: return TSVector3( z16,  y16, -x16)
+        default: fatalError()
+        }
+    }
+    public func rotated(z rz:UInt8) -> TSVector3 {
+        switch rz % 4 {
+        case 0: return self
+        case 1: return TSVector3(-y16,  x16,  z16)
+        case 2: return TSVector3(-x16, -y16,  z16)
+        case 3: return TSVector3( y16, -x16,  z16)
+        default: fatalError()
+        }
     }
 }
+
+
 
 // =============================================================== //
 // MARK: - Opetrators Extension -

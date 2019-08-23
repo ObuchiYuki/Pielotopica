@@ -100,6 +100,7 @@
 		B67A966323094E6300BD408D /* TPSandboxSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */; };
 		B6931446230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */; };
 		B6931448230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */; };
+		B698F16A230FC85C00CAE917 /* PielotopicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698F169230FC85C00CAE917 /* PielotopicaTests.swift */; };
 		B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */; };
 		B69CE2F7230E6CE600CE04E6 /* Ex+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */; };
 		B6A89CB9230B8040007F5416 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* BoundingBox.swift */; };
@@ -124,12 +125,11 @@
 		B6EDB123230F81350042CA02 /* TPBuildSideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */; };
 		B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB124230F8B200042CA02 /* TSBlockData.swift */; };
 		B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */; };
-		B6EDB130230FC5E50042CA02 /* Pielotopica_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB12F230FC5E50042CA02 /* Pielotopica_Tests.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B6EDB132230FC5E50042CA02 /* PBXContainerItemProxy */ = {
+		B698F16C230FC85C00CAE917 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B61E939723005E28008CB325 /* Project object */;
 			proxyType = 1;
@@ -248,6 +248,9 @@
 		B68AA6EF230D4FA900E752D9 /* ヒラギノ角ゴシック W4.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ヒラギノ角ゴシック W4.ttc"; sourceTree = "<group>"; };
 		B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBarItem.swift; sourceTree = "<group>"; };
 		B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandBoxSceneUIModel.swift; sourceTree = "<group>"; };
+		B698F167230FC85C00CAE917 /* PielotopicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PielotopicaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B698F169230FC85C00CAE917 /* PielotopicaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PielotopicaTests.swift; sourceTree = "<group>"; };
+		B698F16B230FC85C00CAE917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPFlatButton.swift; sourceTree = "<group>"; };
 		B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+UIStoryboard.swift"; sourceTree = "<group>"; };
 		B6A89CB6230B803F007F5416 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
@@ -273,9 +276,6 @@
 		B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenuItem.swift; sourceTree = "<group>"; };
 		B6EDB124230F8B200042CA02 /* TSBlockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockData.swift; sourceTree = "<group>"; };
 		B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockRotation.swift; sourceTree = "<group>"; };
-		B6EDB12D230FC5E50042CA02 /* Pielotopica_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pielotopica_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6EDB12F230FC5E50042CA02 /* Pielotopica_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pielotopica_Tests.swift; sourceTree = "<group>"; };
-		B6EDB131230FC5E50042CA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,7 +288,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6EDB12A230FC5E50042CA02 /* Frameworks */ = {
+		B698F164230FC85C00CAE917 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -331,7 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				B61E93A123005E28008CB325 /* Pielotopica */,
-				B6EDB12E230FC5E50042CA02 /* Pielotopica_Tests */,
+				B698F168230FC85C00CAE917 /* PielotopicaTests */,
 				B61E93A023005E28008CB325 /* Products */,
 				6DC2E650B647248AB0BA94C5 /* Pods */,
 				C5EEAD015C040741A850ECDC /* Frameworks */,
@@ -342,7 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				B61E939F23005E28008CB325 /* Pielotopica.app */,
-				B6EDB12D230FC5E50042CA02 /* Pielotopica_Tests.xctest */,
+				B698F167230FC85C00CAE917 /* PielotopicaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -667,6 +667,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		B698F168230FC85C00CAE917 /* PielotopicaTests */ = {
+			isa = PBXGroup;
+			children = (
+				B698F169230FC85C00CAE917 /* PielotopicaTests.swift */,
+				B698F16B230FC85C00CAE917 /* Info.plist */,
+			);
+			path = PielotopicaTests;
+			sourceTree = "<group>";
+		};
 		B6AA02A5230D6E5A00F0FF48 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,15 +730,6 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		B6EDB12E230FC5E50042CA02 /* Pielotopica_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				B6EDB12F230FC5E50042CA02 /* Pielotopica_Tests.swift */,
-				B6EDB131230FC5E50042CA02 /* Info.plist */,
-			);
-			path = Pielotopica_Tests;
-			sourceTree = "<group>";
-		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,22 +760,22 @@
 			productReference = B61E939F23005E28008CB325 /* Pielotopica.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B6EDB12C230FC5E50042CA02 /* Pielotopica_Tests */ = {
+		B698F166230FC85C00CAE917 /* PielotopicaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B6EDB134230FC5E50042CA02 /* Build configuration list for PBXNativeTarget "Pielotopica_Tests" */;
+			buildConfigurationList = B698F16E230FC85C00CAE917 /* Build configuration list for PBXNativeTarget "PielotopicaTests" */;
 			buildPhases = (
-				B6EDB129230FC5E50042CA02 /* Sources */,
-				B6EDB12A230FC5E50042CA02 /* Frameworks */,
-				B6EDB12B230FC5E50042CA02 /* Resources */,
+				B698F163230FC85C00CAE917 /* Sources */,
+				B698F164230FC85C00CAE917 /* Frameworks */,
+				B698F165230FC85C00CAE917 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B6EDB133230FC5E50042CA02 /* PBXTargetDependency */,
+				B698F16D230FC85C00CAE917 /* PBXTargetDependency */,
 			);
-			name = Pielotopica_Tests;
-			productName = Pielotopica_Tests;
-			productReference = B6EDB12D230FC5E50042CA02 /* Pielotopica_Tests.xctest */;
+			name = PielotopicaTests;
+			productName = PielotopicaTests;
+			productReference = B698F167230FC85C00CAE917 /* PielotopicaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -792,7 +792,7 @@
 						CreatedOnToolsVersion = 11.0;
 						LastSwiftMigration = 1100;
 					};
-					B6EDB12C230FC5E50042CA02 = {
+					B698F166230FC85C00CAE917 = {
 						CreatedOnToolsVersion = 11.0;
 						TestTargetID = B61E939E23005E28008CB325;
 					};
@@ -812,7 +812,7 @@
 			projectRoot = "";
 			targets = (
 				B61E939E23005E28008CB325 /* Pielotopica */,
-				B6EDB12C230FC5E50042CA02 /* Pielotopica_Tests */,
+				B698F166230FC85C00CAE917 /* PielotopicaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -851,7 +851,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6EDB12B230FC5E50042CA02 /* Resources */ = {
+		B698F165230FC85C00CAE917 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1001,21 +1001,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B6EDB129230FC5E50042CA02 /* Sources */ = {
+		B698F163230FC85C00CAE917 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6EDB130230FC5E50042CA02 /* Pielotopica_Tests.swift in Sources */,
+				B698F16A230FC85C00CAE917 /* PielotopicaTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B6EDB133230FC5E50042CA02 /* PBXTargetDependency */ = {
+		B698F16D230FC85C00CAE917 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B61E939E23005E28008CB325 /* Pielotopica */;
-			targetProxy = B6EDB132230FC5E50042CA02 /* PBXContainerItemProxy */;
+			targetProxy = B698F16C230FC85C00CAE917 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1198,19 +1198,21 @@
 			};
 			name = Release;
 		};
-		B6EDB135230FC5E50042CA02 /* Debug */ = {
+		B698F16F230FC85C00CAE917 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NN4TCPLE3;
-				INFOPLIST_FILE = Pielotopica_Tests/Info.plist;
+				INFOPLIST_FILE = PielotopicaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pielotopica.Pielotopica-Tests";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pielotopica.PielotopicaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1218,19 +1220,21 @@
 			};
 			name = Debug;
 		};
-		B6EDB136230FC5E50042CA02 /* Release */ = {
+		B698F170230FC85C00CAE917 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4NN4TCPLE3;
-				INFOPLIST_FILE = Pielotopica_Tests/Info.plist;
+				INFOPLIST_FILE = PielotopicaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pielotopica.Pielotopica-Tests";
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pielotopica.PielotopicaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1259,11 +1263,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6EDB134230FC5E50042CA02 /* Build configuration list for PBXNativeTarget "Pielotopica_Tests" */ = {
+		B698F16E230FC85C00CAE917 /* Build configuration list for PBXNativeTarget "PielotopicaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B6EDB135230FC5E50042CA02 /* Debug */,
-				B6EDB136230FC5E50042CA02 /* Release */,
+				B698F16F230FC85C00CAE917 /* Debug */,
+				B698F170230FC85C00CAE917 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
