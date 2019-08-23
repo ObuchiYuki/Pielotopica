@@ -31,7 +31,7 @@ open class TSBlock {
     public let index:UInt16
     
     /// 空気かどうかです。
-    public let isAir:Bool
+    public lazy var isAir:Bool = index == 0
     
     /// Sandbox座標系におけるアイテムのサイズです。
     public lazy var size:TSVector3 = _calculateSize()
@@ -128,7 +128,6 @@ open class TSBlock {
     init(nodeNamed nodeName:String, index:Int) {
         self.identifier = nodeName
         self.index = UInt16(index)
-        self.isAir = false
         
         assert(!TSBlock._registerdBlock.contains(self), "The Block indexed \(index) already exists. Try use other index")
         
@@ -137,7 +136,6 @@ open class TSBlock {
     init() {
         self.identifier = "TP_Air"
         self.index = 0
-        self.isAir = true
         
         TSBlock._registerdBlock.append(self)
     }

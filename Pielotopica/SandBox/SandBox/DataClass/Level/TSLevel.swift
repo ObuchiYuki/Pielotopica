@@ -12,10 +12,12 @@ import RxSwift
 
 // =============================================================== //
 // MARK: - Consts -
-internal let kLevelMaxX = Int(2000)
-internal let kLevelMaxZ = Int(2000)
-internal let kLevelMaxY = Int(2000)
-private let kArrayAccessMargin = 1000
+internal let kLevelMaxX = Int(2048)
+internal let kLevelMaxZ = Int(2048)
+internal let kLevelMaxY = Int(256)
+
+private let kArrayAccessMargin = 1024
+
 // =============================================================== //
 // MARK: - TSLevelDelegate -
 
@@ -28,7 +30,7 @@ public protocol TSLevelDelegate:class {
 // MARK: - TSLevel -
 
 /**
- 次元を管理します。次期バージョンで、チャンクシステムに置き換わる位予定です。
+ 次元を管理します。
  */
 public class TSLevel {
     // =============================================================== //
@@ -49,6 +51,11 @@ public class TSLevel {
     /// アンカーとブロックIDの対応表です。
     /// 直接編集せず _setAnchorBlockMap(_:, _:) _getAnchorBlockMap(_:) を使用してください。
     private var anchorBlockMap:[[[UInt16]]] =
+        Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
+    
+    /// アンカーとブロックIDの対応表です。
+    /// 直接編集せず _setAnchorBlockMap(_:, _:) _getAnchorBlockMap(_:) を使用してください。
+    private var blockDataMap:[[[UInt8]]] =
         Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
     
     /// 全アンカーです。
@@ -195,6 +202,7 @@ public class TSLevel {
         let id = anchorBlockMap.at(x)?.at(y)?.at(z) ?? 0
         return TSBlock.block(for: id)
     }
+    
     private func _setAnchoBlockMap(_ block:TSBlock, at point:TSVector3) {
         let (x, y, z) = _convertVector3(point)
         
