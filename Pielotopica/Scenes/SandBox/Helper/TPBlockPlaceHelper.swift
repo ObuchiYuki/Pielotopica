@@ -70,7 +70,6 @@ class TSBlockPlaceHelper {
     /// 管理するブロックです。
     public let block:TSBlock
     
-
     // =============================================================== //
     // MARK: - Private Properties -
     
@@ -102,6 +101,17 @@ class TSBlockPlaceHelper {
     
     // =============================================================== //
     // MARK: - Methods -
+    var i = 0
+    /// 現在のブロックを回転させます。
+    func rotateCurrentBlock() {
+        let rotateAction = _createNodeRotationAnimation(
+            blockSize: block.getSize(at: nodePosition),
+            rotation: i
+        )
+        i += 1
+        
+        blockNode?.runAction(rotateAction)
+    }
     
     /// HitTestが終わったら、hitTestのworldCoodinateで呼びだしてください。
     func startBlockPlacing(from position:TSVector3) {
@@ -130,7 +140,7 @@ class TSBlockPlaceHelper {
         
         guard let blockNode = blockNode else {return}
         
-        nodePosition = initialNodePosition + _convertToNodeMovement(from: TSVector2(vector)) // ノードの場所計算
+        nodePosition = initialNodePosition + _convertToNodeMovement(fromTouchVector: TSVector2(vector)) // ノードの場所計算
         delegate?.blockPlaceHelper(moveNodeWith: blockNode, to: nodePosition) /// 通知
         
         // 置けるかどうかでマテリアル指定
@@ -174,7 +184,31 @@ class TSBlockPlaceHelper {
     // =============================================================== //
     // MARK: - Private Methods -
     
-    private func _convertToNodeMovement(from vector2:TSVector2) -> TSVector3 {
+    /// 中心（奇数の場合は自動調整）周りに rotation x 90度 反時計回り
+    private func _createNodeRotationAnimation(blockSize: TSVector3, rotation ry: Int) -> SCNAction {
+        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2, 0, Double(blockSize.z) / 2), with: ry)
+            
+        let (x, z) = (v1.x, v1.z)
+        let (X, Z) = (z, -x)
+        let (dx, dz) = (x - X, z - Z)
+        
+        let a1 = SCNAction.move(by: SCNVector3(dx, 0, dz) , duration: 0.1)
+        let a2 = SCNAction.rotateBy(x: 0, y: .pi/2, z: 0, duration: 0.1)
+        
+        return SCNAction.group([a1, a2]).setEase(.easeInEaseOut)
+    }
+    
+    private func _rotateVector(_ vector:SCNVector3, with amount:Int) -> SCNVector3 {
+        switch amount % 4 {
+        case 0: return vector
+        case 1: return SCNVector3( vector.z,  vector.y, -vector.x)
+        case 2: return SCNVector3(-vector.x,  vector.y, -vector.z)
+        case 3: return SCNVector3(-vector.z,  vector.y,  vector.x)
+        default: fatalError()
+        }
+    }
+        
+    private func _convertToNodeMovement(fromTouchVector vector2:TSVector2) -> TSVector3 {
         
         let transform = CGAffineTransform(rotationAngle: -.pi/4).scaledBy(x: 0.05, y: 0.05)
         let transformed = vector2.applying(transform)

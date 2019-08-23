@@ -81,6 +81,11 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
         self.mode = .buildDestory
     }
     
+    func onSideMenuRotateButtonTap() {
+        assert(sceneModel.blockPlaceHelper != nil)
+        sceneModel.blockPlaceHelper?.rotateCurrentBlock()
+    }
+    
     // ========================================================= //
     // MARK: - Private Methods -
     private func _modeDidChanged() {

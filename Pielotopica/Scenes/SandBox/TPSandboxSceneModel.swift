@@ -64,7 +64,7 @@ class TPSandboxSceneModel {
     private weak var binder:TPSandboxSceneModelBinder!
     
     // - Helper -
-    private var blockPlaceHelper:TSBlockPlaceHelper?
+    public var blockPlaceHelper:TSBlockPlaceHelper?
     private lazy var cameraGestutreHelper = TPSandboxCameraGestureHelper(delegate: self)
     
     /// 現在のドラッグを受け取る状態です。

@@ -95,6 +95,10 @@ open class TSBlock {
         return TSBlockRotation(data: getBlockData(at: point))
     }
     
+    public func rotatedRelativeAnchorPoint(rotation ry:Int) -> TSVector3 {
+        
+    }
+    
     public func setRotation(_ rotation:TSBlockRotation, at point:TSVector3) {
         var data = getBlockData(at: point)
         rotation.setData(to: &data)
@@ -104,6 +108,29 @@ open class TSBlock {
     
     // =============================================================== //
     // MARK: - Private Methods -
+    
+    /// 中心（奇数の場合は自動調整）周りに rotation x 90度 反時計回り
+    private func _createNodeRotation(blockSize: TSVector3, rotation ry: Int) -> TSVector3 {
+        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2, 0, Double(blockSize.z) / 2), with: ry)
+            
+        let (x, z) = (v1.x, v1.z)
+        let (X, Z) = (z, -x)
+        let (dx, dz) = (x - X, z - Z)
+        
+        return TSVector3(Int16(dx), 0, Int16(dz))
+    }
+    
+    private func _rotateVector(_ vector:SCNVector3, with amount:Int) -> SCNVector3 {
+        switch amount % 4 {
+        case 0: return vector
+        case 1: return SCNVector3( vector.z,  vector.y, -vector.x)
+        case 2: return SCNVector3(-vector.x,  vector.y, -vector.z)
+        case 3: return SCNVector3(-vector.z,  vector.y,  vector.x)
+        default: fatalError()
+        }
+    }
+    
+    
     private var _calculatedNodeSize:TSVector3? = nil
     
     private func _calculateSize() -> TSVector3 {

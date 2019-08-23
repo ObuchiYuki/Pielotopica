@@ -51,6 +51,8 @@ class TPSandBoxScene: GKSafeScene {
         itemBar.moveButton.addTarget(self, action: #selector(buildMoveButtonDidTap), for: .touchUpInside)
         itemBar.destoryButton.addTarget(self, action: #selector(buildDestoryButtonDidTap), for: .touchUpInside)
         
+        buildSideMenu.rotateItem.addTarget(self, action: #selector(buildSideMenuRotateDidTap), for: .touchUpInside)
+        
         self.rootNode.addChild(buildSideMenu)
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
@@ -89,6 +91,10 @@ class TPSandBoxScene: GKSafeScene {
     }
     @objc private func buildDestoryButtonDidTap(_ button:GKButtonNode) {
         sceneModel.onBuildDestroyButtonTap()
+    }
+    
+    @objc private func buildSideMenuRotateDidTap(_ button:GKButtonNode){
+        sceneModel.onSideMenuRotateButtonTap()
     }
 }
 
