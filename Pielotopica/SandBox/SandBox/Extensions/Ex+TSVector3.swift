@@ -35,6 +35,14 @@ extension TSVector3 {
 }
 
 // =============================================================== //
+// MARK: - Method Extension -
+extension TSVector3 {
+    public func rotated(x: UInt8, y:UInt8, z:UInt8) -> TSVector3 {
+        
+    }
+}
+
+// =============================================================== //
 // MARK: - Opetrators Extension -
 extension TSVector3 {
     

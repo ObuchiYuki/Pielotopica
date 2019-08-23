@@ -122,10 +122,21 @@
 		B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */; };
 		B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */; };
 		B6EDB123230F81350042CA02 /* TPBuildSideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */; };
-		B6EDB125230F8B200042CA02 /* TSBlockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB124230F8B200042CA02 /* TSBlockState.swift */; };
+		B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB124230F8B200042CA02 /* TSBlockData.swift */; };
 		B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */; };
+		B6EDB130230FC5E50042CA02 /* Pielotopica_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB12F230FC5E50042CA02 /* Pielotopica_Tests.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B6EDB132230FC5E50042CA02 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B61E939723005E28008CB325 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B61E939E23005E28008CB325;
+			remoteInfo = Pielotopica;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.release.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,8 +271,11 @@
 		B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSoundPlayer.swift; sourceTree = "<group>"; };
 		B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenu.swift; sourceTree = "<group>"; };
 		B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenuItem.swift; sourceTree = "<group>"; };
-		B6EDB124230F8B200042CA02 /* TSBlockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockState.swift; sourceTree = "<group>"; };
+		B6EDB124230F8B200042CA02 /* TSBlockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockData.swift; sourceTree = "<group>"; };
 		B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockRotation.swift; sourceTree = "<group>"; };
+		B6EDB12D230FC5E50042CA02 /* Pielotopica_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Pielotopica_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6EDB12F230FC5E50042CA02 /* Pielotopica_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pielotopica_Tests.swift; sourceTree = "<group>"; };
+		B6EDB131230FC5E50042CA02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,6 +285,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6EDB12A230FC5E50042CA02 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				B61E93A123005E28008CB325 /* Pielotopica */,
+				B6EDB12E230FC5E50042CA02 /* Pielotopica_Tests */,
 				B61E93A023005E28008CB325 /* Products */,
 				6DC2E650B647248AB0BA94C5 /* Pods */,
 				C5EEAD015C040741A850ECDC /* Frameworks */,
@@ -320,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				B61E939F23005E28008CB325 /* Pielotopica.app */,
+				B6EDB12D230FC5E50042CA02 /* Pielotopica_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -692,10 +715,19 @@
 		B6EDB126230F8C7A0042CA02 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				B6EDB124230F8B200042CA02 /* TSBlockState.swift */,
+				B6EDB124230F8B200042CA02 /* TSBlockData.swift */,
 				B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		B6EDB12E230FC5E50042CA02 /* Pielotopica_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B6EDB12F230FC5E50042CA02 /* Pielotopica_Tests.swift */,
+				B6EDB131230FC5E50042CA02 /* Info.plist */,
+			);
+			path = Pielotopica_Tests;
 			sourceTree = "<group>";
 		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
@@ -728,6 +760,24 @@
 			productReference = B61E939F23005E28008CB325 /* Pielotopica.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B6EDB12C230FC5E50042CA02 /* Pielotopica_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6EDB134230FC5E50042CA02 /* Build configuration list for PBXNativeTarget "Pielotopica_Tests" */;
+			buildPhases = (
+				B6EDB129230FC5E50042CA02 /* Sources */,
+				B6EDB12A230FC5E50042CA02 /* Frameworks */,
+				B6EDB12B230FC5E50042CA02 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6EDB133230FC5E50042CA02 /* PBXTargetDependency */,
+			);
+			name = Pielotopica_Tests;
+			productName = Pielotopica_Tests;
+			productReference = B6EDB12D230FC5E50042CA02 /* Pielotopica_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -741,6 +791,10 @@
 					B61E939E23005E28008CB325 = {
 						CreatedOnToolsVersion = 11.0;
 						LastSwiftMigration = 1100;
+					};
+					B6EDB12C230FC5E50042CA02 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = B61E939E23005E28008CB325;
 					};
 				};
 			};
@@ -758,6 +812,7 @@
 			projectRoot = "";
 			targets = (
 				B61E939E23005E28008CB325 /* Pielotopica */,
+				B6EDB12C230FC5E50042CA02 /* Pielotopica_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -793,6 +848,13 @@
 				B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */,
 				B6A8D667230ECC5C005B26A5 /* TP_floar_5x5.scn in Resources */,
 				B61E93E62300E376008CB325 /* Korneuburg-Slab-Bold_Slanted.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6EDB12B230FC5E50042CA02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,7 +907,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6EDB125230F8B200042CA02 /* TSBlockState.swift in Sources */,
+				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
 				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,
 				B61E93F72300E38A008CB325 /* Ex+SKAction.swift in Sources */,
@@ -939,7 +1001,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B6EDB129230FC5E50042CA02 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6EDB130230FC5E50042CA02 /* Pielotopica_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B6EDB133230FC5E50042CA02 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B61E939E23005E28008CB325 /* Pielotopica */;
+			targetProxy = B6EDB132230FC5E50042CA02 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B61E93D62300E376008CB325 /* LaunchScreen.storyboard */ = {
@@ -1120,6 +1198,46 @@
 			};
 			name = Release;
 		};
+		B6EDB135230FC5E50042CA02 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NN4TCPLE3;
+				INFOPLIST_FILE = Pielotopica_Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pielotopica.Pielotopica-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pielotopica.app/Pielotopica";
+			};
+			name = Debug;
+		};
+		B6EDB136230FC5E50042CA02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4NN4TCPLE3;
+				INFOPLIST_FILE = Pielotopica_Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pielotopica.Pielotopica-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pielotopica.app/Pielotopica";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1137,6 +1255,15 @@
 			buildConfigurations = (
 				B61E93B423005E2C008CB325 /* Debug */,
 				B61E93B523005E2C008CB325 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6EDB134230FC5E50042CA02 /* Build configuration list for PBXNativeTarget "Pielotopica_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6EDB135230FC5E50042CA02 /* Debug */,
+				B6EDB136230FC5E50042CA02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

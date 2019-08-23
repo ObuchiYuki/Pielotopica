@@ -20,12 +20,13 @@ private var _lastRegisteredIndex:UInt16 = 1
  
  なんのイベントもないブロックの場合、そのまま`init(nodeNamed:_, textureNamed:_)`を使って初期化し、登録してください。
  イベントを持つブロックの場合、継承しメソッドをオーバーライドしてください。
+ 
+ （`point`とはAnchorPointのことです。）
  */
 open class TSBlock {
     // =============================================================== //
     // MARK: - TSBlock Public Properties -
     /// `TSBlock`のidetifierです。
-    
     /// 通常はファイル名で初期化されます。
     public let identifier:String
     public let index:UInt16
@@ -34,7 +35,9 @@ open class TSBlock {
     public lazy var isAir:Bool = index == 0
     
     /// Sandbox座標系におけるアイテムのサイズです。
-    public lazy var size:TSVector3 = _calculateSize()
+    public func getSize(at point:TSVector3) -> TSVector3 {
+        return _calculateSize()
+    }
     // =============================================================== //
     // MARK: - Private Properties -
     private lazy var _originalNode:SCNNode! = _createNode()
@@ -87,10 +90,26 @@ open class TSBlock {
     /// 一定のタイミングで呼び出されます。
     open func didRandomEventRoopCome(at point:TSVector3) {}
     
+    /// 自身の回転状況です。
+    public func getRotation(at point:TSVector3) -> TSBlockRotation {
+        return TSBlockRotation(data: getBlockData(at: point))
+    }
+    
+    public func setRotation(_ rotation:TSBlockRotation, at point:TSVector3) {
+        var data = getBlockData(at: point)
+        rotation.setData(to: &data)
+        
+        setBlockData(data, at: point)
+    }
+    
     // =============================================================== //
     // MARK: - Private Methods -
+    private var _calculatedNodeSize:TSVector3? = nil
+    
     private func _calculateSize() -> TSVector3 {
+        if let calculatedNodeSize = _calculatedNodeSize {return calculatedNodeSize}
         if self.isAir {
+            _calculatedNodeSize = .unit
             return .unit
         }
         
@@ -108,7 +127,10 @@ open class TSBlock {
             _size.z += 1
         }
         
-        return TSVector3(_size)
+        let a = TSVector3(_size)
+        
+        _calculatedNodeSize = a
+        return a
     }
     
     private func _createNode() -> SCNNode {

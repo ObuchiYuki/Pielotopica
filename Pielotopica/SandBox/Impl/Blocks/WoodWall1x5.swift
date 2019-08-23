@@ -9,6 +9,8 @@
 import Foundation
 
 class TSWall: TSBlock {
+    
+    
     // =============================================================== //
     // MARK: - Methods -
     override func shouldAnimateWhenPlaced(at point: TSVector3) -> Bool {

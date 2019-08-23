@@ -8,8 +8,6 @@
 
 import SceneKit
 
-private let kArrayAccessMargin = 1000
-
 // =============================================================== //
 // MARK: - TSNodeGenerator -
 

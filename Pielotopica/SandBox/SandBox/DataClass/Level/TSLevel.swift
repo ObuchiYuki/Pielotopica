@@ -16,7 +16,7 @@ internal let kLevelMaxX = Int(2048)
 internal let kLevelMaxZ = Int(2048)
 internal let kLevelMaxY = Int(256)
 
-private let kArrayAccessMargin = 1024
+internal let kArrayAccessMargin = 1024
 
 // =============================================================== //
 // MARK: - TSLevelDelegate -
@@ -53,8 +53,8 @@ public class TSLevel {
     private var anchorBlockMap:[[[UInt16]]] =
         Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
     
-    /// アンカーとブロックIDの対応表です。
-    /// 直接編集せず _setAnchorBlockMap(_:, _:) _getAnchorBlockMap(_:) を使用してください。
+    /// ブロックのデータです。
+    /// 直接編集せず _setBlockDataMap(_:, _:) _getBlockDataMap(_:) を使用してください。
     private var blockDataMap:[[[UInt8]]] =
         Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
     
@@ -64,17 +64,22 @@ public class TSLevel {
     // =============================================================== //
     // MARK: - Methods -
     
+    public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
+        self._setBlockDataMap(data.value, at: point)
+    }
+    
+    public func getBlockData(at point:TSVector3) -> TSBlockData {
+        return TSBlockData(value: self._getBlockDataMap(at: point))
+    }
+    
     /// ブロックが置けるかどうかを調べます。
     /// 多少重たい処理です。毎フレームでの実行などは避けてくだし。
     public func canPlace(_ block:TSBlock, at position:TSVector3) -> Bool {
-        
-        let f1 = block.canPlace(at: position)
-        let f2 = !_conflictionExsists(about: block, at: position)
-        
-        let under = position - [0, 1, 0]
-        let f3 = _getFillMap(at: under).canPlaceBlockOnTop(block, at: under)
-        
-        return f1 && f2 && f3
+    
+        return
+            block.canPlace(at: position) &&
+            !_conflictionExsists(about: block, at: position) &&
+            _getFillMap(at: position - [0, 1, 0]).canPlaceBlockOnTop(block, at: position - [0, 1, 0])
     }
     
     /// 全ブロックのアンカーを返します。
@@ -155,7 +160,7 @@ public class TSLevel {
     // MARK: - Private Methods -
     
     private func _conflictionExsists(about block:TSBlock, at anchorPoint:TSVector3) -> Bool {
-        let size = block.size
+        let size = block.getSize(at: anchorPoint)
         
         for x in 0..<size.x16 {
             for y in 0..<size.y16 {
@@ -171,7 +176,7 @@ public class TSLevel {
     }
     
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3) {
-        let size = block.size
+        let size = block.getSize(at: anchorPoint)
         
         for xSize in 0..<size.x16 {
             for ySize in 0..<size.y16 {
@@ -209,6 +214,19 @@ public class TSLevel {
         anchorBlockMap[x][y][z] = block.index
     }
     
+    private func _setBlockDataMap(_ data: UInt8, at point:TSVector3) {
+        let (x, y, z) = _convertVector3(point)
+        
+        blockDataMap[x][y][z] = data
+    }
+    
+    private func _getBlockDataMap(at point:TSVector3) -> UInt8 {
+        let (x, y, z) = _convertVector3(point)
+        
+        return blockDataMap.at(x)?.at(y)?.at(z) ?? 0
+    }
+    
+    
     /// TSVector3を配列アクセス用のIndexに変換します。
     public func _convertVector3(_ vector3:TSVector3) -> (Int, Int, Int) {
         
@@ -220,10 +238,20 @@ extension TSLevel {
     public static func current() -> TSLevel {
         return grobal
     }
-    
     /// Singleton for ground Level
     public static let grobal = TSLevel()
     
     /// Singleton for nezer Level
     public static let nezer = TSLevel()
+}
+
+extension TSBlock {
+    /// ブロックデータを返します。
+    public func getBlockData(at point:TSVector3) -> TSBlockData {
+        return TSLevel.current().getBlockData(at: point)
+    }
+    
+    public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
+        TSLevel.current().setBlockData(data, at: point)
+    }
 }
