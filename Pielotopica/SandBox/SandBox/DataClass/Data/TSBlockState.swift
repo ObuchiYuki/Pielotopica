@@ -1,5 +1,5 @@
 //
-//  TSBlockState.swift
+//  TSBlockData.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/08/23.
@@ -10,7 +10,7 @@ import Foundation
 
 /// 8bitのBlock Dataを表します。
 /// もっと多くの情報が必要な場合はNBBデータを使用してください。
-class TSBlockState {
+class TSBlockData {
     var value:UInt8
     
     init(value:UInt8) {
@@ -18,27 +18,35 @@ class TSBlockState {
     }
     
     var flag0:Bool {
-        return (value & 0b00000001) != 0
+        get { return (value & 0b00000001 << 0) != 0 }
+        set { if newValue { value = value | 0b00000001 << 0 }else{ value = value & ~(0b00000001 << 0) } }
     }
     var flag1:Bool {
-        return (value & 0b00000010) != 0
+        get { return (value & 0b00000001 << 1) != 0 }
+        set { if newValue { value = value | 0b00000001 << 1 }else{ value = value & ~(0b00000001 << 1) } }
     }
     var flag2:Bool {
-        return (value & 0b00000100) != 0
+        get { return (value & 0b00000001 << 2) != 0 }
+        set { if newValue { value = value | 0b00000001 << 2 }else{ value = value & ~(0b00000001 << 2) } }
     }
     var flag3:Bool {
-        return (value & 0b00001000) != 0
+        get { return (value & 0b00000001 << 3) != 0 }
+        set { if newValue { value = value | 0b00000001 << 3 }else{ value = value & ~(0b00000001 << 3) } }
     }
     var flag4:Bool {
-        return (value & 0b00010000) != 0
+        get { return (value & 0b00000001 << 4) != 0 }
+        set { if newValue { value = value | 0b00000001 << 4 }else{ value = value & ~(0b00000001 << 4) } }
     }
     var flag5:Bool {
-        return (value & 0b00100000) != 0
+        get { return (value & 0b00000001 << 5) != 0 }
+        set { if newValue { value = value | 0b00000001 << 5 }else{ value = value & ~(0b00000001 << 5) } }
     }
     var flag6:Bool {
-        return (value & 0b01000000) != 0
+        get { return (value & 0b00000001 << 6) != 0 }
+        set { if newValue { value = value | 0b00000001 << 6 }else{ value = value & ~(0b00000001 << 6) } }
     }
     var flag7:Bool {
-        return (value & 0b10000001) != 0
+        get { return (value & 0b00000001 << 7) != 0 }
+        set { if newValue { value = value | 0b00000001 << 7 }else{ value = value & ~(0b00000001 << 7) } }
     }
 }

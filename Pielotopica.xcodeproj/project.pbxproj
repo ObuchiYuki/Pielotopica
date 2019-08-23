@@ -123,6 +123,7 @@
 		B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */; };
 		B6EDB123230F81350042CA02 /* TPBuildSideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */; };
 		B6EDB125230F8B200042CA02 /* TSBlockState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB124230F8B200042CA02 /* TSBlockState.swift */; };
+		B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -260,6 +261,7 @@
 		B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenu.swift; sourceTree = "<group>"; };
 		B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenuItem.swift; sourceTree = "<group>"; };
 		B6EDB124230F8B200042CA02 /* TSBlockState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockState.swift; sourceTree = "<group>"; };
+		B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockRotation.swift; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -691,6 +693,7 @@
 			isa = PBXGroup;
 			children = (
 				B6EDB124230F8B200042CA02 /* TSBlockState.swift */,
+				B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -863,6 +866,7 @@
 				B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */,
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */,
+				B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */,
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
 				B667BA5F230B776C0038B098 /* YOLO.swift in Sources */,
 				B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */,
