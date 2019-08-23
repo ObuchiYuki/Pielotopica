@@ -1,30 +1,28 @@
 //
-//  TPFlatButton.swift
+//  TPBuildSideMenuItem.swift
 //  Pielotopica
 //
-//  Created by yuki on 2019/08/22.
+//  Created by yuki on 2019/08/23.
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
 import SpriteKit
 
-class TPFlatButton: GKButtonNode {
-    init(textureNamed name:String) {
+class TPBuildSideMenuItem: GKButtonNode {
+    init(imageNamed name:String) {
         super.init(
-            size: [75, 26],
+            size: [94, 47],
             defaultTexture: .init(imageNamed: name),
             selectedTexture: .init(imageNamed: name+"_pressed"),
             disabledTexture: nil
         )
-        
-        self.anchorPoint = .zero
-    }
-    
-    override func buttonDidUnselect() {
-        TPButtonReaction()
     }
     
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func buttonDidUnselect() {
+        TPButtonReaction()
     }
 }

@@ -29,7 +29,7 @@ class TPDropButton: GKButtonNode {
         self.isSelected = selectionState
     }
     override func buttonDidUnselect() {
-        RMTapticEngine.impact.feedback(.medium)
+        TPButtonReaction()
         
         self.isSelected = selectionState
     }

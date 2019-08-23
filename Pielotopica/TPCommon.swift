@@ -57,3 +57,11 @@ private func _createLogoAttributeText(with color:UIColor) -> NSAttributedString 
     
     return string1
 }
+
+func TPButtonReaction() {
+    GKSoundPlayer.shared.playSoundEffect(.buttonLihgt)
+    RMTapticEngine.impact.feedback(.medium)
+}
+extension GKSoundFile {
+    static let buttonLihgt = GKSoundFile(filename: "button_light", exp: "mp3")
+}

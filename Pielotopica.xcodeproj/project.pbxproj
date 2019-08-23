@@ -118,6 +118,10 @@
 		B6AA02B0230D834000F0FF48 /* TPHeaderSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */; };
 		B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */; };
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
+		B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6EDB11C230F78AE0042CA02 /* button_light.mp3 */; };
+		B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */; };
+		B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */; };
+		B6EDB123230F81350042CA02 /* TPBuildSideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -250,6 +254,10 @@
 		B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPHeaderSlider.swift; sourceTree = "<group>"; };
 		B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSpriteNode.swift; sourceTree = "<group>"; };
 		B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKShadowLabelNode.swift; sourceTree = "<group>"; };
+		B6EDB11C230F78AE0042CA02 /* button_light.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_light.mp3; sourceTree = "<group>"; };
+		B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSoundPlayer.swift; sourceTree = "<group>"; };
+		B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenu.swift; sourceTree = "<group>"; };
+		B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenuItem.swift; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -361,6 +369,7 @@
 				B61E93D52300E376008CB325 /* Assets.xcassets */,
 				B61E93D62300E376008CB325 /* LaunchScreen.storyboard */,
 				B61E93D82300E376008CB325 /* Main.storyboard */,
+				B6EDB11B230F78A40042CA02 /* Sound */,
 				B6227A662302391A009EF60F /* Object */,
 				B61E93DA2300E376008CB325 /* Fonts */,
 				B634BB09230C03B800A896A8 /* recognition_object_item_map.json */,
@@ -402,6 +411,7 @@
 				B61E93F22300E38A008CB325 /* GKSafeScene.swift */,
 				B61E94192300FEFA008CB325 /* GK3DSceneController.swift */,
 				B61E93EF2300E38A008CB325 /* GKActionTimingMode.swift */,
+				B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */,
 				B6AA02B1230E119A00F0FF48 /* Node */,
 				B61E93F02300E38A008CB325 /* Extensions */,
 			);
@@ -640,6 +650,8 @@
 				B6690596230E245E008AE24F /* TPBuildItemBar.swift */,
 				B6690598230E2861008AE24F /* TPDropButton.swift */,
 				B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */,
+				B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */,
+				B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -662,6 +674,14 @@
 				B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */,
 			);
 			path = Node;
+			sourceTree = "<group>";
+		};
+		B6EDB11B230F78A40042CA02 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				B6EDB11C230F78AE0042CA02 /* button_light.mp3 */,
+			);
+			path = Sound;
 			sourceTree = "<group>";
 		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
@@ -736,6 +756,7 @@
 				B61E93EA2300E376008CB325 /* Korneuburg-Slab-Regular.ttf in Resources */,
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
 				B6A8D669230ECC67005B26A5 /* TP_floar_5x5.png in Resources */,
+				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
 				B61E93E82300E376008CB325 /* Korneuburg-Slab-Light.ttf in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
 				B6A8D66D230ED50B005B26A5 /* TP_ground_5x5.png in Resources */,
@@ -839,6 +860,7 @@
 				B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */,
 				B6227A342301AB84009EF60F /* TSInventry.swift in Sources */,
 				B6A89CBB230B8040007F5416 /* CaptureViewController.swift in Sources */,
+				B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */,
 				B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */,
 				B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */,
 				B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */,
@@ -887,6 +909,7 @@
 				B667BA5D230B776C0038B098 /* Ex+CVPixelBuffer.swift in Sources */,
 				B61E940F2300E390008CB325 /* _TPStartScenePlayButton.swift in Sources */,
 				B6227A352301AB84009EF60F /* TSBlockItem.swift in Sources */,
+				B6EDB123230F81350042CA02 /* TPBuildSideMenuItem.swift in Sources */,
 				B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */,
 				B667BA5E230B776C0038B098 /* YOLOv3.mlmodel in Sources */,
 				B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */,
@@ -895,6 +918,7 @@
 				B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */,
 				B61E93CC2300E36C008CB325 /* Ex+UIImage.swift in Sources */,
 				B6AA02B0230D834000F0FF48 /* TPHeaderSlider.swift in Sources */,
+				B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */,
 				B61E93D22300E36C008CB325 /* Ex+CoreGraphics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

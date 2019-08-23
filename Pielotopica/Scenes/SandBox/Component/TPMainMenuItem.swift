@@ -23,8 +23,7 @@ class TPMainMenuItem: GKButtonNode {
     }
     
     override func buttonDidUnselect() {
-        
-        RMTapticEngine.impact.feedback(.medium)
+        TPButtonReaction()
     }
     
     required init(coder: NSCoder) {

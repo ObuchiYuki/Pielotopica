@@ -26,7 +26,7 @@ public class RMTimeStamp {
         
     }
     public func isSameFrame() -> Bool {
-        return delta() < 0.1
+        return delta() < 1
     }
     
     public func monitorSequenceEnd(_ block: ((RMTimeStamp)->())?) {
