@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
+		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
+		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
+		B608C49A231101470073843E /* WoodWall1x1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B608C499231101470073843E /* WoodWall1x1.swift */; };
 		B614C236230F731F00DA7093 /* WoodWall1x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* WoodWall1x5.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
@@ -144,6 +147,9 @@
 		1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.debug.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.debug.xcconfig"; sourceTree = "<group>"; };
 		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
+		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
+		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
+		B608C499231101470073843E /* WoodWall1x1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodWall1x1.swift; sourceTree = "<group>"; };
 		B614C235230F731F00DA7093 /* WoodWall1x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodWall1x5.swift; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -607,6 +613,7 @@
 				B6227A6123023732009EF60F /* JapaneseHouse2.swift */,
 				B6227A6223023732009EF60F /* TPFloar.swift */,
 				B614C235230F731F00DA7093 /* WoodWall1x5.swift */,
+				B608C499231101470073843E /* WoodWall1x1.swift */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -614,6 +621,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B608C497231101120073843E /* wood_wall_1x1.png */,
+				B608C495231101060073843E /* TP_wood_wall_1x1.scn */,
 				B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */,
 				B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */,
 				B6A8D670230ED73B005B26A5 /* TP_Ground_edge.png */,
@@ -827,6 +836,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */,
 				B61E93EA2300E376008CB325 /* Korneuburg-Slab-Regular.ttf in Resources */,
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
 				B6A8D669230ECC67005B26A5 /* TP_floar_5x5.png in Resources */,
@@ -838,6 +848,7 @@
 				B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */,
 				B6227A312301AB84009EF60F /* bokeh.png in Resources */,
 				B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */,
+				B608C498231101130073843E /* wood_wall_1x1.png in Resources */,
 				B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */,
 				B634BB0A230C03B800A896A8 /* recognition_object_item_map.json in Resources */,
 				B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */,
@@ -955,6 +966,7 @@
 				B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
+				B608C49A231101470073843E /* WoodWall1x1.swift in Sources */,
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
 				B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,

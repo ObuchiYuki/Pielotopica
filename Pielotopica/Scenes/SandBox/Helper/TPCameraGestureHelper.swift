@@ -18,6 +18,8 @@ protocol TPCameraGestureHelperDelegate:class {
 /// カメラの方向は（x: -π/6, y: π/4, z: 0）を前提に作っています。
 /// 変わったらその時改修
 class TPSandboxCameraGestureHelper {
+    static weak var initirized:TPSandboxCameraGestureHelper?
+    
     weak var delegate:TPCameraGestureHelperDelegate!
     
     private var timeStamp = RMTimeStamp()
@@ -27,8 +29,13 @@ class TPSandboxCameraGestureHelper {
     
     init(delegate:TPCameraGestureHelperDelegate) {
         self.delegate = delegate
+        
+        TPSandboxCameraGestureHelper.initirized = self
     }
     
+    func getPinchScale() -> Float {
+        return pinchScale
+    }
     /// ピンチ時に呼び出してください。
     func pinched(to scale:CGFloat) {
         pinchScale = originalPinchScale * Float(scale)
@@ -44,7 +51,7 @@ class TPSandboxCameraGestureHelper {
         
         timeStamp.press()
         
-        let dx:Float = Float(vector.x) / 50 * Float(1.0 / pinchScale)
+        let dx:Float = Float(vector.x) / 55 * Float(1.0 / pinchScale)
         let dy:Float = Float(vector.y) / 40 * Float(1.0 / pinchScale)
         
         let p:SCNVector3 = [cameraStartPosition.x - dx, cameraStartPosition.y + dy, cameraStartPosition.z + dx]

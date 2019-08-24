@@ -194,6 +194,7 @@ public class TSLevel {
     
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3) {
         let size = block.getSize(at: anchorPoint)
+        debugPrint(size)
         #if DEBUG
         TPSandboxSceneController.addsample(at: anchorPoint, color: .red)
         #endif

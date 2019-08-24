@@ -24,6 +24,6 @@ public extension TSBlock {
     
     static let woodWall1x5:TSBlock = TSWall(nodeNamed: "TP_wood_wall_1x5", index: 14)
     
-    
+    static let woodWall1x1:TSBlock = TSWall1(nodeNamed: "TP_wood_wall_1x1", index: 15)
 }
 

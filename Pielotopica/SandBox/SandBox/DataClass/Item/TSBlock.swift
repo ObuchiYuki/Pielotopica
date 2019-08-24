@@ -102,7 +102,7 @@ open class TSBlock {
         switch rotation {
         case .x0: return _size
         case .x1: return TSVector3( _size.z16, _size.y16, -_size.x16)
-        case .x2: return TSVector3(-_size.x16, _size.y16,  _size.z16)
+        case .x2: return TSVector3(-_size.x16, _size.y16, -_size.z16)
         case .x3: return TSVector3(-_size.z16, _size.y16,  _size.x16)
         }
     }

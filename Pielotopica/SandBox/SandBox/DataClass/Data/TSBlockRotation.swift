@@ -23,6 +23,14 @@ public enum TSBlockRotation {
         case .x3: return 3
         }
     }
+    var nodeModifier:TSVector3 {
+        switch self {
+        case .x0: return .zero
+        case .x1: return TSVector3( 0,  0,  1)
+        case .x2: return TSVector3( 1,  0,  1)
+        case .x3: return TSVector3( 1,  0,  0)
+        }
+    }
     var eulerAngle:Double {
         return Double.pi / 2 * Double(rotation)
     }

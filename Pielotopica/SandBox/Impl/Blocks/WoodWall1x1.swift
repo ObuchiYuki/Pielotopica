@@ -1,20 +1,20 @@
 //
-//  TSWall.swift
+//  WoodBlock.swift
 //  Pielotopica
 //
-//  Created by yuki on 2019/08/23.
+//  Created by yuki on 2019/08/24.
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
 import Foundation
 
-class TSWall: TSBlock {
+class TSWall1: TSBlock {
     
     
     // =============================================================== //
     // MARK: - Methods -
     override func getOriginalNodeSize() -> TSVector3 {
-        return [1, 1, 5]
+        return [1, 1, 1]
     }
     override func shouldAnimateWhenPlaced(at point: TSVector3) -> Bool {
         return true

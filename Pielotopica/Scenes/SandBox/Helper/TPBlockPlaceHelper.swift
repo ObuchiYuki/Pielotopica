@@ -98,19 +98,19 @@ class TSBlockPlaceHelper {
     
     private var initialNodePosition = TSVector3()
     #if DEBUG
-    private var node:SCNNode = {
-        let node = SCNNode()
-        node.isHidden = true
+    private var _debugAnchorNode:SCNNode = {
+        let _debugAnchorNode = SCNNode()
+        _debugAnchorNode.isHidden = true
         let box = SCNBox(width: 0.8, height: 0.8, length: 0.8, chamferRadius: 0.1)
         box.firstMaterial?.diffuse.contents = UIColor.red
-        node.geometry = box
-        TPSandboxSceneController._debug.scene.rootNode.addChildNode(node)
-        return node
+        _debugAnchorNode.geometry = box
+        TPSandboxSceneController._debug.scene.rootNode.addChildNode(_debugAnchorNode)
+        return _debugAnchorNode
     }()
     #endif
     private var nodePosition = TSVector3() {
         didSet{
-            node.position = nodePosition.scnVector3
+            _debugAnchorNode.position = nodePosition.scnVector3
         }
     }
     
@@ -127,25 +127,17 @@ class TSBlockPlaceHelper {
             blockSize: block.getSize(at: nodePosition),
             for: _blockRotation
         )
-        print("movement:",movement)
-        print("nodePosition:pre", nodePosition)
-        
         nodePosition = nodePosition + movement
         
-        print("nodePosition:post", nodePosition)
+        blockNode?.runAction(rotateAction)
+        
         _blockRotation += 1
-        
-        blockNode?.runAction(.sequence([rotateAction, .run{_ in
-            print("pos:", self.blockNode!.position)
-            
-        }]))
-        
     }
     
     /// HitTestが終わったら、hitTestのworldCoodinateで呼びだしてください。
     func startBlockPlacing(from position:TSVector3) {
         #if DEBUG
-        node.isHidden = false
+        _debugAnchorNode.isHidden = false
         #endif
         guard let blockNode = blockNode else { return }
         guard level.canPlace(block, at: position), let initialPosition = level.calculatePlacablePosition(for: block, at: position.vector2) else {
@@ -192,7 +184,7 @@ class TSBlockPlaceHelper {
     /// 確定する前にcanEndBlockPlacing()を呼んでください。
     func endBlockPlacing() {
         #if DEBUG
-        node.isHidden = true
+        _debugAnchorNode.isHidden = true
         #endif
         isPlacingEnd = true
         guard let blockNode = blockNode else {fatalError()}
@@ -251,15 +243,12 @@ class TSBlockPlaceHelper {
     }
         
     private func _convertToNodeMovement(fromTouchVector vector2:TSVector2) -> TSVector3 {
+        print(1.0 / TPSandboxCameraGestureHelper.initirized.getPinchScale()) 
         
         let transform = CGAffineTransform(rotationAngle: -.pi/4).scaledBy(x: 0.05, y: 0.05)
         let transformed = vector2.applying(transform)
         
-        if abs(transformed.x16) > abs(transformed.z16) {
-           return [transformed.x16, 0, 0]
-        } else {
-            return [0, 0, transformed.z16]
-        }
+        return [transformed.x16, 0, transformed.z16]
     }
     
     private func _calculatePlacablePositionFailture(at position:TSVector3) {

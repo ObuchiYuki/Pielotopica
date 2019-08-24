@@ -236,9 +236,10 @@ extension TPSandboxSceneModel : TSLevelDelegate {
         
         let rotation = TSBlockRotation(data: level.getBlockData(at: position))
         node.eulerAngles = SCNVector3(0, rotation.eulerAngle , 0)
-            
-        print("__placeNode", position, "rotation", rotation)
-        binder.__placeNode(node, at: position)
+        
+        let nodePosition = position + rotation.nodeModifier
+        
+        binder.__placeNode(node, at: nodePosition)
     }
     func level(_ level: TSLevel, levelDidDestoryBlockAt position: TSVector3) {
         guard let node = nodeGenerator.getNode(for: position) else {return}
