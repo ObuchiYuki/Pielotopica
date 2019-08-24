@@ -13,40 +13,40 @@ import Foundation
 public class TSBlockData {
     public var value:UInt8
     
-    public init(value:UInt8) {
+    public init(value:UInt8 = 0) {
         self.value = value
     }
     
     public var flag0:Bool {
         get { return (value & 0b00000001 << 0) != 0 }
-        set { if newValue { value = value | 0b00000001 << 0 }else{ value = value & ~(0b00000001 << 0) } }
+        set { if newValue { value = value | 0b00000001 << 0 } else { value = value & ~(0b00000001 << 0) } }
     }
     public var flag1:Bool {
         get { return (value & 0b00000001 << 1) != 0 }
-        set { if newValue { value = value | 0b00000001 << 1 }else{ value = value & ~(0b00000001 << 1) } }
+        set { if newValue { value = value | 0b00000001 << 1 } else { value = value & ~(0b00000001 << 1) } }
     }
     public var flag2:Bool {
         get { return (value & 0b00000001 << 2) != 0 }
-        set { if newValue { value = value | 0b00000001 << 2 }else{ value = value & ~(0b00000001 << 2) } }
+        set { if newValue { value = value | 0b00000001 << 2 } else { value = value & ~(0b00000001 << 2) } }
     }
     public var flag3:Bool {
         get { return (value & 0b00000001 << 3) != 0 }
-        set { if newValue { value = value | 0b00000001 << 3 }else{ value = value & ~(0b00000001 << 3) } }
+        set { if newValue { value = value | 0b00000001 << 3 } else { value = value & ~(0b00000001 << 3) } }
     }
     public var flag4:Bool {
         get { return (value & 0b00000001 << 4) != 0 }
-        set { if newValue { value = value | 0b00000001 << 4 }else{ value = value & ~(0b00000001 << 4) } }
+        set { if newValue { value = value | 0b00000001 << 4 } else { value = value & ~(0b00000001 << 4) } }
     }
     public var flag5:Bool {
         get { return (value & 0b00000001 << 5) != 0 }
-        set { if newValue { value = value | 0b00000001 << 5 }else{ value = value & ~(0b00000001 << 5) } }
+        set { if newValue { value = value | 0b00000001 << 5 } else { value = value & ~(0b00000001 << 5) } }
     }
     public var flag6:Bool {
         get { return (value & 0b00000001 << 6) != 0 }
-        set { if newValue { value = value | 0b00000001 << 6 }else{ value = value & ~(0b00000001 << 6) } }
+        set { if newValue { value = value | 0b00000001 << 6 } else { value = value & ~(0b00000001 << 6) } }
     }
     public var flag7:Bool {
         get { return (value & 0b00000001 << 7) != 0 }
-        set { if newValue { value = value | 0b00000001 << 7 }else{ value = value & ~(0b00000001 << 7) } }
+        set { if newValue { value = value | 0b00000001 << 7 } else { value = value & ~(0b00000001 << 7) } }
     }
 }

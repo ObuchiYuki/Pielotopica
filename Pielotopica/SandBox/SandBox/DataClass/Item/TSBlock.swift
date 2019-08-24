@@ -34,9 +34,10 @@ open class TSBlock {
     /// 空気かどうかです。
     public lazy var isAir:Bool = index == 0
     
-    /// Sandbox座標系におけるアイテムのサイズです。
+    /// Sandbox座標系におけるアイテムのサイズです。 アンカーポイントからのベクターで表されます。
+    /// マイナスの数を取ることもあります。
     public func getSize(at point:TSVector3) -> TSVector3 {
-        return _calculateSize()
+        return _rotatedNodeSize(at: point)
     }
     // =============================================================== //
     // MARK: - Private Properties -
@@ -90,53 +91,26 @@ open class TSBlock {
     /// 一定のタイミングで呼び出されます。
     open func didRandomEventRoopCome(at point:TSVector3) {}
     
-    /// 自身の回転状況です。
-    public func getRotation(at point:TSVector3) -> TSBlockRotation {
-        return TSBlockRotation(data: getBlockData(at: point))
-    }
-    
-    public func rotatedRelativeAnchorPoint(rotation ry:Int) -> TSVector3 {
-        
-    }
-    
-    public func setRotation(_ rotation:TSBlockRotation, at point:TSVector3) {
-        var data = getBlockData(at: point)
-        rotation.setData(to: &data)
-        
-        setBlockData(data, at: point)
-    }
-    
     // =============================================================== //
     // MARK: - Private Methods -
     
-    /// 中心（奇数の場合は自動調整）周りに rotation x 90度 反時計回り
-    private func _createNodeRotation(blockSize: TSVector3, rotation ry: Int) -> TSVector3 {
-        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2, 0, Double(blockSize.z) / 2), with: ry)
-            
-        let (x, z) = (v1.x, v1.z)
-        let (X, Z) = (z, -x)
-        let (dx, dz) = (x - X, z - Z)
-        
-        return TSVector3(Int16(dx), 0, Int16(dz))
-    }
-    
-    private func _rotateVector(_ vector:SCNVector3, with amount:Int) -> SCNVector3 {
-        switch amount % 4 {
-        case 0: return vector
-        case 1: return SCNVector3( vector.z,  vector.y, -vector.x)
-        case 2: return SCNVector3(-vector.x,  vector.y, -vector.z)
-        case 3: return SCNVector3(-vector.z,  vector.y,  vector.x)
-        default: fatalError()
+    private func _rotatedNodeSize(at point:TSVector3) -> TSVector3 {
+        let rotation = TSBlockRotation(data: getBlockData(at: point))
+        let _size = _getOriginalNodeSize()
+        switch rotation {
+        case .x0: return _size
+        case .x1: return TSVector3( _size.z16, _size.y16, -_size.x16)
+        case .x2: return TSVector3(-_size.x16, _size.y16, -_size.z16)
+        case .x3: return TSVector3(-_size.z16, _size.y16, _size.x16)
         }
     }
     
+    private var _calculatedOriginalNodeSize:TSVector3? = nil
     
-    private var _calculatedNodeSize:TSVector3? = nil
-    
-    private func _calculateSize() -> TSVector3 {
-        if let calculatedNodeSize = _calculatedNodeSize {return calculatedNodeSize}
+    private func _getOriginalNodeSize() -> TSVector3 {
+        if let calculatedNodeSize = _calculatedOriginalNodeSize {return calculatedNodeSize}
         if self.isAir {
-            _calculatedNodeSize = .unit
+            _calculatedOriginalNodeSize = .unit
             return .unit
         }
         
@@ -156,7 +130,7 @@ open class TSBlock {
         
         let a = TSVector3(_size)
         
-        _calculatedNodeSize = a
+        _calculatedOriginalNodeSize = a
         return a
     }
     

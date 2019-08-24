@@ -101,14 +101,21 @@ class TSBlockPlaceHelper {
     
     // =============================================================== //
     // MARK: - Methods -
-    var i = 0
+    private var _blockRotation = 0
     /// 現在のブロックを回転させます。
     func rotateCurrentBlock() {
         let rotateAction = _createNodeRotationAnimation(
             blockSize: block.getSize(at: nodePosition),
-            rotation: i
+            rotation: _blockRotation
         )
-        i += 1
+        let movement = _anchorPointMovement(
+            blockSize: block.getSize(at: nodePosition),
+            for: _blockRotation
+        )
+            
+        nodePosition = nodePosition + movement
+        
+        _blockRotation += 1
         
         blockNode?.runAction(rotateAction)
     }
@@ -162,15 +169,17 @@ class TSBlockPlaceHelper {
         isPlacingEnd = true
         guard let blockNode = blockNode else {fatalError()}
         
+        self.level.placeBlock(block, at: getFinalBlockPosition(), rotation: TSBlockRotation(rotation: _blockRotation))
+        
         delegate?.blockPlacehelper(endBlockPlacingWith: blockNode)
+        
+        GKSoundPlayer.shared.playSoundEffect(.place)
     }
     
     func getFinalBlockPosition() -> TSVector3 {
         assert(isPlacingEnd, "Block placing is not ended.")
-        
-        guard let blockNode = blockNode else {fatalError()}
-        
-        return TSVector3(blockNode.position)
+                
+        return nodePosition
     }
     
     // =============================================================== //
@@ -184,22 +193,28 @@ class TSBlockPlaceHelper {
     // =============================================================== //
     // MARK: - Private Methods -
     
-    /// 中心（奇数の場合は自動調整）周りに rotation x 90度 反時計回り
-    private func _createNodeRotationAnimation(blockSize: TSVector3, rotation ry: Int) -> SCNAction {
-        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2, 0, Double(blockSize.z) / 2), with: ry)
+    private func _anchorPointMovement(blockSize: TSVector3, for rotation:Int) -> TSVector3 {
+        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2, 0, Double(blockSize.z) / 2), rotation: rotation)
             
         let (x, z) = (v1.x, v1.z)
         let (X, Z) = (z, -x)
         let (dx, dz) = (x - X, z - Z)
         
-        let a1 = SCNAction.move(by: SCNVector3(dx, 0, dz) , duration: 0.1)
+        return TSVector3(Int16(dx), 0, Int16(dz))
+    }
+    
+    /// 中心（奇数の場合は自動調整）周りに rotation x 90度 反時計回り
+    private func _createNodeRotationAnimation(blockSize: TSVector3, rotation ry: Int) -> SCNAction {
+        let movement = _anchorPointMovement(blockSize: blockSize, for: ry)
+        
+        let a1 = SCNAction.move(by: movement.scnVector3 , duration: 0.1)
         let a2 = SCNAction.rotateBy(x: 0, y: .pi/2, z: 0, duration: 0.1)
         
         return SCNAction.group([a1, a2]).setEase(.easeInEaseOut)
     }
     
-    private func _rotateVector(_ vector:SCNVector3, with amount:Int) -> SCNVector3 {
-        switch amount % 4 {
+    private func _rotateVector(_ vector:SCNVector3, rotation ry:Int) -> SCNVector3 {
+        switch ry % 4 {
         case 0: return vector
         case 1: return SCNVector3( vector.z,  vector.y, -vector.x)
         case 2: return SCNVector3(-vector.x,  vector.y, -vector.z)

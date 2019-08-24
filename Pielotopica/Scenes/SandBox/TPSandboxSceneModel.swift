@@ -166,9 +166,9 @@ class TPSandboxSceneModel {
             for z in -2...2 {
                 
                 if abs(x) == 2 || abs(z) == 2 {
-                    level.placeBlock(.ground5x5Edge, at: TSVector3(x * 5, 0, z * 5), forced: true)
+                    level.placeBlock(.ground5x5Edge, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
                 }else {
-                    level.placeBlock(.ground5x5, at: TSVector3(x * 5, 0, z * 5), forced: true)
+                    level.placeBlock(.ground5x5, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
                 }
             }
         }
@@ -182,8 +182,6 @@ class TPSandboxSceneModel {
     private func _blockPositionDidDecided(_ helper:TSBlockPlaceHelper) {
         self.isPlacingBlockMode.accept(false)
         self.itemBarInventory.useCurrentItem()
-        
-        self.level.placeBlock(helper.block, at: helper.getFinalBlockPosition())
         
         RMTapticEngine.impact.feedback(.heavy)
     }
@@ -237,6 +235,9 @@ extension TPSandboxSceneModel : TSLevelDelegate {
             node.runAction(action)
         }
         
+        let rotation = TSBlockRotation(data: level.getBlockData(at: position))
+        node.eulerAngles = SCNVector3(0, rotation.eulerAngle , 0)
+            
         binder.__placeNode(node, at: position)
     }
     func level(_ level: TSLevel, levelDidDestoryBlockAt position: TSVector3) {

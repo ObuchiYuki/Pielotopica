@@ -10,27 +10,47 @@ import Foundation
 
 /// flag0, flag1の2bit使います。
 public enum TSBlockRotation {
-    case xPlus  // (0, 0)
-    case xMinus // (0, 1)
-    case zPlus  // (1, 0)
-    case zMinus // (1, 1)
+    case x0 // (0, 0)
+    case x1 // (0, 1)
+    case x2 // (1, 0)
+    case x3 // (1, 1)
     
+    var rotation:Int {
+        switch self {
+        case .x0: return 0
+        case .x1: return 1
+        case .x2: return 2
+        case .x3: return 4
+        }
+    }
+    var eulerAngle:Double {
+        return Double.pi / 2 * Double(rotation)
+    }
+    
+    public init(rotation ry:Int) {
+        switch ry % 4 {
+        case 0: self = .x0
+        case 1: self = .x1
+        case 2: self = .x2
+        case 3: self = .x3
+        default: fatalError()
+        }
+    }
     public init(data: TSBlockData) {
         switch (data.flag0, data.flag1) {
-        case (false, false): self = .xPlus
-        case (false, true):  self = .xMinus
-        case (true, false):  self = .zPlus
-        case (true, true):   self = .zMinus
+        case (false, false): self = .x0
+        case (false, true ): self = .x1
+        case (true , false): self = .x2
+        case (true , true ): self = .x3
         }
     }
     
-    
     public func setData(to data:inout TSBlockData) { //本来Classにinoutは必要ないが、識別のため
         switch self {
-        case .xPlus:   data.flag0 = false; data.flag1 = false
-        case .xMinus:  data.flag0 = false; data.flag1 = true
-        case .zPlus:   data.flag0 = true ; data.flag1 = false
-        case .zMinus:  data.flag0 = true ; data.flag1 = true
+        case .x0:  data.flag0 = false; data.flag1 = false
+        case .x1:  data.flag0 = false; data.flag1 = true
+        case .x2:  data.flag0 = true ; data.flag1 = false
+        case .x3:  data.flag0 = true ; data.flag1 = true
         }
     }
 }

@@ -110,11 +110,13 @@ public class TSLevel {
     /// アンカーポイントにブロックを設置します。
     /// 指定するanchorPointは事前に`calculatePlacablePosition(for:, at:)`で計算されたものである必要があります。
     /// forceオプションに速度的な差はありません。
-    public func placeBlock(_ block:TSBlock, at anchorPoint:TSVector3, forced:Bool = false) {
+    public func placeBlock(_ block:TSBlock, at anchorPoint:TSVector3, rotation:TSBlockRotation, forced:Bool = false) {
         if !forced { // 強制でないなら
             assert(canPlace(block, at: anchorPoint), "Error placing block. use calculatePlacablePosition to find place to place.")
             guard block.canPlace(at: anchorPoint) else {return}
         }
+        
+        self._writeRotation(rotation, at: anchorPoint)
         
         block.willPlace(at: anchorPoint)
         
@@ -159,12 +161,27 @@ public class TSLevel {
     // =============================================================== //
     // MARK: - Private Methods -
     
+    private func _createRange(_ value:Int16) -> Range<Int16> {
+        if value > 0 {
+            return 0..<value
+        }else{
+            return Range(uncheckedBounds: (lower: value+1, upper: 0))
+        }
+    }
+    
+    private func _writeRotation(_ rotation:TSBlockRotation, at point:TSVector3) {
+        var data = TSBlockData()
+        rotation.setData(to: &data)
+        
+        setBlockData(data, at: point)
+    }
+    
     private func _conflictionExsists(about block:TSBlock, at anchorPoint:TSVector3) -> Bool {
         let size = block.getSize(at: anchorPoint)
         
-        for x in 0..<size.x16 {
-            for y in 0..<size.y16 {
-                for z in 0..<size.z16 {
+        for x in _createRange(size.x16) {
+            for y in _createRange(size.y16) {
+                for z in _createRange(size.z16) {
                     
                     if _getFillMap(at: anchorPoint + TSVector3(x, y, z)) != .air {
                         return true
@@ -177,10 +194,13 @@ public class TSLevel {
     
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3) {
         let size = block.getSize(at: anchorPoint)
+        print(anchorPoint)
+        print(size)
         
-        for xSize in 0..<size.x16 {
-            for ySize in 0..<size.y16 {
-                for zSize in 0..<size.z16 {
+        
+        for xSize in _createRange(size.x16) {
+            for ySize in _createRange(size.y16) {
+                for zSize in _createRange(size.z16) {
                     
                     self._setFillMap(block, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
