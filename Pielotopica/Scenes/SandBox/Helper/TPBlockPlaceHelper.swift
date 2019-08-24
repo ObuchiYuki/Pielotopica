@@ -243,9 +243,9 @@ class TSBlockPlaceHelper {
     }
         
     private func _convertToNodeMovement(fromTouchVector vector2:TSVector2) -> TSVector3 {
-        print(1.0 / TPSandboxCameraGestureHelper.initirized.getPinchScale()) 
+        let tscale = 1.0 / TPSandboxCameraGestureHelper.initirized!.getPinchScale() * 0.03
         
-        let transform = CGAffineTransform(rotationAngle: -.pi/4).scaledBy(x: 0.05, y: 0.05)
+        let transform = CGAffineTransform(rotationAngle: -.pi/4).scaledBy(x: CGFloat(tscale), y: CGFloat(tscale))
         let transformed = vector2.applying(transform)
         
         return [transformed.x16, 0, transformed.z16]
