@@ -13,7 +13,7 @@ public extension SCNNode {
     var fnode:SCNNode? {
         return self.childNodes.first
     }
-    var material:SCNMaterial? {
+    var fmaterial:SCNMaterial? {
         return self.fnode?.geometry?.firstMaterial
     }
     

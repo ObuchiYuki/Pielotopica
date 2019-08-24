@@ -9,5 +9,11 @@
 import Foundation
 
 class TPBlockMoveHelper: TPBlockEditHelper {
+    func startMoving(at startPoint:TSVector3) {
+        let blockData = level.getBlockData(at: startPoint)
     
+        level.destroyBlock(at: startPoint)
+        
+        startEditing(from: anchorPoint, startRotation: TSBlockRotation(data: blockData).rotation)
+    }
 }

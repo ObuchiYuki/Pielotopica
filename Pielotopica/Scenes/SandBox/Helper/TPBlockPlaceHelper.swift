@@ -39,11 +39,11 @@ class TSBlockPlaceHelper: TPBlockEditHelper {
     
     private func _createFailtureAction() -> SCNAction {
         let redIlluminationAction = SCNAction.run{node in
-            node.material?.selfIllumination.contents = UIColor.red
+            node.fmaterial?.selfIllumination.contents = UIColor.red
         }
         
         let normaIlluminationAction = SCNAction.run{node in
-            node.material?.selfIllumination.contents = UIColor.black
+            node.fmaterial?.selfIllumination.contents = UIColor.black
         }
         
         let waitAction = SCNAction.wait(duration: 0.1)

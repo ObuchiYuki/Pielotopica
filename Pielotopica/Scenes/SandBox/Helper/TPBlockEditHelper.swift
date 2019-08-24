@@ -32,6 +32,10 @@ class TPBlockEditHelper {
     /// ブロック仮設置用ノードです。
     public lazy var guideNode:SCNNode = _createGuideNode(from: self.block)
     
+    var level:TSLevel {
+        return TSLevel.current()
+    }
+
     // =============================================================== //
     // MARK: - Private Properties -
     
@@ -52,9 +56,6 @@ class TPBlockEditHelper {
     // Accessers
     private var _roataion:TSBlockRotation {
         return TSBlockRotation(rotation: _blockRotation)
-    }
-    private var _level:TSLevel {
-        return TSLevel.grobal
     }
     
     // =============================================================== //
@@ -112,7 +113,7 @@ class TPBlockEditHelper {
     /// 現在の場所にブロックを設置できるかを返します。
     func canEndBlockEditing() -> Bool {
         
-        return _level.canPlace(block, at: _nodePosition, atRotation: _roataion)
+        return level.canPlace(block, at: _nodePosition, atRotation: _roataion)
     }
     
     /// 編集モード完了時に呼びだしてください。最終的に決定した場所を返します。
@@ -122,7 +123,7 @@ class TPBlockEditHelper {
         
         isEdtingEnd = true
 
-        self._level.placeBlock(block, at: _nodePosition, rotation: _roataion)
+        self.level.placeBlock(block, at: _nodePosition, rotation: _roataion)
         
         delegate.blockEditHelper(endBlockPlacingWith: guideNode)
     }
@@ -157,8 +158,8 @@ class TPBlockEditHelper {
         let containerNode = SCNNode()
         
         let node = block.createNode()
-        node.material?.transparencyMode = .singleLayer
-        node.material?.transparency = 0.5
+        node.fmaterial?.transparencyMode = .singleLayer
+        node.fmaterial?.transparency = 0.5
         containerNode.addChildNode(node)
         
         let nodeSize = block.getOriginalNodeSize()
@@ -167,6 +168,7 @@ class TPBlockEditHelper {
             for z in 0..<nodeSize.z {
                 
                 let gnode = SCNNode()
+                gnode.name = "gnode"
                 gnode.geometry = SCNBox(width: 0.8, height: 0.1, length: 0.8, chamferRadius: 0)
                 gnode.geometry?.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
                 gnode.position = SCNVector3(Double(x) + 0.5, 0, Double(z) + 0.5)
@@ -176,20 +178,24 @@ class TPBlockEditHelper {
         }
         
         return containerNode
-        
+    }
+    
+    /// ガイドノード複雑だからね...
+    private func getMaterial(from guideNode:SCNNode) -> SCNMaterial {
+        return guideNode.childNodes.first(where: {$0.name != "gnode"})!.fmaterial!
     }
     
     /// ブロックが置けるかどうかを判定しマテリアへんけ
     private func _checkBlockPlaceability() {
-        print("_checkBlockPlaceability", canEndBlockEditing())
+        
         // 置けるかどうかでマテリアル指定
         if canEndBlockEditing() {
-            guideNode.material?.selfIllumination.contents = UIColor.black
+            getMaterial(from: guideNode).selfIllumination.contents = UIColor.black
         } else {
-            guideNode.material?.selfIllumination.contents = UIColor.red
+            getMaterial(from: guideNode).selfIllumination.contents = UIColor.red
         }
     }
-    
+
     // MARK: - Rotation -
     
     /// ある回転に対する部分移動を計算

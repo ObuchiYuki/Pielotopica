@@ -75,9 +75,6 @@ public class TSLevel {
     /// ブロックが置けるかどうかを調べます。
     /// 多少重たい処理です。毎フレームでの実行などは避けてくだし。
     public func canPlace(_ block:TSBlock, at position:TSVector3, atRotation rotation:TSBlockRotation) -> Bool {
-        print("canPlace", block.canPlace(at: position))
-        print("confliction", !_conflictionExsists(about: block, at: position, at: rotation))
-        
         return
             block.canPlace(at: position) &&
             !_conflictionExsists(about: block, at: position, at: rotation) &&

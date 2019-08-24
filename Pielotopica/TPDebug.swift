@@ -15,10 +15,10 @@ public extension TSBlock {
         guard let ownNode = getOwnNode(at: point) else {fatalError("Cannot Idetify own node at \(point)")}
         
         let a1 = SCNAction.run{_debugAnchorNode in
-            _debugAnchorNode.material?.selfIllumination.contents = UIColor.red
+            _debugAnchorNode.fmaterial?.selfIllumination.contents = UIColor.red
         }
         let a2 = SCNAction.run{_debugAnchorNode in
-            _debugAnchorNode.material?.selfIllumination.contents = UIColor.black
+            _debugAnchorNode.fmaterial?.selfIllumination.contents = UIColor.black
         }
         let ar = SCNAction.sequence([a1, SCNAction.wait(duration: 1), a2])
         
