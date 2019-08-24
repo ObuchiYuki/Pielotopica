@@ -95,10 +95,14 @@ class TPSandboxSceneController: GK3DSceneController {
 extension TPSandboxSceneController {
     #if DEBUG
     static weak var _debug:TPSandboxSceneController!
-    static func addsample(at point:TSVector3) {
+    static func addsample(at point:TSVector3, color: UIColor = .white, alpha:CGFloat = 1) {
         let node = SCNNode()
-        node.position = point.scnVector3 + [0.5, 0.5, 0.5]
+        node.position = point.scnVector3
         let box = SCNBox(width: 0.8, height: 0.8, length: 0.8, chamferRadius: 0.1)
+        box.firstMaterial?.diffuse.contents = color
+        box.firstMaterial?.transparencyMode = .singleLayer
+        box.firstMaterial?.transparency = alpha
+        
         node.geometry = box
         
         _debug.scene.rootNode.addChildNode(node)

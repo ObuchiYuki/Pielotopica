@@ -17,7 +17,11 @@ extension TSVector3 {
     /// TSvector3の元の範囲は、Int.min〜Int.maxの範囲です。
     public init(_ scnVector3:SCNVector3) {
         
-        self.simd = SIMD(Int16(scnVector3.x), Int16(scnVector3.y), Int16(scnVector3.z))
+        let x = scnVector3.x.rounded(.toNearestOrAwayFromZero)
+        let y = scnVector3.y.rounded(.toNearestOrAwayFromZero)
+        let z = scnVector3.z.rounded(.toNearestOrAwayFromZero)
+        
+        self.simd = SIMD(Int16(x), Int16(y), Int16(z))
         
     }
     

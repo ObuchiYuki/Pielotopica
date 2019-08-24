@@ -13,10 +13,8 @@ public extension TSBlock {
 
     /// air
     static let air:TSBlock = TSBlock()
-    
-    static let largeJapanaeseHouse:TSBlock = LargeJapaneseHouse(nodeNamed: "TP_japanese_house_1", index: 3)
-    
-    static let japaneseHouse2:TSBlock = TSBlock(nodeNamed: "TP_japanese_house_2", index: 1)
+        
+    static let japaneseHouse2:TSBlock = JapaneseHouse2(nodeNamed: "TP_japanese_house_2", index: 1)
     
     static let normalFloar5x5:TSBlock = TPFloar(nodeNamed: "TP_floar_5x5", index: 2)
     

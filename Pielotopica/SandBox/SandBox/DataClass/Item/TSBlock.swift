@@ -57,6 +57,7 @@ open class TSBlock {
     // ============================= //
     // MARK: - TSBlock Overridable Methods -
     
+    open func getOriginalNodeSize() -> TSVector3 {fatalError()}
     /// 設置される直前に呼び出されます。
     open func willPlace(at point:TSVector3) {}
     /// 設置後に呼び出されます。
@@ -96,7 +97,8 @@ open class TSBlock {
     
     private func _rotatedNodeSize(at point:TSVector3) -> TSVector3 {
         let rotation = TSBlockRotation(data: getBlockData(at: point))
-        let _size = _getOriginalNodeSize()
+        let _size = getOriginalNodeSize()
+        
         switch rotation {
         case .x0: return _size
         case .x1: return TSVector3( _size.z16, _size.y16, -_size.x16)
@@ -104,35 +106,7 @@ open class TSBlock {
         case .x3: return TSVector3(-_size.z16, _size.y16,  _size.x16)
         }
     }
-    
-    private var _calculatedOriginalNodeSize:TSVector3? = nil
-    
-    private func _getOriginalNodeSize() -> TSVector3 {
-        if let calculatedNodeSize = _calculatedOriginalNodeSize {return calculatedNodeSize}
-        if self.isAir {
-            _calculatedOriginalNodeSize = .unit
-            return .unit
-        }
-        
-        let boundingBox = self._originalNode.boundingBox
-        var _size = boundingBox.max - boundingBox.min
-        
-        // ぴったりなら足さない。
-        if (_size.x.truncatingRemainder(dividingBy: 1)) >= 0.1 {
-            _size.x += 1
-        }
-        if (_size.y.truncatingRemainder(dividingBy: 1)) >= 0.1 {
-            _size.y += 1
-        }
-        if (_size.z.truncatingRemainder(dividingBy: 1)) >= 0.1 {
-            _size.z += 1
-        }
-        
-        let a = TSVector3(_size)
-        
-        _calculatedOriginalNodeSize = a
-        return a
-    }
+
     
     private func _createNode() -> SCNNode {
         // 空気は実態化できない

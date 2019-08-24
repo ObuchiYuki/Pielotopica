@@ -17,6 +17,9 @@ import RxSwift
 class TPFloar:TSBlock {
     // =============================================================== //
     // MARK: - Methods -
+    override func getSize(at point: TSVector3) -> TSVector3 {
+        return [5, 1, 5]
+    }
     override func canPlaceBlockOnTop(_ block: TSBlock, at point: TSVector3) -> Bool {
         return true
     }

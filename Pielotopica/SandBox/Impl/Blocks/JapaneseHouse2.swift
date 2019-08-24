@@ -1,5 +1,5 @@
 //
-//  LargeJapaneseHouse.swift
+//  JapaneseHouse2.swift
 //  SandboxSample
 //
 //  Created by yuki on 2019/06/18.
@@ -11,13 +11,16 @@ import RxCocoa
 import RxSwift
 
 // =============================================================== //
-// MARK: - LargeJapaneseHouse -
+// MARK: - JapaneseHouse2 -
 
 /**
  */
-class LargeJapaneseHouse:TSBlock {
+class JapaneseHouse2:TSBlock {
     // =============================================================== //
     // MARK: - Methods -
+    override func getOriginalNodeSize() -> TSVector3 {
+        return [3, 2, 3]
+    }
     override func didPlaced(at point: TSVector3) {
         
     }

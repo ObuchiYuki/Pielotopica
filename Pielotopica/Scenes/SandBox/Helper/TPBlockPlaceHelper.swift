@@ -97,7 +97,22 @@ class TSBlockPlaceHelper {
     private var dragStartingPosition = TSVector2()
     
     private var initialNodePosition = TSVector3()
-    private var nodePosition = TSVector3()
+    #if DEBUG
+    private var node:SCNNode = {
+        let node = SCNNode()
+        node.isHidden = true
+        let box = SCNBox(width: 0.8, height: 0.8, length: 0.8, chamferRadius: 0.1)
+        box.firstMaterial?.diffuse.contents = UIColor.red
+        node.geometry = box
+        TPSandboxSceneController._debug.scene.rootNode.addChildNode(node)
+        return node
+    }()
+    #endif
+    private var nodePosition = TSVector3() {
+        didSet{
+            node.position = nodePosition.scnVector3
+        }
+    }
     
     // =============================================================== //
     // MARK: - Methods -
@@ -112,16 +127,26 @@ class TSBlockPlaceHelper {
             blockSize: block.getSize(at: nodePosition),
             for: _blockRotation
         )
-            
+        print("movement:",movement)
+        print("nodePosition:pre", nodePosition)
+        
         nodePosition = nodePosition + movement
         
+        print("nodePosition:post", nodePosition)
         _blockRotation += 1
         
-        blockNode?.runAction(rotateAction)
+        blockNode?.runAction(.sequence([rotateAction, .run{_ in
+            print("pos:", self.blockNode!.position)
+            
+        }]))
+        
     }
     
     /// HitTestが終わったら、hitTestのworldCoodinateで呼びだしてください。
     func startBlockPlacing(from position:TSVector3) {
+        #if DEBUG
+        node.isHidden = false
+        #endif
         guard let blockNode = blockNode else { return }
         guard level.canPlace(block, at: position), let initialPosition = level.calculatePlacablePosition(for: block, at: position.vector2) else {
             self._calculatePlacablePositionFailture(at: position)
@@ -166,21 +191,19 @@ class TSBlockPlaceHelper {
     /// 編集モード完了時に呼びだしてください。最終的に決定した場所を返します。
     /// 確定する前にcanEndBlockPlacing()を呼んでください。
     func endBlockPlacing() {
+        #if DEBUG
+        node.isHidden = true
+        #endif
         isPlacingEnd = true
         guard let blockNode = blockNode else {fatalError()}
-        
-        self.level.placeBlock(block, at: getFinalBlockPosition(), rotation: TSBlockRotation(rotation: _blockRotation))
+
+        self.level.placeBlock(block, at: nodePosition, rotation: TSBlockRotation(rotation: _blockRotation))
         
         delegate?.blockPlacehelper(endBlockPlacingWith: blockNode)
         
         GKSoundPlayer.shared.playSoundEffect(.place)
     }
     
-    func getFinalBlockPosition() -> TSVector3 {
-        assert(isPlacingEnd, "Block placing is not ended.")
-                
-        return nodePosition
-    }
     
     // =============================================================== //
     // MARK: - Constructor -
@@ -194,7 +217,7 @@ class TSBlockPlaceHelper {
     // MARK: - Private Methods -
     
     private func _anchorPointMovement(blockSize: TSVector3, for rotation:Int) -> TSVector3 {
-        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2, 0, Double(blockSize.z) / 2), rotation: rotation)
+        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2 - 0.5, 0, Double(blockSize.z) / 2 - 0.5), rotation: rotation)
             
         let (x, z) = (v1.x, v1.z)
         let (X, Z) = (z, -x)
@@ -205,9 +228,13 @@ class TSBlockPlaceHelper {
     
     /// 中心（奇数の場合は自動調整）周りに rotation x 90度 反時計回り
     private func _createNodeRotationAnimation(blockSize: TSVector3, rotation ry: Int) -> SCNAction {
-        let movement = _anchorPointMovement(blockSize: blockSize, for: ry)
+        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2, 0, Double(blockSize.z) / 2), rotation: ry)
+            
+        let (x, z) = (v1.x, v1.z)
+        let (X, Z) = (z, -x)
+        let (dx, dz) = (x - X, z - Z)
         
-        let a1 = SCNAction.move(by: movement.scnVector3 , duration: 0.1)
+        let a1 = SCNAction.move(by: SCNVector3(dx, 0, dz), duration: 0.1)
         let a2 = SCNAction.rotateBy(x: 0, y: .pi/2, z: 0, duration: 0.1)
         
         return SCNAction.group([a1, a2]).setEase(.easeInEaseOut)

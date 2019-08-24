@@ -20,7 +20,7 @@ public enum TSBlockRotation {
         case .x0: return 0
         case .x1: return 1
         case .x2: return 2
-        case .x3: return 4
+        case .x3: return 3
         }
     }
     var eulerAngle:Double {

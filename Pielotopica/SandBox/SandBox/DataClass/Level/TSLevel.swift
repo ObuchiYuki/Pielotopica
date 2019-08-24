@@ -194,21 +194,22 @@ public class TSLevel {
     
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3) {
         let size = block.getSize(at: anchorPoint)
-        print("==========================================")
-        
+        #if DEBUG
+        TPSandboxSceneController.addsample(at: anchorPoint, color: .red)
+        #endif
         for xSize in _createRange(size.x16) {
             for ySize in _createRange(size.y16) {
                 for zSize in _createRange(size.z16) {
-                    TPSandboxSceneController.addsample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
-                    
-                    print(xSize, ySize, zSize)
+                    #if DEBUG
+                    if (xSize, ySize, zSize) != (0, 0, 0) {
+                        TPSandboxSceneController.addsample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    }
+                    #endif
                     
                     self._setFillMap(block, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
             }
         }
-        
-        print("==========================================")
     }
     
     // MARK: - FillMap Getter and Setter -

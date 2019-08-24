@@ -160,7 +160,6 @@ class TPSandboxSceneModel {
     
     func sceneDidLoad() {
         level.delegate = self
-    
         /// 床設置 (仮)
         for x in -2...2 {
             for z in -2...2 {
@@ -238,6 +237,7 @@ extension TPSandboxSceneModel : TSLevelDelegate {
         let rotation = TSBlockRotation(data: level.getBlockData(at: position))
         node.eulerAngles = SCNVector3(0, rotation.eulerAngle , 0)
             
+        print("__placeNode", position, "rotation", rotation)
         binder.__placeNode(node, at: position)
     }
     func level(_ level: TSLevel, levelDidDestoryBlockAt position: TSVector3) {
