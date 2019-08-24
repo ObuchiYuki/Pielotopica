@@ -28,9 +28,9 @@ class TPSandboxSceneController: GK3DSceneController {
     
     override init() {
         super.init()
-        #if DEBUG
+        /*#if DEBUG
         TPSandboxSceneController._debug = self
-        #endif
+        #endif*/
     }
     
     // ================================ //

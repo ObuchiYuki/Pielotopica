@@ -98,7 +98,7 @@ class TSBlockPlaceHelper {
     
     private var initialNodePosition = TSVector3()
         
-    #if DEBUG
+    /*#if DEBUG
     private var _debugAnchorNode:SCNNode = {
         let _debugAnchorNode = SCNNode()
         _debugAnchorNode.isHidden = true
@@ -108,17 +108,24 @@ class TSBlockPlaceHelper {
         TPSandboxSceneController._debug.scene.rootNode.addChildNode(_debugAnchorNode)
         return _debugAnchorNode
     }()
-    #endif
+    #endif*/
     
     private var nodePosition = TSVector3() {
         didSet{
+            _checkBlockPlaceability()
+            /*#if DEBUG
             _debugAnchorNode.position = nodePosition.scnVector3 + [0.5, 0.5, 0.5]
+            #endif*/
         }
     }
     
     // =============================================================== //
     // MARK: - Methods -
     private var _blockRotation = 0
+    private var _roataion:TSBlockRotation {
+        return TSBlockRotation(rotation: _blockRotation)
+    }
+    
     /// 現在のブロックを回転させます。
     func rotateCurrentBlock() {
         let rotateAction = _createNodeRotationAnimation(
@@ -138,9 +145,9 @@ class TSBlockPlaceHelper {
     
     /// HitTestが終わったら、hitTestのworldCoodinateで呼びだしてください。
     func startBlockPlacing(from position:TSVector3) {
-        #if DEBUG
+        /*#if DEBUG
         _debugAnchorNode.isHidden = false
-        #endif
+        #endif*/
         guard let blockNode = blockNode else { return }
         guard
             level.canPlace(block, at: position, atRotation: TSBlockRotation(rotation: _blockRotation)),
@@ -170,14 +177,8 @@ class TSBlockPlaceHelper {
         guard let blockNode = blockNode else {return}
         
         nodePosition = initialNodePosition + _convertToNodeMovement(fromTouchVector: TSVector2(vector)) // ノードの場所計算
-        delegate?.blockPlaceHelper(moveNodeWith: blockNode, to: nodePosition) /// 通知
+        delegate?.blockPlaceHelper(moveNodeWith: blockNode, to: nodePosition + _roataion.nodeModifier) /// 通知
         
-        // 置けるかどうかでマテリアル指定
-        if !level.canPlace(block, at: nodePosition, atRotation: .x0) {
-            blockNode.material?.selfIllumination.contents = UIColor.red
-        } else {
-            blockNode.material?.selfIllumination.contents = UIColor.black
-        }
     }
 
     /// 現在の場所にブロックを設置できるかを返します。
@@ -188,9 +189,9 @@ class TSBlockPlaceHelper {
     /// 編集モード完了時に呼びだしてください。最終的に決定した場所を返します。
     /// 確定する前にcanEndBlockPlacing()を呼んでください。
     func endBlockPlacing() {
-        #if DEBUG
+        /*#if DEBUG
         _debugAnchorNode.isHidden = true
-        #endif
+        #endif*/
         isPlacingEnd = true
         guard let blockNode = blockNode else {fatalError()}
 
@@ -213,6 +214,16 @@ class TSBlockPlaceHelper {
     // =============================================================== //
     // MARK: - Private Methods -
     
+    private func _checkBlockPlaceability() {
+        guard let blockNode = blockNode else {return}
+        
+        // 置けるかどうかでマテリアル指定
+        if !level.canPlace(block, at: nodePosition, atRotation: _roataion) {
+            blockNode.material?.selfIllumination.contents = UIColor.red
+        } else {
+            blockNode.material?.selfIllumination.contents = UIColor.black
+        }
+    }
     private func _anchorPointMovement(blockSize: TSVector3, for rotation:Int) -> TSVector3 {
         let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2 - 0.5, 0, Double(blockSize.z) / 2 - 0.5), rotation: rotation)
             
