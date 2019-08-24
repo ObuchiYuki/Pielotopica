@@ -145,6 +145,7 @@ class TSBlockPlaceHelper {
 
     /// 現在の場所にブロックを設置できるかを返します。
     func canEndBlockPlacing() -> Bool {
+        
         return level.canPlace(block, at: nodePosition, atRotation: _roataion)
     }
     

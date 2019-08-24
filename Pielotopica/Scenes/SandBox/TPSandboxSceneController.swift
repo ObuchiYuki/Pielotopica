@@ -28,9 +28,9 @@ class TPSandboxSceneController: GK3DSceneController {
     
     override init() {
         super.init()
-        /*#if DEBUG
+        #if DEBUG
         TPSandboxSceneController._debug = self
-        #endif*/
+        #endif
     }
     
     // ================================ //
@@ -94,7 +94,17 @@ class TPSandboxSceneController: GK3DSceneController {
 
 extension TPSandboxSceneController {
     #if DEBUG
+    static var samples = [TSVector3: SCNNode]()
     static weak var _debug:TPSandboxSceneController!
+    
+    static func removeSample(at point:TSVector3) {
+        guard let sample = samples[point] else {
+            debugPrint("There is no node at", point)
+            return
+        }
+        
+        sample.removeFromParentNode()
+    }
     static func addsample(at point:TSVector3, color: UIColor = .white, alpha:CGFloat = 1) {
         let _debugAnchorNode = SCNNode()
         _debugAnchorNode.position = point.scnVector3 + [0.5, 0.5, 0.5]
@@ -104,6 +114,8 @@ extension TPSandboxSceneController {
         box.firstMaterial?.transparency = alpha
         
         _debugAnchorNode.geometry = box
+        
+        samples[point] = _debugAnchorNode
         
         _debug.scene.rootNode.addChildNode(_debugAnchorNode)
     }

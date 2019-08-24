@@ -158,10 +158,7 @@ class TPSandboxSceneModel {
             }
         }else if uiSceneModel.mode == .buildMove {
             let anchorPoint = TSVector3(touchedNode.worldPosition)
-            let block = level.getFillBlock(at: anchorPoint)
-            
-            print("node point:", touchedNode.worldPosition)
-            print("fill block:", block)
+            let block = level.getAnchorBlock(at: anchorPoint)
             
             guard block.canRemove(at: anchorPoint) else {return}
             

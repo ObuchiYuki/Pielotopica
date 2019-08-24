@@ -75,7 +75,9 @@ public class TSLevel {
     /// ブロックが置けるかどうかを調べます。
     /// 多少重たい処理です。毎フレームでの実行などは避けてくだし。
     public func canPlace(_ block:TSBlock, at position:TSVector3, atRotation rotation:TSBlockRotation) -> Bool {
-    
+        print("canPlace", block.canPlace(at: position))
+        print("confliction", !_conflictionExsists(about: block, at: position, at: rotation))
+        
         return
             block.canPlace(at: position) &&
             !_conflictionExsists(about: block, at: position, at: rotation) &&
@@ -122,7 +124,7 @@ public class TSLevel {
         
         self.anchorMap.insert(anchorPoint)
         self._setAnchoBlockMap(block, at: anchorPoint)
-        self._fillFillMap(with: block, at: anchorPoint)
+        self._fillFillMap(with: block, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
         
         self.delegate?.level(self, levelDidUpdateBlockAt: anchorPoint)
         
@@ -133,12 +135,12 @@ public class TSLevel {
     public func destroyBlock(at anchorPoint:TSVector3) {
         let block = _getAnchoBlockMap(at: anchorPoint)
         guard block.canDestroy(at: anchorPoint) else {return}
-        
+                
         block.willDestroy(at: anchorPoint)
         
         self.anchorMap.remove(anchorPoint)
         self._setAnchoBlockMap(.air, at: anchorPoint)
-        self._fillFillMap(with: .air, at: anchorPoint)
+        self._fillFillMap(with: .air, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
         self._setBlockDataMap(0, at: anchorPoint)
         
         self.delegate?.level(self, levelDidUpdateBlockAt: anchorPoint)
@@ -185,28 +187,28 @@ public class TSLevel {
                 for z in _createRange(size.z16) {
                     
                     if _getFillMap(at: anchorPoint + TSVector3(x, y, z)) != .air {
+                        print("confliction exsists at ", anchorPoint + TSVector3(x, y, z))
                         return true
                     }
                 }
             }
         }
+        
         return false
     }
     
-    private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3) {
-        let size = block.getSize(at: anchorPoint)
-        debugPrint(size)
-        /*#if DEBUG
-        TPSandboxSceneController.addsample(at: anchorPoint, color: .red)
-        #endif*/
+    private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3, blockSize size:TSVector3) {
+        
         for xSize in _createRange(size.x16) {
             for ySize in _createRange(size.y16) {
                 for zSize in _createRange(size.z16) {
-                    /*#if DEBUG
-                    if (xSize, ySize, zSize) != (0, 0, 0) {
-                        TPSandboxSceneController.addsample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    #if DEBUG
+                    if block.isAir {
+                    //    TPSandboxSceneController.removeSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    }else{
+                    //    TPSandboxSceneController.addsample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
                     }
-                    #endif*/
+                    #endif
                     
                     self._setFillMap(block, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
