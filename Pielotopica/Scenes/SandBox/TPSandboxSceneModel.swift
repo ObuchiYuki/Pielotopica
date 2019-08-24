@@ -107,12 +107,12 @@ class TPSandboxSceneModel {
         guard canEnterBlockPlaingMode else { return }
         
         if isPlacingBlockMode.value {
-            guard let blockPlaceHelper = blockEditHelper else {return}
+            guard let blockEditHelper = blockEditHelper else {return}
             
-            if blockPlaceHelper.canEndBlockEditing() {
-                blockPlaceHelper.endBlockEditing()
+            if blockEditHelper.canEndBlockEditing() {
+                blockEditHelper.endBlockEditing()
                 
-                _blockPositionDidDecided(blockPlaceHelper)
+                _blockPositionDidDecided(blockEditHelper)
                 
                 dragControleState = .cameraMoving // 元にもどす
             }
