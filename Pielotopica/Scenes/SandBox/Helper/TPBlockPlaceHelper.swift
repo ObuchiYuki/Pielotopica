@@ -97,6 +97,7 @@ class TSBlockPlaceHelper {
     private var dragStartingPosition = TSVector2()
     
     private var initialNodePosition = TSVector3()
+        
     #if DEBUG
     private var _debugAnchorNode:SCNNode = {
         let _debugAnchorNode = SCNNode()
@@ -108,9 +109,10 @@ class TSBlockPlaceHelper {
         return _debugAnchorNode
     }()
     #endif
+    
     private var nodePosition = TSVector3() {
         didSet{
-            _debugAnchorNode.position = nodePosition.scnVector3
+            _debugAnchorNode.position = nodePosition.scnVector3 + [0.5, 0.5, 0.5]
         }
     }
     
@@ -140,7 +142,10 @@ class TSBlockPlaceHelper {
         _debugAnchorNode.isHidden = false
         #endif
         guard let blockNode = blockNode else { return }
-        guard level.canPlace(block, at: position), let initialPosition = level.calculatePlacablePosition(for: block, at: position.vector2) else {
+        guard
+            level.canPlace(block, at: position, atRotation: TSBlockRotation(rotation: _blockRotation)),
+            let initialPosition = level.calculatePlacablePosition(for: block, at: position.vector2)
+        else {
             self._calculatePlacablePositionFailture(at: position)
             return
         }
@@ -152,7 +157,7 @@ class TSBlockPlaceHelper {
     
     /// ドラッグが開始されたら呼び出してください。
     func onTouch() {
-        blockNode.map{TSVector3($0.position)}.map{initialNodePosition = $0}
+        initialNodePosition = nodePosition
         
         timeStamp.press()
     }
@@ -168,7 +173,7 @@ class TSBlockPlaceHelper {
         delegate?.blockPlaceHelper(moveNodeWith: blockNode, to: nodePosition) /// 通知
         
         // 置けるかどうかでマテリアル指定
-        if !level.canPlace(block, at: nodePosition) {
+        if !level.canPlace(block, at: nodePosition, atRotation: .x0) {
             blockNode.material?.selfIllumination.contents = UIColor.red
         } else {
             blockNode.material?.selfIllumination.contents = UIColor.black
@@ -177,7 +182,7 @@ class TSBlockPlaceHelper {
 
     /// 現在の場所にブロックを設置できるかを返します。
     func canEndBlockPlacing() -> Bool {
-        return level.canPlace(block, at: nodePosition)
+        return level.canPlace(block, at: nodePosition, atRotation: TSBlockRotation(rotation: _blockRotation))
     }
     
     /// 編集モード完了時に呼びだしてください。最終的に決定した場所を返します。
@@ -243,6 +248,7 @@ class TSBlockPlaceHelper {
     }
         
     private func _convertToNodeMovement(fromTouchVector vector2:TSVector2) -> TSVector3 {
+        /// ピンチ率に合わせて変更
         let tscale = 1.0 / TPSandboxCameraGestureHelper.initirized!.getPinchScale() * 0.03
         
         let transform = CGAffineTransform(rotationAngle: -.pi/4).scaledBy(x: CGFloat(tscale), y: CGFloat(tscale))

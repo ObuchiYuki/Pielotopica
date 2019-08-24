@@ -31,6 +31,7 @@ public enum TSBlockRotation {
         case .x3: return TSVector3( 1,  0,  0)
         }
     }
+    
     var eulerAngle:Double {
         return Double.pi / 2 * Double(rotation)
     }
@@ -44,6 +45,7 @@ public enum TSBlockRotation {
         default: fatalError()
         }
     }
+    
     public init(data: TSBlockData) {
         switch (data.flag0, data.flag1) {
         case (false, false): self = .x0

@@ -74,11 +74,11 @@ public class TSLevel {
     
     /// ブロックが置けるかどうかを調べます。
     /// 多少重たい処理です。毎フレームでの実行などは避けてくだし。
-    public func canPlace(_ block:TSBlock, at position:TSVector3) -> Bool {
+    public func canPlace(_ block:TSBlock, at position:TSVector3, atRotation rotation:TSBlockRotation) -> Bool {
     
         return
             block.canPlace(at: position) &&
-            !_conflictionExsists(about: block, at: position) &&
+            !_conflictionExsists(about: block, at: position, at: rotation) &&
             _getFillMap(at: position - [0, 1, 0]).canPlaceBlockOnTop(block, at: position - [0, 1, 0])
     }
     
@@ -112,7 +112,7 @@ public class TSLevel {
     /// forceオプションに速度的な差はありません。
     public func placeBlock(_ block:TSBlock, at anchorPoint:TSVector3, rotation:TSBlockRotation, forced:Bool = false) {
         if !forced { // 強制でないなら
-            assert(canPlace(block, at: anchorPoint), "Error placing block. use calculatePlacablePosition to find place to place.")
+            assert(canPlace(block, at: anchorPoint, atRotation: rotation), "Error placing block. use calculatePlacablePosition to find place to place.")
             guard block.canPlace(at: anchorPoint) else {return}
         }
         
@@ -176,8 +176,8 @@ public class TSLevel {
         setBlockData(data, at: point)
     }
     
-    private func _conflictionExsists(about block:TSBlock, at anchorPoint:TSVector3) -> Bool {
-        let size = block.getSize(at: anchorPoint)
+    private func _conflictionExsists(about block:TSBlock, at anchorPoint:TSVector3, at rotation:TSBlockRotation) -> Bool {
+        let size = block.getSize(at: anchorPoint, at: rotation)
         
         for x in _createRange(size.x16) {
             for y in _createRange(size.y16) {
