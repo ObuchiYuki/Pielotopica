@@ -16,12 +16,10 @@ public extension TSBlock {
         
     static let japaneseHouse2:TSBlock = TS_JapaneseHouse2(nodeNamed: "TP_japanese_house_2", index: 1)
     
-    static let ground5x5:TSBlock = TPFloar(nodeNamed: "TP_ground_5x5", index: 12)
+    static let ground5x5:TSBlock = TS_Floar5x5(nodeNamed: "TP_ground_5x5", index: 12)
     
-    static let ground5x5Edge:TSBlock = TPFloar(nodeNamed: "TP_Ground_edge", index: 13)
+    static let ground5x5Edge:TSBlock = TS_Floar5x5(nodeNamed: "TP_Ground_edge", index: 13)
     
-    static let woodWall1x5:TSBlock = TSWall(nodeNamed: "TP_wood_wall_1x5", index: 14)
-    
-    static let woodWall1x1:TSBlock = TSWall1(nodeNamed: "TP_wood_wall_1x1", index: 15)
+    static let woodWall1x5:TSBlock = TS_Wall1x5(nodeNamed: "TP_wood_wall_1x5", index: 14)
 }
 

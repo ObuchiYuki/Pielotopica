@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TSWall: TSBlock {
+class TS_Wall1x5: TSBlock {
     
     
     // =============================================================== //

@@ -97,7 +97,6 @@ class TSBlockPlaceHelper {
     }
     
     func startBlockMoving(at anchorPoint:TSVector3) {
-        let block = level.getAnchorBlock(at: anchorPoint)
         let blockData = level.getBlockData(at: anchorPoint)
         
         level.destroyBlock(at: anchorPoint)

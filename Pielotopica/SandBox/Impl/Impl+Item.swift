@@ -13,15 +13,17 @@ import Foundation
 public extension TSItem {
     static let none = TSItem(name: "<none>", index: 0, textureNamed: "TP_none")
     
-    
     static let japaneseHouse2 = TSBlockItem(
-        name: "チイサナニホンカオク", textureNamed: "TP_item_thumb_japanese_house_2", block: .japaneseHouse2)
+        name: "チイサナニホンカオク",
+        textureNamed: "TP_item_thumb_japanese_house_2",
+        block: .japaneseHouse2
+    )
     
     static let woodWall1x5 = TSBlockItem(
-        name: "キノヘイ", textureNamed: "TP_item_thumb_wood_wall_1x5", block: .woodWall1x5)
-    
-    static let woodWall1x1 = TSBlockItem(
-        name: "キノヘイ", textureNamed: "TP_item_thumb_wood_wall_1x5", block: .woodWall1x1)
+        name: "キノヘイ",
+        textureNamed: "TP_item_thumb_wood_wall_1x5",
+        block: .woodWall1x5
+    )
     
 }
 

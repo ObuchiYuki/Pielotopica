@@ -14,7 +14,7 @@ import RxSwift
 // MARK: - NormalFloar5x5 -
 
 /// 普通の床です。(5, 1, 5)
-class TPFloar:TSBlock {
+class TS_Floar5x5:TSBlock {
     // =============================================================== //
     // MARK: - Methods -
     override func getOriginalNodeSize() -> TSVector3 {

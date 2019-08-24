@@ -11,8 +11,7 @@
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
-		B608C49A231101470073843E /* WoodWall1x1.swift in Sources */ = {isa = PBXBuildFile; fileRef = B608C499231101470073843E /* WoodWall1x1.swift */; };
-		B614C236230F731F00DA7093 /* WoodWall1x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* WoodWall1x5.swift */; };
+		B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_Wall1x5.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
 		B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93BA2300E361008CB325 /* GameViewController.swift */; };
@@ -78,13 +77,13 @@
 		B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A592301B13B009EF60F /* Ex+SCNNode.swift */; };
 		B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */; };
 		B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */; };
-		B6227A6323023732009EF60F /* JapaneseHouse2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6123023732009EF60F /* JapaneseHouse2.swift */; };
-		B6227A6423023732009EF60F /* TPFloar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6223023732009EF60F /* TPFloar.swift */; };
+		B6227A6323023732009EF60F /* TS_JapaneseHouse2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */; };
+		B6227A6423023732009EF60F /* TS_Floar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6223023732009EF60F /* TS_Floar.swift */; };
 		B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A692302391A009EF60F /* TP_japanese_house_1.scn */; };
 		B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */; };
 		B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A70230239DB009EF60F /* Impl+Item.swift */; };
 		B634BB0A230C03B800A896A8 /* recognition_object_item_map.json in Resources */ = {isa = PBXBuildFile; fileRef = B634BB09230C03B800A896A8 /* recognition_object_item_map.json */; };
-		B651231423114DFF003129B5 /* Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* Air.swift */; };
+		B651231423114DFF003129B5 /* TS_Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* TS_Air.swift */; };
 		B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */; };
 		B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */; };
 		B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* RKRectAdjuster.swift */; };
@@ -150,8 +149,7 @@
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
-		B608C499231101470073843E /* WoodWall1x1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodWall1x1.swift; sourceTree = "<group>"; };
-		B614C235230F731F00DA7093 /* WoodWall1x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodWall1x5.swift; sourceTree = "<group>"; };
+		B614C235230F731F00DA7093 /* TS_Wall1x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Wall1x5.swift; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61E93B62300E356008CB325 /* TPCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCommon.swift; sourceTree = "<group>"; };
@@ -219,15 +217,15 @@
 		B6227A592301B13B009EF60F /* Ex+SCNNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNNode.swift"; sourceTree = "<group>"; };
 		B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNMatrix4.swift"; sourceTree = "<group>"; };
 		B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNAction.swift"; sourceTree = "<group>"; };
-		B6227A6123023732009EF60F /* JapaneseHouse2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JapaneseHouse2.swift; sourceTree = "<group>"; };
-		B6227A6223023732009EF60F /* TPFloar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPFloar.swift; sourceTree = "<group>"; };
+		B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TS_JapaneseHouse2.swift; sourceTree = "<group>"; };
+		B6227A6223023732009EF60F /* TS_Floar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TS_Floar.swift; sourceTree = "<group>"; };
 		B6227A6523023912009EF60F /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
 		B6227A692302391A009EF60F /* TP_japanese_house_1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_1.scn; sourceTree = "<group>"; };
 		B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_2.scn; sourceTree = "<group>"; };
 		B6227A70230239DB009EF60F /* Impl+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Item.swift"; sourceTree = "<group>"; };
 		B634BB09230C03B800A896A8 /* recognition_object_item_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recognition_object_item_map.json; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		B651231323114DFF003129B5 /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
+		B651231323114DFF003129B5 /* TS_Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Air.swift; sourceTree = "<group>"; };
 		B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wood_wall_1x5.png; sourceTree = "<group>"; };
 		B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TP_build_place.mp3; sourceTree = "<group>"; };
 		B6604D6A231023BF0077C76A /* Pielotopica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pielotopica.entitlements; sourceTree = "<group>"; };
@@ -612,11 +610,10 @@
 		B6227A6023023732009EF60F /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
-				B651231323114DFF003129B5 /* Air.swift */,
-				B6227A6123023732009EF60F /* JapaneseHouse2.swift */,
-				B6227A6223023732009EF60F /* TPFloar.swift */,
-				B614C235230F731F00DA7093 /* WoodWall1x5.swift */,
-				B608C499231101470073843E /* WoodWall1x1.swift */,
+				B651231323114DFF003129B5 /* TS_Air.swift */,
+				B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */,
+				B6227A6223023732009EF60F /* TS_Floar.swift */,
+				B614C235230F731F00DA7093 /* TS_Wall1x5.swift */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -927,7 +924,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B651231423114DFF003129B5 /* Air.swift in Sources */,
+				B651231423114DFF003129B5 /* TS_Air.swift in Sources */,
 				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
 				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,
@@ -966,11 +963,10 @@
 				B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */,
 				B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */,
 				B6227A302301AB84009EF60F /* TSPlayer.swift in Sources */,
-				B6227A6323023732009EF60F /* JapaneseHouse2.swift in Sources */,
+				B6227A6323023732009EF60F /* TS_JapaneseHouse2.swift in Sources */,
 				B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
-				B608C49A231101470073843E /* WoodWall1x1.swift in Sources */,
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
 				B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
@@ -997,10 +993,10 @@
 				B61E93CD2300E36C008CB325 /* Ex+Swift.swift in Sources */,
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
-				B614C236230F731F00DA7093 /* WoodWall1x5.swift in Sources */,
+				B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */,
 				B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */,
 				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
-				B6227A6423023732009EF60F /* TPFloar.swift in Sources */,
+				B6227A6423023732009EF60F /* TS_Floar.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
 				B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */,
