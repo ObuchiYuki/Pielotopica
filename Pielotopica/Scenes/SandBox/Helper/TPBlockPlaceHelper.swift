@@ -15,7 +15,7 @@ import SceneKit
 
 /// ブロック設置の補助をします。
 /// ジェスチャー・置かれたかどうかなど。
-class TSBlockPlaceHelper: TPBlockEditHelper {
+class TPBlockPlaceHelper: TPBlockEditHelper {
     
     func startBlockPlacing(at position:TSVector3) {
         guard

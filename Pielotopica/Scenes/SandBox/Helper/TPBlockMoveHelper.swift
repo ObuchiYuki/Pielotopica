@@ -14,6 +14,6 @@ class TPBlockMoveHelper: TPBlockEditHelper {
     
         level.destroyBlock(at: startPoint)
         
-        startEditing(from: anchorPoint, startRotation: TSBlockRotation(data: blockData).rotation)
+        startEditing(from: startPoint, startRotation: TSBlockRotation(data: blockData).rotation)
     }
 }

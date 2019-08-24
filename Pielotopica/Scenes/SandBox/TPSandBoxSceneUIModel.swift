@@ -84,15 +84,14 @@ class TPSandBoxSceneUIModel {
     }
     
     func onSideMenuRotateButtonTap() {
-        assert(sceneModel.blockPlaceHelper != nil)
-        sceneModel.blockPlaceHelper?.rotateBlock()
+        assert(sceneModel.blockEditHelper != nil)
+        sceneModel.blockEditHelper?.rotateBlock()
     }
     
     // ========================================================= //
     // MARK: - Private Methods -
     private func _modeDidChanged() {
         let itemBarState = _convertMode(self.mode)
-        
         
         binder.__setItemBarSelectionState(to: itemBarState)
         binder.__setBuildSideMenuMode(to: itemBarState)

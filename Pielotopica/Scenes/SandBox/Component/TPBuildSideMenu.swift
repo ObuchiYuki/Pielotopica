@@ -29,7 +29,7 @@ class TPBuildSideMenu: GKSpriteNode {
     
     func show(as mode: TPItemBarSelectionState) {
         switch mode {
-        case .place:
+        case .place, .move:
             rotateItem.run(SKAction.moveTo(x: 47, duration: 0.3).setEase(.easeInEaseOut))
         default: hide()
         }

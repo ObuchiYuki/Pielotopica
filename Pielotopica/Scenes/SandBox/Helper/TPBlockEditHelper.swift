@@ -128,7 +128,6 @@ class TPBlockEditHelper {
         delegate.blockEditHelper(endBlockPlacingWith: guideNode)
     }
     
-    
     // =============================================================== //
     // MARK: - Constructor -
     

@@ -66,7 +66,7 @@ class TPSandboxSceneModel {
     private weak var binder:TPSandboxSceneModelBinder!
     
     // - Helper -
-    public var blockPlaceHelper:TSBlockPlaceHelper?
+    public var blockEditHelper:TPBlockEditHelper?
     private lazy var cameraGestutreHelper = TPSandboxCameraGestureHelper(delegate: self)
     
     /// 現在のドラッグを受け取る状態です。
@@ -96,7 +96,7 @@ class TPSandboxSceneModel {
                 dragControleState = .cameraMoving
                 return 
             }
-            blockPlaceHelper?.onDrag(at: vector)
+            blockEditHelper?.onDrag(at: vector)
         case .cameraMoving:
             cameraGestutreHelper.panned(to: vector, at: velocity)
         }
@@ -107,7 +107,7 @@ class TPSandboxSceneModel {
         guard canEnterBlockPlaingMode else { return }
         
         if isPlacingBlockMode.value {
-            guard let blockPlaceHelper = blockPlaceHelper else {return}
+            guard let blockPlaceHelper = blockEditHelper else {return}
             
             if blockPlaceHelper.canEndBlockEditing() {
                 blockPlaceHelper.endBlockEditing()
@@ -132,7 +132,7 @@ class TPSandboxSceneModel {
         // 動作
         switch dragControleState {
         case .blockPlacing:
-            blockPlaceHelper?.onTouchBegan()
+            blockEditHelper?.onTouchBegan()
             
         case .cameraMoving:
             let cameraPosition = binder.__cameraPosition
@@ -170,17 +170,18 @@ class TPSandboxSceneModel {
     
     private func _startBlockEditing(from startPoint:TSVector3, block:TSBlock, moving:Bool) {
         isPlacingBlockMode.accept(true)
-        dragControleState = .blockPlacing        
-        
-        let blockPlaceHelper = TSBlockPlaceHelper(delegate: self, block: block)
-        
-        self.blockPlaceHelper = blockPlaceHelper
+        dragControleState = .blockPlacing
         
         if moving {
-            fatalError()
-            //blockPlaceHelper.startBlockMoving(at: startPoint)
+            let _blockMoveHelper = TPBlockMoveHelper(delegate: self, block: block)
+            _blockMoveHelper.startMoving(at: startPoint)
+            
+            self.blockEditHelper = _blockMoveHelper
         }else{
-            blockPlaceHelper.startBlockPlacing(at: startPoint)
+            let _blockPlaceHelper = TPBlockPlaceHelper(delegate: self, block: block)
+            _blockPlaceHelper.startBlockPlacing(at: startPoint)
+            
+            self.blockEditHelper = _blockPlaceHelper
         }
     }
 
@@ -205,7 +206,7 @@ class TPSandboxSceneModel {
     // MARK: - Private Methods -
     
     /// ブロックの設置場所が確定したら呼び出してください。
-    private func _blockPositionDidDecided(_ helper:TSBlockPlaceHelper) {
+    private func _blockPositionDidDecided(_ helper:TPBlockEditHelper) {
         self.isPlacingBlockMode.accept(false)
         self.itemBarInventory.useCurrentItem()
         
