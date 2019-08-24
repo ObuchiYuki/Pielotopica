@@ -163,9 +163,9 @@ public class TSLevel {
     
     private func _createRange(_ value:Int16) -> Range<Int16> {
         if value > 0 {
-            return 0..<value
+            return Range(uncheckedBounds: (lower: 0       , upper: value))
         }else{
-            return Range(uncheckedBounds: (lower: value+1, upper: 0))
+            return Range(uncheckedBounds: (lower: value+1 , upper: 1    ))
         }
     }
     
@@ -194,18 +194,21 @@ public class TSLevel {
     
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3) {
         let size = block.getSize(at: anchorPoint)
-        print(anchorPoint)
-        print(size)
-        
+        print("==========================================")
         
         for xSize in _createRange(size.x16) {
             for ySize in _createRange(size.y16) {
                 for zSize in _createRange(size.z16) {
+                    TPSandboxSceneController.addsample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    
+                    print(xSize, ySize, zSize)
                     
                     self._setFillMap(block, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
             }
         }
+        
+        print("==========================================")
     }
     
     // MARK: - FillMap Getter and Setter -
