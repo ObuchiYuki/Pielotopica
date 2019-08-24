@@ -206,7 +206,7 @@ public class TSLevel {
                     if block.isAir {
                     //    TPSandboxSceneController.removeSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
                     }else{
-                    //    TPSandboxSceneController.addsample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    //    TPSandboxSceneController.addSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
                     }
                     #endif
                     

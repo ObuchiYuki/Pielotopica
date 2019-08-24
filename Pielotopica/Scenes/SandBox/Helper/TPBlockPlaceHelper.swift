@@ -18,7 +18,6 @@ import SceneKit
 
  */
 public protocol TPBlockPlaceHelperDelegate :class{
-    var nodeGenerator:TSNodeGenerator { get }
     
     /// ガイドノードを設置してください。
     func blockPlaceHelper(placeGuideNodeWith node:SCNNode, at position:TSVector3)
@@ -56,9 +55,7 @@ class TSBlockPlaceHelper {
     private var timeStamp = RMTimeStamp()
     
     /// ブロック仮設置用ノードです。
-    private lazy var guideNode:SCNNode? = {
-        _createGuideNode()
-    }()
+    private lazy var guideNode:SCNNode? = _createGuideNode()
     
     // - Variables -
     
@@ -72,13 +69,16 @@ class TSBlockPlaceHelper {
         }
     }
     
-    // =============================================================== //
-    // MARK: - Methods -
     private var _blockRotation = 0
+    
     private var _roataion:TSBlockRotation {
         return TSBlockRotation(rotation: _blockRotation)
     }
     
+    // =============================================================== //
+    // MARK: - Methods -
+    
+
     /// 現在のブロックを回転させます。
     func rotateCurrentBlock() {
         let rotateAction = _createNodeRotationAnimation(
@@ -114,7 +114,7 @@ class TSBlockPlaceHelper {
             level.canPlace(block, at: position, atRotation: TSBlockRotation(rotation: _blockRotation)),
             let initialPosition = level.calculatePlacablePosition(for: block, at: position.vector2)
         else {
-            self._calculatePlacablePositionFailture(at: position)
+            self._didPlaceFail(at: position)
             return
         }
         
@@ -255,7 +255,7 @@ class TSBlockPlaceHelper {
         return [transformed.x16, 0, transformed.z16]
     }
     
-    private func _calculatePlacablePositionFailture(at position:TSVector3) {
+    private func _didPlaceFail(at position:TSVector3) {
         guard let showFailtureNode = guideNode else {return}
         
         delegate?.blockPlaceHelper(failToFindInitialBlockPointWith: showFailtureNode, to: position)
