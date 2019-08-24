@@ -32,7 +32,7 @@ open class TSBlock {
     public let index:UInt16
     
     /// 空気かどうかです。
-    public lazy var isAir:Bool = index == 0
+    private(set) lazy var isAir:Bool = index == 0
     
     /// Sandbox座標系におけるアイテムのサイズです。 アンカーポイントからのベクターで表されます。
     /// マイナスの数を取ることもあります。
@@ -58,13 +58,18 @@ open class TSBlock {
     // ============================= //
     // MARK: - TSBlock Overridable Methods -
     
-    open func getOriginalNodeSize() -> TSVector3 {fatalError()}
+    open func getOriginalNodeSize() -> TSVector3 {
+        fatalError("\(type(of: self))")
+    }
     /// 設置される直前に呼び出されます。
     open func willPlace(at point:TSVector3) {}
     /// 設置後に呼び出されます。
     open func didPlaced(at point:TSVector3) {}
     /// pointに置けるかどうかを返してください。
     open func canPlace(at point:TSVector3) -> Bool {return true}
+    
+    /// 削除可能かを返してください。
+    open func canRemove(at point:TSVector3) -> Bool {return false}
 
     /// 破壊される直前に呼び出されます。
     open func willDestroy(at point:TSVector3) {}

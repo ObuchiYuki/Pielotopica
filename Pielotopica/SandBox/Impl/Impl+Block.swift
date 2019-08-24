@@ -12,11 +12,9 @@ import SceneKit
 public extension TSBlock {
 
     /// air
-    static let air:TSBlock = TSBlock()
+    static let air:TSBlock = TS_Air()
         
-    static let japaneseHouse2:TSBlock = JapaneseHouse2(nodeNamed: "TP_japanese_house_2", index: 1)
-    
-    static let normalFloar5x5:TSBlock = TPFloar(nodeNamed: "TP_floar_5x5", index: 2)
+    static let japaneseHouse2:TSBlock = TS_JapaneseHouse2(nodeNamed: "TP_japanese_house_2", index: 1)
     
     static let ground5x5:TSBlock = TPFloar(nodeNamed: "TP_ground_5x5", index: 12)
     

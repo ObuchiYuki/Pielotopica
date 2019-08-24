@@ -139,6 +139,7 @@ public class TSLevel {
         self.anchorMap.remove(anchorPoint)
         self._setAnchoBlockMap(.air, at: anchorPoint)
         self._fillFillMap(with: .air, at: anchorPoint)
+        self._setBlockDataMap(0, at: anchorPoint)
         
         self.delegate?.level(self, levelDidUpdateBlockAt: anchorPoint)
         

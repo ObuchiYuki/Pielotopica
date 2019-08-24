@@ -84,6 +84,7 @@
 		B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */; };
 		B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A70230239DB009EF60F /* Impl+Item.swift */; };
 		B634BB0A230C03B800A896A8 /* recognition_object_item_map.json in Resources */ = {isa = PBXBuildFile; fileRef = B634BB09230C03B800A896A8 /* recognition_object_item_map.json */; };
+		B651231423114DFF003129B5 /* Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* Air.swift */; };
 		B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */; };
 		B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */; };
 		B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* RKRectAdjuster.swift */; };
@@ -226,6 +227,7 @@
 		B6227A70230239DB009EF60F /* Impl+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Item.swift"; sourceTree = "<group>"; };
 		B634BB09230C03B800A896A8 /* recognition_object_item_map.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = recognition_object_item_map.json; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B651231323114DFF003129B5 /* Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Air.swift; sourceTree = "<group>"; };
 		B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wood_wall_1x5.png; sourceTree = "<group>"; };
 		B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TP_build_place.mp3; sourceTree = "<group>"; };
 		B6604D6A231023BF0077C76A /* Pielotopica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pielotopica.entitlements; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 		B6227A6023023732009EF60F /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
+				B651231323114DFF003129B5 /* Air.swift */,
 				B6227A6123023732009EF60F /* JapaneseHouse2.swift */,
 				B6227A6223023732009EF60F /* TPFloar.swift */,
 				B614C235230F731F00DA7093 /* WoodWall1x5.swift */,
@@ -924,6 +927,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B651231423114DFF003129B5 /* Air.swift in Sources */,
 				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
 				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,

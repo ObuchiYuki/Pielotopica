@@ -28,12 +28,12 @@ enum TPItemBarSelectionState {
     case destory
 }
 
-class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
+class TPSandBoxSceneUIModel {
     // ========================================================= //
     // MARK: - Properties -
-    private weak var binder:Binder!
+    private weak var binder:TPSandBoxSceneUIModelBinder!
     
-    private enum Mode {
+    enum Mode {
         case mainmenu
         
         case buildPlace
@@ -41,8 +41,10 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
         case buildDestory
     }
     
-    private var mode:Mode = .mainmenu { didSet {_modeDidChanged()} }
-    private var sceneModel:TPSandboxSceneModel { return TPSandboxSceneModel.initirized! }
+    var mode:Mode = .mainmenu { didSet {_modeDidChanged()} }
+    var sceneModel:TPSandboxSceneModel { return TPSandboxSceneModel.initirized! }
+    
+    static weak var initirized:TPSandBoxSceneUIModel?
     
     // ========================================================= //
     // MARK: - Handlers -
@@ -89,8 +91,6 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
     // ========================================================= //
     // MARK: - Private Methods -
     private func _modeDidChanged() {
-        sceneModel.canEnterBlockPlaingMode = mode == .buildPlace
-        
         let itemBarState = _convertMode(self.mode)
         
         
@@ -113,8 +113,10 @@ class TPSandBoxSceneUIModel<Binder: TPSandBoxSceneUIModelBinder> {
         }
     }
     
-    init(_ binder:Binder) {
+    init(_ binder:TPSandBoxSceneUIModelBinder) {
         self.binder = binder
+        
+        TPSandBoxSceneUIModel.initirized = self
     }
     
 }

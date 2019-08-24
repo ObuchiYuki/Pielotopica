@@ -73,7 +73,7 @@ class TPSandboxSceneController: GK3DSceneController {
         guard let result = results.first else { return }
         let coordinate = result.worldCoordinates
         
-        self.sceneModel.hitTestDidEnd(at: TSVector3(coordinate))
+        self.sceneModel.hitTestDidEnd(at: TSVector3(coordinate), touchedNode: result.node)
     }
     
     override func sceneDidLoad() {

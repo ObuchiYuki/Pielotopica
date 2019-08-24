@@ -23,11 +23,5 @@ public extension TSItem {
     static let woodWall1x1 = TSBlockItem(
         name: "キノヘイ", textureNamed: "TP_item_thumb_wood_wall_1x5", block: .woodWall1x1)
     
-    
-    static let normalFloar5x5 = TSBlockItem(
-        name: "チュウクライノユカ", textureNamed: "TS_none", block: .normalFloar5x5)
-
-    
-    
 }
 

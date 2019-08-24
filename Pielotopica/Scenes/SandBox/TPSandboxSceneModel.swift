@@ -52,7 +52,9 @@ class TPSandboxSceneModel {
     
     // MARK: - Public -
     public var isPlacingBlockMode = BehaviorRelay(value: false)
-    public var canEnterBlockPlaingMode = false
+    public var canEnterBlockPlaingMode:Bool {
+        return uiSceneModel.mode == .buildMove || uiSceneModel.mode == .buildPlace
+    }
     
     // MARK: - Private -
     
@@ -75,6 +77,9 @@ class TPSandboxSceneModel {
         case cameraMoving
     }
     
+    private var uiSceneModel:TPSandBoxSceneUIModel {
+        return TPSandBoxSceneUIModel.initirized!
+    }
     // ================================================================== //
     // MARK: - Methods -
     
@@ -137,23 +142,47 @@ class TPSandboxSceneModel {
     }
     
     /// ヒットテストが終わったら呼び出してください。
-    func hitTestDidEnd(at worldCoordinate:TSVector3) {
+    func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
         guard canEnterBlockPlaingMode else { return }
         
-        do { // ここの直呼び出しは今後変更あるかも？
+        var worldCoordinate = worldCoordinate
+        if worldCoordinate.y16 < 1 {
+            worldCoordinate.y16 = 1
+        }
+        
+        if uiSceneModel.mode == .buildPlace {
             if itemBarInventory.canUseCurrentItem() {
-                isPlacingBlockMode.accept(true)
-                dragControleState = .blockPlacing
-                
                 guard let block = (itemBarInventory.selectedItemStack.item as? TSBlockItem)?.block else { return }
                 
-                let blockPlaceHelper = TSBlockPlaceHelper(delegate: self, block: block)
-                
-                self.blockPlaceHelper = blockPlaceHelper
-                
-                blockPlaceHelper.startBlockPlacing(from: worldCoordinate)
-                
+                _startBlockEditing(from: worldCoordinate, block: block, moving: false)
             }
+        }else if uiSceneModel.mode == .buildMove {
+            let anchorPoint = TSVector3(touchedNode.worldPosition)
+            let block = level.getFillBlock(at: anchorPoint)
+            
+            print("node point:", touchedNode.worldPosition)
+            print("fill block:", block)
+            
+            guard block.canRemove(at: anchorPoint) else {return}
+            
+            binder.__removeNode(touchedNode)
+            
+            _startBlockEditing(from: anchorPoint, block: block, moving: true)
+        }
+    }
+    
+    private func _startBlockEditing(from startPoint:TSVector3, block:TSBlock, moving:Bool) {
+        isPlacingBlockMode.accept(true)
+        dragControleState = .blockPlacing        
+        
+        let blockPlaceHelper = TSBlockPlaceHelper(delegate: self, block: block)
+        
+        self.blockPlaceHelper = blockPlaceHelper
+        
+        if moving {
+            blockPlaceHelper.startBlockMoving(at: startPoint)
+        }else{
+            blockPlaceHelper.startBlockPlacing(from: startPoint)
         }
     }
 
