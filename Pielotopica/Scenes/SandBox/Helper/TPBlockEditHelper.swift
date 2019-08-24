@@ -181,7 +181,7 @@ class TPBlockEditHelper {
     
     /// ブロックが置けるかどうかを判定しマテリアへんけ
     private func _checkBlockPlaceability() {
-        
+        print("_checkBlockPlaceability", canEndBlockEditing())
         // 置けるかどうかでマテリアル指定
         if canEndBlockEditing() {
             guideNode.material?.selfIllumination.contents = UIColor.black

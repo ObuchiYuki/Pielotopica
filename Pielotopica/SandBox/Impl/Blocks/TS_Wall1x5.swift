@@ -16,7 +16,7 @@ class TS_Wall1x5: TSBlock {
     override func getOriginalNodeSize() -> TSVector3 {
         return [1, 1, 5]
     }
-    override func canRemove(at point: TSVector3) -> Bool {
+    override func canDestroy(at point: TSVector3) -> Bool {
         return true
     }
     override func shouldAnimateWhenPlaced(at point: TSVector3) -> Bool {

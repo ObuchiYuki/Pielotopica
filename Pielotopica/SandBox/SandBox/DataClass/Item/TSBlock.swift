@@ -68,17 +68,12 @@ open class TSBlock {
     /// pointに置けるかどうかを返してください。
     open func canPlace(at point:TSVector3) -> Bool {return true}
     
-    /// 削除可能かを返してください。
-    open func canRemove(at point:TSVector3) -> Bool {return false}
-
     /// 破壊される直前に呼び出されます。
     open func willDestroy(at point:TSVector3) {}
     /// 破壊後に呼び出されます。Overrideする時は必ずsuperを呼び出してください。
-    open func didDestroy(at point:TSVector3) {
-        //self.destoryNBData(at: point)
-    }
+    open func didDestroy(at point:TSVector3) {}
     /// 破壊可能かどうかを返してください。
-    open func canDestroy(at point:TSVector3) -> Bool {return true}
+    open func canDestroy(at point:TSVector3) -> Bool {return false}
     
     /// タッチされた時に呼び出されます。
     open func didTouch(at point:TSVector3) {}

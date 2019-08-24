@@ -21,7 +21,7 @@ class TS_JapaneseHouse2:TSBlock {
     override func getOriginalNodeSize() -> TSVector3 {
         return [3, 2, 3]
     }
-    override func canRemove(at point: TSVector3) -> Bool {
+    override func canDestroy(at point: TSVector3) -> Bool {
         return true
     }
     override func shouldAnimateWhenPlaced(at point: TSVector3) -> Bool {

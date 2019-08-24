@@ -160,7 +160,7 @@ class TPSandboxSceneModel {
             let anchorPoint = TSVector3(touchedNode.worldPosition)
             let block = level.getAnchorBlock(at: anchorPoint)
             
-            guard block.canRemove(at: anchorPoint) else {return}
+            guard block.canDestroy(at: anchorPoint) else {return}
             
             binder.__removeNode(touchedNode)
             
