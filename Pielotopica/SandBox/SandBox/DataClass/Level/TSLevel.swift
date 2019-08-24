@@ -140,7 +140,7 @@ public class TSLevel {
         self._fillFillMap(with: .air, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
         self._setBlockDataMap(0, at: anchorPoint)
         
-        self.delegate?.level(self, levelDidUpdateBlockAt: anchorPoint)
+        self.delegate?.level(self, levelDidDestoryBlockAt: anchorPoint)
         
         block.didDestroy(at: anchorPoint)
     }
