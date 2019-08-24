@@ -19,24 +19,22 @@ class TSBlockPlaceHelper: TPBlockEditHelper {
     
     func startBlockPlacing(at position:TSVector3) {
         guard
-            _level.canPlace(block, at: position, atRotation: TSBlockRotation(rotation: _blockRotation)),
-            let initialPosition = _level.calculatePlacablePosition(for: block, at: position.vector2)
+            TSLevel.grobal.canPlace(block, at: position, atRotation: .x0),
+            let initialPosition = TSLevel.grobal.calculatePlacablePosition(for: block, at: position.vector2)
         else {
             self._didPlaceFail(at: position)
             return
         }
         
-        startEditing(from: position, startRotation: 0)
+        self.startEditing(from: initialPosition, startRotation: 0)
     }
     
     // =============================================================== //
     // MARK: - Private Methods - 
     private func _didPlaceFail(at position:TSVector3) {
-        guard let showFailtureNode = guideNode else {return}
+        //delegate?.blockPlaceHelper(failToFindInitialBlockPointWith: showFailtureNode, to: position)
         
-        delegate?.blockPlaceHelper(failToFindInitialBlockPointWith: showFailtureNode, to: position)
-        
-        showFailtureNode.runAction(_failt_createFailtureAction())
+        guideNode.runAction(_createFailtureAction())
     }
     
     private func _createFailtureAction() -> SCNAction {

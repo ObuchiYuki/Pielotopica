@@ -85,7 +85,7 @@ class TPSandBoxSceneUIModel {
     
     func onSideMenuRotateButtonTap() {
         assert(sceneModel.blockPlaceHelper != nil)
-        sceneModel.blockPlaceHelper?.rotateCurrentBlock()
+        sceneModel.blockPlaceHelper?.rotateBlock()
     }
     
     // ========================================================= //

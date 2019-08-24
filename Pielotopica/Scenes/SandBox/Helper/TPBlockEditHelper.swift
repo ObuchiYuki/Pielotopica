@@ -8,7 +8,7 @@
 
 import SceneKit
 
-protocol BlockEditHelperDelegate {
+protocol TPBlockEditHelperDelegate: class{
     /// ガイドノードを設置してください。
     func blockEditHelper(placeGuideNodeWith node: SCNNode, at position: TSVector3)
     
@@ -24,13 +24,13 @@ class TPBlockEditHelper {
     // MARK: - Properties -
     
     /// delegate of BlockEditHelper
-    public weak var delegate:TPBlockPlaceHelperDelegate!
+    public weak var delegate:TPBlockEditHelperDelegate!
     
     /// 管理するブロックです。
     public let block:TSBlock
     
     /// ブロック仮設置用ノードです。
-    private lazy var guideNode:SCNNode = _createGuideNode(from: self.block)
+    public lazy var guideNode:SCNNode = _createGuideNode(from: self.block)
     
     // =============================================================== //
     // MARK: - Private Properties -
@@ -68,7 +68,7 @@ class TPBlockEditHelper {
         self._nodePosition = anchorPoint
         self._blockRotation = rotation
         
-        delegate.blockPlaceHelper(placeGuideNodeWith: guideNode, at: anchorPoint)
+        delegate.blockEditHelper(placeGuideNodeWith: guideNode, at: anchorPoint)
     }
     
     /// ブロックを回転させます。
@@ -105,7 +105,7 @@ class TPBlockEditHelper {
         _dragCheckTimeStamp.press()
         
         _nodePosition = _initialNodePosition + _convertToNodeMovement(fromTouchVector: TSVector2(vector)) // ノードの場所計算
-        delegate.blockPlaceHelper(moveNodeWith: guideNode, to: _nodePosition + _roataion.nodeModifier) /// 通知
+        delegate.blockEditHelper(moveNodeWith: guideNode, to: _nodePosition + _roataion.nodeModifier) /// 通知
         
     }
 
@@ -124,14 +124,14 @@ class TPBlockEditHelper {
 
         self._level.placeBlock(block, at: _nodePosition, rotation: _roataion)
         
-        delegate.blockPlacehelper(endBlockPlacingWith: guideNode)
+        delegate.blockEditHelper(endBlockPlacingWith: guideNode)
     }
     
     
     // =============================================================== //
     // MARK: - Constructor -
     
-    init(delegate:TPBlockPlaceHelperDelegate, block:TSBlock) {
+    init(delegate:TPBlockEditHelperDelegate, block:TSBlock) {
         self.delegate = delegate
         self.block = block
     }

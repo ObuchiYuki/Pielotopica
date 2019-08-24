@@ -96,7 +96,7 @@ class TPSandboxSceneModel {
                 dragControleState = .cameraMoving
                 return 
             }
-            blockPlaceHelper?.blockDidDrag(with: vector)
+            blockPlaceHelper?.onDrag(at: vector)
         case .cameraMoving:
             cameraGestutreHelper.panned(to: vector, at: velocity)
         }
@@ -109,8 +109,8 @@ class TPSandboxSceneModel {
         if isPlacingBlockMode.value {
             guard let blockPlaceHelper = blockPlaceHelper else {return}
             
-            if blockPlaceHelper.canEndBlockPlacing() {
-                blockPlaceHelper.endBlockPlacing()
+            if blockPlaceHelper.canEndBlockEditing() {
+                blockPlaceHelper.endBlockEditing()
                 
                 _blockPositionDidDecided(blockPlaceHelper)
                 
@@ -132,7 +132,7 @@ class TPSandboxSceneModel {
         // 動作
         switch dragControleState {
         case .blockPlacing:
-            blockPlaceHelper?.onTouch()
+            blockPlaceHelper?.onTouchBegan()
             
         case .cameraMoving:
             let cameraPosition = binder.__cameraPosition
@@ -177,9 +177,10 @@ class TPSandboxSceneModel {
         self.blockPlaceHelper = blockPlaceHelper
         
         if moving {
-            blockPlaceHelper.startBlockMoving(at: startPoint)
+            fatalError()
+            //blockPlaceHelper.startBlockMoving(at: startPoint)
         }else{
-            blockPlaceHelper.startBlockPlacing(from: startPoint)
+            blockPlaceHelper.startBlockPlacing(at: startPoint)
         }
     }
 
@@ -222,19 +223,15 @@ class TPSandboxSceneModel {
 
 // ================================================================== //
 // MARK: - Extension for TPBlockPlaceHelperDelegate -
-extension TPSandboxSceneModel: TPBlockPlaceHelperDelegate {
-    func blockPlaceHelper(placeGuideNodeWith guidenode:SCNNode, at position:TSVector3) {
-        binder.__placeNode(guidenode, at: position)
+extension TPSandboxSceneModel: TPBlockEditHelperDelegate {
+    func blockEditHelper(placeGuideNodeWith node: SCNNode, at position: TSVector3) {
+        binder.__placeNode(node, at: position)
     }
-    func blockPlacehelper(endBlockPlacingWith guidenode:SCNNode) {
-        binder.__removeNode(guidenode)
+    func blockEditHelper(endBlockPlacingWith node: SCNNode) {
+        binder.__removeNode(node)
     }
-    func blockPlaceHelper(moveNodeWith guidenode:SCNNode, to position:TSVector3) {
-        binder.__moveNode(guidenode, to: position)
-    }
-    func blockPlaceHelper(failToFindInitialBlockPointWith guidenode:SCNNode, to position:TSVector3) {
-        binder.__placeNode(guidenode, at: position)
-        self.isPlacingBlockMode.accept(false)
+    func blockEditHelper(moveNodeWith node:SCNNode, to position: TSVector3) {
+        binder.__moveNode(node, to: position)
     }
 }
 
