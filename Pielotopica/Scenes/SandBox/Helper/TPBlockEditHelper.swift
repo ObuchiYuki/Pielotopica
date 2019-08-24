@@ -1,5 +1,5 @@
 //
-//  BlockEditHelper.swift
+//  TPBlockEditHelper.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/08/24.
@@ -19,7 +19,7 @@ protocol BlockEditHelperDelegate {
     func blockEditHelper(moveNodeWith node:SCNNode, to position: TSVector3)
 }
 
-class BlockEditHelper {
+class TPBlockEditHelper {
     // =============================================================== //
     // MARK: - Properties -
     

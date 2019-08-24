@@ -11,259 +11,35 @@ import RxSwift
 import SceneKit
 
 // =============================================================== //
-// MARK: - TPBlockPlaceHelperDelegate -
-
-/**
- TSBlockPlaceHelperのDelegateです。
-
- */
-public protocol TPBlockPlaceHelperDelegate :class{
-    
-    /// ガイドノードを設置してください。
-    func blockPlaceHelper(placeGuideNodeWith node:SCNNode, at position:TSVector3)
-    /// ブロック設置の終了処理をしてください。
-    func blockPlacehelper(endBlockPlacingWith node:SCNNode)
-    /// ガイドノードを移動させてください。
-    func blockPlaceHelper(moveNodeWith node:SCNNode, to position:TSVector3)
-    
-    /// ブロック設置を失敗した時の処理をしてください。
-    func blockPlaceHelper(failToFindInitialBlockPointWith node:SCNNode, to position:TSVector3)
-}
-
-// =============================================================== //
 // MARK: - TSBlockPlaceHelper -
 
 /// ブロック設置の補助をします。
 /// ジェスチャー・置かれたかどうかなど。
-class TSBlockPlaceHelper {
-    // =============================================================== //
-    // MARK: - Properties -    public let targetBlock:TSBlock
+class TSBlockPlaceHelper: TPBlockEditHelper {
     
-    public weak var delegate:TPBlockPlaceHelperDelegate?
-    /// 管理するブロックです。
-    public let block:TSBlock
-    
-    // =============================================================== //
-    // MARK: - Private Properties -
-    
-    // - Managing -
-    /// 管理するレベルです。
-    private let level = TSLevel.grobal
-    
-    private var isPlacingEnd = false
-    
-    private var timeStamp = RMTimeStamp()
-    
-    /// ブロック仮設置用ノードです。
-    private lazy var guideNode:SCNNode? = _createGuideNode()
-    
-    // - Variables -
-    
-    private var dragStartingPosition = TSVector2()
-    
-    private var initialNodePosition = TSVector3()
-    
-    private var nodePosition = TSVector3() {
-        didSet{
-            _checkBlockPlaceability()
-        }
-    }
-    
-    private var _blockRotation = 0
-    
-    private var _roataion:TSBlockRotation {
-        return TSBlockRotation(rotation: _blockRotation)
-    }
-    
-    // =============================================================== //
-    // MARK: - Methods -
-    
-
-    /// 現在のブロックを回転させます。
-    func rotateCurrentBlock() {
-        let rotateAction = _createNodeRotationAnimation(
-            blockSize: block.getSize(at: nodePosition),
-            rotation: _blockRotation
-        )
-        let movement = _anchorPointDeltaMovement(
-            blockSize: block.getSize(at: nodePosition),
-            for: _blockRotation
-        )
-        nodePosition = nodePosition + movement
-        
-        guideNode?.runAction(rotateAction)
-        
-        _blockRotation += 1
-    }
-    
-    func startBlockMoving(at anchorPoint:TSVector3) {
-        let blockData = level.getBlockData(at: anchorPoint)
-        
-        level.destroyBlock(at: anchorPoint)
-        
-        self.initialNodePosition = anchorPoint
-        self.nodePosition = anchorPoint
-        self._blockRotation = TSBlockRotation(data: blockData).rotation
-        
-        delegate?.blockPlaceHelper(placeGuideNodeWith: guideNode!, at: anchorPoint)
-    }
-    
-    func startBlockPlacing(from position:TSVector3) {
-        guard let blockNode = guideNode else { return }
+    func startBlockPlacing(at position:TSVector3) {
         guard
-            level.canPlace(block, at: position, atRotation: TSBlockRotation(rotation: _blockRotation)),
-            let initialPosition = level.calculatePlacablePosition(for: block, at: position.vector2)
+            _level.canPlace(block, at: position, atRotation: TSBlockRotation(rotation: _blockRotation)),
+            let initialPosition = _level.calculatePlacablePosition(for: block, at: position.vector2)
         else {
             self._didPlaceFail(at: position)
             return
         }
         
-        self.initialNodePosition = initialPosition
-        nodePosition = position
-        
-        delegate?.blockPlaceHelper(placeGuideNodeWith: blockNode, at: initialPosition)
-    }
-    
-    /// ドラッグが開始されたら呼び出してください。
-    func onTouch() {
-        initialNodePosition = nodePosition
-        
-        timeStamp.press()
-    }
-    
-    /// 画面がドラッグされたら呼びだしてください。
-    func blockDidDrag(with vector:CGPoint) {
-        guard timeStamp.isSameFrame() else { return }
-        timeStamp.press()
-        
-        guard let blockNode = guideNode else {return}
-        
-        nodePosition = initialNodePosition + _convertToNodeMovement(fromTouchVector: TSVector2(vector)) // ノードの場所計算
-        delegate?.blockPlaceHelper(moveNodeWith: blockNode, to: nodePosition + _roataion.nodeModifier) /// 通知
-        
-    }
-
-    /// 現在の場所にブロックを設置できるかを返します。
-    func canEndBlockPlacing() -> Bool {
-        
-        return level.canPlace(block, at: nodePosition, atRotation: _roataion)
-    }
-    
-    /// 編集モード完了時に呼びだしてください。最終的に決定した場所を返します。
-    /// 確定する前にcanEndBlockPlacing()を呼んでください。
-    func endBlockPlacing() {
-        isPlacingEnd = true
-        guard let blockNode = guideNode else {fatalError()}
-
-        self.level.placeBlock(block, at: nodePosition, rotation: _roataion)
-        
-        delegate?.blockPlacehelper(endBlockPlacingWith: blockNode)
-        
-        GKSoundPlayer.shared.playSoundEffect(.place)
-    }
-    
-    
-    // =============================================================== //
-    // MARK: - Constructor -
-    
-    init(delegate:TPBlockPlaceHelperDelegate, block:TSBlock) {
-        self.delegate = delegate
-        self.block = block
+        startEditing(from: position, startRotation: 0)
     }
     
     // =============================================================== //
-    // MARK: - Private Methods -
-    private func _createGuideNode() -> SCNNode {
-        guard block.canCreateNode() else {fatalError("You! you now did try to place air!! How was it possible!")}
-        
-        let containerNode = SCNNode()
-        
-        let node = block.createNode()
-        node.material?.transparencyMode = .singleLayer
-        node.material?.transparency = 0.5
-        containerNode.addChildNode(node)
-        
-        let nodeSize = block.getOriginalNodeSize()
-        
-        for x in 0..<nodeSize.x {
-            for z in 0..<nodeSize.z {
-                
-                let gnode = SCNNode()
-                gnode.geometry = SCNBox(width: 0.8, height: 0.1, length: 0.8, chamferRadius: 0)
-                gnode.geometry?.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
-                gnode.position = SCNVector3(Double(x) + 0.5, 0, Double(z) + 0.5)
-                
-                containerNode.addChildNode(gnode)
-            }
-        }
-        
-        return containerNode
-        
-        
-    }
-    private func _checkBlockPlaceability() {
-        guard let blockNode = guideNode else {return}
-        
-        // 置けるかどうかでマテリアル指定
-        if canEndBlockPlacing() {
-            blockNode.material?.selfIllumination.contents = UIColor.black
-        } else {
-            blockNode.material?.selfIllumination.contents = UIColor.red
-        }
-    }
-    private func _anchorPointDeltaMovement(blockSize: TSVector3, for rotation:Int) -> TSVector3 {
-        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2 - 0.5, 0, Double(blockSize.z) / 2 - 0.5), rotation: rotation)
-            
-        let (x, z) = (v1.x, v1.z)
-        let (X, Z) = (z, -x)
-        let (dx, dz) = (x - X, z - Z)
-        
-        return TSVector3(Int16(dx), 0, Int16(dz))
-    }
-    
-    /// 中心（奇数の場合は自動調整）周りに rotation x 90度 反時計回り
-    private func _createNodeRotationAnimation(blockSize: TSVector3, rotation ry: Int) -> SCNAction {
-        let v1 = _rotateVector(SCNVector3(Double(blockSize.x) / 2, 0, Double(blockSize.z) / 2), rotation: ry)
-            
-        let (x, z) = (v1.x, v1.z)
-        let (X, Z) = (z, -x)
-        let (dx, dz) = (x - X, z - Z)
-        
-        let a1 = SCNAction.move(by: SCNVector3(dx, 0, dz), duration: 0.1)
-        let a2 = SCNAction.rotateBy(x: 0, y: .pi/2, z: 0, duration: 0.1)
-        
-        return SCNAction.group([a1, a2]).setEase(.easeInEaseOut)
-    }
-    
-    private func _rotateVector(_ vector:SCNVector3, rotation ry:Int) -> SCNVector3 {
-        switch ry % 4 {
-        case 0: return vector
-        case 1: return SCNVector3( vector.z,  vector.y, -vector.x)
-        case 2: return SCNVector3(-vector.x,  vector.y, -vector.z)
-        case 3: return SCNVector3(-vector.z,  vector.y,  vector.x)
-        default: fatalError()
-        }
-    }
-        
-    private func _convertToNodeMovement(fromTouchVector vector2:TSVector2) -> TSVector3 {
-        /// ピンチ率に合わせて変更
-        let tscale = 1.0 / TPSandboxCameraGestureHelper.initirized!.getPinchScale() * 0.03
-        
-        let transform = CGAffineTransform(rotationAngle: -.pi/4).scaledBy(x: CGFloat(tscale), y: CGFloat(tscale))
-        let transformed = vector2.applying(transform)
-        
-        return [transformed.x16, 0, transformed.z16]
-    }
-    
+    // MARK: - Private Methods - 
     private func _didPlaceFail(at position:TSVector3) {
         guard let showFailtureNode = guideNode else {return}
         
         delegate?.blockPlaceHelper(failToFindInitialBlockPointWith: showFailtureNode, to: position)
         
-        showFailtureNode.runAction(_failtureAction())
+        showFailtureNode.runAction(_failt_createFailtureAction())
     }
     
-    private func _failtureAction() -> SCNAction {
+    private func _createFailtureAction() -> SCNAction {
         let redIlluminationAction = SCNAction.run{node in
             node.material?.selfIllumination.contents = UIColor.red
         }

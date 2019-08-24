@@ -122,7 +122,7 @@
 		B6AA02B0230D834000F0FF48 /* TPHeaderSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */; };
 		B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */; };
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
-		B6C5085323115E3F005D5916 /* BlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* BlockEditHelper.swift */; };
+		B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */; };
 		B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6EDB11C230F78AE0042CA02 /* button_light.mp3 */; };
 		B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */; };
 		B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */; };
@@ -279,7 +279,7 @@
 		B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPHeaderSlider.swift; sourceTree = "<group>"; };
 		B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSpriteNode.swift; sourceTree = "<group>"; };
 		B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKShadowLabelNode.swift; sourceTree = "<group>"; };
-		B6C5085223115E3F005D5916 /* BlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockEditHelper.swift; sourceTree = "<group>"; };
+		B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockEditHelper.swift; sourceTree = "<group>"; };
 		B6EDB11C230F78AE0042CA02 /* button_light.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_light.mp3; sourceTree = "<group>"; };
 		B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSoundPlayer.swift; sourceTree = "<group>"; };
 		B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenu.swift; sourceTree = "<group>"; };
@@ -675,9 +675,9 @@
 		B67A965D23094E4000BD408D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */,
 				B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */,
 				B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */,
-				B6C5085223115E3F005D5916 /* BlockEditHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -944,13 +944,13 @@
 				B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */,
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
 				B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */,
+				B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */,
 				B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,
 				B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */,
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */,
 				B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */,
-				B6C5085323115E3F005D5916 /* BlockEditHelper.swift in Sources */,
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
 				B667BA5F230B776C0038B098 /* YOLO.swift in Sources */,
 				B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */,

@@ -15,8 +15,6 @@ protocol TPCameraGestureHelperDelegate:class {
 }
 
 /// ジェスチャーの稼働を助けます。
-/// カメラの方向は（x: -π/6, y: π/4, z: 0）を前提に作っています。
-/// 変わったらその時改修
 class TPSandboxCameraGestureHelper {
     static weak var initirized:TPSandboxCameraGestureHelper?
     
