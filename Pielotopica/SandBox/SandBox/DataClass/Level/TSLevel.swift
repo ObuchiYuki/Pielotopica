@@ -135,6 +135,7 @@ public class TSLevel {
                 
         block.willDestroy(at: anchorPoint)
         
+        self.nodeGenerator?.destoryNode(at: anchorPoint)
         self.anchorMap.remove(anchorPoint)
         self._setAnchoBlockMap(.air, at: anchorPoint)
         self._fillFillMap(with: .air, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
@@ -201,9 +202,9 @@ public class TSLevel {
                 for zSize in _createRange(size.z16) {
                     #if DEBUG
                     if block.isAir {
-                    //    TPSandboxSceneController.removeSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                        //TPSandboxSceneController.removeSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
                     }else{
-                    //    TPSandboxSceneController.addSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                        //TPSandboxSceneController.addSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
                     }
                     #endif
                     

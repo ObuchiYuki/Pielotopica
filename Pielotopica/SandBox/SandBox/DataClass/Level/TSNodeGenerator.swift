@@ -33,13 +33,21 @@ public class TSNodeGenerator {
     // =============================================================== //
     // MARK: - Methods -
     
+    public func destoryNode(at anchorPoint:TSVector3) {
+        let (x, y, z) = _convertVector3(anchorPoint)
+        
+        allNodes[x][y][z] = nil
+    }
     /// アンカーポイントにブロックがあれば、ブロックのSCNNodeを返します。
     /// なければ、新規に作成してノード作成してノードを返します。
-    public func getNode(for anchorPoint:TSVector3) -> SCNNode? {
+    public func getNode(at anchorPoint:TSVector3) -> SCNNode? {
         
         let block = level.getAnchorBlock(at: anchorPoint)
         
         if let node = _getNode(at: anchorPoint) { // 生成済みならば
+            print("returns node for block", block)
+            print(node.childNodes, node.size)
+            
             return node
         }
         
@@ -47,7 +55,7 @@ public class TSNodeGenerator {
             
             let node = block.createNode()
             self._setNode(node, at: anchorPoint)
-            
+            print("create Node for block", block)
             return node
         }
         
@@ -90,6 +98,6 @@ public extension TSBlock {
     /// 自身のノードが生成済みなら、そのノードを
     /// 未生成なら新規ノードを返します。
     func getOwnNode(at point:TSVector3) -> SCNNode? {
-        return TSLevel.current().nodeGenerator?.getNode(for: point)
+        return TSLevel.current().nodeGenerator?.getNode(at: point)
     }
 }

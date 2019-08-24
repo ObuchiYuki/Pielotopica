@@ -110,9 +110,11 @@ class TPSandboxSceneModel {
             guard let blockEditHelper = blockEditHelper else {return}
             
             if blockEditHelper.canEndBlockEditing() {
+                print("ca1")
                 blockEditHelper.endBlockEditing()
-                
+                print("ca2")
                 _blockPositionDidDecided(blockEditHelper)
+                print("ca3")
                 
                 dragControleState = .cameraMoving // 元にもどす
             }
@@ -121,7 +123,6 @@ class TPSandboxSceneModel {
     
     /// タッチ開始時に呼び出してください。
     func onTouchStart(at point:CGPoint, numberOfTouches:Int) {
-
         // モード設定
         if isPlacingBlockMode.value && numberOfTouches == 1 {
             self.dragControleState = .blockPlacing
@@ -144,6 +145,7 @@ class TPSandboxSceneModel {
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
         guard canEnterBlockPlaingMode else { return }
+        guard !isPlacingBlockMode.value else { return }
         
         var worldCoordinate = worldCoordinate
         if worldCoordinate.y16 < 1 {
@@ -157,8 +159,12 @@ class TPSandboxSceneModel {
                 _startBlockEditing(from: worldCoordinate, block: block, moving: false)
             }
         }else if uiSceneModel.mode == .buildMove {
+            print(touchedNode.worldPosition)
             let anchorPoint = TSVector3(touchedNode.worldPosition)
+            
             let block = level.getAnchorBlock(at: anchorPoint)
+            
+            print("hitTestDidEnd", block)
             
             guard block.canDestroy(at: anchorPoint) else {return}
             
@@ -188,6 +194,7 @@ class TPSandboxSceneModel {
     
     func sceneDidLoad() {
         level.delegate = self
+        
         /// 床設置 (仮)
         for x in -2...2 {
             for z in -2...2 {
@@ -221,7 +228,6 @@ class TPSandboxSceneModel {
     }
 }
 
-
 // ================================================================== //
 // MARK: - Extension for TPBlockPlaceHelperDelegate -
 extension TPSandboxSceneModel: TPBlockEditHelperDelegate {
@@ -251,7 +257,7 @@ extension TPSandboxSceneModel: TPCameraGestureHelperDelegate{
 // MARK: - Extension for TSLevelDelegate -
 extension TPSandboxSceneModel : TSLevelDelegate {
     func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3) {
-        guard let node = nodeGenerator.getNode(for: position) else {return}
+        guard let node = nodeGenerator.getNode(at: position) else {return}
         
         if level.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {
             let action = TSBlockAnimator.generateBlockPlaceAnimation(for: node)
@@ -266,7 +272,7 @@ extension TPSandboxSceneModel : TSLevelDelegate {
         binder.__placeNode(node, at: nodePosition)
     }
     func level(_ level: TSLevel, levelDidDestoryBlockAt position: TSVector3) {
-        guard let node = nodeGenerator.getNode(for: position) else {return}
+        guard let node = nodeGenerator.getNode(at: position) else {return}
         
         binder.__removeNode(node)
     }

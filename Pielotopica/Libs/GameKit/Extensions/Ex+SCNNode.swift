@@ -16,6 +16,9 @@ public extension SCNNode {
     var fmaterial:SCNMaterial? {
         return self.fnode?.geometry?.firstMaterial
     }
+    var size: SCNVector3 {
+        return boundingBox.max - boundingBox.min
+    }
     
     /// ファイル名からSCNNodeを初期化します。
     /// scn拡張子は必要ありません。

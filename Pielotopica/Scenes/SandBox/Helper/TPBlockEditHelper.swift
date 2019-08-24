@@ -111,21 +111,22 @@ class TPBlockEditHelper {
     }
 
     /// 現在の場所にブロックを設置できるかを返します。
-    func canEndBlockEditing() -> Bool {
+    public func canEndBlockEditing() -> Bool {
         
         return level.canPlace(block, at: _nodePosition, atRotation: _roataion)
     }
     
     /// 編集モード完了時に呼びだしてください。最終的に決定した場所を返します。
     /// 確定する前にcanEndBlockPlacing()を呼んでください。
-    func endBlockEditing() {
-        assert(canEndBlockEditing(), "You cannot end block editing. Check canEndBlockEditing()!!!!!!!!!.")
+    public func endBlockEditing() {
+        assert(canEndBlockEditing(), "You cannot end block editing. Check canEndBlockEditing()  !!!!!!!!!.")
         
         isEdtingEnd = true
 
-        self.level.placeBlock(block, at: _nodePosition, rotation: _roataion)
-        
         delegate.blockEditHelper(endBlockPlacingWith: guideNode)
+        
+        print((block, at: _nodePosition, rotation: _roataion))
+        self.level.placeBlock(block, at: _nodePosition, rotation: _roataion)
     }
     
     // =============================================================== //
