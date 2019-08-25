@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 
 // =============================================================== //
-// MARK: - Consts -
+// MARK: - Constants -
 internal let kLevelMaxX = Int(100)
 internal let kLevelMaxZ = Int(100)
 internal let kLevelMaxY = Int(5)
@@ -111,7 +111,7 @@ public class TSLevel {
     /// 指定するanchorPointは事前に`calculatePlacablePosition(for:, at:)`で計算されたものである必要があります。
     public func placeBlock(_ block:TSBlock, at anchorPoint:TSVector3, rotation:TSBlockRotation, forced:Bool = false) {
         if !forced { // 強制でないなら
-            assert(canPlace(block, at: anchorPoint, atRotation: rotation), "Error placing block. use calculatePlacablePosition to find place to place.")
+            assert(canPlace(block, at: anchorPoint, atRotation: rotation), "Error placing block. use calculatePlacablePosition(for: ,at:) to find place to place.")
             guard block.canPlace(at: anchorPoint) else {return}
         }
         
@@ -143,8 +143,8 @@ public class TSLevel {
     }
     
     /// アンカーポイントにあるブロックを返します。
-    public func getAnchorBlock(at anchoPoint:TSVector3) -> TSBlock {
-        return _getAnchoBlockMap(at: anchoPoint)
+    public func getAnchorBlock(at anchorPoint:TSVector3) -> TSBlock {
+        return _getAnchoBlockMap(at: anchorPoint)
     }
     
     /// 場所を占めているブロックを返します。
