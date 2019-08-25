@@ -48,13 +48,13 @@ class TPBlockEditHelper {
     private var _initialNodePosition = TSVector3()
     
     // manager
-    private var _nodePosition = TSVector3() { didSet{ _checkBlockPlaceability() } }
+    internal var _nodePosition = TSVector3() { didSet{ _checkBlockPlaceability() } }
     
     // 現在の回転状況
     private var _blockRotation = 0
     
     // Accessers
-    private var _roataion:TSBlockRotation {
+    internal var _roataion:TSBlockRotation {
         return TSBlockRotation(rotation: _blockRotation)
     }
     
@@ -120,16 +120,21 @@ class TPBlockEditHelper {
         return level.canPlace(block, at: _nodePosition, atRotation: _roataion)
     }
     
-    /// 編集モード完了時に呼びだしてください。最終的に決定した場所を返します。
-    /// 確定する前にcanEndBlockPlacing()を呼んでください。
+    /// 編集モード完了時に呼びだしてください。
+    /// canEndBlockPlacing()でない場所で呼び出した場合は動作を取り消します。
     public func endBlockEditing() {
-        assert(canEndBlockEditing(), "You cannot end block editing. Check canEndBlockEditing()  !!!!!!!!!.")
         
         isEdtingEnd = true
 
         delegate.blockEditHelper(endBlockPlacingWith: guideNode)
         
-        self.level.placeBlock(block, at: _nodePosition, rotation: _roataion)
+        _placeBlock()
+    }
+    
+    internal func _placeBlock() {
+        if canEndBlockEditing() {
+            self.level.placeBlock(block, at: _nodePosition, rotation: _roataion)
+        }
     }
     
     // =============================================================== //

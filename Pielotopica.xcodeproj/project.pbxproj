@@ -525,6 +525,7 @@
 		B62279BE2301AB2D009EF60F /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
+				B6E8826423124435003F3124 /* Manager */,
 				B6227A0B2301AB83009EF60F /* DataClass */,
 				B6227A262301AB84009EF60F /* Extensions */,
 			);
@@ -733,6 +734,13 @@
 				B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */,
 			);
 			path = Node;
+			sourceTree = "<group>";
+		};
+		B6E8826423124435003F3124 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		B6EDB11B230F78A40042CA02 /* Sound */ = {

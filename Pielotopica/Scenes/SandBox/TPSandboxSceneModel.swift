@@ -52,9 +52,7 @@ class TPSandboxSceneModel {
     
     // MARK: - Public -
     public var isPlacingBlockMode = BehaviorRelay(value: false)
-    public var canEnterBlockPlaingMode:Bool {
-        return uiSceneModel?.mode == .buildMove || uiSceneModel?.mode == .buildPlace
-    }
+    public var canEnterBlockPlaingMode = BehaviorRelay(value: false)
     
     // MARK: - Private -
     
@@ -69,7 +67,7 @@ class TPSandboxSceneModel {
     public var blockEditHelper:TPBlockEditHelper?
     private lazy var cameraGestutreHelper = TPSandboxCameraGestureHelper(delegate: self)
     
-    /// 現在のドラッグを受け取る状態です。
+    /// gesture
     private var dragControleState:DragControleState = .cameraMoving
     
     private enum DragControleState{
@@ -77,9 +75,11 @@ class TPSandboxSceneModel {
         case cameraMoving
     }
     
-    private var uiSceneModel:TPSandBoxSceneUIModel? {
+    private var uiSceneModel:TPSandBoxSceneUIModel! {
         return TPSandBoxSceneUIModel.initirized
     }
+    
+    private let bag = DisposeBag()
     // ================================================================== //
     // MARK: - Methods -
     
@@ -104,17 +104,8 @@ class TPSandboxSceneModel {
     
     /// タップジェスチャーで呼び出してください。
     func onTapGesture() {
-        guard canEnterBlockPlaingMode else { return }
-        
         if isPlacingBlockMode.value {
-            guard let blockEditHelper = blockEditHelper else {return}
-            
-            if blockEditHelper.canEndBlockEditing() {
-                blockEditHelper.endBlockEditing()
-                _blockPositionDidDecided(blockEditHelper)
-                
-                dragControleState = .cameraMoving // 元にもどす
-            }
+            _endBlockEditing(forced: false)
         }
     }
     
@@ -141,10 +132,10 @@ class TPSandboxSceneModel {
     
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
-        guard canEnterBlockPlaingMode else { return }
+        guard canEnterBlockPlaingMode.value else { return }
         guard !isPlacingBlockMode.value else { return }
         
-        if uiSceneModel?.mode == .buildPlace {
+        if uiSceneModel?.mode.value == .buildPlace {
             if itemBarInventory.canUseCurrentItem() {
                 guard let block = (itemBarInventory.selectedItemStack.item as? TSBlockItem)?.block else { return }
                 
@@ -152,7 +143,7 @@ class TPSandboxSceneModel {
                 
                 _startBlockPlacing(from: position, block: block)
             }
-        }else if uiSceneModel?.mode == .buildMove {
+        }else if uiSceneModel?.mode.value == .buildMove {
             
             _startBlockMoving(with: touchedNode)
         }
@@ -185,6 +176,22 @@ class TPSandboxSceneModel {
 
     // ================================================================== //
     // MARK: - Private Methods -
+    private func _endBlockEditing(forced:Bool) {
+        guard let blockEditHelper = blockEditHelper else {return}
+        
+        if forced || blockEditHelper.canEndBlockEditing() {
+            blockEditHelper.endBlockEditing()
+            _blockPositionDidDecided(blockEditHelper)
+            
+            dragControleState = .cameraMoving // 元にもどす
+        }
+    }
+    
+    private func _onCanEnterBlockPlaingModeChange(to value:Bool) {
+        if !value && isPlacingBlockMode.value {
+            _endBlockEditing(forced: true)
+        }
+    }
     private func _modifyPosition(_ pos: TSVector3) -> TSVector3 {
         var pos = pos
         if pos.y16 < 1 {
@@ -240,6 +247,20 @@ class TPSandboxSceneModel {
     init(_ binder:TPSandboxSceneModelBinder) {
         self.binder = binder
         TPSandboxSceneModel.initirized = self
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
+            self.uiSceneModel!.mode
+                .map{$0 == .buildMove || $0 == .buildPlace}
+                .bind(to: self.canEnterBlockPlaingMode)
+                .disposed(by: self.bag)
+            
+            self.canEnterBlockPlaingMode.subscribe{event in
+                if !event.element! && self.isPlacingBlockMode.value {
+                    self._endBlockEditing(forced: true)
+                }
+            }.disposed(by: self.bag)
+        }
+        
     }
 }
 

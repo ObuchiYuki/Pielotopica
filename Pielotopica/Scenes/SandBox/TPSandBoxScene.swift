@@ -41,6 +41,10 @@ class TPSandBoxScene: GKSafeScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
+        sceneModel.mode.accept(.mainmenu)
+        
+        rootNode.color = UIColor.black.withAlphaComponent(0.5)
+        
         mainmenu.menuItem.addTarget(self, action: #selector(mainMenuItemDidTap), for: .touchUpInside)
         mainmenu.buildItem.addTarget(self, action: #selector(mainBuildItemDidTap), for: .touchUpInside)
         mainmenu.captureItem.addTarget(self, action: #selector(mainCaptureItemDidTap), for: .touchUpInside)
@@ -57,6 +61,7 @@ class TPSandBoxScene: GKSafeScene {
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
         self.rootNode.addChild(itemBar)
+        
     }
     
     // =============================================================== //

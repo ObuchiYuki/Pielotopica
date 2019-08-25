@@ -33,8 +33,9 @@ class TPHeaderSlider: GKSpriteNode {
         valueLabel.fontName = TPCommon.FontName.topica
         valueLabel.fontColor = .white
         valueLabel.fontSize = 12
+        valueLabel.zPosition = 1212
         valueLabel.horizontalAlignmentMode = .left
-        valueLabel.position = [6, 1.5]
+        valueLabel.position = [6, 1]
         
         selectedNode.anchorPoint = .zero
         

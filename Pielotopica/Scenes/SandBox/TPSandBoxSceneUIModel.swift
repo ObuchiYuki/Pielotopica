@@ -7,6 +7,8 @@
 //
 
 import SpriteKit
+import RxSwift
+import RxCocoa
 
 protocol TPSandBoxSceneUIModelBinder: class {
     var __viewController:UIViewController { get }
@@ -41,11 +43,12 @@ class TPSandBoxSceneUIModel {
         case buildDestory
     }
     
-    var mode:Mode = .mainmenu { didSet {_modeDidChanged()} }
+    var mode = BehaviorRelay(value: Mode.mainmenu)
     var sceneModel:TPSandboxSceneModel { return TPSandboxSceneModel.initirized! }
     
     static weak var initirized:TPSandBoxSceneUIModel?
     
+    let bag = DisposeBag()
     // ========================================================= //
     // MARK: - Handlers -
     
@@ -57,7 +60,7 @@ class TPSandBoxSceneUIModel {
         binder.__hideMainMenu()
         binder.__showItemBar()
         
-        self.mode = .buildPlace
+        self.mode.accept(.buildPlace)
     }
     func onMainMenuCaptureItemTap() {
         presentViewControllerToCapture()
@@ -71,16 +74,16 @@ class TPSandBoxSceneUIModel {
         binder.__showMainMenu()
         binder.__hideItemBar()
         
-        self.mode = .mainmenu
+        self.mode.accept(.mainmenu)
     }
     func onBuildPlaceButtonTap() {
-        self.mode = .buildPlace
+        self.mode.accept(.buildPlace)
     }
     func onBuildMoveButtonTap() {
-        self.mode = .buildMove
+        self.mode.accept(.buildMove)
     }
     func onBuildDestroyButtonTap() {
-        self.mode = .buildDestory
+        self.mode.accept(.buildDestory)
     }
     
     func onSideMenuRotateButtonTap() {
@@ -90,8 +93,8 @@ class TPSandBoxSceneUIModel {
     
     // ========================================================= //
     // MARK: - Private Methods -
-    private func _modeDidChanged() {
-        let itemBarState = _convertMode(self.mode)
+    private func _modeDidChanged(to value: Mode) {
+        let itemBarState = _convertMode(value)
         
         binder.__setItemBarSelectionState(to: itemBarState)
         binder.__setBuildSideMenuMode(to: itemBarState)
@@ -115,6 +118,9 @@ class TPSandBoxSceneUIModel {
     init(_ binder:TPSandBoxSceneUIModelBinder) {
         self.binder = binder
         
+        self.mode.subscribe{[weak self] event in
+            event.element.map{self?._modeDidChanged(to: $0)}
+        }.disposed(by: bag)
         TPSandBoxSceneUIModel.initirized = self
     }
     
