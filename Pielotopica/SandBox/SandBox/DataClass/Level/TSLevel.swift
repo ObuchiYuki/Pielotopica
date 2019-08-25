@@ -218,7 +218,6 @@ public class TSLevel {
                 for z in _createRange(size.z16) {
                     
                     if _getFillMap(at: anchorPoint + TSVector3(x, y, z)) != .air {
-                        print("confliction exsists at ", anchorPoint + TSVector3(x, y, z))
                         return true
                     }
                 }

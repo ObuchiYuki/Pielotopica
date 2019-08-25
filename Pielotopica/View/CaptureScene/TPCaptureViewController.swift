@@ -1,12 +1,17 @@
 
 import UIKit
+import SpriteKit
 
 
-class CaptureViewController: UIViewController {
+class TPCaptureViewController: UIViewController {
     // ======================================================================== //
     // MARK: - IBOutlet -
     
     @IBOutlet weak var previewView: UIView!
+    @IBOutlet weak var skView: SKView!
+    
+    private var backgroundScene = SKScene()
+    private var gameScene = TPCaptureUIScene()
     
     // ======================================================================== //
     // MARK: - Private Properties -
@@ -14,12 +19,11 @@ class CaptureViewController: UIViewController {
     private var videoCapture:RKVideoCapture!
     
     private var boundingBoxeProviders = [BoundingBoxProvider]()
-    private var colors = [UIColor]()
     
-    lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CaptureViewController.handleTap(_:)))
+    lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TPCaptureViewController.handleTap(_:)))
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer) {
-        //let location = sender.location(in: previewView)
+        let location = sender.location(in: previewView)
         
     }
     
@@ -31,7 +35,7 @@ class CaptureViewController: UIViewController {
     
     /// AIを読み込みます。 思い処理です。(3-5秒)
     /// Presentationより前に呼び出してください。
-    /// 別にallocしかからといってfreeは必要ないです。
+    /// 別にallocしかからといってfreeは必要ないです。これはSwiftです。
     public func allocAI() {
         detector = RKObjectDetector()
         videoCapture = RKVideoCapture()
@@ -39,6 +43,7 @@ class CaptureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        _loadGameScene()
         
         detector.iouThreshold = 0.2
         
@@ -115,9 +120,46 @@ class CaptureViewController: UIViewController {
         
         return nil
     }
+    
+    private func _loadGameScene() {
+        skView.backgroundColor = .clear
+        
+        backgroundScene.isUserInteractionEnabled = false
+        backgroundScene.scaleMode = .aspectFill
+        backgroundScene.backgroundColor = .clear
+        backgroundScene.size = GKSafeScene.sceneSize
+        
+        skView.presentScene(backgroundScene)
+        
+        _loadRootNode(gameScene.rootNode)
+    }
+    
+    private func _calculateRootNodeScale(with viewSize:CGSize) -> CGFloat {
+        
+        let estimatedBGScale = GKSafeScene.sceneSize.aspectFillRatio(to: viewSize)
+        let rootNodeScale = GKSafeScene.sceneSize.aspectFitRatio(to: viewSize) * (1 / estimatedBGScale)
+        
+        return rootNodeScale
+    }
+    
+    /// RootNodeのサイズ変化などを行い読み込みます。・
+    private func _loadRootNode(_ rootNode:SKSpriteNode) {
+        rootNode.removeFromParent()
+        rootNode.name = "root"
+        
+        rootNode.isUserInteractionEnabled = false
+        rootNode.size = GKSafeScene.sceneSize
+        rootNode.position = GKSafeScene.sceneSize.point / 2
+        
+        let rootNodeScale = _calculateRootNodeScale(with: UIScreen.main.bounds.size)
+        print(rootNodeScale)
+        rootNode.setScale(rootNodeScale)
+        
+        self.backgroundScene.addChild(rootNode)
+    }
 }
 
-extension CaptureViewController: RKObjectDetectorDelegate {
+extension TPCaptureViewController: RKObjectDetectorDelegate {
     func detector(_ detector: RKObjectDetector, didDetectObjectsWith predictions: [RKObjectDetector.Prediction]) {
         
         self.showBoundingBoxes(predictions: predictions)
