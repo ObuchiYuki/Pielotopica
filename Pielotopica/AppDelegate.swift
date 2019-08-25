@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         TSPlayer.him.itemBarInventory.addItemStack(TSItemStack(item: .japaneseHouse2, count: 100))
         TSPlayer.him.itemBarInventory.addItemStack(TSItemStack(item: .woodWall1x5, count: 100))
         

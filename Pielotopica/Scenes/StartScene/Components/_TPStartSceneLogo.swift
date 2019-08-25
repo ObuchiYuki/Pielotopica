@@ -18,7 +18,7 @@ class _TPStartSceneLogo: SKSpriteNode {
     // =============================================================== //
     // MARK: - Constructor -
     init() {
-        super.init(texture: .init(imageNamed: "TP_startmenu_logo_background"), color: .red, size: [306, 97])
+        super.init(texture: .init(imageNamed: "TP_startmenu_logo_background"), color: .clear, size: [306, 97])
         
         setupLogoLabel()
         startLogoAnimation()

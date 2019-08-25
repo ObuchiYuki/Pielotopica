@@ -12,6 +12,23 @@ class TPHeader: GKSpriteNode {
     let helthSlider = TPHeaderSlider(color: .init(hex: 0xCC4E4C), width: 105)
     let oilSlider = TPHeaderSlider(color: .init(hex: 0x3BA99E), width: 158)
     
+    func setIronAmount(_ amount:Int) {
+        ironAmountLabel.run(SKAction.numberChanging(from: ironAmount, to: amount, postfix: " x", withDuration: 10))
+        ironAmount = amount
+    }
+    func setWoodAmount(_ amount:Int) {
+        woodAmountLabel.run(SKAction.numberChanging(from: woodAmount, to: amount, postfix: " x", withDuration: 10))
+        woodAmount = amount
+    }
+    func setCircitAmount(_ amount:Int) {
+        circitAmountLabel.run(SKAction.numberChanging(from: circitAmount, to: amount, postfix: " x", withDuration: 10))
+        circitAmount = amount
+    }
+    
+    private var ironAmount:Int = 0
+    private var woodAmount:Int = 0
+    private var circitAmount:Int = 0
+    
     private let ironAmountLabel = GKShadowLabelNode(fontNamed: TPCommon.FontName.topica)
     private let woodAmountLabel = GKShadowLabelNode(fontNamed: TPCommon.FontName.topica)
     private let circitAmountLabel = GKShadowLabelNode(fontNamed: TPCommon.FontName.topica)
@@ -40,7 +57,6 @@ class TPHeader: GKSpriteNode {
         labelNode.horizontalAlignmentMode = .right
         labelNode.fontSize = 13
         labelNode.position = [GKSafeScene.sceneSize.width - 70, 36 + 21 * CGFloat(index)]
-        labelNode.text = "12 x"
         
         labelNode.barnShadow()
         

@@ -41,6 +41,8 @@ class TPSandBoxScene: GKSafeScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
+        header.setIronAmount(1921092)
+        
         sceneModel.mode.accept(.mainmenu)
         
         rootNode.color = UIColor.black.withAlphaComponent(0.5)

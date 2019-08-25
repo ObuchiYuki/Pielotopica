@@ -159,7 +159,7 @@ extension TPSandboxSceneController {
         camera.screenSpaceAmbientOcclusionIntensity = 1
         
         cameraNode.eulerAngles = [-.pi/6, .pi/4, 0]
-        cameraNode.position = [102, 82, 97]
+        cameraNode.position = [100, 80, 100]
     }
     func setupSkybox() {
         self.scene.background.contents = [

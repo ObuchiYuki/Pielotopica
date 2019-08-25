@@ -4,6 +4,9 @@ import SpriteKit
 
 
 class TPCaptureViewController: UIViewController {
+    
+    static weak var initirized:TPCaptureViewController?
+    
     // ======================================================================== //
     // MARK: - IBOutlet -
     
@@ -43,6 +46,8 @@ class TPCaptureViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        TPCaptureViewController.initirized = self
         _loadGameScene()
         
         detector.iouThreshold = 0.2
@@ -124,7 +129,6 @@ class TPCaptureViewController: UIViewController {
     private func _loadGameScene() {
         skView.backgroundColor = .clear
         
-        backgroundScene.isUserInteractionEnabled = false
         backgroundScene.scaleMode = .aspectFill
         backgroundScene.backgroundColor = .clear
         backgroundScene.size = GKSafeScene.sceneSize
@@ -147,7 +151,6 @@ class TPCaptureViewController: UIViewController {
         rootNode.removeFromParent()
         rootNode.name = "root"
         
-        rootNode.isUserInteractionEnabled = false
         rootNode.size = GKSafeScene.sceneSize
         rootNode.position = GKSafeScene.sceneSize.point / 2
         

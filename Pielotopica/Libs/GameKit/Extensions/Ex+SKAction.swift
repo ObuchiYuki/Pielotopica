@@ -10,6 +10,19 @@ import SpriteKit
 
 extension SKAction {
     
+    class func numberChanging(
+        from fromValue:Int, to toValue: Int, prefix:String = "", postfix:String = "", withDuration duration:TimeInterval
+    ) -> SKAction {
+        
+        let rcount = Double(toValue - fromValue) / duration
+        
+        return SKAction.customAction(withDuration: duration){ node, time in
+            guard let label = node as? SKLabelNode else {return}
+            
+            label.text = prefix + String(Int(rcount * Double(time)) + fromValue) + postfix
+        }
+    }
+    
     class func typewriter(_ string:String, withDuration duration:TimeInterval) -> SKAction {
         let perDuration = CGFloat(duration / TimeInterval(string.count))
         

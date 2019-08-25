@@ -47,7 +47,7 @@ public typealias RMStorable = Codable
  }
  ```
  */
-public final class RMStorage{
+public final class RMStorage {
     
     /// シングルトンです。
     public static let shared = RMStorage()

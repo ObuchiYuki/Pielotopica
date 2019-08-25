@@ -12,6 +12,7 @@ import SpriteKit
 private extension SKAction {
     static func randomRotation(radians: CGFloat, duration: TimeInterval) -> SKAction {
         let firstAngle = CGFloat.random(in: 0...3.14)
+        
         let a1 = SKAction.customAction(withDuration: duration, actionBlock: {node, time in
             let per = time / CGFloat(duration)
             let theta = firstAngle + CGFloat.pi*2*per
@@ -32,19 +33,29 @@ private class _LoaderScene: SKScene {
     let roter2 = SKSpriteNode(imageNamed: "TP_loader_router2")
     let roter3 = SKSpriteNode(imageNamed: "TP_loader_router3")
     
+    func start() {
+        roter1.setScale(0)
+        roter2.setScale(0)
+        roter3.setScale(0)
+
+        roter1.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
+        roter2.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
+        roter3.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
+    }
     
     override func sceneDidLoad() {
         self.anchorPoint = [0.5, 0.5]
-
-        roter1.run(.randomRotation(radians: 0.1, duration: 2.5))
-        roter2.run(.randomRotation(radians: 0.15, duration: 3))
-        roter3.run(.randomRotation(radians: 0.05, duration: 2))
-        
+        roter1.run(.randomRotation(radians: 0.09, duration: 2.5))
+        roter2.run(.randomRotation(radians: 0.06, duration: 3  ))
+        roter3.run(.randomRotation(radians: 0.05, duration: 2  ))
+            
         self.addChild(center)
         
         self.addChild(roter1)
         self.addChild(roter2)
         self.addChild(roter3)
+            
+        start()
     }
     
     private func _createAnimation(for node: SKNode) -> SKAction {
@@ -65,6 +76,7 @@ class RouterViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     
     private var skView:SKView { return self.view.viewWithTag(1) as! SKView }
+    private let scene = _LoaderScene()
     
     enum Route {
         case sandBox
@@ -76,7 +88,8 @@ class RouterViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        let scene = _LoaderScene()
+        scene.start()
+        
         scene.size = skView.frame.size
         scene.backgroundColor = .clear
         scene.scaleMode = .aspectFit
@@ -86,6 +99,7 @@ class RouterViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         switch route {
         case .sandBox:
             label.text = "読み込み中..."

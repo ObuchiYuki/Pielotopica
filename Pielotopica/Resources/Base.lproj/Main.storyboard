@@ -66,7 +66,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_cap_background" translatesAutoresizingMaskIntoConstraints="NO" id="FkM-6N-dG5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <skView contentMode="scaleToFill" allowsTransparency="YES" preferredFramesPerSecond="10" translatesAutoresizingMaskIntoConstraints="NO" id="f35-9B-dOQ">
+                            <skView contentMode="scaleToFill" allowsTransparency="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f35-9B-dOQ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </skView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqF-m5-SsP">
