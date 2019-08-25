@@ -33,7 +33,7 @@ class TPBlockEditHelper {
     public lazy var guideNode:SCNNode = _createGuideNode(from: self.block)
     
     var level:TSLevel {
-        return TSLevel.current()
+        return TSLevel.current!
     }
 
     // =============================================================== //

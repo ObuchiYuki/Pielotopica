@@ -17,6 +17,9 @@ public struct TSLevelData: Codable {
     func save(stageNamed name:String) {
         RMStorage.shared.store(self, for: ._levelDataKey(for: name))
     }
+    static func remove(stageNamed name:String) {
+        RMStorage.shared.remove(with: ._levelDataKey(for: name))
+    }
     init() {
         fillMap =
             Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)

@@ -281,18 +281,19 @@ public class TSLevel {
 extension TSLevel {
     private static var _initirized:TSLevel?
     
-    public static func current() -> TSLevel {
-        return _initirized!
+    public static var current:TSLevel! {
+        return _initirized
     }
 }
 
 extension TSBlock {
     /// ブロックデータを返します。
-    public func getBlockData(at point:TSVector3) -> TSBlockData {
-        return TSLevel.current().getBlockData(at: point)
+    public func getBlockData(at point:TSVector3) -> TSBlockData? {
+        return TSLevel.current?.getBlockData(at: point)
     }
     
     public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
-        TSLevel.current().setBlockData(data, at: point)
+        
+        TSLevel.current?.setBlockData(data, at: point)
     }
 }

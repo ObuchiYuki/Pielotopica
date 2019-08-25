@@ -14,10 +14,17 @@ class GameViewController: GKGameViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: - For Debug -
-        scnView.showsStatistics = true
+        print(TSBlock.air)
+        print(TSBlock.japaneseHouse2)
+        print(TSBlock.ground5x5)
+        print(TSBlock.ground5x5Edge)
+        print(TSBlock.woodWall1x5)
         
+        TSLevelData.remove(stageNamed: "ground")
         let levelData = TSLevelData.load(stageNamed: "ground")
         TSLevel(data: levelData)
+        
+        scnView.showsStatistics = true
         
         self.presentScene(with: .storyScene)
     }

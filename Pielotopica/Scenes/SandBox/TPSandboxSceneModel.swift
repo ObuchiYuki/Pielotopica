@@ -59,7 +59,7 @@ class TPSandboxSceneModel {
     // MARK: - Private -
     
     // - Level -
-    private let level = TSLevel.current()
+    private let level = TSLevel.current!
     internal lazy var nodeGenerator = TSNodeGenerator(level: level)
     
     // - Binder -
@@ -195,14 +195,17 @@ class TPSandboxSceneModel {
     func sceneDidLoad() {
         level.delegate = self
         
-        /// 床設置 (仮)
-        for x in -2...2 {
-            for z in -2...2 {
-                
-                if abs(x) == 2 || abs(z) == 2 {
-                    level.placeBlock(.ground5x5Edge, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
-                }else {
-                    level.placeBlock(.ground5x5, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
+        if level.getAllAnchors().isEmpty {
+            print("new world")
+            /// 床設置 (仮)
+            for x in -2...2 {
+                for z in -2...2 {
+                    
+                    if abs(x) == 2 || abs(z) == 2 {
+                        level.placeBlock(.ground5x5Edge, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
+                    }else {
+                        level.placeBlock(.ground5x5, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
+                    }
                 }
             }
         }

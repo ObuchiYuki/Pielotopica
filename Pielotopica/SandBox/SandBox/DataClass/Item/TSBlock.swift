@@ -37,8 +37,17 @@ open class TSBlock {
     /// Sandbox座標系におけるアイテムのサイズです。 アンカーポイントからのベクターで表されます。
     /// マイナスの数を取ることもあります。
     public func getSize(at point:TSVector3, at rotation:TSBlockRotation? = nil) -> TSVector3 {
-        let rotation = rotation ?? TSBlockRotation(data: getBlockData(at: point))
-        return _rotatedNodeSize(at: point, at: rotation)
+        if let rotation = rotation {
+            
+            return _rotatedNodeSize(at: point, at: rotation)
+        }else if let data = getBlockData(at: point){
+            
+            return _rotatedNodeSize(at: point, at: TSBlockRotation(data: data))
+        }else {
+            
+            return getOriginalNodeSize()
+        }
+        
     }
     // =============================================================== //
     // MARK: - Private Properties -

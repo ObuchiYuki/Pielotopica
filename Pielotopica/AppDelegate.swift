@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print(TSBlock.air)
+        
         TSPlayer.him.itemBarInventory.addItemStack(TSItemStack(item: .japaneseHouse2, count: 100))
         TSPlayer.him.itemBarInventory.addItemStack(TSItemStack(item: .woodWall1x5, count: 100))
         

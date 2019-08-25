@@ -98,6 +98,6 @@ public extension TSBlock {
     /// 自身のノードが生成済みなら、そのノードを
     /// 未生成なら新規ノードを返します。
     func getOwnNode(at point:TSVector3) -> SCNNode? {
-        return TSLevel.current().nodeGenerator?.getNode(at: point)
+        return TSLevel.current?.nodeGenerator?.getNode(at: point)
     }
 }
