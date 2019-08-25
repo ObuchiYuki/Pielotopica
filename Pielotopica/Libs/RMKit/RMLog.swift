@@ -35,9 +35,9 @@ extension RMLogger {
         file: String = #file, function: String = #function, line: UInt = #line
     ) {
         #if DEBUG
-        let log = constructor.createPrintLog(level: .trace, message: message, file: file, function: function, line: line)
+        let _log = constructor.createPrintLog(level: .trace, message: message, file: file, function: function, line: line)
         
-        print(log)
+        print(_log)
         #endif
     }
     public func debug(
@@ -45,15 +45,23 @@ extension RMLogger {
         file: String = #file, function: String = #function, line: UInt = #line
     ) {
         #if DEBUG
-        let log = constructor.createPrintLog(level: .debug, message: message, file: file, function: function, line: line)
+        let _log = constructor.createPrintLog(level: .debug, message: message, file: file, function: function, line: line)
         
-        print(log)
+        print(_log)
         #endif
+        let log = constructor.createLog(level: .debug, message: message, file: file, function: function, line: line)
+        
+        self.handler.log(level: .warning, message: log)
     }
     public func warn(
         _ message: Any,
         file: String = #file, function: String = #function, line: UInt = #line
     ) {
+        #if DEBUG
+        let _log = constructor.createPrintLog(level: .warning, message: message, file: file, function: function, line: line)
+        
+        print(_log)
+        #endif
         let log = constructor.createLog(level: .warning, message: message, file: file, function: function, line: line)
         
         self.handler.log(level: .warning, message: log)
@@ -62,6 +70,11 @@ extension RMLogger {
         _ message: Any,
         file: String = #file, function: String = #function, line: UInt = #line
     ) {
+        #if DEBUG
+        let _log = constructor.createPrintLog(level: .error, message: message, file: file, function: function, line: line)
+        
+        print(_log)
+        #endif
         let log = constructor.createLog(level: .error, message: message, file: file, function: function, line: line)
         
         self.handler.log(level: .error, message: log)
@@ -81,9 +94,10 @@ private class RMLogConstructor {
     
     func createLog(level: RMLogger.Level, message: Any, file: String, function: String, line: UInt) -> String {
         var logContent = [String]()
-        logContent.append(_timestamp())
         logContent.append(_levelDesc(for: level))
+        logContent.append(_timestamp())
         logContent.append("\(message)")
+        logContent.append("\n")
         _fileTrace(level: level, file: file, function: function, line: line).map{logContent.append($0)}
         
         return logContent.joined(separator: " ")
@@ -137,16 +151,31 @@ private class RMLogHandler {
         _writeMessage(message)
     }
 
-    private func _logfileName() -> String {
-        return label + ".log"
+    private func _logfilePath() -> String {
+        #if os(macOS)
+        guard let appSupportUrl = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else {fatalError()}
+        guard let bundleID = Bundle.main.bundleIdentifier else {fatalError()}
+        
+        var saveUrl = appSupportUrl.appendingPathComponent(bundleID).appendingPathComponent("userdata")
+        #endif
+        
+        #if os(iOS)
+        guard let documentUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {fatalError()}
+        
+        var saveUrl = documentUrl
+        #endif
+        
+        saveUrl.appendPathComponent(label + ".log")
+        
+        return saveUrl.path
     }
     
     private func _writeMessage(_ message:String) {
-        let clabel = _makeCString(from: _logfileName())
+        let clabel = _makeCString(from: _logfilePath())
         defer {clabel?.deallocate()}
         
         lock.lock()
-        let file = fopen(clabel, "w")
+        let file = fopen(clabel, "a")!
         
         defer {
             fclose(file)

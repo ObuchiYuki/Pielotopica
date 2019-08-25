@@ -14,11 +14,11 @@ class GameViewController: GKGameViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // MARK: - For Debug -
-        log.debug(TSBlock.air)
-        log.debug(TSBlock.japaneseHouse2)
-        log.debug(TSBlock.ground5x5)
-        log.debug(TSBlock.ground5x5Edge)
-        log.debug(TSBlock.woodWall1x5)
+        print(TSBlock.air)
+        print(TSBlock.japaneseHouse2)
+        print(TSBlock.ground5x5)
+        print(TSBlock.ground5x5Edge)
+        log.error(TSBlock.woodWall1x5)
         
         scnView.showsStatistics = true
         
