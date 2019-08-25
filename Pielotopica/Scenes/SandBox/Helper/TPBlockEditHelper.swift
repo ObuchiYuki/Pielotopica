@@ -65,11 +65,15 @@ class TPBlockEditHelper {
     
     /// 編集を始めます。
     func startEditing(from anchorPoint: TSVector3, startRotation rotation: Int) {
+        let tsrotation = TSBlockRotation(rotation: rotation)
+        
         self._initialNodePosition = anchorPoint
         self._nodePosition = anchorPoint
         self._blockRotation = rotation
         
-        delegate.blockEditHelper(placeGuideNodeWith: guideNode, at: anchorPoint)
+        guideNode.eulerAngles = SCNVector3(0, Double(rotation) * .pi/2, 0)
+        
+        delegate.blockEditHelper(placeGuideNodeWith: guideNode, at: anchorPoint + tsrotation.nodeModifier)
     }
     
     /// ブロックを回転させます。
@@ -84,11 +88,11 @@ class TPBlockEditHelper {
             for: _blockRotation
         )
         
-        _blockRotation += 1
-        
         _nodePosition = _nodePosition + movement
         
         guideNode.runAction(rotateAction)
+        
+        _blockRotation += 1
     }
     
     // MARK: - Gesture -
@@ -170,7 +174,7 @@ class TPBlockEditHelper {
                 gnode.name = "gnode"
                 gnode.geometry = SCNBox(width: 0.8, height: 0.1, length: 0.8, chamferRadius: 0)
                 gnode.geometry?.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-                gnode.position = SCNVector3(Double(x) + 0.5, 0, Double(z) + 0.5)
+                gnode.position = SCNVector3(Double(x) + 0.4, 0, Double(z) + 0.4)
                 
                 containerNode.addChildNode(gnode)
             }
