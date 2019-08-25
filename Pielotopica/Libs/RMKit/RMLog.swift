@@ -97,8 +97,8 @@ private class RMLogConstructor {
         logContent.append(_levelDesc(for: level))
         logContent.append(_timestamp())
         logContent.append("\(message)")
-        logContent.append("\n")
         _fileTrace(level: level, file: file, function: function, line: line).map{logContent.append($0)}
+        logContent.append("\n")
         
         return logContent.joined(separator: " ")
     }
