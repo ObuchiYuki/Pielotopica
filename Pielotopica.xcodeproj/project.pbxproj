@@ -125,6 +125,7 @@
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
 		B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */; };
 		B6E8826123121835003F3124 /* TSLevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826023121835003F3124 /* TSLevelData.swift */; };
+		B6E8826623126B66003F3124 /* RMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826523126B66003F3124 /* RMLog.swift */; };
 		B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6EDB11C230F78AE0042CA02 /* button_light.mp3 */; };
 		B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */; };
 		B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */; };
@@ -284,6 +285,7 @@
 		B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKShadowLabelNode.swift; sourceTree = "<group>"; };
 		B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockEditHelper.swift; sourceTree = "<group>"; };
 		B6E8826023121835003F3124 /* TSLevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSLevelData.swift; sourceTree = "<group>"; };
+		B6E8826523126B66003F3124 /* RMLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLog.swift; sourceTree = "<group>"; };
 		B6EDB11C230F78AE0042CA02 /* button_light.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_light.mp3; sourceTree = "<group>"; };
 		B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSoundPlayer.swift; sourceTree = "<group>"; };
 		B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenu.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				B61E93BF2300E36C008CB325 /* RMStorage.swift */,
 				B61E93C02300E36C008CB325 /* RMBindCenter.swift */,
 				B6AA02AA230D78B800F0FF48 /* RMTimeStamp.swift */,
+				B6E8826523126B66003F3124 /* RMLog.swift */,
 				B61E93C12300E36C008CB325 /* extensions */,
 			);
 			path = RMKit;
@@ -980,6 +983,7 @@
 				B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */,
 				B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */,
 				B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */,
+				B6E8826623126B66003F3124 /* RMLog.swift in Sources */,
 				B6227A302301AB84009EF60F /* TSPlayer.swift in Sources */,
 				B6227A6323023732009EF60F /* TS_JapaneseHouse2.swift in Sources */,
 				B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */,

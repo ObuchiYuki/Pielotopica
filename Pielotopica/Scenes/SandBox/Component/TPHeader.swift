@@ -16,6 +16,8 @@ class TPHeader: GKSpriteNode {
     private let woodAmountLabel = GKShadowLabelNode(fontNamed: TPCommon.FontName.topica)
     private let circitAmountLabel = GKShadowLabelNode(fontNamed: TPCommon.FontName.topica)
     
+    private let dayLabel = SKLabelNode()
+    
     init(){
         super.init(texture: .init(imageNamed: "TP_hd_background"), color: .clear, size: [354, 101])
         

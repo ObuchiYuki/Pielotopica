@@ -48,7 +48,7 @@ public struct TSLevelData: Codable {
 
 extension RMStorage.Key {
     fileprivate static func _levelDataKey(for stageName:String) -> RMStorage.Key<TSLevelData> {
-        return .init(rawValue: "_"+stageName+"_stringValueKey")
+        return .init(rawValue: stageName+"_leveldata")
         
     }
 }
