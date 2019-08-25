@@ -45,9 +45,6 @@ public class TSNodeGenerator {
         let block = level.getAnchorBlock(at: anchorPoint)
         
         if let node = _getNode(at: anchorPoint) { // 生成済みならば
-            print("returns node for block", block)
-            print(node.childNodes, node.size)
-            
             return node
         }
         
@@ -55,7 +52,6 @@ public class TSNodeGenerator {
             
             let node = block.createNode()
             self._setNode(node, at: anchorPoint)
-            print("create Node for block", block)
             return node
         }
         

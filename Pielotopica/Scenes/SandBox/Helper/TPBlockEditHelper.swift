@@ -125,7 +125,6 @@ class TPBlockEditHelper {
 
         delegate.blockEditHelper(endBlockPlacingWith: guideNode)
         
-        print((block, at: _nodePosition, rotation: _roataion))
         self.level.placeBlock(block, at: _nodePosition, rotation: _roataion)
     }
     

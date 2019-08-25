@@ -59,7 +59,7 @@ class TPSandboxSceneModel {
     // MARK: - Private -
     
     // - Level -
-    private let level = TSLevel.current!
+    private var level:TSLevel { return TSLevel.current! }
     internal lazy var nodeGenerator = TSNodeGenerator(level: level)
     
     // - Binder -
@@ -110,11 +110,8 @@ class TPSandboxSceneModel {
             guard let blockEditHelper = blockEditHelper else {return}
             
             if blockEditHelper.canEndBlockEditing() {
-                print("ca1")
                 blockEditHelper.endBlockEditing()
-                print("ca2")
                 _blockPositionDidDecided(blockEditHelper)
-                print("ca3")
                 
                 dragControleState = .cameraMoving // 元にもどす
             }
@@ -159,13 +156,10 @@ class TPSandboxSceneModel {
                 _startBlockEditing(from: worldCoordinate, block: block, moving: false)
             }
         }else if uiSceneModel?.mode == .buildMove {
-            print(touchedNode.worldPosition)
             let anchorPoint = TSVector3(touchedNode.worldPosition)
             
             let block = level.getAnchorBlock(at: anchorPoint)
-            
-            print("hitTestDidEnd", block)
-            
+                    
             guard block.canDestroy(at: anchorPoint) else {return}
             
             binder.__removeNode(touchedNode)
@@ -193,7 +187,11 @@ class TPSandboxSceneModel {
 
     
     func sceneDidLoad() {
+        let levelData = TSLevelData.load(stageNamed: "ground")
+        
+        _ = TSLevel()
         level.delegate = self
+        level.loadLevelData(levelData)
         
         if level.getAllAnchors().isEmpty {
             print("new world")
@@ -259,10 +257,10 @@ extension TPSandboxSceneModel: TPCameraGestureHelperDelegate{
 // ================================================================== //
 // MARK: - Extension for TSLevelDelegate -
 extension TPSandboxSceneModel : TSLevelDelegate {
-    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3) {
+    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag:Bool) {
         guard let node = nodeGenerator.getNode(at: position) else {return}
         
-        if level.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {
+        if animiationFlag && level.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {
             let action = TSBlockAnimator.generateBlockPlaceAnimation(for: node)
             node.runAction(action)
         }

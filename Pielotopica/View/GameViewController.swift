@@ -20,10 +20,6 @@ class GameViewController: GKGameViewController {
         print(TSBlock.ground5x5Edge)
         print(TSBlock.woodWall1x5)
         
-        TSLevelData.remove(stageNamed: "ground")
-        let levelData = TSLevelData.load(stageNamed: "ground")
-        TSLevel(data: levelData)
-        
         scnView.showsStatistics = true
         
         self.presentScene(with: .storyScene)

@@ -22,7 +22,7 @@ internal let kArrayAccessMargin = kLevelMaxX / 2
 // MARK: - TSLevelDelegate -
 
 public protocol TSLevelDelegate:class {
-    func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3)
+    func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool)
     func level(_ level:TSLevel, levelDidDestoryBlockAt position:TSVector3)
 }
 
@@ -45,18 +45,18 @@ public class TSLevel {
     
     /// フィルマップです。各座標におけるブロックの状況を保存します。
     /// 直接編集せず _setFillMap(_:, _:) _getFillMap(_:) を使用してください。
-    private var fillMap:[[[UInt16]]]
+    private var fillMap = [[[UInt16]]]()
     
     /// アンカーとブロックIDの対応表です。
     /// 直接編集せず _setAnchorBlockMap(_:, _:) _getAnchorBlockMap(_:) を使用してください。
-    private var anchorBlockMap:[[[UInt16]]]
+    private var anchorBlockMap = [[[UInt16]]]()
     
     /// ブロックのデータです。
     /// 直接編集せず _setBlockDataMap(_:, _:) _getBlockDataMap(_:) を使用してください。
-    private var blockDataMap:[[[UInt8]]]
+    private var blockDataMap = [[[UInt8]]]()
     
     /// 全アンカーです。
-    private var anchorMap:Set<TSVector3>
+    private var anchorMap = Set<TSVector3>()
     
     // =============================================================== //
     // MARK: - Methods -
@@ -115,15 +115,9 @@ public class TSLevel {
             guard block.canPlace(at: anchorPoint) else {return}
         }
         
-        self._writeRotation(rotation, at: anchorPoint)
+        _realPlaceBlock(block, at: anchorPoint, rotation: rotation)
         
-        block.willPlace(at: anchorPoint)
-        
-        self.anchorMap.insert(anchorPoint)
-        self._setAnchoBlockMap(block, at: anchorPoint)
-        self._fillFillMap(with: block, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
-        
-        self.delegate?.level(self, levelDidUpdateBlockAt: anchorPoint)
+        self.delegate?.level(self, levelDidUpdateBlockAt: anchorPoint, needsAnimation: true)
         
         block.didPlaced(at: anchorPoint)
         
@@ -158,10 +152,7 @@ public class TSLevel {
         return _getFillMap(at: place)
     }
     
-    // =============================================================== //
-    // MARK: - Constructor -
-    init(data:TSLevelData) {
-        assert(kLevelMaxX == kLevelMaxZ, "kLevelMaxX must be equals to kLevelMaxZ.")
+    public func loadLevelData(_ data:TSLevelData) {
         
         self.fillMap = data.fillMap
         self.anchorBlockMap = data.anchorBlockMap
@@ -170,15 +161,39 @@ public class TSLevel {
         
         for anchor in anchorMap {
             let blockdata = getBlockData(at: anchor)
+            let block = getAnchorBlock(at: anchor)
             
-            placeBlock(getAnchorBlock(at: anchor), at: anchor, rotation: TSBlockRotation(data: blockdata), forced: true)
+            _realPlaceBlock(block, at: anchor, rotation: TSBlockRotation(data: blockdata))
+            
+            self.delegate?.level(self, levelDidUpdateBlockAt: anchor, needsAnimation: false)
+            
+            block.didPlaced(at: anchor)
         }
+    }
+    
+    // =============================================================== //
+    // MARK: - Constructor -
+    
+    init() {
+        assert(kLevelMaxX == kLevelMaxZ, "kLevelMaxX must be equals to kLevelMaxZ.")
         
         TSLevel._initirized = self
+        
     }
     
     // =============================================================== //
     // MARK: - Private Methods -
+    
+    private func _realPlaceBlock(_ block:TSBlock, at anchorPoint:TSVector3, rotation:TSBlockRotation) {
+        self._writeRotation(rotation, at: anchorPoint)
+        
+        block.willPlace(at: anchorPoint)
+        
+        self.anchorMap.insert(anchorPoint)
+        self._setAnchoBlockMap(block, at: anchorPoint)
+        self._fillFillMap(with: block, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
+        
+    }
     
     private func _createRange(_ value:Int16) -> Range<Int16> {
         if value > 0 {
