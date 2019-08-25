@@ -145,7 +145,7 @@ class TPBlockEditHelper {
         /// ピンチ率に合わせて変更
         let tscale = 1.0 / TPSandboxCameraGestureHelper.initirized!.getPinchScale() * 0.03
         
-        let transform = CGAffineTransform(rotationAngle: -.pi/4).scaledBy(x: CGFloat(tscale), y: CGFloat(tscale))
+        let transform = CGAffineTransform(rotationAngle: -.pi/4).scaledBy(x: CGFloat(tscale), y: CGFloat(tscale * 1.3))
         let transformed = vector2.applying(transform)
         
         return [transformed.x16, 0, transformed.z16]

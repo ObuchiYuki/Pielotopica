@@ -104,6 +104,13 @@ extension TSVector3 :Hashable {
 }
 
 // =============================================================== //
+// MARK: - Extension for Codable -
+
+extension TSVector3: Codable {
+    
+}
+
+// =============================================================== //
 // MARK: - Extension for CustomStringConvertible -
 
 extension TSVector3: CustomStringConvertible {
@@ -111,3 +118,5 @@ extension TSVector3: CustomStringConvertible {
         return "TSVecto3(x: \(x), y: \(y), z: \(z))"
     }
 }
+
+

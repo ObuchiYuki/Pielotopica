@@ -12,11 +12,11 @@ import RxSwift
 
 // =============================================================== //
 // MARK: - Consts -
-internal let kLevelMaxX = Int(2048)
-internal let kLevelMaxZ = Int(2048)
-internal let kLevelMaxY = Int(256)
+internal let kLevelMaxX = Int(100)
+internal let kLevelMaxZ = Int(100)
+internal let kLevelMaxY = Int(5)
 
-internal let kArrayAccessMargin = 1024
+internal let kArrayAccessMargin = kLevelMaxX / 2
 
 // =============================================================== //
 // MARK: - TSLevelDelegate -
@@ -45,21 +45,18 @@ public class TSLevel {
     
     /// フィルマップです。各座標におけるブロックの状況を保存します。
     /// 直接編集せず _setFillMap(_:, _:) _getFillMap(_:) を使用してください。
-    private var fillMap:[[[UInt16]]] =
-        Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
+    private var fillMap:[[[UInt16]]]
     
     /// アンカーとブロックIDの対応表です。
     /// 直接編集せず _setAnchorBlockMap(_:, _:) _getAnchorBlockMap(_:) を使用してください。
-    private var anchorBlockMap:[[[UInt16]]] =
-        Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
+    private var anchorBlockMap:[[[UInt16]]]
     
     /// ブロックのデータです。
     /// 直接編集せず _setBlockDataMap(_:, _:) _getBlockDataMap(_:) を使用してください。
-    private var blockDataMap:[[[UInt8]]] =
-        Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
+    private var blockDataMap:[[[UInt8]]]
     
     /// 全アンカーです。
-    private var anchorMap = Set<TSVector3>()
+    private var anchorMap:Set<TSVector3>
     
     // =============================================================== //
     // MARK: - Methods -
@@ -86,6 +83,10 @@ public class TSLevel {
         return anchorMap
     }
     
+    public func getLevelData() -> TSLevelData {
+        return TSLevelData(fillMap: fillMap, anchorBlockMap: anchorBlockMap, blockDataMap: blockDataMap, anchorSet: Array(anchorMap))
+    }
+    
     /// ブロックがおける場所を調べます。
     /// 置けない場合は、nilを返します。
     public func calculatePlacablePosition(for block:TSBlock, at point:TSVector2) -> TSVector3? {
@@ -108,7 +109,6 @@ public class TSLevel {
     
     /// アンカーポイントにブロックを設置します。
     /// 指定するanchorPointは事前に`calculatePlacablePosition(for:, at:)`で計算されたものである必要があります。
-    /// forceオプションに速度的な差はありません。
     public func placeBlock(_ block:TSBlock, at anchorPoint:TSVector3, rotation:TSBlockRotation, forced:Bool = false) {
         if !forced { // 強制でないなら
             assert(canPlace(block, at: anchorPoint, atRotation: rotation), "Error placing block. use calculatePlacablePosition to find place to place.")
@@ -126,6 +126,8 @@ public class TSLevel {
         self.delegate?.level(self, levelDidUpdateBlockAt: anchorPoint)
         
         block.didPlaced(at: anchorPoint)
+        
+        getLevelData().save(stageNamed: "ground")
     }
     
     /// アンカーポイントのブロックを破壊します。
@@ -158,6 +160,22 @@ public class TSLevel {
     
     // =============================================================== //
     // MARK: - Constructor -
+    init(data:TSLevelData) {
+        assert(kLevelMaxX == kLevelMaxZ, "kLevelMaxX must be equals to kLevelMaxZ.")
+        
+        self.fillMap = data.fillMap
+        self.anchorBlockMap = data.anchorBlockMap
+        self.blockDataMap = data.blockDataMap
+        self.anchorMap = Set(data.anchorSet)
+        
+        for anchor in anchorMap {
+            let blockdata = getBlockData(at: anchor)
+            
+            placeBlock(getAnchorBlock(at: anchor), at: anchor, rotation: TSBlockRotation(data: blockdata), forced: true)
+        }
+        
+        TSLevel._initirized = self
+    }
     
     // =============================================================== //
     // MARK: - Private Methods -
@@ -261,14 +279,11 @@ public class TSLevel {
 }
 
 extension TSLevel {
-    public static func current() -> TSLevel {
-        return grobal
-    }
-    /// Singleton for ground Level
-    public static let grobal = TSLevel()
+    private static var _initirized:TSLevel?
     
-    /// Singleton for nezer Level
-    public static let nezer = TSLevel()
+    public static func current() -> TSLevel {
+        return _initirized!
+    }
 }
 
 extension TSBlock {

@@ -53,7 +53,7 @@ class TPSandboxSceneModel {
     // MARK: - Public -
     public var isPlacingBlockMode = BehaviorRelay(value: false)
     public var canEnterBlockPlaingMode:Bool {
-        return uiSceneModel.mode == .buildMove || uiSceneModel.mode == .buildPlace
+        return uiSceneModel?.mode == .buildMove || uiSceneModel?.mode == .buildPlace
     }
     
     // MARK: - Private -
@@ -77,8 +77,8 @@ class TPSandboxSceneModel {
         case cameraMoving
     }
     
-    private var uiSceneModel:TPSandBoxSceneUIModel {
-        return TPSandBoxSceneUIModel.initirized!
+    private var uiSceneModel:TPSandBoxSceneUIModel? {
+        return TPSandBoxSceneUIModel.initirized
     }
     // ================================================================== //
     // MARK: - Methods -
@@ -152,13 +152,13 @@ class TPSandboxSceneModel {
             worldCoordinate.y16 = 1
         }
         
-        if uiSceneModel.mode == .buildPlace {
+        if uiSceneModel?.mode == .buildPlace {
             if itemBarInventory.canUseCurrentItem() {
                 guard let block = (itemBarInventory.selectedItemStack.item as? TSBlockItem)?.block else { return }
                 
                 _startBlockEditing(from: worldCoordinate, block: block, moving: false)
             }
-        }else if uiSceneModel.mode == .buildMove {
+        }else if uiSceneModel?.mode == .buildMove {
             print(touchedNode.worldPosition)
             let anchorPoint = TSVector3(touchedNode.worldPosition)
             

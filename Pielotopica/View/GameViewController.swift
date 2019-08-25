@@ -16,6 +16,9 @@ class GameViewController: GKGameViewController {
         // MARK: - For Debug -
         scnView.showsStatistics = true
         
+        let levelData = TSLevelData.load(stageNamed: "ground")
+        TSLevel(data: levelData)
+        
         self.presentScene(with: .storyScene)
     }
 }
