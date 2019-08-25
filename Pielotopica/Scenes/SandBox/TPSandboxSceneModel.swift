@@ -132,20 +132,27 @@ class TPSandboxSceneModel {
     
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
-        guard canEnterBlockPlaingMode.value else { return }
+        
         guard !isPlacingBlockMode.value else { return }
         
-        if uiSceneModel?.mode.value == .buildPlace {
+        switch uiSceneModel.mode.value {
+        case .buildPlace:
             if itemBarInventory.canUseCurrentItem() {
                 guard let block = (itemBarInventory.selectedItemStack.item as? TSBlockItem)?.block else { return }
                 
                 let position = _modifyPosition(worldCoordinate)
                 
+                guard canEnterBlockPlaingMode.value else { return }
                 _startBlockPlacing(from: position, block: block)
             }
-        }else if uiSceneModel?.mode.value == .buildMove {
+        case .buildMove:
+            guard canEnterBlockPlaingMode.value else { return }
             
             _startBlockMoving(with: touchedNode)
+        case .buildDestory:
+            
+            _startBlockDestoring(with: touchedNode)
+        default: break
         }
     }
 
@@ -200,6 +207,23 @@ class TPSandboxSceneModel {
         
         return pos
     }
+    private func _startBlockDestoring(with touchedNode: SCNNode) {
+        print(touchedNode)
+        // get block
+        let nodeRotationInt = Int(touchedNode.parent!.eulerAngles.y / (.pi/2))
+        
+        let nodeRotation = TSBlockRotation(rotation: nodeRotationInt)
+        let anchorPoint = TSVector3(touchedNode.worldPosition) - nodeRotation.nodeModifier
+        let block = level.getAnchorBlock(at: anchorPoint)
+    
+        // process
+        guard block.canDestroy(at: anchorPoint) else {return}
+        
+        binder.__removeNode(touchedNode)
+        
+        level.destroyBlock(at: anchorPoint)
+    }
+    
     private func _startBlockMoving(with touchedNode: SCNNode) {
         // get block
         let nodeRotationInt = Int(touchedNode.parent!.eulerAngles.y / (.pi/2))
