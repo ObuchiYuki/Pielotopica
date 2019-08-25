@@ -144,44 +144,17 @@ class TPSandboxSceneModel {
         guard canEnterBlockPlaingMode else { return }
         guard !isPlacingBlockMode.value else { return }
         
-        var worldCoordinate = worldCoordinate
-        if worldCoordinate.y16 < 1 {
-            worldCoordinate.y16 = 1
-        }
-        
         if uiSceneModel?.mode == .buildPlace {
             if itemBarInventory.canUseCurrentItem() {
                 guard let block = (itemBarInventory.selectedItemStack.item as? TSBlockItem)?.block else { return }
                 
-                _startBlockEditing(from: worldCoordinate, block: block, moving: false)
+                let position = _modifyPosition(worldCoordinate)
+                
+                _startBlockPlacing(from: position, block: block)
             }
         }else if uiSceneModel?.mode == .buildMove {
-            let anchorPoint = TSVector3(touchedNode.worldPosition)
             
-            let block = level.getAnchorBlock(at: anchorPoint)
-                    
-            guard block.canDestroy(at: anchorPoint) else {return}
-            
-            binder.__removeNode(touchedNode)
-            
-            _startBlockEditing(from: anchorPoint, block: block, moving: true)
-        }
-    }
-    
-    private func _startBlockEditing(from startPoint:TSVector3, block:TSBlock, moving:Bool) {
-        isPlacingBlockMode.accept(true)
-        dragControleState = .blockPlacing
-        
-        if moving {
-            let _blockMoveHelper = TPBlockMoveHelper(delegate: self, block: block)
-            _blockMoveHelper.startMoving(at: startPoint)
-            
-            self.blockEditHelper = _blockMoveHelper
-        }else{
-            let _blockPlaceHelper = TPBlockPlaceHelper(delegate: self, block: block)
-            _blockPlaceHelper.startBlockPlacing(at: startPoint)
-            
-            self.blockEditHelper = _blockPlaceHelper
+            _startBlockMoving(with: touchedNode)
         }
     }
 
@@ -212,7 +185,48 @@ class TPSandboxSceneModel {
 
     // ================================================================== //
     // MARK: - Private Methods -
+    private func _modifyPosition(_ pos: TSVector3) -> TSVector3 {
+        var pos = pos
+        if pos.y16 < 1 {
+            pos.y16 = 1
+        }
+        
+        return pos
+    }
+    private func _startBlockMoving(with touchedNode: SCNNode) {
+        // get block
+        let nodeRotationInt = Int(touchedNode.parent!.eulerAngles.y / (.pi/2))
+        
+        let nodeRotation = TSBlockRotation(rotation: nodeRotationInt)
+        let anchorPoint = TSVector3(touchedNode.worldPosition) - nodeRotation.nodeModifier
+        let block = level.getAnchorBlock(at: anchorPoint)
+        
+        // process
+        guard block.canDestroy(at: anchorPoint) else {return}
+        
+        binder.__removeNode(touchedNode)
+        
+        _prepareBlockEditing()
+        
+        let _blockMoveHelper = TPBlockMoveHelper(delegate: self, block: block)
+        _blockMoveHelper.startMoving(at: anchorPoint)
+        
+        self.blockEditHelper = _blockMoveHelper
+    }
     
+    private func _startBlockPlacing(from startPoint:TSVector3, block:TSBlock) {
+        _prepareBlockEditing()
+        
+        let _blockPlaceHelper = TPBlockPlaceHelper(delegate: self, block: block)
+        _blockPlaceHelper.startBlockPlacing(at: startPoint)
+        
+        self.blockEditHelper = _blockPlaceHelper
+    }
+    
+    private func _prepareBlockEditing() {
+        isPlacingBlockMode.accept(true)
+        dragControleState = .blockPlacing
+    }
     /// ブロックの設置場所が確定したら呼び出してください。
     private func _blockPositionDidDecided(_ helper:TPBlockEditHelper) {
         self.isPlacingBlockMode.accept(false)
@@ -260,11 +274,13 @@ extension TPSandboxSceneModel : TSLevelDelegate {
     func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag:Bool) {
         guard let node = nodeGenerator.getNode(at: position) else {return}
         
+        // animation
         if animiationFlag && level.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {
             let action = TSBlockAnimator.generateBlockPlaceAnimation(for: node)
             node.runAction(action)
         }
         
+        // rotation
         let rotation = TSBlockRotation(data: level.getBlockData(at: position))
         node.eulerAngles = SCNVector3(0, rotation.eulerAngle , 0)
         
