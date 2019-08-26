@@ -148,7 +148,7 @@ class TPCaptureViewController: UIViewController {
         TSMaterialData.shared.addWood(value.wood)
         TSMaterialData.shared.addCircit(value.circit)
         
-        self.gameScene.showPrediction(withObjectNamed: prediction.name, with: value)
+        self.gameScene.showPrediction(withObjectNamed: prediction.name, value: value)
     }
     
     private func _setupGameScene() {
