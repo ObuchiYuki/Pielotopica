@@ -17,68 +17,88 @@ class TPRouterViewController: UIViewController {
         case capture
     }
     
+    var route:Route = .sandBox
+    
     // ============================================================ //
-    // view
+    // MARK: -  view -
     @IBOutlet private weak var label: UILabel!
     @IBOutlet private weak var loaderSKView:SKView!
     
     private let loaderScene = _TPLoaderScene()
     
-    
-    var route:Route = .capture
-    
-    private var timer:Timer?
-    
+    // ============================================================ //
+    // MARK: - Methods -
     
     override func viewDidLoad() {
-        
-        scene.size = skView.frame.size
-        scene.backgroundColor = .clear
-        scene.scaleMode = .aspectFit
-        
-        skView.allowsTransparency = true
-        skView.presentScene(scene)
+        _setupLoader()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.skView.isPaused = false
+        _startLoader()
         
-        if route == .capture {
-            scene.start()
-        }
+        self.label.text = _description(for: route)
         
         switch route {
-        case .sandBox:
-            label.text = "読み込み中..."
-        case .capture:
-            label.text = "人工知能 起動中..."
-        }
-        
-        switch route {
-        case .sandBox:
-            performSegue(withIdentifier: "to_sandbox", sender: nil)
-        case .capture:
-            let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "capture") as! TPCaptureViewController
-            DispatchQueue.global().async {
-                vc.allocAI()
-                
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
-                    self.scene.hideAll()
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.2, execute: {
-                        self.present(vc, animated: false)
-                    })
-                    
-                }
-            }
-            
+        case .sandBox: _gotoSandBox()
+        case .capture: _gotoCapture()
         }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        self.skView.isPaused = true
-        self.scene.hideAll()
+        _stopLoader()
+    }
+
+    // ============================================================ //
+    // MARK: - Private Methods -
+    
+    private func _setupLoader() {
+        loaderScene.size = loaderSKView.frame.size
+        loaderScene.backgroundColor = .clear
+        loaderScene.scaleMode = .aspectFit
+        
+        loaderSKView.allowsTransparency = true
+        loaderSKView.presentScene(loaderScene)
+    }
+    
+    private func _startLoader() {
+        self.loaderSKView.isPaused = false
+        
+        loaderScene.start()
+    }
+    private func _stopLoader() {
+        self.loaderSKView.isPaused = true
+        
+        loaderScene.hideAll()
+        
         label.text = ""
-        timer?.invalidate()
+    }
+    private func _description(for route:Route) -> String {
+        switch route {
+        case .sandBox:
+            return "読み込み中..."
+        case .capture:
+            return "人工知能 起動中..."
+        }
+    }
+    
+    private func _gotoSandBox() {
+        performSegue(withIdentifier: "to_sandbox", sender: nil)
+    }
+    
+    private func _gotoCapture() {
+        let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "capture") as! TPCaptureViewController
+        
+        DispatchQueue.global().async {
+            vc.allocAI()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self.loaderScene.hideAll()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                    self.present(vc, animated: false)
+                })
+                
+            }
+        }
     }
 }

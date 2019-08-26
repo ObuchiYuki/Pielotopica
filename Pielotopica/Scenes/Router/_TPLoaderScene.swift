@@ -9,10 +9,10 @@
 import SpriteKit
 
 class _TPLoaderScene: SKScene {
-    let center = SKSpriteNode(imageNamed: "TP_loader_center")
-    let roter1 = SKSpriteNode(imageNamed: "TP_loader_router1")
-    let roter2 = SKSpriteNode(imageNamed: "TP_loader_router2")
-    let roter3 = SKSpriteNode(imageNamed: "TP_loader_router3")
+    private let center = SKSpriteNode(imageNamed: "TP_loader_center")
+    private let roter1 = SKSpriteNode(imageNamed: "TP_loader_router1")
+    private let roter2 = SKSpriteNode(imageNamed: "TP_loader_router2")
+    private let roter3 = SKSpriteNode(imageNamed: "TP_loader_router3")
     
     func start() {
         roter1.setScale(0)
