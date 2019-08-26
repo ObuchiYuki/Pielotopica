@@ -57,7 +57,7 @@ class TPStartScene:GKSafeScene {
     @objc private func onRingSelected(_ sender:GKButtonNode) {
         _endup()
         
-        self.present(to: .storyScene, delayed: 0.8)
+        self.present(to: .sandboxScene, delayed: 0.8)
         
     }
     

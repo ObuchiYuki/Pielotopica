@@ -13,7 +13,7 @@ import GameplayKit
 // MARK: - TPSandBoxUI -
 
 public extension GKSceneHolder {
-    static let storyScene = GKSceneHolder(safeScene: TPSandBoxScene(), background3DScene: TPSandboxSceneController())
+    static let sandboxScene = GKSceneHolder(safeScene: TPSandBoxScene(), background3DScene: TPSandboxSceneController())
     
 }
 

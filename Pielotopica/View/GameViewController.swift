@@ -13,15 +13,14 @@ class GameViewController: GKGameViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // MARK: - For Debug -
         
-        // TODO: - ここがないと動かないのをなんとかする? -
+        // TODO: - ここがないと動かないのをなんとかする -
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)
         print(TSBlock.ground5x5)
         print(TSBlock.ground5x5Edge)
         print(TSBlock.woodWall1x5)
         
-        self.presentScene(with: .storyScene)
+        self.presentScene(with: .sandboxScene)
     }
 }
