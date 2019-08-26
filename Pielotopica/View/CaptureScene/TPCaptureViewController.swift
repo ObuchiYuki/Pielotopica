@@ -4,40 +4,25 @@ import SpriteKit
 
 
 class TPCaptureViewController: UIViewController {
+    // ======================================================================== //
+    // MARK: - Properties -
     
     static weak var initirized:TPCaptureViewController?
     
-    // ======================================================================== //
-    // MARK: - IBOutlet -
-    
-    @IBOutlet weak var previewView: UIView!
-    @IBOutlet weak var skView: SKView!
-    
-    private var backgroundScene = SKScene()
-    private var gameScene = TPCaptureUIScene()
-    
-    // ======================================================================== //
-    // MARK: - Private Properties -
-    private var detector:RKObjectDetector!
-    private var videoCapture:RKVideoCapture!
+    // MARK: - UI Level -
+    @IBOutlet private weak var previewView: UIView!
+    @IBOutlet private weak var skView: SKView!
     
     private var boundingBoxeProviders = [BoundingBoxProvider]()
+    private lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TPCaptureViewController.handleTap))
     
-    lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TPCaptureViewController.handleTap(_:)))
-    
-    @objc private func handleTap(_ sender: UITapGestureRecognizer) {
-        let location = sender.location(in: previewView)
-        
-        guard let prediction = getPrediction(at: location) else {return}
+    // MARK: - Game Level -
+    private var backgroundScene = SKScene()
+    private var gameScene = TPCaptureUIScene()
 
-        let value = TSMaterialValueMap.allValues[prediction.classIndex]
-        
-        TSMaterialData.shared.addIron(value.iron)
-        TSMaterialData.shared.addWood(value.wood)
-        TSMaterialData.shared.addCircit(value.circit)
-        
-        self.gameScene.objectDidTouched(objectNamed: prediction.name, with: value)
-    }
+    // MARK: - Recognition Level -
+    private var detector:RKObjectDetector!
+    private var videoCapture:RKVideoCapture!
     
     private var currentShowingPredictions = [RKObjectDetector.Prediction]()
     
@@ -57,17 +42,12 @@ class TPCaptureViewController: UIViewController {
         super.viewDidLoad()
         
         TPCaptureViewController.initirized = self
-        _loadGameScene()
         
-        detector.iouThreshold = 0.2
+        _setupPreviewView()
+        _setupGameScene()
         
-        previewView.clipsToBounds = true
-        previewView.addGestureRecognizer(tapGestureRecognizer)
-        
+        #if !targetEnvironment(simulator)
         setUpBoundingBoxes()
-        #if targetEnvironment(simulator)
-        print("ML not supported on a simulator.")
-        #else
         setupDetector()
         setUpCamera()
         #endif
@@ -78,7 +58,24 @@ class TPCaptureViewController: UIViewController {
     // MARK: - Private Methods -
     
     // ==================================== //
+    // MARK: - Handler -
+    
+    @objc private func handleTap(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: previewView)
+        
+        guard let prediction = getPrediction(at: location) else {return}
+
+        _showPrediction(prediction)
+    }
+    
+    
+    // ==================================== //
     // MARK: - UI level -
+    
+    private func _setupPreviewView() {
+        previewView.clipsToBounds = true
+        previewView.addGestureRecognizer(tapGestureRecognizer)
+    }
     
     private func showBoundingBoxes(predictions: [RKObjectDetector.Prediction]) {
         currentShowingPredictions = predictions
@@ -96,9 +93,10 @@ class TPCaptureViewController: UIViewController {
     }
 
     // ==================================== //
-    // MARK: - Constructing -
+    // MARK: - Recognition level -
     
     private func setupDetector() {
+        detector.iouThreshold = 0.2
         detector.delegate = self
         
     }
@@ -140,7 +138,20 @@ class TPCaptureViewController: UIViewController {
         return nil
     }
     
-    private func _loadGameScene() {
+    // ==================================== //
+    // MARK: - Game level -
+    
+    private func _showPrediction(_ prediction:RKObjectDetector.Prediction) {
+        let value = TSMaterialValueMap.allValues[prediction.classIndex]
+        
+        TSMaterialData.shared.addIron(value.iron)
+        TSMaterialData.shared.addWood(value.wood)
+        TSMaterialData.shared.addCircit(value.circit)
+        
+        self.gameScene.objectDidTouched(objectNamed: prediction.name, with: value)
+    }
+    
+    private func _setupGameScene() {
         skView.backgroundColor = .clear
         
         backgroundScene.scaleMode = .aspectFill
@@ -173,6 +184,7 @@ class TPCaptureViewController: UIViewController {
         
         self.backgroundScene.addChild(rootNode)
     }
+    
 }
 
 extension TPCaptureViewController: RKObjectDetectorDelegate {
