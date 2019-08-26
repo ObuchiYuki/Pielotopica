@@ -33,7 +33,7 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     func loadValue(objectNamed name:String, _ value: TSMaterialValue) {
         var showTypes = [MaterialType]()
         
-        nameLabel.run(.typewriter(name, withPerDuration: 0.05))
+        nameLabel.run(.typewriter(name, withPerDuration: 0.07))
         
         if value.iron != 0   { showTypes.append(.iron(value.iron)) }
         if value.wood != 0   { showTypes.append(.wood(value.wood)) }

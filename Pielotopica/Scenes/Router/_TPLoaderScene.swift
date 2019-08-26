@@ -38,6 +38,9 @@ class _TPLoaderScene: SKScene {
     
     override func sceneDidLoad() {
         self.anchorPoint = [0.5, 0.5]
+        
+        center.anchorPoint = [0.4, 0.4]
+        center.run(.randomRotation(radians: 0.09, duration: 4  ))
         roter1.run(.randomRotation(radians: 0.09, duration: 2.5))
         roter2.run(.randomRotation(radians: 0.06, duration: 3  ))
         roter3.run(.randomRotation(radians: 0.05, duration: 2  ))
