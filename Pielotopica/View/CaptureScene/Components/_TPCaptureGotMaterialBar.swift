@@ -13,15 +13,15 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     // MARK: - Properties -
     
     // nodes
-    let background = SKSpriteNode(texture: .init(imageNamed: "TP_cap_getitem_background"), color: .clear, size: [343, 78])
+    private let background = SKSpriteNode(texture: .init(imageNamed: "TP_cap_getitem_background"), color: .clear, size: [343, 78])
     
-    let nameLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
+    private let nameLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
     
-    let ironSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_iron")
-    let woodSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_wood")
-    let circitSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_circit")
-    let heartSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_heart")
-    let fuelSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_fuel")
+    private let ironSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_iron")
+    private let woodSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_wood")
+    private let circitSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_circit")
+    private let heartSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_heart")
+    private let fuelSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_fuel")
     
     private var allSprites:[SKSpriteNode] {
         [ironSprite, woodSprite, circitSprite, heartSprite, fuelSprite]
@@ -33,7 +33,7 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     func loadValue(objectNamed name:String, _ value: TSMaterialValue) {
         var showTypes = [MaterialType]()
         
-        nameLabel.run(.typewriter(name, withDuration: 0.5))
+        nameLabel.run(.typewriter(name, withPerDuration: 0.05))
         
         if value.iron != 0   { showTypes.append(.iron) }
         if value.wood != 0   { showTypes.append(.wood) }
@@ -74,6 +74,9 @@ class _TPCaptureGotMaterialBar: SKCropNode {
         }
     }
     
+    // ============================================================== //
+    // MARK: - Private Methods -
+    
     enum MaterialType { case iron, wood, circit, heart, fuel }
     
     private func _sprite(for type:MaterialType) -> _TPCaptureMaterialSprite {
@@ -86,30 +89,40 @@ class _TPCaptureGotMaterialBar: SKCropNode {
         }
     }
     
-    private func _showSprites(with types: [MaterialType] ) {
-        showingTypes = []
-        for type in types {
-            _showSprite(for: type)
-        }
-    }
-    
     private var showingTypes = [MaterialType]()
     
-    private func _showSprite(for type:MaterialType) {
-        
-        for sprite in allSprites {
-            sprite.position = [-300, -12]
-
+    private func _hideSprites() {
+        for type in showingTypes {
+            let sprite = _sprite(for: type)
+            
+            sprite.run(SKAction.moveTo(x: 250, duration: 0.2).setEase(.easeInEaseOut))
         }
-        showingTypes.append(type)
-        
-        let offset = -180 + showingTypes.count * (78 + 10)
-        
-        let sprite = _sprite(for: type)
-
-        sprite.run(.moveTo(x: CGFloat(offset), duration: 0.2))
     }
     
+    private func _showSprites(with types: [MaterialType] ) {
+        showingTypes = []
+        
+        for sprite in allSprites {
+            sprite.removeAllActions()
+            sprite.position = [-300, -12]
+        }
+        
+        for type in types {
+            
+            showingTypes.append(type)
+            
+            let offset = -180 + showingTypes.count * (78 + 10)
+            
+            let sprite = _sprite(for: type)
+
+            sprite.run(SKAction.sequence([
+                SKAction.moveTo(x: CGFloat(offset), duration: 0.2).setEase(.easeInEaseOut),
+                SKAction.wait(forDuration: 2),
+                SKAction.run{ self._hideSprites() },
+            ]))
+        }
+    }
+     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

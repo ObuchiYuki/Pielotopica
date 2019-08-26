@@ -37,11 +37,16 @@ extension SKAction {
         }
     }
     
+    class func typewriter(_ string:String, withPerDuration duration:TimeInterval) -> SKAction {
+        SKAction.typewriter(string, withDuration: Double(string.count) * duration)
+    }
+    
     func setEase(_ mode:SKActionTimingMode) -> SKAction {
         self.timingMode = mode
         
         return self
     }
+    
     func setEase(func function:GKActionTimingMode) -> SKAction {
         self.timingFunction = function.timingFunction
         
