@@ -13,7 +13,7 @@ class TPCaptureViewController: UIViewController {
     @IBOutlet private weak var previewView: UIView!
     @IBOutlet private weak var skView: SKView!
     
-    private var boundingBoxeProviders = [BoundingBoxProvider]()
+    private var boundingBoxeProviders = [TPBoundingBoxProvider]()
     private lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TPCaptureViewController.handleTap))
     
     // MARK: - Game Level -
@@ -123,7 +123,7 @@ class TPCaptureViewController: UIViewController {
     
     private func setUpBoundingBoxes() {
         for _ in 0..<YOLO.maxBoundingBoxes {
-            boundingBoxeProviders.append(BoundingBoxProvider())
+            boundingBoxeProviders.append(TPBoundingBoxProvider())
         }
     }
     
