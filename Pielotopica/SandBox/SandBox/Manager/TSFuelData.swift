@@ -9,7 +9,8 @@
 import RxCocoa
 
 struct TSFuelData: RMAutoSavable {
-    static var shared:TSFuelData {get {autosave.value} set {autosave.value = newValue}}
+    private static var _shared = RMAutoSave<TSFuelData>("TSFuelData__key")
+    static var shared:TSFuelData {get {_shared.value} set {_shared.value = newValue}}
     
     var heart = BehaviorRelay(value: 0)
     var maxHeart = BehaviorRelay(value: 0)
@@ -17,13 +18,13 @@ struct TSFuelData: RMAutoSavable {
     var fuel = BehaviorRelay(value: 0)
     var maxFuel = BehaviorRelay(value: 0)
     
-    mutating func setHeart(_ amount:Int) {
+    mutating func addHeart(_ amount:Int) {
         heart.accept(amount)
     }
     mutating func setMaxHeart(_ amount:Int) {
         maxHeart.accept(amount)
     }
-    mutating func setFuel(_ amount:Int) {
+    mutating func addFuel(_ amount:Int) {
         fuel.accept(amount)
     }
     mutating func setMaxFuel(_ amount:Int) {

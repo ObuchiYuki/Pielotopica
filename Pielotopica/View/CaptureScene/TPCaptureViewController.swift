@@ -28,6 +28,15 @@ class TPCaptureViewController: UIViewController {
     @objc private func handleTap(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: previewView)
         
+        guard let prediction = getPrediction(at: location) else {return}
+
+        let value = TSMaterialValueMap.allValues[prediction.classIndex]
+        
+        TSMaterialData.shared.addIron(value.iron)
+        TSMaterialData.shared.addWood(value.wood)
+        TSMaterialData.shared.addCircit(value.circit)
+        
+        self.gameScene.objectDidTouched(with: value)
     }
     
     private var currentShowingPredictions = [RKObjectDetector.Prediction]()
@@ -56,8 +65,13 @@ class TPCaptureViewController: UIViewController {
         previewView.addGestureRecognizer(tapGestureRecognizer)
         
         setUpBoundingBoxes()
+        #if targetEnvironment(simulator)
+        print("ML not supported on a simulator.")
+        #else
         setupDetector()
         setUpCamera()
+        #endif
+        
     }
     
     // ======================================================================== //

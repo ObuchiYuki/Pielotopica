@@ -16,15 +16,15 @@ class TPHeader: GKSpriteNode {
     private let bag = DisposeBag()
     
     private func setIronAmount(_ amount:Int) {
-        ironAmountLabel.run(SKAction.numberChanging(from: ironAmount, to: amount, postfix: " x", withDuration: 1))
+        ironAmountLabel.run(SKAction.numberChanging(from: ironAmount, to: amount, postfix: " x", withDuration: 0.5))
         ironAmount = amount
     }
     private func setWoodAmount(_ amount:Int) {
-        woodAmountLabel.run(SKAction.numberChanging(from: woodAmount, to: amount, postfix: " x", withDuration: 1))
+        woodAmountLabel.run(SKAction.numberChanging(from: woodAmount, to: amount, postfix: " x", withDuration: 0.5))
         woodAmount = amount
     }
     private func setCircitAmount(_ amount:Int) {
-        circitAmountLabel.run(SKAction.numberChanging(from: circitAmount, to: amount, postfix: " x", withDuration: 1))
+        circitAmountLabel.run(SKAction.numberChanging(from: circitAmount, to: amount, postfix: " x", withDuration: 0.5))
         circitAmount = amount
     }
     
@@ -81,7 +81,7 @@ class TPHeader: GKSpriteNode {
         self.addChild(helthSlider)
         self.addChild(oilSlider)
         
-        for (i, label) in [ironAmountLabel, woodAmountLabel, circitAmountLabel].enumerated() {
+        for (i, label) in [circitAmountLabel, woodAmountLabel, ironAmountLabel].enumerated() {
             setLabel(with: label, at: i)
         }
     }

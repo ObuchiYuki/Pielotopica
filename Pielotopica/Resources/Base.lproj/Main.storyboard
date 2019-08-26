@@ -58,7 +58,7 @@
         <!--Capture View Controller-->
         <scene sceneID="AAN-uh-uCH">
             <objects>
-                <viewController storyboardIdentifier="capture" id="oKs-bt-sWB" customClass="TPCaptureViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="capture" modalPresentationStyle="fullScreen" id="oKs-bt-sWB" customClass="TPCaptureViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R7W-Mn-K7r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </skView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqF-m5-SsP">
-                                <rect key="frame" x="50" y="211" width="314" height="314"/>
+                                <rect key="frame" x="50" y="261" width="314" height="314"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="314" id="UMa-8j-wt3"/>
@@ -78,7 +78,7 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_cap_preview_frame" translatesAutoresizingMaskIntoConstraints="NO" id="Pqm-fI-A3z">
-                                <rect key="frame" x="27" y="187.66666666666663" width="360" height="361"/>
+                                <rect key="frame" x="27" y="237.66666666666663" width="360" height="361"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="361" id="JLS-L1-vFs"/>
                                     <constraint firstAttribute="width" constant="360" id="hHJ-Lm-juf"/>
@@ -94,10 +94,10 @@
                             <constraint firstItem="jqF-m5-SsP" firstAttribute="centerX" secondItem="R7W-Mn-K7r" secondAttribute="centerX" id="GEH-Nu-NPW"/>
                             <constraint firstItem="FkM-6N-dG5" firstAttribute="trailing" secondItem="Ihe-9w-pPa" secondAttribute="trailing" id="OKF-k8-0Te"/>
                             <constraint firstItem="f35-9B-dOQ" firstAttribute="top" secondItem="R7W-Mn-K7r" secondAttribute="top" id="XEW-w0-cNs"/>
-                            <constraint firstItem="jqF-m5-SsP" firstAttribute="centerY" secondItem="R7W-Mn-K7r" secondAttribute="centerY" id="YmJ-ss-0la"/>
+                            <constraint firstItem="jqF-m5-SsP" firstAttribute="centerY" secondItem="R7W-Mn-K7r" secondAttribute="centerY" constant="50" id="YmJ-ss-0la"/>
                             <constraint firstAttribute="bottom" secondItem="FkM-6N-dG5" secondAttribute="bottom" id="biJ-Rd-ITM"/>
                             <constraint firstAttribute="bottom" secondItem="f35-9B-dOQ" secondAttribute="bottom" id="khs-8o-dFS"/>
-                            <constraint firstItem="Pqm-fI-A3z" firstAttribute="centerY" secondItem="R7W-Mn-K7r" secondAttribute="centerY" id="mxI-1E-BdB"/>
+                            <constraint firstItem="Pqm-fI-A3z" firstAttribute="centerY" secondItem="R7W-Mn-K7r" secondAttribute="centerY" constant="50" id="mxI-1E-BdB"/>
                             <constraint firstItem="FkM-6N-dG5" firstAttribute="top" secondItem="R7W-Mn-K7r" secondAttribute="top" id="wGm-S9-Fc1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ihe-9w-pPa"/>
@@ -114,13 +114,13 @@
         <!--Game View Controller-->
         <scene sceneID="pTJ-co-Wb6">
             <objects>
-                <viewController id="ssd-7Z-w0K" customClass="GameViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ssd-7Z-w0K" customClass="GameViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VMl-9M-HLj" customClass="SCNView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_overray_dark" translatesAutoresizingMaskIntoConstraints="NO" id="hUP-1a-tSX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -132,6 +132,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IVE-uF-c65"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="2zf-sw-LFQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d3E-gP-NKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

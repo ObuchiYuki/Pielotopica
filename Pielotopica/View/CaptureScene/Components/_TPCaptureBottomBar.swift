@@ -74,8 +74,8 @@ class _TPCaptureBottomBar: GKSpriteNode {
         destoryButton.setScale(0)
         
         addChild(backButton)
-        addChild(placeButton)
-        addChild(moveButton)
+        //addChild(placeButton)
+        //addChild(moveButton)
         addChild(destoryButton)
     }
 }

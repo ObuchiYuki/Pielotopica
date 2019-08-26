@@ -16,7 +16,9 @@ class TSMaterialValueMap {
         return allValues[classIndex]
     }
     
-    private static let allValues = [
+    static var needsShowMap:[Bool] = {TSMaterialValueMap.allValues.map{$0.needsShow}}()
+        
+    static let allValues = [
         // 0 人
         TSMaterialValue(0, false),
         // 1 自転車
@@ -180,7 +182,7 @@ class TSMaterialValueMap {
     ]
 }
 
-class TSMaterialValue {
+struct TSMaterialValue {
     let classIndex:Int
     
     let iron:Int

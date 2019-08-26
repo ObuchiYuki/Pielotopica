@@ -10,20 +10,26 @@ import RxCocoa
 import RxSwift
  
 struct TSMaterialData: RMAutoSavable {
-    static var shared:TSMaterialData {get {autosave.value} set {autosave.value = newValue}}
+    private static var _shared = RMAutoSave<TSMaterialData>("TSMaterialData__key")
+    
+    static var shared:TSMaterialData {get {_shared.value} set {_shared.value = newValue}}
+    
+    static func reset() {
+        _shared.reset()
+    }
     
     var ironAmount =   BehaviorRelay(value: 0)
     var woodAmount =   BehaviorRelay(value: 0)
     var circitAmount = BehaviorRelay(value: 0)
     
-    mutating func setIron(_ amount:Int) {
-        ironAmount.accept(amount)
+    mutating func addIron(_ amount:Int) {
+        ironAmount += amount
     }
-    mutating func setWood(_ amount:Int) {
-        woodAmount.accept(amount)
+    mutating func addWood(_ amount:Int) {
+        woodAmount += amount
     }
-    mutating func setCircit(_ amount:Int) {
-        circitAmount.accept(amount)
+    mutating func addCircit(_ amount:Int) {
+        circitAmount += amount
     }
 }
 

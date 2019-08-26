@@ -34,25 +34,23 @@ private class _LoaderScene: SKScene {
     let roter3 = SKSpriteNode(imageNamed: "TP_loader_router3")
     
     func start() {
-        roter1.isHidden = false
-        roter2.isHidden = false
-        roter3.isHidden = false
         roter1.setScale(0)
         roter2.setScale(0)
         roter3.setScale(0)
 
-        roter1.run(SKAction.scale(to: 1, duration: 0.4).setEase(.easeInEaseOut))
-        roter2.run(SKAction.scale(to: 1, duration: 0.4).setEase(.easeInEaseOut))
-        roter3.run(SKAction.scale(to: 1, duration: 0.4).setEase(.easeInEaseOut))
+        let scale = SKAction.scale(to: 1, duration: 0.2).setEase(.easeInEaseOut)
+        roter1.run(scale, withKey: "scale")
+        roter2.run(scale, withKey: "scale")
+        roter3.run(scale, withKey: "scale")
     }
     func hideAll() {
-        roter1.isHidden = true
-        roter2.isHidden = true
-        roter3.isHidden = true
+        roter1.removeAction(forKey: "scale")
+        roter2.removeAction(forKey: "scale")
+        roter3.removeAction(forKey: "scale")
         
-        roter1.setScale(0)
-        roter2.setScale(0)
-        roter3.setScale(0)
+        roter1.run(SKAction.scale(to: 0, duration: 0.2).setEase(.easeInEaseOut))
+        roter2.run(SKAction.scale(to: 0, duration: 0.2).setEase(.easeInEaseOut))
+        roter3.run(SKAction.scale(to: 0, duration: 0.2).setEase(.easeInEaseOut))
     }
     
     override func sceneDidLoad() {
@@ -121,8 +119,13 @@ class RouterViewController: UIViewController {
             DispatchQueue.global().async {
                 vc.allocAI()
                 
-                DispatchQueue.main.async {
-                    self.present(vc, animated: false)
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+                    self.scene.hideAll()
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.2, execute: {
+                        self.present(vc, animated: false)
+                    })
+                    
                 }
             }
             

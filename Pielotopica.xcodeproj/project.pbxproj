@@ -86,6 +86,7 @@
 		B634BB0A230C03B800A896A8 /* recognition_object_item_map.json in Resources */ = {isa = PBXBuildFile; fileRef = B634BB09230C03B800A896A8 /* recognition_object_item_map.json */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */; };
+		B64EB3902313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB38F2313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift */; };
 		B651231423114DFF003129B5 /* TS_Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* TS_Air.swift */; };
 		B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */; };
 		B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */; };
@@ -126,6 +127,7 @@
 		B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */; };
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
 		B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */; };
+		B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */; };
 		B6E8826123121835003F3124 /* TSLevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826023121835003F3124 /* TSLevelData.swift */; };
 		B6E8826623126B66003F3124 /* RMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826523126B66003F3124 /* RMLog.swift */; };
 		B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E88267231280B5003F3124 /* TSMaterialData.swift */; };
@@ -239,6 +241,7 @@
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
 		B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureBottomBar.swift; sourceTree = "<group>"; };
+		B64EB38F2313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureMaterialSprite.swift; sourceTree = "<group>"; };
 		B651231323114DFF003129B5 /* TS_Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Air.swift; sourceTree = "<group>"; };
 		B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wood_wall_1x5.png; sourceTree = "<group>"; };
 		B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TP_build_place.mp3; sourceTree = "<group>"; };
@@ -293,6 +296,7 @@
 		B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSpriteNode.swift; sourceTree = "<group>"; };
 		B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKShadowLabelNode.swift; sourceTree = "<group>"; };
 		B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockEditHelper.swift; sourceTree = "<group>"; };
+		B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureGotMaterialBar.swift; sourceTree = "<group>"; };
 		B6E8826023121835003F3124 /* TSLevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSLevelData.swift; sourceTree = "<group>"; };
 		B6E8826523126B66003F3124 /* RMLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLog.swift; sourceTree = "<group>"; };
 		B6E88267231280B5003F3124 /* TSMaterialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMaterialData.swift; sourceTree = "<group>"; };
@@ -341,21 +345,23 @@
 		B6030EE92301A4D4005C4312 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				B6030EEF2301A523005C4312 /* AppLib */,
 				B667BA4F230B776C0038B098 /* RecognitionKit */,
-				B6030EEF2301A523005C4312 /* AppExtensions */,
 				B61E93EC2300E38A008CB325 /* GameKit */,
 				B61E93BE2300E36C008CB325 /* RMKit */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
 		};
-		B6030EEF2301A523005C4312 /* AppExtensions */ = {
+		B6030EEF2301A523005C4312 /* AppLib */ = {
 			isa = PBXGroup;
 			children = (
+				B61E93B62300E356008CB325 /* TPCommon.swift */,
+				B62279BC2301A7A7009EF60F /* TPDebug.swift */,
 				B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */,
 				B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */,
 			);
-			path = AppExtensions;
+			path = AppLib;
 			sourceTree = "<group>";
 		};
 		B61E939623005E28008CB325 = {
@@ -387,8 +393,6 @@
 				B6030EE92301A4D4005C4312 /* Libs */,
 				B6227A4F2301AE8D009EF60F /* SandBox */,
 				B6227A6F23023983009EF60F /* Scenes */,
-				B61E93B62300E356008CB325 /* TPCommon.swift */,
-				B62279BC2301A7A7009EF60F /* TPDebug.swift */,
 				B61E93B023005E2C008CB325 /* Info.plist */,
 				B61E93D42300E376008CB325 /* Resources */,
 			);
@@ -677,6 +681,8 @@
 			isa = PBXGroup;
 			children = (
 				B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */,
+				B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */,
+				B64EB38F2313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1034,6 +1040,7 @@
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
 				B6F8C5122313653100264EBF /* TSFuelData.swift in Sources */,
 				B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */,
+				B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
 				B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */,
 				B6A89CB9230B8040007F5416 /* BoundingBox.swift in Sources */,
@@ -1044,6 +1051,7 @@
 				B61E94172300E395008CB325 /* TPSandBoxScene.swift in Sources */,
 				B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */,
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
+				B64EB3902313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,
 				B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */,
 				B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */,
