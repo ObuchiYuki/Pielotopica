@@ -7,21 +7,24 @@
 //
 
 import SpriteKit
+import RxSwift
 
 class TPHeader: GKSpriteNode {
     let helthSlider = TPHeaderSlider(color: .init(hex: 0xCC4E4C), width: 105)
     let oilSlider = TPHeaderSlider(color: .init(hex: 0x3BA99E), width: 158)
     
-    func setIronAmount(_ amount:Int) {
-        ironAmountLabel.run(SKAction.numberChanging(from: ironAmount, to: amount, postfix: " x", withDuration: 10))
+    private let bag = DisposeBag()
+    
+    private func setIronAmount(_ amount:Int) {
+        ironAmountLabel.run(SKAction.numberChanging(from: ironAmount, to: amount, postfix: " x", withDuration: 1))
         ironAmount = amount
     }
-    func setWoodAmount(_ amount:Int) {
-        woodAmountLabel.run(SKAction.numberChanging(from: woodAmount, to: amount, postfix: " x", withDuration: 10))
+    private func setWoodAmount(_ amount:Int) {
+        woodAmountLabel.run(SKAction.numberChanging(from: woodAmount, to: amount, postfix: " x", withDuration: 1))
         woodAmount = amount
     }
-    func setCircitAmount(_ amount:Int) {
-        circitAmountLabel.run(SKAction.numberChanging(from: circitAmount, to: amount, postfix: " x", withDuration: 10))
+    private func setCircitAmount(_ amount:Int) {
+        circitAmountLabel.run(SKAction.numberChanging(from: circitAmount, to: amount, postfix: " x", withDuration: 1))
         circitAmount = amount
     }
     
@@ -38,6 +41,20 @@ class TPHeader: GKSpriteNode {
     init(){
         super.init(texture: .init(imageNamed: "TP_hd_background"), color: .clear, size: [354, 101])
         
+        // rx
+        TSMaterialData.shared.ironAmount.subscribe{ event in
+            event.element.map(self.setIronAmount)
+        }.disposed(by: bag)
+        
+        TSMaterialData.shared.woodAmount.subscribe{ event in
+            event.element.map(self.setWoodAmount)
+        }.disposed(by: bag)
+        
+        TSMaterialData.shared.circitAmount.subscribe{ event in
+            event.element.map(self.setCircitAmount)
+        }.disposed(by: bag)
+        
+        // node
         self.position = [-GKSafeScene.sceneSize.width / 2 + 10, GKSafeScene.sceneSize.height / 2 - 110]
         
         helthSlider.position = [51, 67]
