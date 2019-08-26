@@ -27,7 +27,7 @@ class TPCaptureUIScene: GKSafeScene {
     }
     
     @objc private func onBackButtonTap(_ sender:Any) {
-        (TPCaptureViewController.initirized!.presentingViewController as! RouterViewController).route = .sandBox
+        (TPCaptureViewController.initirized!.presentingViewController as! TPRouterViewController).route = .sandBox
         
         TPCaptureViewController.initirized?.dismiss(animated: false, completion: {})
     }

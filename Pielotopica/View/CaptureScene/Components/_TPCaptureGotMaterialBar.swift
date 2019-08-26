@@ -55,6 +55,11 @@ class _TPCaptureGotMaterialBar: SKCropNode {
         self.maskNode = SKSpriteNode(color: .black, size: [343, 78])
 
         self.addChild(background)
+        nameLabel.horizontalAlignmentMode = .left
+        nameLabel.position = [-140, 3]
+        nameLabel.fontSize = 16
+        nameLabel.fontColor = TPCommon.Color.text
+        
         self.addChild(nameLabel)
 
         

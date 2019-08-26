@@ -101,7 +101,7 @@ class TPSandBoxSceneUIModel {
     }
     
     private func presentViewControllerToCapture() {
-        (self.binder.__viewController.presentingViewController as! RouterViewController).route = .capture
+        (self.binder.__viewController.presentingViewController as! TPRouterViewController).route = .capture
         
         self.binder.__viewController.dismiss(animated: false, completion: {})
     }
