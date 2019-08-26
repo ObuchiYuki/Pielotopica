@@ -13,8 +13,8 @@ class TPCaptureUIScene: GKSafeScene {
     let gotMatarialBar = _TPCaptureGotMaterialBar()
     let bottomBar = _TPCaptureBottomBar()
     
-    func objectDidTouched(with value:TSMaterialValue) {
-        self.gotMatarialBar.loadValue(value)
+    func objectDidTouched(objectNamed name:String, with value:TSMaterialValue) {
+        self.gotMatarialBar.loadValue(objectNamed: name, value)
     }
     
     override func sceneDidLoad() {

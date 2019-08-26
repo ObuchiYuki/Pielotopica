@@ -36,7 +36,7 @@ class TPCaptureViewController: UIViewController {
         TSMaterialData.shared.addWood(value.wood)
         TSMaterialData.shared.addCircit(value.circit)
         
-        self.gameScene.objectDidTouched(with: value)
+        self.gameScene.objectDidTouched(objectNamed: prediction.name, with: value)
     }
     
     private var currentShowingPredictions = [RKObjectDetector.Prediction]()

@@ -9,9 +9,13 @@
 import SpriteKit
 
 class _TPCaptureGotMaterialBar: SKCropNode {
+    // ============================================================== //
+    // MARK: - Properties -
+    
+    // nodes
     let background = SKSpriteNode(texture: .init(imageNamed: "TP_cap_getitem_background"), color: .clear, size: [343, 78])
     
-    let nameLabel = SKLabelNode()
+    let nameLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
     
     let ironSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_iron")
     let woodSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_wood")
@@ -19,32 +23,50 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     let heartSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_heart")
     let fuelSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_fuel")
     
-    override init() {
-        super.init()
-        position = [0, 180]
-        self.maskNode = SKSpriteNode(color: .black, size: [343, 78])
-        
-        self.addChild(background)
-        
-        self.addChild(ironSprite)
-        self.addChild(woodSprite)
-        self.addChild(circitSprite)
-        self.addChild(heartSprite)
-        self.addChild(fuelSprite)
+    private var allSprites:[SKSpriteNode] {
+        [ironSprite, woodSprite, circitSprite, heartSprite, fuelSprite]
     }
     
-    func loadValue(_ value: TSMaterialValue) {
+    // ============================================================== //
+    // MARK: - Methods -
+    
+    func loadValue(objectNamed name:String, _ value: TSMaterialValue) {
         var showTypes = [MaterialType]()
         
-        if value.iron != 0 { showTypes.append(.iron) }
-        if value.wood != 0 { showTypes.append(.wood) }
+        nameLabel.run(.typewriter(name, withDuration: 0.5))
+        
+        if value.iron != 0   { showTypes.append(.iron) }
+        if value.wood != 0   { showTypes.append(.wood) }
         if value.circit != 0 { showTypes.append(.circit) }
-        if value.heart != 0 { showTypes.append(.heart) }
-        if value.fuel != 0 { showTypes.append(.fuel) }
+        if value.heart != 0  { showTypes.append(.heart) }
+        if value.fuel != 0   { showTypes.append(.fuel) }
         
         assert(showTypes.count < 4, "Value has more then 3 item to show...?")
         
         _showSprites(with: showTypes)
+    }
+    
+    // ============================================================== //
+    // MARK: - Constructor -
+    
+    override init() {
+        super.init()
+        self.position = [0, 180]
+        self.maskNode = SKSpriteNode(color: .black, size: [343, 78])
+
+        self.addChild(background)
+        self.addChild(nameLabel)
+
+        
+        _setupSprites()
+    }
+    
+    private func _setupSprites() {
+        for sprite in allSprites {
+            sprite.position = [-300, -12]
+
+            self.addChild(sprite)
+        }
     }
     
     enum MaterialType { case iron, wood, circit, heart, fuel }
@@ -60,6 +82,7 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     }
     
     private func _showSprites(with types: [MaterialType] ) {
+        showingTypes = []
         for type in types {
             _showSprite(for: type)
         }
@@ -68,13 +91,18 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     private var showingTypes = [MaterialType]()
     
     private func _showSprite(for type:MaterialType) {
+        
+        for sprite in allSprites {
+            sprite.position = [-300, -12]
+
+        }
         showingTypes.append(type)
         
-        var offset = 20 + showingTypes.count * (78 + 10)
+        let offset = -180 + showingTypes.count * (78 + 10)
         
         let sprite = _sprite(for: type)
 
-        sprite.run(.move(to: [CGFloat(offset), 0], duration: 0.4))
+        sprite.run(.moveTo(x: CGFloat(offset), duration: 0.2))
     }
     
     required init?(coder aDecoder: NSCoder) {

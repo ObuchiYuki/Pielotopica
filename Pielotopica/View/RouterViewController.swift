@@ -82,7 +82,7 @@ class RouterViewController: UIViewController {
         case sandBox
         case capture
     }
-    var route:Route = .sandBox
+    var route:Route = .capture
     
     private var timer:Timer?
     
