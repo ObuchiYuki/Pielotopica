@@ -11,6 +11,12 @@ import XCTest
 
 class TSVector3Test: XCTestCase {
 
+    func testValues() {
+        for i in 0..<80 {
+            XCTAssertEqual(i, TSMaterialValueMap.getValue(for: i).classIndex) 
+        }
+
+    }
     func testAdd() {
         let cases:[(TSVector3, TSVector3, TSVector3)] = [
             (TSVector3(10, 10, 10), TSVector3(10, 10, 10), TSVector3(20, 20, 20)),

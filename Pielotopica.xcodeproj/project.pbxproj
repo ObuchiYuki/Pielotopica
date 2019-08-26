@@ -139,6 +139,8 @@
 		B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */; };
 		B6F8C5102312CCDA00264EBF /* RMAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */; };
 		B6F8C5122313653100264EBF /* TSFuelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C5112313653100264EBF /* TSFuelData.swift */; };
+		B6F8C51423136E2600264EBF /* TSMaterialValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */; };
+		B6F8C51823136FC500264EBF /* ClassIndex.txt in Resources */ = {isa = PBXBuildFile; fileRef = B6F8C51723136FC500264EBF /* ClassIndex.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -304,6 +306,8 @@
 		B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x5.scn; sourceTree = "<group>"; };
 		B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMAutoSave.swift; sourceTree = "<group>"; };
 		B6F8C5112313653100264EBF /* TSFuelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSFuelData.swift; sourceTree = "<group>"; };
+		B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMaterialValueMap.swift; sourceTree = "<group>"; };
+		B6F8C51723136FC500264EBF /* ClassIndex.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ClassIndex.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -681,6 +685,7 @@
 			isa = PBXGroup;
 			children = (
 				B6AA02A4230D66EB00F0FF48 /* README.md */,
+				B6F8C51723136FC500264EBF /* ClassIndex.txt */,
 				B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */,
 				B667BA58230B776C0038B098 /* RKObjectDetector.swift */,
 				B667BA50230B776C0038B098 /* RKRectAdjuster.swift */,
@@ -762,6 +767,7 @@
 			children = (
 				B6E88267231280B5003F3124 /* TSMaterialData.swift */,
 				B6F8C5112313653100264EBF /* TSFuelData.swift */,
+				B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -896,6 +902,7 @@
 				B61E93E82300E376008CB325 /* Korneuburg-Slab-Light.ttf in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
 				B6A8D66D230ED50B005B26A5 /* TP_ground_5x5.png in Resources */,
+				B6F8C51823136FC500264EBF /* ClassIndex.txt in Resources */,
 				B61E93E72300E376008CB325 /* Korneuburg-Slab-Light-Slanted.ttf in Resources */,
 				B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */,
 				B6227A312301AB84009EF60F /* bokeh.png in Resources */,
@@ -1014,6 +1021,7 @@
 				B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */,
 				B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */,
 				B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */,
+				B6F8C51423136E2600264EBF /* TSMaterialValueMap.swift in Sources */,
 				B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */,
 				B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */,
 				B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */,
