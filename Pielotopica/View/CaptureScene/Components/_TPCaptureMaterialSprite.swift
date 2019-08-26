@@ -9,9 +9,28 @@
 import SpriteKit
 
 class _TPCaptureMaterialSprite: SKSpriteNode {
+    private let icon:SKSpriteNode
+    private let label = SKLabelNode(fontNamed: TPCommon.FontName.topica)
+    
+    func setCount(_ count:Int) {
+        self.label.text = "x \(count)"
+    }
+    
     init(textureNamed name:String) {
-        super.init(texture: .init(imageNamed: name), color: .clear, size: [78, 20])
+        icon = SKSpriteNode(imageNamed: name)
         
+        super.init(texture: nil, color: .clear, size: [78, 20])
+        
+        icon.anchorPoint = [0, 0.5]
+        icon.position = [-39, 0]
+        
+        label.fontSize = 15
+        label.fontColor = TPCommon.Color.text
+        label.horizontalAlignmentMode = .right
+        label.position = [39, -4]
+        
+        self.addChild(icon)
+        self.addChild(label)
     }
     
     required init?(coder aDecoder: NSCoder) {

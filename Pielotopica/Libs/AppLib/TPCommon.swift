@@ -26,8 +26,6 @@ struct TPCommon {
         static let topica = "KorneuburgSlabBold-Bold"
         static let logo = "Silom"
         static let pixcel = "5squared-pixel"
-        static let hiraLight = "HiraginoSans-W0"
-        static let hira = "HiraginoSans-W3"
         static let hiraBold = "HiraginoSans-W6"
         
     }

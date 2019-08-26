@@ -10,7 +10,11 @@ import Foundation
 import UIKit
 import CoreML
 
-private let anchors: [[Float]] = [[116,90,  156,198,  373,326], [30,61,  62,45,  59,119], [10,13,  16,30,  33,23]]
+private let anchors: [[Float]] = [
+    [116,90,  156,198,  373,326],
+    [30,61,  62,45,  59,119],
+    [10,13,  16,30,  33,23]
+]
 
 public class YOLO {
     
@@ -34,13 +38,14 @@ public class YOLO {
         public let rect: CGRect
     }
     
-    let model = YOLOv3()
+    let model = Yolov3()
     
     // ===================================================================== //
     // MARK: - Methods -
     
     /// バッファーに入ってきた画像を同期的に解析します。
     public func predict(image: CVPixelBuffer) -> [Prediction] {
+        
         if let output = try? model.prediction(input1: image) {
             return computeBoundingBoxes(features: [output.output1, output.output2, output.output3])
         } else {

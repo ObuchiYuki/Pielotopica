@@ -35,11 +35,11 @@ class _TPCaptureGotMaterialBar: SKCropNode {
         
         nameLabel.run(.typewriter(name, withPerDuration: 0.05))
         
-        if value.iron != 0   { showTypes.append(.iron) }
-        if value.wood != 0   { showTypes.append(.wood) }
-        if value.circit != 0 { showTypes.append(.circit) }
-        if value.heart != 0  { showTypes.append(.heart) }
-        if value.fuel != 0   { showTypes.append(.fuel) }
+        if value.iron != 0   { showTypes.append(.iron(value.iron)) }
+        if value.wood != 0   { showTypes.append(.wood(value.wood)) }
+        if value.circit != 0 { showTypes.append(.circit(value.circit)) }
+        if value.heart != 0  { showTypes.append(.heart(value.heart)) }
+        if value.fuel != 0   { showTypes.append(.fuel(value.fuel)) }
         
         assert(showTypes.count < 4, "Value has more then 3 item to show...?")
         
@@ -56,12 +56,11 @@ class _TPCaptureGotMaterialBar: SKCropNode {
 
         self.addChild(background)
         nameLabel.horizontalAlignmentMode = .left
-        nameLabel.position = [-140, 3]
+        nameLabel.position = [-130, 3]
         nameLabel.fontSize = 16
         nameLabel.fontColor = TPCommon.Color.text
         
         self.addChild(nameLabel)
-
         
         _setupSprites()
     }
@@ -77,8 +76,17 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     // ============================================================== //
     // MARK: - Private Methods -
     
-    enum MaterialType { case iron, wood, circit, heart, fuel }
+    enum MaterialType { case iron(Int), wood(Int), circit(Int), heart(Int), fuel(Int) }
     
+    private func _count(for type:MaterialType) -> Int {
+        switch type {
+        case .iron(let count): return count
+        case .wood(let count): return count
+        case .circit(let count): return count
+        case .heart(let count): return count
+        case .fuel(let count): return count
+        }
+    }
     private func _sprite(for type:MaterialType) -> _TPCaptureMaterialSprite {
         switch type {
         case .iron:   return ironSprite
@@ -92,6 +100,7 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     private var showingTypes = [MaterialType]()
     
     private func _hideSprites() {
+        nameLabel.text = ""
         for type in showingTypes {
             let sprite = _sprite(for: type)
             
@@ -114,6 +123,8 @@ class _TPCaptureGotMaterialBar: SKCropNode {
             let offset = -180 + showingTypes.count * (78 + 10)
             
             let sprite = _sprite(for: type)
+            let count  = _count(for: type)
+            sprite.setCount(count)
 
             sprite.run(SKAction.sequence([
                 SKAction.moveTo(x: CGFloat(offset), duration: 0.2).setEase(.easeInEaseOut),
