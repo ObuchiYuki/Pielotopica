@@ -138,6 +138,7 @@
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 		B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */; };
 		B6F8C5102312CCDA00264EBF /* RMAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */; };
+		B6F8C5122313653100264EBF /* TSFuelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C5112313653100264EBF /* TSFuelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,6 +303,7 @@
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 		B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x5.scn; sourceTree = "<group>"; };
 		B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMAutoSave.swift; sourceTree = "<group>"; };
+		B6F8C5112313653100264EBF /* TSFuelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSFuelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -759,6 +761,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E88267231280B5003F3124 /* TSMaterialData.swift */,
+				B6F8C5112313653100264EBF /* TSFuelData.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1021,6 +1024,7 @@
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
+				B6F8C5122313653100264EBF /* TSFuelData.swift in Sources */,
 				B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
 				B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */,
