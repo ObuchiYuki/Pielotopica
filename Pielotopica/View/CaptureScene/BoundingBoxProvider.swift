@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class BoundingBoxProvider {
+class TPBoundingBoxProvider {
     
     // =============================================================== //
     // MARK: - Properties -
@@ -9,7 +9,7 @@ class BoundingBoxProvider {
     private static let font = UIFont(name: TPCommon.FontName.hiraBold, size: fontSize)
 
     private static let attributes:[NSAttributedString.Key: Any] = [
-        .font: BoundingBoxProvider.font as Any,
+        .font: TPBoundingBoxProvider.font as Any,
         .baselineOffset: -7,
         .foregroundColor: UIColor.white,
     ]
@@ -30,7 +30,7 @@ class BoundingBoxProvider {
         
         CATransaction.setDisableActions(_needsDisableActions(for: string))
         
-        let attributedString = NSAttributedString(string: string, attributes: BoundingBoxProvider.attributes)
+        let attributedString = NSAttributedString(string: string, attributes: TPBoundingBoxProvider.attributes)
         label.string = attributedString
                 
         label.frame = _calcFrame(with: origin, for: string)
@@ -48,8 +48,8 @@ class BoundingBoxProvider {
         label.borderWidth = 2
         label.isHidden = true
         label.contentsScale = UIScreen.main.scale
-        label.fontSize = BoundingBoxProvider.fontSize
-        label.font = BoundingBoxProvider.font
+        label.fontSize = TPBoundingBoxProvider.fontSize
+        label.font = TPBoundingBoxProvider.font
         label.alignmentMode = CATextLayerAlignmentMode.center
         label.truncationMode = .middle
     }
@@ -78,7 +78,7 @@ class BoundingBoxProvider {
         let textRect = string.boundingRect(
             with: CGSize(width: 400, height: 100),
             options: .truncatesLastVisibleLine,
-            attributes: BoundingBoxProvider.attributes,
+            attributes: TPBoundingBoxProvider.attributes,
             context: nil
         )
         
