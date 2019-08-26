@@ -148,7 +148,7 @@ class TPCaptureViewController: UIViewController {
         TSMaterialData.shared.addWood(value.wood)
         TSMaterialData.shared.addCircit(value.circit)
         
-        self.gameScene.objectDidTouched(objectNamed: prediction.name, with: value)
+        self.gameScene.showPrediction(withObjectNamed: prediction.name, with: value)
     }
     
     private func _setupGameScene() {
@@ -174,7 +174,6 @@ class TPCaptureViewController: UIViewController {
     /// RootNodeのサイズ変化などを行い読み込みます。・
     private func _loadRootNode(_ rootNode:SKSpriteNode) {
         rootNode.removeFromParent()
-        rootNode.name = "root"
         
         rootNode.size = GKSafeScene.sceneSize
         rootNode.position = GKSafeScene.sceneSize.point / 2

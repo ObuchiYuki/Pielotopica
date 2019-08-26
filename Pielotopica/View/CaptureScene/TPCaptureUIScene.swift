@@ -9,12 +9,13 @@
 import SpriteKit
 
 class TPCaptureUIScene: GKSafeScene {
-    let header = TPHeader()
-    let gotMatarialBar = _TPCaptureGotMaterialBar()
-    let bottomBar = _TPCaptureBottomBar()
+    private let header = TPHeader()
+    private let gotMatarialBar = _TPCaptureGotMaterialBar()
+    private let bottomBar = _TPCaptureBottomBar()
     
-    func objectDidTouched(objectNamed name:String, with value:TSMaterialValue) {
+    func showPrediction(withObjectNamed name:String, value:TSMaterialValue) {
         self.gotMatarialBar.loadValue(objectNamed: name, value)
+        
     }
     
     override func sceneDidLoad() {
