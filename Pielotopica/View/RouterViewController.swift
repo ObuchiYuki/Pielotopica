@@ -41,9 +41,9 @@ private class _LoaderScene: SKScene {
         roter2.setScale(0)
         roter3.setScale(0)
 
-        roter1.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
-        roter2.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
-        roter3.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
+        roter1.run(SKAction.scale(to: 1, duration: 0.4).setEase(.easeInEaseOut))
+        roter2.run(SKAction.scale(to: 1, duration: 0.4).setEase(.easeInEaseOut))
+        roter3.run(SKAction.scale(to: 1, duration: 0.4).setEase(.easeInEaseOut))
     }
     func hideAll() {
         roter1.isHidden = true

@@ -21,22 +21,24 @@ class TPHeaderSlider: GKSpriteNode {
         let ratio = (value - minValue) / (maxValue - minValue)
         let pwidth = self.size.width * CGFloat(ratio)
         
+        valueLabel.text = String(Int(value))
         selectedNode.run(.resize(toWidth: pwidth, duration: 0.3))
+        
+        selectedNode.zPosition = 12871
     }
     
     init(color:UIColor, width:CGFloat) {
-        selectedNode = SKSpriteNode(color: color, size: [0, 13])
+        selectedNode = SKSpriteNode(color: color, size: [0, 12])
         
-        super.init(texture: nil, color: UIColor.black.withAlphaComponent(0.3), size: [width, 13])
+        super.init(texture: nil, color: UIColor.black.withAlphaComponent(0.3), size: [width, 12])
                 
-        valueLabel.text = "1212"
         valueLabel.fontName = TPCommon.FontName.topica
         valueLabel.fontColor = .white
         valueLabel.fontSize = 12
-        valueLabel.zPosition = 1212
+        valueLabel.zPosition = 12872
         valueLabel.horizontalAlignmentMode = .left
         valueLabel.position = [6, 1]
-        
+            
         selectedNode.anchorPoint = .zero
         
         self.addChild(selectedNode)

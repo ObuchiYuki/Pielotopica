@@ -54,6 +54,22 @@ class TPHeader: GKSpriteNode {
             event.element.map(self.setCircitAmount)
         }.disposed(by: bag)
         
+        TSFuelData.shared.heart.subscribe{ event in
+            event.element.map{self.helthSlider.value = Double($0)}
+        }.disposed(by: bag)
+        
+        TSFuelData.shared.maxHeart.subscribe{ event in
+            event.element.map{self.helthSlider.maxValue = Double($0)}
+        }.disposed(by: bag)
+        
+        TSFuelData.shared.fuel.subscribe{ event in
+            event.element.map{self.oilSlider.value = Double($0)}
+        }.disposed(by: bag)
+        
+        TSFuelData.shared.maxFuel.subscribe{ event in
+            event.element.map{self.oilSlider.maxValue = Double($0)}
+        }.disposed(by: bag)
+        
         // node
         self.position = [-GKSafeScene.sceneSize.width / 2 + 10, GKSafeScene.sceneSize.height / 2 - 110]
         
