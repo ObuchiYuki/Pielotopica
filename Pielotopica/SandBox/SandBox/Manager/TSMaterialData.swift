@@ -12,7 +12,7 @@ import RxCocoa
 private let _autosave = RMAutoSave<TSMaterialData>("TSItemManagersData")
  
 struct TSMaterialData: RMAutoSavable {
-    static var shared: TSMaterialData { get {_autosave.value} set {_autosave.value = newValue} }
+    //static var shared: TSMaterialData { get {_autosave.value} set {_autosave.value = newValue} }
         
     var ironAmount = BehaviorRelay(value: 0)
     var woodAmount = BehaviorRelay(value: 0)
