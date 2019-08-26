@@ -20,7 +20,7 @@ func resizePixelBuffer(_ srcPixelBuffer: CVPixelBuffer,
     
     CVPixelBufferLockBaseAddress(srcPixelBuffer, CVPixelBufferLockFlags(rawValue: 0))
     guard let srcData = CVPixelBufferGetBaseAddress(srcPixelBuffer) else {
-        print("Error: could not get pixel buffer base address")
+        print("Error: cannot get pixel buffer base address")
         return nil
     }
     let srcBytesPerRow = CVPixelBufferGetBytesPerRow(srcPixelBuffer)
@@ -61,7 +61,7 @@ func resizePixelBuffer(_ srcPixelBuffer: CVPixelBuffer,
                                               destBytesPerRow, releaseCallback,
                                               nil, nil, &dstPixelBuffer)
     if status != kCVReturnSuccess {
-        print("Error: could not create new pixel buffer")
+        print("Error: cannot create new pixel buffer")
         free(destData)
         return nil
     }
