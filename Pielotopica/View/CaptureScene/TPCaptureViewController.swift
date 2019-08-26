@@ -155,7 +155,6 @@ class TPCaptureViewController: UIViewController {
         rootNode.position = GKSafeScene.sceneSize.point / 2
         
         let rootNodeScale = _calculateRootNodeScale(with: UIScreen.main.bounds.size)
-        print(rootNodeScale)
         rootNode.setScale(rootNodeScale)
         
         self.backgroundScene.addChild(rootNode)

@@ -34,6 +34,9 @@ private class _LoaderScene: SKScene {
     let roter3 = SKSpriteNode(imageNamed: "TP_loader_router3")
     
     func start() {
+        roter1.isHidden = false
+        roter2.isHidden = false
+        roter3.isHidden = false
         roter1.setScale(0)
         roter2.setScale(0)
         roter3.setScale(0)
@@ -41,6 +44,15 @@ private class _LoaderScene: SKScene {
         roter1.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
         roter2.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
         roter3.run(SKAction.scale(to: 1, duration: 0.3).setEase(.easeOut))
+    }
+    func hideAll() {
+        roter1.isHidden = true
+        roter2.isHidden = true
+        roter3.isHidden = true
+        
+        roter1.setScale(0)
+        roter2.setScale(0)
+        roter3.setScale(0)
     }
     
     override func sceneDidLoad() {
@@ -56,16 +68,6 @@ private class _LoaderScene: SKScene {
         self.addChild(roter3)
             
         start()
-    }
-    
-    private func _createAnimation(for node: SKNode) -> SKAction {
-        let a1 = SKAction.run {
-            node.run(SKAction.rotate(byAngle: CGFloat.random(in: -3...3), duration: 0.3).setEase(.easeInEaseOut))
-        }
-        let as1 = SKAction.sequence([a1, .wait(forDuration: 0.3)])
-        let as2 = SKAction.repeatForever(as1)
-        
-        return as2
     }
 }
 
@@ -88,7 +90,6 @@ class RouterViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        scene.start()
         
         scene.size = skView.frame.size
         scene.backgroundColor = .clear
@@ -99,6 +100,11 @@ class RouterViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        self.skView.isPaused = false
+        
+        if route == .capture {
+            scene.start()
+        }
         
         switch route {
         case .sandBox:
@@ -106,19 +112,6 @@ class RouterViewController: UIViewController {
         case .capture:
             label.text = "人工知能 起動中..."
         }
-        
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] timer in
-            guard let self = self else {return timer.invalidate()}
-            
-            UIView.animate(withDuration: 0.5, delay: 0, animations: {
-                self.label.alpha = 0.5
-            }, completion: nil)
-            
-            UIView.animate(withDuration: 0.5, delay: 0.5, animations: {
-                self.label.alpha = 1
-            }, completion: nil)
-        })
         
         switch route {
         case .sandBox:
@@ -129,7 +122,6 @@ class RouterViewController: UIViewController {
                 vc.allocAI()
                 
                 DispatchQueue.main.async {
-                    self.skView.isPaused = true
                     self.present(vc, animated: false)
                 }
             }
@@ -138,6 +130,9 @@ class RouterViewController: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        self.skView.isPaused = true
+        self.scene.hideAll()
+        label.text = ""
         timer?.invalidate()
     }
 }

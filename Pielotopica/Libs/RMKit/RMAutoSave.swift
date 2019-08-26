@@ -45,4 +45,31 @@
  
  ```
  */
-public protocol RMAutoSavable:RMStorable{init()};public class RMAutoSave<T:RMAutoSavable>{public var value:T{didSet{RMStorage.shared.store(value,for:RMStorage.Key(rawValue:_key ?? String(describing:type(of:T.self))))}};public init(_ key:String?=nil,initial:T?=nil){value=RMStorage.shared.get(for:RMStorage.Key(rawValue:key ?? String(describing:type(of:T.self)))) ?? initial ?? T();_key=key};private let _key:String?}
+public protocol RMAutoSavable:RMStorable{
+    init()
+    
+}
+extension RMAutoSavable {
+    static var autosave:RMAutoSave<Self>{
+        return RMAutoSave<Self>()
+        
+    }
+    
+}
+public class RMAutoSave<T:RMAutoSavable>{
+    public var value:T{
+        didSet{
+            
+            RMStorage.shared.store(value,for:RMStorage.Key(rawValue:_key ?? String(describing:type(of:T.self))))
+            
+        }
+        
+    }
+    public init(_ key:String?=nil,initial:T?=nil){
+        value=RMStorage.shared.get(for:RMStorage.Key(rawValue:key ?? String(describing:type(of:T.self)))) ?? initial ?? T()
+        _key=key
+        
+    }
+    private let _key:String?
+    
+}

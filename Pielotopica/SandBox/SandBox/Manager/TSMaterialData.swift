@@ -6,17 +6,25 @@
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
-import Foundation
 import RxCocoa
-
-private let _autosave = RMAutoSave<TSMaterialData>("TSItemManagersData")
+import RxSwift
  
 struct TSMaterialData: RMAutoSavable {
-    //static var shared: TSMaterialData { get {_autosave.value} set {_autosave.value = newValue} }
-        
-    var ironAmount = BehaviorRelay(value: 0)
-    var woodAmount = BehaviorRelay(value: 0)
+    static var shared:TSMaterialData {get {autosave.value} set {autosave.value = newValue}}
+    
+    var ironAmount =   BehaviorRelay(value: 0)
+    var woodAmount =   BehaviorRelay(value: 0)
     var circitAmount = BehaviorRelay(value: 0)
+    
+    mutating func setIron(_ amount:Int) {
+        ironAmount.accept(amount)
+    }
+    mutating func setWood(_ amount:Int) {
+        woodAmount.accept(amount)
+    }
+    mutating func setCircit(_ amount:Int) {
+        circitAmount.accept(amount)
+    }
 }
 
 
