@@ -37,17 +37,8 @@ open class TSBlock {
     /// Sandbox座標系におけるアイテムのサイズです。 アンカーポイントからのベクターで表されます。
     /// マイナスの数を取ることもあります。
     public func getSize(at point:TSVector3, at rotation:TSBlockRotation? = nil) -> TSVector3 {
-        if let rotation = rotation {
-            
-            return _rotatedNodeSize(at: point, at: rotation)
-        }else if let data = getBlockData(at: point){
-            
-            return _rotatedNodeSize(at: point, at: TSBlockRotation(data: data))
-        }else {
-            
-            return getOriginalNodeSize()
-        }
         
+        return _getSize(at: point, at: rotation)
     }
     // =============================================================== //
     // MARK: - Private Properties -
@@ -58,6 +49,7 @@ open class TSBlock {
     public func canCreateNode() -> Bool {
         return !isAir
     }
+    
     public func createNode() -> SCNNode {
         assert(self.canCreateNode(), "TP_Air cannot create SCNNode.")
         
@@ -67,9 +59,12 @@ open class TSBlock {
     // ============================= //
     // MARK: - TSBlock Overridable Methods -
     
-    open func getOriginalNodeSize() -> TSVector3 {
-        fatalError("\(type(of: self))")
-    }
+    /// ノード本体の大きさを返してください。置く可能性のあるブロック全てが実装する必要があります。
+    open func getOriginalNodeSize() -> TSVector3 { fatalError() }
+    
+    /// 破壊された時に落とす（回収できるアイテム）を返してください。
+    open func dropItemStacks(at point:TSVector3) -> [TSItemStack] {return []}
+    
     /// 設置される直前に呼び出されます。
     open func willPlace(at point:TSVector3) {}
     /// 設置後に呼び出されます。
@@ -102,9 +97,38 @@ open class TSBlock {
     /// 一定のタイミングで呼び出されます。
     open func didRandomEventRoopCome(at point:TSVector3) {}
     
+    //========================================================================
+    // MARK: - Constructors -
+    init(nodeNamed nodeName:String, index:Int) {
+        self.identifier = nodeName
+        self.index = UInt16(index)
+        
+        assert(!TSBlock._registerdBlock.contains(self), "The Block indexed \(index) already exists. Try use other index")
+        
+        TSBlock._registerdBlock.append(self)
+    }
+    init() {
+        self.identifier = "TP_Air"
+        self.index = 0
+        
+        TSBlock._registerdBlock.append(self)
+    }
+    
     // =============================================================== //
     // MARK: - Private Methods -
     
+    private func _getSize(at point:TSVector3, at rotation:TSBlockRotation? = nil) -> TSVector3 {
+        if let rotation = rotation {
+            
+            return _rotatedNodeSize(at: point, at: rotation)
+        }else if let data = getBlockData(at: point){
+            
+            return _rotatedNodeSize(at: point, at: TSBlockRotation(data: data))
+        }else {
+            
+            return getOriginalNodeSize()
+        }
+    }
     private func _rotatedNodeSize(at point:TSVector3, at rotation:TSBlockRotation) -> TSVector3 {
         let _size = getOriginalNodeSize()
         
@@ -127,23 +151,6 @@ open class TSBlock {
         }
         
         return node
-    }
-    
-    //========================================================================
-    // MARK: - Constructors -
-    init(nodeNamed nodeName:String, index:Int) {
-        self.identifier = nodeName
-        self.index = UInt16(index)
-        
-        assert(!TSBlock._registerdBlock.contains(self), "The Block indexed \(index) already exists. Try use other index")
-        
-        TSBlock._registerdBlock.append(self)
-    }
-    init() {
-        self.identifier = "TP_Air"
-        self.index = 0
-        
-        TSBlock._registerdBlock.append(self)
     }
 }
 

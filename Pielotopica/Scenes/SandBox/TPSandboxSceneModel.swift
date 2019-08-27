@@ -160,12 +160,10 @@ class TPSandboxSceneModel {
     func sceneDidLoad() {
         let levelData = TSLevelData.load(stageNamed: "ground")
         
-        _ = TSLevel()
         level.delegate = self
         level.loadLevelData(levelData)
         
         if level.getAllAnchors().isEmpty {
-            print("new world")
             /// 床設置 (仮)
             for x in -2...2 {
                 for z in -2...2 {
@@ -208,7 +206,6 @@ class TPSandboxSceneModel {
         return pos
     }
     private func _startBlockDestoring(with touchedNode: SCNNode) {
-        print(touchedNode)
         // get block
         let nodeRotationInt = Int(touchedNode.parent!.eulerAngles.y / (.pi/2))
         
@@ -261,7 +258,10 @@ class TPSandboxSceneModel {
     /// ブロックの設置場所が確定したら呼び出してください。
     private func _blockPositionDidDecided(_ helper:TPBlockEditHelper) {
         self.isPlacingBlockMode.accept(false)
-        self.itemBarInventory.useCurrentItem()
+        
+        if helper is TPBlockPlaceHelper { // 置く場合のみ
+            self.itemBarInventory.useCurrentItem()
+        }
         
         RMTapticEngine.impact.feedback(.heavy)
     }

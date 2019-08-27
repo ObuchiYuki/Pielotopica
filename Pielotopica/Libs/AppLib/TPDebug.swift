@@ -9,6 +9,7 @@
 import Foundation
 import SceneKit
 
+/// デバッグ次のみ有効
 #if DEBUG
 public extension TSBlock {
     func illuminantRed(at point:TSVector3) {
@@ -26,7 +27,7 @@ public extension TSBlock {
     }
 }
 
-/// 普通にメモリリークするのでよろしく
+/// 普通にメモリリークするので個数は常識的範囲でよろしく
 extension TPSandboxSceneController {
     
     static var samples = [TSVector3: SCNNode]()

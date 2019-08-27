@@ -21,6 +21,8 @@ class GameViewController: GKGameViewController {
         print(TSBlock.ground5x5Edge)
         print(TSBlock.woodWall1x5)
         
+        _ = TSLevel()
+        
         self.presentScene(with: .sandboxScene)
     }
 }

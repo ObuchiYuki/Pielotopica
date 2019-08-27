@@ -124,6 +124,7 @@
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
 		B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */; };
 		B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */; };
+		B6C7F3362314B7120042279C /* TSItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7F3352314B7120042279C /* TSItemData.swift */; };
 		B6E8826123121835003F3124 /* TSLevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826023121835003F3124 /* TSLevelData.swift */; };
 		B6E8826623126B66003F3124 /* RMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826523126B66003F3124 /* RMLog.swift */; };
 		B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E88267231280B5003F3124 /* TSMaterialData.swift */; };
@@ -278,6 +279,7 @@
 		B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKShadowLabelNode.swift; sourceTree = "<group>"; };
 		B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockEditHelper.swift; sourceTree = "<group>"; };
 		B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureGotMaterialBar.swift; sourceTree = "<group>"; };
+		B6C7F3352314B7120042279C /* TSItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemData.swift; sourceTree = "<group>"; };
 		B6E8826023121835003F3124 /* TSLevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSLevelData.swift; sourceTree = "<group>"; };
 		B6E8826523126B66003F3124 /* RMLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLog.swift; sourceTree = "<group>"; };
 		B6E88267231280B5003F3124 /* TSMaterialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMaterialData.swift; sourceTree = "<group>"; };
@@ -502,7 +504,7 @@
 		B62279BE2301AB2D009EF60F /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
-				B6E8826423124435003F3124 /* Manager */,
+				B6E8826423124435003F3124 /* CoreData */,
 				B6227A0B2301AB83009EF60F /* DataClass */,
 				B6227A262301AB84009EF60F /* Extensions */,
 			);
@@ -513,7 +515,6 @@
 			isa = PBXGroup;
 			children = (
 				B6227A0C2301AB83009EF60F /* Core */,
-				B6EDB126230F8C7A0042CA02 /* Data */,
 				B6227A102301AB83009EF60F /* Animator */,
 				B6227A142301AB83009EF60F /* Item */,
 				B6227A1B2301AB83009EF60F /* Level */,
@@ -742,14 +743,17 @@
 			path = Node;
 			sourceTree = "<group>";
 		};
-		B6E8826423124435003F3124 /* Manager */ = {
+		B6E8826423124435003F3124 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B6EDB124230F8B200042CA02 /* TSBlockData.swift */,
+				B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */,
 				B6E88267231280B5003F3124 /* TSMaterialData.swift */,
+				B6C7F3352314B7120042279C /* TSItemData.swift */,
 				B6F8C5112313653100264EBF /* TSFuelData.swift */,
 				B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */,
 			);
-			path = Manager;
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		B6E8826923128429003F3124 /* CaptureScene */ = {
@@ -771,15 +775,6 @@
 				B6EDB11C230F78AE0042CA02 /* button_light.mp3 */,
 			);
 			path = Sound;
-			sourceTree = "<group>";
-		};
-		B6EDB126230F8C7A0042CA02 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				B6EDB124230F8B200042CA02 /* TSBlockData.swift */,
-				B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
@@ -1057,6 +1052,7 @@
 				B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */,
 				B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */,
 				B667BA60230B776C0038B098 /* RKObjectDetector.swift in Sources */,
+				B6C7F3362314B7120042279C /* TSItemData.swift in Sources */,
 				B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */,
 				B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */,
 				B61E93CC2300E36C008CB325 /* Ex+UIImage.swift in Sources */,
