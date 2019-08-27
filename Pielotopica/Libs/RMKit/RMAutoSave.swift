@@ -39,4 +39,4 @@
  
  ```
  */
-public protocol RMAutoSavable:RMStorable{init()};public class RMAutoSave<T:RMAutoSavable>{public var value:T{didSet{RMStorage.shared.store(value,for:_key)}};public func reset() {RMStorage.shared.remove(with: _key)};public init(_ key:String){value=RMStorage.shared.get(for:RMStorage.Key(rawValue: key)) ?? T();_key=RMStorage.Key(rawValue:key)};private let _key:RMStorage.Key<T>}
+public protocol RMAutoSavable:RMStorable{init()};public class RMAutoSave<T:RMAutoSavable>{public var value:T{didSet{RMStorage.shared.store(value,for:_key)}};public func manualSave(){RMStorage.shared.store(value,for:_key)};public func reset() {RMStorage.shared.remove(with: _key)};public init(_ key:String){value=RMStorage.shared.get(for:RMStorage.Key(rawValue: key)) ?? T();_key=RMStorage.Key(rawValue:key)};private let _key:RMStorage.Key<T>}

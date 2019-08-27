@@ -63,7 +63,6 @@ public class TSItemBarInventory: TSInventory {
     // MARK: - Constructer -
     public init() {
         super.init(amount: 4)
-        
-        self.itemStacks.accept(Array(repeating: .none, count: 4))
+    
     }
 }

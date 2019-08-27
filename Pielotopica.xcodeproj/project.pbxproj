@@ -83,6 +83,7 @@
 		B651231423114DFF003129B5 /* TS_Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* TS_Air.swift */; };
 		B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */; };
 		B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */; };
+		B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660938E2314C31400B528E5 /* TSItemStacksData.swift */; };
 		B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* RKRectAdjuster.swift */; };
 		B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA51230B776C0038B098 /* RKImageResizer.swift */; };
 		B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */; };
@@ -93,6 +94,8 @@
 		B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690596230E245E008AE24F /* TPBuildItemBar.swift */; };
 		B6690599230E2861008AE24F /* TPDropButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690598230E2861008AE24F /* TPDropButton.swift */; };
 		B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D41CA230BD218004BBE8E /* RouterViewController.swift */; };
+		B6731B292314BE9E00B70C3F /* TSPlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6731B282314BE9E00B70C3F /* TSPlayerData.swift */; };
+		B6731B2B2314BED800B70C3F /* TSInventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6731B2A2314BED800B70C3F /* TSInventoryData.swift */; };
 		B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */; };
 		B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */; };
 		B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */; };
@@ -235,6 +238,7 @@
 		B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wood_wall_1x5.png; sourceTree = "<group>"; };
 		B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TP_build_place.mp3; sourceTree = "<group>"; };
 		B6604D6A231023BF0077C76A /* Pielotopica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pielotopica.entitlements; sourceTree = "<group>"; };
+		B660938E2314C31400B528E5 /* TSItemStacksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemStacksData.swift; sourceTree = "<group>"; };
 		B667BA50230B776C0038B098 /* RKRectAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKRectAdjuster.swift; sourceTree = "<group>"; };
 		B667BA51230B776C0038B098 /* RKImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKImageResizer.swift; sourceTree = "<group>"; };
 		B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKObjectNameMapper.swift; sourceTree = "<group>"; };
@@ -245,6 +249,8 @@
 		B6690596230E245E008AE24F /* TPBuildItemBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBar.swift; sourceTree = "<group>"; };
 		B6690598230E2861008AE24F /* TPDropButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDropButton.swift; sourceTree = "<group>"; };
 		B66D41CA230BD218004BBE8E /* RouterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewController.swift; sourceTree = "<group>"; };
+		B6731B282314BE9E00B70C3F /* TSPlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPlayerData.swift; sourceTree = "<group>"; };
+		B6731B2A2314BED800B70C3F /* TSInventoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSInventoryData.swift; sourceTree = "<group>"; };
 		B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneController.swift; sourceTree = "<group>"; };
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
 		B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCameraGestureHelper.swift; sourceTree = "<group>"; };
@@ -678,6 +684,20 @@
 			path = YOLO;
 			sourceTree = "<group>";
 		};
+		B6731B2C2314BEDD00B70C3F /* Saveable */ = {
+			isa = PBXGroup;
+			children = (
+				B6731B282314BE9E00B70C3F /* TSPlayerData.swift */,
+				B6C7F3352314B7120042279C /* TSItemData.swift */,
+				B6F8C5112313653100264EBF /* TSFuelData.swift */,
+				B6731B2A2314BED800B70C3F /* TSInventoryData.swift */,
+				B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */,
+				B6E88267231280B5003F3124 /* TSMaterialData.swift */,
+				B660938E2314C31400B528E5 /* TSItemStacksData.swift */,
+			);
+			path = Saveable;
+			sourceTree = "<group>";
+		};
 		B67A965D23094E4000BD408D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,11 +766,8 @@
 		B6E8826423124435003F3124 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				B6731B2C2314BEDD00B70C3F /* Saveable */,
 				B6EDB124230F8B200042CA02 /* TSBlockData.swift */,
-				B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */,
-				B6E88267231280B5003F3124 /* TSMaterialData.swift */,
-				B6C7F3352314B7120042279C /* TSItemData.swift */,
-				B6F8C5112313653100264EBF /* TSFuelData.swift */,
 				B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */,
 			);
 			path = CoreData;
@@ -992,6 +1009,7 @@
 				B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */,
 				B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */,
 				B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */,
+				B6731B2B2314BED800B70C3F /* TSInventoryData.swift in Sources */,
 				B6F8C51423136E2600264EBF /* TSMaterialValueMap.swift in Sources */,
 				B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */,
 				B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */,
@@ -1027,6 +1045,7 @@
 				B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */,
 				B6E8826123121835003F3124 /* TSLevelData.swift in Sources */,
 				B6AA02AD230D7EBE00F0FF48 /* TPHeader.swift in Sources */,
+				B6731B292314BE9E00B70C3F /* TSPlayerData.swift in Sources */,
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,
@@ -1034,6 +1053,7 @@
 				B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */,
 				B61E93CD2300E36C008CB325 /* Ex+Swift.swift in Sources */,
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
+				B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
 				B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */,
 				B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */,

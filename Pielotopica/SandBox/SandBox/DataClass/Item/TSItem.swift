@@ -25,9 +25,9 @@ public class TSItem {
     /// ユニークなIndexです。（アイテム番号として使用します。）
     public let index:UInt16
     
-    public lazy var itemImage:UIImage? = {
-        return UIImage(named: self._textureName)
-    }()
+    public var itemImage:UIImage? {
+        UIImage(named: self._textureName)
+    }
     
     // ===================================================================== //
     // MARK: - Private Properties -
@@ -63,6 +63,8 @@ extension TSItem: CustomStringConvertible {
         return "[TSItem name: \(self.name)]" 
     }
 }
+
+
 // ===================================================================== //
 // MARK: - Extension for  Equatable -
 extension TSItem: Equatable {

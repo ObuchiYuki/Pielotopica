@@ -12,7 +12,7 @@ import RxCocoa
 /**
  複数個のアイテムを管理するクラスです。
  */
-public class TSItemStack {
+public final class TSItemStack {
     // ================================================================= //
     // MARK: - Public Properties -
     /// 対象のアイテムです。
@@ -40,6 +40,7 @@ extension TSItemStack :CustomStringConvertible {
         return "[TSItemStack item: \(item), count: \(count.value)]"
     }
 }
+
 public extension TSItemStack {
     func appendItem(_ count:Int) {
         self.count.accept(self.count.value + count)
