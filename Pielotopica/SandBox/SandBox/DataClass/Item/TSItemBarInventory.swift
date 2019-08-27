@@ -12,11 +12,11 @@ import RxCocoa
 /**
  4つのみスタックを持つアイテムバー用のインベントリです。
  */
-public class TSItemBarInventory: TSInventry {
+public class TSItemBarInventory: TSInventory {
 
     // ========================================================== //
     // MARK: - Properties -
-    /// 現在選択中のアイテム番号です。
+    /// 現在選択中のアイテム番号です。(0-3)
     public var selectedItemIndex = BehaviorRelay(value: 0)
     
     /// 現在選択中のアイテムです。

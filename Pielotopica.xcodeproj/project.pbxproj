@@ -55,7 +55,7 @@
 		B6227A312301AB84009EF60F /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = B6227A112301AB83009EF60F /* bokeh.png */; };
 		B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A122301AB83009EF60F /* TSBlockAnimator.swift */; };
 		B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */ = {isa = PBXBuildFile; fileRef = B6227A132301AB83009EF60F /* TSBlockPlaceAnimation.scnp */; };
-		B6227A342301AB84009EF60F /* TSInventry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A152301AB83009EF60F /* TSInventry.swift */; };
+		B6227A342301AB84009EF60F /* TSInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A152301AB83009EF60F /* TSInventory.swift */; };
 		B6227A352301AB84009EF60F /* TSBlockItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A162301AB83009EF60F /* TSBlockItem.swift */; };
 		B6227A362301AB84009EF60F /* TSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A172301AB83009EF60F /* TSItem.swift */; };
 		B6227A372301AB84009EF60F /* TSBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A182301AB83009EF60F /* TSBlock.swift */; };
@@ -205,7 +205,7 @@
 		B6227A112301AB83009EF60F /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		B6227A122301AB83009EF60F /* TSBlockAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBlockAnimator.swift; sourceTree = "<group>"; };
 		B6227A132301AB83009EF60F /* TSBlockPlaceAnimation.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = TSBlockPlaceAnimation.scnp; sourceTree = "<group>"; };
-		B6227A152301AB83009EF60F /* TSInventry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSInventry.swift; sourceTree = "<group>"; };
+		B6227A152301AB83009EF60F /* TSInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSInventory.swift; sourceTree = "<group>"; };
 		B6227A162301AB83009EF60F /* TSBlockItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBlockItem.swift; sourceTree = "<group>"; };
 		B6227A172301AB83009EF60F /* TSItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItem.swift; sourceTree = "<group>"; };
 		B6227A182301AB83009EF60F /* TSBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBlock.swift; sourceTree = "<group>"; };
@@ -547,7 +547,7 @@
 			children = (
 				B6227A172301AB83009EF60F /* TSItem.swift */,
 				B6227A182301AB83009EF60F /* TSBlock.swift */,
-				B6227A152301AB83009EF60F /* TSInventry.swift */,
+				B6227A152301AB83009EF60F /* TSInventory.swift */,
 				B6227A162301AB83009EF60F /* TSBlockItem.swift */,
 				B6227A192301AB83009EF60F /* TSItemBarInventory.swift */,
 				B6227A1A2301AB83009EF60F /* TSItemStack.swift */,
@@ -984,7 +984,7 @@
 				B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */,
 				B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */,
 				B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */,
-				B6227A342301AB84009EF60F /* TSInventry.swift in Sources */,
+				B6227A342301AB84009EF60F /* TSInventory.swift in Sources */,
 				B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */,
 				B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */,
 				B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */,

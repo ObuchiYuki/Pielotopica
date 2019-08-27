@@ -217,6 +217,7 @@ class TPSandboxSceneModel {
         guard block.canDestroy(at: anchorPoint) else {return}
         
         binder.__removeNode(touchedNode)
+        block.dropItemStacks(at: anchorPoint).forEach(itemBarInventory.addItemStack)
         
         level.destroyBlock(at: anchorPoint)
     }

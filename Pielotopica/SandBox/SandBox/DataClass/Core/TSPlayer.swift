@@ -17,7 +17,7 @@ public class TSPlayer {
     
     public let name:String
     
-    public var inventory = TSInventry(amount: 32)
+    public var inventory = TSInventory(amount: 32)
     public var itemBarInventory = TSItemBarInventory()
     public var position = BehaviorRelay(value: SCNVector3.zero)
     

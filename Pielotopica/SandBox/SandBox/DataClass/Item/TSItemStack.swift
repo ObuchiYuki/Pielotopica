@@ -24,7 +24,7 @@ public class TSItemStack {
     // ================================================================= //
     // MARK: - Constructor -
     
-    public init(item:TSItem, count:Int) {
+    public init(item:TSItem, count:Int = 1) {
         self.item = item
         self.count = BehaviorRelay(value: count)
     }
