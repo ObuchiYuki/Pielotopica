@@ -12,8 +12,8 @@ import Foundation
 protocol TPSandBoxScene: GKSafeScene {
     var __sceneModel:TPSandBoxSceneModel { get }
     
-    func show()
-    func hide(_ completion: @escaping ()->Void)
+    func show(from oldScene: TPSandBoxRootSceneModel.Mode)
+    func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping ()->Void)
 }
 
 

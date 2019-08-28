@@ -35,19 +35,22 @@ class TPSandBoxRootScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Methods -
     private var _presentlock = false
-    func present(to scene: TPSandBoxScene) -> Bool {
+    
+    @discardableResult
+    func present(to scene: TPSandBoxScene, as mode: TPSandBoxRootSceneModel.Mode) -> Bool {
+        // lock 機構
         guard !_presentlock else { return false }
         _presentlock = true
         
-        sceneModel.onSceneChanged(to: scene)
-        
-        scene.show()
+        // 初期化
         scene.gkViewContoller = self.gkViewContoller
-        
+        sceneModel.onSceneChanged(to: scene)
+        scene.show(from: sceneModel.mode.value)
         self.rootNode.addChild(scene.rootNode)
         
+        // hide
         if let currentScene = currentScene {
-            currentScene.hide { [currentScene] in
+            currentScene.hide(to: mode) { [currentScene] in
                 self._presentlock = false
                 currentScene.rootNode.removeFromParent()
             }
@@ -65,7 +68,8 @@ class TPSandBoxRootScene: GKSafeScene {
         self.sceneModel.binder = self
         self.rootNode.addChild(header)
         
-        self.present(to: TPSMainMenuScene())
+        _ = self.present(to: TPSMainMenuScene())
+        
     }
     
     override func sceneDidAppear() {

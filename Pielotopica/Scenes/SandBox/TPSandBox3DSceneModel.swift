@@ -154,7 +154,6 @@ class TPSandBox3DSceneModel {
         case .destory:
             
             _startBlockDestoring(with: touchedNode)
-        default: break
         }
     }
 

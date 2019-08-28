@@ -57,12 +57,12 @@ class TPSBuildScene: GKSafeScene {
 extension TPSBuildScene: TPSandBoxScene {
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
-    func show() {
+    func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
         
         itemBar.showDrops()
         itemBar.show()
     }
-    func hide(_ completion: @escaping () -> Void) {
+    func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {
         itemBar.hide()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {

@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol TPSandBoxRootSceneModelBinder : class{
-    func present(to scene: TPSandBoxScene) -> Bool
+    func present(to scene: TPSandBoxScene, as mode: TPSandBoxRootSceneModel.Mode) -> Bool 
 }
 
 class TPSandBoxRootSceneModel {
@@ -41,7 +41,7 @@ class TPSandBoxRootSceneModel {
     // MARK: - Handlers -
     
     func present(to scene: TPSandBoxScene, as mode:TPSandBoxRootSceneModel.Mode) {
-        let success = self.binder.present(to: scene)
+        let success = self.binder.present(to: scene, as: mode)
         if success { self.mode.accept(mode) }
     }
     

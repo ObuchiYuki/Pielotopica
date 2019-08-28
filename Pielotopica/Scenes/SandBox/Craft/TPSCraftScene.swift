@@ -22,7 +22,7 @@ class TPSCraftScene: GKSafeScene {
     private let craftMenu = TPCraftMenu()
     private let moreItem = TPCraftMoreItems()
     
-    private var backgroundScene:SKScene { return gkViewContoller.scnView.overlaySKScene! }
+    private var backgroundScene:SKScene { gkViewContoller.scnView.overlaySKScene! }
     
     // ===================================================================== //
     // MARK: - Handler -
@@ -40,7 +40,7 @@ class TPSCraftScene: GKSafeScene {
     // MARK: - Private Methods -
     
     override func sceneDidLoad() {
-        
+                
         self.rootNode.addChild(moreItem)
         self.rootNode.addChild(craftMenu)
     }
@@ -52,7 +52,6 @@ class TPSCraftScene: GKSafeScene {
         node.zPosition = -1
         node.position = backgroundScene.size.point / 2
         node.isHidden = true
-        self.backgroundScene.addChild(node)
         
         return node
     }
@@ -61,11 +60,12 @@ class TPSCraftScene: GKSafeScene {
 extension TPSCraftScene: TPSandBoxScene {
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
-    func show() {
-        
+    func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
+        print(overrayNode)
+        self.backgroundScene.addChild(overrayNode)
     }
-    func hide(_ completion: @escaping () -> Void) {
-        
+    func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {
+        completion()
     }
 }
 
