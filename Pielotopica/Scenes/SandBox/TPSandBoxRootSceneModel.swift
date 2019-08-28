@@ -10,6 +10,10 @@ import SpriteKit
 import RxSwift
 import RxCocoa
 
+protocol TPSandBoxRootSceneModelBinder {
+    func present(to scene: TPSandBoxScene)
+}
+
 class TPSandBoxRootSceneModel {
     // ===================================================================================== //
     // MARK: - Properties -
@@ -20,6 +24,7 @@ class TPSandBoxRootSceneModel {
     }
     var mode = BehaviorRelay(value: Mode.mainmenu)
     var currentSceneModel:TPSandBoxSceneModel!
+    var binder:TPSandBoxRootSceneModelBinder!
     
     static let shared = TPSandBoxRootSceneModel()
     
@@ -37,11 +42,6 @@ class TPSandBoxRootSceneModel {
     func onSceneChanged(to scene: TPSandBoxScene) {
         currentSceneModel = scene.__sceneModel
     }
-    
-    
-    
-    
-    
     
     
     

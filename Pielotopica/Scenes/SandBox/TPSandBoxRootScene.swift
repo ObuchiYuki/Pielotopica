@@ -20,7 +20,7 @@ public extension GKSceneHolder {
 }
 
 /// 3D画面との橋渡し用
-class TPSandBoxRootScene: GKSafeScene {
+class TPSandBoxRootScene: GKSafeScene, TPSandBoxRootSceneModelBinder {
     // =============================================================== //
     // MARK: - Global -
     
@@ -31,6 +31,8 @@ class TPSandBoxRootScene: GKSafeScene {
     
     var currentScene:TPSandBoxScene!
     
+    // =============================================================== //
+    // MARK: - Methods -
     func present(to scene: TPSandBoxScene) {
         sceneMode.onSceneChanged(to: scene)
         
@@ -46,8 +48,6 @@ class TPSandBoxRootScene: GKSafeScene {
         currentScene = scene
     }
     
-    // =============================================================== //
-    // MARK: - Methods -
     override func sceneDidLoad() {
 
         self.rootNode.addChild(header)

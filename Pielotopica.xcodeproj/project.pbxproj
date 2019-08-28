@@ -105,7 +105,7 @@
 		B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */; };
 		B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E1437231419C600E973E1 /* 5squared-pixel.ttf */; };
 		B6931446230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */; };
-		B6931448230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */; };
+		B6931448230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931447230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift */; };
 		B698F16A230FC85C00CAE917 /* PielotopicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698F169230FC85C00CAE917 /* PielotopicaTests.swift */; };
 		B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */; };
 		B69CE2F7230E6CE600CE04E6 /* Ex+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */; };
@@ -278,7 +278,7 @@
 		B68E1437231419C600E973E1 /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
 		B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korneuburg-Slab-Bold.ttf"; sourceTree = "<group>"; };
 		B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBarItem.swift; sourceTree = "<group>"; };
-		B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandBoxSceneUIModel.swift; sourceTree = "<group>"; };
+		B6931447230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandBoxRootSceneModel.swift; sourceTree = "<group>"; };
 		B698F167230FC85C00CAE917 /* PielotopicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PielotopicaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B698F169230FC85C00CAE917 /* PielotopicaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PielotopicaTests.swift; sourceTree = "<group>"; };
 		B698F16B230FC85C00CAE917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -537,7 +537,7 @@
 			isa = PBXGroup;
 			children = (
 				B61E94142300E394008CB325 /* TPSandBoxRootScene.swift */,
-				B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */,
+				B6931447230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift */,
 				B69E8682231684CB004D4272 /* Common */,
 				B69E867523167FDA004D4272 /* MainMenu */,
 				B69E867D23168249004D4272 /* Build */,
@@ -1174,7 +1174,7 @@
 				B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */,
 				B61E93CB2300E36C008CB325 /* RMBindCenter.swift in Sources */,
 				B6227A372301AB84009EF60F /* TSBlock.swift in Sources */,
-				B6931448230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift in Sources */,
+				B6931448230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift in Sources */,
 				B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */,
 				B61E94172300E395008CB325 /* TPSandBoxRootScene.swift in Sources */,
 				B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */,
