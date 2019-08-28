@@ -7,19 +7,31 @@
 //
 
 import SpriteKit
+import RxSwift
+import RxCocoa
+
 
 class TPSCraftScene: GKSafeScene {
     // ===================================================================== //
     // MARK: - Properties -
+    
+    
     lazy var overrayNode:SKSpriteNode = _createOverlay()
     
     private lazy var sceneModel = TPSCraftSceneModel(self)
+    private let bag = DisposeBag()
     
+    private var craftScene = TPCraftScene()
     private var backgroundScene:SKScene { return gkViewContoller.scnView.overlaySKScene! }
     
     // ===================================================================== //
     // MARK: - Handler -
     @objc private func overlayTouched(_ button:GKButtonNode) {
+        craftScene.moreItem.selectedItemIndex.subscribe {[weak self] event in
+            //event.element.map(self!.sceneMode(to: ))
+            
+        }.disposed(by: bag)
+        
         sceneModel.onOverlayTap()
     }
     

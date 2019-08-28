@@ -8,9 +8,9 @@
 
 import Foundation
 
-//class TPSandBoxSceneModel {
-//    var rootSceneModel: TPSandBoxSceneUIModel {
-//        return TPSandBoxSceneUIModel.initirized!
-//    }
+class TPSandBoxSceneModel {
+    var rootSceneModel: TPSandBoxSceneUIModel {
+        return TPSandBoxSceneUIModel.initirized!
+    }
     
-//}
+}

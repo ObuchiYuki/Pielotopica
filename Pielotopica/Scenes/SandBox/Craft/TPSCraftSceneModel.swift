@@ -12,7 +12,7 @@ protocol TPSCraftSceneModelBinder: class{
     
 }
 
-class TPSCraftSceneModel {
+class TPSCraftSceneModel: TPSandBoxSceneModel {
     private weak var binder:TPSCraftSceneModelBinder!
     
     init(_ binder:TPSCraftSceneModelBinder) {

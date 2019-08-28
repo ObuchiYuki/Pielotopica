@@ -12,7 +12,7 @@ protocol TPSMainMenuSceneModelBinder:class {
     
 }
 
-class TPSMainMenuSceneModel {
+class TPSMainMenuSceneModel: TPSandBoxSceneModel{
     // ===================================================================== //
     // MARK: - Properties -
     private weak var binder:TPSMainMenuSceneModelBinder!

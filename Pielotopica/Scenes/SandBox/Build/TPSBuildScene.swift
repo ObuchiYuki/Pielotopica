@@ -55,6 +55,8 @@ class TPSBuildScene: GKSafeScene {
 }
 
 extension TPSBuildScene: TPSandBoxScene {
+    
+    
     func show() {
         itemBar.showDrops()
         itemBar.show()

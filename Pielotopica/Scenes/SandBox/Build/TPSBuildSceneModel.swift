@@ -12,7 +12,7 @@ protocol TPSBuildSceneModelBinder: class {
     
 }
 
-class TPSBuildSceneModel {
+class TPSBuildSceneModel: TPSandBoxSceneModel {
     // ===================================================================== //
     // MARK: - Properties -
     private weak var binder:TPSBuildSceneModelBinder!
