@@ -10,7 +10,7 @@ import RxCocoa
 
 struct TSFuelData: RMAutoSavable {
     private static var _shared = RMAutoSave<TSFuelData>("TSFuelData__key")
-    static var shared:TSFuelData {get {_shared.value} set {_shared.value = newValue}}
+    static var shared:TSFuelData {get {_shared.value ?? TSFuelData()} set {_shared.value = newValue}}
     
     var heart = BehaviorRelay(value: 0)
     var maxHeart = BehaviorRelay(value: 100)

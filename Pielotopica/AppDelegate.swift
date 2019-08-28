@@ -15,8 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        TSPlayer.him.itemBarInventory.addItemStack(TSItemStack(item: .japaneseHouse2, count: 100))
-        TSPlayer.him.itemBarInventory.addItemStack(TSItemStack(item: .woodWall1x5, count: 100))
+        // TODO: - ここがないと動かないのをなんとかする -
+        
+        print(TSItem.none)
+        print(TSItem.japaneseHouse2)
+        print(TSItem.woodWall1x5)
+        
+        print(TSBlock.air)
+        print(TSBlock.japaneseHouse2)
+        print(TSBlock.ground5x5)
+        print(TSBlock.ground5x5Edge)
+        print(TSBlock.woodWall1x5)
+        
+        print(TSItemBarInventory.itembarShared.itemStacks.value)
         
         return true
     }

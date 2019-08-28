@@ -43,7 +43,7 @@ class _TPStartSceneLogo: SKSpriteNode {
     }
     
     private func createLogoAnimation() -> SKAction {
-        var acs = [SKAction.wait(forDuration: 0.4)]
+        var acs = [SKAction]()
 
         for i in 1..."Pielotopica".count {
             RMTapticEngine.impact.prepare(.medium)
@@ -58,7 +58,7 @@ class _TPStartSceneLogo: SKSpriteNode {
                     TPCommon.AttributeText.logoShadow.attributedSubstring(from: r)
                 
             })
-            acs.append(.wait(forDuration: 0.1))
+            acs.append(.wait(forDuration: 0.05))
             
         }
         return SKAction.sequence(acs)

@@ -19,15 +19,19 @@ public class TSItem {
     // ===================================================================== //
     // MARK: - Public Properties -
     
-    /// アイテム名です。（今のことろ日本語）
+    /// アイテム名です。
     public let name:String
     
     /// ユニークなIndexです。（アイテム番号として使用します。）
     public let index:UInt16
     
-    public var itemImage:UIImage? {
-        UIImage(named: self._textureName)
-    }
+    /// テクスチャです。
+    public var itemImage:UIImage? { UIImage(named: self._textureName) }
+    
+    // ===================================================================== //
+    // MARK: - Methods -
+    
+    open func materialsForCraft() -> TSCraftMaterialValue? {nil}
     
     // ===================================================================== //
     // MARK: - Private Properties -
@@ -39,28 +43,32 @@ public class TSItem {
     // MARK: - Constructor  -
     
     public init(name:String, index:UInt16, textureNamed textureName:String) {
+        assert(TSItem._registerdItems.allSatisfy{$0.index != index}, "TSItem indexed \(index) already exists.")
+        
         self.name = name
         self.index = index
         self._textureName = textureName
+        
+        TSItem._registerdItems.append(self)
     }
 }
 
 extension TSItem {
-    private static var _registerdItem = [TSItem]()
+    private static var _registerdItems = [TSItem]()
     
     static func item(for index:UInt16) -> TSItem {
-        guard let block = _registerdItem.first(where: {$0.index == index}) else {
+        guard let item = _registerdItems.first(where: {$0.index == index}) else {
             fatalError("Error in finding TSItem indexed \(index)")
         }
         
-        return block
+        return item
     }
 }
 
 
 extension TSItem: CustomStringConvertible {
     public var description: String {
-        return "[TSItem name: \(self.name)]" 
+        return "TSItem(named: \(self.name))"
     }
 }
 

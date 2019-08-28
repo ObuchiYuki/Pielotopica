@@ -23,7 +23,8 @@ class TPBuildItemBar: GKSpriteNode {
     
     // MARK: - Frame -
     private let selectionFrame = GKSpriteNode(imageNamed: "TP_build_itembar_selection_frame")
-    private let moreButton = GKButtonNode(
+    
+    let moreButton = GKButtonNode(
         size: [55, 55],
         defaultTexture: .init(imageNamed: "TP_build_itembar_morebutton"),
         selectedTexture: .init(imageNamed: "TP_build_itembar_morebutton_pressed"),
@@ -50,7 +51,11 @@ class TPBuildItemBar: GKSpriteNode {
     // MARK: - methods -
     func show() {
         isHidden = false
+        showDrops()
         
+        self.run(SKAction.moveTo(y: -340, duration: 0.3).setEase(.easeInEaseOut))
+    }
+    func showDrops() {
         allDropButtons.enumerated().forEach{(arg) in
             let (i, e) = arg
             e.run(SKAction.sequence([
@@ -58,11 +63,9 @@ class TPBuildItemBar: GKSpriteNode {
                 SKAction.scale(to: 1, duration: 0.2).setEase(.easeInEaseOut)
             ]))
         }
-        
-        self.run(SKAction.moveTo(y: -340, duration: 0.3).setEase(.easeInEaseOut))
     }
     
-    func hide() {
+    func hideDrops() {
         allDropButtons.enumerated().forEach{(arg) in
             let (i, e) = arg
             e.run(SKAction.sequence([
@@ -70,6 +73,10 @@ class TPBuildItemBar: GKSpriteNode {
                 SKAction.scale(to: 0, duration: 0.2).setEase(.easeInEaseOut)
             ]))
         }
+    }
+    
+    func hide() {
+        hideDrops()
         
         self.run(
             SKAction.sequence([
@@ -97,8 +104,11 @@ class TPBuildItemBar: GKSpriteNode {
     init(inventory:TSItemBarInventory) {
         self.inventory = inventory
         
+        print(inventory.itemStacks.value)
+        
         super.init(texture: .init(imageNamed: "TP_build_itembar_frame"), color: .clear, size: [312, 80])
         
+        self.zPosition = 100
         self.position = [-GKSafeScene.sceneSize.width / 2 + 30, -570]
         
         _setupButtons()
@@ -111,7 +121,7 @@ class TPBuildItemBar: GKSpriteNode {
     
     private func _frameSelected(at index:Int) {
         guard 0 <= index && index <= 3 else {return}
-        inventory.selectedItemIndex.accept(index)
+        inventory.setSelectedItemIndex(index)
     }
     
     private func _setupInventoryNodes() {
@@ -153,8 +163,10 @@ class TPBuildItemBar: GKSpriteNode {
         moveButton.position = [CGFloat(312 - 47 - 60 + 47.0/2), CGFloat(95 + 47.0/2)]
         destoryButton.position = [CGFloat(312 - 47 + 47.0/2), CGFloat(95 + 47.0/2)]
         
+        moreButton.zPosition = 100
         moreButton.position = [271, 39]
         
+
         placeButton.setScale(0)
         moveButton.setScale(0)
         destoryButton.setScale(0)

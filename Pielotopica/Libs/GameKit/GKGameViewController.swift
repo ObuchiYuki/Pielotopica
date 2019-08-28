@@ -53,8 +53,7 @@ public class GKGameViewController: UIViewController {
     /// 3DSceneがタッチに反応する必要があるかどうかです。
     public func should3DSceneRespondToTouch(at point:CGPoint) -> Bool {
         
-        
-        return _nodesOnTouch.isEmpty && _nodesOnOverlayScene(at: point).isEmpty
+        return _nodesOnTouch.isEmpty && _nodesOnOverlayScene(at: point) == nil
     }
     
     //==================================================================
@@ -64,20 +63,20 @@ public class GKGameViewController: UIViewController {
     private var _nodesOnTouch = [SKNode]()
     
     /// OverlayのノードのうちneedsHandleReactionがtrueのものを返します。
-    private func _nodesOnOverlayScene(at point:CGPoint) -> [SKNode] {
-        guard let ps = scnView.overlaySKScene?.convertPoint(fromView: point) else {return []}
+    private func _nodesOnOverlayScene(at point:CGPoint) -> SKNode? {
+        guard let ps = scnView.overlaySKScene?.convertPoint(fromView: point) else {return nil}
         
-        return scnView.overlaySKScene?.nodes(at: ps).filter{$0.needsHandleReaction} ?? []
+        return scnView.overlaySKScene?.nodes(at: ps).first{$0.needsHandleReaction}
     }
     
     /// 2D画面が被さってた場合は、2Dに通知、そうでなければ3Dに通知
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let point = touches.first?.location(in: scnView) else { return }
-        let nodes = _nodesOnOverlayScene(at: point)
+        let node = _nodesOnOverlayScene(at: point)
         
-        if !nodes.isEmpty {
-            nodes.forEach{$0.touchesBegan(touches, with: event)}
-            _nodesOnTouch.append(contentsOf: nodes)
+        if let node = node {
+            node.touchesBegan(touches, with: event)
+            _nodesOnTouch.append(node)
             return
         }
         

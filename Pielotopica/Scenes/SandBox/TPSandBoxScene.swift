@@ -28,13 +28,20 @@ class TPSandBoxScene: GKSafeScene {
     let mainmenu = TPMainMenu()
     
     // MARK: - Build -
-    let itemBar = TPBuildItemBar(inventory: TSPlayer.him.itemBarInventory)
+    let itemBar = TPBuildItemBar(inventory: TSItemBarInventory.itembarShared)
     let buildSideMenu = TPBuildSideMenu()
+    
+    // MARK: - Craft -
+    lazy var overrayNode:SKSpriteNode = _createOverlay()
+        
+    let craftScene = TPCraftScene()
     
     // =============================================================== //
     // MARK: - Private Properties -
     
     private lazy var sceneModel = TPSandBoxSceneUIModel(self)
+    
+    private var backgroundScene:SKScene { return gkViewContoller.scnView.overlaySKScene! }
     
     // =============================================================== //
     // MARK: - Methods -
@@ -43,17 +50,24 @@ class TPSandBoxScene: GKSafeScene {
             
         sceneModel.mode.accept(.mainmenu)
         
-        rootNode.color = UIColor.black.withAlphaComponent(0.5)
+        #if DEBUG
+        //rootNode.color = UIColor.black.withAlphaComponent(0.5)
+        #endif
         
         mainmenu.menuItem.addTarget(self, action: #selector(mainMenuItemDidTap), for: .touchUpInside)
         mainmenu.buildItem.addTarget(self, action: #selector(mainBuildItemDidTap), for: .touchUpInside)
         mainmenu.captureItem.addTarget(self, action: #selector(mainCaptureItemDidTap), for: .touchUpInside)
         mainmenu.shopItem.addTarget(self, action: #selector(mainShopItemDidTap), for: .touchUpInside)
         
+        
         itemBar.backButton.addTarget(self, action: #selector(buildBackButtonDidTap), for: .touchUpInside)
+        
         itemBar.placeButton.addTarget(self, action: #selector(buildPlaceButtonDidTap), for: .touchUpInside)
         itemBar.moveButton.addTarget(self, action: #selector(buildMoveButtonDidTap), for: .touchUpInside)
         itemBar.destoryButton.addTarget(self, action: #selector(buildDestoryButtonDidTap), for: .touchUpInside)
+        
+        itemBar.moreButton.addTarget(self, action: #selector(buildMoreButtonDidTap), for: .touchUpInside)
+        
         
         buildSideMenu.rotateItem.addTarget(self, action: #selector(buildSideMenuRotateDidTap), for: .touchUpInside)
         
@@ -61,7 +75,13 @@ class TPSandBoxScene: GKSafeScene {
         self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
         self.rootNode.addChild(itemBar)
+        self.rootNode.addChild(craftScene)
         
+        
+    }
+    
+    override func sceneDidAppear() {
+        (self.gkViewContoller as! GameViewController).showingScene = .sandbox
     }
     
     // =============================================================== //
@@ -101,11 +121,36 @@ class TPSandBoxScene: GKSafeScene {
     @objc private func buildSideMenuRotateDidTap(_ button:GKButtonNode){
         sceneModel.onSideMenuRotateButtonTap()
     }
+    
+    @objc private func buildMoreButtonDidTap(_ button:GKButtonNode) {
+        sceneModel.onBuildMoreButtonTap()
+    }
+    
+    @objc private func overlayTouched(_ button:GKButtonNode) {
+        sceneModel.onOverlayTap()
+    }
+    
+    
+    private func _createOverlay() -> SKSpriteNode {
+        let node = GKButtonNode(size: backgroundScene.size)
+        node.addTarget(self, action: #selector(overlayTouched), for: .touchUpInside)
+        node.color = UIColor.init(hex: 0, alpha: 0.95)
+        node.zPosition = -1
+        node.position = backgroundScene.size.point / 2
+        node.isHidden = true
+        self.backgroundScene.addChild(node)
+        
+        return node
+    }
 }
 
 extension TPSandBoxScene: TPSandBoxSceneUIModelBinder {
-    var __viewController: UIViewController {
-        return super.gkViewContoller
+    func __showItemBarDrops() {
+        itemBar.showDrops()
+    }
+    
+    var __gameViewController: GKGameViewController {
+        super.gkViewContoller
     }
     
     func __showMainMenu() {
@@ -120,6 +165,20 @@ extension TPSandBoxScene: TPSandBoxSceneUIModelBinder {
     }
     func __hideItemBar() {
         itemBar.hide()
+    }
+    
+    func __hideItemBarDrops() {
+        itemBar.hideDrops()
+    }
+    
+    func __showCraftScene() {
+        overrayNode.isHidden = false
+        craftScene.show()
+    }
+    
+    func __hideOverlayScene() {
+        overrayNode.isHidden = true
+        craftScene.hide()
     }
     
     func __setItemBarSelectionState(to state: TPItemBarSelectionState) {

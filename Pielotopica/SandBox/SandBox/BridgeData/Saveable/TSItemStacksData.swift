@@ -17,10 +17,6 @@ struct TSItemStacksData: RMAutoSavable {
         return TSItemStack(item: item, count: count)
     }
 
-    init() {
-        itemIndex = 0
-        count = 0
-    }
     init(itemStack: TSItemStack) {
         self.itemIndex = itemStack.item.index
         self.count = itemStack.count.value

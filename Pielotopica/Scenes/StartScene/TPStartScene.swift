@@ -42,8 +42,13 @@ class TPStartScene:GKSafeScene {
     
     // =============================================================== //
     // MARK: - Methods -
+    override func sceneDidAppear() {
+        (self.gkViewContoller as! GameViewController).showingScene = .startScene
+    }
+    
     override func sceneDidLoad() {
         super.sceneDidLoad()
+        
         ring.addTarget(self, action: #selector(onRingSelected), for: .touchUpInside)
         
         self._setup()
@@ -57,7 +62,7 @@ class TPStartScene:GKSafeScene {
     @objc private func onRingSelected(_ sender:GKButtonNode) {
         _endup()
         
-        self.present(to: .sandboxScene, delayed: 0.8)
+        self.present(to: .sandboxScene, delayed: 0.1)
         
     }
     

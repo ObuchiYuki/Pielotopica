@@ -44,7 +44,7 @@ class TPSandboxSceneModel {
     // MARK: - Properties -
     
     internal var itemBarInventory:TSItemBarInventory {
-        return TSPlayer.him.itemBarInventory
+        return TSItemBarInventory.itembarShared
     }
     
     // =============================== //

@@ -17,11 +17,11 @@ class _TPCaptureGotMaterialBar: SKCropNode {
     
     private let nameLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
     
-    private let ironSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_iron")
-    private let woodSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_wood")
-    private let circitSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_circit")
-    private let heartSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_heart")
-    private let fuelSprite = _TPCaptureMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_fuel")
+    private let ironSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_iron")
+    private let woodSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_wood")
+    private let circitSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_circit")
+    private let heartSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_heart")
+    private let fuelSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_fuel")
     
     private var allSprites:[SKSpriteNode] {
         [ironSprite, woodSprite, circitSprite, heartSprite, fuelSprite]
@@ -87,7 +87,7 @@ class _TPCaptureGotMaterialBar: SKCropNode {
         case .fuel(let count): return count
         }
     }
-    private func _sprite(for type:MaterialType) -> _TPCaptureMaterialSprite {
+    private func _sprite(for type:MaterialType) -> TPMaterialSprite {
         switch type {
         case .iron:   return ironSprite
         case .wood:   return woodSprite

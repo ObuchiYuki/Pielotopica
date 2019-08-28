@@ -11,18 +11,24 @@ import SpriteKit
 
 class GameViewController: GKGameViewController {
     
+    enum Scene {
+        case startScene
+        case sandbox
+    }
+    
+    var showingScene = Scene.sandbox
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: - ここがないと動かないのをなんとかする -
-        print(TSBlock.air)
-        print(TSBlock.japaneseHouse2)
-        print(TSBlock.ground5x5)
-        print(TSBlock.ground5x5Edge)
-        print(TSBlock.woodWall1x5)
-        
         _ = TSLevel()
         
-        self.presentScene(with: .sandboxScene)
+        switch showingScene {
+        case .startScene:
+            self.presentScene(with: .startScene)
+        case .sandbox:
+            self.presentScene(with: .sandboxScene)
+        }
+        
     }
 }

@@ -12,7 +12,7 @@ import RxSwift
 struct TSMaterialData: RMAutoSavable {
     private static var _shared = RMAutoSave<TSMaterialData>("TSMaterialData__key")
     
-    static var shared:TSMaterialData {get {_shared.value} set {_shared.value = newValue}}
+    static var shared:TSMaterialData {get {_shared.value ?? TSMaterialData()} set {_shared.value = newValue}}
     
     static func reset() {
         _shared.reset()

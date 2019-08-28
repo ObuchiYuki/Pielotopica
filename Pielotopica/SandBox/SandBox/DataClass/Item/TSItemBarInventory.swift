@@ -12,12 +12,27 @@ import RxCocoa
 /**
  4つのみスタックを持つアイテムバー用のインベントリです。
  */
-public class TSItemBarInventory: TSInventory {
 
+extension Int: RMAutoSavable {}
+
+public class TSItemBarInventory: TSInventory {
+    
+    static let itembarShared = TSItemBarInventory(maxAmount: 4)
+    
+    private static var _autosave = RMAutoSave<TSInventoryData>("_TSItemBarInventory_autosave_key_")
+    private static var _indexAutosave = RMAutoSave<Int>("__TSItemBarInventory_index_autosave_key")
+    
     // ========================================================== //
     // MARK: - Properties -
     /// 現在選択中のアイテム番号です。(0-3)
-    public var selectedItemIndex = BehaviorRelay(value: 0)
+    
+    func setSelectedItemIndex(_ _selectedItemIndex:Int) {
+        TSItemBarInventory._indexAutosave.value = _selectedItemIndex
+        
+        selectedItemIndex.accept(_selectedItemIndex)
+    }
+    
+    lazy var selectedItemIndex = BehaviorRelay(value: TSItemBarInventory._indexAutosave.value ?? 0)
     
     /// 現在選択中のアイテムです。
     public var selectedItemStack:TSItemStack {
@@ -46,10 +61,18 @@ public class TSItemBarInventory: TSInventory {
             
             itemStacks.accept(stack)
         }
+        
+        _saveSelf()
     }
     
     // ========================================================== //
     // MARK: - Private Methods -
+    override func _saveSelf() {
+        TSItemBarInventory._autosave.value = TSInventoryData(inventory: self)
+    }
+    override func _autosaved() -> [TSItemStack]? {
+        return TSItemBarInventory._autosave.value?.itemStacks.map{$0.itemStack}
+    }
     /// indexのアイテムを入れ替えます。
     private func _changeItemStack(at index:Int, to itemStack: TSItemStack) {
         var stack = self.itemStacks.value
@@ -57,12 +80,7 @@ public class TSItemBarInventory: TSInventory {
         stack.insert(itemStack, at: index)
         
         self.itemStacks.accept(stack)
-    }
-    
-    // ========================================================== //
-    // MARK: - Constructer -
-    public init() {
-        super.init(amount: 4)
-    
+        
+        _saveSelf()
     }
 }

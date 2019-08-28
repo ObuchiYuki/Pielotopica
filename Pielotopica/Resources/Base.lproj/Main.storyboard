@@ -121,12 +121,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_overray_dark" translatesAutoresizingMaskIntoConstraints="NO" id="hUP-1a-tSX">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="-1" y="0.0" width="415" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="hUP-1a-tSX" firstAttribute="leading" secondItem="IVE-uF-c65" secondAttribute="leading" id="IUx-zZ-xOQ"/>
+                            <constraint firstItem="hUP-1a-tSX" firstAttribute="leading" secondItem="IVE-uF-c65" secondAttribute="leading" constant="-1" id="IUx-zZ-xOQ"/>
                             <constraint firstItem="hUP-1a-tSX" firstAttribute="top" secondItem="VMl-9M-HLj" secondAttribute="top" id="Mg6-zC-wzM"/>
                             <constraint firstAttribute="bottom" secondItem="hUP-1a-tSX" secondAttribute="bottom" id="bfx-WG-1Cb"/>
                             <constraint firstItem="hUP-1a-tSX" firstAttribute="trailing" secondItem="IVE-uF-c65" secondAttribute="trailing" id="r9q-Uf-SSD"/>

@@ -28,13 +28,12 @@ public final class TSItemStack {
         self.item = item
         self.count = BehaviorRelay(value: count)
     }
-}
-
-extension TSItemStack :Equatable{
-    public static func == (left:TSItemStack, right:TSItemStack) -> Bool {
-        return left === right
+    
+    public var isNone:Bool {
+        return self.item == .none
     }
 }
+
 extension TSItemStack :CustomStringConvertible {
     public var description: String {
         return "[TSItemStack item: \(item), count: \(count.value)]"

@@ -11,13 +11,20 @@ import RxSwift
 import RxCocoa
 
 protocol TPSandBoxSceneUIModelBinder: class {
-    var __viewController:UIViewController { get }
+    var __gameViewController:GKGameViewController { get }
     
     func __showItemBar()
     func __hideItemBar()
     
     func __showMainMenu()
     func __hideMainMenu()
+    
+    func __hideItemBarDrops()
+    
+    func __showCraftScene()
+    
+    func __showItemBarDrops()
+    func __hideOverlayScene()
     
     func __setItemBarSelectionState(to state: TPItemBarSelectionState)
     func __setBuildSideMenuMode(to mode:TPItemBarSelectionState)
@@ -41,6 +48,8 @@ class TPSandBoxSceneUIModel {
         case buildPlace
         case buildMove
         case buildDestory
+        
+        case craft
     }
     
     var mode = BehaviorRelay(value: Mode.mainmenu)
@@ -54,7 +63,7 @@ class TPSandBoxSceneUIModel {
     
     // MARK: - Main Menu -
     func onMainMenuMenuItemTap() {
-        
+        binder.__gameViewController.presentScene(with: .startScene)
     }
     func onMainMenuBuildItemTap() {
         binder.__hideMainMenu()
@@ -71,10 +80,17 @@ class TPSandBoxSceneUIModel {
     
     // MARK: - Item Bar -
     func onBuildBackButtonTap() {
-        binder.__showMainMenu()
-        binder.__hideItemBar()
-        
-        self.mode.accept(.mainmenu)
+        if mode.value == .craft {
+            binder.__showItemBarDrops()
+            binder.__hideOverlayScene()
+            
+            self.mode.accept(.mainmenu)
+        } else {
+            binder.__showMainMenu()
+            binder.__hideItemBar()
+            
+            self.mode.accept(.mainmenu)
+        }
     }
     func onBuildPlaceButtonTap() {
         self.mode.accept(.buildPlace)
@@ -86,9 +102,20 @@ class TPSandBoxSceneUIModel {
         self.mode.accept(.buildDestory)
     }
     
+    func onBuildMoreButtonTap () {
+        self.mode.accept(.craft)
+        
+        self.binder.__hideItemBarDrops()
+        self.binder.__showCraftScene()
+    }
+    
     func onSideMenuRotateButtonTap() {
         assert(sceneModel.blockEditHelper != nil)
         sceneModel.blockEditHelper?.rotateBlock()
+    }
+    
+    func onOverlayTap() {
+        onBuildBackButtonTap()
     }
     
     // ========================================================= //
@@ -101,9 +128,9 @@ class TPSandBoxSceneUIModel {
     }
     
     private func presentViewControllerToCapture() {
-        (self.binder.__viewController.presentingViewController as! TPRouterViewController).route = .capture
+        (self.binder.__gameViewController.presentingViewController as! TPRouterViewController).route = .capture
         
-        self.binder.__viewController.dismiss(animated: false, completion: {})
+        self.binder.__gameViewController.dismiss(animated: false, completion: {})
     }
     
     private func _convertMode(_ mode: Mode) -> TPItemBarSelectionState {
@@ -112,6 +139,7 @@ class TPSandBoxSceneUIModel {
         case .buildMove: return .move
         case .buildPlace:return .place
         case .buildDestory:return .destory
+        case .craft: return .none
         }
     }
     

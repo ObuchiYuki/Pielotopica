@@ -15,19 +15,28 @@ public class TSInventory {
     
     // ===================================================================== //
     // MARK: - Public Properties -
-        
+    
+    // MARL: - Autosave -
+    private static var _autosave = RMAutoSave<TSInventoryData>("_TSInventory_autosave_key_")
+    
+    static var shared = TSInventory(maxAmount: 32)
+    
     /// いま持っているアイテム一覧です。
     /// 配列長は常に変わりません。
-    public var itemStacks:BehaviorRelay<[TSItemStack]>
+    public var itemStacks:BehaviorRelay<[TSItemStack]>!
     
     // ===================================================================== //
     // MARK: - Public Methods -
     
-    
-    
-    public init(amount:Int) {
-        self.itemStacks = BehaviorRelay(value: Array(repeating: .none, count: amount))
-        
+    public init(maxAmount:Int) {
+        // 保存ずみかつ正当ならば
+        if let saved = _autosaved(), saved.count == maxAmount {
+            print("saved")
+            self.itemStacks = BehaviorRelay(value: saved)
+        }else{
+            print("unsaved")
+            self.itemStacks = BehaviorRelay(value: Array(repeating: .none, count: maxAmount))
+        }
     }
     
     /// アイテムを追加します。すでにそのアイテムを持っていた場合は、Stackのカウントが増え
@@ -41,7 +50,7 @@ public class TSInventory {
             self._realAddItemStack(newStack)
         }
         
-        //autosave.manualSave()
+        _saveSelf()
     }
     
     /// positionにあるアイテムを指定されたアイテムに入れ替えます。
@@ -52,7 +61,7 @@ public class TSInventory {
         
         self.itemStacks.accept(stacks)
         
-        //autosave.manualSave()
+        _saveSelf()
     }
     
     /// アイテムスタックを追加します。
@@ -61,8 +70,15 @@ public class TSInventory {
         self.addItem(itemStack.item, count: itemStack.count.value)
     }
     
+    func _saveSelf() {
+        TSInventory._autosave.value = TSInventoryData(inventory: self)
+    }
+    func _autosaved() -> [TSItemStack]? {
+        return TSInventory._autosave.value?.itemStacks.map({$0.itemStack})
+    }
+    
     private func _realAddItemStack(_ itemStack:TSItemStack) {
-        guard let index = itemStacks.value.firstIndex(where: {$0 == .none}) else {fatalError("This inventry is max! too max!!")}
+        guard let index = itemStacks.value.firstIndex(where: {$0.isNone}) else {fatalError("This inventry is max! too max!!")}
         
         placeItemStack(itemStack, at: index)
     }

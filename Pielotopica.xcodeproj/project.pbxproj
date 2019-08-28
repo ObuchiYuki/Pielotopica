@@ -41,7 +41,6 @@
 		B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93FF2300E390008CB325 /* _TPStartSceneEdgeBar.swift */; };
 		B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94002300E390008CB325 /* _TPStartSceneActionIndicator.swift */; };
 		B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94012300E390008CB325 /* _TPStartScenePatterns.swift */; };
-		B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94022300E390008CB325 /* _TPStartSceneOverray.swift */; };
 		B61E940F2300E390008CB325 /* _TPStartScenePlayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94032300E390008CB325 /* _TPStartScenePlayButton.swift */; };
 		B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94042300E390008CB325 /* _TPStartSceneRing.swift */; };
 		B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = B61E94062300E390008CB325 /* TPStartSceneBackgroundParticle.sks */; };
@@ -51,7 +50,6 @@
 		B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62279BC2301A7A7009EF60F /* TPDebug.swift */; };
 		B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A0D2301AB83009EF60F /* TSVector3.swift */; };
 		B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A0E2301AB83009EF60F /* TSVector2.swift */; };
-		B6227A302301AB84009EF60F /* TSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A0F2301AB83009EF60F /* TSPlayer.swift */; };
 		B6227A312301AB84009EF60F /* bokeh.png in Resources */ = {isa = PBXBuildFile; fileRef = B6227A112301AB83009EF60F /* bokeh.png */; };
 		B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A122301AB83009EF60F /* TSBlockAnimator.swift */; };
 		B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */ = {isa = PBXBuildFile; fileRef = B6227A132301AB83009EF60F /* TSBlockPlaceAnimation.scnp */; };
@@ -78,12 +76,16 @@
 		B62521A1231166AA00D0ADD6 /* TPBlockMoveHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62521A0231166AA00D0ADD6 /* TPBlockMoveHelper.swift */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */; };
-		B64EB3902313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB38F2313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift */; };
+		B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */; };
 		B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */; };
 		B651231423114DFF003129B5 /* TS_Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* TS_Air.swift */; };
 		B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */; };
 		B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */; };
 		B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660938E2314C31400B528E5 /* TSItemStacksData.swift */; };
+		B660939323153B3400B528E5 /* Silom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B660939223153B2800B528E5 /* Silom.ttf */; };
+		B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939423154E6600B528E5 /* TPCraftMenu.swift */; };
+		B660939723154F8900B528E5 /* TPCraftScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939623154F8900B528E5 /* TPCraftScene.swift */; };
+		B66093992315526500B528E5 /* TPCraftMoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66093982315526500B528E5 /* TPCraftMoreItems.swift */; };
 		B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* RKRectAdjuster.swift */; };
 		B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA51230B776C0038B098 /* RKImageResizer.swift */; };
 		B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */; };
@@ -94,7 +96,6 @@
 		B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690596230E245E008AE24F /* TPBuildItemBar.swift */; };
 		B6690599230E2861008AE24F /* TPDropButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690598230E2861008AE24F /* TPDropButton.swift */; };
 		B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D41CA230BD218004BBE8E /* RouterViewController.swift */; };
-		B6731B292314BE9E00B70C3F /* TSPlayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6731B282314BE9E00B70C3F /* TSPlayerData.swift */; };
 		B6731B2B2314BED800B70C3F /* TSInventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6731B2A2314BED800B70C3F /* TSInventoryData.swift */; };
 		B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */; };
 		B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */; };
@@ -102,7 +103,6 @@
 		B67A966323094E6300BD408D /* TPSandboxSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */; };
 		B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B68E14342314177E00E973E1 /* Yolov3.mlmodel */; };
 		B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */; };
-		B68E143B23141B1500E973E1 /* Silom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143823141A7C00E973E1 /* Silom.ttf */; };
 		B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E1437231419C600E973E1 /* 5squared-pixel.ttf */; };
 		B6931446230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */; };
 		B6931448230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */; };
@@ -125,6 +125,7 @@
 		B6AA02B0230D834000F0FF48 /* TPHeaderSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */; };
 		B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */; };
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
+		B6BEB53D231615610067A4F0 /* TPCraftMenuMaterials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */; };
 		B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */; };
 		B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */; };
 		B6C7F3362314B7120042279C /* TSItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7F3352314B7120042279C /* TSItemData.swift */; };
@@ -137,6 +138,8 @@
 		B6EDB123230F81350042CA02 /* TPBuildSideMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */; };
 		B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB124230F8B200042CA02 /* TSBlockData.swift */; };
 		B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */; };
+		B6EEB27923160DDF004C5826 /* TSCraftMaterialValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EEB27823160DDF004C5826 /* TSCraftMaterialValue.swift */; };
+		B6EEB27C23160F5E004C5826 /* TS_JapaneseHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EEB27B23160F5E004C5826 /* TS_JapaneseHouse.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 		B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */; };
 		B6F8C5102312CCDA00264EBF /* RMAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */; };
@@ -194,7 +197,6 @@
 		B61E93FF2300E390008CB325 /* _TPStartSceneEdgeBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TPStartSceneEdgeBar.swift; sourceTree = "<group>"; };
 		B61E94002300E390008CB325 /* _TPStartSceneActionIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TPStartSceneActionIndicator.swift; sourceTree = "<group>"; };
 		B61E94012300E390008CB325 /* _TPStartScenePatterns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TPStartScenePatterns.swift; sourceTree = "<group>"; };
-		B61E94022300E390008CB325 /* _TPStartSceneOverray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TPStartSceneOverray.swift; sourceTree = "<group>"; };
 		B61E94032300E390008CB325 /* _TPStartScenePlayButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TPStartScenePlayButton.swift; sourceTree = "<group>"; };
 		B61E94042300E390008CB325 /* _TPStartSceneRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _TPStartSceneRing.swift; sourceTree = "<group>"; };
 		B61E94062300E390008CB325 /* TPStartSceneBackgroundParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TPStartSceneBackgroundParticle.sks; sourceTree = "<group>"; };
@@ -204,7 +206,6 @@
 		B62279BC2301A7A7009EF60F /* TPDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDebug.swift; sourceTree = "<group>"; };
 		B6227A0D2301AB83009EF60F /* TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSVector3.swift; sourceTree = "<group>"; };
 		B6227A0E2301AB83009EF60F /* TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSVector2.swift; sourceTree = "<group>"; };
-		B6227A0F2301AB83009EF60F /* TSPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSPlayer.swift; sourceTree = "<group>"; };
 		B6227A112301AB83009EF60F /* bokeh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bokeh.png; sourceTree = "<group>"; };
 		B6227A122301AB83009EF60F /* TSBlockAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBlockAnimator.swift; sourceTree = "<group>"; };
 		B6227A132301AB83009EF60F /* TSBlockPlaceAnimation.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = TSBlockPlaceAnimation.scnp; sourceTree = "<group>"; };
@@ -232,13 +233,17 @@
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
 		B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureBottomBar.swift; sourceTree = "<group>"; };
-		B64EB38F2313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureMaterialSprite.swift; sourceTree = "<group>"; };
+		B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMaterialSprite.swift; sourceTree = "<group>"; };
 		B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPLoaderScene.swift; sourceTree = "<group>"; };
 		B651231323114DFF003129B5 /* TS_Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Air.swift; sourceTree = "<group>"; };
 		B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wood_wall_1x5.png; sourceTree = "<group>"; };
 		B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TP_build_place.mp3; sourceTree = "<group>"; };
 		B6604D6A231023BF0077C76A /* Pielotopica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pielotopica.entitlements; sourceTree = "<group>"; };
 		B660938E2314C31400B528E5 /* TSItemStacksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemStacksData.swift; sourceTree = "<group>"; };
+		B660939223153B2800B528E5 /* Silom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silom.ttf; sourceTree = "<group>"; };
+		B660939423154E6600B528E5 /* TPCraftMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMenu.swift; sourceTree = "<group>"; };
+		B660939623154F8900B528E5 /* TPCraftScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftScene.swift; sourceTree = "<group>"; };
+		B66093982315526500B528E5 /* TPCraftMoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMoreItems.swift; sourceTree = "<group>"; };
 		B667BA50230B776C0038B098 /* RKRectAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKRectAdjuster.swift; sourceTree = "<group>"; };
 		B667BA51230B776C0038B098 /* RKImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKImageResizer.swift; sourceTree = "<group>"; };
 		B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKObjectNameMapper.swift; sourceTree = "<group>"; };
@@ -249,7 +254,6 @@
 		B6690596230E245E008AE24F /* TPBuildItemBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBar.swift; sourceTree = "<group>"; };
 		B6690598230E2861008AE24F /* TPDropButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDropButton.swift; sourceTree = "<group>"; };
 		B66D41CA230BD218004BBE8E /* RouterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewController.swift; sourceTree = "<group>"; };
-		B6731B282314BE9E00B70C3F /* TSPlayerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPlayerData.swift; sourceTree = "<group>"; };
 		B6731B2A2314BED800B70C3F /* TSInventoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSInventoryData.swift; sourceTree = "<group>"; };
 		B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneController.swift; sourceTree = "<group>"; };
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
@@ -257,7 +261,6 @@
 		B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneModel.swift; sourceTree = "<group>"; };
 		B68E14342314177E00E973E1 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
 		B68E1437231419C600E973E1 /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
-		B68E143823141A7C00E973E1 /* Silom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silom.ttf; sourceTree = "<group>"; };
 		B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korneuburg-Slab-Bold.ttf"; sourceTree = "<group>"; };
 		B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBarItem.swift; sourceTree = "<group>"; };
 		B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandBoxSceneUIModel.swift; sourceTree = "<group>"; };
@@ -283,6 +286,7 @@
 		B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPHeaderSlider.swift; sourceTree = "<group>"; };
 		B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSpriteNode.swift; sourceTree = "<group>"; };
 		B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKShadowLabelNode.swift; sourceTree = "<group>"; };
+		B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMenuMaterials.swift; sourceTree = "<group>"; };
 		B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockEditHelper.swift; sourceTree = "<group>"; };
 		B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureGotMaterialBar.swift; sourceTree = "<group>"; };
 		B6C7F3352314B7120042279C /* TSItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemData.swift; sourceTree = "<group>"; };
@@ -295,6 +299,8 @@
 		B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenuItem.swift; sourceTree = "<group>"; };
 		B6EDB124230F8B200042CA02 /* TSBlockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockData.swift; sourceTree = "<group>"; };
 		B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockRotation.swift; sourceTree = "<group>"; };
+		B6EEB27823160DDF004C5826 /* TSCraftMaterialValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSCraftMaterialValue.swift; sourceTree = "<group>"; };
+		B6EEB27B23160F5E004C5826 /* TS_JapaneseHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_JapaneseHouse.swift; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 		B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x5.scn; sourceTree = "<group>"; };
 		B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMAutoSave.swift; sourceTree = "<group>"; };
@@ -478,7 +484,6 @@
 				B61E93FF2300E390008CB325 /* _TPStartSceneEdgeBar.swift */,
 				B61E94002300E390008CB325 /* _TPStartSceneActionIndicator.swift */,
 				B61E94012300E390008CB325 /* _TPStartScenePatterns.swift */,
-				B61E94022300E390008CB325 /* _TPStartSceneOverray.swift */,
 				B61E94032300E390008CB325 /* _TPStartScenePlayButton.swift */,
 				B61E94042300E390008CB325 /* _TPStartSceneRing.swift */,
 			);
@@ -498,8 +503,8 @@
 			isa = PBXGroup;
 			children = (
 				B61E94142300E394008CB325 /* TPSandBoxScene.swift */,
-				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
 				B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */,
+				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
 				B67A966223094E6300BD408D /* TPSandboxSceneModel.swift */,
 				B6AA02A5230D6E5A00F0FF48 /* Component */,
 				B67A965D23094E4000BD408D /* Helper */,
@@ -510,7 +515,7 @@
 		B62279BE2301AB2D009EF60F /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
-				B6E8826423124435003F3124 /* CoreData */,
+				B6E8826423124435003F3124 /* BridgeData */,
 				B6227A0B2301AB83009EF60F /* DataClass */,
 				B6227A262301AB84009EF60F /* Extensions */,
 			);
@@ -533,7 +538,6 @@
 			children = (
 				B6227A0E2301AB83009EF60F /* TSVector2.swift */,
 				B6227A0D2301AB83009EF60F /* TSVector3.swift */,
-				B6227A0F2301AB83009EF60F /* TSPlayer.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -557,6 +561,7 @@
 				B6227A162301AB83009EF60F /* TSBlockItem.swift */,
 				B6227A192301AB83009EF60F /* TSItemBarInventory.swift */,
 				B6227A1A2301AB83009EF60F /* TSItemStack.swift */,
+				B6EEB27823160DDF004C5826 /* TSCraftMaterialValue.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -594,6 +599,7 @@
 			children = (
 				B6227A4B2301AE37009EF60F /* Impl+Block.swift */,
 				B6227A70230239DB009EF60F /* Impl+Item.swift */,
+				B6EEB27A23160F48004C5826 /* Items */,
 				B6227A6023023732009EF60F /* Blocks */,
 			);
 			path = Impl;
@@ -645,7 +651,7 @@
 			children = (
 				B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */,
 				B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */,
-				B64EB38F2313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift */,
+				B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -687,13 +693,12 @@
 		B6731B2C2314BEDD00B70C3F /* Saveable */ = {
 			isa = PBXGroup;
 			children = (
-				B6731B282314BE9E00B70C3F /* TSPlayerData.swift */,
+				B6731B2A2314BED800B70C3F /* TSInventoryData.swift */,
+				B660938E2314C31400B528E5 /* TSItemStacksData.swift */,
 				B6C7F3352314B7120042279C /* TSItemData.swift */,
 				B6F8C5112313653100264EBF /* TSFuelData.swift */,
-				B6731B2A2314BED800B70C3F /* TSInventoryData.swift */,
 				B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */,
 				B6E88267231280B5003F3124 /* TSMaterialData.swift */,
-				B660938E2314C31400B528E5 /* TSItemStacksData.swift */,
 			);
 			path = Saveable;
 			sourceTree = "<group>";
@@ -713,7 +718,7 @@
 			isa = PBXGroup;
 			children = (
 				B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */,
-				B68E143823141A7C00E973E1 /* Silom.ttf */,
+				B660939223153B2800B528E5 /* Silom.ttf */,
 				B68E1437231419C600E973E1 /* 5squared-pixel.ttf */,
 			);
 			path = Font;
@@ -741,6 +746,10 @@
 				B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */,
 				B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */,
 				B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */,
+				B660939623154F8900B528E5 /* TPCraftScene.swift */,
+				B660939423154E6600B528E5 /* TPCraftMenu.swift */,
+				B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */,
+				B66093982315526500B528E5 /* TPCraftMoreItems.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -763,14 +772,14 @@
 			path = Node;
 			sourceTree = "<group>";
 		};
-		B6E8826423124435003F3124 /* CoreData */ = {
+		B6E8826423124435003F3124 /* BridgeData */ = {
 			isa = PBXGroup;
 			children = (
 				B6731B2C2314BEDD00B70C3F /* Saveable */,
 				B6EDB124230F8B200042CA02 /* TSBlockData.swift */,
 				B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */,
 			);
-			path = CoreData;
+			path = BridgeData;
 			sourceTree = "<group>";
 		};
 		B6E8826923128429003F3124 /* CaptureScene */ = {
@@ -792,6 +801,14 @@
 				B6EDB11C230F78AE0042CA02 /* button_light.mp3 */,
 			);
 			path = Sound;
+			sourceTree = "<group>";
+		};
+		B6EEB27A23160F48004C5826 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				B6EEB27B23160F5E004C5826 /* TS_JapaneseHouse.swift */,
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
@@ -890,6 +907,7 @@
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
 				B6A8D669230ECC67005B26A5 /* TP_floar_5x5.png in Resources */,
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
+				B660939323153B3400B528E5 /* Silom.ttf in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
 				B6A8D66D230ED50B005B26A5 /* TP_ground_5x5.png in Resources */,
 				B6F8C51823136FC500264EBF /* ClassIndex.txt in Resources */,
@@ -903,7 +921,6 @@
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
 				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
 				B61E93E22300E376008CB325 /* Assets.xcassets in Resources */,
-				B68E143B23141B1500E973E1 /* Silom.ttf in Resources */,
 				B61E93E42300E376008CB325 /* Main.storyboard in Resources */,
 				B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */,
 				B6A8D66B230ED4F7005B26A5 /* TP_ground_5x5.scn in Resources */,
@@ -970,6 +987,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6BEB53D231615610067A4F0 /* TPCraftMenuMaterials.swift in Sources */,
 				B651231423114DFF003129B5 /* TS_Air.swift in Sources */,
 				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
@@ -990,8 +1008,10 @@
 				B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */,
 				B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,
+				B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */,
 				B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */,
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
+				B6EEB27923160DDF004C5826 /* TSCraftMaterialValue.swift in Sources */,
 				B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */,
 				B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */,
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
@@ -1016,15 +1036,16 @@
 				B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */,
 				B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */,
 				B6E8826623126B66003F3124 /* RMLog.swift in Sources */,
-				B6227A302301AB84009EF60F /* TSPlayer.swift in Sources */,
 				B6227A6323023732009EF60F /* TS_JapaneseHouse2.swift in Sources */,
+				B6EEB27C23160F5E004C5826 /* TS_JapaneseHouse.swift in Sources */,
 				B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */,
+				B660939723154F8900B528E5 /* TPCraftScene.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
-				B61E940E2300E390008CB325 /* _TPStartSceneOverray.swift in Sources */,
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
 				B6F8C5122313653100264EBF /* TSFuelData.swift in Sources */,
 				B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */,
 				B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */,
+				B66093992315526500B528E5 /* TPCraftMoreItems.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
 				B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */,
 				B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */,
@@ -1035,7 +1056,7 @@
 				B61E94172300E395008CB325 /* TPSandBoxScene.swift in Sources */,
 				B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */,
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
-				B64EB3902313D55E000EC6F7 /* _TPCaptureMaterialSprite.swift in Sources */,
+				B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,
 				B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */,
 				B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */,
@@ -1045,7 +1066,6 @@
 				B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */,
 				B6E8826123121835003F3124 /* TSLevelData.swift in Sources */,
 				B6AA02AD230D7EBE00F0FF48 /* TPHeader.swift in Sources */,
-				B6731B292314BE9E00B70C3F /* TSPlayerData.swift in Sources */,
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,

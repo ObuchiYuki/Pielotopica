@@ -41,6 +41,8 @@ class TPHeader: GKSpriteNode {
     init(){
         super.init(texture: .init(imageNamed: "TP_hd_background"), color: .clear, size: [354, 101])
         
+        self.zPosition = 100
+        
         // rx
         TSMaterialData.shared.ironAmount.subscribe{ event in
             event.element.map(self.setIronAmount)

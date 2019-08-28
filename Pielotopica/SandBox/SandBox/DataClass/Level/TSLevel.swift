@@ -121,7 +121,7 @@ public class TSLevel {
         
         block.didPlaced(at: anchorPoint)
         
-        getLevelData().save(stageNamed: "ground")
+        self._save()
     }
     
     /// アンカーポイントのブロックを破壊します。
@@ -139,6 +139,7 @@ public class TSLevel {
         
         self.delegate?.level(self, levelDidDestoryBlockAt: anchorPoint)
         
+        self._save()
         block.didDestroy(at: anchorPoint)
     }
     
@@ -184,6 +185,9 @@ public class TSLevel {
     // =============================================================== //
     // MARK: - Private Methods -
     
+    private func _save() {
+        getLevelData().save(stageNamed: "ground")
+    }
     private func _realPlaceBlock(_ block:TSBlock, at anchorPoint:TSVector3, rotation:TSBlockRotation) {
         self._writeRotation(rotation, at: anchorPoint)
         

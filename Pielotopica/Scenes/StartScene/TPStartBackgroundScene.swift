@@ -18,7 +18,6 @@ class TPStartBackgroundScene:SKScene {
     // MARK: - Properties -
     let rootNode = SKSpriteNode(imageNamed: "TP_startmenu_background")
     
-    let overray = _TPStartSceneOverray()
     // =============================================================== //
     // MARK: - Private Properties -
     
@@ -33,9 +32,7 @@ class TPStartBackgroundScene:SKScene {
         rootNode.size = GKSafeScene.sceneSize
         rootNode.position = GKSafeScene.sceneSize.point / 2
         
-        overray.position = GKSafeScene.sceneSize.point / 2
-        
-        let filePath = Bundle.main.path(forResource: "TPStartSceneBackgroundParticle", ofType: "sks")!
+                let filePath = Bundle.main.path(forResource: "TPStartSceneBackgroundParticle", ofType: "sks")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: filePath))
         let emitterNode = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! SKEmitterNode
         emitterNode.resetSimulation()
@@ -43,7 +40,6 @@ class TPStartBackgroundScene:SKScene {
         emitterNode.position = [GKSafeScene.sceneSize.width/2 ,GKSafeScene.sceneSize.height]
         
         self.addChild(emitterNode)
-        self.addChild(overray)
     }
     
     // =============================================================== //
