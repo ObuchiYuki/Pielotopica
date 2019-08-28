@@ -42,7 +42,6 @@ class TPSandBoxRootSceneModel {
     
     func present(to scene: TPSandBoxScene, as mode:TPSandBoxRootSceneModel.Mode) {
         let success = self.binder.present(to: scene)
-        print(success)
         if success { self.mode.accept(mode) }
     }
     

@@ -84,7 +84,6 @@
 		B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660938E2314C31400B528E5 /* TSItemStacksData.swift */; };
 		B660939323153B3400B528E5 /* Silom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B660939223153B2800B528E5 /* Silom.ttf */; };
 		B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939423154E6600B528E5 /* TPCraftMenu.swift */; };
-		B660939723154F8900B528E5 /* TPCraftScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939623154F8900B528E5 /* TPCraftScene.swift */; };
 		B66093992315526500B528E5 /* TPCraftMoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66093982315526500B528E5 /* TPCraftMoreItems.swift */; };
 		B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* RKRectAdjuster.swift */; };
 		B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA51230B776C0038B098 /* RKImageResizer.swift */; };
@@ -257,7 +256,6 @@
 		B660938E2314C31400B528E5 /* TSItemStacksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemStacksData.swift; sourceTree = "<group>"; };
 		B660939223153B2800B528E5 /* Silom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silom.ttf; sourceTree = "<group>"; };
 		B660939423154E6600B528E5 /* TPCraftMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMenu.swift; sourceTree = "<group>"; };
-		B660939623154F8900B528E5 /* TPCraftScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftScene.swift; sourceTree = "<group>"; };
 		B66093982315526500B528E5 /* TPCraftMoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMoreItems.swift; sourceTree = "<group>"; };
 		B667BA50230B776C0038B098 /* RKRectAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKRectAdjuster.swift; sourceTree = "<group>"; };
 		B667BA51230B776C0038B098 /* RKImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKImageResizer.swift; sourceTree = "<group>"; };
@@ -847,7 +845,6 @@
 				B66093982315526500B528E5 /* TPCraftMoreItems.swift */,
 				B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */,
 				B660939423154E6600B528E5 /* TPCraftMenu.swift */,
-				B660939623154F8900B528E5 /* TPCraftScene.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1162,7 +1159,6 @@
 				B69E8672231635C6004D4272 /* TS_WoodWall.swift in Sources */,
 				B6EEB27C23160F5E004C5826 /* TS_JapaneseHouse.swift in Sources */,
 				B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */,
-				B660939723154F8900B528E5 /* TPCraftScene.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
 				B6F8C5122313653100264EBF /* TSFuelData.swift in Sources */,

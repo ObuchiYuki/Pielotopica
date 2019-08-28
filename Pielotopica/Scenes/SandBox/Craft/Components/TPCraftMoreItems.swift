@@ -103,6 +103,7 @@ class TPCraftMoreItems: SKSpriteNode {
         super.init(texture: .init(imageNamed: "TP_craft_moreitems_background"), color: .clear, size: [314, 198])
         
         self.zPosition = 100
+        self.position = [0, -80]
         
         self.addChild(selectionFrame)
         

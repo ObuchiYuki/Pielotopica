@@ -83,6 +83,8 @@ class TPCraftMenu: SKSpriteNode {
         self.addChild(icon)
         
         self.zPosition = 100
+        
+        self.position = [0, 140]
     
         setItem(.none)
     }

@@ -14,20 +14,21 @@ import RxCocoa
 class TPSCraftScene: GKSafeScene {
     // ===================================================================== //
     // MARK: - Properties -
-    
-    
     lazy var overrayNode:SKSpriteNode = _createOverlay()
     
     lazy var sceneModel = TPSCraftSceneModel(self)
     private let bag = DisposeBag()
     
-    private var craftScene = TPCraftScene()
+    private let craftMenu = TPCraftMenu()
+    private let moreItem = TPCraftMoreItems()
+    
     private var backgroundScene:SKScene { return gkViewContoller.scnView.overlaySKScene! }
     
     // ===================================================================== //
     // MARK: - Handler -
     @objc private func overlayTouched(_ button:GKButtonNode) {
-        craftScene.moreItem.selectedItemIndex.subscribe {[weak self] event in
+        moreItem.selectedItemIndex.subscribe {[weak self] event in
+            fatalError()
             //event.element.map(self!.sceneMode(to: ))
             
         }.disposed(by: bag)
@@ -37,6 +38,12 @@ class TPSCraftScene: GKSafeScene {
     
     // ===================================================================== //
     // MARK: - Private Methods -
+    
+    override func sceneDidLoad() {
+        
+        self.rootNode.addChild(moreItem)
+        self.rootNode.addChild(craftMenu)
+    }
     
     private func _createOverlay() -> SKSpriteNode {
         let node = GKButtonNode(size: backgroundScene.size)

@@ -49,7 +49,7 @@ class TPSBuildSceneModel: TPSandBoxSceneModel {
         
     }
     func onMoreButtonTap() {
-        
+        self.rootSceneModel.present(to: TPSCraftScene(), as: .craft)
     }
     func onRotateButtonTap() {
         
