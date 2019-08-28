@@ -45,8 +45,7 @@ class TPCraftMenu: SKSpriteNode {
         self.addChild(icon)
         
         self.zPosition = 100
-        
-        setItem(.japaneseHouse2)
+    
     }
     
     required init?(coder aDecoder: NSCoder) {

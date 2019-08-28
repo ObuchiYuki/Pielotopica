@@ -9,8 +9,8 @@
 import SpriteKit
 
 class TPCraftScene: SKSpriteNode {
-    private let craftMenu = TPCraftMenu()
-    private let moreItem = TPCraftMoreItems()
+    let craftMenu = TPCraftMenu()
+    let moreItem = TPCraftMoreItems()
     
     func show() {
         self.isHidden = false

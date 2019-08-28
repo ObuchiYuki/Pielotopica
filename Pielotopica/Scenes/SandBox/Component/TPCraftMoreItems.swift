@@ -7,15 +7,26 @@
 //
 
 import SpriteKit
+import RxSwift
+import RxCocoa
 
+/**
+ (0, 0), (1, 0), (2, 0), (3, 0), (4, 0)
+ (0, 1), (1, 1), (2, 1), (3, 1), (4, 1)
+ (0, 2), (1, 2), (2, 2), (3, 2), (4, 2)
+ */
 class TPCraftMoreItems: SKSpriteNode {
     // ==================================================================== //
     // MARK: - Properties -
     override var needsHandleReaction: Bool { true }
     
-    private let selectionFrame = GKSpriteNode(imageNamed: "TP_build_itembar_selection_frame")
-
+    let selectedItemIndex = BehaviorRelay(value: 0)
+    let items = TSItemManager.shared.getCreatableItems()
     
+    private let selectionFrame = GKSpriteNode(imageNamed: "TP_build_itembar_selection_frame")
+    
+    private var itemNodes = [TPBuildItemBarItem]()
+
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         
@@ -27,12 +38,34 @@ class TPCraftMoreItems: SKSpriteNode {
     
     // ==================================================================== //
     // MARK: - Private Methods -
+    private func _loadItem() {
+        for (i, item) in TSItemManager.shared.getCreatableItems().enumerated() {
+            guard let itemStack = TSInventory.shared.itemStacks.value.first(where: {$0.item == item}) else {return}
+            let itemNode = itemNodes[i]
+            
+            itemNode.setItemStack(itemStack)
+        }
+    }
+    private func _setupItems(){
+        for y in 0..<3 {
+            for x in 0..<5 {
+                let item = TPBuildItemBarItem()
+                item.position = [(CGFloat(x) * 57.5) - 115, CGFloat(3 - y) * 57.5 - 115]
+                itemNodes.append(item)
+                self.addChild(item)
+            }
+        }
+    }
     private func _moveSelectionFrame(x:Int, y:Int) {
-        
+        let ry = 3 - y
+        selectionFrame.position = [(CGFloat(x) * 57.5) - 149, CGFloat(ry) * 57.5 - 150]
     }
     
     private func _frameTouched(x:Int, y:Int) {
+        TPButtonReaction()
         
+        selectedItemIndex.accept(x + y * 5)
+        _moveSelectionFrame(x: x, y: y)
     }
     
     private func touchX(_ location:CGPoint) {
@@ -72,6 +105,9 @@ class TPCraftMoreItems: SKSpriteNode {
         self.zPosition = 100
         
         self.addChild(selectionFrame)
+        
+        _setupItems()
+        _loadItem()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError()

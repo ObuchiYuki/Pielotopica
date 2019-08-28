@@ -19,7 +19,7 @@ public extension TSItem {
         block: .japaneseHouse2
     )
     
-    static let woodWall1x5 = TSBlockItem(
+    static let woodWall1x5 = TS_WoodWall(
         name: "キノヘイ",
         textureNamed: "TP_item_thumb_wood_wall_1x5",
         block: .woodWall1x5

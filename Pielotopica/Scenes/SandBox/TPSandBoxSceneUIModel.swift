@@ -26,6 +26,8 @@ protocol TPSandBoxSceneUIModelBinder: class {
     func __showItemBarDrops()
     func __hideOverlayScene()
     
+    func __changeCraftMenu(with item:TSItem)
+    
     func __setItemBarSelectionState(to state: TPItemBarSelectionState)
     func __setBuildSideMenuMode(to mode:TPItemBarSelectionState)
 }
@@ -57,9 +59,16 @@ class TPSandBoxSceneUIModel {
     
     static weak var initirized:TPSandBoxSceneUIModel?
     
+    
     let bag = DisposeBag()
     // ========================================================= //
     // MARK: - Handlers -
+    
+    func onCraftMoreItemSelctedIndexChange(to value:Int) {
+        let item = TSItemManager.shared.getCreatableItems()[value]
+        
+        binder.__changeCraftMenu(with: item)
+    }
     
     // MARK: - Main Menu -
     func onMainMenuMenuItemTap() {

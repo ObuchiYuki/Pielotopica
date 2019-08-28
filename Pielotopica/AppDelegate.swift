@@ -15,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // TODO: - ここがないと動かないのをなんとかする -
-        
         TSItemManager.shared.register(.none)
         TSItemManager.shared.register(.japaneseHouse2)
         TSItemManager.shared.register(.woodWall1x5)
@@ -26,9 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(TSBlock.ground5x5)
         print(TSBlock.ground5x5Edge)
         print(TSBlock.woodWall1x5)
-        
-        print(TSItemBarInventory.itembarShared.itemStacks.value)
-        
+                
         return true
     }
 }

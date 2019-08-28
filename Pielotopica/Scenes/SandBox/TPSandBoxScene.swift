@@ -8,6 +8,8 @@
 
 import SpriteKit
 import GameplayKit
+import RxCocoa
+import RxSwift
 
 // =============================================================== //
 // MARK: - TPSandBoxUI -
@@ -40,6 +42,7 @@ class TPSandBoxScene: GKSafeScene {
     // MARK: - Private Properties -
     
     private lazy var sceneModel = TPSandBoxSceneUIModel(self)
+    private let bag = DisposeBag()
     
     private var backgroundScene:SKScene { return gkViewContoller.scnView.overlaySKScene! }
     
@@ -70,6 +73,11 @@ class TPSandBoxScene: GKSafeScene {
         
         
         buildSideMenu.rotateItem.addTarget(self, action: #selector(buildSideMenuRotateDidTap), for: .touchUpInside)
+        
+        craftScene.moreItem.selectedItemIndex.subscribe {[weak self] event in
+            event.element.map(self!.sceneModel.onCraftMoreItemSelctedIndexChange(to: ))
+            
+        }.disposed(by: bag)
         
         self.rootNode.addChild(buildSideMenu)
         self.rootNode.addChild(mainmenu)
@@ -179,6 +187,10 @@ extension TPSandBoxScene: TPSandBoxSceneUIModelBinder {
     func __hideOverlayScene() {
         overrayNode.isHidden = true
         craftScene.hide()
+    }
+    
+    func __changeCraftMenu(with item:TSItem) {
+        craftScene.craftMenu.setItem(item)
     }
     
     func __setItemBarSelectionState(to state: TPItemBarSelectionState) {

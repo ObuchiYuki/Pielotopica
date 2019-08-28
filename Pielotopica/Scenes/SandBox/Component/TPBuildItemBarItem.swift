@@ -41,7 +41,6 @@ class TPBuildItemBarItem: SKSpriteNode {
         numLabel.fontColor = .white
         numLabel.fontSize = 15
         numLabel.horizontalAlignmentMode = .right
-        numLabel.text = "x 118"
         
         numLabel.barnShadow()
         
