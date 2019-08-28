@@ -37,8 +37,7 @@ class TPSBuildSceneModel: TPSandBoxSceneModel {
     // MARK: - Handler -
     
     func onBackButtonTap() {
-        self.rootSceneModel.mode.accept(.mainmenu)
-        self.rootSceneModel.binder.present(to: TPSMainMenuScene())
+        self.rootSceneModel.present(to: TPSMainMenuScene(), as: .mainmenu)
     }
     func onPlaceButtonTap() {
         

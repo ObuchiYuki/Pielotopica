@@ -103,9 +103,7 @@ class TPBuildItemBar: GKSpriteNode {
     // MARK: - Constructor -
     init(inventory:TSItemBarInventory) {
         self.inventory = inventory
-        
-        print(inventory.itemStacks.value)
-        
+                
         super.init(texture: .init(imageNamed: "TP_build_itembar_frame"), color: .clear, size: [312, 80])
         
         self.zPosition = 100

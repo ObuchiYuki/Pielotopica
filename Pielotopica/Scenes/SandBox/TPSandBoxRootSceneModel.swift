@@ -39,10 +39,15 @@ class TPSandBoxRootSceneModel {
     
     // ========================================================= //
     // MARK: - Handlers -
+    
+    func present(to scene: TPSandBoxScene, as mode:TPSandBoxRootSceneModel.Mode) {
+        let success = self.binder.present(to: scene)
+        if success { self.mode.accept(mode) }
+    }
+    
     func onSceneChanged(to scene: TPSandBoxScene) {
         currentSceneModel = scene.__sceneModel
     }
-    
     
     
     func onCraftMoreItemSelctedIndexChange(to value:Int) {

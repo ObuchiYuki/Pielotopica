@@ -30,8 +30,7 @@ class TPSMainMenuSceneModel: TPSandBoxSceneModel{
         binder.__gameViewController.presentScene(with: .startScene)
     }
     func onBuildItemTap() {
-        self.rootSceneModel.mode.accept(.build)
-        self.rootSceneModel.binder.present(to: TPSBuildScene())
+        self.rootSceneModel.present(to: TPSBuildScene(), as: .build)
     }
     func onCaptureItemTap() {
         self.presentViewControllerToCapture()

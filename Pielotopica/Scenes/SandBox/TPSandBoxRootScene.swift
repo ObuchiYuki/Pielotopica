@@ -29,14 +29,16 @@ class TPSandBoxRootScene: GKSafeScene {
     
     private let sceneModel = TPSandBoxRootSceneModel.shared
     
-    private let sceneMode = TPSandBoxRootSceneModel.shared
-    
     var currentScene:TPSandBoxScene!
     
     
     // =============================================================== //
     // MARK: - Methods -
-    func present(to scene: TPSandBoxScene) {
+    private var _presentlock = false
+    func present(to scene: TPSandBoxScene) -> Bool {
+        guard !_presentlock else { return false }
+        _presentlock = true
+        
         sceneMode.onSceneChanged(to: scene)
         
         scene.show()
@@ -44,11 +46,18 @@ class TPSandBoxRootScene: GKSafeScene {
         
         self.rootNode.addChild(scene.rootNode)
         
-        currentScene?.hide {
-            self.currentScene.rootNode.removeFromParent()
+        if let currentScene = currentScene {
+            currentScene.hide {
+                self._presentlock = false
+                self.currentScene.rootNode.removeFromParent()
+            }
+        } else {
+            self._presentlock = false
         }
 
         currentScene = scene
+        
+        return true
     }
     
     override func sceneDidLoad() {

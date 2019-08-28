@@ -46,8 +46,7 @@ extension TPSMainMenuScene: TPSandBoxScene {
     }
     func hide(_ completion: @escaping () -> Void) {
         mainmenu.hide()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             completion()
         })
     }
