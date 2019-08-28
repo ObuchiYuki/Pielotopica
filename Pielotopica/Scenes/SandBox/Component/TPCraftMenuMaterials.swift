@@ -36,6 +36,9 @@ class TPCraftMenuMaterials:SKSpriteNode {
             sprite.setCount(c)
         }
     }
+    func hide() {
+        allSprites.forEach{$0.isHidden = true}
+    }
     
     init() {
         super.init(texture: nil, color: .clear, size: [80, 80])

@@ -12,6 +12,14 @@ class TPCraftMenu: SKSpriteNode {
     override var needsHandleReaction: Bool { true }
     
     func setItem(_ item:TSItem) {
+        if item == .none {
+            self.nameLabel.text = ""
+            self.icon.texture = nil
+            self.materials.hide()
+            
+            return
+        }
+        
         self.nameLabel.text = item.name
         self.icon.texture = item.itemImage.map(SKTexture.init(image: ))
         if let materials = item.materialsForCraft() {
