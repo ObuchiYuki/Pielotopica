@@ -66,7 +66,7 @@ class TPSandBoxSceneUIModel {
     
     func onCraftMoreItemSelctedIndexChange(to value:Int) {
         let item = TSItemManager.shared.getCreatableItems().at(value) ?? TSItem.none
-        
+        print(item)
         binder.__changeCraftMenu(with: item)
     }
     
