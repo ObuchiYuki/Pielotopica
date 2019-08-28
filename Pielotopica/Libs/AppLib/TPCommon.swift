@@ -21,6 +21,7 @@ struct TPCommon {
         static let icon:UIColor = #colorLiteral(red: 0.2666666667, green: 0.2588235294, blue: 0.2274509804, alpha: 1)
         static let backgroundTextureDark:UIColor = #colorLiteral(red: 0.2823529412, green: 0.2705882353, blue: 0.2352941176, alpha: 1)
         static let backgroundTextureLight:UIColor = #colorLiteral(red: 0.7254901961, green: 0.7098039216, blue: 0.6274509804, alpha: 1)
+        static let dangerous:UIColor = #colorLiteral(red: 0.8, green: 0.4, blue: 0.2980392157, alpha: 1)
     }
     struct FontName {
         static let topica = "KorneuburgSlabBold-Bold"

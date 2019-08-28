@@ -50,8 +50,17 @@ class TPCraftMenu: SKSpriteNode {
         
     }
     private func _canCreateCurrentItem() -> Bool {
-        print("HI", selectedItem.materialsForCraft() != nil)
-        return selectedItem.materialsForCraft() != nil
+        guard let material = selectedItem.materialsForCraft() else {return false}
+        
+        let mdata = TSMaterialData.shared
+        let fdata = TSFuelData.shared
+        
+        let flag = material.iron > mdata.ironAmount.value &&
+            material.wood > mdata.woodAmount.value &&
+            material.circit > mdata.circitAmount.value &&
+            material.fuel > fdata.fuel.value
+        
+        return flag
     }
     // ===================================================================== //
     // MARK: - Constructor -

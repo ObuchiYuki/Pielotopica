@@ -131,6 +131,7 @@ class TPSandBoxScene: GKSafeScene {
     }
     
     @objc private func buildMoreButtonDidTap(_ button:GKButtonNode) {
+        TPButtonReaction()
         sceneModel.onBuildMoreButtonTap()
     }
     

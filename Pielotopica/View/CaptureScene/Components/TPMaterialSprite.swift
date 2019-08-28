@@ -12,8 +12,12 @@ class TPMaterialSprite: SKSpriteNode {
     private let icon:SKSpriteNode
     private let label = SKLabelNode(fontNamed: TPCommon.FontName.topica)
     
+    func setLabelColor(_ color:UIColor) {
+        label.fontColor = color
+    }
     func setCount(_ count:Int) {
         self.label.text = "x \(count)"
+        self.label.fontColor = TPCommon.Color.text
     }
     
     init(textureNamed name:String) {

@@ -21,21 +21,32 @@ class TPCraftMenuMaterials:SKSpriteNode {
             sprite.isHidden = true
         }
         
-        var sprites = [(Int, TPMaterialSprite)]()
+        var sprites = [(Int, Int, TPMaterialSprite)]()
+        let data = TSMaterialData.shared
         
-        if value.fuel != 0 {sprites.append((value.fuel, fuelSprite))}
-        if value.circit != 0 {sprites.append((value.circit, circitSprite))}
-        if value.wood != 0 {sprites.append((value.wood, woodSprite))}
-        if value.iron != 0 {sprites.append((value.iron, ironSprite))}
+        if value.iron != 0 {
+            sprites.append((value.iron, data.ironAmount.value, ironSprite))
+        }
+        if value.wood != 0 {
+            sprites.append((value.wood, data.woodAmount.value, woodSprite))
+        }
+        if value.circit != 0 {
+            sprites.append((value.circit,data.circitAmount.value, circitSprite))
+        }
+        if value.fuel != 0 {
+            sprites.append((value.fuel, TSFuelData.shared.fuel.value, fuelSprite))
+        }
         
         assert(sprites.count < 4)
         
-        for (i, (c, sprite)) in sprites.enumerated() {
+        for (i, (c, a, sprite)) in sprites.enumerated() {
             sprite.isHidden = false
-            sprite.position = [0, CGFloat(26 * i) - 25]
+            sprite.position = [0,30 - CGFloat(30 * i)]
             sprite.setCount(c)
+            sprite.setLabelColor(c > a ? TPCommon.Color.dangerous : TPCommon.Color.text)
         }
     }
+    
     func hide() {
         allSprites.forEach{$0.isHidden = true}
     }
