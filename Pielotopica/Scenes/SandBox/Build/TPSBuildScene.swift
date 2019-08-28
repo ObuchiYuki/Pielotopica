@@ -28,8 +28,8 @@ class TPSBuildScene: GKSafeScene {
         buildSideMenu.rotateItem.addTarget(self, action: #selector(rotateDidTap), for: .touchUpInside)
         
         
-        self.addChild(itemBar)
-        self.addChild(buildSideMenu)
+        self.rootNode.addChild(itemBar)
+        self.rootNode.addChild(buildSideMenu)
     }
     
     @objc private func backButtonDidTap(_ button:GKButtonNode) {

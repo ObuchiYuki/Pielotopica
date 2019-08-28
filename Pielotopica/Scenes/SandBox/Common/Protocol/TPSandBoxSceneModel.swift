@@ -10,7 +10,7 @@ import Foundation
 
 class TPSandBoxSceneModel {
     var rootSceneModel: TPSandBoxRootSceneModel {
-        return TPSandBoxRootSceneModel.initirized!
+        return TPSandBoxRootSceneModel.shared
     }
 
 }

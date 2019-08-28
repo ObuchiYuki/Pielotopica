@@ -9,6 +9,7 @@
 import SpriteKit
 
 
+
 class TPBuildSideMenu: GKSpriteNode {
 
     let rotateItem = TPBuildSideMenuItem(imageNamed: "TP_build_button_rotate")
@@ -28,7 +29,7 @@ class TPBuildSideMenu: GKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func show(as mode: TPItemBarSelectionState) {
+    func show(as mode: TPSBuildSceneModel.Mode) {
         switch mode {
         case .place, .move:
             rotateItem.run(SKAction.moveTo(x: 47, duration: 0.3).setEase(.easeInEaseOut))

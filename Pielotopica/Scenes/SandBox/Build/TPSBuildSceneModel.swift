@@ -6,15 +6,25 @@
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
-import Foundation
+import RxCocoa
+import RxSwift
 
 protocol TPSBuildSceneModelBinder: class {
     
 }
 
 class TPSBuildSceneModel: TPSandBoxSceneModel {
+    
+    enum Mode {
+        case place
+        case move
+        case destory
+    }
+    
     // ===================================================================== //
     // MARK: - Properties -
+    var mode = BehaviorRelay(value: Mode.place) 
+    
     private weak var binder:TPSBuildSceneModelBinder!
     
     // ===================================================================== //

@@ -36,7 +36,9 @@ class TPSandBoxRootScene: GKSafeScene {
         
         scene.show()
         scene.gkViewContoller = self.gkViewContoller
-        addChild(scene.rootNode)
+        
+        self.rootNode.addChild(scene.rootNode)
+        
         currentScene.hide {
             self.currentScene.rootNode.removeFromParent()
         }
@@ -49,6 +51,8 @@ class TPSandBoxRootScene: GKSafeScene {
     override func sceneDidLoad() {
 
         self.rootNode.addChild(header)
+        
+        self.present(to: TPSMainMenuScene())
     }
     
     override func sceneDidAppear() {

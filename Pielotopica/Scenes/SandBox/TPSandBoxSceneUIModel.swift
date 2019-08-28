@@ -27,7 +27,7 @@ class TPSandBoxRootSceneModel {
     // MARK: - Private Properties -
     
     private var sceneModel:TPSandBox3DSceneModel {
-        return TPSandBox3DSceneModel.initirized
+        return TPSandBox3DSceneModel.initirized!
     }
     
     private let bag = DisposeBag()
@@ -124,7 +124,7 @@ class TPSandBoxRootSceneModel {
     // ========================================================= //
     // MARK: - Private Methods -
     private func _modeDidChanged(to value: Mode) {
-        let itemBarState = _convertMode(value)
+        //let itemBarState = _convertMode(value)
         
         //binder.__setItemBarSelectionState(to: itemBarState)
         //binder.__setBuildSideMenuMode(to: itemBarState)

@@ -76,7 +76,7 @@ class TPSandBox3DSceneModel {
     }
     
     private var uiSceneModel:TPSandBoxRootSceneModel! {
-        return TPSandBoxRootSceneModel.initirized
+        return TPSandBoxRootSceneModel.shared
     }
     
     private let bag = DisposeBag()
@@ -135,8 +135,10 @@ class TPSandBox3DSceneModel {
         guard !isPlacingBlockMode.value else { return }
         guard uiSceneModel.mode.value == .build else { return }
         
-        switch uiSceneModel.mode.value {
-        case .buildPlace:
+        let sceneModel = uiSceneModel.currentSceneModel as! TPSBuildSceneModel
+        
+        switch sceneModel.mode.value {
+        case .place:
             if itemBarInventory.canUseCurrentItem() {
                 guard let block = (itemBarInventory.selectedItemStack.item as? TSBlockItem)?.block else { return }
                 
@@ -145,11 +147,11 @@ class TPSandBox3DSceneModel {
                 guard canEnterBlockPlaingMode.value else { return }
                 _startBlockPlacing(from: position, block: block)
             }
-        case .buildMove:
+        case .move:
             guard canEnterBlockPlaingMode.value else { return }
             
             _startBlockMoving(with: touchedNode)
-        case .buildDestory:
+        case .destory:
             
             _startBlockDestoring(with: touchedNode)
         default: break
@@ -274,8 +276,12 @@ class TPSandBox3DSceneModel {
         TPSandBox3DSceneModel.initirized = self
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
-            self.uiSceneModel!.mode
-                .map{$0 == .buildMove || $0 == .buildPlace}
+            guard self.uiSceneModel.mode.value == .build else {return}
+            
+            let sceneModel = self.uiSceneModel.currentSceneModel as! TPSBuildSceneModel
+            
+            sceneModel.mode
+                .map{$0 == .move || $0 == .place}
                 .bind(to: self.canEnterBlockPlaingMode)
                 .disposed(by: self.bag)
             

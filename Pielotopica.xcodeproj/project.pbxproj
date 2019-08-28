@@ -539,12 +539,11 @@
 				B61E94142300E394008CB325 /* TPSandBoxRootScene.swift */,
 				B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */,
 				B69E8682231684CB004D4272 /* Common */,
-				B69E867D23168249004D4272 /* Build */,
 				B69E867523167FDA004D4272 /* MainMenu */,
+				B69E867D23168249004D4272 /* Build */,
 				B69E86852316865B004D4272 /* Craft */,
 				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
 				B67A966223094E6300BD408D /* TPSandBox3DSceneModel.swift */,
-				B6AA02A5230D6E5A00F0FF48 /* Component */,
 				B67A965D23094E4000BD408D /* Helper */,
 			);
 			path = SandBox;
@@ -860,13 +859,6 @@
 				B69E8683231684DF004D4272 /* TPSandBoxSceneModel.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		B6AA02A5230D6E5A00F0FF48 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Component;
 			sourceTree = "<group>";
 		};
 		B6AA02AE230D803F00F0FF48 /* View */ = {
