@@ -57,9 +57,13 @@ extension TPSBuildScene: TPSandBoxScene {
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
     func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
-        
-        itemBar.showDrops()
-        itemBar.show()
+        if oldScene == .craft {
+            itemBar.show(animated: false)
+            itemBar.showDrops()
+        }else{
+            itemBar.show()
+            itemBar.showDrops()
+        }
     }
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {
         if newScene == .craft {

@@ -158,7 +158,7 @@ class TPBuildItemBar: GKSpriteNode {
     }
     
     private func moveFrame(to index:Int) {
-        RMTapticEngine.impact.feedback(.light)
+        RMTapticEngine.impact.feedback(.medium)
         selectionFrame.position.x = 8 + 57.5 * CGFloat(index)
     }
     
