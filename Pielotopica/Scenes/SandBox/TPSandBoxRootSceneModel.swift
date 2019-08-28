@@ -10,7 +10,7 @@ import SpriteKit
 import RxSwift
 import RxCocoa
 
-protocol TPSandBoxRootSceneModelBinder {
+protocol TPSandBoxRootSceneModelBinder : class{
     func present(to scene: TPSandBoxScene)
 }
 
@@ -24,7 +24,7 @@ class TPSandBoxRootSceneModel {
     }
     var mode = BehaviorRelay(value: Mode.mainmenu)
     var currentSceneModel:TPSandBoxSceneModel!
-    var binder:TPSandBoxRootSceneModelBinder!
+    weak var binder:TPSandBoxRootSceneModelBinder!
     
     static let shared = TPSandBoxRootSceneModel()
     

@@ -31,7 +31,7 @@ class TPSMainMenuSceneModel: TPSandBoxSceneModel{
     }
     func onBuildItemTap() {
         self.rootSceneModel.mode.accept(.build)
-        
+        self.rootSceneModel.binder.present(to: TPSBuildScene())
     }
     func onCaptureItemTap() {
         

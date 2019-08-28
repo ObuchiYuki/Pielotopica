@@ -20,16 +20,19 @@ public extension GKSceneHolder {
 }
 
 /// 3D画面との橋渡し用
-class TPSandBoxRootScene: GKSafeScene, TPSandBoxRootSceneModelBinder {
+class TPSandBoxRootScene: GKSafeScene {
     // =============================================================== //
     // MARK: - Global -
     
     // node
     private let header = TPHeader()
     
+    private let sceneModel = TPSandBoxRootSceneModel.shared
+    
     private let sceneMode = TPSandBoxRootSceneModel.shared
     
     var currentScene:TPSandBoxScene!
+    
     
     // =============================================================== //
     // MARK: - Methods -
@@ -50,6 +53,7 @@ class TPSandBoxRootScene: GKSafeScene, TPSandBoxRootSceneModelBinder {
     
     override func sceneDidLoad() {
 
+        self.sceneModel.binder = self
         self.rootNode.addChild(header)
         
         self.present(to: TPSMainMenuScene())
@@ -59,3 +63,5 @@ class TPSandBoxRootScene: GKSafeScene, TPSandBoxRootSceneModelBinder {
         (self.gkViewContoller as! GameViewController).showingScene = .sandbox
     }
 }
+
+extension TPSandBoxRootScene: TPSandBoxRootSceneModelBinder {}

@@ -54,5 +54,7 @@ extension TPSMainMenuScene: TPSandBoxScene {
 }
 
 extension TPSMainMenuScene: TPSMainMenuSceneModelBinder {
-    
+    var __gameViewController: GKGameViewController {
+        return self.gkViewContoller
+    }
 }
