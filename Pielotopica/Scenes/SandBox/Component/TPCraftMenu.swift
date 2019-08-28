@@ -14,11 +14,15 @@ class TPCraftMenu: SKSpriteNode {
     func setItem(_ item:TSItem) {
         self.nameLabel.text = item.name
         self.icon.texture = item.itemImage.map(SKTexture.init(image: ))
-        
+        if let materials = item.materialsForCraft() {
+            self.materials.show(value: materials)
+        }
+
     }
+    let craftButton = TPFlatButton(textureNamed: "TP_flatbutton_craft")
     
+    private let materials = TPCraftMenuMaterials()
     private let nameLabel = SKLabelNode()
-    private let craftButton = TPFlatButton(textureNamed: "TP_flatbutton_craft")
     private let icon = SKSpriteNode(color: .clear, size: [50, 50])
     
     init() {
@@ -28,11 +32,14 @@ class TPCraftMenu: SKSpriteNode {
         nameLabel.fontName = TPCommon.FontName.hiraBold
         nameLabel.fontColor = TPCommon.Color.text
         nameLabel.horizontalAlignmentMode = .left
-        nameLabel.position = [-130, 50]
+        nameLabel.position = [-128, 50]
         
+        
+        materials.position = [40, 22]
         craftButton.position = [0, -60]
         icon.position = [-97, 0]
         
+        self.addChild(materials)
         self.addChild(nameLabel)
         self.addChild(craftButton)
         self.addChild(icon)

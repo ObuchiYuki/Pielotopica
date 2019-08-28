@@ -12,11 +12,39 @@ class TPCraftMenuMaterials:SKSpriteNode {
     private let ironSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_iron")
     private let woodSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_wood")
     private let circitSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_circit")
-    private let heartSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_heart")
     private let fuelSprite = TPMaterialSprite(textureNamed: "TP_cap_gotitem_sprite_fuel")
     
+    private var allSprites:[TPMaterialSprite] { [ironSprite, woodSprite, circitSprite, fuelSprite] }
+    
+    func show(value: TSCraftMaterialValue) {
+        for sprite in allSprites {
+            sprite.isHidden = true
+        }
+        
+        var sprites = [(Int, TPMaterialSprite)]()
+        
+        if value.fuel != 0 {sprites.append((value.fuel, fuelSprite))}
+        if value.circit != 0 {sprites.append((value.circit, circitSprite))}
+        if value.wood != 0 {sprites.append((value.wood, woodSprite))}
+        if value.iron != 0 {sprites.append((value.iron, ironSprite))}
+        
+        assert(sprites.count < 4)
+        
+        for (i, (c, sprite)) in sprites.enumerated() {
+            sprite.isHidden = false
+            sprite.position = [0, CGFloat(26 * i) - 25]
+            sprite.setCount(c)
+        }
+    }
+    
     init() {
-        super.init(texture: nil, color: .clear, size: [])
+        super.init(texture: nil, color: .clear, size: [80, 80])
+        
+        for sprite in allSprites {
+            sprite.isHidden = true
+            
+            self.addChild(sprite)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
