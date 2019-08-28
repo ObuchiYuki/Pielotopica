@@ -14,7 +14,7 @@ class TPSBuildScene: GKSafeScene {
     private let itemBar = TPBuildItemBar(inventory: TSItemBarInventory.itembarShared)
     private let buildSideMenu = TPBuildSideMenu()
     
-    private lazy var sceneModel = TPSBuildSceneModel(self)
+    lazy var sceneModel = TPSBuildSceneModel(self)
     
     override func sceneDidLoad() {
         itemBar.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
@@ -55,7 +55,7 @@ class TPSBuildScene: GKSafeScene {
 }
 
 extension TPSBuildScene: TPSandBoxScene {
-    
+    var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
     func show() {
         itemBar.showDrops()

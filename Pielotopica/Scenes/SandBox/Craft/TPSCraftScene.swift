@@ -18,7 +18,7 @@ class TPSCraftScene: GKSafeScene {
     
     lazy var overrayNode:SKSpriteNode = _createOverlay()
     
-    private lazy var sceneModel = TPSCraftSceneModel(self)
+    lazy var sceneModel = TPSCraftSceneModel(self)
     private let bag = DisposeBag()
     
     private var craftScene = TPCraftScene()
@@ -52,6 +52,8 @@ class TPSCraftScene: GKSafeScene {
 }
 
 extension TPSCraftScene: TPSandBoxScene {
+    var __sceneModel: TPSandBoxSceneModel { sceneModel }
+    
     func show() {
         
     }

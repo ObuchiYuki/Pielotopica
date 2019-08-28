@@ -11,7 +11,7 @@ import Foundation
 class TPSMainMenuScene: GKSafeScene {
     private let mainmenu = TPMainMenu()
     
-    private lazy var sceneModel = TPSMainMenuSceneModel(self)
+    lazy var sceneModel = TPSMainMenuSceneModel(self)
     
     override func sceneDidLoad() {
         mainmenu.menuItem.addTarget(self, action: #selector(menuItemDidTap), for: .touchUpInside)
@@ -38,6 +38,9 @@ class TPSMainMenuScene: GKSafeScene {
 
 // ================================================== //
 extension TPSMainMenuScene: TPSandBoxScene {
+    var __sceneModel: TPSandBoxSceneModel { sceneModel }
+    
+    
     func show() {
         mainmenu.show()
     }
