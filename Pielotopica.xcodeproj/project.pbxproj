@@ -109,6 +109,11 @@
 		B698F16A230FC85C00CAE917 /* PielotopicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698F169230FC85C00CAE917 /* PielotopicaTests.swift */; };
 		B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */; };
 		B69CE2F7230E6CE600CE04E6 /* Ex+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */; };
+		B69E864E23161D56004D4272 /* GKTransitionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E864D23161D56004D4272 /* GKTransitionNode.swift */; };
+		B69E8662231625A2004D4272 /* retro_transition_fade_to_centre.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E8653231625A2004D4272 /* retro_transition_fade_to_centre.fsh */; };
+		B69E8667231625A2004D4272 /* retro_transition_fade_from_centre.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865A231625A2004D4272 /* retro_transition_fade_from_centre.fsh */; };
+		B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */; };
+		B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */; };
 		B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */; };
@@ -269,6 +274,11 @@
 		B698F16B230FC85C00CAE917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPFlatButton.swift; sourceTree = "<group>"; };
 		B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+UIStoryboard.swift"; sourceTree = "<group>"; };
+		B69E864D23161D56004D4272 /* GKTransitionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKTransitionNode.swift; sourceTree = "<group>"; };
+		B69E8653231625A2004D4272 /* retro_transition_fade_to_centre.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_to_centre.fsh; sourceTree = "<group>"; };
+		B69E865A231625A2004D4272 /* retro_transition_fade_from_centre.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_centre.fsh; sourceTree = "<group>"; };
+		B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_top_left.fsh; sourceTree = "<group>"; };
+		B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_top.fsh; sourceTree = "<group>"; };
 		B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBoundingBoxProvider.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCaptureViewController.swift; sourceTree = "<group>"; };
@@ -424,6 +434,10 @@
 		B61E93D42300E376008CB325 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B69E8653231625A2004D4272 /* retro_transition_fade_to_centre.fsh */,
+				B69E865A231625A2004D4272 /* retro_transition_fade_from_centre.fsh */,
+				B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */,
+				B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */,
 				B68E14342314177E00E973E1 /* Yolov3.mlmodel */,
 				B61E93D52300E376008CB325 /* Assets.xcassets */,
 				B61E93D62300E376008CB325 /* LaunchScreen.storyboard */,
@@ -768,6 +782,7 @@
 				B61E93F32300E38A008CB325 /* GKButtonNode.swift */,
 				B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */,
 				B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */,
+				B69E864D23161D56004D4272 /* GKTransitionNode.swift */,
 			);
 			path = Node;
 			sourceTree = "<group>";
@@ -910,6 +925,7 @@
 				B660939323153B3400B528E5 /* Silom.ttf in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
 				B6A8D66D230ED50B005B26A5 /* TP_ground_5x5.png in Resources */,
+				B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */,
 				B6F8C51823136FC500264EBF /* ClassIndex.txt in Resources */,
 				B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */,
 				B6227A312301AB84009EF60F /* bokeh.png in Resources */,
@@ -919,10 +935,13 @@
 				B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */,
 				B6A8D66F230ED717005B26A5 /* TP_Ground_edge.scn in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
+				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,
 				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
+				B69E8662231625A2004D4272 /* retro_transition_fade_to_centre.fsh in Resources */,
 				B61E93E22300E376008CB325 /* Assets.xcassets in Resources */,
 				B61E93E42300E376008CB325 /* Main.storyboard in Resources */,
 				B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */,
+				B69E8667231625A2004D4272 /* retro_transition_fade_from_centre.fsh in Resources */,
 				B6A8D66B230ED4F7005B26A5 /* TP_ground_5x5.scn in Resources */,
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
 				B6A8D671230ED73B005B26A5 /* TP_Ground_edge.png in Resources */,
@@ -996,6 +1015,7 @@
 				B61E93F52300E38A008CB325 /* GKGameViewController.swift in Sources */,
 				B67A966323094E6300BD408D /* TPSandboxSceneModel.swift in Sources */,
 				B61E93BD2300E368008CB325 /* AppDelegate.swift in Sources */,
+				B69E864E23161D56004D4272 /* GKTransitionNode.swift in Sources */,
 				B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */,
 				B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */,
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,

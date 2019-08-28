@@ -22,6 +22,8 @@ public class GKGameViewController: UIViewController {
         return self.view as! SCNView
     }
     
+    private var _transitionSKView = SKView()
+    
     /// 現在のSafeSceneです。
     private var safeScene:GKSafeScene!
     private var background3dSceneController:GK3DSceneController?
@@ -34,6 +36,16 @@ public class GKGameViewController: UIViewController {
         if !(self.view is SCNView) { // もしIBで設定済みだった場合。
             self.view = SCNView()
         }
+        
+        let scene = SKScene(size: [375, 700])
+        scene.backgroundColor = .clear
+        
+        self._transitionSKView.allowsTransparency = true
+        self._transitionSKView.frame.size = self.view.frame.size
+        self._transitionSKView.presentScene(scene)
+        self._transitionSKView.isPaused = true
+        
+        self.scnView.addSubview(_transitionSKView)
     }
     
     /// Sceneを変更します。
@@ -176,6 +188,7 @@ public class GKGameViewController: UIViewController {
     /// 実際にシーンを変更します。
     private func _realPresentScene(to scene:SCNScene, with transition:SKTransition?, _ completion: (()->Void)?) {
         if let transition = transition {
+            
             self.scnView.present(scene, with: transition, incomingPointOfView: nil, completionHandler: completion)
         }else{
             self.scnView.scene = scene
