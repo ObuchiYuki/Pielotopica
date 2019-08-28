@@ -65,7 +65,7 @@ class TPSandBoxRootSceneModel {
     
     // MARK: - Main Menu -
     func onMainMenuMenuItemTap() {
-        //binder.__gameViewController.presentScene(with: .startScene)
+        //
     }
     
     func onMainMenuBuildItemTap() {

@@ -6,10 +6,10 @@
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol TPSMainMenuSceneModelBinder:class {
-    
+    var __gameViewController:GKGameViewController { get }
 }
 
 class TPSMainMenuSceneModel: TPSandBoxSceneModel{
@@ -27,9 +27,10 @@ class TPSMainMenuSceneModel: TPSandBoxSceneModel{
     // MARK: - Handler -
     
     func onMenuItemTap() {
-        
+        binder.__gameViewController.presentScene(with: .startScene)
     }
     func onBuildItemTap() {
+        self.rootSceneModel.mode.accept(.build)
         
     }
     func onCaptureItemTap() {

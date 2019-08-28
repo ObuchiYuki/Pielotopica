@@ -39,7 +39,7 @@ class TPSandBoxRootScene: GKSafeScene {
         
         self.rootNode.addChild(scene.rootNode)
         
-        currentScene.hide {
+        currentScene?.hide {
             self.currentScene.rootNode.removeFromParent()
         }
 
