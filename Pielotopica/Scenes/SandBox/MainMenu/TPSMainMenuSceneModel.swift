@@ -34,9 +34,17 @@ class TPSMainMenuSceneModel: TPSandBoxSceneModel{
         self.rootSceneModel.binder.present(to: TPSBuildScene())
     }
     func onCaptureItemTap() {
-        
+        self.presentViewControllerToCapture()
     }
     func onShopItemTap() {
+        print("not implmented")
+    }
+    
+    // ===================================================================== //
+    // MARK: - Private -
+    private func presentViewControllerToCapture() {
+        (self.binder.__gameViewController.presentingViewController as! TPRouterViewController).route = .capture
         
-    }    
+        self.binder.__gameViewController.dismiss(animated: false, completion: {})
+    }
 }
