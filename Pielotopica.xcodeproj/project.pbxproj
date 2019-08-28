@@ -122,6 +122,8 @@
 		B69E867F2316825B004D4272 /* TPSBuildScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E867E2316825B004D4272 /* TPSBuildScene.swift */; };
 		B69E86812316828D004D4272 /* TPSBuildSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E86802316828D004D4272 /* TPSBuildSceneModel.swift */; };
 		B69E8684231684DF004D4272 /* TPSandBoxSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E8683231684DF004D4272 /* TPSandBoxSceneModel.swift */; };
+		B69E868923168707004D4272 /* TPSCraftScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E868823168707004D4272 /* TPSCraftScene.swift */; };
+		B69E868B23168816004D4272 /* TPSCraftSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E868A23168816004D4272 /* TPSCraftSceneModel.swift */; };
 		B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */; };
@@ -295,6 +297,8 @@
 		B69E867E2316825B004D4272 /* TPSBuildScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSBuildScene.swift; sourceTree = "<group>"; };
 		B69E86802316828D004D4272 /* TPSBuildSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSBuildSceneModel.swift; sourceTree = "<group>"; };
 		B69E8683231684DF004D4272 /* TPSandBoxSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandBoxSceneModel.swift; sourceTree = "<group>"; };
+		B69E868823168707004D4272 /* TPSCraftScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSCraftScene.swift; sourceTree = "<group>"; };
+		B69E868A23168816004D4272 /* TPSCraftSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSCraftSceneModel.swift; sourceTree = "<group>"; };
 		B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBoundingBoxProvider.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCaptureViewController.swift; sourceTree = "<group>"; };
@@ -535,6 +539,7 @@
 				B69E8682231684CB004D4272 /* Common */,
 				B69E867D23168249004D4272 /* Build */,
 				B69E867523167FDA004D4272 /* MainMenu */,
+				B69E86852316865B004D4272 /* Craft */,
 				B61E94142300E394008CB325 /* TPSandBoxRootScene.swift */,
 				B6931447230E992000C1B4D7 /* TPSandBoxSceneUIModel.swift */,
 				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
@@ -797,6 +802,7 @@
 		B69E867D23168249004D4272 /* Build */ = {
 			isa = PBXGroup;
 			children = (
+				B69E868623168682004D4272 /* Components */,
 				B69E867E2316825B004D4272 /* TPSBuildScene.swift */,
 				B69E86802316828D004D4272 /* TPSBuildSceneModel.swift */,
 			);
@@ -806,27 +812,51 @@
 		B69E8682231684CB004D4272 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */,
+				B6AA02AC230D7EBE00F0FF48 /* TPHeader.swift */,
+				B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */,
+				B6690598230E2861008AE24F /* TPDropButton.swift */,
 				B69E867623168028004D4272 /* TPSandBoxScene.swift */,
 				B69E8683231684DF004D4272 /* TPSandBoxSceneModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
 		};
+		B69E86852316865B004D4272 /* Craft */ = {
+			isa = PBXGroup;
+			children = (
+				B69E868823168707004D4272 /* TPSCraftScene.swift */,
+				B69E868A23168816004D4272 /* TPSCraftSceneModel.swift */,
+				B69E8687231686DA004D4272 /* Components */,
+			);
+			path = Craft;
+			sourceTree = "<group>";
+		};
+		B69E868623168682004D4272 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */,
+				B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */,
+				B6690596230E245E008AE24F /* TPBuildItemBar.swift */,
+				B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B69E8687231686DA004D4272 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B66093982315526500B528E5 /* TPCraftMoreItems.swift */,
+				B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */,
+				B660939423154E6600B528E5 /* TPCraftMenu.swift */,
+				B660939623154F8900B528E5 /* TPCraftScene.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		B6AA02A5230D6E5A00F0FF48 /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */,
-				B6AA02AC230D7EBE00F0FF48 /* TPHeader.swift */,
-				B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */,
-				B6690596230E245E008AE24F /* TPBuildItemBar.swift */,
-				B6690598230E2861008AE24F /* TPDropButton.swift */,
-				B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */,
-				B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */,
-				B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */,
-				B660939623154F8900B528E5 /* TPCraftScene.swift */,
-				B660939423154E6600B528E5 /* TPCraftMenu.swift */,
-				B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */,
-				B66093982315526500B528E5 /* TPCraftMoreItems.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -1087,6 +1117,7 @@
 				B69E867A2316809D004D4272 /* TPSMainMenuScene.swift in Sources */,
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
+				B69E868B23168816004D4272 /* TPSCraftSceneModel.swift in Sources */,
 				B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */,
 				B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */,
 				B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */,
@@ -1121,6 +1152,7 @@
 				B6731B2B2314BED800B70C3F /* TSInventoryData.swift in Sources */,
 				B6F8C51423136E2600264EBF /* TSMaterialValueMap.swift in Sources */,
 				B69E8670231627B9004D4272 /* TSItemManager.swift in Sources */,
+				B69E868923168707004D4272 /* TPSCraftScene.swift in Sources */,
 				B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */,
 				B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */,
 				B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */,

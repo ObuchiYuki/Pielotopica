@@ -27,7 +27,7 @@ class TPSandBoxRootScene: GKSafeScene {
     let header = TPHeader()
     
     // MARK: - Craft -
-    lazy var overrayNode:SKSpriteNode = _createOverlay()
+    
         
     let craftScene = TPCraftScene()
     
@@ -37,34 +37,18 @@ class TPSandBoxRootScene: GKSafeScene {
     private lazy var sceneModel = TPSandBoxSceneUIModel(self)
     private let bag = DisposeBag()
     
-    private var backgroundScene:SKScene { return gkViewContoller.scnView.overlaySKScene! }
+    
     
     // =============================================================== //
     // MARK: - Methods -
     override func sceneDidLoad() {
-        super.sceneDidLoad()
-            
-        sceneModel.mode.accept(.mainmenu)
-        
-        #if DEBUG
-        //rootNode.color = UIColor.black.withAlphaComponent(0.5)
-        #endif
-        
-
-        
 
         craftScene.moreItem.selectedItemIndex.subscribe {[weak self] event in
             event.element.map(self!.sceneModel.onCraftMoreItemSelctedIndexChange(to: ))
             
         }.disposed(by: bag)
         
-        self.rootNode.addChild(buildSideMenu)
-        self.rootNode.addChild(mainmenu)
         self.rootNode.addChild(header)
-        self.rootNode.addChild(itemBar)
-        self.rootNode.addChild(craftScene)
-        
-        
     }
     
     override func sceneDidAppear() {
@@ -79,22 +63,9 @@ class TPSandBoxRootScene: GKSafeScene {
     
     // MARK: - Build Scene Button Handlers -
     
-    @objc private func overlayTouched(_ button:GKButtonNode) {
-        sceneModel.onOverlayTap()
-    }
+
     
     
-    private func _createOverlay() -> SKSpriteNode {
-        let node = GKButtonNode(size: backgroundScene.size)
-        node.addTarget(self, action: #selector(overlayTouched), for: .touchUpInside)
-        node.color = UIColor.init(hex: 0, alpha: 0.95)
-        node.zPosition = -1
-        node.position = backgroundScene.size.point / 2
-        node.isHidden = true
-        self.backgroundScene.addChild(node)
-        
-        return node
-    }
 }
 
 extension TPSandBoxRootScene: TPSandBoxSceneUIModelBinder {
