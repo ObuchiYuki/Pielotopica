@@ -46,7 +46,6 @@ class _TPStartSceneRing:GKButtonNode {
     private let animationDur = 0.1
     
     override func buttonDidSelect() {
-        RMTapticEngine.impact.feedback(.medium)
         
         frameOutside.run(.scale(to: 1.08, duration: animationDur))
         frameInside.run(.scale(to: 0.8, duration: animationDur))

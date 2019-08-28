@@ -39,7 +39,7 @@ class TPSandBoxRootScene: GKSafeScene {
         guard !_presentlock else { return false }
         _presentlock = true
         
-        sceneMode.onSceneChanged(to: scene)
+        sceneModel.onSceneChanged(to: scene)
         
         scene.show()
         scene.gkViewContoller = self.gkViewContoller
@@ -47,9 +47,9 @@ class TPSandBoxRootScene: GKSafeScene {
         self.rootNode.addChild(scene.rootNode)
         
         if let currentScene = currentScene {
-            currentScene.hide {
+            currentScene.hide { [currentScene] in
                 self._presentlock = false
-                self.currentScene.rootNode.removeFromParent()
+                currentScene.rootNode.removeFromParent()
             }
         } else {
             self._presentlock = false
