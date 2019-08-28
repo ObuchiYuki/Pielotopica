@@ -90,6 +90,7 @@ class TPSandBoxSceneUIModel {
     func onMainMenuMenuItemTap() {
         binder.__gameViewController.presentScene(with: .startScene)
     }
+    
     func onMainMenuBuildItemTap() {
         binder.__hideMainMenu()
         binder.__showItemBar()

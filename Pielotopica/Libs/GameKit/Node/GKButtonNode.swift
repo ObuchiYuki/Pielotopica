@@ -101,7 +101,9 @@ public class GKButtonNode: SKSpriteNode {
     // MARK: - Overriable -
     
     func buttonDidSelect() {}
-    func buttonDidUnselect() {}
+    func buttonDidUnselect() {
+        TPButtonReaction()
+    }
     
     // =============================== //
     // MARK: - APIs -
