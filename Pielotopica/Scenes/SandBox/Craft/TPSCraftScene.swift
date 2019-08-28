@@ -51,7 +51,6 @@ class TPSCraftScene: GKSafeScene {
         node.color = UIColor.init(hex: 0, alpha: 0.95)
         node.zPosition = -1
         node.position = backgroundScene.size.point / 2
-        node.isHidden = true
         
         return node
     }
@@ -62,7 +61,6 @@ extension TPSCraftScene: TPSandBoxScene {
     
     func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
         backgroundScene.backgroundColor = .red
-        print("show - node")
         self.backgroundScene.addChild(overrayNode)
     }
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {
