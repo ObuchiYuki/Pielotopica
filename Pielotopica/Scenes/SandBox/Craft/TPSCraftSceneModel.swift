@@ -20,6 +20,6 @@ class TPSCraftSceneModel: TPSandBoxSceneModel {
     }
     
     func onOverlayTap() {
-        
+        self.rootSceneModel.present(to: TPSBuildScene(), as: .build)
     }
 }

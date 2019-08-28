@@ -14,11 +14,13 @@ import RxCocoa
 class TPSCraftScene: GKSafeScene {
     // ===================================================================== //
     // MARK: - Properties -
-    lazy var overrayNode:SKSpriteNode = _createOverlay()
+    
     
     lazy var sceneModel = TPSCraftSceneModel(self)
     private let bag = DisposeBag()
     
+    private lazy var overrayNode = _createOverlay()
+    private let itemBar = TPBuildItemBar(inventory: TSItemBarInventory.itembarShared)
     private let craftMenu = TPCraftMenu()
     private let moreItem = TPCraftMoreItems()
     
@@ -27,11 +29,6 @@ class TPSCraftScene: GKSafeScene {
     // ===================================================================== //
     // MARK: - Handler -
     @objc private func overlayTouched(_ button:GKButtonNode) {
-        moreItem.selectedItemIndex.subscribe {[weak self] event in
-            fatalError()
-            //event.element.map(self!.sceneMode(to: ))
-            
-        }.disposed(by: bag)
         
         sceneModel.onOverlayTap()
     }
@@ -41,6 +38,9 @@ class TPSCraftScene: GKSafeScene {
     
     override func sceneDidLoad() {
                 
+        self.itemBar.show(animated: false)
+        
+        self.rootNode.addChild(itemBar)
         self.rootNode.addChild(moreItem)
         self.rootNode.addChild(craftMenu)
     }
@@ -60,10 +60,10 @@ extension TPSCraftScene: TPSandBoxScene {
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
     func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
-        backgroundScene.backgroundColor = .red
         self.backgroundScene.addChild(overrayNode)
     }
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {
+        overrayNode.removeFromParent()
         completion()
     }
 }

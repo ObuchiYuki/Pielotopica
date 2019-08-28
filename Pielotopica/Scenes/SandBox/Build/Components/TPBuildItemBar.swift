@@ -49,11 +49,16 @@ class TPBuildItemBar: GKSpriteNode {
     
     // ============================================================ //
     // MARK: - methods -
-    func show() {
+    func show(animated:Bool=true) {
         isHidden = false
-        showDrops()
         
-        self.run(SKAction.moveTo(y: -340, duration: 0.3).setEase(.easeInEaseOut))
+        if animated{
+            showDrops()
+            
+            self.run(SKAction.moveTo(y: -340, duration: 0.3).setEase(.easeInEaseOut))
+        }else{
+            self.position.y = -340
+        }
     }
     func showDrops() {
         allDropButtons.enumerated().forEach{(arg) in
@@ -75,16 +80,19 @@ class TPBuildItemBar: GKSpriteNode {
         }
     }
     
-    func hide() {
+    func hide(animated:Bool=true) {
         hideDrops()
-        
-        self.run(
-            SKAction.sequence([
-                SKAction.wait(forDuration: 0.3),
-                SKAction.moveTo(y: -570, duration: 0.3).setEase(.easeInEaseOut),
-                SKAction.run {[weak self] in self?.isHidden = true }
-            ])
-        )
+        if animated {
+            self.run(
+                SKAction.sequence([
+                    SKAction.wait(forDuration: 0.3),
+                    SKAction.moveTo(y: -570, duration: 0.3).setEase(.easeInEaseOut),
+                    SKAction.run {[weak self] in self?.isHidden = true }
+                ])
+            )
+        }else{
+            self.isHidden = true
+        }
     }
     
     // ============================================================ //
