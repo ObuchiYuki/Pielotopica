@@ -68,7 +68,7 @@ class TPSandBoxRootScene: GKSafeScene {
         self.sceneModel.binder = self
         self.rootNode.addChild(header)
         
-        _ = self.present(to: TPSMainMenuScene())
+        self.present(to: TPSMainMenuScene(), as: .mainmenu)
         
     }
     
