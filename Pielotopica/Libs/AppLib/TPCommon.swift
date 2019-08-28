@@ -61,6 +61,7 @@ func TPButtonReaction() {
     GKSoundPlayer.shared.playSoundEffect(.buttonLihgt)
     RMTapticEngine.impact.feedback(.medium)
 }
+
 extension GKSoundFile {
     static let buttonLihgt = GKSoundFile(filename: "button_light", exp: "mp3")
     static let place = GKSoundFile(filename: "TP_build_place", exp: "mp3")

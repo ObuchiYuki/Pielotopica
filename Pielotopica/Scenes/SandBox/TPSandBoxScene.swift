@@ -154,6 +154,10 @@ class TPSandBoxScene: GKSafeScene {
 }
 
 extension TPSandBoxScene: TPSandBoxSceneUIModelBinder {
+    var __itemBarSelectedIndex: Int {
+        return TSItemBarInventory.itembarShared.selectedItemIndex.value
+    }
+    
     func __showItemBarDrops() {
         itemBar.showDrops()
     }
@@ -192,6 +196,10 @@ extension TPSandBoxScene: TPSandBoxSceneUIModelBinder {
     
     func __changeCraftMenu(with item:TSItem) {
         craftScene.craftMenu.setItem(item)
+    }
+    
+    func __placeItemBar(with itemStack:TSItemStack, at index:Int) {
+        TSItemBarInventory.itembarShared.placeItemStack(itemStack, at: index)
     }
     
     func __setItemBarSelectionState(to state: TPItemBarSelectionState) {

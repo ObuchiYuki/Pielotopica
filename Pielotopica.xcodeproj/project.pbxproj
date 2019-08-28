@@ -116,7 +116,6 @@
 		B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */; };
 		B69E8670231627B9004D4272 /* TSItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E866F231627B9004D4272 /* TSItemManager.swift */; };
 		B69E8672231635C6004D4272 /* TS_WoodWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E8671231635C6004D4272 /* TS_WoodWall.swift */; };
-		B69E867423166B0C004D4272 /* button04a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B69E867323166B0C004D4272 /* button04a.mp3 */; };
 		B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */; };
@@ -284,7 +283,6 @@
 		B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_top.fsh; sourceTree = "<group>"; };
 		B69E866F231627B9004D4272 /* TSItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemManager.swift; sourceTree = "<group>"; };
 		B69E8671231635C6004D4272 /* TS_WoodWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_WoodWall.swift; sourceTree = "<group>"; };
-		B69E867323166B0C004D4272 /* button04a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button04a.mp3; sourceTree = "<group>"; };
 		B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBoundingBoxProvider.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCaptureViewController.swift; sourceTree = "<group>"; };
@@ -827,7 +825,6 @@
 		B6EDB11B230F78A40042CA02 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
-				B69E867323166B0C004D4272 /* button04a.mp3 */,
 				B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */,
 				B6EDB11C230F78AE0042CA02 /* button_light.mp3 */,
 			);
@@ -963,7 +960,6 @@
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
 				B6A8D671230ED73B005B26A5 /* TP_Ground_edge.png in Resources */,
 				B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */,
-				B69E867423166B0C004D4272 /* button04a.mp3 in Resources */,
 				B6A8D667230ECC5C005B26A5 /* TP_floar_5x5.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

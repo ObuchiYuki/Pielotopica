@@ -19,7 +19,6 @@ public class TSItemBarInventory: TSInventory {
     
     static let itembarShared = TSItemBarInventory(maxAmount: 4)
     
-    private static var _autosave = RMAutoSave<TSInventoryData>("_TSItemBarInventory_autosave_key_")
     private static var _indexAutosave = RMAutoSave<Int>("__TSItemBarInventory_index_autosave_key")
     
     // ========================================================== //
@@ -67,11 +66,10 @@ public class TSItemBarInventory: TSInventory {
     
     // ========================================================== //
     // MARK: - Private Methods -
-    override func _saveSelf() {
-        TSItemBarInventory._autosave.value = TSInventoryData(inventory: self)
-    }
+    override func _saveSelf() {}
+    
     override func _autosaved() -> [TSItemStack]? {
-        return TSItemBarInventory._autosave.value?.itemStacks.map{$0.itemStack}
+        return []
     }
     /// indexのアイテムを入れ替えます。
     private func _changeItemStack(at index:Int, to itemStack: TSItemStack) {

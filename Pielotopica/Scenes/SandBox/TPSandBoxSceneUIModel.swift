@@ -13,6 +13,8 @@ import RxCocoa
 protocol TPSandBoxSceneUIModelBinder: class {
     var __gameViewController:GKGameViewController { get }
     
+    var __itemBarSelectedIndex:Int { get }
+    
     func __showItemBar()
     func __hideItemBar()
     
@@ -27,6 +29,8 @@ protocol TPSandBoxSceneUIModelBinder: class {
     func __hideOverlayScene()
     
     func __changeCraftMenu(with item:TSItem)
+    
+    func __placeItemBar(with itemStack:TSItemStack, at index:Int)
     
     func __setItemBarSelectionState(to state: TPItemBarSelectionState)
     func __setBuildSideMenuMode(to mode:TPItemBarSelectionState)
@@ -65,9 +69,21 @@ class TPSandBoxSceneUIModel {
     // MARK: - Handlers -
     
     func onCraftMoreItemSelctedIndexChange(to value:Int) {
-        let item = TSItemManager.shared.getCreatableItems().at(value) ?? TSItem.none
-        print(item)
+        let item = TSItemManager.shared.getCreatableItems().at(value) ?? .none
+        
         binder.__changeCraftMenu(with: item)
+        
+        if item == .none {return}
+        
+        if let existingIndex = TSItemBarInventory.itembarShared.itemStacks.value.firstIndex(where: {$0.item == item}) {
+            binder.__placeItemBar(with: .none, at: existingIndex)
+        }
+        
+        guard let itemStack = TSInventory.shared.itemStacks.value.first(where: {$0.item == item})
+            else {return}
+
+        binder.__placeItemBar(with: itemStack, at: binder.__itemBarSelectedIndex)
+        
     }
     
     // MARK: - Main Menu -
