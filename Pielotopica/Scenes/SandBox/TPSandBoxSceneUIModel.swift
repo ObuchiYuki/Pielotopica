@@ -59,7 +59,7 @@ class TPSandBoxSceneUIModel {
     }
     
     var mode = BehaviorRelay(value: Mode.mainmenu)
-    var sceneModel:TPSandboxSceneModel { return TPSandboxSceneModel.initirized! }
+    var sceneModel:TPSandBox3DSceneModel { return TPSandBox3DSceneModel.initirized! }
     
     static weak var initirized:TPSandBoxSceneUIModel?
     

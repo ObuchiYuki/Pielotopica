@@ -15,7 +15,7 @@ class TPSandboxSceneController: GK3DSceneController {
     // ===================================================================== //
     // MARK: - Properies -
     
-    public lazy var sceneModel = TPSandboxSceneModel(self)
+    public lazy var sceneModel = TPSandBox3DSceneModel(self)
     
     private let bag = DisposeBag()
     

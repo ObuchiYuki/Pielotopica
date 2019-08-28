@@ -36,9 +36,9 @@ protocol TPSandboxSceneModelBinder: class {
 
 /// ゲームシステムとの仲介役です。
 /// イベントを受け取って管理します。
-class TPSandboxSceneModel {
+class TPSandBox3DSceneModel {
     
-    static weak var initirized:TPSandboxSceneModel?
+    static weak var initirized:TPSandBox3DSceneModel?
     
     // ================================================================== //
     // MARK: - Properties -
@@ -271,7 +271,7 @@ class TPSandboxSceneModel {
     
     init(_ binder:TPSandboxSceneModelBinder) {
         self.binder = binder
-        TPSandboxSceneModel.initirized = self
+        TPSandBox3DSceneModel.initirized = self
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
             self.uiSceneModel!.mode
@@ -291,7 +291,7 @@ class TPSandboxSceneModel {
 
 // ================================================================== //
 // MARK: - Extension for TPBlockPlaceHelperDelegate -
-extension TPSandboxSceneModel: TPBlockEditHelperDelegate {
+extension TPSandBox3DSceneModel: TPBlockEditHelperDelegate {
     func blockEditHelper(placeGuideNodeWith node: SCNNode, at position: TSVector3) {
         binder.__placeNode(node, at: position)
     }
@@ -305,7 +305,7 @@ extension TPSandboxSceneModel: TPBlockEditHelperDelegate {
 
 // ================================================================== //
 // MARK: - Extension for TPCameraGestureHelperDelegate -
-extension TPSandboxSceneModel: TPCameraGestureHelperDelegate{
+extension TPSandBox3DSceneModel: TPCameraGestureHelperDelegate{
     func cameraGestureHelper(_ cameraGestureHelper: TPSandboxCameraGestureHelper, cameraDidMoveTo position: SCNVector3) {
         binder.__moveCamera(to: position)
     }
@@ -316,7 +316,7 @@ extension TPSandboxSceneModel: TPCameraGestureHelperDelegate{
 
 // ================================================================== //
 // MARK: - Extension for TSLevelDelegate -
-extension TPSandboxSceneModel : TSLevelDelegate {
+extension TPSandBox3DSceneModel : TSLevelDelegate {
     func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag:Bool) {
         guard let node = nodeGenerator.getNode(at: position) else {return}
         
