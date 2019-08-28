@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // TODO: - ここがないと動かないのをなんとかする -
         
-        print(TSItem.none)
-        print(TSItem.japaneseHouse2)
-        print(TSItem.woodWall1x5)
+        TSItemManager.shared.register(.none)
+        TSItemManager.shared.register(.japaneseHouse2)
+        TSItemManager.shared.register(.woodWall1x5)
         
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)

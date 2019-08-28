@@ -114,6 +114,7 @@
 		B69E8667231625A2004D4272 /* retro_transition_fade_from_centre.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865A231625A2004D4272 /* retro_transition_fade_from_centre.fsh */; };
 		B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */; };
 		B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */; };
+		B69E8670231627B9004D4272 /* TSItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E866F231627B9004D4272 /* TSItemManager.swift */; };
 		B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */; };
@@ -279,6 +280,7 @@
 		B69E865A231625A2004D4272 /* retro_transition_fade_from_centre.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_centre.fsh; sourceTree = "<group>"; };
 		B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_top_left.fsh; sourceTree = "<group>"; };
 		B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_top.fsh; sourceTree = "<group>"; };
+		B69E866F231627B9004D4272 /* TSItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemManager.swift; sourceTree = "<group>"; };
 		B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBoundingBoxProvider.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCaptureViewController.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 		B62279BE2301AB2D009EF60F /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
+				B69E866E2316279F004D4272 /* Manager */,
 				B6E8826423124435003F3124 /* BridgeData */,
 				B6227A0B2301AB83009EF60F /* DataClass */,
 				B6227A262301AB84009EF60F /* Extensions */,
@@ -745,6 +748,14 @@
 				B698F16B230FC85C00CAE917 /* Info.plist */,
 			);
 			path = PielotopicaTests;
+			sourceTree = "<group>";
+		};
+		B69E866E2316279F004D4272 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B69E866F231627B9004D4272 /* TSItemManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		B6AA02A5230D6E5A00F0FF48 /* Component */ = {
@@ -1051,6 +1062,7 @@
 				B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */,
 				B6731B2B2314BED800B70C3F /* TSInventoryData.swift in Sources */,
 				B6F8C51423136E2600264EBF /* TSMaterialValueMap.swift in Sources */,
+				B69E8670231627B9004D4272 /* TSItemManager.swift in Sources */,
 				B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */,
 				B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */,
 				B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */,
