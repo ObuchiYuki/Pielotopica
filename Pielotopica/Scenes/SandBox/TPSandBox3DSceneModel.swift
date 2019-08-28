@@ -75,8 +75,8 @@ class TPSandBox3DSceneModel {
         case cameraMoving
     }
     
-    private var uiSceneModel:TPSandBoxSceneUIModel! {
-        return TPSandBoxSceneUIModel.initirized
+    private var uiSceneModel:TPSandBoxRootSceneModel! {
+        return TPSandBoxRootSceneModel.initirized
     }
     
     private let bag = DisposeBag()
@@ -132,8 +132,8 @@ class TPSandBox3DSceneModel {
     
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
-        
         guard !isPlacingBlockMode.value else { return }
+        guard uiSceneModel.mode.value == .build else { return }
         
         switch uiSceneModel.mode.value {
         case .buildPlace:

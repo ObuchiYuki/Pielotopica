@@ -1,5 +1,5 @@
 //
-//  TPSandBoxSceneUIModel.swift
+//  TPSandBoxRootSceneModel.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/08/22.
@@ -10,92 +10,69 @@ import SpriteKit
 import RxSwift
 import RxCocoa
 
-protocol TPSandBoxSceneUIModelBinder: class {
-    var __gameViewController:GKGameViewController { get }
-    
-    var __itemBarSelectedIndex:Int { get }
-    
-    func __showItemBar()
-    func __hideItemBar()
-    
-    func __showMainMenu()
-    func __hideMainMenu()
-    
-    func __hideItemBarDrops()
-    
-    func __showCraftScene()
-    
-    func __showItemBarDrops()
-    func __hideOverlayScene()
-    
-    func __changeCraftMenu(with item:TSItem)
-    
-    func __placeItemBar(with itemStack:TSItemStack, at index:Int)
-    
-    func __setItemBarSelectionState(to state: TPItemBarSelectionState)
-    func __setBuildSideMenuMode(to mode:TPItemBarSelectionState)
-}
-
-enum TPItemBarSelectionState {
-    case none
-    case place
-    case move
-    case destory
-}
-
-class TPSandBoxSceneUIModel {
-    // ========================================================= //
+class TPSandBoxRootSceneModel {
+    // ===================================================================================== //
     // MARK: - Properties -
-    private weak var binder:TPSandBoxSceneUIModelBinder!
-    
     enum Mode {
         case mainmenu
-        
-        case buildPlace
-        case buildMove
-        case buildDestory
-        
+        case build
         case craft
     }
-    
     var mode = BehaviorRelay(value: Mode.mainmenu)
-    var sceneModel:TPSandBox3DSceneModel { return TPSandBox3DSceneModel.initirized! }
+    var currentSceneModel:TPSandBoxSceneModel!
     
-    static weak var initirized:TPSandBoxSceneUIModel?
+    static let shared = TPSandBoxRootSceneModel()
     
+    // ===================================================================================== //
+    // MARK: - Private Properties -
     
-    let bag = DisposeBag()
+    private var sceneModel:TPSandBox3DSceneModel {
+        return TPSandBox3DSceneModel.initirized
+    }
+    
+    private let bag = DisposeBag()
+    
     // ========================================================= //
     // MARK: - Handlers -
+    func onSceneChanged(to scene: TPSandBoxScene) {
+        currentSceneModel = scene.__sceneModel
+    }
+    
+    
+    
+    
+    
+    
+    
     
     func onCraftMoreItemSelctedIndexChange(to value:Int) {
         let item = TSItemManager.shared.getCreatableItems().at(value) ?? .none
         
-        binder.__changeCraftMenu(with: item)
+        //binder.__changeCraftMenu(with: item)
         
         if item == .none {return}
         
         if let existingIndex = TSItemBarInventory.itembarShared.itemStacks.value.firstIndex(where: {$0.item == item}) {
-            binder.__placeItemBar(with: .none, at: existingIndex)
+            //binder.__placeItemBar(with: .none, at: existingIndex)
         }
         
         guard let itemStack = TSInventory.shared.itemStacks.value.first(where: {$0.item == item})
             else {return}
 
-        binder.__placeItemBar(with: itemStack, at: binder.__itemBarSelectedIndex)
+        //binder.__placeItemBar(with: itemStack, at: binder.__itemBarSelectedIndex)
         
     }
     
     // MARK: - Main Menu -
     func onMainMenuMenuItemTap() {
-        binder.__gameViewController.presentScene(with: .startScene)
+        //binder.__gameViewController.presentScene(with: .startScene)
     }
     
     func onMainMenuBuildItemTap() {
-        binder.__hideMainMenu()
-        binder.__showItemBar()
+        //binder.__hideMainMenu()
+        //binder.__showItemBar()
         
-        self.mode.accept(.buildPlace)
+        //self.mode.accept(.buildPlace)
     }
     func onMainMenuCaptureItemTap() {
         presentViewControllerToCapture()
@@ -107,32 +84,32 @@ class TPSandBoxSceneUIModel {
     // MARK: - Item Bar -
     func onBuildBackButtonTap() {
         if mode.value == .craft {
-            binder.__showItemBarDrops()
-            binder.__hideOverlayScene()
+            //binder.__showItemBarDrops()
+            //binder.__hideOverlayScene()
             
             self.mode.accept(.mainmenu)
         } else {
-            binder.__showMainMenu()
-            binder.__hideItemBar()
+            //binder.__showMainMenu()
+            //binder.__hideItemBar()
             
             self.mode.accept(.mainmenu)
         }
     }
     func onBuildPlaceButtonTap() {
-        self.mode.accept(.buildPlace)
+        //self.mode.accept(.buildPlace)
     }
     func onBuildMoveButtonTap() {
-        self.mode.accept(.buildMove)
+        //self.mode.accept(.buildMove)
     }
     func onBuildDestroyButtonTap() {
-        self.mode.accept(.buildDestory)
+        //self.mode.accept(.buildDestory)
     }
     
     func onBuildMoreButtonTap () {
         self.mode.accept(.craft)
         
-        self.binder.__hideItemBarDrops()
-        self.binder.__showCraftScene()
+        //self.binder.__hideItemBarDrops()
+        //self.binder.__showCraftScene()
     }
     
     func onSideMenuRotateButtonTap() {
@@ -149,33 +126,32 @@ class TPSandBoxSceneUIModel {
     private func _modeDidChanged(to value: Mode) {
         let itemBarState = _convertMode(value)
         
-        binder.__setItemBarSelectionState(to: itemBarState)
-        binder.__setBuildSideMenuMode(to: itemBarState)
+        //binder.__setItemBarSelectionState(to: itemBarState)
+        //binder.__setBuildSideMenuMode(to: itemBarState)
     }
     
     private func presentViewControllerToCapture() {
-        (self.binder.__gameViewController.presentingViewController as! TPRouterViewController).route = .capture
+        //(self.binder.__gameViewController.presentingViewController as! TPRouterViewController).route = .capture
         
-        self.binder.__gameViewController.dismiss(animated: false, completion: {})
+        //self.binder.__gameViewController.dismiss(animated: false, completion: {})
     }
     
-    private func _convertMode(_ mode: Mode) -> TPItemBarSelectionState {
-        switch mode {
-        case .mainmenu: return  .none
-        case .buildMove: return .move
-        case .buildPlace:return .place
-        case .buildDestory:return .destory
-        case .craft: return .none
-        }
-    }
+    //private func _convertMode(_ mode: Mode) -> TPItemBarSelectionState {
+        //switch mode {
+        //case .mainmenu: return  .none
+        //case .buildMove: return .move
+        //case .buildPlace:return .place
+        //case .buildDestory:return .destory
+        //case .craft: return .none
+        //}
+    //}
     
-    init(_ binder:TPSandBoxSceneUIModelBinder) {
-        self.binder = binder
+    init() {
+      //  self.binder = binder
         
         self.mode.subscribe{[weak self] event in
             event.element.map{self?._modeDidChanged(to: $0)}
         }.disposed(by: bag)
-        TPSandBoxSceneUIModel.initirized = self
     }
     
 }
