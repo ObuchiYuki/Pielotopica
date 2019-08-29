@@ -79,9 +79,9 @@ class TPSandboxSceneController: GK3DSceneController {
     override func sceneDidLoad() {
         self.sceneModel.sceneDidLoad()
         
-        self.addGestureRecognizer(pinchGestureRecognizer)
-        self.addGestureRecognizer(panGestureRecognizer)
-        self.addGestureRecognizer(tapGestureRecognizer)
+        //self.addGestureRecognizer(pinchGestureRecognizer)
+        //self.addGestureRecognizer(panGestureRecognizer)
+        //self.addGestureRecognizer(tapGestureRecognizer)
         
         // Scene Settings
         self.setupSkybox()
@@ -162,20 +162,20 @@ extension TPSandboxSceneController {
         cameraNode.position = [100, 80, 100]
     }
     func setupAsNight() {
-        print("as" ,directionalLight.intensity)
-        print("as" ,ambientLight.intensity)
-        
-        directionalLight.intensity = 100
-        ambientLight.intensity = 200
+        //directionalLight.intensity = 100
+        //ambientLight.intensity = 200
     }
     func setupSkybox() {
+        
         self.scene.background.contents = [
-            UIImage(named: "sky-night-0"),
-            UIImage(named: "sky-night-1"),
-            UIImage(named: "sky-night-2"),
-            UIImage(named: "sky-night-3"),
-            UIImage(named: "sky-night-4"),
-            UIImage(named: "sky-night-5"),
+            UIImage(named: "sky-0"),
+            UIImage(named: "sky-1"),
+            UIImage(named: "sky-2"),
+            UIImage(named: "sky-3"),
+            UIImage(named: "sky-4"),
+            UIImage(named: "sky-5"),
         ]
+        
+        //self.scene.background.contents = UIImage(named: "Background_sky")
     }
 }

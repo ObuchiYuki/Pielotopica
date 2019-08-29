@@ -914,8 +914,8 @@
 			isa = PBXGroup;
 			children = (
 				B67A965D23094E4000BD408D /* Helper */,
-				B67A966223094E6300BD408D /* TPSandBox3DSceneModel.swift */,
 				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
+				B67A966223094E6300BD408D /* TPSandBox3DSceneModel.swift */,
 			);
 			path = 3D;
 			sourceTree = "<group>";
