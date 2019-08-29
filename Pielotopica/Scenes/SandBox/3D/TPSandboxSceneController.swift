@@ -88,7 +88,7 @@ class TPSandboxSceneController: GK3DSceneController {
         self.setupCamera()
         self.setupDirectionalLight()
         
-        
+        self.setupAsNight()
     }
 }
 
@@ -161,14 +161,21 @@ extension TPSandboxSceneController {
         cameraNode.eulerAngles = [-.pi/6, .pi/4, 0]
         cameraNode.position = [100, 80, 100]
     }
+    func setupAsNight() {
+        print("as" ,directionalLight.intensity)
+        print("as" ,ambientLight.intensity)
+        
+        directionalLight.intensity = 100
+        ambientLight.intensity = 200
+    }
     func setupSkybox() {
         self.scene.background.contents = [
-            UIImage(named: "sky-0"),
-            UIImage(named: "sky-1"),
-            UIImage(named: "sky-2"),
-            UIImage(named: "sky-3"),
-            UIImage(named: "sky-4"),
-            UIImage(named: "sky-5"),
+            UIImage(named: "sky-night-0"),
+            UIImage(named: "sky-night-1"),
+            UIImage(named: "sky-night-2"),
+            UIImage(named: "sky-night-3"),
+            UIImage(named: "sky-night-4"),
+            UIImage(named: "sky-night-5"),
         ]
     }
 }
