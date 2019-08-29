@@ -15,7 +15,6 @@ class TPSCraftScene: GKSafeScene {
     // ===================================================================== //
     // MARK: - Properties -
     
-    
     lazy var sceneModel = TPSCraftSceneModel(self)
     private let bag = DisposeBag()
     
@@ -32,9 +31,12 @@ class TPSCraftScene: GKSafeScene {
     @objc private func backAction(_ button: Any) {
         sceneModel.onBackAction()
     }
+    @objc private func craftButtonDidTap(_ button:GKButtonNode) {
+        sceneModel.onCraftTap()
+    }
     
     // ===================================================================== //
-    // MARK: - Private Methods -
+    // MARK: - Methdos -
     
     override func sceneDidLoad() {
         
@@ -52,6 +54,9 @@ class TPSCraftScene: GKSafeScene {
         self.rootNode.addChild(craftMenu)
     }
     
+    // ===================================================================== //
+    // MARK: - Private Methods -
+        
     private func _createOverlay() -> SKSpriteNode {
         let node = GKButtonNode(size: backgroundScene.size)
         node.addTarget(self, action: #selector(backAction), for: .touchUpInside)

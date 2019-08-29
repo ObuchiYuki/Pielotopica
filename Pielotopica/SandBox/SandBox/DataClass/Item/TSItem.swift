@@ -32,6 +32,7 @@ public class TSItem {
     // MARK: - Methods -
     
     open func materialsForCraft() -> TSCraftMaterialValue? {nil}
+    open func amountCanCreateAtOnce() -> Int {return 1}
     
     // ===================================================================== //
     // MARK: - Private Properties -

@@ -169,6 +169,7 @@ public class GKButtonNode: SKSpriteNode {
             _ = UIApplication.shared.sendAction(actionTouchUp!, to: targetTouchUp, from: self, for: nil)
         }
     }
+    
     public override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchesEnded(touches, with: event)
     }

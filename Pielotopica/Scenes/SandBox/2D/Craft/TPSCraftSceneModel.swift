@@ -16,21 +16,41 @@ protocol TPSCraftSceneModelBinder: class{
 }
 
 class TPSCraftSceneModel: TPSandBoxSceneModel {
+    // ===================================================================== //
+    // MARK: - Properties -
+    
     private weak var binder:TPSCraftSceneModelBinder!
     
+    private var selectedItem:TSItem?
+    // ===================================================================== //
+    // MARK: - Construcotr -
     init(_ binder:TPSCraftSceneModelBinder) {
         self.binder = binder
     }
     
+    // ===================================================================== //
+    // MARK: - Handler -
     func onBackAction() {
         self.rootSceneModel.present(to: TPSBuildScene(), as: .build)
     }
     
+    func onCraftTap() {
+        guard let item = selectedItem, let material = item.materialsForCraft() else {return print("Cannot be here.")}
+        
+        TSMaterialData.shared.addIron(-material.iron)
+        TSMaterialData.shared.addWood(-material.wood)
+        TSMaterialData.shared.addCircit(-material.circit)
+        
+        TSFuelData.shared.addFuel(-material.fuel)
+        
+        TSInventory.shared.addItem(item, count: item.amountCanCreateAtOnce())
+    }
     
     func onIndexChange(to index:Int) {
         let item = TPCraftMoreItems.showingItems.at(index) ?? .none
         
         binder.__changeCraftMenu(with: item)
+        self.selectedItem = item
         
         if item == .none {return}
         
