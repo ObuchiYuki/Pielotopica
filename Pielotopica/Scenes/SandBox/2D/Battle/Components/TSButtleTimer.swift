@@ -13,10 +13,10 @@ class TSBattleTimer: SKSpriteNode {
     let selected = SKSpriteNode(color: .init(hex: 0xFFC836), size: [0, 4])
     
     func show() {
-        
+        self.run(SKAction.move(to: [-32, 260], duration: 0.3).setEase())
     }
     func hide() {
-        
+        self.run(SKAction.move(to: [-320, 260], duration: 0.3).setEase())
     }
     
     /// 0-4
@@ -30,7 +30,7 @@ class TSBattleTimer: SKSpriteNode {
     init() {
         super.init(texture: nil, color: .clear, size: [251, 20])
         
-        self.position = [-32, 260]
+        self.position = [-320, 260]
         selected.anchorPoint = [0, 0.5]
         selected.position = [-CGFloat(251) / 2, 0]
         

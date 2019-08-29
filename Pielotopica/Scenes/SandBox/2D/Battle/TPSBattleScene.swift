@@ -40,10 +40,12 @@ extension TPSBattleScene: TPSandBoxScene {
     }
     
     func show(from oldScene: TPSandBoxRootSceneModel.Mode?) {
+        timeBar.show()
         itembar.show(animated: true)
         itembar.showDrops(animated: true)
     }
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {
+        timeBar.hide()
         itembar.hideDrops(animated: true)
         itembar.hide(animated: true) {
             completion()

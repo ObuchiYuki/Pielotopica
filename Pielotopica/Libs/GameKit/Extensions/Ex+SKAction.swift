@@ -41,7 +41,7 @@ extension SKAction {
         SKAction.typewriter(string, withDuration: Double(string.count) * duration)
     }
     
-    func setEase(_ mode:SKActionTimingMode) -> SKAction {
+    func setEase(_ mode:SKActionTimingMode = .easeInEaseOut) -> SKAction {
         self.timingMode = mode
         
         return self
