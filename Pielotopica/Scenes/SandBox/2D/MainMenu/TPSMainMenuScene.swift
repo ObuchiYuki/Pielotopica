@@ -44,7 +44,7 @@ extension TPSMainMenuScene: TPSandBoxScene {
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
     
-    func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
+    func show(from oldScene: TPSandBoxRootSceneModel.Mode?) {
         mainmenu.show()
     }
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {

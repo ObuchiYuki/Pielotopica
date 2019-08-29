@@ -83,6 +83,14 @@ class TPSandBox3DSceneModel {
     // ================================================================== //
     // MARK: - Methods -
     
+    func makeBattleMode() {
+        
+    }
+    
+    func makeNormalMode() {
+        
+    }
+    
     /// ピンチジェスチャーで呼び出してください。
     func onPinchGesture(with scale:CGFloat) {
         cameraGestutreHelper.pinched(to: scale)

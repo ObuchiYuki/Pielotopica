@@ -93,7 +93,7 @@ extension TPSCraftScene: TPSandBoxScene {
     
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
-    func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
+    func show(from oldScene: TPSandBoxRootSceneModel.Mode?) {
         self.backgroundScene.addChild(overrayNode)
     }
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {

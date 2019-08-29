@@ -12,6 +12,13 @@ class TSBattleTimer: SKSpriteNode {
     let timerFrame = SKSpriteNode(imageNamed: "TP_buttle_timer_frame")
     let selected = SKSpriteNode(color: .init(hex: 0xFFC836), size: [0, 4])
     
+    func show() {
+        
+    }
+    func hide() {
+        
+    }
+    
     /// 0-4
     func setTime(_ time:Double) {
         assert(0 <= time && time <= 4, "time must be between 0 and 4.")

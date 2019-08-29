@@ -12,6 +12,7 @@ class TPSBattleScene: GKSafeScene {
     private lazy var sceneModel = TPSBattleSceneModel(self)
     
     private let itembar = TPBuildItemBar(inventory: TSItemBarInventory.itembarShared)
+    private let timeBar = TSBattleTimer()
     
     override func sceneDidLoad() {
         
@@ -31,15 +32,14 @@ extension TPSBattleScene: TPSBattleSceneModelBinder {
 }
 
 extension TPSBattleScene: TPSandBoxScene {
-    var __sceneMode: TPSandBoxRootSceneModel.Mode {
-        return .battle
-    }
+    var __sceneMode: TPSandBoxRootSceneModel.Mode { .battle }
+    
     
     var __sceneModel: TPSandBoxSceneModel{
         sceneModel
     }
     
-    func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
+    func show(from oldScene: TPSandBoxRootSceneModel.Mode?) {
         itembar.show(animated: true)
         itembar.showDrops(animated: true)
     }

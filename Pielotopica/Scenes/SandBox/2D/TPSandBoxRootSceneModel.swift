@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 
 protocol TPSandBoxRootSceneModelBinder : class{
-    func __showTimeBar()
     func __present(to scene: TPSandBoxScene, as mode: TPSandBoxRootSceneModel.Mode) -> Bool
 }
 
@@ -42,6 +41,8 @@ class TPSandBoxRootSceneModel {
     // MARK: - Private -
     private weak var binder:TPSandBoxRootSceneModelBinder!
     
+    private var sceneModel3D:TPSandBox3DSceneModel { TPSandBox3DSceneModel.initirized! }
+    
     // ========================================================= //
     // MARK: - Handlers -
     
@@ -51,9 +52,22 @@ class TPSandBoxRootSceneModel {
         currentSceneModel = scene.__sceneModel
         let success = self.binder.__present(to: scene, as: mode)
         if success { self.mode.accept(mode) }
+        
+        self._didSceneChanged(to: mode)
     }
     
     func setBinder(_ binder:TPSandBoxRootSceneModelBinder) {
         self.binder = binder
+    }
+    
+    // ========================================================= //
+    // MARK: - Private Methods -
+    
+    private func _didSceneChanged(to mode: Mode) {
+        if mode == .battle {
+            sceneModel3D.makeBattleMode()
+        }else{
+            sceneModel3D.makeNormalMode()
+        }
     }
 }

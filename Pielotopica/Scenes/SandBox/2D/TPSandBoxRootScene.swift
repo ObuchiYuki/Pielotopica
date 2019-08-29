@@ -50,7 +50,7 @@ class TPSandBoxRootScene: GKSafeScene {
     
     // =============================================================== //
     // MARK: - Private Methods -
-    private func _showNewScene(with newScene:TPSandBoxScene,from oldMode: TPSandBoxRootSceneModel.Mode) {
+    private func _showNewScene(with newScene:TPSandBoxScene,from oldMode: TPSandBoxRootSceneModel.Mode?) {
         // 初期化
         newScene.gkViewContoller = gkViewContoller
         self.rootNode.addChild(newScene.rootNode)
@@ -62,16 +62,12 @@ class TPSandBoxRootScene: GKSafeScene {
 }
 
 extension TPSandBoxRootScene: TPSandBoxRootSceneModelBinder {
-    func __showTimeBar() {
-        
-    }
-    
     func __present(to scene: TPSandBoxScene, as mode: TPSandBoxRootSceneModel.Mode) -> Bool {
         // lock 機構
         guard !_presentLock else { return false }; _presentLock = true
         
         // show
-        _showNewScene(with: scene, from: currentScene.__sceneMode)
+        _showNewScene(with: scene, from: currentScene?.__sceneMode)
         
         // hide
         if let currentScene = currentScene {

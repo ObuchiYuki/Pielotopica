@@ -13,7 +13,7 @@ protocol TPSandBoxScene: GKSafeScene {
     var __sceneMode: TPSandBoxRootSceneModel.Mode { get }
     var __sceneModel:TPSandBoxSceneModel { get }
     
-    func show(from oldScene: TPSandBoxRootSceneModel.Mode)
+    func show(from oldScene: TPSandBoxRootSceneModel.Mode?)
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping ()->Void)
 }
 
