@@ -36,7 +36,7 @@ class TPBuildItemBar: GKSpriteNode {
         TPBuildItemBarItem(), TPBuildItemBarItem(),
     ]
     
-    private var allDropButtons:[SKSpriteNode] {
+    var allDropButtons:[TPDropButton] {
         return [placeButton, moveButton, destoryButton]
     }
     

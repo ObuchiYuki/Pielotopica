@@ -22,16 +22,13 @@ public extension GKSceneHolder {
 /// 3D画面との橋渡し用
 class TPSandBoxRootScene: GKSafeScene {
     // =============================================================== //
-    // MARK: - Global -
+    // MARK: - Properties -
     
     // node
     private let header = TPHeader()
-    
     private let sceneModel = TPSandBoxRootSceneModel.shared
     
-    var currentScene:TPSandBoxScene!
-    
-    
+    private var currentScene:TPSandBoxScene!
     // =============================================================== //
     // MARK: - Methods -
     private var _presentlock = false
@@ -44,7 +41,6 @@ class TPSandBoxRootScene: GKSafeScene {
         
         // 初期化
         scene.gkViewContoller = self.gkViewContoller
-        sceneModel.onSceneChanged(to: scene)
         scene.show(from: sceneModel.mode.value)
         self.rootNode.addChild(scene.rootNode)
         
@@ -65,10 +61,10 @@ class TPSandBoxRootScene: GKSafeScene {
     
     override func sceneDidLoad() {
 
-        self.sceneModel.binder = self
+        self.sceneModel.setBinder(self)
         self.rootNode.addChild(header)
         
-        self.present(to: TPSMainMenuScene(), as: .mainmenu)
+        self.sceneModel.present(to: TPSMainMenuScene(), as: .mainmenu)
         
     }
     

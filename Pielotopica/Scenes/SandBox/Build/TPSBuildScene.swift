@@ -79,5 +79,19 @@ extension TPSBuildScene: TPSandBoxScene {
 }
 
 extension TPSBuildScene: TPSBuildSceneModelBinder {
-    
+    func __setItemBarSelectionState(to mode:TPSBuildSceneModel.Mode) {
+        self.itemBar.allDropButtons.forEach{$0.selectionState = false}
+        
+        switch mode {
+        case .place:
+            self.itemBar.placeButton.selectionState = true
+        case .move:
+            self.itemBar.moveButton.selectionState = true
+        case .destory:
+            self.itemBar.destoryButton.selectionState = true
+        }
+    }
+    func __setBuildSideMenuMode(to mode:TPSBuildSceneModel.Mode) {
+        
+    }
 }
