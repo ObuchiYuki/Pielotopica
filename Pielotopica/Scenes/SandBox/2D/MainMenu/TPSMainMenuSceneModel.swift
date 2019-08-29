@@ -36,7 +36,7 @@ class TPSMainMenuSceneModel: TPSandBoxSceneModel{
         self.presentViewControllerToCapture()
     }
     func onShopItemTap() {
-        self.rootSceneModel.present(to: TPSButtleScene(), as: .buttle)
+        self.rootSceneModel.present(to: TPSBattleScene(), as: .buttle)
     }
     
     // ===================================================================== //

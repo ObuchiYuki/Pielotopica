@@ -109,6 +109,7 @@
 		B69969312317902400CE933B /* TSButtleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69969302317902400CE933B /* TSButtleTimer.swift */; };
 		B69969332317908C00CE933B /* TPSBattleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69969322317908C00CE933B /* TPSBattleScene.swift */; };
 		B6996935231790C700CE933B /* TPSBattleSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6996934231790C700CE933B /* TPSBattleSceneModel.swift */; };
+		B6996939231792BA00CE933B /* normal_bgm.wav in Resources */ = {isa = PBXBuildFile; fileRef = B6996938231792BA00CE933B /* normal_bgm.wav */; };
 		B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */; };
 		B69CE2F7230E6CE600CE04E6 /* Ex+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */; };
 		B69E864E23161D56004D4272 /* GKTransitionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E864D23161D56004D4272 /* GKTransitionNode.swift */; };
@@ -286,6 +287,7 @@
 		B69969302317902400CE933B /* TSButtleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSButtleTimer.swift; sourceTree = "<group>"; };
 		B69969322317908C00CE933B /* TPSBattleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSBattleScene.swift; sourceTree = "<group>"; };
 		B6996934231790C700CE933B /* TPSBattleSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSBattleSceneModel.swift; sourceTree = "<group>"; };
+		B6996938231792BA00CE933B /* normal_bgm.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = normal_bgm.wav; sourceTree = "<group>"; };
 		B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPFlatButton.swift; sourceTree = "<group>"; };
 		B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+UIStoryboard.swift"; sourceTree = "<group>"; };
 		B69E864D23161D56004D4272 /* GKTransitionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKTransitionNode.swift; sourceTree = "<group>"; };
@@ -919,6 +921,7 @@
 		B6EDB11B230F78A40042CA02 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				B6996938231792BA00CE933B /* normal_bgm.wav */,
 				B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */,
 				B6EDB11C230F78AE0042CA02 /* button_light.mp3 */,
 			);
@@ -1076,6 +1079,7 @@
 				B69E8667231625A2004D4272 /* retro_transition_fade_from_centre.fsh in Resources */,
 				B6A8D66B230ED4F7005B26A5 /* TP_ground_5x5.scn in Resources */,
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
+				B6996939231792BA00CE933B /* normal_bgm.wav in Resources */,
 				B6A8D671230ED73B005B26A5 /* TP_Ground_edge.png in Resources */,
 				B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */,
 				B6A8D667230ECC5C005B26A5 /* TP_floar_5x5.scn in Resources */,

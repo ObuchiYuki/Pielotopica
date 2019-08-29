@@ -9,14 +9,14 @@
 import SpriteKit
 
 class TPSBattleScene: GKSafeScene {
-    private lazy var sceneModel = TPSButtleSceneModel(self)
+    private lazy var sceneModel = TPSBattleSceneModel(self)
     
     override func sceneDidLoad() {
         
     }
 }
 
-extension TPSBattleScene: TPSButtleSceneModelBinder {
+extension TPSBattleScene: TPSBattleSceneModelBinder {
     
 }
 

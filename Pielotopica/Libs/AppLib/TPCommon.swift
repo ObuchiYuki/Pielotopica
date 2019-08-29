@@ -66,3 +66,7 @@ extension GKSoundFile {
     static let buttonLihgt = GKSoundFile(filename: "button_light", exp: "mp3")
     static let place = GKSoundFile(filename: "TP_build_place", exp: "mp3")
 }
+
+extension GKSoundFile {
+    static let normalMusic = GKSoundFile(filename: "normal_bgm", exp: "wav")
+}
