@@ -39,8 +39,8 @@ class TPSBuildSceneModel: TPSandBoxSceneModel {
         super.init()
         self.binder = binder
         
-        self.mode.subscribe{[weak self] event in
-            event.element.map{self?._modeDidChanged(to: $0)}
+        self.mode.subscribe{[unowned self] event in
+            event.element.map{self._modeDidChanged(to: $0)}
             
         }.disposed(by: bag)
     }

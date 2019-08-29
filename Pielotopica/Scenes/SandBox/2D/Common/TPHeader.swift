@@ -44,31 +44,31 @@ class TPHeader: GKSpriteNode {
         self.zPosition = 100
         
         // rx
-        TSMaterialData.shared.ironAmount.subscribe{ event in
+        TSMaterialData.shared.ironAmount.subscribe{[unowned self] event in
             event.element.map(self.setIronAmount)
         }.disposed(by: bag)
         
-        TSMaterialData.shared.woodAmount.subscribe{ event in
+        TSMaterialData.shared.woodAmount.subscribe{[unowned self] event in
             event.element.map(self.setWoodAmount)
         }.disposed(by: bag)
         
-        TSMaterialData.shared.circitAmount.subscribe{ event in
+        TSMaterialData.shared.circitAmount.subscribe{[unowned self] event in
             event.element.map(self.setCircitAmount)
         }.disposed(by: bag)
         
-        TSFuelData.shared.heart.subscribe{ event in
+        TSFuelData.shared.heart.subscribe{[unowned self] event in
             event.element.map{self.helthSlider.value = Double($0)}
         }.disposed(by: bag)
         
-        TSFuelData.shared.maxHeart.subscribe{ event in
+        TSFuelData.shared.maxHeart.subscribe{[unowned self] event in
             event.element.map{self.helthSlider.maxValue = Double($0)}
         }.disposed(by: bag)
         
-        TSFuelData.shared.fuel.subscribe{ event in
+        TSFuelData.shared.fuel.subscribe{[unowned self] event in
             event.element.map{self.oilSlider.value = Double($0)}
         }.disposed(by: bag)
         
-        TSFuelData.shared.maxFuel.subscribe{ event in
+        TSFuelData.shared.maxFuel.subscribe{[unowned self] event in
             event.element.map{self.oilSlider.maxValue = Double($0)}
         }.disposed(by: bag)
         

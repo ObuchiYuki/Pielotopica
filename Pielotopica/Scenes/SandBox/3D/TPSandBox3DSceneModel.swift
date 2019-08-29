@@ -277,12 +277,11 @@ class TPSandBox3DSceneModel {
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
             
-            self.uiSceneModel.mode.subscribe{[weak self] event in
+            self.uiSceneModel.mode.subscribe{[unowned self] event in
                 guard let mode = event.element, mode == .build else {
-                    self?.canEnterBlockPlaingMode.accept(false)
+                    self.canEnterBlockPlaingMode.accept(false)
                     return
                 }
-                guard let self = self else {return}
                 
                 let sceneModel = self.uiSceneModel.currentSceneModel as! TPSBuildSceneModel
                 
@@ -295,7 +294,7 @@ class TPSandBox3DSceneModel {
             
             
             
-            self.canEnterBlockPlaingMode.subscribe{event in
+            self.canEnterBlockPlaingMode.subscribe{[unowned self] event in
                 if !event.element! && self.isPlacingBlockMode.value {
                     self._endBlockEditing(forced: true)
                 }

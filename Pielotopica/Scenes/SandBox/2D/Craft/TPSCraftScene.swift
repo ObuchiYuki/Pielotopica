@@ -38,8 +38,8 @@ class TPSCraftScene: GKSafeScene {
     
     override func sceneDidLoad() {
         
-        self.moreItem.selectedItemIndex.subscribe {[weak self] event in
-            event.element.map{self?.sceneModel.onIndexChange(to: $0)}
+        self.moreItem.selectedItemIndex.subscribe {[unowned self] event in
+            event.element.map{self.sceneModel.onIndexChange(to: $0)}
             
         }.disposed(by: bag)
                 

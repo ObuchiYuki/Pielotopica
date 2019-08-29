@@ -19,12 +19,12 @@ class TPBuildItemBarItem: SKSpriteNode {
     
     func setItemStack(_ itemStack:TSItemStack) {
         iconNode.texture = itemStack.item.itemImage.map{SKTexture.init(image: $0)}
-        itemStack.count.subscribe{[weak self] event in
+        itemStack.count.subscribe{[unowned self] event in
             guard let num = event.element else {return}
             if num == 0 {
-                self?.numLabel.text = ""
+                self.numLabel.text = ""
             }else{
-                self?.numLabel.text = "x \(num)"
+                self.numLabel.text = "x \(num)"
             }
         
         }.disposed(by: bag)
