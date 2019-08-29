@@ -22,9 +22,7 @@ class GameViewController: GKGameViewController {
         super.viewDidLoad()
         
         _ = TSLevel()
-        
-        self.scnView.allowsCameraControl = true
-        
+                
         switch showingScene {
         case .startScene:
             self.presentScene(with: .startScene)

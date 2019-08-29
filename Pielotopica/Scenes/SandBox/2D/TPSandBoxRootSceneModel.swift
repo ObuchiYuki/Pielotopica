@@ -21,6 +21,7 @@ class TPSandBoxRootSceneModel {
         case mainmenu
         case build
         case craft
+        case buttle
     }
     var mode = BehaviorRelay(value: Mode.mainmenu)
     var currentSceneModel:TPSandBoxSceneModel!

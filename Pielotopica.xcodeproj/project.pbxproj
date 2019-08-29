@@ -106,6 +106,9 @@
 		B6931446230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */; };
 		B6931448230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931447230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift */; };
 		B698F16A230FC85C00CAE917 /* PielotopicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698F169230FC85C00CAE917 /* PielotopicaTests.swift */; };
+		B69969312317902400CE933B /* TSButtleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69969302317902400CE933B /* TSButtleTimer.swift */; };
+		B69969332317908C00CE933B /* TPSButtleScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69969322317908C00CE933B /* TPSButtleScene.swift */; };
+		B6996935231790C700CE933B /* TPSButtleSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6996934231790C700CE933B /* TPSButtleSceneModel.swift */; };
 		B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */; };
 		B69CE2F7230E6CE600CE04E6 /* Ex+UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */; };
 		B69E864E23161D56004D4272 /* GKTransitionNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E864D23161D56004D4272 /* GKTransitionNode.swift */; };
@@ -280,6 +283,9 @@
 		B698F167230FC85C00CAE917 /* PielotopicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PielotopicaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B698F169230FC85C00CAE917 /* PielotopicaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PielotopicaTests.swift; sourceTree = "<group>"; };
 		B698F16B230FC85C00CAE917 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B69969302317902400CE933B /* TSButtleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSButtleTimer.swift; sourceTree = "<group>"; };
+		B69969322317908C00CE933B /* TPSButtleScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSButtleScene.swift; sourceTree = "<group>"; };
+		B6996934231790C700CE933B /* TPSButtleSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSButtleSceneModel.swift; sourceTree = "<group>"; };
 		B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPFlatButton.swift; sourceTree = "<group>"; };
 		B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+UIStoryboard.swift"; sourceTree = "<group>"; };
 		B69E864D23161D56004D4272 /* GKTransitionNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKTransitionNode.swift; sourceTree = "<group>"; };
@@ -765,8 +771,19 @@
 		B699692E2317899C00CE933B /* Buttle */ = {
 			isa = PBXGroup;
 			children = (
+				B69969322317908C00CE933B /* TPSButtleScene.swift */,
+				B6996934231790C700CE933B /* TPSButtleSceneModel.swift */,
+				B699692F2317901300CE933B /* Components */,
 			);
 			path = Buttle;
+			sourceTree = "<group>";
+		};
+		B699692F2317901300CE933B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B69969302317902400CE933B /* TSButtleTimer.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		B69E866E2316279F004D4272 /* Manager */ = {
@@ -1131,6 +1148,7 @@
 				B61E93F72300E38A008CB325 /* Ex+SKAction.swift in Sources */,
 				B61E93F52300E38A008CB325 /* GKGameViewController.swift in Sources */,
 				B67A966323094E6300BD408D /* TPSandBox3DSceneModel.swift in Sources */,
+				B69969312317902400CE933B /* TSButtleTimer.swift in Sources */,
 				B61E93BD2300E368008CB325 /* AppDelegate.swift in Sources */,
 				B69E864E23161D56004D4272 /* GKTransitionNode.swift in Sources */,
 				B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */,
@@ -1145,6 +1163,7 @@
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
 				B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */,
 				B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */,
+				B6996935231790C700CE933B /* TPSButtleSceneModel.swift in Sources */,
 				B69E867723168028004D4272 /* TPSandBoxScene.swift in Sources */,
 				B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,
@@ -1164,6 +1183,7 @@
 				B6227A342301AB84009EF60F /* TSInventory.swift in Sources */,
 				B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */,
 				B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */,
+				B69969332317908C00CE933B /* TPSButtleScene.swift in Sources */,
 				B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */,
 				B6F8C5102312CCDA00264EBF /* RMAutoSave.swift in Sources */,
 				B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */,
