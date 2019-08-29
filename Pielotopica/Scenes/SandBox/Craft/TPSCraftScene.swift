@@ -37,6 +37,11 @@ class TPSCraftScene: GKSafeScene {
     // MARK: - Private Methods -
     
     override func sceneDidLoad() {
+        
+        self.moreItem.selectedItemIndex.subscribe {[weak self] event in
+            event.element.map{self?.sceneModel.onIndexChange(to: $0)}
+            
+        }.disposed(by: bag)
                 
         self.itemBar.moreButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.itemBar.backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
@@ -58,6 +63,20 @@ class TPSCraftScene: GKSafeScene {
     }
 }
 
+extension TPSCraftScene: TPSCraftSceneModelBinder {
+    var __itemBarSelectedIndex:Int {
+        return TSItemBarInventory.itembarShared.selectedItemIndex.value
+    }
+    
+    func __changeCraftMenu(with item:TSItem) {
+        self.craftMenu.setItem(item)
+    }
+    func __placeItemBar(with itemStack: TSItemStack, at index: Int) {
+        TSItemBarInventory.itembarShared.placeItemStack(itemStack, at: index)
+    }
+}
+
+
 extension TPSCraftScene: TPSandBoxScene {
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
@@ -70,6 +89,3 @@ extension TPSCraftScene: TPSandBoxScene {
     }
 }
 
-extension TPSCraftScene: TPSCraftSceneModelBinder {
-    
-}

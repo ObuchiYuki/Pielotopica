@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TPSCraftSceneModelBinder: class{
-    var __itemBarSelectedIndex:Int
+    var __itemBarSelectedIndex:Int { get }
     
     func __changeCraftMenu(with item:TSItem)
     func __placeItemBar(with item: TSItemStack, at index: Int)
@@ -28,7 +28,7 @@ class TPSCraftSceneModel: TPSandBoxSceneModel {
     
     
     func onIndexChange(to index:Int) {
-        let item = TSItemManager.shared.getCreatableItems().at(index) ?? .none
+        let item = TPCraftMoreItems.showingItems.at(index) ?? .none
         
         binder.__changeCraftMenu(with: item)
         

@@ -18,15 +18,22 @@ import RxCocoa
 class TPCraftMoreItems: SKSpriteNode {
     // ==================================================================== //
     // MARK: - Properties -
+        
+    static let showingItems = TSItemManager.shared.getCreatableItems()
+    
     override var needsHandleReaction: Bool { true }
     
     let selectedItemIndex = BehaviorRelay(value: 0)
     let items = TSItemManager.shared.getCreatableItems()
     
+    // ==================================================================== //
+    // MARK: - Private Properties -
     private let selectionFrame = GKSpriteNode(imageNamed: "TP_build_itembar_selection_frame")
-    
     private var itemNodes = [TPBuildItemBarItem]()
 
+    // ==================================================================== //
+    // MARK: - Methods -
+    
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         
@@ -39,7 +46,7 @@ class TPCraftMoreItems: SKSpriteNode {
     // ==================================================================== //
     // MARK: - Private Methods -
     private func _loadItem() {
-        for (i, item) in TSItemManager.shared.getCreatableItems().enumerated() {
+        for (i, item) in TPCraftMoreItems.showingItems.enumerated() {
             guard let itemStack = TSInventory.shared.itemStacks.value.first(where: {$0.item == item}) else {return}
             let itemNode = itemNodes[i]
             
