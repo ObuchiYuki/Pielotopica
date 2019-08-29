@@ -72,4 +72,6 @@ class TPSandBoxRootScene: GKSafeScene {
     }
 }
 
-extension TPSandBoxRootScene: TPSandBoxRootSceneModelBinder {}
+extension TPSandBoxRootScene: TPSandBoxRootSceneModelBinder {
+    
+}
