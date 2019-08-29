@@ -144,6 +144,7 @@ class TPSandBox3DSceneModel {
                 
                 let position = _modifyPosition(worldCoordinate)
                 
+                print(canEnterBlockPlaingMode.value)
                 guard canEnterBlockPlaingMode.value else { return }
                 _startBlockPlacing(from: position, block: block)
             }
@@ -275,14 +276,24 @@ class TPSandBox3DSceneModel {
         TPSandBox3DSceneModel.initirized = self
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
-            guard self.uiSceneModel.mode.value == .build else {return}
             
-            let sceneModel = self.uiSceneModel.currentSceneModel as! TPSBuildSceneModel
+            self.uiSceneModel.mode.subscribe{[weak self] event in
+                guard let mode = event.element, mode == .build else {
+                    self?.canEnterBlockPlaingMode.accept(false)
+                    return
+                }
+                guard let self = self else {return}
+                
+                let sceneModel = self.uiSceneModel.currentSceneModel as! TPSBuildSceneModel
+                
+                sceneModel.mode.subscribe {event in
+                    let mode = event.element!
+                    self.canEnterBlockPlaingMode.accept(mode == .move || mode == .place)
+                    
+                }.disposed(by: self.bag)
+            }.disposed(by: self.bag)
             
-            sceneModel.mode
-                .map{$0 == .move || $0 == .place}
-                .bind(to: self.canEnterBlockPlaingMode)
-                .disposed(by: self.bag)
+            
             
             self.canEnterBlockPlaingMode.subscribe{event in
                 if !event.element! && self.isPlacingBlockMode.value {

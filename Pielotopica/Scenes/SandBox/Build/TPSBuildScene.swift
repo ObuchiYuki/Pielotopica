@@ -92,6 +92,6 @@ extension TPSBuildScene: TPSBuildSceneModelBinder {
         }
     }
     func __setBuildSideMenuMode(to mode:TPSBuildSceneModel.Mode) {
-        
+        buildSideMenu.show(as: mode)
     }
 }

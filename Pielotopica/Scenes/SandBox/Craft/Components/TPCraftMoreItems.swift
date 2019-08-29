@@ -116,6 +116,8 @@ class TPCraftMoreItems: SKSpriteNode {
         
         _setupItems()
         _loadItem()
+        
+        _moveSelectionFrame(x: 0, y: 0)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError()
