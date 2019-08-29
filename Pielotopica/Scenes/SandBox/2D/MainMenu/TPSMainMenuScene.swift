@@ -47,7 +47,7 @@ extension TPSMainMenuScene: TPSandBoxScene {
     }
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {
         mainmenu.hide()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             completion()
         })
     }
@@ -55,7 +55,6 @@ extension TPSMainMenuScene: TPSandBoxScene {
 
 extension TPSMainMenuScene: TPSMainMenuSceneModelBinder {
     var __gameViewController: GKGameViewController {
-        print("call")
         return self.gkViewContoller
     }
 }

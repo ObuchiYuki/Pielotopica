@@ -22,7 +22,7 @@ class GameViewController: GKGameViewController {
         super.viewDidLoad()
         
         _ = TSLevel()
-                
+        
         switch showingScene {
         case .startScene:
             self.presentScene(with: .startScene)

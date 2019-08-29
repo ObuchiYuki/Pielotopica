@@ -153,8 +153,17 @@ extension CGPoint {
     }
 }
 
+extension BinaryInteger {
+    var f:CGFloat { CGFloat(self) }
+    var d:Double { Double(self) }
+    var i:Int { Int(self) }
+}
 
-
+extension BinaryFloatingPoint {
+    var f:CGFloat { CGFloat(self) }
+    var d:Double { Double(self) }
+    var i:Int { Int(self) }
+}
 
 
 

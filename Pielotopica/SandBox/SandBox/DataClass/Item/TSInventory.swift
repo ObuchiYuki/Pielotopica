@@ -31,10 +31,8 @@ public class TSInventory {
     public init(maxAmount:Int) {
         // 保存ずみかつ正当ならば
         if let saved = _autosaved(), saved.count == maxAmount {
-            print("saved")
             self.itemStacks = BehaviorRelay(value: saved)
         }else{
-            print("unsaved")
             self.itemStacks = BehaviorRelay(value: Array(repeating: .none, count: maxAmount))
         }
     }

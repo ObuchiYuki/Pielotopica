@@ -162,8 +162,8 @@ extension TPSandboxSceneController {
         cameraNode.position = [100, 80, 100]
     }
     func setupAsNight() {
-        directionalLight.intensity = 100
-        ambientLight.intensity = 200
+        //directionalLight.intensity = 100
+        //ambientLight.intensity = 200
     }
     func setupSkybox() {
         
@@ -176,6 +176,6 @@ extension TPSandboxSceneController {
             UIImage(named: "sky-5"),
         ]
         
-        self.scene.background.contents = UIImage(named: "Background_sky")
+        //self.scene.background.contents = UIImage(named: "Background_sky")
     }
 }

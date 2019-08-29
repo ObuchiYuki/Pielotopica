@@ -11,6 +11,8 @@ import SpriteKit
 class TPSBattleScene: GKSafeScene {
     private lazy var sceneModel = TPSBattleSceneModel(self)
     
+    private let timeBar = 
+    
     override func sceneDidLoad() {
         
     }

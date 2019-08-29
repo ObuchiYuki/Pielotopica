@@ -58,3 +58,4 @@ extension NSObject{
         return self.responds(to: checkSelector)
     }
 }
+

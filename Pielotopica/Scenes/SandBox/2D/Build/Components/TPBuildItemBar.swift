@@ -49,49 +49,63 @@ class TPBuildItemBar: GKSpriteNode {
     
     // ============================================================ //
     // MARK: - methods -
-    func show(animated:Bool=true) {
-        isHidden = false
-        
+    func show(animated:Bool,  _ completion: (()->Void)? = nil) {
         if animated{
-            showDrops()
-            
-            self.run(SKAction.moveTo(y: -340, duration: 0.3).setEase(.easeInEaseOut))
+            let a = SKAction.sequence([
+                SKAction.moveTo(y: -340, duration: 0.3).setEase(.easeInEaseOut),
+                SKAction.run{completion?()}
+            ])
+            self.run(a)
         }else{
+            isHidden = false
             self.position.y = -340
+            completion?()
         }
     }
-    func showDrops() {
-        allDropButtons.enumerated().forEach{(arg) in
-            let (i, e) = arg
-            e.run(SKAction.sequence([
-                SKAction.wait(forDuration: 0.1 * Double(i) + 0.3),
-                SKAction.scale(to: 1, duration: 0.2).setEase(.easeInEaseOut)
-            ]))
-        }
-    }
-    
-    func hideDrops() {
-        allDropButtons.enumerated().forEach{(arg) in
-            let (i, e) = arg
-            e.run(SKAction.sequence([
-                SKAction.wait(forDuration: 0.1 * Double(i)),
-                SKAction.scale(to: 0, duration: 0.2).setEase(.easeInEaseOut)
-            ]))
+    func showDrops(animated:Bool,  _ completion: (()->Void)? = nil) {
+        if animated {
+            allDropButtons.enumerated().forEach{(arg) in
+                let (i, e) = arg
+                e.run(SKAction.sequence([
+                    SKAction.wait(forDuration: 0.1 * Double(i) + 0.3),
+                    SKAction.scale(to: 1, duration: 0.2).setEase(.easeInEaseOut),
+                    SKAction.run{ if i == 3 { completion?() } }
+                ]))
+            }
+        }else{
+            allDropButtons.forEach{$0.setScale(1)}
+            completion?()
         }
     }
     
-    func hide(animated:Bool=true) {
-        hideDrops()
+    func hideDrops(animated:Bool, _ completion: (()->Void)? = nil) {
+        if animated {
+            allDropButtons.enumerated().forEach{(arg) in
+                let (i, e) = arg
+                e.run(SKAction.sequence([
+                    SKAction.wait(forDuration: 0.1 * Double(i)),
+                    SKAction.scale(to: 0, duration: 0.2).setEase(.easeInEaseOut),
+                    SKAction.run{ if i == 3 { completion?() } }
+                ]))
+            }
+        }else{
+            allDropButtons.forEach{$0.setScale(0)}
+            completion?()
+        }
+    }
+    
+    func hide(animated:Bool=true, _ completion:(()->Void)? = nil) {
         if animated {
             self.run(
                 SKAction.sequence([
                     SKAction.wait(forDuration: 0.3),
                     SKAction.moveTo(y: -570, duration: 0.3).setEase(.easeInEaseOut),
-                    SKAction.run {[weak self] in self?.isHidden = true }
+                    SKAction.run {[weak self] in self?.isHidden = true ; completion?()}
                 ])
             )
         }else{
             self.isHidden = true
+            completion?()
         }
     }
     
