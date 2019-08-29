@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class TPSButtleScene: GKSafeScene {
+class TPSBattleScene: GKSafeScene {
     private lazy var sceneModel = TPSButtleSceneModel(self)
     
     override func sceneDidLoad() {
@@ -16,11 +16,11 @@ class TPSButtleScene: GKSafeScene {
     }
 }
 
-extension TPSButtleScene: TPSButtleSceneModelBinder {
+extension TPSBattleScene: TPSButtleSceneModelBinder {
     
 }
 
-extension TPSButtleScene: TPSandBoxScene {
+extension TPSBattleScene: TPSandBoxScene {
     
     var __sceneModel: TPSandBoxSceneModel{
         sceneModel
