@@ -16,6 +16,8 @@ class TPBuildSideMenuItem: GKButtonNode {
             selectedTexture: .init(imageNamed: name+"_pressed"),
             disabledTexture: nil
         )
+        
+        self.zPosition = -2
     }
     
     required init(coder: NSCoder) {
