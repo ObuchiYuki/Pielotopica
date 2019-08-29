@@ -89,6 +89,8 @@ extension TPSCraftScene: TPSCraftSceneModelBinder {
 
 
 extension TPSCraftScene: TPSandBoxScene {
+    var __sceneMode: TPSandBoxRootSceneModel.Mode { .craft }
+    
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
     func show(from oldScene: TPSandBoxRootSceneModel.Mode) {

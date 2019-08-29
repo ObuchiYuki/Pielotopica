@@ -49,7 +49,7 @@ class TPSBuildSceneModel: TPSandBoxSceneModel {
     // MARK: - Handler -
     
     func onBackButtonTap() {
-        self.rootSceneModel.present(to: TPSMainMenuScene(), as: .mainmenu)
+        self.rootSceneModel.present(to: TPSMainMenuScene())
     }
     func onPlaceButtonTap() {
         self.mode.accept(.place)
@@ -61,7 +61,7 @@ class TPSBuildSceneModel: TPSandBoxSceneModel {
         self.mode.accept(.destory)
     }
     func onMoreButtonTap() {
-        self.rootSceneModel.present(to: TPSCraftScene(), as: .craft)
+        self.rootSceneModel.present(to: TPSCraftScene())
     }
     func onRotateButtonTap() {
         assert(sceneModel3D.blockEditHelper != nil)

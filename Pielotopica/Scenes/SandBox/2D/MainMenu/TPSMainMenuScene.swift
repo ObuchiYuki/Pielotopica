@@ -39,6 +39,8 @@ class TPSMainMenuScene: GKSafeScene {
 
 // ================================================== //
 extension TPSMainMenuScene: TPSandBoxScene {
+    var __sceneMode: TPSandBoxRootSceneModel.Mode { .mainmenu }
+    
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
     

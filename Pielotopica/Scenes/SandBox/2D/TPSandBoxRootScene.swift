@@ -26,39 +26,16 @@ class TPSandBoxRootScene: GKSafeScene {
     
     // node
     private let header = TPHeader()
-    private let sceneModel = TPSandBoxRootSceneModel.shared
+    private let timeBar = TSBattleTimer()
     
+    // system
+    private let sceneModel = TPSandBoxRootSceneModel.shared
     private var currentScene:TPSandBoxScene!
+    
+    private var _presentLock = false
+    
     // =============================================================== //
     // MARK: - Methods -
-    private var _presentlock = false
-    
-    @discardableResult
-    func present(to scene: TPSandBoxScene, as mode: TPSandBoxRootSceneModel.Mode) -> Bool {
-        // lock 機構
-        guard !_presentlock else { return false }
-        _presentlock = true
-        
-        // 初期化
-        scene.gkViewContoller = gkViewContoller
-        self.rootNode.addChild(scene.rootNode)
-        
-        scene.show(from: sceneModel.mode.value)
-        
-        // hide
-        if let currentScene = currentScene {
-            currentScene.hide(to: mode) { [currentScene] in
-                self._presentlock = false
-                currentScene.rootNode.removeFromParent()
-            }
-        } else {
-            self._presentlock = false
-        }
-
-        currentScene = scene
-        
-        return true
-    }
     
     override func sceneDidLoad() {
 
@@ -68,10 +45,44 @@ class TPSandBoxRootScene: GKSafeScene {
     
     override func sceneDidAppear() {
         (self.gkViewContoller as! GameViewController).showingScene = .sandbox
-        self.sceneModel.present(to: TPSMainMenuScene(), as: .mainmenu)
+        self.sceneModel.present(to: TPSMainMenuScene())
     }
+    
+    // =============================================================== //
+    // MARK: - Private Methods -
+    private func _showNewScene(with newScene:TPSandBoxScene,from oldMode: TPSandBoxRootSceneModel.Mode) {
+        // 初期化
+        newScene.gkViewContoller = gkViewContoller
+        self.rootNode.addChild(newScene.rootNode)
+        
+        newScene.show(from: oldMode)
+        
+    }
+    
 }
 
 extension TPSandBoxRootScene: TPSandBoxRootSceneModelBinder {
+    func __showTimeBar() {
+        
+    }
     
+    func __present(to scene: TPSandBoxScene, as mode: TPSandBoxRootSceneModel.Mode) -> Bool {
+        // lock 機構
+        guard !_presentLock else { return false }; _presentLock = true
+        
+        // show
+        _showNewScene(with: scene, from: currentScene.__sceneMode)
+        
+        // hide
+        if let currentScene = currentScene {
+            currentScene.hide(to: mode) { [currentScene] in
+                self._presentLock = false
+                currentScene.rootNode.removeFromParent()
+            }
+        } else { self._presentLock = false }
+
+        currentScene = scene
+        
+        return true
+    }
 }

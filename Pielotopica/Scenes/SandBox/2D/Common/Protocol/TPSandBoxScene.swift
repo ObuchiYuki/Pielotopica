@@ -10,6 +10,7 @@ import Foundation
 
 /// Sandbox画面は複雑なので分割する用です。
 protocol TPSandBoxScene: GKSafeScene {
+    var __sceneMode: TPSandBoxRootSceneModel.Mode { get }
     var __sceneModel:TPSandBoxSceneModel { get }
     
     func show(from oldScene: TPSandBoxRootSceneModel.Mode)

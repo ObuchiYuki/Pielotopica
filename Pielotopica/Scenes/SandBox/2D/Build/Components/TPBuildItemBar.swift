@@ -94,7 +94,7 @@ class TPBuildItemBar: GKSpriteNode {
         }
     }
     
-    func hide(animated:Bool=true, _ completion:(()->Void)? = nil) {
+    func hide(animated:Bool, _ completion:(()->Void)? = nil) {
         if animated {
             self.run(
                 SKAction.sequence([

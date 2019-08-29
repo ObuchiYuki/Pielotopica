@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class TSButtleTimer: SKSpriteNode {
+class TSBattleTimer: SKSpriteNode {
     let timerFrame = SKSpriteNode(imageNamed: "TP_buttle_timer_frame")
     let selected = SKSpriteNode(color: .init(hex: 0xFFC836), size: [0, 4])
     
@@ -23,6 +23,7 @@ class TSButtleTimer: SKSpriteNode {
     init() {
         super.init(texture: nil, color: .clear, size: [251, 20])
         
+        self.position = [-32, 260]
         selected.anchorPoint = [0, 0.5]
         selected.position = [-CGFloat(251) / 2, 0]
         

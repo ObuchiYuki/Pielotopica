@@ -15,6 +15,10 @@ protocol TPSBattleSceneModelBinder: class {
 class TPSBattleSceneModel: TPSandBoxSceneModel {
     private weak var binder:TPSBattleSceneModelBinder!
     
+    func onBackButtonTap() {
+        self.rootSceneModel.present(to: TPSMainMenuScene())
+    }
+    
     init(_ binder:TPSBattleSceneModelBinder) {
         self.binder = binder
     }

@@ -30,13 +30,13 @@ class TPSMainMenuSceneModel: TPSandBoxSceneModel{
         binder.__gameViewController.presentScene(with: .startScene)
     }
     func onBuildItemTap() {
-        self.rootSceneModel.present(to: TPSBuildScene(), as: .build)
+        self.rootSceneModel.present(to: TPSBuildScene())
     }
     func onCaptureItemTap() {
         self.presentViewControllerToCapture()
     }
     func onShopItemTap() {
-        self.rootSceneModel.present(to: TPSBattleScene(), as: .buttle)
+        self.rootSceneModel.present(to: TPSBattleScene())
     }
     
     // ===================================================================== //

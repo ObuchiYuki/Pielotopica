@@ -11,21 +11,32 @@ import RxSwift
 import RxCocoa
 
 protocol TPSandBoxRootSceneModelBinder : class{
-    func present(to scene: TPSandBoxScene, as mode: TPSandBoxRootSceneModel.Mode) -> Bool 
+    func __showTimeBar()
+    func __present(to scene: TPSandBoxScene, as mode: TPSandBoxRootSceneModel.Mode) -> Bool
 }
 
+
 class TPSandBoxRootSceneModel {
+    // 基本的に解放されないので被強参照注意
+    
     // ===================================================================================== //
     // MARK: - Properties -
+    /// シングルトン (ViewModelのシングルトンって何だよ。自問)
+    static let shared = TPSandBoxRootSceneModel()
+    
     enum Mode {
         case mainmenu
         case build
         case craft
-        case buttle
+        
+        case battle
     }
+    
+    /// 現在のSceneのモードです。
     var mode = BehaviorRelay(value: Mode.mainmenu)
-    var currentSceneModel:TPSandBoxSceneModel!
-    static let shared = TPSandBoxRootSceneModel()
+    
+    /// 現在のシーンモデルです。
+    weak var currentSceneModel:TPSandBoxSceneModel!
     
     // ========================================================= //
     // MARK: - Private -
@@ -34,11 +45,14 @@ class TPSandBoxRootSceneModel {
     // ========================================================= //
     // MARK: - Handlers -
     
-    func present(to scene: TPSandBoxScene, as mode:TPSandBoxRootSceneModel.Mode) {
+    func present(to scene: TPSandBoxScene) {
+        let mode = scene.__sceneMode
+        
         currentSceneModel = scene.__sceneModel
-        let success = self.binder.present(to: scene, as: mode)
+        let success = self.binder.__present(to: scene, as: mode)
         if success { self.mode.accept(mode) }
     }
+    
     func setBinder(_ binder:TPSandBoxRootSceneModelBinder) {
         self.binder = binder
     }

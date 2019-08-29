@@ -54,6 +54,8 @@ class TPSBuildScene: GKSafeScene {
 }
 
 extension TPSBuildScene: TPSandBoxScene {
+    var __sceneMode: TPSandBoxRootSceneModel.Mode { .build }
+    
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
     func show(from oldScene: TPSandBoxRootSceneModel.Mode) {
