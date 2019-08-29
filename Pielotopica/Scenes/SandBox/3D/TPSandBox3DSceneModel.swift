@@ -156,7 +156,6 @@ class TPSandBox3DSceneModel {
                 
                 let position = _modifyPosition(worldCoordinate)
                 
-                print(canEnterBlockPlaingMode.value)
                 guard canEnterBlockPlaingMode.value else { return }
                 _startBlockPlacing(from: position, block: block)
             }
@@ -264,12 +263,15 @@ class TPSandBox3DSceneModel {
     }
     
     private func _startBlockPlacing(from startPoint:TSVector3, block:TSBlock) {
-        _prepareBlockEditing()
+        
         
         let _blockPlaceHelper = TPBlockPlaceHelper(delegate: self, block: block)
-        _blockPlaceHelper.startBlockPlacing(at: startPoint)
+        let success = _blockPlaceHelper.startBlockPlacing(at: startPoint)
         
-        self.blockEditHelper = _blockPlaceHelper
+        if success {
+            _prepareBlockEditing()
+            self.blockEditHelper = _blockPlaceHelper
+        }
     }
     
     private func _prepareBlockEditing() {

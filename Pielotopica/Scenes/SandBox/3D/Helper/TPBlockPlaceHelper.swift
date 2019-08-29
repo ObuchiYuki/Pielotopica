@@ -17,22 +17,23 @@ import SceneKit
 /// ジェスチャー・置かれたかどうかなど。
 class TPBlockPlaceHelper: TPBlockEditHelper {
     
-    func startBlockPlacing(at position:TSVector3) {
+    func startBlockPlacing(at position:TSVector3) -> Bool {
         guard
             TSLevel.current.canPlace(block, at: position, atRotation: .x0),
             let initialPosition = TSLevel.current.calculatePlacablePosition(for: block, at: position.vector2)
         else {
             self._didPlaceFail(at: position)
-            return
+            return false
         }
         
         self.startEditing(from: initialPosition, startRotation: 0)
+        
+        return true
     }
     
     // =============================================================== //
     // MARK: - Private Methods - 
     private func _didPlaceFail(at position:TSVector3) {
-        //delegate?.blockPlaceHelper(failToFindInitialBlockPointWith: showFailtureNode, to: position)
         
         guideNode.runAction(_createFailtureAction())
     }
