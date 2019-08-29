@@ -32,6 +32,10 @@ protocol TPSandboxSceneModelBinder: class {
     func __moveCamera(to position:SCNVector3)
     func __zoomCamera(to scale:Double)
     
+    // MARK: - Stage -
+    func __makeNight()
+    func __makeDay()
+    
 }
 
 /// ゲームシステムとの仲介役です。
@@ -84,11 +88,11 @@ class TPSandBox3DSceneModel {
     // MARK: - Methods -
     
     func makeBattleMode() {
-        
+        binder.__makeNight()
     }
     
     func makeNormalMode() {
-        
+        binder.__makeDay()
     }
     
     /// ピンチジェスチャーで呼び出してください。
@@ -172,6 +176,8 @@ class TPSandBox3DSceneModel {
         
         level.delegate = self
         level.loadLevelData(levelData)
+        
+        binder.__makeDay()
         
         if level.getAllAnchors().isEmpty {
             /// 床設置 (仮)
