@@ -44,6 +44,8 @@ class TPSCraftScene: GKSafeScene {
             event.element.map{self.sceneModel.onIndexChange(to: $0)}
             
         }.disposed(by: bag)
+        
+        self.craftMenu.craftButton.addTarget(self, action: #selector(craftButtonDidTap), for: .touchUpInside)
                 
         self.itemBar.moreButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.itemBar.backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
@@ -71,6 +73,10 @@ class TPSCraftScene: GKSafeScene {
 extension TPSCraftScene: TPSCraftSceneModelBinder {
     var __itemBarSelectedIndex:Int {
         return TSItemBarInventory.itembarShared.selectedItemIndex.value
+    }
+    
+    func __checkCraftableState() {
+        self.craftMenu.checkState()
     }
     
     func __changeCraftMenu(with item:TSItem) {

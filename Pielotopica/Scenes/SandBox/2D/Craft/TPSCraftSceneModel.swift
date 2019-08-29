@@ -11,6 +11,7 @@ import Foundation
 protocol TPSCraftSceneModelBinder: class{
     var __itemBarSelectedIndex:Int { get }
     
+    func __checkCraftableState()
     func __changeCraftMenu(with item:TSItem)
     func __placeItemBar(with item: TSItemStack, at index: Int)
 }
@@ -44,6 +45,8 @@ class TPSCraftSceneModel: TPSandBoxSceneModel {
         TSFuelData.shared.addFuel(-material.fuel)
         
         TSInventory.shared.addItem(item, count: item.amountCanCreateAtOnce())
+        
+        binder.__checkCraftableState()
     }
     
     func onIndexChange(to index:Int) {

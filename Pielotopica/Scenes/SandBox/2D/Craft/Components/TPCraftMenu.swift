@@ -37,27 +37,28 @@ class TPCraftMenu: SKSpriteNode {
             self.icon.texture = nil
             self.materials.hide()
             
-            _checkState()
+            checkState()
             return
         }
         
         self.amountLabel.text = "x \(item.amountCanCreateAtOnce())"
         self.nameLabel.text = item.name
         self.icon.texture = item.itemImage.map(SKTexture.init(image: ))
-        if let materials = item.materialsForCraft() {
-            self.materials.show(value: materials)
-        }
         
-        _checkState()
+        checkState()
 
     }
     // ===================================================================== //
     // MARK: - Private Methods -
-    private func _checkState() {
+    func checkState() {
         let flag = _canCreateCurrentItem()
         
         craftButton.isEnabled = flag
         materials.alpha = flag ? 1 : 0.5
+        
+        if let materials = selectedItem.materialsForCraft() {
+            self.materials.show(value: materials)
+        }
     }
     private func _canCreateCurrentItem() -> Bool {
         guard let material = selectedItem.materialsForCraft() else {return false}
