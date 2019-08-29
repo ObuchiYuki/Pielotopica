@@ -36,7 +36,7 @@ class TPSMainMenuSceneModel: TPSandBoxSceneModel{
         self.presentViewControllerToCapture()
     }
     func onShopItemTap() {
-        print("not implmented")
+        
     }
     
     // ===================================================================== //
