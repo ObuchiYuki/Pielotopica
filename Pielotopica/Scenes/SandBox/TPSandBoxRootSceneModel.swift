@@ -67,39 +67,7 @@ class TPSandBoxRootSceneModel {
         //binder.__placeItemBar(with: itemStack, at: binder.__itemBarSelectedIndex)
         
     }
-    
-    // MARK: - Main Menu -
-    func onMainMenuMenuItemTap() {
-        //
-    }
-    
-    func onMainMenuBuildItemTap() {
-        //binder.__hideMainMenu()
-        //binder.__showItemBar()
-        
-        //self.mode.accept(.buildPlace)
-    }
-    func onMainMenuCaptureItemTap() {
-        presentViewControllerToCapture()
-    }
-    func onMainMenuShopItemTap() {
-        
-    }
-    
-    // MARK: - Item Bar -
-    func onBuildBackButtonTap() {
-        if mode.value == .craft {
-            //binder.__showItemBarDrops()
-            //binder.__hideOverlayScene()
-            
-            self.mode.accept(.mainmenu)
-        } else {
-            //binder.__showMainMenu()
-            //binder.__hideItemBar()
-            
-            self.mode.accept(.mainmenu)
-        }
-    }
+
     func onBuildPlaceButtonTap() {
         //self.mode.accept(.buildPlace)
     }

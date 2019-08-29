@@ -68,13 +68,13 @@ extension TPSBuildScene: TPSandBoxScene {
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {
         if newScene == .craft {
             itemBar.hide(animated: false)
+            completion()
         }else{
             itemBar.hide()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+                completion()
+            })
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            completion()
-        })
     }
 }
 

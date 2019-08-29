@@ -19,7 +19,7 @@ class TPSCraftSceneModel: TPSandBoxSceneModel {
         self.binder = binder
     }
     
-    func onOverlayTap() {
+    func onBackAction() {
         self.rootSceneModel.present(to: TPSBuildScene(), as: .build)
     }
 }

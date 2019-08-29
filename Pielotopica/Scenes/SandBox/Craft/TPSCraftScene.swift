@@ -28,9 +28,9 @@ class TPSCraftScene: GKSafeScene {
     
     // ===================================================================== //
     // MARK: - Handler -
-    @objc private func overlayTouched(_ button:GKButtonNode) {
-        
-        sceneModel.onOverlayTap()
+    
+    @objc private func backAction(_ button: Any) {
+        sceneModel.onBackAction()
     }
     
     // ===================================================================== //
@@ -38,6 +38,8 @@ class TPSCraftScene: GKSafeScene {
     
     override func sceneDidLoad() {
                 
+        self.itemBar.moreButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        self.itemBar.backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         self.itemBar.show(animated: false)
         
         self.rootNode.addChild(itemBar)
@@ -47,7 +49,7 @@ class TPSCraftScene: GKSafeScene {
     
     private func _createOverlay() -> SKSpriteNode {
         let node = GKButtonNode(size: backgroundScene.size)
-        node.addTarget(self, action: #selector(overlayTouched), for: .touchUpInside)
+        node.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         node.color = UIColor.init(hex: 0, alpha: 0.95)
         node.zPosition = -1
         node.position = backgroundScene.size.point / 2
