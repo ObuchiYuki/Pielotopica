@@ -534,15 +534,8 @@
 		B61E94132300E394008CB325 /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
-				B61E94142300E394008CB325 /* TPSandBoxRootScene.swift */,
-				B6931447230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift */,
-				B69E8682231684CB004D4272 /* Common */,
-				B69E867523167FDA004D4272 /* MainMenu */,
-				B69E867D23168249004D4272 /* Build */,
-				B69E86852316865B004D4272 /* Craft */,
-				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
-				B67A966223094E6300BD408D /* TPSandBox3DSceneModel.swift */,
-				B67A965D23094E4000BD408D /* Helper */,
+				B6F425202317598C000372BD /* 2D */,
+				B6F4251F23175977000372BD /* 3D */,
 			);
 			path = SandBox;
 			sourceTree = "<group>";
@@ -915,6 +908,29 @@
 				B69E8671231635C6004D4272 /* TS_WoodWall.swift */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		B6F4251F23175977000372BD /* 3D */ = {
+			isa = PBXGroup;
+			children = (
+				B67A965D23094E4000BD408D /* Helper */,
+				B67A966223094E6300BD408D /* TPSandBox3DSceneModel.swift */,
+				B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */,
+			);
+			path = 3D;
+			sourceTree = "<group>";
+		};
+		B6F425202317598C000372BD /* 2D */ = {
+			isa = PBXGroup;
+			children = (
+				B61E94142300E394008CB325 /* TPSandBoxRootScene.swift */,
+				B6931447230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift */,
+				B69E8682231684CB004D4272 /* Common */,
+				B69E867523167FDA004D4272 /* MainMenu */,
+				B69E867D23168249004D4272 /* Build */,
+				B69E86852316865B004D4272 /* Craft */,
+			);
+			path = 2D;
 			sourceTree = "<group>";
 		};
 		C5EEAD015C040741A850ECDC /* Frameworks */ = {
