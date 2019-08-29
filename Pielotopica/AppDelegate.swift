@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSItemManager.shared.register(.japaneseHouse2)
         TSItemManager.shared.register(.woodWall1x5)
                        
-        TSFuelData.shared.addFuel(200)
+        //TSFuelData.shared.addFuel(1000)
         
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)

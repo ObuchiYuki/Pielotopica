@@ -218,7 +218,11 @@ class TPSandBox3DSceneModel {
         // process
         guard block.canDestroy(at: anchorPoint) else {return}
         
-        binder.__removeNode(touchedNode)
+        let action = TSBlockAnimator.generateBlockDestroyAnimation(for: touchedNode) {
+            self.binder.__removeNode(touchedNode)
+        }
+        touchedNode.runAction(action)
+        
         block.dropItemStacks(at: anchorPoint).forEach(itemBarInventory.addItemStack)
         
         level.destroyBlock(at: anchorPoint)

@@ -14,6 +14,7 @@ class TPSMainMenuScene: GKSafeScene {
     lazy var sceneModel = TPSMainMenuSceneModel(self)
     
     override func sceneDidLoad() {
+        
         mainmenu.menuItem.addTarget(self, action: #selector(menuItemDidTap), for: .touchUpInside)
         mainmenu.buildItem.addTarget(self, action: #selector(buildItemDidTap), for: .touchUpInside)
         mainmenu.captureItem.addTarget(self, action: #selector(captureItemDidTap), for: .touchUpInside)
@@ -54,6 +55,7 @@ extension TPSMainMenuScene: TPSandBoxScene {
 
 extension TPSMainMenuScene: TPSMainMenuSceneModelBinder {
     var __gameViewController: GKGameViewController {
+        print("call")
         return self.gkViewContoller
     }
 }

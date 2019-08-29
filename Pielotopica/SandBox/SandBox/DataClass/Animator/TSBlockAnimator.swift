@@ -37,6 +37,26 @@ class TSBlockAnimator {
         
         return particle
     }
+    static func generateBlockDestroyAnimation(for node:SCNNode, _ completion: @escaping ()->Void ) -> SCNAction {
+        
+        let a1 = SCNAction.scale(to: 0.9, duration: 0.1).setEase(.easeIn)
+        let a21 = SCNAction.scale(to: 1.05, duration: 0.1).setEase(.easeInEaseOut)
+        let a22 = SCNAction.fadeOut(duration: 0.1)
+        let a2 = SCNAction.group([a21, a22])
+        
+        let a3 = SCNAction.wait(duration: 0.5)
+        
+        let ps = self.generateParticles()
+        let a4 = SCNAction.run{node in
+            node.addParticleSystem(ps)
+            completion()
+        }
+        
+        let ar = SCNAction.sequence([a1, a2, a3, a4])
+        
+        return ar
+    }
+    
     static func generateBlockPlaceAnimation(for node:SCNNode) -> SCNAction {
         let a1 = SCNAction.move(by: [0, 0.7, 0], duration: 0.15).setEase(.easeInEaseOut)
         let a2 = SCNAction.move(by: [0, -0.7, 0], duration: 0.1).setEase(.easeInEaseOut)

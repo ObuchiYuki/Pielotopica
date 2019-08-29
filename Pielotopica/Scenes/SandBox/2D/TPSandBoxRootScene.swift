@@ -40,9 +40,10 @@ class TPSandBoxRootScene: GKSafeScene {
         _presentlock = true
         
         // 初期化
-        scene.gkViewContoller = self.gkViewContoller
-        scene.show(from: sceneModel.mode.value)
+        scene.gkViewContoller = gkViewContoller
         self.rootNode.addChild(scene.rootNode)
+        
+        scene.show(from: sceneModel.mode.value)
         
         // hide
         if let currentScene = currentScene {
@@ -63,13 +64,11 @@ class TPSandBoxRootScene: GKSafeScene {
 
         self.sceneModel.setBinder(self)
         self.rootNode.addChild(header)
-        
-        self.sceneModel.present(to: TPSMainMenuScene(), as: .mainmenu)
-        
     }
     
     override func sceneDidAppear() {
         (self.gkViewContoller as! GameViewController).showingScene = .sandbox
+        self.sceneModel.present(to: TPSMainMenuScene(), as: .mainmenu)
     }
 }
 
