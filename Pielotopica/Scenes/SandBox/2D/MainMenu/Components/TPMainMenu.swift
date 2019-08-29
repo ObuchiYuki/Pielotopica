@@ -14,7 +14,7 @@ class TPMainMenu: SKSpriteNode {
     let menuItem = TPMainMenuItem(textureNamed: "TP_mm_menu")
     let buildItem = TPMainMenuItem(textureNamed: "TP_mm_build")
     let captureItem = TPMainMenuItem(textureNamed: "TP_mm_capture")
-    let shopItem = TPMainMenuItem(textureNamed: "TP_mm_shop")
+    let shopItem = TPMainMenuItem(textureNamed: "TP_mm_battle")
     
     private var allItems:[SKSpriteNode] {
         return [menuItem, buildItem, captureItem, shopItem]
