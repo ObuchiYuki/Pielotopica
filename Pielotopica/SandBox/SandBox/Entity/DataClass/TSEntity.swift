@@ -11,10 +11,21 @@ import SceneKit
 
 class TSEntity {
     
+    private weak var world:TSEntityWorld!
+    
+    func removeFromWorld() {
+        
+        print("removeFromWorld")
+    }
+    
+    init(world:TSEntityWorld) {
+        self.world = world
+    }
+    
     func generateNode() -> SCNNode {
         fatalError()
     }
-    func update(object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
+    func update(tic:Double,object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
         fatalError()
     }
 }

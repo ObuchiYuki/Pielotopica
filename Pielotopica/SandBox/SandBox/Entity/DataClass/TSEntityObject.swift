@@ -15,9 +15,18 @@ class TSEntityObject {
     let entity:TSEntity
     let node:SCNNode
     
+    private let animated = false
+    
+    func updatePosition(to position:TSVector2, tic:Double) {
+        self.position = position
+        node.runAction(.move(to: position.vector3(y: 1).scnVector3, duration: tic))
+    }
+    
     init(initialPosition: TSVector2, entity:TSEntity, node:SCNNode) {
         self.position = initialPosition
         self.entity = entity
         self.node = node
+        
+        node.position = position.vector3(y: 1).scnVector3
     }
 }

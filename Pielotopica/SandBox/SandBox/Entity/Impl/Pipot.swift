@@ -34,6 +34,7 @@ class TSE_Pipot: TSEntity {
         wnode.addChildNode(foot1)
         wnode.addChildNode(foot2)
         
+        wnode.position = [0.5, 0,  0.5]
         wnode.eulerAngles = SCNVector3(0, Double.pi/2, 0)
         node.addChildNode(wnode)
                 
@@ -41,8 +42,12 @@ class TSE_Pipot: TSEntity {
         
         return node
     }
-    override func update(object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
-        print("update__")
+    override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
+        object.updatePosition(to: object.position + [0, 1], tic: tic)
+        
+        if object.position.z >= 10 {
+            self.removeFromWorld()
+        }
     }
 }
 

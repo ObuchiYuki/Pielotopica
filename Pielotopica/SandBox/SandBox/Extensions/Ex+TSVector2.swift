@@ -54,8 +54,8 @@ public extension TSVector2 {
 }
 
 public extension TSVector2 {
-    var vector3:TSVector3 {
-        return TSVector3(x16, 0, z16)
+    func vector3(y: Int16) -> TSVector3 {
+        return TSVector3(x16, y, z16)
     }
 }
 

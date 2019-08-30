@@ -61,7 +61,7 @@ class TSEntityWorld {
     private func _update() {
         print("update")
         for entity in entities  {
-            entity.entity.update(object: entity, world: self, level: TSLevel.current)
+            entity.entity.update(tic: updateInterval, object: entity, world: self, level: TSLevel.current)
         }
     }
     
@@ -78,7 +78,7 @@ class TSEntityWorld {
                 let obj = TSEntityObject(initialPosition: point, entity: spawner.entity, node: spawner.entity.generateNode())
                 
                 entities.append(obj)
-                delegate.addNode(obj.nod)
+                delegate.addNode(obj.node)
             }
         }
     }
