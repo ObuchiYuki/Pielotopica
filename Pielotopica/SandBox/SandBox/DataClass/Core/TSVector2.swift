@@ -14,8 +14,8 @@ import simd
 
 /**
  箱庭場における平面を表します。
- TSVector3を平面に射映したものです。
- TSVector3との関係は `TSVector2(x, y) = TSVector3(x, y, 0)`です。
+ TSVector3を(x, z)平面に射影したものです。
+ TSVector3との関係は `TSVector2(x, z) = TSVector3(x, C, z) (C: 任意の定数)`です。
  
  各元は必ず整数値になります。
  各元はInt16の範囲内である必要があります。

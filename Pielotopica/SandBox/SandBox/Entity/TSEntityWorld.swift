@@ -71,8 +71,6 @@ class TSEntityWorld {
     }
     
     private func _spawnUpdate() {
-        // 1秒に2回呼ばれる
-        counter += 1
         
         for (point, spawner) in spawners {
             /// 一回呼ばれるのに何1/2秒かかるか
@@ -85,6 +83,9 @@ class TSEntityWorld {
                 delegate.addNode(obj.node)
             }
         }
+        
+        // 1秒に2回呼ばれる
+        counter += 1
     }
     
     private func _getAllSpawners() -> [(TSVector2, TSSpawner)] {

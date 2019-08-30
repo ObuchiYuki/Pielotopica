@@ -79,13 +79,12 @@ extension CGRect: ExpressibleByArrayLiteral{
 // MARK: - A CGRect Extension
 extension CGRect{
     ///Center of the Rect
-    public var center:CGPoint{
-        let x = self.origin.x + self.size.width/2.0
-        let y = self.origin.y + self.size.height/2.0
-        
-        return CGPoint(x: x, y: y)
+    public var center:CGPoint {
+        CGPoint(x: origin.x + size.width/2.0, y: origin.y + size.height/2.0)
     }
 }
+
+
 
 
 // ================================================================ //
@@ -150,6 +149,10 @@ extension CGPoint {
     
     public static prefix func - (lhs: CGPoint) -> CGPoint {
         return CGPoint(x: -lhs.x, y: -lhs.y)
+    }
+    
+    public static func < (lhs: CGPoint, rhs: CGPoint) -> Bool {
+        return lhs.x < rhs.x && lhs.y < rhs.y
     }
 }
 

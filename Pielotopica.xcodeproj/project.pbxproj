@@ -162,6 +162,7 @@
 		B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */; };
 		B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */; };
 		B6C7F3362314B7120042279C /* TSItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7F3352314B7120042279C /* TSItemData.swift */; };
+		B6DDABEB2318E7D5003F538B /* RMMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DDABEA2318E7D5003F538B /* RMMeasure.swift */; };
 		B6E8826123121835003F3124 /* TSLevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826023121835003F3124 /* TSLevelData.swift */; };
 		B6E8826623126B66003F3124 /* RMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826523126B66003F3124 /* RMLog.swift */; };
 		B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E88267231280B5003F3124 /* TSMaterialData.swift */; };
@@ -358,6 +359,7 @@
 		B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockEditHelper.swift; sourceTree = "<group>"; };
 		B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureGotMaterialBar.swift; sourceTree = "<group>"; };
 		B6C7F3352314B7120042279C /* TSItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemData.swift; sourceTree = "<group>"; };
+		B6DDABEA2318E7D5003F538B /* RMMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMMeasure.swift; sourceTree = "<group>"; };
 		B6E8826023121835003F3124 /* TSLevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSLevelData.swift; sourceTree = "<group>"; };
 		B6E8826523126B66003F3124 /* RMLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLog.swift; sourceTree = "<group>"; };
 		B6E88267231280B5003F3124 /* TSMaterialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMaterialData.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				B61E93C02300E36C008CB325 /* RMBindCenter.swift */,
 				B6AA02AA230D78B800F0FF48 /* RMTimeStamp.swift */,
 				B6E8826523126B66003F3124 /* RMLog.swift */,
+				B6DDABEA2318E7D5003F538B /* RMMeasure.swift */,
 				B61E93C12300E36C008CB325 /* extensions */,
 			);
 			path = RMKit;
@@ -1249,6 +1252,7 @@
 				B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */,
 				B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */,
 				B69E867A2316809D004D4272 /* TPSMainMenuScene.swift in Sources */,
+				B6DDABEB2318E7D5003F538B /* RMMeasure.swift in Sources */,
 				B6EECD08231815CA005001FB /* TSEntity.swift in Sources */,
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,

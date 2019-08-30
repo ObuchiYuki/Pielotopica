@@ -12,6 +12,7 @@ import SceneKit
 /// 本当はTSEntityEntityにしたかった。
 class TSEntityObject {
     var position:TSVector2
+    var info = [String:Any]()
     let entity:TSEntity
     let node:SCNNode
     

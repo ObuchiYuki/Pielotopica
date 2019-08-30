@@ -54,6 +54,7 @@ public extension TSVector2 {
 }
 
 public extension TSVector2 {
+    var point:CGPoint { CGPoint(x: CGFloat(x16), y: CGFloat(z16)) }
     func vector3(y: Int16) -> TSVector3 {
         return TSVector3(x16, y, z16)
     }
