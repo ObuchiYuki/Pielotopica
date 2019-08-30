@@ -10,7 +10,6 @@ import SceneKit
 import RxSwift
 import RxCocoa
 
-
 class TPSandboxSceneController: GK3DSceneController {
     // ===================================================================== //
     // MARK: - Properies -
