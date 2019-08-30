@@ -151,8 +151,8 @@ extension TPSandboxSceneController: TPSandboxSceneModelBinder {
         ]
     }
     func __makeNight() {
-        directionalLight.intensity = 100
-        ambientLight.intensity = 200
+        directionalLight.intensity = 50
+        ambientLight.intensity = 50
         
         self.scene.background.contents = UIImage(named: "Background_sky")
     }

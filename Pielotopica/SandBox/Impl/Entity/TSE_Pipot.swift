@@ -21,17 +21,62 @@ class TSE_Pipot: TSEntity {
     private func getRoute(from spownPosition: TSVector2, in level:TSLevel) -> [TSVector2] {
         if let found = foundRoutes[spownPosition] { return found }
         
-        let a = searchRoute(from: spownPosition, in: level)
-        foundRoutes[spownPosition] = a        
-        return a
-    }
-    
-    private func searchRoute(from spownPosition: TSVector2, in level:TSLevel) -> [TSVector2] {
         guard let targetPos = level.getAllAnchors().first(where: {level.getAnchorBlock(at: $0) is TS_TargetBlock}) else {
             fatalError("No target found in this level.")
         }
         
-        return _findpath(from: spownPosition, to: targetPos.vector2, in: level).map(TSVector2.init)
+        let a = searchRoute(from: spownPosition, in: level, targetPos: targetPos.vector2)
+        foundRoutes[spownPosition] = a
+        return a
+    }
+    
+    private func searchRoute(from spownPosition: TSVector2, in level:TSLevel, targetPos:TSVector2) -> [TSVector2] {
+        var path:[TSVector2] = _findpath(from: spownPosition, to: targetPos, in: level).map(TSVector2.init)
+        
+        while path.isEmpty {
+            var i = 1
+            var pos:TSVector2? = nil
+            while pos == nil {
+                pos = findEmpty(near: targetPos, radius: 1, level: level)
+                i += 1
+            }
+            
+            path = _findpath(from: spownPosition, to: pos!, in: level).map(TSVector2.init)
+            if path.isEmpty {
+                continue
+            }else{
+                return path
+            }
+        }
+        
+        fatalError("Never reach here.")
+    }
+    
+    private func findEmpty(near target:TSVector2, radius:Int, level:TSLevel) -> TSVector2? {
+        for rx in -radius...radius {
+            if abs(rx) == radius {
+                for rz in -radius...radius {
+                    if _checkIfEmpty(at: TSVector3(rx, 1, rz), level: level) {
+                        return TSVector2(rx, z: rz)
+                    }
+                    
+                }
+            }else{
+                if _checkIfEmpty(at: TSVector3(rx, 1, -radius), level: level) {
+                    return TSVector2(rx, z: -radius)
+                }
+                
+                if _checkIfEmpty(at: TSVector3(rx, 1,  radius), level: level) {
+                    return TSVector2(rx, z:  radius)
+                }
+            }
+        }
+        
+        return nil
+    }
+    
+    private func _checkIfEmpty(at position:TSVector3, level:TSLevel) -> Bool {
+        return !level.getFillBlock(at:position).isObstacle()
     }
     
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
@@ -39,7 +84,6 @@ class TSE_Pipot: TSEntity {
         if object.info["spown"] == nil { object.info["spown"] = object.position }
         guard let spownPoint = object.info["spown"] as? TSVector2 else {fatalError()}
         
-        print(spownPoint)
         let route = getRoute(from: spownPoint, in: level)
         
         if object.info["index"] == nil { object.info["index"] = 0 }
@@ -94,7 +138,7 @@ class TSE_Pipot: TSEntity {
             return nodes.map{ CGPoint(x: $0.position.x.f, y: $0.position.y.f) }
         }
         
-        fatalError("not path found")
+        return []
     }
     
     /// -10 ~ 10 で探索
