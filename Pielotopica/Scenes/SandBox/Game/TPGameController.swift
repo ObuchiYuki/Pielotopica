@@ -9,13 +9,11 @@
 import SceneKit
 
 class TPGameController {
-    let scene:SCNScene
-    
-    let entityWorld:TSEntityWorld
+    private let scene:SCNScene
+    private lazy var entityWorld = TSEntityWorld(delegate: self)
     
     init(scene: SCNScene) {
         self.scene = scene
-        self.entityWorld = TSEntityWorld(delegate: self)
     }
     
     func start() {
