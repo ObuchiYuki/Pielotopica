@@ -21,11 +21,10 @@ class TPGameController {
     // ===================================================================== //
     // MARK: - Methods -
     func start() {
-        print("start?")
         self.entityWorld.start()
     }
     func end() {
-        fatalError("not implemented.")
+        self.entityWorld.end()
     }
     // ===================================================================== //
     // MARK: - Constructor -

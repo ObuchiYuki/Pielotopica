@@ -95,8 +95,10 @@ class TPSandboxSceneController: GK3DSceneController {
 
 extension TPSandboxSceneController: TPSandboxSceneModelBinder {
     func __startGame() {
-        print("__startGame")
         gameController.start()
+    }
+    func __endGame() {
+        gameController.end()
     }
     
     var __cameraPosition: SCNVector3 {

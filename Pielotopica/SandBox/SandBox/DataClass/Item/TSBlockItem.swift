@@ -24,7 +24,6 @@ public class TSBlockItem: TSItem {
     
     public override init(name: String, index: UInt16, textureNamed textureName: String) {
         self.block = nil
-        print("Never come here")
         
         super.init(name: name, index: index, textureNamed: textureName)
         

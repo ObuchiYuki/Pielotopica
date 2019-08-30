@@ -38,6 +38,7 @@ protocol TPSandboxSceneModelBinder: class {
     
     // MARK: - Game - 
     func __startGame()
+    func __endGame()
     
 }
 
@@ -97,6 +98,7 @@ class TPSandBox3DSceneModel {
     
     func makeNormalMode() {
         binder.__makeDay()
+        binder.__endGame()
     }
     
     /// ピンチジェスチャーで呼び出してください。

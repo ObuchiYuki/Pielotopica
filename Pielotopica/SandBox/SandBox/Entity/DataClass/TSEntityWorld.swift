@@ -40,7 +40,9 @@ class TSEntityWorld {
         _getAllSpawners().forEach{spawners[$0] = $1}
     }
     
-    func stop() {
+    func end() {
+        self.entities.forEach{ $0.removeFromWorld() }
+        self.entities = []
         self.timer?.invalidate()
         self.spawners = [:]
     }
