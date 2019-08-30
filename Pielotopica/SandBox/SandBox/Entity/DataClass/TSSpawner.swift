@@ -18,6 +18,6 @@ class TSSpawner {
     }
     init(block:TSSpawnerBlock) {
         self.frequency = block.frequency
-        self.entity = block.getSpawnEntity()
+        self.entity = block.entity
     }
 }

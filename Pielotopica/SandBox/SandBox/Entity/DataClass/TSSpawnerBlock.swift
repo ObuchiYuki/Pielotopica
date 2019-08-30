@@ -16,6 +16,6 @@ class TSSpawnerBlock: TSBlock {
     init(_ entity:TSEntity, index:Int) {
         self.entity = entity
         
-        super.init(nodeNamed: "TP_spawner_1x1", index: index
+        super.init(nodeNamed: "TP_spawner_1x1", index: index)
     }
 }

@@ -14,6 +14,7 @@
 		B6012DF62318A67F00DC18CE /* TPGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF52318A67F00DC18CE /* TPGameController.swift */; };
 		B6012DF92318ACDD00DC18CE /* TP_spawner_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6012DF82318ACDD00DC18CE /* TP_spawner_1x1.scn */; };
 		B6012DFB2318ACE200DC18CE /* spawner.png in Resources */ = {isa = PBXBuildFile; fileRef = B6012DFA2318ACE100DC18CE /* spawner.png */; };
+		B6012DFD2318ADDB00DC18CE /* Impl+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */; };
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
@@ -197,6 +198,7 @@
 		B6012DF52318A67F00DC18CE /* TPGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameController.swift; sourceTree = "<group>"; };
 		B6012DF82318ACDD00DC18CE /* TP_spawner_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_spawner_1x1.scn; sourceTree = "<group>"; };
 		B6012DFA2318ACE100DC18CE /* spawner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spawner.png; sourceTree = "<group>"; };
+		B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Entity.swift"; sourceTree = "<group>"; };
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
@@ -774,8 +776,8 @@
 		B66BD3DB2317E88A00E20212 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				B6EECD0B231816A8005001FB /* DataClass */,
 				B66BD3E02317EDE800E20212 /* Impl */,
+				B6EECD0B231816A8005001FB /* DataClass */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -784,6 +786,7 @@
 			isa = PBXGroup;
 			children = (
 				B66BD3DC2317E8A800E20212 /* Pipot.swift */,
+				B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */,
 			);
 			path = Impl;
 			sourceTree = "<group>";
@@ -1303,6 +1306,7 @@
 				B61E93CB2300E36C008CB325 /* RMBindCenter.swift in Sources */,
 				B6227A372301AB84009EF60F /* TSBlock.swift in Sources */,
 				B6931448230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift in Sources */,
+				B6012DFD2318ADDB00DC18CE /* Impl+Entity.swift in Sources */,
 				B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */,
 				B61E94172300E395008CB325 /* TPSandBoxRootScene.swift in Sources */,
 				B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */,
