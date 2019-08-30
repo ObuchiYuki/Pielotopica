@@ -688,6 +688,8 @@
 			children = (
 				B6227A4B2301AE37009EF60F /* Impl+Block.swift */,
 				B6227A70230239DB009EF60F /* Impl+Item.swift */,
+				B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */,
+				B661FA372318CC7000D4A3C0 /* Entity */,
 				B6EEB27A23160F48004C5826 /* Items */,
 				B6227A6023023732009EF60F /* Blocks */,
 			);
@@ -762,12 +764,12 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		B661FA372318CC7000D4A3C0 /* Enemy */ = {
+		B661FA372318CC7000D4A3C0 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				B66BD3DC2317E8A800E20212 /* TSE_Pipot.swift */,
 			);
-			path = Enemy;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		B667BA4F230B776C0038B098 /* RecognitionKit */ = {
@@ -798,19 +800,12 @@
 		B66BD3DB2317E88A00E20212 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				B66BD3E02317EDE800E20212 /* Impl */,
-				B6EECD0B231816A8005001FB /* DataClass */,
+				B6EECD07231815CA005001FB /* TSEntity.swift */,
+				B6012DF22318A0C700DC18CE /* TSEntityObject.swift */,
+				B6EECD0923181649005001FB /* TSEntityWorld.swift */,
+				B6012DF023189D1700DC18CE /* TSSpawner.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		B66BD3E02317EDE800E20212 /* Impl */ = {
-			isa = PBXGroup;
-			children = (
-				B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */,
-				B661FA372318CC7000D4A3C0 /* Enemy */,
-			);
-			path = Impl;
 			sourceTree = "<group>";
 		};
 		B6731B2C2314BEDD00B70C3F /* Saveable */ = {
@@ -1023,17 +1018,6 @@
 				B661FA442318D40500D4A3C0 /* TS_TargetKariItem.swift */,
 			);
 			path = Items;
-			sourceTree = "<group>";
-		};
-		B6EECD0B231816A8005001FB /* DataClass */ = {
-			isa = PBXGroup;
-			children = (
-				B6EECD07231815CA005001FB /* TSEntity.swift */,
-				B6012DF22318A0C700DC18CE /* TSEntityObject.swift */,
-				B6EECD0923181649005001FB /* TSEntityWorld.swift */,
-				B6012DF023189D1700DC18CE /* TSSpawner.swift */,
-			);
-			path = DataClass;
 			sourceTree = "<group>";
 		};
 		B6F4251F23175977000372BD /* 3D */ = {

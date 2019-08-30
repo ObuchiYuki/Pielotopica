@@ -20,6 +20,10 @@ class TS_SpawnerBlock: TSBlock {
         super.init(nodeNamed: "TP_spawner_1x1", index: index)
     }
     
+    override func isObstacle() -> Bool {
+        return false
+    }
+    
     override func getOriginalNodeSize() -> TSVector3 {
         return [1, 1, 1]
     }

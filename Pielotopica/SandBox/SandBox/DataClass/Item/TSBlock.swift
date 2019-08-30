@@ -59,6 +59,8 @@ open class TSBlock {
     // ============================= //
     // MARK: - TSBlock Overridable Methods -
     
+    /// 障害物かどうかを返してください。
+    open func isObstacle() -> Bool {return true}
     /// ノード本体の大きさを返してください。置く可能性のあるブロック全てが実装する必要があります。
     open func getOriginalNodeSize() -> TSVector3 { fatalError() }
     
