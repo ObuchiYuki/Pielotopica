@@ -24,7 +24,7 @@ public extension TSBlock {
     
     static let pipotSpawner:TSBlock = TS_SpawnerBlock(frequency: 20, entity: .pipot, index: 17)
     
-    static let targetKari:TSBlock = TS_TargetBlock(index: 18)
+    static let targetKari:TSBlock = TS_TargetBlock(nodeNamed: "TP_target_kari", index: 18)
     
 }
 
