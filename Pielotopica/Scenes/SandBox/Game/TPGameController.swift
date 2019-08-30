@@ -9,15 +9,27 @@
 import SceneKit
 
 class TPGameController {
+    
+    // ===================================================================== //
+    // MARK: - Properties -
     private let scene:SCNScene
+    /// 敵の目的地
+    private let destination:TSVector2 = [10, 0] // (仮)
+    
     private lazy var entityWorld = TSEntityWorld(delegate: self)
     
-    init(scene: SCNScene) {
-        self.scene = scene
-    }
-    
+    // ===================================================================== //
+    // MARK: - Methods -
     func start() {
         self.entityWorld.start()
+    }
+    func end() {
+        fatalError("not implemented.")
+    }
+    // ===================================================================== //
+    // MARK: - Constructor -
+    init(scene: SCNScene) {
+        self.scene = scene
     }
 }
 

@@ -12,6 +12,8 @@
 		B6012DF123189D1700DC18CE /* TSSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF023189D1700DC18CE /* TSSpawner.swift */; };
 		B6012DF32318A0C700DC18CE /* TSEntityObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF22318A0C700DC18CE /* TSEntityObject.swift */; };
 		B6012DF62318A67F00DC18CE /* TPGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF52318A67F00DC18CE /* TPGameController.swift */; };
+		B6012DF92318ACDD00DC18CE /* TP_spawner_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6012DF82318ACDD00DC18CE /* TP_spawner_1x1.scn */; };
+		B6012DFB2318ACE200DC18CE /* spawner.png in Resources */ = {isa = PBXBuildFile; fileRef = B6012DFA2318ACE100DC18CE /* spawner.png */; };
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
@@ -193,6 +195,8 @@
 		B6012DF023189D1700DC18CE /* TSSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSpawner.swift; sourceTree = "<group>"; };
 		B6012DF22318A0C700DC18CE /* TSEntityObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntityObject.swift; sourceTree = "<group>"; };
 		B6012DF52318A67F00DC18CE /* TPGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameController.swift; sourceTree = "<group>"; };
+		B6012DF82318ACDD00DC18CE /* TP_spawner_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_spawner_1x1.scn; sourceTree = "<group>"; };
+		B6012DFA2318ACE100DC18CE /* spawner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spawner.png; sourceTree = "<group>"; };
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
@@ -399,6 +403,17 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		B6012DF72318ACC000DC18CE /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */,
+				B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */,
+				B69E865A231625A2004D4272 /* retro_transition_fade_from_centre.fsh */,
+				B69E8653231625A2004D4272 /* retro_transition_fade_to_centre.fsh */,
+			);
+			path = Shader;
+			sourceTree = "<group>";
+		};
 		B6030EE92301A4D4005C4312 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,14 +501,11 @@
 		B61E93D42300E376008CB325 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B69E8653231625A2004D4272 /* retro_transition_fade_to_centre.fsh */,
-				B69E865A231625A2004D4272 /* retro_transition_fade_from_centre.fsh */,
-				B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */,
-				B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */,
 				B68E14342314177E00E973E1 /* Yolov3.mlmodel */,
 				B61E93D52300E376008CB325 /* Assets.xcassets */,
 				B61E93D62300E376008CB325 /* LaunchScreen.storyboard */,
 				B61E93D82300E376008CB325 /* Main.storyboard */,
+				B6012DF72318ACC000DC18CE /* Shader */,
 				B68E1436231419AA00E973E1 /* Font */,
 				B6EDB11B230F78A40042CA02 /* Sound */,
 				B6227A662302391A009EF60F /* Object */,
@@ -684,6 +696,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B6012DF82318ACDD00DC18CE /* TP_spawner_1x1.scn */,
+				B6012DFA2318ACE100DC18CE /* spawner.png */,
 				B66BD3D72317E73E00E20212 /* enemy_1.scn */,
 				B66BD3D92317E74300E20212 /* enemy_1.png */,
 				B608C497231101120073843E /* wood_wall_1x1.png */,
@@ -1130,6 +1144,7 @@
 				B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */,
 				B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */,
 				B6A8D66F230ED717005B26A5 /* TP_Ground_edge.scn in Resources */,
+				B6012DF92318ACDD00DC18CE /* TP_spawner_1x1.scn in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
 				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,
 				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
@@ -1139,6 +1154,7 @@
 				B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */,
 				B69E8667231625A2004D4272 /* retro_transition_fade_from_centre.fsh in Resources */,
 				B6A8D66B230ED4F7005B26A5 /* TP_ground_5x5.scn in Resources */,
+				B6012DFB2318ACE200DC18CE /* spawner.png in Resources */,
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
 				B6996939231792BA00CE933B /* normal_bgm.wav in Resources */,
 				B6A8D671230ED73B005B26A5 /* TP_Ground_edge.png in Resources */,
