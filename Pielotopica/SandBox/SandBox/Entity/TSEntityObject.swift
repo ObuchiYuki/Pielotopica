@@ -11,7 +11,7 @@ import SceneKit
 /// World上に存在するEntityの実体です。(Entityの実体...頭痛が痛い...)
 /// 本当はTSEntityEntityにしたかった。
 class TSEntityObject {
-    var position:TSVector2
+    var position:CGPoint
     var info = [String:Any]()
     let entity:TSEntity
     let node:SCNNode
@@ -23,18 +23,18 @@ class TSEntityObject {
         node.removeFromParentNode()
         world?.removeObject(self)
     }
-    func updatePosition(to position:TSVector2, tic:Double) {
-        self.position = position
-        node.runAction(.move(to: position.vector3(y: 1).scnVector3, duration: tic))
+    func updatePosition(to position:CGPoint, tic:Double) {
+        self.position = CGPoint
+        node.runAction(.move(to: SCNVector3(x: position.x, y: 1, z: position.y), duration: tic))
     }
     
     init(world: TSEntityWorld, initialPosition: TSVector2, entity:TSEntity, node:SCNNode) {
         self.world = world
-        self.position = initialPosition
+        self.position = initialPosition.point
         self.entity = entity
         self.node = node
         
-        node.position = position.vector3(y: 1).scnVector3
+        node.position = SCNVector3(x: position.x, y: 1, z: position.y)
     }
 }
 

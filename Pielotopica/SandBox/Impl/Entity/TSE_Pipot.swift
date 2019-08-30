@@ -17,6 +17,12 @@ class TSE_Pipot: TSEntity {
     
     static let astr = AStar(size: 20)
     
+    
+    private func _initirize(with obstacles:[GKPolygonObstacle]) {
+        let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 0.45)
+    }
+    
+    
     private var foundRoutes = [TSVector2:[TSVector2]]()
     
     private func getRoute(from spownPosition: TSVector2, in level:TSLevel) -> [TSVector2] {
@@ -43,7 +49,7 @@ class TSE_Pipot: TSEntity {
         let route = getRoute(from: spownPoint, in: level)
         
         if object.info["index"] == nil { object.info["index"] = 0 }
-        guard let index = object.info["index"] as? Int else {fatalError()}
+        let index = object.info["index"] as! Int
         
         if route.count <= index + 1 {
             object.removeFromWorld()
@@ -65,6 +71,9 @@ class TSE_Pipot: TSEntity {
     }
     
     private func _normalizeVector(_ vector:CGPoint) -> TSVector2 {
+        
+        return TSVector2(vector)
+        
         let (dx, dz) = (vector.x, vector.y)
         
         let ab = abs(sqrt(dx * dx + dz * dz))
@@ -75,7 +84,7 @@ class TSE_Pipot: TSEntity {
     private func _findpath(from start:TSVector2, to target:TSVector2, in level:TSLevel) -> [CGPoint] {
         
         let obstacles = _generateObstacles(from: level)
-        let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 0)
+        let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 0.45)
         
         let startPos = GKGraphNode2D(
             point: vector_float2(Float(start.x), Float(start.z))
@@ -88,41 +97,10 @@ class TSE_Pipot: TSEntity {
         graph.connectUsingObstacles(node: startPos)
         graph.connectUsingObstacles(node: targetPos)
         
-        if let nodes = graph.findPath(from: startPos, to: targetPos) as? [GKGraphNode2D] {
-            return nodes.map{ CGPoint(x: $0.position.x.f, y: $0.position.y.f) }
-        }
+        let nodes = graph.findPath(from: startPos, to: targetPos) as! [GKGraphNode2D]
         
-        return []
+        return nodes.map{ CGPoint(x: $0.position.x.f, y: $0.position.y.f) }
     }
-    
-    /// -20 ~ 20 で探索
-    private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
-        var obstacles = [GKPolygonObstacle]()
-        
-        for x in -20...20 {
-            for z in -20...20 {
-                let pos = TSVector3(x, 1, z)
-                let block = level.getFillBlock(at: pos)
-                if block.isObstacle() {
-                    obstacles.append(_createObstacle1x1(at: pos.vector2))
-                }
-            }
-        }
-        
-        return obstacles
-    }
-    
-    
-    
-    private func _createObstacle1x1(at point:TSVector2) -> GKPolygonObstacle {
-        let p1 = SIMD2<Float>(point.simd)
-        let p2 = SIMD2<Float>((point + [1, 0]).simd)
-        let p3 = SIMD2<Float>((point + [1, 1]).simd)
-        let p4 = SIMD2<Float>((point + [0, 1]).simd)
-        
-        return GKPolygonObstacle(points: [p1, p2, p3, p4])
-    }
-    
     
     private func _createFootAction(t:Int) -> SCNAction {
         let a1 = SCNAction.rotateBy(x: 0, y: 0, z: -0.5 * CGFloat(t), duration: 0.5)
