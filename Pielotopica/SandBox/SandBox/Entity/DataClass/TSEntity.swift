@@ -14,7 +14,7 @@ class TSEntity {
     func generateNode() -> SCNNode {
         fatalError()
     }
-    func update(node:SCNNode, world:TSEntityWorld, level:TSLevel) {
+    func update(object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
         fatalError()
     }
 }

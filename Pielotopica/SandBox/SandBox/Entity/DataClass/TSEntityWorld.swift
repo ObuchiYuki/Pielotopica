@@ -14,15 +14,16 @@ class TSEntityWorld {
     // MARK: - Properties -
     
     /// この世界に存在するエンティティ
-    var entities = [TSVector2: (TSEntity, SCNNode)]()
+    var entities = [TSEntityObject]()
     
     /// シングルトン
     static let shared = TSEntityWorld()
     
     // ================================================================== //
     // MARK: - Private Properties -
-    private var spawners = [TSSpawner]()
+    private var spawners = [TSVector2: TSSpawner]()
     private var counter = 0
+    private var updateInterval = 0.5
     private var timer:Timer? = nil
     
     // ================================================================== //
@@ -30,49 +31,57 @@ class TSEntityWorld {
     func start() {
         self.timer = _genTimer()
         self.timer?.fire()
-        self.spawners = _getAllSpawners()
+        _getAllSpawners().forEach{spawners[$0] = $1}
     }
     func stop() {
         self.timer?.invalidate()
-        self.spawners = []
+        self.spawners = [:]
     }
     
     // ================================================================== //
     // MARK: - Private Methods -
+    
     private func _update() {
-        for (entity, node) in zip(entities, nodes)  {
-            entity.update(node: node, world: self, level: TSLevel.current)
+        for entity in entities  {
+            entity.entity.update(object: entity, world: self, level: TSLevel.current)
         }
     }
-    
     
     private func _spawnUpdate() {
         // 1秒に2回呼ばれる
         counter += 1
         
-        for spawner in spawners {
-            /// 一回呼ばれるのに何秒かかるか
-            let t = Int((1.0 / spawner.frequency.d) * 100)
+        for (point, spawner) in spawners {
+            /// 一回呼ばれるのに何1/2秒かかるか
+            let t = Int((1.0 / spawner.frequency.d) * 100 / updateInterval)
             
             if counter % t == 0 {
-                entities.append(spawner.entity)
-                nodes.append(spawner.entity.generateNode())
+                let obj = TSEntityObject(initialPosition: point, entity: spawner.entity, node: spawner.entity.generateNode())
+                
+                entities.append(obj)
             }
         }
     }
     
-    private func _getAllSpawners() -> [TSSpawner] {
+    private func _getAllSpawners() -> [(TSVector2, TSSpawner)] {
         let level = TSLevel.current!
-        let spawners = level.getAllAnchors()
-            .map(level.getAnchorBlock)
-            .filter{$0 is TSSpawnerBlock}
-            .map{$0 as! TSSpawnerBlock}
+        
+        let spawnerBlocks = level.getAllAnchors()
+            .map{($0, level.getAnchorBlock(at: $0))}
+            .filter { $1 is TSSpawnerBlock }
+            
+        let spawnerPositions = spawnerBlocks
+            .map{$0.0.vector2}
+        
+        let spawners = spawnerBlocks
+            .map{$1 as! TSSpawnerBlock}
             .map(TSSpawner.init(block: ))
      
-        return spawners
+        return zip(spawnerPositions, spawners).map{$0}
     }
+    
     private func _genTimer() -> Timer {
-        return Timer(timeInterval: 0.5, repeats: true, block: {[weak self] timer in
+        return Timer(timeInterval: updateInterval, repeats: true, block: {[weak self] timer in
             guard let self = self else { return timer.invalidate() }
             self._update()
             self._spawnUpdate()

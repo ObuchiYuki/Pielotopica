@@ -12,6 +12,12 @@ import SceneKit
 /// 本当はTSEntityEntityにしたかった。
 class TSEntityObject {
     var position:TSVector2
-    var node:SCNNode
-    var
+    let entity:TSEntity
+    let node:SCNNode
+    
+    init(initialPosition: TSVector2, entity:TSEntity, node:SCNNode) {
+        self.position = initialPosition
+        self.entity = entity
+        self.node = node
+    }
 }
