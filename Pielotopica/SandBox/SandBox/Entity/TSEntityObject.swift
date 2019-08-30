@@ -12,9 +12,10 @@ import SceneKit
 /// 本当はTSEntityEntityにしたかった。
 class TSEntityObject {
     var position:CGPoint
-    var info = [String:Any]()
     let entity:TSEntity
     let spown:TSSpawner
+    
+    var info = [String:Any]()
     
     let node:SCNNode
     

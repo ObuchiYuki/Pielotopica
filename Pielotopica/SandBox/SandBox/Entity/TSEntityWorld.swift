@@ -38,15 +38,16 @@ class TSEntityWorld {
     // ================================================================== //
     // MARK: - Methods -
     func start() {
+        self.graph = _generateGraph()
+        
+        self._getAllSpawners().forEach{spowners[$0] = $1}
+        
         self.timer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: {[weak self] timer in
             guard let self = self else { return timer.invalidate() }
             self._update()
             self._spawnUpdate()
             
         })
-        self.graph = _generateGraph()
-        
-        _getAllSpawners().forEach{spowners[$0] = $1}
     }
     
     func end() {
@@ -62,7 +63,7 @@ class TSEntityWorld {
     }
     
     func findPathToTarget(from node:GKGraphNode2D) -> [CGPoint] {
-        let ns = self.graph.findPath(from: targetNode, to: node) as! [GKGraphNode2D]
+        let ns = self.graph.findPath(from: node, to: targetNode) as! [GKGraphNode2D]
         
         return ns.map{CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y))}
     }
@@ -89,11 +90,14 @@ class TSEntityWorld {
     
     
     private func _generateGraph() -> WorldGraph {
+        
         let graph = WorldGraph(obstacles: _generateObstacles(from: TSLevel.current), bufferRadius: 0.45)
+        
         
         for (pos, spowner) in _getAllSpawners() {
             let node = GKGraphNode2D(point: vector_float2(Float(pos.x), Float(pos.z)))
-            spowner.targetNode = node
+            
+            spowner.node = node
             
             graph.connectUsingObstacles(node: node)
         }
@@ -103,9 +107,29 @@ class TSEntityWorld {
         targetNode = GKGraphNode2D(point: vector_float2(Float(targetPos.x), Float(targetPos.z)))
         graph.connectUsingObstacles(node: targetNode)
         
+        
+        
         return graph
     }
-    private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
+    
+    /// -20 ~ 20 で探索
+        private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
+            var obstacles = [GKPolygonObstacle]()
+    
+            for x in -20...20 {
+                for z in -20...20 {
+                    let pos = TSVector3(x, 1, z)
+                    let block = level.getFillBlock(at: pos)
+                    if block.isObstacle() {
+                        obstacles.append(_createObstacle(with: .unit, at: pos.vector2))
+                    }
+                }
+            }
+    
+            return obstacles
+        }
+    
+    /**private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
         var obstacles = [GKPolygonObstacle]()
         
         for anchor in level.getAllAnchors() {
@@ -118,7 +142,7 @@ class TSEntityWorld {
         }
         
         return obstacles
-    }
+    }*/
     
     private func _createObstacle(with size:TSVector2, at point:TSVector2) -> GKPolygonObstacle {
         let p1 = SIMD2<Float>(point.simd)
@@ -140,7 +164,7 @@ class TSEntityWorld {
         for (point, spowner) in spowners {
             /// 一回呼ばれるのに何1/2秒かかるか
             let t = Int((1.0 / spowner.frequency.d) * 100 / updateInterval)
-            
+                        
             if counter % t == 0 {
                 let obj = TSEntityObject(
                     world: self, initialPosition: point,
@@ -157,7 +181,11 @@ class TSEntityWorld {
         counter += 1
     }
     
+    private var __getAllSpawnersMemo:[(TSVector2, TSSpawner)]?
+    
     private func _getAllSpawners() -> [(TSVector2, TSSpawner)] {
+        if let getAllSpawnersMemo = __getAllSpawnersMemo {return getAllSpawnersMemo}
+        
         let level = TSLevel.current!
         
         let spawnerBlocks = level.getAllAnchors()
@@ -170,8 +198,10 @@ class TSEntityWorld {
         let spowners = spawnerBlocks
             .map{$1 as! TS_SpawnerBlock}
             .map(TSSpawner.init(block: ))
+        
+        __getAllSpawnersMemo = zip(spawnerPositions, spowners).map{$0}
      
-        return zip(spawnerPositions, spowners).map{$0}
+        return __getAllSpawnersMemo!
     }
     
 }

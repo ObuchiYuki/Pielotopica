@@ -12,7 +12,7 @@ import GameplayKit
 class TSSpawner {
     let frequency:Int
     let entity:TSEntity
-    var targetNode:GKGraphNode2D?
+    var node:GKGraphNode2D?
     
     init(frequency:Int, entity:TSEntity) {
         self.frequency = frequency
