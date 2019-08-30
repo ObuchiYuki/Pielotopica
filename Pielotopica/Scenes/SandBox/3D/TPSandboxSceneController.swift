@@ -95,6 +95,7 @@ class TPSandboxSceneController: GK3DSceneController {
 
 extension TPSandboxSceneController: TPSandboxSceneModelBinder {
     func __startGame() {
+        print("__startGame")
         gameController.start()
     }
     

@@ -92,6 +92,7 @@ class TPSandBox3DSceneModel {
     
     func makeBattleMode() {
         binder.__makeNight()
+        binder.__startGame()
     }
     
     func makeNormalMode() {

@@ -42,7 +42,7 @@ class TSE_Pipot: TSEntity {
         return node
     }
     override func update(object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
-        fatalError()
+        print("update__")
     }
 }
 

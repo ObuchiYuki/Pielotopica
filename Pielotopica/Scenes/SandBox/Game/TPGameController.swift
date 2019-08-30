@@ -21,6 +21,7 @@ class TPGameController {
     // ===================================================================== //
     // MARK: - Methods -
     func start() {
+        print("start?")
         self.entityWorld.start()
     }
     func end() {

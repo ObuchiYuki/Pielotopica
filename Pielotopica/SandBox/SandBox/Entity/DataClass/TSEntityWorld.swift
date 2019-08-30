@@ -31,12 +31,18 @@ class TSEntityWorld {
     // ================================================================== //
     // MARK: - Methods -
     func start() {
-        self.timer = _genTimer()
-        self.timer?.fire()
+        print("start")
+        self.timer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: {[weak self] timer in
+            guard let self = self else { return timer.invalidate() }
+            self._update()
+            self._spawnUpdate()
+            
+        })
         _getAllSpawners().forEach{spawners[$0] = $1}
     }
     
     func stop() {
+        print("stop")
         self.timer?.invalidate()
         self.spawners = [:]
     }
@@ -53,12 +59,14 @@ class TSEntityWorld {
     // MARK: - Private Methods -
     
     private func _update() {
+        print("update")
         for entity in entities  {
             entity.entity.update(object: entity, world: self, level: TSLevel.current)
         }
     }
     
     private func _spawnUpdate() {
+        print("_spawnUpdate")
         // 1秒に2回呼ばれる
         counter += 1
         
@@ -70,6 +78,7 @@ class TSEntityWorld {
                 let obj = TSEntityObject(initialPosition: point, entity: spawner.entity, node: spawner.entity.generateNode())
                 
                 entities.append(obj)
+                delegate.addNode(obj.nod)
             }
         }
     }
@@ -89,14 +98,6 @@ class TSEntityWorld {
             .map(TSSpawner.init(block: ))
      
         return zip(spawnerPositions, spawners).map{$0}
-    }
-    
-    private func _genTimer() -> Timer {
-        return Timer(timeInterval: updateInterval, repeats: true, block: {[weak self] timer in
-            guard let self = self else { return timer.invalidate() }
-            self._update()
-            self._spawnUpdate()
-        })
     }
     
 }
