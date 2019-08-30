@@ -42,6 +42,7 @@ class TSEntityWorld {
             self._spawnUpdate()
             
         })
+        self.graph = _generateGraph()
         
         _getAllSpawners().forEach{spawners[$0] = $1}
     }
@@ -59,9 +60,21 @@ class TSEntityWorld {
         entities.remove(at: index)
     }
     
-    func getGraph() -> WorldGraph {
-        return self.graph
+    func findPathToTarget(from spown:CGPoint) -> [CGPoint] {
+        let ns = self.graph.findPath(from: GKGraphNode2D(spown), to: GKGraphNode2D(_getTargetPosition().point)) as! [GKGraphNode2D]
+        
+        return ns.map{CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y))}
     }
+    
+    private func _getTargetPosition() -> TSVector2 {
+        let level = TSLevel.current!
+        
+        let pos = level.getAllAnchors().first(where: {level.getAnchorBlock(at: $0) is TS_TargetBlock})
+        assert(pos != nil, "You must set single target in level.")
+        
+        return pos!.vector2
+    }
+    
     
     // ================================================================== //
     // MARK: - Construcotr -
@@ -77,7 +90,7 @@ class TSEntityWorld {
     private func _generateGraph() -> WorldGraph {
         let graph = WorldGraph(obstacles: _generateObstacles(from: TSLevel.current), bufferRadius: 0.45)
         
-        for (pos, spown) in _getAllSpawners() {
+        for (pos, _) in _getAllSpawners() {
             graph.connectUsingObstacles(node: GKGraphNode2D(point: vector_float2(Float(pos.x), Float(pos.z))))
             
         }
@@ -85,7 +98,6 @@ class TSEntityWorld {
         let targetPos = _getTargetPosition()
         
         graph.connectUsingObstacles(node: GKGraphNode2D(point: vector_float2(Float(targetPos.x), Float(targetPos.z))))
-        
         
     }
     private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
@@ -136,14 +148,6 @@ class TSEntityWorld {
         counter += 1
     }
     
-    private func _getTargetPosition() -> TSVector2 {
-        let level = TSLevel.current!
-        
-        let pos = level.getAllAnchors().first(where: {$0 is TS_TargetBlock})
-        assert(pos != nil, "You must set single target in level.")
-        
-        return pos!
-    }
     private func _getAllSpawners() -> [(TSVector2, TSSpawner)] {
         let level = TSLevel.current!
         

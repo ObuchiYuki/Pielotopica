@@ -24,8 +24,8 @@ class TSEntityObject {
         world?.removeObject(self)
     }
     func updatePosition(to position:CGPoint, tic:Double) {
-        self.position = CGPoint
-        node.runAction(.move(to: SCNVector3(x: position.x, y: 1, z: position.y), duration: tic))
+        self.position = position
+        node.runAction(.move(to: SCNVector3(x: Float(position.x), y: 1, z: Float(position.y)), duration: tic))
     }
     
     init(world: TSEntityWorld, initialPosition: TSVector2, entity:TSEntity, node:SCNNode) {
@@ -34,7 +34,7 @@ class TSEntityObject {
         self.entity = entity
         self.node = node
         
-        node.position = SCNVector3(x: position.x, y: 1, z: position.y)
+        node.position = SCNVector3(x: Float(position.x), y: 1, z: Float(position.y))
     }
 }
 
