@@ -19,7 +19,7 @@ class RMMeasure {
     private static var times = [_RMTime]()
     
     static func start(label:String) {
-        print("Start Measurement.")
+        print("Start Measurement \"\(label)\"")
         times.append(_RMTime(label: label, start: Date()))
     }
     static func end(label:String) {

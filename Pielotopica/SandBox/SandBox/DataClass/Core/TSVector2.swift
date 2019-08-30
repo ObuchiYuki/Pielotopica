@@ -64,7 +64,7 @@ extension TSVector2 {
     }
     
     /// Initirize TSVector2 with Int values
-    init(_ x:Int, z:Int) {
+    init(_ x:Int,_ z:Int) {
         self.simd = SIMD(Int16(x), Int16(z))
         
     }

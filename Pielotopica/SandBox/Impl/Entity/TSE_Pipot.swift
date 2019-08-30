@@ -15,72 +15,28 @@ class TSE_Pipot: TSEntity {
     // MARK: - Methods -
     override func generateNode() -> SCNNode { _generateNode()}
     
+    static let astr = AStar(size: 20)
     
     private var foundRoutes = [TSVector2:[TSVector2]]()
     
     private func getRoute(from spownPosition: TSVector2, in level:TSLevel) -> [TSVector2] {
+        RMMeasure.start(label: "1")
         if let found = foundRoutes[spownPosition] { return found }
         
         guard let targetPos = level.getAllAnchors().first(where: {level.getAnchorBlock(at: $0) is TS_TargetBlock}) else {
             fatalError("No target found in this level.")
         }
         
-        let a = searchRoute(from: spownPosition, in: level, targetPos: targetPos.vector2)
+        let a = _findpath(from: spownPosition, to: targetPos.vector2, in: level).map(TSVector2.init)
+            
+        assert(!a.isEmpty, "noway! \(spownPosition), \(targetPos.vector2)")
+        
         foundRoutes[spownPosition] = a
+        RMMeasure.end(label: "1")
         return a
     }
     
-    private func searchRoute(from spownPosition: TSVector2, in level:TSLevel, targetPos:TSVector2) -> [TSVector2] {
-        var path:[TSVector2] = _findpath(from: spownPosition, to: targetPos, in: level).map(TSVector2.init)
-        
-        while path.isEmpty {
-            var i = 1
-            var pos:TSVector2? = nil
-            while pos == nil {
-                pos = findEmpty(near: targetPos, radius: 1, level: level)
-                i += 1
-            }
-            
-            path = _findpath(from: spownPosition, to: pos!, in: level).map(TSVector2.init)
-            if path.isEmpty {
-                continue
-            }else{
-                return path
-            }
-        }
-        
-        fatalError("Never reach here.")
-    }
-    
-    private func findEmpty(near target:TSVector2, radius:Int, level:TSLevel) -> TSVector2? {
-        for rx in -radius...radius {
-            if abs(rx) == radius {
-                for rz in -radius...radius {
-                    if _checkIfEmpty(at: TSVector3(rx, 1, rz), level: level) {
-                        return TSVector2(rx, z: rz)
-                    }
-                    
-                }
-            }else{
-                if _checkIfEmpty(at: TSVector3(rx, 1, -radius), level: level) {
-                    return TSVector2(rx, z: -radius)
-                }
-                
-                if _checkIfEmpty(at: TSVector3(rx, 1,  radius), level: level) {
-                    return TSVector2(rx, z:  radius)
-                }
-            }
-        }
-        
-        return nil
-    }
-    
-    private func _checkIfEmpty(at position:TSVector3, level:TSLevel) -> Bool {
-        return !level.getFillBlock(at:position).isObstacle()
-    }
-    
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
-        
         if object.info["spown"] == nil { object.info["spown"] = object.position }
         guard let spownPoint = object.info["spown"] as? TSVector2 else {fatalError()}
         
@@ -92,7 +48,6 @@ class TSE_Pipot: TSEntity {
         if route.count <= index + 1 {
             object.removeFromWorld()
             return
-            
         }
         
         let from = route[index]
@@ -110,18 +65,17 @@ class TSE_Pipot: TSEntity {
     }
     
     private func _normalizeVector(_ vector:CGPoint) -> TSVector2 {
-        
-        return TSVector2(vector)
         let (dx, dz) = (vector.x, vector.y)
-        let ab = abs(sqrt(dx * dx + dz * dz))
         
-        //return TSVector2
+        let ab = abs(sqrt(dx * dx + dz * dz))
+
+        return TSVector2((dx / ab).i, (dz / ab).i)
     }
     
     private func _findpath(from start:TSVector2, to target:TSVector2, in level:TSLevel) -> [CGPoint] {
         
         let obstacles = _generateObstacles(from: level)
-        let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 0.5)
+        let graph = GKObstacleGraph(obstacles: obstacles, bufferRadius: 0)
         
         let startPos = GKGraphNode2D(
             point: vector_float2(Float(start.x), Float(start.z))
@@ -141,12 +95,12 @@ class TSE_Pipot: TSEntity {
         return []
     }
     
-    /// -10 ~ 10 で探索
+    /// -20 ~ 20 で探索
     private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
         var obstacles = [GKPolygonObstacle]()
         
-        for x in -15...15 {
-            for z in -15...15 {
+        for x in -20...20 {
+            for z in -20...20 {
                 let pos = TSVector3(x, 1, z)
                 let block = level.getFillBlock(at: pos)
                 if block.isObstacle() {
@@ -166,11 +120,8 @@ class TSE_Pipot: TSEntity {
         let p3 = SIMD2<Float>((point + [1, 1]).simd)
         let p4 = SIMD2<Float>((point + [0, 1]).simd)
         
-        print([p1, p2, p3, p4])
         return GKPolygonObstacle(points: [p1, p2, p3, p4])
     }
-    
-    
     
     
     private func _createFootAction(t:Int) -> SCNAction {
