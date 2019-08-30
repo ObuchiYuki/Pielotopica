@@ -15,6 +15,7 @@ class TPSandboxSceneController: GK3DSceneController {
     // MARK: - Properies -
     
     public lazy var sceneModel = TPSandBox3DSceneModel(self)
+    public lazy var gameController = TPGameController(scene: scene)
     
     private let bag = DisposeBag()
     
@@ -93,6 +94,9 @@ class TPSandboxSceneController: GK3DSceneController {
 // MARK: - Extension for SceneModel -
 
 extension TPSandboxSceneController: TPSandboxSceneModelBinder {
+    func __startGame() {
+        gameController.start()
+    }
     
     var __cameraPosition: SCNVector3 {
         return self.cameraNode.position

@@ -56,7 +56,6 @@ class TPSandBoxRootScene: GKSafeScene {
         self.rootNode.addChild(newScene.rootNode)
         
         newScene.show(from: oldMode)
-        
     }
     
 }

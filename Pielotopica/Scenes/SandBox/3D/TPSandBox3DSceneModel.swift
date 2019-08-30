@@ -36,6 +36,9 @@ protocol TPSandboxSceneModelBinder: class {
     func __makeNight()
     func __makeDay()
     
+    // MARK: - Game - 
+    func __startGame()
+    
 }
 
 /// ゲームシステムとの仲介役です。

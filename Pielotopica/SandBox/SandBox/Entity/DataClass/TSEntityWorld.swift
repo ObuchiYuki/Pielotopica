@@ -8,6 +8,10 @@
 
 import SceneKit
 
+protocol TSEntityWorldDelegate: class {
+    func addNode(_ node: SCNNode)
+}
+
 /// 動的オブジェクトが入る場所です。
 class TSEntityWorld {
     // ================================================================== //
@@ -15,9 +19,7 @@ class TSEntityWorld {
     
     /// この世界に存在するエンティティ
     var entities = [TSEntityObject]()
-    
-    /// シングルトン
-    static let shared = TSEntityWorld()
+    private weak var delegate:TSEntityWorldDelegate!
     
     // ================================================================== //
     // MARK: - Private Properties -
@@ -33,10 +35,19 @@ class TSEntityWorld {
         self.timer?.fire()
         _getAllSpawners().forEach{spawners[$0] = $1}
     }
+    
     func stop() {
         self.timer?.invalidate()
         self.spawners = [:]
     }
+    
+    // ================================================================== //
+    // MARK: - Construcotr -
+    
+    init(delegate:TSEntityWorldDelegate) {
+        self.delegate = delegate
+    }
+
     
     // ================================================================== //
     // MARK: - Private Methods -
