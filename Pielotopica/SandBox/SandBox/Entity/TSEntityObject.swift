@@ -14,6 +14,8 @@ class TSEntityObject {
     var position:CGPoint
     var info = [String:Any]()
     let entity:TSEntity
+    let spown:TSSpawner
+    
     let node:SCNNode
     
     private weak var world:TSEntityWorld?
@@ -28,12 +30,13 @@ class TSEntityObject {
         node.runAction(.move(to: SCNVector3(x: Float(position.x), y: 1, z: Float(position.y)), duration: tic))
     }
     
-    init(world: TSEntityWorld, initialPosition: TSVector2, entity:TSEntity, node:SCNNode) {
+    init(world: TSEntityWorld, initialPosition: TSVector2, entity:TSEntity, node:SCNNode, spown:TSSpawner) {
         self.world = world
         self.position = initialPosition.point
         self.entity = entity
         self.node = node
-        
+        self.spown = spown
+                
         node.position = SCNVector3(x: Float(position.x), y: 1, z: Float(position.y))
     }
 }

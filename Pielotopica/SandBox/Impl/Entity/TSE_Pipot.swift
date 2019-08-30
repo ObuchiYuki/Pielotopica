@@ -23,9 +23,7 @@ class TSE_Pipot: TSEntity {
     
     
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
-        if object.info["spown"]==nil{object.info["spown"]=object.position}; let spown=object.info["spown"] as! CGPoint
-        
-        let route = world.findPathToTarget(from: spown)
+        let route = world.findPathToTarget(from: object.spown.targetNode!)
         
         if object.info["index"]==nil{object.info["index"]=0}; let index = object.info["index"] as! Int
         object.info["index"] = index + 1

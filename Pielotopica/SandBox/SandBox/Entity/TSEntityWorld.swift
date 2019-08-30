@@ -28,10 +28,12 @@ class TSEntityWorld {
     // MARK: - Private Properties -
     private var graph:WorldGraph!
     
-    private var spawners = [TSVector2: TSSpawner]()
+    private var spowners = [TSVector2: TSSpawner]()
     private var counter = 0
     private var updateInterval = 0.5
     private var timer:Timer? = nil
+    
+    private var targetNode:GKGraphNode2D!
     
     // ================================================================== //
     // MARK: - Methods -
@@ -44,37 +46,26 @@ class TSEntityWorld {
         })
         self.graph = _generateGraph()
         
-        _getAllSpawners().forEach{spawners[$0] = $1}
+        _getAllSpawners().forEach{spowners[$0] = $1}
     }
     
     func end() {
         self.entities.forEach{ $0.removeFromWorld() }
         self.entities = []
         self.timer?.invalidate()
-        self.spawners = [:]
+        self.spowners = [:]
     }
-    
     
     func removeObject(_ object:TSEntityObject) {
         guard let index = entities.firstIndex(where: {$0 === object}) else {return print("Not found")}
         entities.remove(at: index)
     }
     
-    func findPathToTarget(from spown:CGPoint) -> [CGPoint] {
-        let ns = self.graph.findPath(from: GKGraphNode2D(spown), to: GKGraphNode2D(_getTargetPosition().point)) as! [GKGraphNode2D]
+    func findPathToTarget(from node:GKGraphNode2D) -> [CGPoint] {
+        let ns = self.graph.findPath(from: targetNode, to: node) as! [GKGraphNode2D]
         
         return ns.map{CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y))}
     }
-    
-    private func _getTargetPosition() -> TSVector2 {
-        let level = TSLevel.current!
-        
-        let pos = level.getAllAnchors().first(where: {level.getAnchorBlock(at: $0) is TS_TargetBlock})
-        assert(pos != nil, "You must set single target in level.")
-        
-        return pos!.vector2
-    }
-    
     
     // ================================================================== //
     // MARK: - Construcotr -
@@ -87,18 +78,32 @@ class TSEntityWorld {
     // ================================================================== //
     // MARK: - Private Methods -
     
+    private func _getTargetPosition() -> TSVector2 {
+        let level = TSLevel.current!
+        
+        let pos = level.getAllAnchors().first(where: {level.getAnchorBlock(at: $0) is TS_TargetBlock})
+        assert(pos != nil, "You must set single target in level.")
+        
+        return pos!.vector2
+    }
+    
+    
     private func _generateGraph() -> WorldGraph {
         let graph = WorldGraph(obstacles: _generateObstacles(from: TSLevel.current), bufferRadius: 0.45)
         
-        for (pos, _) in _getAllSpawners() {
-            graph.connectUsingObstacles(node: GKGraphNode2D(point: vector_float2(Float(pos.x), Float(pos.z))))
+        for (pos, spowner) in _getAllSpawners() {
+            let node = GKGraphNode2D(point: vector_float2(Float(pos.x), Float(pos.z)))
+            spowner.targetNode = node
             
+            graph.connectUsingObstacles(node: node)
         }
         
         let targetPos = _getTargetPosition()
         
-        graph.connectUsingObstacles(node: GKGraphNode2D(point: vector_float2(Float(targetPos.x), Float(targetPos.z))))
+        targetNode = GKGraphNode2D(point: vector_float2(Float(targetPos.x), Float(targetPos.z)))
+        graph.connectUsingObstacles(node: targetNode)
         
+        return graph
     }
     private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
         var obstacles = [GKPolygonObstacle]()
@@ -132,12 +137,16 @@ class TSEntityWorld {
     
     private func _spawnUpdate() {
         
-        for (point, spawner) in spawners {
+        for (point, spowner) in spowners {
             /// 一回呼ばれるのに何1/2秒かかるか
-            let t = Int((1.0 / spawner.frequency.d) * 100 / updateInterval)
+            let t = Int((1.0 / spowner.frequency.d) * 100 / updateInterval)
             
             if counter % t == 0 {
-                let obj = TSEntityObject(world: self, initialPosition: point, entity: spawner.entity, node: spawner.entity.generateNode())
+                let obj = TSEntityObject(
+                    world: self, initialPosition: point,
+                    entity: spowner.entity, node: spowner.entity.generateNode(),
+                    spown: spowner
+                )
                 
                 entities.append(obj)
                 delegate.addNode(obj.node)
@@ -158,11 +167,11 @@ class TSEntityWorld {
         let spawnerPositions = spawnerBlocks
             .map{$0.0.vector2}
         
-        let spawners = spawnerBlocks
+        let spowners = spawnerBlocks
             .map{$1 as! TS_SpawnerBlock}
             .map(TSSpawner.init(block: ))
      
-        return zip(spawnerPositions, spawners).map{$0}
+        return zip(spawnerPositions, spowners).map{$0}
     }
     
 }
