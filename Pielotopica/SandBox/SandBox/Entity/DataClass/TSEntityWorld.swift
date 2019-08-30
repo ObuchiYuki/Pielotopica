@@ -92,13 +92,13 @@ class TSEntityWorld {
         
         let spawnerBlocks = level.getAllAnchors()
             .map{($0, level.getAnchorBlock(at: $0))}
-            .filter { $1 is TSSpawnerBlock }
+            .filter { $1 is TS_SpawnerBlock }
             
         let spawnerPositions = spawnerBlocks
             .map{$0.0.vector2}
         
         let spawners = spawnerBlocks
-            .map{$1 as! TSSpawnerBlock}
+            .map{$1 as! TS_SpawnerBlock}
             .map(TSSpawner.init(block: ))
      
         return zip(spawnerPositions, spawners).map{$0}

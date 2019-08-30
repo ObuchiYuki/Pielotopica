@@ -22,7 +22,9 @@ public extension TSBlock {
     
     static let woodWall1x5:TSBlock = TS_Wall1x5(nodeNamed: "TP_wood_wall_1x5", index: 14)
     
-    static let pipotSpawner:TSBlock = TSSpawnerBlock(frequency: 20, entity: .pipot, index: 17)
+    static let pipotSpawner:TSBlock = TS_SpawnerBlock(frequency: 20, entity: .pipot, index: 17)
+    
+    static let targetKari:TSBlock = TS_TargetBlock(index: 18)
     
 }
 

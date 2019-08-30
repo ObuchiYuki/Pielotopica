@@ -1,5 +1,5 @@
 //
-//  TSSpawnerBlock.swift
+//  TS_SpawnerBlock.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/08/30.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TSSpawnerBlock: TSBlock {
+class TS_SpawnerBlock: TSBlock {
     // おおよそ100秒に何回発生させるか
     var frequency:Int = 0
     let entity:TSEntity

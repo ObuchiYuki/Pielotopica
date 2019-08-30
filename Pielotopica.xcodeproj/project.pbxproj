@@ -93,6 +93,10 @@
 		B660939323153B3400B528E5 /* Silom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B660939223153B2800B528E5 /* Silom.ttf */; };
 		B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939423154E6600B528E5 /* TPCraftMenu.swift */; };
 		B66093992315526500B528E5 /* TPCraftMoreItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66093982315526500B528E5 /* TPCraftMoreItems.swift */; };
+		B661FA392318CFCD00D4A3C0 /* TS_TargetBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */; };
+		B661FA3D2318D2C800D4A3C0 /* TP_target_kari.png in Resources */ = {isa = PBXBuildFile; fileRef = B661FA3C2318D2C800D4A3C0 /* TP_target_kari.png */; };
+		B661FA432318D33600D4A3C0 /* TP_target_kari.scn in Resources */ = {isa = PBXBuildFile; fileRef = B661FA422318D33600D4A3C0 /* TP_target_kari.scn */; };
+		B661FA452318D40500D4A3C0 /* TS_TargetKariItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661FA442318D40500D4A3C0 /* TS_TargetKariItem.swift */; };
 		B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* RKRectAdjuster.swift */; };
 		B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA51230B776C0038B098 /* RKImageResizer.swift */; };
 		B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */; };
@@ -282,6 +286,10 @@
 		B660939223153B2800B528E5 /* Silom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silom.ttf; sourceTree = "<group>"; };
 		B660939423154E6600B528E5 /* TPCraftMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMenu.swift; sourceTree = "<group>"; };
 		B66093982315526500B528E5 /* TPCraftMoreItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMoreItems.swift; sourceTree = "<group>"; };
+		B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_TargetBlock.swift; sourceTree = "<group>"; };
+		B661FA3C2318D2C800D4A3C0 /* TP_target_kari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_target_kari.png; sourceTree = "<group>"; };
+		B661FA422318D33600D4A3C0 /* TP_target_kari.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_target_kari.scn; sourceTree = "<group>"; };
+		B661FA442318D40500D4A3C0 /* TS_TargetKariItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_TargetKariItem.swift; sourceTree = "<group>"; };
 		B667BA50230B776C0038B098 /* RKRectAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKRectAdjuster.swift; sourceTree = "<group>"; };
 		B667BA51230B776C0038B098 /* RKImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKImageResizer.swift; sourceTree = "<group>"; };
 		B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKObjectNameMapper.swift; sourceTree = "<group>"; };
@@ -694,6 +702,7 @@
 				B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */,
 				B6227A6223023732009EF60F /* TS_Floar.swift */,
 				B614C235230F731F00DA7093 /* TS_Wall1x5.swift */,
+				B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -701,6 +710,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B661FA422318D33600D4A3C0 /* TP_target_kari.scn */,
+				B661FA3C2318D2C800D4A3C0 /* TP_target_kari.png */,
 				B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */,
 				B6012DFA2318ACE100DC18CE /* spawner.png */,
 				B66BD3D72317E73E00E20212 /* enemy_1.scn */,
@@ -1009,6 +1020,7 @@
 				B6EEB27B23160F5E004C5826 /* TS_JapaneseHouse.swift */,
 				B69E8671231635C6004D4272 /* TS_WoodWall.swift */,
 				B6012DFE2318B11500DC18CE /* TS_SpawnerItem.swift */,
+				B661FA442318D40500D4A3C0 /* TS_TargetKariItem.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1154,10 +1166,12 @@
 				B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */,
 				B6227A312301AB84009EF60F /* bokeh.png in Resources */,
 				B66BD3DA2317E74400E20212 /* enemy_1.png in Resources */,
+				B661FA3D2318D2C800D4A3C0 /* TP_target_kari.png in Resources */,
 				B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */,
 				B608C498231101130073843E /* wood_wall_1x1.png in Resources */,
 				B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */,
 				B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */,
+				B661FA432318D33600D4A3C0 /* TP_target_kari.scn in Resources */,
 				B6A8D66F230ED717005B26A5 /* TP_Ground_edge.scn in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
 				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,
@@ -1235,6 +1249,7 @@
 			files = (
 				B69E867C23168129004D4272 /* TPSMainMenuSceneModel.swift in Sources */,
 				B6BEB53D231615610067A4F0 /* TPCraftMenuMaterials.swift in Sources */,
+				B661FA392318CFCD00D4A3C0 /* TS_TargetBlock.swift in Sources */,
 				B651231423114DFF003129B5 /* TS_Air.swift in Sources */,
 				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
@@ -1325,6 +1340,7 @@
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
 				B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,
+				B661FA452318D40500D4A3C0 /* TS_TargetKariItem.swift in Sources */,
 				B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */,
 				B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */,
 				B61E94092300E390008CB325 /* _TPStartSceneTabItem.swift in Sources */,

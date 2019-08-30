@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSItemManager.shared.register(.japaneseHouse2)
         TSItemManager.shared.register(.woodWall1x5)
         TSItemManager.shared.register(.pipotSpawner)
+        TSItemManager.shared.register(.targetKari)
         
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)

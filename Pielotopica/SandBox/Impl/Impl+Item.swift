@@ -20,15 +20,21 @@ public extension TSItem {
     )
     
     static let woodWall1x5 = TS_WoodWall(
-        name: "キノヘイ",
+        name: "キのヘイ",
         textureNamed: "TP_item_thumb_wood_wall_1x5",
         block: .woodWall1x5
     )
     
     static let pipotSpawner = TS_SpawnerItem(
-        name: "ピポットノスポナー",
+        name: "ピポットのスポナー",
         textureNamed: "TP_item_thumb_spawner",
         block: .pipotSpawner
+    )
+    
+    static let targetKari = TS_TargetKariItem(
+        name: "カリのキョテン",
+        textureNamed: "TP_item_thumb_target_kari",
+        block: .targetKari
     )
 }
 
