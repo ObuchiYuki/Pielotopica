@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
-		B6012DEF23189B1C00DC18CE /* TSSpawnerBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DEE23189B1C00DC18CE /* TSSpawnerBlock.swift */; };
+		B6012DEF23189B1C00DC18CE /* TS_SpawnerBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */; };
 		B6012DF123189D1700DC18CE /* TSSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF023189D1700DC18CE /* TSSpawner.swift */; };
 		B6012DF32318A0C700DC18CE /* TSEntityObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF22318A0C700DC18CE /* TSEntityObject.swift */; };
 		B6012DF62318A67F00DC18CE /* TPGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF52318A67F00DC18CE /* TPGameController.swift */; };
-		B6012DF92318ACDD00DC18CE /* TP_spawner_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6012DF82318ACDD00DC18CE /* TP_spawner_1x1.scn */; };
 		B6012DFB2318ACE200DC18CE /* spawner.png in Resources */ = {isa = PBXBuildFile; fileRef = B6012DFA2318ACE100DC18CE /* spawner.png */; };
 		B6012DFD2318ADDB00DC18CE /* Impl+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */; };
+		B6012DFF2318B11500DC18CE /* TS_SpawnerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DFE2318B11500DC18CE /* TS_SpawnerItem.swift */; };
+		B6012E012318B5BB00DC18CE /* TP_spawner_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */; };
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
@@ -192,13 +193,14 @@
 		05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.release.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.release.xcconfig"; sourceTree = "<group>"; };
 		1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.debug.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.debug.xcconfig"; sourceTree = "<group>"; };
 		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6012DEE23189B1C00DC18CE /* TSSpawnerBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSpawnerBlock.swift; sourceTree = "<group>"; };
+		B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_SpawnerBlock.swift; sourceTree = "<group>"; };
 		B6012DF023189D1700DC18CE /* TSSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSpawner.swift; sourceTree = "<group>"; };
 		B6012DF22318A0C700DC18CE /* TSEntityObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntityObject.swift; sourceTree = "<group>"; };
 		B6012DF52318A67F00DC18CE /* TPGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameController.swift; sourceTree = "<group>"; };
-		B6012DF82318ACDD00DC18CE /* TP_spawner_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_spawner_1x1.scn; sourceTree = "<group>"; };
 		B6012DFA2318ACE100DC18CE /* spawner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spawner.png; sourceTree = "<group>"; };
 		B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Entity.swift"; sourceTree = "<group>"; };
+		B6012DFE2318B11500DC18CE /* TS_SpawnerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_SpawnerItem.swift; sourceTree = "<group>"; };
+		B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_spawner_1x1.scn; sourceTree = "<group>"; };
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
@@ -687,6 +689,7 @@
 		B6227A6023023732009EF60F /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
+				B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */,
 				B651231323114DFF003129B5 /* TS_Air.swift */,
 				B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */,
 				B6227A6223023732009EF60F /* TS_Floar.swift */,
@@ -698,7 +701,7 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
-				B6012DF82318ACDD00DC18CE /* TP_spawner_1x1.scn */,
+				B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */,
 				B6012DFA2318ACE100DC18CE /* spawner.png */,
 				B66BD3D72317E73E00E20212 /* enemy_1.scn */,
 				B66BD3D92317E74300E20212 /* enemy_1.png */,
@@ -997,6 +1000,7 @@
 			children = (
 				B6EEB27B23160F5E004C5826 /* TS_JapaneseHouse.swift */,
 				B69E8671231635C6004D4272 /* TS_WoodWall.swift */,
+				B6012DFE2318B11500DC18CE /* TS_SpawnerItem.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1008,7 +1012,6 @@
 				B6012DF22318A0C700DC18CE /* TSEntityObject.swift */,
 				B6EECD0923181649005001FB /* TSEntityWorld.swift */,
 				B6012DF023189D1700DC18CE /* TSSpawner.swift */,
-				B6012DEE23189B1C00DC18CE /* TSSpawnerBlock.swift */,
 			);
 			path = DataClass;
 			sourceTree = "<group>";
@@ -1130,6 +1133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */,
+				B6012E012318B5BB00DC18CE /* TP_spawner_1x1.scn in Resources */,
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
 				B6A8D669230ECC67005B26A5 /* TP_floar_5x5.png in Resources */,
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
@@ -1147,7 +1151,6 @@
 				B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */,
 				B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */,
 				B6A8D66F230ED717005B26A5 /* TP_Ground_edge.scn in Resources */,
-				B6012DF92318ACDD00DC18CE /* TP_spawner_1x1.scn in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
 				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,
 				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
@@ -1248,7 +1251,7 @@
 				B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */,
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
 				B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */,
-				B6012DEF23189B1C00DC18CE /* TSSpawnerBlock.swift in Sources */,
+				B6012DEF23189B1C00DC18CE /* TS_SpawnerBlock.swift in Sources */,
 				B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */,
 				B6996935231790C700CE933B /* TPSBattleSceneModel.swift in Sources */,
 				B69E867723168028004D4272 /* TPSandBoxScene.swift in Sources */,
@@ -1300,6 +1303,7 @@
 				B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */,
 				B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */,
 				B66093992315526500B528E5 /* TPCraftMoreItems.swift in Sources */,
+				B6012DFF2318B11500DC18CE /* TS_SpawnerItem.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
 				B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */,
 				B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */,

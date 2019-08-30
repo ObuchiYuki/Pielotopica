@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSItemManager.shared.register(.none)
         TSItemManager.shared.register(.japaneseHouse2)
         TSItemManager.shared.register(.woodWall1x5)
-                       
-        //TSFuelData.shared.addFuel(1000)
+        TSItemManager.shared.register(.pipotSpawner)
         
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)

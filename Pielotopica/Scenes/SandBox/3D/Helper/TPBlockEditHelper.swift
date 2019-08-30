@@ -190,7 +190,7 @@ class TPBlockEditHelper {
     
     /// ガイドノード複雑だからね...
     private func getMaterial(from guideNode:SCNNode) -> SCNMaterial {
-        return guideNode.childNodes.first(where: {$0.name != "gnode"})!.fmaterial!
+        return guideNode.childNode(withName: "_palette", recursively: true)!.geometry!.firstMaterial!
     }
     
     /// ブロックが置けるかどうかを判定しマテリアへんけ

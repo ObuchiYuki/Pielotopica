@@ -24,7 +24,7 @@ class TS_Floar5x5:TSBlock {
         return true
     }
     override func shouldAnimateWhenPlaced(at point: TSVector3) -> Bool {
-        return false
+        return true
     }
 }
 

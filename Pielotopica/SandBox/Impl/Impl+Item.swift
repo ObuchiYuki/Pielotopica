@@ -25,5 +25,10 @@ public extension TSItem {
         block: .woodWall1x5
     )
     
+    static let pipotSpawner = TS_SpawnerItem(
+        name: "ピポットノスポナー",
+        textureNamed: "TP_item_thumb_spawner",
+        block: .pipotSpawner
+    )
 }
 
