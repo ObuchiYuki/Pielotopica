@@ -46,7 +46,7 @@ class TSE_Pipot: TSEntity {
         object.updatePosition(to: object.position + [0, 1], tic: tic)
         
         if object.position.z >= 10 {
-            self.removeFromWorld()
+            object.removeFromWorld()
         }
     }
 }

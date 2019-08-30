@@ -31,7 +31,6 @@ class TSEntityWorld {
     // ================================================================== //
     // MARK: - Methods -
     func start() {
-        print("start")
         self.timer = Timer.scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: {[weak self] timer in
             guard let self = self else { return timer.invalidate() }
             self._update()
@@ -42,9 +41,14 @@ class TSEntityWorld {
     }
     
     func stop() {
-        print("stop")
         self.timer?.invalidate()
         self.spawners = [:]
+    }
+    
+    
+    func removeObject(_ object:TSEntityObject) {
+        guard let index = entities.firstIndex(where: {$0 === object}) else {return print("Not found")}
+        entities.remove(at: index)
     }
     
     // ================================================================== //
@@ -59,14 +63,12 @@ class TSEntityWorld {
     // MARK: - Private Methods -
     
     private func _update() {
-        print("update")
         for entity in entities  {
             entity.entity.update(tic: updateInterval, object: entity, world: self, level: TSLevel.current)
         }
     }
     
     private func _spawnUpdate() {
-        print("_spawnUpdate")
         // 1秒に2回呼ばれる
         counter += 1
         
@@ -75,7 +77,7 @@ class TSEntityWorld {
             let t = Int((1.0 / spawner.frequency.d) * 100 / updateInterval)
             
             if counter % t == 0 {
-                let obj = TSEntityObject(initialPosition: point, entity: spawner.entity, node: spawner.entity.generateNode())
+                let obj = TSEntityObject(world: self, initialPosition: point, entity: spawner.entity, node: spawner.entity.generateNode())
                 
                 entities.append(obj)
                 delegate.addNode(obj.node)

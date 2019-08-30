@@ -15,14 +15,20 @@ class TSEntityObject {
     let entity:TSEntity
     let node:SCNNode
     
+    private weak var world:TSEntityWorld?
     private let animated = false
     
+    func removeFromWorld() {
+        node.removeFromParentNode()
+        world?.removeObject(self)
+    }
     func updatePosition(to position:TSVector2, tic:Double) {
         self.position = position
         node.runAction(.move(to: position.vector3(y: 1).scnVector3, duration: tic))
     }
     
-    init(initialPosition: TSVector2, entity:TSEntity, node:SCNNode) {
+    init(world: TSEntityWorld, initialPosition: TSVector2, entity:TSEntity, node:SCNNode) {
+        self.world = world
         self.position = initialPosition
         self.entity = entity
         self.node = node
@@ -30,3 +36,4 @@ class TSEntityObject {
         node.position = position.vector3(y: 1).scnVector3
     }
 }
+
