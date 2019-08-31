@@ -23,6 +23,7 @@ class TPGameController {
     // MARK: - Methods -
     
     func start() {
+        level.delegate2 = self
         TSDurablityManager.shared.connect(scene: scene)
         self.entityWorld.start()
                 
@@ -35,6 +36,16 @@ class TPGameController {
     // MARK: - Constructor -
     init(scene: SCNScene) {
         self.scene = scene
+    }
+}
+
+extension TPGameController: TSLevelDelegate {
+    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag: Bool) {
+        entityWorld.onPlaceObject(at: position)
+    }
+    
+    func level(_ level: TSLevel, levelDidDestoryBlockAt position: TSVector3) {
+        entityWorld.onDestoryObject(at: position)
     }
 }
 

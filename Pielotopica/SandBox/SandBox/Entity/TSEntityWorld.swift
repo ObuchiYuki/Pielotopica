@@ -33,6 +33,7 @@ class TSEntityWorld {
     private var updateInterval = 0.5
     private var timer:Timer? = nil
     
+    private var level:TSLevel {TSLevel.current!}
     private var targetNode:GKGraphNode2D!
     private var fillObstacles = [TSVector2: GKPolygonObstacle]()
      
@@ -56,6 +57,15 @@ class TSEntityWorld {
         self.entities = []
         self.timer?.invalidate()
         self.spowners = [:]
+    }
+    
+    func onDestoryObject(at anchor:TSVector3) {
+        
+        self._removeObstacles(at: level.getFills(at: anchor, layerY: 1).map{$0.vector2})
+    }
+    func onPlaceObject(at anchor:TSVector3) {
+        
+        self._addObsracles(at: level.getFills(at: anchor, layerY: 1).map{$0.vector2})
     }
     
     func removeObject(_ object:TSEntityObject) {

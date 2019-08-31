@@ -499,7 +499,7 @@
 			children = (
 				B6604D6A231023BF0077C76A /* Pielotopica.entitlements */,
 				B61E93BC2300E368008CB325 /* AppDelegate.swift */,
-				B6AA02AE230D803F00F0FF48 /* View */,
+				B61E93BA2300E361008CB325 /* GameViewController.swift */,
 				B6030EE92301A4D4005C4312 /* Libs */,
 				B6227A4F2301AE8D009EF60F /* SandBox */,
 				B6227A6F23023983009EF60F /* Scenes */,
@@ -988,14 +988,6 @@
 				B69E8683231684DF004D4272 /* TPSandBoxSceneModel.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		B6AA02AE230D803F00F0FF48 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B61E93BA2300E361008CB325 /* GameViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B6AA02B1230E119A00F0FF48 /* Node */ = {

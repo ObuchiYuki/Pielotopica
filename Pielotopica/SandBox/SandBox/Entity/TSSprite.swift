@@ -10,14 +10,18 @@ import SceneKit
 import SpriteKit
 
 class TSSprite {
-    let sprite:SKSpriteNode
+    private let sprite:SKSpriteNode
+    private let _node = SCNNode()
     
     init(sprite: SKSpriteNode) {
         self.sprite = sprite
     }
     
-    func show(at position:SCNVector3, in scene:SCNScene) {
-        let _node = SCNNode()
+    deinit {
+        _node.removeFromParentNode()
+    }
+    
+    func show(at position:SCNVector3, in scene:SCNScene) {    
         let plane = SCNPlane(width: sprite.size.width / 100, height: sprite.size.height / 100)
         plane.firstMaterial?.emission.contents = _createSKScene()
         

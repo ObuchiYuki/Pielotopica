@@ -23,7 +23,14 @@ internal let kArrayAccessMargin = kLevelMaxX / 2
 
 public protocol TSLevelDelegate:class {
     func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool)
+    func level(_ level:TSLevel, levelWillDestoryBlockAt position:TSVector3)
     func level(_ level:TSLevel, levelDidDestoryBlockAt position:TSVector3)
+}
+
+extension TSLevelDelegate {
+    func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool) {}
+    func level(_ level:TSLevel, levelWillDestoryBlockAt position:TSVector3) {}
+    func level(_ level:TSLevel, levelDidDestoryBlockAt position:TSVector3) {}
 }
 
 // =============================================================== //
@@ -35,6 +42,7 @@ public class TSLevel {
     // =============================================================== //
     // MARK: - Properties -
     public weak var delegate:TSLevelDelegate?
+    public weak var delegate2:TSLevelDelegate?
     
     /// このマップに対するNodeGaneratorです。
     internal weak var nodeGenerator:TSNodeGenerator?
@@ -59,6 +67,20 @@ public class TSLevel {
     
     // =============================================================== //
     // MARK: - Methods -
+    
+    public func getFills(at anchorPoint:TSVector3, layerY: Int16) -> [TSVector3] {
+        let size = getAnchorBlock(at: anchorPoint).getSize(at: anchorPoint)
+        
+        var points = [TSVector3]()
+        for x in _createRange(size.x16) {
+            for z in _createRange(size.z16) {
+                points.append(anchorPoint + TSVector3(x, layerY, z))
+                 
+            }
+        }
+        
+        return points
+    }
     
     public func getAnchor(ofFill fillPoint:TSVector3) -> TSVector3? {
         let (x, y, z) = _convertVector3(fillPoint)
@@ -123,6 +145,7 @@ public class TSLevel {
         _realPlaceBlock(block, at: anchorPoint, rotation: rotation)
         
         self.delegate?.level(self, levelDidUpdateBlockAt: anchorPoint, needsAnimation: true)
+        self.delegate2?.level(self, levelDidUpdateBlockAt: anchorPoint, needsAnimation: true)
         
         block.didPlaced(at: anchorPoint)
         
@@ -136,6 +159,8 @@ public class TSLevel {
         guard block.canDestroy(at: anchorPoint) else {return}
                 
         block.willDestroy(at: anchorPoint)
+        self.delegate?.level(self, levelWillDestoryBlockAt: anchorPoint)
+        self.delegate2?.level(self, levelWillDestoryBlockAt: anchorPoint)
         
         self.nodeGenerator?.destoryNode(at: anchorPoint)
         self.anchorMap.remove(anchorPoint)
@@ -144,6 +169,7 @@ public class TSLevel {
         self._setBlockDataMap(0, at: anchorPoint)
         
         self.delegate?.level(self, levelDidDestoryBlockAt: anchorPoint)
+        self.delegate2?.level(self, levelDidDestoryBlockAt: anchorPoint)
         
         self._save()
         block.didDestroy(at: anchorPoint)

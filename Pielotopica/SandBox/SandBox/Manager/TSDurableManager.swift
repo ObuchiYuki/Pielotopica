@@ -62,10 +62,10 @@ class TSDurablityManager {
     }
     
     private func check(at anchorPoint:TSVector3) {
-        print("check:", getDurablity(at: anchorPoint))
         
         if getDurablity(at: anchorPoint) <= 0 {
             level.destroyBlock(at: anchorPoint)
+            spriteMap.removeValue(forKey: anchorPoint)
             
         }else{
             if spriteMap[anchorPoint] == nil {

@@ -36,8 +36,11 @@ class TSE_Pipot: TSEntity {
             if object.info["index"] == nil {object.info["index"]=0}; let index = object.info["index"] as! Int
             object.info["index"] = index + 1
             
-            if route.count <= index { return object.removeFromWorld() }
-            vector = route[index]
+            if route.count <= index {
+                vector = _routeToTarget(object: object, world: world)
+            }else{
+                vector = route[index]
+            }
         }else{
             vector = _routeToTarget(object: object, world: world)
         }
