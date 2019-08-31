@@ -83,8 +83,6 @@ open class TSBlock {
     
     /// 強度を返してください。
     open func getHardnessLevel() -> Int {return 10}
-    /// 現在の強度を返してください。 10 - 0
-    open func getCurrentHardness(at point:TSVector3) -> Int { getNBD(at: point).int(for: "hardness") ?? 10}
     
     /// タッチされた時に呼び出されます。
     open func didTouch(at point:TSVector3) {}

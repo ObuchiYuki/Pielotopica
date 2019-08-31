@@ -29,6 +29,8 @@
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
+		B6102371231A64FC009252E1 /* TSDurableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102370231A64FC009252E1 /* TSDurableManager.swift */; };
+		B6102373231A68B0009252E1 /* TSE_DurablitySprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */; };
 		B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_Wall1x5.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
@@ -224,6 +226,8 @@
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
+		B6102370231A64FC009252E1 /* TSDurableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDurableManager.swift; sourceTree = "<group>"; };
+		B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE_DurablitySprite.swift; sourceTree = "<group>"; };
 		B614C235230F731F00DA7093 /* TS_Wall1x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Wall1x5.swift; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -793,6 +797,7 @@
 			isa = PBXGroup;
 			children = (
 				B66BD3DC2317E8A800E20212 /* TSE_Pipot.swift */,
+				B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -899,6 +904,7 @@
 			isa = PBXGroup;
 			children = (
 				B69E866F231627B9004D4272 /* TSItemManager.swift */,
+				B6102370231A64FC009252E1 /* TSDurableManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1293,6 +1299,7 @@
 				B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,
 				B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */,
+				B6102373231A68B0009252E1 /* TSE_DurablitySprite.swift in Sources */,
 				B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */,
 				B61E940A2300E390008CB325 /* _TPStartSceneLogo.swift in Sources */,
 				B6EEB27923160DDF004C5826 /* TSCraftMaterialValue.swift in Sources */,
@@ -1373,6 +1380,7 @@
 				B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
 				B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */,
+				B6102371231A64FC009252E1 /* TSDurableManager.swift in Sources */,
 				B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */,
 				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
 				B6227A6423023732009EF60F /* TS_Floar.swift in Sources */,

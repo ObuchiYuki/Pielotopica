@@ -28,9 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(TSBlock.ground5x5)
         print(TSBlock.ground5x5Edge)
         print(TSBlock.woodWall1x5)
-        
-        TSInventory.shared.addItem(.woodWall1x5, count: 100)
                 
+        _ = TSLevel()
+        
+        
         return true
     }
 }

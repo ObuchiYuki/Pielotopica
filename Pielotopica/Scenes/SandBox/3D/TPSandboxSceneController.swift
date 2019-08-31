@@ -79,14 +79,13 @@ class TPSandboxSceneController: GK3DSceneController {
     override func sceneDidLoad() {
         self.sceneModel.sceneDidLoad()
         
-        //self.addGestureRecognizer(pinchGestureRecognizer)
-        //self.addGestureRecognizer(panGestureRecognizer)
-        //self.addGestureRecognizer(tapGestureRecognizer)
+        self.addGestureRecognizer(pinchGestureRecognizer)
+        self.addGestureRecognizer(panGestureRecognizer)
+        self.addGestureRecognizer(tapGestureRecognizer)
         
         // Scene Settings
         self.setupCamera()
         self.setupDirectionalLight()
-    
     }
 }
 

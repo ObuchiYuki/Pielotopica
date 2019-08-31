@@ -21,7 +21,7 @@ class GameViewController: GKGameViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        _ = TSLevel()
+        //scnView.allowsCameraControl = true
         
         switch showingScene {
         case .startScene:
