@@ -28,7 +28,7 @@ class TSE_Pipot: TSEntity {
         var vector:CGPoint
         
         if object.info["random"] == nil {
-            object.info["random"] = CGPoint.random(x: -0.2...0.2, y: -0.2...0.2)
+            object.info["random"] = CGPoint.random(x: -0.1...0.1, y: -0.1...0.1)
         }
         let random = object.info["random"] as! CGPoint
         
@@ -42,9 +42,12 @@ class TSE_Pipot: TSEntity {
             vector = _routeToTarget(object: object, world: world)
         }
         
+        let next = TSVector2(object.position + vector)
         
-        if level.getFillBlock(at: TSVector2(object.position + vector).vector3(y: 1)).isObstacle() {
-            print("touch")
+        if level.getFillBlock(at: next.vector3(y: 1)).isObstacle() {
+            let anc = level.getAnchor(ofFill: next.vector3(y: 1))!
+            print("touching", level.getAnchorBlock(at: anc))
+            
         }else{
             object.node.childNodes[0].runAction(.rotateTo(x: 0, y: _angle(from: vector), z: 0, duration: 0.1))
             object.updatePosition(to: object.position + vector + random, tic: tic)

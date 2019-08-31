@@ -16,6 +16,8 @@
 		B6002D93231A22FC006C4D94 /* TSNBDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D92231A22FC006C4D94 /* TSNBDData.swift */; };
 		B6002D96231A29FC006C4D94 /* AStarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D95231A29FC006C4D94 /* AStarNode.swift */; };
 		B6002D98231A340E006C4D94 /* Ex+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D97231A340E006C4D94 /* Ex+CGPoint.swift */; };
+		B6002D9A231A4E93006C4D94 /* TSFillBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D99231A4E93006C4D94 /* TSFillBlock.swift */; };
+		B6002D9E231A5799006C4D94 /* TSSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D9D231A5799006C4D94 /* TSSprite.swift */; };
 		B6012DEF23189B1C00DC18CE /* TS_SpawnerBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */; };
 		B6012DF123189D1700DC18CE /* TSSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF023189D1700DC18CE /* TSSpawner.swift */; };
 		B6012DF32318A0C700DC18CE /* TSEntityObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF22318A0C700DC18CE /* TSEntityObject.swift */; };
@@ -209,6 +211,8 @@
 		B6002D92231A22FC006C4D94 /* TSNBDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSNBDData.swift; sourceTree = "<group>"; };
 		B6002D95231A29FC006C4D94 /* AStarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStarNode.swift; sourceTree = "<group>"; };
 		B6002D97231A340E006C4D94 /* Ex+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+CGPoint.swift"; sourceTree = "<group>"; };
+		B6002D99231A4E93006C4D94 /* TSFillBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSFillBlock.swift; sourceTree = "<group>"; };
+		B6002D9D231A5799006C4D94 /* TSSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSprite.swift; sourceTree = "<group>"; };
 		B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_SpawnerBlock.swift; sourceTree = "<group>"; };
 		B6012DF023189D1700DC18CE /* TSSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSpawner.swift; sourceTree = "<group>"; };
 		B6012DF22318A0C700DC18CE /* TSEntityObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntityObject.swift; sourceTree = "<group>"; };
@@ -682,6 +686,7 @@
 				B6E8826023121835003F3124 /* TSLevelData.swift */,
 				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 				B6002D92231A22FC006C4D94 /* TSNBDData.swift */,
+				B6002D99231A4E93006C4D94 /* TSFillBlock.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -820,6 +825,7 @@
 		B66BD3DB2317E88A00E20212 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				B6002D9D231A5799006C4D94 /* TSSprite.swift */,
 				B6EECD07231815CA005001FB /* TSEntity.swift */,
 				B6012DF22318A0C700DC18CE /* TSEntityObject.swift */,
 				B6EECD0923181649005001FB /* TSEntityWorld.swift */,
@@ -1272,6 +1278,7 @@
 				B6DDABEB2318E7D5003F538B /* RMMeasure.swift in Sources */,
 				B6EECD08231815CA005001FB /* TSEntity.swift in Sources */,
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
+				B6002D9A231A4E93006C4D94 /* TSFillBlock.swift in Sources */,
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
 				B69E868B23168816004D4272 /* TPSCraftSceneModel.swift in Sources */,
 				B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */,
@@ -1369,6 +1376,7 @@
 				B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */,
 				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
 				B6227A6423023732009EF60F /* TS_Floar.swift in Sources */,
+				B6002D9E231A5799006C4D94 /* TSSprite.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
 				B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */,

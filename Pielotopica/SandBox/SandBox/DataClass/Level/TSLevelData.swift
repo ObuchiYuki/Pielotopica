@@ -8,8 +8,8 @@
 
 import Foundation
 
-public struct TSLevelData: Codable {
-    public var fillMap:[[[UInt16]]]
+public struct TSLevelData: RMStorable {
+    public var fillMap:[[[TSFillBlock]]]
     public var anchorBlockMap:[[[UInt16]]]
     public var blockDataMap:[[[UInt8]]]
     public var anchorSet:[TSVector3]
@@ -22,7 +22,7 @@ public struct TSLevelData: Codable {
     }
     init() {
         fillMap =
-            Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
+            Array(repeating: Array(repeating: Array(repeating: TSFillBlock.zero, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
         anchorBlockMap =
             Array(repeating: Array(repeating: Array(repeating: 0, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
         blockDataMap =
@@ -31,7 +31,7 @@ public struct TSLevelData: Codable {
         anchorSet = []
     }
     
-    init(fillMap: [[[UInt16]]], anchorBlockMap: [[[UInt16]]], blockDataMap: [[[UInt8]]], anchorSet: [TSVector3]) {
+    init(fillMap: [[[TSFillBlock]]], anchorBlockMap: [[[UInt16]]], blockDataMap: [[[UInt8]]], anchorSet: [TSVector3]) {
         self.fillMap = fillMap
         self.anchorBlockMap = anchorBlockMap
         self.blockDataMap = blockDataMap

@@ -12,9 +12,9 @@ import RxSwift
 
 // =============================================================== //
 // MARK: - Constants -
-internal let kLevelMaxX = Int(100)
-internal let kLevelMaxZ = Int(100)
-internal let kLevelMaxY = Int(5)
+internal let kLevelMaxX = Int(60)
+internal let kLevelMaxZ = Int(60)
+internal let kLevelMaxY = Int(4)
 
 internal let kArrayAccessMargin = kLevelMaxX / 2
 
@@ -28,7 +28,6 @@ public protocol TSLevelDelegate:class {
 
 // =============================================================== //
 // MARK: - TSLevel -
-
 /**
  次元を管理します。
  */
@@ -45,7 +44,7 @@ public class TSLevel {
     
     /// フィルマップです。各座標におけるブロックの状況を保存します。
     /// 直接編集せず _setFillMap(_:, _:) _getFillMap(_:) を使用してください。
-    private var fillMap = [[[UInt16]]]()
+    private var fillMap = [[[TSFillBlock]]]()
     
     /// アンカーとブロックIDの対応表です。
     /// 直接編集せず _setAnchorBlockMap(_:, _:) _getAnchorBlockMap(_:) を使用してください。
@@ -60,6 +59,12 @@ public class TSLevel {
     
     // =============================================================== //
     // MARK: - Methods -
+    
+    public func getAnchor(ofFill fillPoint:TSVector3) -> TSVector3? {
+        let (x, y, z) = _convertVector3(fillPoint)
+        
+        return fillMap.at(x)?.at(y)?.at(z)?.anchor
+    }
     
     public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
         self._setBlockDataMap(data.value, at: point)
@@ -244,7 +249,7 @@ public class TSLevel {
                     }
                     #endif
                     
-                    self._setFillMap(block, at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    self._setFillMap(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
             }
         }
@@ -254,12 +259,13 @@ public class TSLevel {
     private func _getFillMap(at point:TSVector3) -> TSBlock {
         let (x, y, z) = _convertVector3(point)
         
-        return fillMap.at(x)?.at(y)?.at(z).map{TSBlock.block(for: $0)} ?? .air
+        return fillMap.at(x)?.at(y)?.at(z).map{TSBlock.block(for: $0.index)} ?? .air
     }
-    private func _setFillMap(_ block:TSBlock, at point:TSVector3) {
+    private func _setFillMap(_ block:TSBlock,_ anchor:TSVector3, at point:TSVector3) {
         let (x, y, z) = _convertVector3(point)
         
-        fillMap[x][y][z] = block.index
+        fillMap[x][y][z] = TSFillBlock(anchor: anchor, index: block.index)
+        
     }
     
     // MARK: - AnchoBlockMap Getter and Setter -

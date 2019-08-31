@@ -6,6 +6,7 @@
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
+import SpriteKit
 import SceneKit
 
 class TPGameController {
@@ -13,6 +14,7 @@ class TPGameController {
     // ===================================================================== //
     // MARK: - Properties -
     private let scene:SCNScene
+    private let level = TSLevel.current!
     
     /// 敵の目的地
     private lazy var entityWorld = TSEntityWorld(delegate: self)
@@ -21,11 +23,18 @@ class TPGameController {
     // MARK: - Methods -
     
     func start() {
+        for anchor in level.getAllAnchors().filter({$0.y == 1}) {
+            let sprite = TSSprite(sprite: SKSpriteNode.init(color: .red, size: [100, 100]))
+            sprite.show(at: (anchor + [0, 1, 0]).scnVector3, in: scene)
+        }
+        
         self.entityWorld.start()
+                
     }
     func end() {
         self.entityWorld.end()
     }
+    
     // ===================================================================== //
     // MARK: - Constructor -
     init(scene: SCNScene) {

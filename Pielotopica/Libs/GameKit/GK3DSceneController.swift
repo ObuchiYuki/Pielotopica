@@ -86,8 +86,6 @@ open class GK3DSceneController :NSObject {
         return ambientLightNode
     }()
     
-    // ================================================================================ //
-    // MARK: - Private Properties
     /// 親のESViewControllerです。（参照は保持していません。）
     public weak var gkViewController:GKGameViewController!
         
@@ -204,7 +202,7 @@ open class GK3DSceneController :NSObject {
         // Defaultノード読み込み
         self.loadDefaultObject()
     }
-    
+
     deinit {
         self.sceneDidDisappear()
     }
