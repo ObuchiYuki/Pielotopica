@@ -140,6 +140,9 @@ extension CGPoint {
     public static func * <T:BinaryInteger>(lhs: CGPoint, rhs: T) -> CGPoint {
         return CGPoint(x: lhs.x * CGFloat(rhs), y: lhs.y * CGFloat(rhs))
     }
+    public static func * <T:BinaryFloatingPoint>(lhs: CGPoint, rhs: T) -> CGPoint {
+        return CGPoint(x: lhs.x * CGFloat(rhs), y: lhs.y * CGFloat(rhs))
+    }
     public static func / <T:BinaryInteger>(lhs: CGPoint, rhs: T) -> CGPoint {
         return CGPoint(x: lhs.x / CGFloat(rhs), y: lhs.y / CGFloat(rhs))
     }

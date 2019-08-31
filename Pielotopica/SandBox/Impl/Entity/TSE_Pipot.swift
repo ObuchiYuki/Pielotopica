@@ -22,7 +22,7 @@ class TSE_Pipot: TSEntity {
     override func generateNode() -> SCNNode { _generateNode()}
     
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
-        let route = world.findPathToTarget(from: object.spown.node!)
+        let route = world.findPathToTarget(from: object.spown.node!, speed: 2)
                 
         if object.info["index"]==nil{object.info["index"]=0}; let index = object.info["index"] as! Int
         object.info["index"] = index + 1
