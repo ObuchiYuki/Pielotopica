@@ -22,17 +22,21 @@ class TSE_Pipot: TSEntity {
     override func generateNode() -> SCNNode { _generateNode()}
     
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
-        let route = world.findPathToTarget(from: object.spown.node!, speed: 2)
+        let route = world.findPathToTarget(from: object.spown.node!, speed: 3)
                 
         if object.info["index"]==nil{object.info["index"]=0}; let index = object.info["index"] as! Int
         object.info["index"] = index + 1
         
-        if route.count <= index {
-            object.removeFromWorld()
-            return
-        }
-                
-        object.updatePosition(to: object.position + route[index], tic: tic)
+        if route.count <= index { return object.removeFromWorld() }
+        
+        let vector = route[index]
+        
+        object.node.childNodes[0].runAction(.rotateTo(x: 0, y: angle(from: vector), z: 0, duration: 0.1))
+        object.updatePosition(to: object.position + vector, tic: tic)
+    }
+    
+    private func angle(from route:CGPoint) -> CGFloat {
+        return atan2(route.x, route.y) + .pi/2
     }
     
     

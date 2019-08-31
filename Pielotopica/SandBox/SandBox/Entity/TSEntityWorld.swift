@@ -62,14 +62,14 @@ class TSEntityWorld {
         entities.remove(at: index)
     }
     
-    func findPathToTarget(from node: GKGraphNode2D, speed: Double) -> [CGPoint] {
+    func findPathToTarget(from node: GKGraphNode2D, speed: CGFloat) -> [CGPoint] {
         let ns = self.graph.findPath(from: node, to: targetNode) as! [GKGraphNode2D]
         let ps = ns.map{CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y))}
         
         return split(ps, speed)
     }
     
-    private func split(_ line: [CGPoint],_ stride:Double) -> [CGPoint] {
+    private func split(_ line: [CGPoint],_ stride:CGFloat) -> [CGPoint] {
         if line.count <= 1 {return line}
         var points = [CGPoint]()
         
@@ -78,8 +78,8 @@ class TSEntityWorld {
         
         for i in 0..<line.count-1 {
             let d = dist(a: line[i], b: line[i+1])
-            for _ in 0..<Int(d) { points.append(normal(a: line[i], b: line[i+1])) }
-            points.append(line[i+1] - line[i] - normal(a: line[i], b: line[i+1]) * Int(d) * stride)
+            for _ in 0..<Int(d / stride) { points.append(normal(a: line[i], b: line[i+1])) }
+            points.append(line[i+1] - line[i] - normal(a: line[i], b: line[i+1]) * Int(d / stride))
         }
         return points
     }
