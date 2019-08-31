@@ -13,6 +13,12 @@ extension CGPoint {
     var size:CGSize {
         return CGSize(width: x, height: y)
     }
+    
+    func distance(from target : CGPoint) -> CGFloat {
+        let xDist = self.x - target.x
+        let yDist = self.y - target.y
+        return CGFloat(sqrt(xDist * xDist + yDist * yDist))
+    }
 }
 
 extension CGSize {

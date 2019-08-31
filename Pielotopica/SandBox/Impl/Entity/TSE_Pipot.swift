@@ -17,28 +17,54 @@ extension GKGraphNode2D {
 }
 
 class TSE_Pipot: TSEntity {
+    let speed:CGFloat = 1
+    
     // ======================================================================== //
     // MARK: - Methods -
     override func generateNode() -> SCNNode { _generateNode()}
     
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
-        let route = world.findPathToTarget(from: object.spown.node!, speed: 3)
-                
-        if object.info["index"] == nil {object.info["index"]=0}; let index = object.info["index"] as! Int
-        object.info["index"] = index + 1
+        let route = world.findPathToTarget(from: object.spown.node!, speed: speed)
+        var vector:CGPoint
         
-        if route.count <= index { return object.removeFromWorld() }
+        if object.info["random"] == nil {
+            object.info["random"] = CGPoint.random(x: -0.2...0.2, y: -0.2...0.2)
+        }
+        let random = object.info["random"] as! CGPoint
         
-        let vector = route[index]
+        if !route.isEmpty {
+            if object.info["index"] == nil {object.info["index"]=0}; let index = object.info["index"] as! Int
+            object.info["index"] = index + 1
+            
+            if route.count <= index { return object.removeFromWorld() }
+            vector = route[index]
+        }else{
+            vector = _routeToTarget(object: object, world: world)
+        }
         
-        object.node.childNodes[0].runAction(.rotateTo(x: 0, y: angle(from: vector), z: 0, duration: 0.1))
-        object.updatePosition(to: object.position + vector, tic: tic)
+        
+        if level.getFillBlock(at: TSVector2(object.position + vector).vector3(y: 1)).isObstacle() {
+            print("touch")
+        }else{
+            object.node.childNodes[0].runAction(.rotateTo(x: 0, y: _angle(from: vector), z: 0, duration: 0.1))
+            object.updatePosition(to: object.position + vector + random, tic: tic)
+            
+        }
+        
+        if (object.position).isNear(to: world.getTargetPosition().point) {
+            object.removeFromWorld()
+        }
     }
     
     // ======================================================================== //
     // MARK: - Private Methods -
     
-    private func angle(from route:CGPoint) -> CGFloat {
+    private func _routeToTarget(object:TSEntityObject, world:TSEntityWorld) -> CGPoint {
+        
+        return (world.getTargetPosition().point - object.position).normarized
+    }
+    
+    private func _angle(from route:CGPoint) -> CGFloat {
         return atan2(route.x, route.y) + .pi/2
     }
     
