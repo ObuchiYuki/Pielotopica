@@ -123,6 +123,7 @@
 		B66BD3DD2317E8A800E20212 /* TSE_Pipot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66BD3DC2317E8A800E20212 /* TSE_Pipot.swift */; };
 		B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66D41CA230BD218004BBE8E /* RouterViewController.swift */; };
 		B67135F4231A8D2E008F479C /* TPAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67135F3231A8D2E008F479C /* TPAlert.swift */; };
+		B67135F6231A9A44008F479C /* TPGameStageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67135F5231A9A44008F479C /* TPGameStageManager.swift */; };
 		B6731B2B2314BED800B70C3F /* TSInventoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6731B2A2314BED800B70C3F /* TSInventoryData.swift */; };
 		B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */; };
 		B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */; };
@@ -325,6 +326,7 @@
 		B66BD3DC2317E8A800E20212 /* TSE_Pipot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE_Pipot.swift; sourceTree = "<group>"; };
 		B66D41CA230BD218004BBE8E /* RouterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterViewController.swift; sourceTree = "<group>"; };
 		B67135F3231A8D2E008F479C /* TPAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPAlert.swift; sourceTree = "<group>"; };
+		B67135F5231A9A44008F479C /* TPGameStageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameStageManager.swift; sourceTree = "<group>"; };
 		B6731B2A2314BED800B70C3F /* TSInventoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSInventoryData.swift; sourceTree = "<group>"; };
 		B67A965B23094AEF00BD408D /* TPSandboxSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandboxSceneController.swift; sourceTree = "<group>"; };
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				B6012DF52318A67F00DC18CE /* TPGameController.swift */,
+				B67135F5231A9A44008F479C /* TPGameStageManager.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -1264,6 +1267,7 @@
 				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
 				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,
+				B67135F6231A9A44008F479C /* TPGameStageManager.swift in Sources */,
 				B69E8684231684DF004D4272 /* TPSandBoxSceneModel.swift in Sources */,
 				B67135F4231A8D2E008F479C /* TPAlert.swift in Sources */,
 				B61E93F72300E38A008CB325 /* Ex+SKAction.swift in Sources */,

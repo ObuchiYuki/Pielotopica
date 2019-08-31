@@ -19,10 +19,22 @@ class TPGameController {
     /// 敵の目的地
     private lazy var entityWorld = TSEntityWorld(delegate: self)
     
+    private var stageManager:TPGameStageManager {TPGameStageManager.shared}
+    
+    private var timeRemain = 0 {didSet{self._update()}}
+    
     // ===================================================================== //
     // MARK: - Methods -
     
     func start() {
+        timeRemain = stageManager.timeAmount(on: stageManager.getDay())
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] timer in
+            guard let self = self else {return timer.invalidate()}
+            
+            self.timeRemain -= 1
+        })
+        
         level.delegate2 = self
         TSDurablityManager.shared.connect(scene: scene)
         self.entityWorld.start()
@@ -30,6 +42,14 @@ class TPGameController {
     }
     func end() {
         self.entityWorld.end()
+    }
+    
+    // ===================================================================== //
+    // MARK: - Private -
+    
+    // 毎秒呼ばれる。
+    private func _update() {
+        
     }
     
     // ===================================================================== //
