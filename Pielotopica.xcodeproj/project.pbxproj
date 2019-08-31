@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
-		B6002D89231A1B8B006C4D94 /* TP_ground_edge.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6002D88231A1B8A006C4D94 /* TP_ground_edge.scn */; };
-		B6002D8D231A1C2E006C4D94 /* TP_ground_5x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B6002D8C231A1C2E006C4D94 /* TP_ground_5x5.png */; };
-		B6002D8F231A1C71006C4D94 /* TP_ground_edge.png.png in Resources */ = {isa = PBXBuildFile; fileRef = B6002D8E231A1C71006C4D94 /* TP_ground_edge.png.png */; };
 		B6002D91231A21FE006C4D94 /* TSNBD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D90231A21FE006C4D94 /* TSNBD.swift */; };
 		B6002D93231A22FC006C4D94 /* TSNBDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D92231A22FC006C4D94 /* TSNBDData.swift */; };
 		B6002D96231A29FC006C4D94 /* AStarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D95231A29FC006C4D94 /* AStarNode.swift */; };
@@ -30,7 +27,6 @@
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
 		B6102371231A64FC009252E1 /* TSDurableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102370231A64FC009252E1 /* TSDurableManager.swift */; };
 		B6102373231A68B0009252E1 /* TSE_DurablitySprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */; };
-		B6102375231A6E40009252E1 /* TP_ground_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6102374231A6E40009252E1 /* TP_ground_5x5.scn */; };
 		B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_Wall1x5.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
@@ -129,6 +125,13 @@
 		B67A966023094E4000BD408D /* TPBlockPlaceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */; };
 		B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */; };
 		B67A966323094E6300BD408D /* TPSandBox3DSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67A966223094E6300BD408D /* TPSandBox3DSceneModel.swift */; };
+		B67CA122231AB32A00A01646 /* TS_Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67CA121231AB32A00A01646 /* TS_Tree.swift */; };
+		B67CA128231ABD6C00A01646 /* TP_tree.scn in Resources */ = {isa = PBXBuildFile; fileRef = B67CA127231ABD6C00A01646 /* TP_tree.scn */; };
+		B67CA12C231ABE0700A01646 /* TP_tree.png in Resources */ = {isa = PBXBuildFile; fileRef = B67CA12B231ABE0700A01646 /* TP_tree.png */; };
+		B6885FEE231AC027009098FA /* TP_ground_5x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B6885FED231AC027009098FA /* TP_ground_5x5.png */; };
+		B6885FF8231AC1BE009098FA /* TP_ground_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = B6885FF7231AC1BD009098FA /* TP_ground_edge.png */; };
+		B6885FFA231AC2F0009098FA /* TP_ground_edge.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */; };
+		B6885FFC231AC311009098FA /* TP_ground_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6885FFB231AC311009098FA /* TP_ground_5x5.scn */; };
 		B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B68E14342314177E00E973E1 /* Yolov3.mlmodel */; };
 		B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */; };
 		B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E1437231419C600E973E1 /* 5squared-pixel.ttf */; };
@@ -207,9 +210,6 @@
 		05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.release.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.release.xcconfig"; sourceTree = "<group>"; };
 		1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.debug.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.debug.xcconfig"; sourceTree = "<group>"; };
 		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6002D88231A1B8A006C4D94 /* TP_ground_edge.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_edge.scn; sourceTree = "<group>"; };
-		B6002D8C231A1C2E006C4D94 /* TP_ground_5x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_5x5.png; sourceTree = "<group>"; };
-		B6002D8E231A1C71006C4D94 /* TP_ground_edge.png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png.png; sourceTree = "<group>"; };
 		B6002D90231A21FE006C4D94 /* TSNBD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSNBD.swift; sourceTree = "<group>"; };
 		B6002D92231A22FC006C4D94 /* TSNBDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSNBDData.swift; sourceTree = "<group>"; };
 		B6002D95231A29FC006C4D94 /* AStarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStarNode.swift; sourceTree = "<group>"; };
@@ -229,7 +229,6 @@
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
 		B6102370231A64FC009252E1 /* TSDurableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDurableManager.swift; sourceTree = "<group>"; };
 		B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE_DurablitySprite.swift; sourceTree = "<group>"; };
-		B6102374231A6E40009252E1 /* TP_ground_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_5x5.scn; sourceTree = "<group>"; };
 		B614C235230F731F00DA7093 /* TS_Wall1x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Wall1x5.swift; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -332,6 +331,13 @@
 		B67A965E23094E4000BD408D /* TPBlockPlaceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBlockPlaceHelper.swift; sourceTree = "<group>"; };
 		B67A965F23094E4000BD408D /* TPCameraGestureHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCameraGestureHelper.swift; sourceTree = "<group>"; };
 		B67A966223094E6300BD408D /* TPSandBox3DSceneModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPSandBox3DSceneModel.swift; sourceTree = "<group>"; };
+		B67CA121231AB32A00A01646 /* TS_Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Tree.swift; sourceTree = "<group>"; };
+		B67CA127231ABD6C00A01646 /* TP_tree.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_tree.scn; sourceTree = "<group>"; };
+		B67CA12B231ABE0700A01646 /* TP_tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_tree.png; sourceTree = "<group>"; };
+		B6885FED231AC027009098FA /* TP_ground_5x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_5x5.png; sourceTree = "<group>"; };
+		B6885FF7231AC1BD009098FA /* TP_ground_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png; sourceTree = "<group>"; };
+		B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_edge.scn; sourceTree = "<group>"; };
+		B6885FFB231AC311009098FA /* TP_ground_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_5x5.scn; sourceTree = "<group>"; };
 		B68E14342314177E00E973E1 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
 		B68E1437231419C600E973E1 /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
 		B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korneuburg-Slab-Bold.ttf"; sourceTree = "<group>"; };
@@ -741,6 +747,7 @@
 				B6227A6223023732009EF60F /* TS_Floar.swift */,
 				B614C235230F731F00DA7093 /* TS_Wall1x5.swift */,
 				B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */,
+				B67CA121231AB32A00A01646 /* TS_Tree.swift */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -748,6 +755,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B67CA12B231ABE0700A01646 /* TP_tree.png */,
+				B67CA127231ABD6C00A01646 /* TP_tree.scn */,
 				B661FA422318D33600D4A3C0 /* TP_target_kari.scn */,
 				B661FA3C2318D2C800D4A3C0 /* TP_target_kari.png */,
 				B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */,
@@ -758,10 +767,10 @@
 				B608C495231101060073843E /* TP_wood_wall_1x1.scn */,
 				B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */,
 				B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */,
-				B6002D8E231A1C71006C4D94 /* TP_ground_edge.png.png */,
-				B6002D88231A1B8A006C4D94 /* TP_ground_edge.scn */,
-				B6102374231A6E40009252E1 /* TP_ground_5x5.scn */,
-				B6002D8C231A1C2E006C4D94 /* TP_ground_5x5.png */,
+				B6885FED231AC027009098FA /* TP_ground_5x5.png */,
+				B6885FFB231AC311009098FA /* TP_ground_5x5.scn */,
+				B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */,
+				B6885FF7231AC1BD009098FA /* TP_ground_edge.png */,
 				B6227A692302391A009EF60F /* TP_japanese_house_1.scn */,
 				B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */,
 			);
@@ -1169,11 +1178,12 @@
 				B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */,
 				B6012E012318B5BB00DC18CE /* TP_spawner_1x1.scn in Resources */,
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
+				B6885FF8231AC1BE009098FA /* TP_ground_edge.png in Resources */,
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
 				B66BD3D82317E73E00E20212 /* enemy_1.scn in Resources */,
+				B67CA128231ABD6C00A01646 /* TP_tree.scn in Resources */,
 				B660939323153B3400B528E5 /* Silom.ttf in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
-				B6002D8D231A1C2E006C4D94 /* TP_ground_5x5.png in Resources */,
 				B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */,
 				B6F8C51823136FC500264EBF /* ClassIndex.txt in Resources */,
 				B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */,
@@ -1188,15 +1198,16 @@
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
 				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,
 				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
+				B6885FEE231AC027009098FA /* TP_ground_5x5.png in Resources */,
 				B69E8662231625A2004D4272 /* retro_transition_fade_to_centre.fsh in Resources */,
 				B61E93E22300E376008CB325 /* Assets.xcassets in Resources */,
+				B6885FFC231AC311009098FA /* TP_ground_5x5.scn in Resources */,
 				B61E93E42300E376008CB325 /* Main.storyboard in Resources */,
 				B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */,
-				B6002D8F231A1C71006C4D94 /* TP_ground_edge.png.png in Resources */,
 				B69E8667231625A2004D4272 /* retro_transition_fade_from_centre.fsh in Resources */,
+				B6885FFA231AC2F0009098FA /* TP_ground_edge.scn in Resources */,
+				B67CA12C231ABE0700A01646 /* TP_tree.png in Resources */,
 				B6012DFB2318ACE200DC18CE /* spawner.png in Resources */,
-				B6102375231A6E40009252E1 /* TP_ground_5x5.scn in Resources */,
-				B6002D89231A1B8B006C4D94 /* TP_ground_edge.scn in Resources */,
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
 				B6996939231792BA00CE933B /* normal_bgm.wav in Resources */,
 				B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */,
@@ -1267,6 +1278,7 @@
 				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
 				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,
+				B67CA122231AB32A00A01646 /* TS_Tree.swift in Sources */,
 				B67135F6231A9A44008F479C /* TPGameStageManager.swift in Sources */,
 				B69E8684231684DF004D4272 /* TPSandBoxSceneModel.swift in Sources */,
 				B67135F4231A8D2E008F479C /* TPAlert.swift in Sources */,

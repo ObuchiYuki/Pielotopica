@@ -32,7 +32,7 @@ class TSBattleTimer: SKSpriteNode {
         
         self.position = [-320, 260]
         selected.anchorPoint = [0, 0.5]
-        selected.position = [-CGFloat(251) / 2, 0]
+        selected.position = [-92.5, -1]
         
         self.addChild(timerFrame)
         self.addChild(selected)

@@ -31,10 +31,16 @@ public extension TSItem {
         block: .pipotSpawner
     )
     
-    static let targetKari = TS_TargetKariItem(
+    static let targetKari = TS_KariItem(
         name: "カリのキョテン",
         textureNamed: "TP_item_thumb_target_kari",
         block: .targetKari
+    )
+    
+    static let kiKari = TS_KariItem(
+        name: "カリの木",
+        textureNamed: "TP_item_thumb_target_kari",
+        block: .tree
     )
 }
 

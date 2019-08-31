@@ -14,26 +14,31 @@ class TPGameController {
     // ===================================================================== //
     // MARK: - Properties -
     private let scene:SCNScene
-    private let level = TSLevel.current!
+    private var level:TSLevel {TSLevel.current!}
     
     /// 敵の目的地
     private lazy var entityWorld = TSEntityWorld(delegate: self)
     
     private var stageManager:TPGameStageManager {TPGameStageManager.shared}
     
-    private var battleSceneModel:TPSBattleSceneModel {TPSandBoxRootSceneModel.shared.currentSceneModel as! TPSBattleSceneModel}
-    private var timeRemain = 0 { didSet{self._update()} }
+    private var updateTimer:Timer?
+    private var battleSceneModel:TPSBattleSceneModel? {TPSandBoxRootSceneModel.shared.currentSceneModel as? TPSBattleSceneModel}
+    
+    private var maxTime = 120
+    private var timeRemain = 0
     
     // ===================================================================== //
     // MARK: - Methods -
     
     func start() {
+        maxTime = stageManager.timeAmount(on: stageManager.getDay())
         timeRemain = stageManager.timeAmount(on: stageManager.getDay())
         
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] timer in
+        self._update()
+        updateTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] timer in
             guard let self = self else {return timer.invalidate()}
             
-            self.timeRemain -= 1
+            self._update()
         })
         
         level.delegate2 = self
@@ -50,7 +55,14 @@ class TPGameController {
     
     // 毎秒呼ばれる。
     private func _update() {
+        guard let battleSceneModel = battleSceneModel else {
+            self.updateTimer?.invalidate()
+            showDebugMessage("ここには来ないはずだよ-\(#function)")
+            return
+        }
+        battleSceneModel.setTime(timeRemain, max: maxTime)
         
+        self.timeRemain -= 1
     }
     
     // ===================================================================== //

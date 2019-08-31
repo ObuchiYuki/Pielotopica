@@ -187,10 +187,10 @@ class TPSandBox3DSceneModel {
         
         if level.getAllAnchors().isEmpty {
             /// 床設置 (仮)
-            for x in -3...2 {
-                for z in -3...2 {
+            for x in -3...3 {
+                for z in -3...3 {
                     
-                    if abs(x) == 2 || abs(z) == 2 {
+                    if abs(x) == 3 || abs(z) == 3 {
                         level.placeBlock(.ground5x5Edge, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
                     }else {
                         level.placeBlock(.ground5x5, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)

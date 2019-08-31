@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TS_TargetKariItem: TSBlockItem {
+public class TS_KariItem: TSBlockItem {
     override public func materialsForCraft() -> TSCraftMaterialValue? {
         return TSCraftMaterialValue(iron: 0, wood: 0, circit: 0, fuel: 0)
     }

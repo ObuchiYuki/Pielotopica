@@ -65,6 +65,7 @@ class TSDurablityManager {
         
         if getDurablity(at: anchorPoint) <= 0 {
             level.destroyBlock(at: anchorPoint)
+            durablityMap.removeValue(forKey: anchorPoint)
             spriteMap.removeValue(forKey: anchorPoint)
             
         }else{

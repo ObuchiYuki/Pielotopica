@@ -67,7 +67,7 @@ public class GKGameViewController: UIViewController {
         
         return _nodesOnTouch.isEmpty && _nodesOnOverlayScene(at: point) == nil
     }
-    
+
     //==================================================================
     // MARK: - UIResponder Override Metheods -
 
@@ -203,4 +203,38 @@ public class GKGameViewController: UIViewController {
         
         return rootNodeScale
     }
+    #if DEBUG
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        GKGameViewController._debug = self
+    }
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        GKGameViewController._debug = self
+    }
+    
+    static var _debug:GKGameViewController? = nil
+    #endif
+}
+
+extension GKGameViewController {
+    #if DEBUG
+    func showMessage(_ message:String) {
+        let size = UIScreen.main.bounds.size
+        let view = UIView(frame: CGRect(origin: [0, size.height - 50], size: [size.width, 50]))
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        let label = UILabel(frame: [0, 0, size.width, 50])
+        label.text = "\(message)-\(Date())"
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 10)
+        label.numberOfLines = -1
+        label.textColor = .white
+        view.addSubview(label)
+        self.view.addSubview(view)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
+            view.removeFromSuperview()
+        })
+    }
+    #endif
 }
