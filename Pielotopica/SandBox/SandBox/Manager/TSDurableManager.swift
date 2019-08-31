@@ -62,17 +62,22 @@ class TSDurablityManager {
     }
     
     private func check(at anchorPoint:TSVector3) {
+        print("check:", getDurablity(at: anchorPoint))
+        
         if getDurablity(at: anchorPoint) <= 0 {
             level.destroyBlock(at: anchorPoint)
+            
         }else{
             if spriteMap[anchorPoint] == nil {
                 spriteMap[anchorPoint] = TSE_DurablitySprite(max: getMaxDurablity(at: anchorPoint))
+                guard let scene = scene else {return}
+                
+                spriteMap[anchorPoint]!.show(at: _calcSpritePosition(of: anchorPoint), in: scene)
             }
             let sprite = spriteMap[anchorPoint]!
             
             sprite.durablity = getDurablity(at: anchorPoint)
-            
-            sprite.show(at: _calcSpritePosition(of: anchorPoint), in: scene)
+
         }
     }
 }

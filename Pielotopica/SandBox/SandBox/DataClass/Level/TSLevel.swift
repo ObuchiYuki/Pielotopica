@@ -131,7 +131,7 @@ public class TSLevel {
     
     /// アンカーポイントのブロックを破壊します。
     public func destroyBlock(at anchorPoint:TSVector3) {
-        let block = _getAnchoBlockMap(at: anchorPoint)
+        let block = _getAnchorBlockMap(at: anchorPoint)
         guard block.canDestroy(at: anchorPoint) else {return}
                 
         block.willDestroy(at: anchorPoint)
@@ -142,6 +142,7 @@ public class TSLevel {
         self._fillFillMap(with: .air, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
         self._setBlockDataMap(0, at: anchorPoint)
         
+        print("des", self.delegate)
         self.delegate?.level(self, levelDidDestoryBlockAt: anchorPoint)
         
         self._save()
@@ -150,7 +151,7 @@ public class TSLevel {
     
     /// アンカーポイントにあるブロックを返します。
     public func getAnchorBlock(at anchorPoint:TSVector3) -> TSBlock {
-        return _getAnchoBlockMap(at: anchorPoint)
+        return _getAnchorBlockMap(at: anchorPoint)
     }
     
     /// 場所を占めているブロックを返します。
@@ -269,7 +270,7 @@ public class TSLevel {
     }
     
     // MARK: - AnchoBlockMap Getter and Setter -
-    private func _getAnchoBlockMap(at point:TSVector3) -> TSBlock {
+    private func _getAnchorBlockMap(at point:TSVector3) -> TSBlock {
         let (x, y, z) = _convertVector3(point)
         
         let id = anchorBlockMap.at(x)?.at(y)?.at(z) ?? 0

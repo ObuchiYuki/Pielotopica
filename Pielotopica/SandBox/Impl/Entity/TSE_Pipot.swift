@@ -48,7 +48,6 @@ class TSE_Pipot: TSEntity {
             let anc = level.getAnchor(ofFill: next.vector3(y: 1))!
             TSDurablityManager.shared.attack(1, at: anc)
             
-            //print("touching", level.getAnchorBlock(at: anc))
             
         }else{
             object.node.childNodes[0].runAction(.rotateTo(x: 0, y: _angle(from: vector), z: 0, duration: 0.1))

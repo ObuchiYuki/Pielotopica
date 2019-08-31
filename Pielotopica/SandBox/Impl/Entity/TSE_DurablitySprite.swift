@@ -31,7 +31,7 @@ private class DurablitySprite: SKSpriteNode {
     }
     
     private func _check() {
-        let ratio = durablity / maxDurablity
+        let ratio = durablity.d / maxDurablity.d
         let pwidth = self.size.width * CGFloat(ratio)
         
         colorNode.run(.resize(toWidth: pwidth, duration: 0.3))
@@ -43,16 +43,16 @@ private class DurablitySprite: SKSpriteNode {
 class TSE_DurablitySprite: TSSprite {
     
     var durablity:Int {
-        set {sprite.durablity = newValue}
-        get {sprite.durablity}
+        set {_sprite.durablity = newValue}
+        get {_sprite.durablity}
     }
     
-    private let sprite = DurablitySprite(color: .red)
+    private let _sprite = DurablitySprite(color: .red)
     
     init(max:Int) {
         
-        super.init(sprite: sprite)
-        sprite.maxDurablity = max
+        super.init(sprite: _sprite)
+        _sprite.maxDurablity = max
         
     }
 }
