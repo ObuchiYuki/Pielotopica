@@ -35,10 +35,12 @@ class TSE_Pipot: TSEntity {
         object.updatePosition(to: object.position + vector, tic: tic)
     }
     
+    // ======================================================================== //
+    // MARK: - Private Methods -
+    
     private func angle(from route:CGPoint) -> CGFloat {
         return atan2(route.x, route.y) + .pi/2
     }
-    
     
     private func _createFootAction(t:Int) -> SCNAction {
         let a1 = SCNAction.rotateBy(x: 0, y: 0, z: -0.5 * CGFloat(t), duration: 0.5)
@@ -76,7 +78,7 @@ class TSE_Pipot: TSEntity {
         wnode.addChildNode(battery)
         wnode.addChildNode(foot1)
         wnode.addChildNode(foot2)
-        
+        wnode.scale = SCNVector3(0.7, 0.7, 0.7)
         wnode.position = [0.5, 0,  0.5]
         wnode.eulerAngles = SCNVector3(0, Double.pi/2, 0)
         node.addChildNode(wnode)
