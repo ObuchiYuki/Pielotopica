@@ -66,8 +66,9 @@ class TSEntityWorld {
     func findPathToTarget(from node: GKGraphNode2D, speed: CGFloat) -> [CGPoint] {
         let ns = self.graph.findPath(from: node, to: targetNode) as! [GKGraphNode2D]
         let ps = ns.map{CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y))}
+        let ss = split(ps, speed)
         
-        return split(ps, speed)
+        return ss
     }
     
     private func split(_ line: [CGPoint],_ stride:CGFloat) -> [CGPoint] {

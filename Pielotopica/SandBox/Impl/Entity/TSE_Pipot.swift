@@ -78,7 +78,7 @@ class TSE_Pipot: TSEntity {
         wnode.addChildNode(battery)
         wnode.addChildNode(foot1)
         wnode.addChildNode(foot2)
-        wnode.scale = SCNVector3(0.7, 0.7, 0.7)
+        wnode.scale = SCNVector3(0.5, 0.5, 0.5)
         wnode.position = [0.5, 0,  0.5]
         wnode.eulerAngles = SCNVector3(0, Double.pi/2, 0)
         node.addChildNode(wnode)
