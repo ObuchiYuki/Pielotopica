@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol TPSBattleSceneModelBinder: class {
+    func __setTime(_ time:Int, max:Int)
     func __showAlert(with alert:TPAlert)
     func __setItemBarSelectionState(to mode:TPSBuildSceneModel.Mode)
     func __setBuildSideMenuMode(to mode:TPSBuildSceneModel.Mode)
@@ -26,6 +27,13 @@ class TPSBattleSceneModel: TPSandBoxSceneModel {
     
     private var sceneModel3D:TPSandBox3DSceneModel {
         return TPSandBox3DSceneModel.initirized!
+    }
+    
+    // ===================================================================== //
+    // MARK: - Methods -
+    
+    func setTime(_ time:Int, max:Int) {
+        binder.__setTime(time, max: max)
     }
     
     // ===================================================================== //

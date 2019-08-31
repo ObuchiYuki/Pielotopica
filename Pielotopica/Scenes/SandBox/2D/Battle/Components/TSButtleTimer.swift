@@ -19,10 +19,10 @@ class TSBattleTimer: SKSpriteNode {
         self.run(SKAction.move(to: [-320, 260], duration: 0.3).setEase())
     }
     
-    /// 0-4
+    /// 0 - 1
     func setTime(_ time:Double) {
-        assert(0 <= time && time <= 4, "time must be between 0 and 4.")
-        let rwidth = time / 4 * 214
+        assert(0 <= time && time <= 1, "time must be between 0 and 4.")
+        let rwidth = time * 214
         
         selected.run(.resize(toWidth: rwidth.f, duration: 0.1))
     }

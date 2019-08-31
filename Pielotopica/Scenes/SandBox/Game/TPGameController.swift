@@ -21,7 +21,8 @@ class TPGameController {
     
     private var stageManager:TPGameStageManager {TPGameStageManager.shared}
     
-    private var timeRemain = 0 {didSet{self._update()}}
+    private var battleSceneModel:TPSBattleSceneModel {TPSandBoxRootSceneModel.shared.currentSceneModel as! TPSBattleSceneModel}
+    private var timeRemain = 0 { didSet{self._update()} }
     
     // ===================================================================== //
     // MARK: - Methods -

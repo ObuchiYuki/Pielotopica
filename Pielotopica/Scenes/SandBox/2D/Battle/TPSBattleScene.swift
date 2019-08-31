@@ -58,6 +58,9 @@ class TPSBattleScene: GKSafeScene {
 }
 
 extension TPSBattleScene: TPSBattleSceneModelBinder {
+    func __setTime(_ time: Int, max: Int) {
+        self.timeBar.setTime((time.d / max.d)) 
+    }
     func __showAlert(with alert:TPAlert) {
         self.rootNode.addChild(alert)
         alert.show()
