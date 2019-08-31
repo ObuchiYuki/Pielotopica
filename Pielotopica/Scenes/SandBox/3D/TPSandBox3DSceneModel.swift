@@ -181,6 +181,7 @@ class TPSandBox3DSceneModel {
         
         level.delegate = self
         level.loadLevelData(levelData)
+        level.nodeGenerator = self.nodeGenerator
         
         binder.__makeDay()
         
@@ -376,8 +377,6 @@ extension TPSandBox3DSceneModel : TSLevelDelegate {
         binder.__placeNode(node, at: nodePosition)
     }
     func level(_ level: TSLevel, levelDidDestoryBlockAt position: TSVector3) {
-        guard let node = nodeGenerator.getNode(at: position) else {return}
-        
-        binder.__removeNode(node)
+        nodeGenerator.destoryNode(at: position)
     }
 }

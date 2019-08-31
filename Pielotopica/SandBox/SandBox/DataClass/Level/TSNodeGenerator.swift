@@ -26,17 +26,14 @@ public class TSNodeGenerator {
     /// 生成済みのノードです。
     /// 直接編集せず _generateNode(_:, _:) _getNode(_:) を使用してください。
     /// (Privateだから直接編集とかないのでは？)
-    private var allNodes:[[[SCNNode?]]] =
-        Array(repeating: Array(repeating: Array(repeating: nil, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
-    
+    private var nodeMap = [TSVector3: SCNNode]()
     
     // =============================================================== //
     // MARK: - Methods -
     
     public func destoryNode(at anchorPoint:TSVector3) {
-        let (x, y, z) = _convertVector3(anchorPoint)
-        
-        allNodes[x][y][z] = nil
+        let node = nodeMap.removeValue(forKey: anchorPoint)
+        node?.removeFromParentNode()
     }
     /// アンカーポイントにブロックがあれば、ブロックのSCNNodeを返します。
     /// なければ、新規に作成してノード作成してノードを返します。
@@ -72,22 +69,13 @@ public class TSNodeGenerator {
     
     // MARK: - NodeMap Getter and Setter -
     private func _setNode(_ node:SCNNode, at point:TSVector3){
-        let (x, y, z) = _convertVector3(point)
-        
-        allNodes[x][y][z] = node
+        nodeMap[point] = node
     }
     
     private func _getNode(at point:TSVector3) -> SCNNode? {
-        let (x, y, z) = _convertVector3(point)
-        
-        return allNodes[x][y][z]
+        return nodeMap[point]
     }
     
-    /// TSVector3を配列アクセス用のIndexに変換します。
-    public func _convertVector3(_ vector3:TSVector3) -> (Int, Int, Int) {
-        
-        return (vector3.x + kArrayAccessMargin, vector3.y, vector3.z + kArrayAccessMargin)
-    }
 }
 
 public extension TSBlock {
