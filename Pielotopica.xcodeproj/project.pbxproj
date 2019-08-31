@@ -12,6 +12,9 @@
 		B6002D8B231A1B96006C4D94 /* TP_ground_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6002D8A231A1B95006C4D94 /* TP_ground_5x5.scn */; };
 		B6002D8D231A1C2E006C4D94 /* TP_ground_5x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B6002D8C231A1C2E006C4D94 /* TP_ground_5x5.png */; };
 		B6002D8F231A1C71006C4D94 /* TP_ground_edge.png.png in Resources */ = {isa = PBXBuildFile; fileRef = B6002D8E231A1C71006C4D94 /* TP_ground_edge.png.png */; };
+		B6002D91231A21FE006C4D94 /* TSNBD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D90231A21FE006C4D94 /* TSNBD.swift */; };
+		B6002D93231A22FC006C4D94 /* TSNBDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D92231A22FC006C4D94 /* TSNBDData.swift */; };
+		B6002D96231A29FC006C4D94 /* AStarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D95231A29FC006C4D94 /* AStarNode.swift */; };
 		B6012DEF23189B1C00DC18CE /* TS_SpawnerBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */; };
 		B6012DF123189D1700DC18CE /* TSSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF023189D1700DC18CE /* TSSpawner.swift */; };
 		B6012DF32318A0C700DC18CE /* TSEntityObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF22318A0C700DC18CE /* TSEntityObject.swift */; };
@@ -201,6 +204,9 @@
 		B6002D8A231A1B95006C4D94 /* TP_ground_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = TP_ground_5x5.scn; path = ../../../../../../Desktop/TP_ground_5x5.scn; sourceTree = "<group>"; };
 		B6002D8C231A1C2E006C4D94 /* TP_ground_5x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_5x5.png; sourceTree = "<group>"; };
 		B6002D8E231A1C71006C4D94 /* TP_ground_edge.png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png.png; sourceTree = "<group>"; };
+		B6002D90231A21FE006C4D94 /* TSNBD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSNBD.swift; sourceTree = "<group>"; };
+		B6002D92231A22FC006C4D94 /* TSNBDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSNBDData.swift; sourceTree = "<group>"; };
+		B6002D95231A29FC006C4D94 /* AStarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStarNode.swift; sourceTree = "<group>"; };
 		B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_SpawnerBlock.swift; sourceTree = "<group>"; };
 		B6012DF023189D1700DC18CE /* TSSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSpawner.swift; sourceTree = "<group>"; };
 		B6012DF22318A0C700DC18CE /* TSEntityObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntityObject.swift; sourceTree = "<group>"; };
@@ -405,6 +411,15 @@
 				05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B6002D94231A29DA006C4D94 /* Algorism */ = {
+			isa = PBXGroup;
+			children = (
+				B6DF959C23192D0F005C636B /* AStar.swift */,
+				B6002D95231A29FC006C4D94 /* AStarNode.swift */,
+			);
+			path = Algorism;
 			sourceTree = "<group>";
 		};
 		B6012DF42318A66000DC18CE /* Game */ = {
@@ -652,6 +667,7 @@
 				B6227A192301AB83009EF60F /* TSItemBarInventory.swift */,
 				B6227A1A2301AB83009EF60F /* TSItemStack.swift */,
 				B6EEB27823160DDF004C5826 /* TSCraftMaterialValue.swift */,
+				B6002D90231A21FE006C4D94 /* TSNBD.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -662,6 +678,7 @@
 				B6227A1C2301AB83009EF60F /* TSLevel.swift */,
 				B6E8826023121835003F3124 /* TSLevelData.swift */,
 				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
+				B6002D92231A22FC006C4D94 /* TSNBDData.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -690,6 +707,7 @@
 				B6227A4B2301AE37009EF60F /* Impl+Block.swift */,
 				B6227A70230239DB009EF60F /* Impl+Item.swift */,
 				B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */,
+				B6002D94231A29DA006C4D94 /* Algorism */,
 				B661FA372318CC7000D4A3C0 /* Entity */,
 				B6EEB27A23160F48004C5826 /* Items */,
 				B6227A6023023732009EF60F /* Blocks */,
@@ -767,7 +785,6 @@
 			isa = PBXGroup;
 			children = (
 				B66BD3DC2317E8A800E20212 /* TSE_Pipot.swift */,
-				B6DF959C23192D0F005C636B /* AStar.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1244,6 +1261,7 @@
 				B69969312317902400CE933B /* TSButtleTimer.swift in Sources */,
 				B61E93BD2300E368008CB325 /* AppDelegate.swift in Sources */,
 				B6012DF123189D1700DC18CE /* TSSpawner.swift in Sources */,
+				B6002D93231A22FC006C4D94 /* TSNBDData.swift in Sources */,
 				B69E864E23161D56004D4272 /* GKTransitionNode.swift in Sources */,
 				B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */,
 				B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */,
@@ -1334,6 +1352,7 @@
 				B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */,
 				B6E8826123121835003F3124 /* TSLevelData.swift in Sources */,
 				B6AA02AD230D7EBE00F0FF48 /* TPHeader.swift in Sources */,
+				B6002D91231A21FE006C4D94 /* TSNBD.swift in Sources */,
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,
@@ -1359,6 +1378,7 @@
 				B6EDB123230F81350042CA02 /* TPBuildSideMenuItem.swift in Sources */,
 				B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */,
 				B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */,
+				B6002D96231A29FC006C4D94 /* AStarNode.swift in Sources */,
 				B667BA60230B776C0038B098 /* RKObjectDetector.swift in Sources */,
 				B6C7F3362314B7120042279C /* TSItemData.swift in Sources */,
 				B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */,

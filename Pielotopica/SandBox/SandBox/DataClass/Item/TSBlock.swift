@@ -81,6 +81,11 @@ open class TSBlock {
     /// 破壊可能かどうかを返してください。
     open func canDestroy(at point:TSVector3) -> Bool {return false}
     
+    /// 強度を返してください。
+    open func getHardnessLevel() -> Int {return 10}
+    /// 現在の強度を返してください。 10 - 0
+    open func getCurrentHardness(at point:TSVector3) -> Int { getNBD(at: point).int(for: "hardness") ?? 10}
+    
     /// タッチされた時に呼び出されます。
     open func didTouch(at point:TSVector3) {}
     
@@ -98,6 +103,12 @@ open class TSBlock {
     
     /// 一定のタイミングで呼び出されます。
     open func didRandomEventRoopCome(at point:TSVector3) {}
+    
+    /// 自身のNBDデータを返します。 書き込みと同時に保存します。
+    /// 8ビット分の書き込みデータは BlockData にあるので、そちらを使用してください。
+    open func getNBD(at point: TSVector3) -> TSNBD {
+        TSNBDManager.shared.getNBD(at: point)
+    }
     
     //========================================================================
     // MARK: - Constructors -

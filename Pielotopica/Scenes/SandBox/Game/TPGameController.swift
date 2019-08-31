@@ -13,13 +13,13 @@ class TPGameController {
     // ===================================================================== //
     // MARK: - Properties -
     private let scene:SCNScene
-    /// 敵の目的地
-    private let destination:TSVector2 = [10, 0] // (仮)
     
+    /// 敵の目的地
     private lazy var entityWorld = TSEntityWorld(delegate: self)
     
     // ===================================================================== //
     // MARK: - Methods -
+    
     func start() {
         self.entityWorld.start()
     }
