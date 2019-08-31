@@ -64,10 +64,13 @@ class TPSandBoxRootSceneModel {
     // MARK: - Private Methods -
     
     private func _didSceneChanged(to mode: Mode) {
-        if mode == .battle {
+        switch mode {
+        case .battle:
             sceneModel3D.makeBattleMode()
-        }else{
+        case.mainmenu:
             sceneModel3D.makeNormalMode()
+        default:
+            break
         }
     }
 }

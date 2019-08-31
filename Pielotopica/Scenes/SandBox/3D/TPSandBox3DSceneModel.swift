@@ -376,7 +376,4 @@ extension TPSandBox3DSceneModel : TSLevelDelegate {
         
         binder.__placeNode(node, at: nodePosition)
     }
-    func level(_ level: TSLevel, levelDidDestoryBlockAt position: TSVector3) {
-        nodeGenerator.destoryNode(at: position)
-    }
 }

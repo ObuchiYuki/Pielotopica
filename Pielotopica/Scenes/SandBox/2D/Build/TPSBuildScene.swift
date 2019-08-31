@@ -17,10 +17,6 @@ class TPSBuildScene: GKSafeScene {
     lazy var sceneModel = TPSBuildSceneModel(self)
     
     override func sceneDidLoad() {
-        TPSandboxSceneController.addSample(at: [ 15, 1,  15])
-        TPSandboxSceneController.addSample(at: [-15, 1,  15])
-        TPSandboxSceneController.addSample(at: [ 15, 1, -15])
-        TPSandboxSceneController.addSample(at: [-15, 1, -15])
         
         itemBar.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
         

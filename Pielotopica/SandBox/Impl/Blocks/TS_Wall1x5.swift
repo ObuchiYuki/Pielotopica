@@ -17,7 +17,7 @@ class TS_Wall1x5: TSBlock {
         return [1, 1, 5]
     }
     override func getHardnessLevel() -> Int {
-        return 20
+        return 100
     }
     override func isObstacle() -> Bool {
         true
