@@ -44,7 +44,7 @@ extension TPGameController: TSLevelDelegate {
         entityWorld.onPlaceObject(at: position)
     }
     
-    func level(_ level: TSLevel, levelDidDestoryBlockAt position: TSVector3) {
+    func level(_ level: TSLevel, levelWillDestoryBlockAt position: TSVector3) {
         entityWorld.onDestoryObject(at: position)
     }
 }

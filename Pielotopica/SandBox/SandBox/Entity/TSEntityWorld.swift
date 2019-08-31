@@ -61,18 +61,21 @@ class TSEntityWorld {
     
     func onDestoryObject(at anchor:TSVector3) {
         
-        self._removeObstacles(at: level.getFills(at: anchor, layerY: 1).map{$0.vector2})
+        DispatchQueue.global().async {
+            self._removeObstacles(at: self.level.getFills(at: anchor, layerY: 1).map{$0.vector2})
+        }
     }
     func onPlaceObject(at anchor:TSVector3) {
-        
-        self._addObsracles(at: level.getFills(at: anchor, layerY: 1).map{$0.vector2})
+        DispatchQueue.global().async {
+            self._addObsracles(at: self.level.getFills(at: anchor, layerY: 1).map{$0.vector2})
+        }
     }
     
     func removeObject(_ object:TSEntityObject) {
         guard let index = entities.firstIndex(where: {$0 === object}) else {return print("Not found")}
         entities.remove(at: index)
     }
-    
+
     func findPathToTarget(from node: GKGraphNode2D, speed: CGFloat) -> [CGPoint] {
         let ns = self.graph.findPath(from: node, to: targetNode) as! [GKGraphNode2D]
         let ps = ns.map{CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y))}

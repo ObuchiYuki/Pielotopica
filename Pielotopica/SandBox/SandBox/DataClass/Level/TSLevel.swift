@@ -41,6 +41,8 @@ extension TSLevelDelegate {
 public class TSLevel {
     // =============================================================== //
     // MARK: - Properties -
+    
+    // TODO: - 何とかしろ! -
     public weak var delegate:TSLevelDelegate?
     public weak var delegate2:TSLevelDelegate?
     
