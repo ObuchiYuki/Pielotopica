@@ -130,11 +130,20 @@ extension CGPoint {
     public static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
     }
+    public static func * (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x * rhs.x, y: lhs.y * rhs.y)
+    }
+    public static func / (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x / rhs.x, y: lhs.y / rhs.y)
+    }
     
     public static func * <T:BinaryInteger>(lhs: CGPoint, rhs: T) -> CGPoint {
         return CGPoint(x: lhs.x * CGFloat(rhs), y: lhs.y * CGFloat(rhs))
     }
     public static func / <T:BinaryInteger>(lhs: CGPoint, rhs: T) -> CGPoint {
+        return CGPoint(x: lhs.x / CGFloat(rhs), y: lhs.y / CGFloat(rhs))
+    }
+    public static func / <T:BinaryFloatingPoint>(lhs: CGPoint, rhs: T) -> CGPoint {
         return CGPoint(x: lhs.x / CGFloat(rhs), y: lhs.y / CGFloat(rhs))
     }
     

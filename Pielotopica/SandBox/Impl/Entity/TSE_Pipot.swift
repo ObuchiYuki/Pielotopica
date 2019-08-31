@@ -23,38 +23,17 @@ class TSE_Pipot: TSEntity {
     
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
         let route = world.findPathToTarget(from: object.spown.node!)
-        
-        print(route, object.spown.node?.position)
-        
+                
         if object.info["index"]==nil{object.info["index"]=0}; let index = object.info["index"] as! Int
         object.info["index"] = index + 1
         
-        if route.count <= index + 1 {
+        if route.count <= index {
             object.removeFromWorld()
             return
         }
-        
-        let from = route[index]
-        let to = route[index + 1]
-        
-        let df = to - from
-        
-        object.updatePosition(to: object.position + _normalizeVector(df), tic: tic)
+                
+        object.updatePosition(to: object.position + route[index], tic: tic)
     }
-    
-    private func _normalizeVector(_ vector:CGPoint) -> CGPoint {
-        
-        return vector
-        
-        //let (dx, dz) = (vector.x, vector.y)
-        
-        //let ab = abs(sqrt(dx * dx + dz * dz))
-
-        //return TSVector2((dx / ab).i, (dz / ab).i)
-    }
-    
-    
-    
     
     
     private func _createFootAction(t:Int) -> SCNAction {

@@ -64,8 +64,24 @@ class TSEntityWorld {
     
     func findPathToTarget(from node:GKGraphNode2D) -> [CGPoint] {
         let ns = self.graph.findPath(from: node, to: targetNode) as! [GKGraphNode2D]
+        let ps = ns.map{CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y))}
         
-        return ns.map{CGPoint(x: CGFloat($0.position.x), y: CGFloat($0.position.y))}
+        return split(ps)
+    }
+    
+    private func split(_ line: [CGPoint]) -> [CGPoint] {
+        if line.count <= 1 {return line}
+        var points = [CGPoint]()
+        
+        func dist(a:CGPoint, b: CGPoint) -> CGFloat { sqrt((a.x-b.x) * (a.x-b.x) + (a.y-b.y) * (a.y-b.y)) }
+        func normal(a:CGPoint, b: CGPoint) -> CGPoint { (b - a) / dist(a: a, b: b) }
+        
+        for i in 0..<line.count-1 {
+            let d = dist(a: line[i], b: line[i+1])
+            for _ in 0..<Int(d) { points.append(normal(a: line[i], b: line[i+1])) }
+            points.append(line[i+1] - line[i] - normal(a: line[i], b: line[i+1]) * Int(d))
+        }
+        return points
     }
     
     // ================================================================== //
@@ -108,48 +124,33 @@ class TSEntityWorld {
         graph.connectUsingObstacles(node: targetNode)
         
         
-        
         return graph
     }
     
     /// -20 ~ 20 で探索
-        private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
-            var obstacles = [GKPolygonObstacle]()
+    private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
+        var obstacles = [GKPolygonObstacle]()
     
-            for x in -20...20 {
-                for z in -20...20 {
-                    let pos = TSVector3(x, 1, z)
-                    let block = level.getFillBlock(at: pos)
-                    if block.isObstacle() {
-                        obstacles.append(_createObstacle(with: .unit, at: pos.vector2))
-                    }
+        for x in -20...20 {
+            for z in -20...20 {
+                let pos = TSVector3(x, 1, z)
+                let block = level.getFillBlock(at: pos)
+                if block.isObstacle() {
+                    obstacles.append(_createObstacle1x1(at: pos.vector2))
                 }
             }
-    
-            return obstacles
         }
     
-    /**private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
-        var obstacles = [GKPolygonObstacle]()
-        
-        for anchor in level.getAllAnchors() {
-            let block = level.getAnchorBlock(at: anchor)
-            
-            if block.isObstacle() {
-                let sizef = block.getSize(at: anchor).vector2
-                obstacles.append(_createObstacle(with: sizef, at: anchor.vector2))
-            }
-        }
-        
         return obstacles
-    }*/
-    
-    private func _createObstacle(with size:TSVector2, at point:TSVector2) -> GKPolygonObstacle {
+    }
+
+    // TODO: - ブロックサイズに合わせて調整する -
+    private func _createObstacle1x1(at point:TSVector2) -> GKPolygonObstacle {
         let p1 = SIMD2<Float>(point.simd)
-        let p2 = SIMD2<Float>((point + [0, size.z16]).simd)
-        let p3 = SIMD2<Float>((point + size).simd)
-        let p4 = SIMD2<Float>((point + [size.x16, 0]).simd)
-        
+        let p2 = SIMD2<Float>((point + [1, 0]).simd)
+        let p3 = SIMD2<Float>((point + [1, 1]).simd)
+        let p4 = SIMD2<Float>((point + [0, 1]).simd)
+    
         return GKPolygonObstacle(points: [p1, p2, p3, p4])
     }
     
