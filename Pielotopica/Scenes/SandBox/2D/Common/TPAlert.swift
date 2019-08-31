@@ -8,6 +8,16 @@
 
 import SpriteKit
 
+class TPAlertAction {
+    let texture: String
+    let action: ()->Void
+    
+    init(texture: String, action: @escaping ()->Void) {
+        self.texture = texture
+        self.action = action
+    }
+}
+
 class TPAlert: SKSpriteNode {
     enum Theme {
         case light
@@ -15,28 +25,41 @@ class TPAlert: SKSpriteNode {
     }
     
     private let label = SKLabelNode()
-    private let button1:GKButtonNode
-    private let button2:GKButtonNode
     
-    private let action1: ()->Void
-    private let action2: ()->Void
+    private var button1:GKButtonNode!
+    private var button2:GKButtonNode!
     
-    init(theme: Theme, text:String, button1t:String, button2t:String, action1: @escaping ()->Void, action2: @escaping ()->Void ) {
-        self.action1 = action1
-        self.action2 = action2
-        
+    private var action1 = {}
+    private var action2 = {}
+    
+    func setAction1(_ action:TPAlertAction) {
+        action1 = action.action
         button1 = GKButtonNode(
-            size: [100, 26], defaultTexture: .init(imageNamed: button1t),
-            selectedTexture: .init(imageNamed: button1t+"_pressed"),
+            size: [100, 26], defaultTexture: .init(imageNamed: action.texture),
+            selectedTexture: .init(imageNamed: action.texture+"_pressed"),
             disabledTexture: nil
         )
         
+        button1.position = [-80, -30]
+        button1.addTarget(self, action: #selector(_onButton1(_:)), for: .touchUpInside)
+        self.addChild(button1)
+        
+    }
+    func setAction2(_ action:TPAlertAction) {
+        action2 = action.action
         button2 = GKButtonNode(
-            size: [100, 26], defaultTexture: .init(imageNamed: button2t),
-            selectedTexture: .init(imageNamed: button2t+"_pressed"),
+            size: [100, 26], defaultTexture: .init(imageNamed: action.texture),
+            selectedTexture: .init(imageNamed: action.texture+"_pressed"),
             disabledTexture: nil
         )
         
+        
+        button2.position = [ 80, -30]
+        button2.addTarget(self, action: #selector(_onButton2(_:)), for: .touchUpInside)
+        self.addChild(button2)
+    }
+    
+    init(theme: Theme, text:String) {
         if theme == .light {
             super.init(texture: .init(imageNamed: "TP_alert_light_background"), color: .clear, size: [375, 177])
         }else{
@@ -49,19 +72,13 @@ class TPAlert: SKSpriteNode {
             label.color = TPCommon.Color.card
         }
         
-        button1.position = [-80, -30]
-        
-        button2.position = [ 80, -30]
-        self.addChild(button1)
-        self.addChild(button2)
-        
         label.text = text
         label.fontName = TPCommon.FontName.hiraBold
         label.fontSize = 15
         
         self.addChild(label)
         
-        self.yScale = CGFloat(2) / 177
+        self.yScale = 2 / 177
         self.position.x = -400
     }
     
@@ -69,9 +86,14 @@ class TPAlert: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func _onButton1(_ sender:Any) {
+        action1()
+    }
+    @objc private func _onButton2(_ sender:Any) {
+        action2()
+    }
+    
     func show() {
-        
-        
         let a = SKAction.sequence([
             SKAction.move(to: .zero, duration: 0.2).setEase(),
             SKAction.wait(forDuration: 0.1),
@@ -81,6 +103,11 @@ class TPAlert: SKSpriteNode {
     }
     
     func hide() {
-        
+        let a = SKAction.sequence([
+            SKAction.scaleY(to: 2 / 177, duration: 0.2).setEase(),
+            SKAction.wait(forDuration: 0.1),
+            SKAction.move(to: [-400, 0], duration: 0.2).setEase(),
+        ])
+        self.run(a)
     }
 }

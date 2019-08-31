@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 
 protocol TPSBattleSceneModelBinder: class {
+    func __showAlert(with alert:TPAlert)
     func __setItemBarSelectionState(to mode:TPSBuildSceneModel.Mode)
     func __setBuildSideMenuMode(to mode:TPSBuildSceneModel.Mode)
 }
@@ -31,8 +32,19 @@ class TPSBattleSceneModel: TPSandBoxSceneModel {
     // MARK: - Handler -
     
     func onBackButtonTap() {
-        // cannot back
-        // self.rootSceneModel.present(to: TPSMainMenuScene())
+        let alert = TPAlert(theme: .dark, text: "戦闘を始める前に戻ります。")
+        
+        alert.setAction1(TPAlertAction(texture: "TP_alertbutton_back_red") {[weak self] in
+            self?.rootSceneModel.present(to: TPSMainMenuScene())
+            alert.hide()
+        })
+        
+        alert.setAction2(TPAlertAction(texture: "TP_alertbutton_cancel") {
+            alert.hide()
+        })
+        
+        binder.__showAlert(with: alert)
+        
     }
     func onPlaceButtonTap() {
         self.mode.accept(.place)
