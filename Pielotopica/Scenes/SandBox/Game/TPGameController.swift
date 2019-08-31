@@ -24,8 +24,8 @@ class TPGameController {
     
     func start() {
         for anchor in level.getAllAnchors().filter({$0.y == 1}) {
-            let sprite = TSSprite(sprite: SKSpriteNode.init(color: .red, size: [100, 100]))
-            sprite.show(at: (anchor + [0, 1, 0]).scnVector3, in: scene)
+            let sprite = TSSprite(sprite: SKSpriteNode.init(color: .red, size: [100, 30]))
+            sprite.show(at: (anchor + [0, 2, 0]).scnVector3, in: scene)
         }
         
         self.entityWorld.start()
