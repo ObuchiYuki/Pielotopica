@@ -24,7 +24,7 @@ class TSE_Pipot: TSEntity {
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
         let route = world.findPathToTarget(from: object.spown.node!, speed: 3)
                 
-        if object.info["index"]==nil{object.info["index"]=0}; let index = object.info["index"] as! Int
+        if object.info["index"] == nil {object.info["index"]=0}; let index = object.info["index"] as! Int
         object.info["index"] = index + 1
         
         if route.count <= index { return object.removeFromWorld() }

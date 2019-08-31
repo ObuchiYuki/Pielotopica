@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
+		B6002D89231A1B8B006C4D94 /* TP_ground_edge.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6002D88231A1B8A006C4D94 /* TP_ground_edge.scn */; };
+		B6002D8B231A1B96006C4D94 /* TP_ground_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6002D8A231A1B95006C4D94 /* TP_ground_5x5.scn */; };
+		B6002D8D231A1C2E006C4D94 /* TP_ground_5x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B6002D8C231A1C2E006C4D94 /* TP_ground_5x5.png */; };
+		B6002D8F231A1C71006C4D94 /* TP_ground_edge.png.png in Resources */ = {isa = PBXBuildFile; fileRef = B6002D8E231A1C71006C4D94 /* TP_ground_edge.png.png */; };
 		B6012DEF23189B1C00DC18CE /* TS_SpawnerBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */; };
 		B6012DF123189D1700DC18CE /* TSSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF023189D1700DC18CE /* TSSpawner.swift */; };
 		B6012DF32318A0C700DC18CE /* TSEntityObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF22318A0C700DC18CE /* TSEntityObject.swift */; };
@@ -145,12 +149,6 @@
 		B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */; };
-		B6A8D667230ECC5C005B26A5 /* TP_floar_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6A8D666230ECC5C005B26A5 /* TP_floar_5x5.scn */; };
-		B6A8D669230ECC67005B26A5 /* TP_floar_5x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A8D668230ECC66005B26A5 /* TP_floar_5x5.png */; };
-		B6A8D66B230ED4F7005B26A5 /* TP_ground_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6A8D66A230ED4F7005B26A5 /* TP_ground_5x5.scn */; };
-		B6A8D66D230ED50B005B26A5 /* TP_ground_5x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A8D66C230ED50B005B26A5 /* TP_ground_5x5.png */; };
-		B6A8D66F230ED717005B26A5 /* TP_Ground_edge.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6A8D66E230ED717005B26A5 /* TP_Ground_edge.scn */; };
-		B6A8D671230ED73B005B26A5 /* TP_Ground_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A8D670230ED73B005B26A5 /* TP_Ground_edge.png */; };
 		B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */; };
 		B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02A8230D6ED400F0FF48 /* TPMainMenu.swift */; };
 		B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02AA230D78B800F0FF48 /* RMTimeStamp.swift */; };
@@ -199,6 +197,10 @@
 		05DBDCD7D6EB5B372F8F1C68 /* Pods-Pielotopica.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.release.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.release.xcconfig"; sourceTree = "<group>"; };
 		1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.debug.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.debug.xcconfig"; sourceTree = "<group>"; };
 		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6002D88231A1B8A006C4D94 /* TP_ground_edge.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_edge.scn; sourceTree = "<group>"; };
+		B6002D8A231A1B95006C4D94 /* TP_ground_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = TP_ground_5x5.scn; path = ../../../../../../Desktop/TP_ground_5x5.scn; sourceTree = "<group>"; };
+		B6002D8C231A1C2E006C4D94 /* TP_ground_5x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_5x5.png; sourceTree = "<group>"; };
+		B6002D8E231A1C71006C4D94 /* TP_ground_edge.png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png.png; sourceTree = "<group>"; };
 		B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_SpawnerBlock.swift; sourceTree = "<group>"; };
 		B6012DF023189D1700DC18CE /* TSSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSpawner.swift; sourceTree = "<group>"; };
 		B6012DF22318A0C700DC18CE /* TSEntityObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntityObject.swift; sourceTree = "<group>"; };
@@ -342,12 +344,6 @@
 		B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBoundingBoxProvider.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCaptureViewController.swift; sourceTree = "<group>"; };
-		B6A8D666230ECC5C005B26A5 /* TP_floar_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_floar_5x5.scn; sourceTree = "<group>"; };
-		B6A8D668230ECC66005B26A5 /* TP_floar_5x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_floar_5x5.png; sourceTree = "<group>"; };
-		B6A8D66A230ED4F7005B26A5 /* TP_ground_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_5x5.scn; sourceTree = "<group>"; };
-		B6A8D66C230ED50B005B26A5 /* TP_ground_5x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_5x5.png; sourceTree = "<group>"; };
-		B6A8D66E230ED717005B26A5 /* TP_Ground_edge.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_Ground_edge.scn; sourceTree = "<group>"; };
-		B6A8D670230ED73B005B26A5 /* TP_Ground_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_Ground_edge.png; sourceTree = "<group>"; };
 		B6AA02A4230D66EB00F0FF48 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMainMenuItem.swift; sourceTree = "<group>"; };
 		B6AA02A8230D6ED400F0FF48 /* TPMainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMainMenu.swift; sourceTree = "<group>"; };
@@ -727,12 +723,10 @@
 				B608C495231101060073843E /* TP_wood_wall_1x1.scn */,
 				B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */,
 				B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */,
-				B6A8D670230ED73B005B26A5 /* TP_Ground_edge.png */,
-				B6A8D66E230ED717005B26A5 /* TP_Ground_edge.scn */,
-				B6A8D66C230ED50B005B26A5 /* TP_ground_5x5.png */,
-				B6A8D66A230ED4F7005B26A5 /* TP_ground_5x5.scn */,
-				B6A8D668230ECC66005B26A5 /* TP_floar_5x5.png */,
-				B6A8D666230ECC5C005B26A5 /* TP_floar_5x5.scn */,
+				B6002D8E231A1C71006C4D94 /* TP_ground_edge.png.png */,
+				B6002D88231A1B8A006C4D94 /* TP_ground_edge.scn */,
+				B6002D8C231A1C2E006C4D94 /* TP_ground_5x5.png */,
+				B6002D8A231A1B95006C4D94 /* TP_ground_5x5.scn */,
 				B6227A692302391A009EF60F /* TP_japanese_house_1.scn */,
 				B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */,
 			);
@@ -1145,12 +1139,11 @@
 				B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */,
 				B6012E012318B5BB00DC18CE /* TP_spawner_1x1.scn in Resources */,
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
-				B6A8D669230ECC67005B26A5 /* TP_floar_5x5.png in Resources */,
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
 				B66BD3D82317E73E00E20212 /* enemy_1.scn in Resources */,
 				B660939323153B3400B528E5 /* Silom.ttf in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
-				B6A8D66D230ED50B005B26A5 /* TP_ground_5x5.png in Resources */,
+				B6002D8D231A1C2E006C4D94 /* TP_ground_5x5.png in Resources */,
 				B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */,
 				B6F8C51823136FC500264EBF /* ClassIndex.txt in Resources */,
 				B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */,
@@ -1162,7 +1155,6 @@
 				B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */,
 				B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */,
 				B661FA432318D33600D4A3C0 /* TP_target_kari.scn in Resources */,
-				B6A8D66F230ED717005B26A5 /* TP_Ground_edge.scn in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
 				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,
 				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
@@ -1170,14 +1162,14 @@
 				B61E93E22300E376008CB325 /* Assets.xcassets in Resources */,
 				B61E93E42300E376008CB325 /* Main.storyboard in Resources */,
 				B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */,
+				B6002D8F231A1C71006C4D94 /* TP_ground_edge.png.png in Resources */,
 				B69E8667231625A2004D4272 /* retro_transition_fade_from_centre.fsh in Resources */,
-				B6A8D66B230ED4F7005B26A5 /* TP_ground_5x5.scn in Resources */,
 				B6012DFB2318ACE200DC18CE /* spawner.png in Resources */,
+				B6002D89231A1B8B006C4D94 /* TP_ground_edge.scn in Resources */,
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
 				B6996939231792BA00CE933B /* normal_bgm.wav in Resources */,
-				B6A8D671230ED73B005B26A5 /* TP_Ground_edge.png in Resources */,
 				B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */,
-				B6A8D667230ECC5C005B26A5 /* TP_floar_5x5.scn in Resources */,
+				B6002D8B231A1B96006C4D94 /* TP_ground_5x5.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

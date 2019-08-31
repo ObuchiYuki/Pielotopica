@@ -34,7 +34,8 @@ class TSEntityWorld {
     private var timer:Timer? = nil
     
     private var targetNode:GKGraphNode2D!
-    
+    private var fillObstacles = [TSVector2: GKPolygonObstacle]()
+     
     // ================================================================== //
     // MARK: - Methods -
     func start() {
@@ -90,10 +91,18 @@ class TSEntityWorld {
     init(delegate:TSEntityWorldDelegate) {
         self.delegate = delegate
     }
-
     
     // ================================================================== //
     // MARK: - Private Methods -
+    
+    private func _addObsracles(at points:[TSVector2]) {
+        self.graph.addObstacles(points.map(_createObstacle1x1))
+        
+    }
+    private func _removeObstacles(at points:[TSVector2]) {
+        let obss = points.compactMap({fillObstacles[$0]})
+        self.graph.removeObstacles(obss)
+    }
     
     private func _getTargetPosition() -> TSVector2 {
         let level = TSLevel.current!
@@ -127,6 +136,22 @@ class TSEntityWorld {
         return graph
     }
     
+    private func _generateWalls() -> [GKPolygonObstacle] {
+        return [
+            GKPolygonObstacle(points: [
+                .init(-19, -19), .init( 19, -19), .init( 19, -20), .init(-19, -20)
+            ]),
+            GKPolygonObstacle(points: [
+                .init( 19, -20), .init( 19,  20), .init( 20, -20), .init( 19, -20)
+            ]),
+            GKPolygonObstacle(points: [
+                .init(-19,  19), .init(-19,  20), .init( 19,  20), .init( 19,  19)
+            ]),
+            GKPolygonObstacle(points: [
+                .init(-20, -20), .init(-20,  20), .init(-19,  20), .init(-19, -20)
+            ]),
+        ]
+    }
     /// -20 ~ 20 で探索
     private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
         var obstacles = [GKPolygonObstacle]()
@@ -136,12 +161,16 @@ class TSEntityWorld {
                 let pos = TSVector3(x, 1, z)
                 let block = level.getFillBlock(at: pos)
                 if block.isObstacle() {
-                    obstacles.append(_createObstacle1x1(at: pos.vector2))
+                    let pos2 = pos.vector2
+                    let obs = _createObstacle1x1(at: pos2)
+                    
+                    fillObstacles[pos2] = obs
+                    obstacles.append(obs)
                 }
             }
         }
     
-        return obstacles
+        return obstacles // + _generateWalls()
     }
 
     // TODO: - ブロックサイズに合わせて調整する -

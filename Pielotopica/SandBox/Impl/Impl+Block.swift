@@ -18,7 +18,7 @@ public extension TSBlock {
     
     static let ground5x5:TSBlock = TS_Floar5x5(nodeNamed: "TP_ground_5x5", index: 12)
     
-    static let ground5x5Edge:TSBlock = TS_Floar5x5(nodeNamed: "TP_Ground_edge", index: 13)
+    static let ground5x5Edge:TSBlock = TS_Floar5x5(nodeNamed: "TP_ground_edge", index: 13)
     
     static let woodWall1x5:TSBlock = TS_Wall1x5(nodeNamed: "TP_wood_wall_1x5", index: 14)
     
