@@ -39,19 +39,11 @@ class TPGameOverModal: SKSpriteNode {
     private var allMaterials:[TSClearModalMaterial] {[iron, wood, circit, fuel]}
     
     init() {
-        super.init(texture: .init(imageNamed: "TP_clear_modal_bacground"), color: .clear, size: [308, 418])
+        super.init(texture: .init(imageNamed: "TP_gameover_modal_bacground"), color: .clear, size: [308, 418])
         
         self.position = [0, -30]
         
-        scoreLabel.fontColor = TPCommon.Color.text
-        scoreLabel.fontSize = 14
-        scoreLabel.horizontalAlignmentMode = .right
-        scoreLabel.position = [ 95, -97]
-        
-        self.addChild(scoreLabel)
-        
         exitButton.position = [0, -137]
-        
         
         self.addChild(exitButton)
         
