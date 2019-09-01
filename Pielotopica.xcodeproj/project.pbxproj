@@ -136,6 +136,9 @@
 		B67F1B9B231B99D000D71A5E /* TP_ground_5x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F1B9A231B99D000D71A5E /* TP_ground_5x5.png */; };
 		B67F1B9F231B9AD300D71A5E /* TP_grass_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F1B9E231B9AD200D71A5E /* TP_grass_1x1.png */; };
 		B67F1BA1231B9B2600D71A5E /* TP_grass_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B67F1BA0231B9B2600D71A5E /* TP_grass_1x1.scn */; };
+		B67F1BA3231B9B4600D71A5E /* TS_Grass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67F1BA2231B9B4600D71A5E /* TS_Grass.swift */; };
+		B67F1BA5231B9ED900D71A5E /* TP_target.scn in Resources */ = {isa = PBXBuildFile; fileRef = B67F1BA4231B9ED900D71A5E /* TP_target.scn */; };
+		B67F1BA7231B9FE900D71A5E /* TP_target.png in Resources */ = {isa = PBXBuildFile; fileRef = B67F1BA6231B9FE900D71A5E /* TP_target.png */; };
 		B6885FF8231AC1BE009098FA /* TP_ground_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = B6885FF7231AC1BD009098FA /* TP_ground_edge.png */; };
 		B6885FFA231AC2F0009098FA /* TP_ground_edge.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */; };
 		B6885FFE231B3E78009098FA /* RMWeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885FFD231B3E78009098FA /* RMWeakObject.swift */; };
@@ -350,6 +353,9 @@
 		B67F1B9A231B99D000D71A5E /* TP_ground_5x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_5x5.png; sourceTree = "<group>"; };
 		B67F1B9E231B9AD200D71A5E /* TP_grass_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_grass_1x1.png; sourceTree = "<group>"; };
 		B67F1BA0231B9B2600D71A5E /* TP_grass_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_grass_1x1.scn; sourceTree = "<group>"; };
+		B67F1BA2231B9B4600D71A5E /* TS_Grass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Grass.swift; sourceTree = "<group>"; };
+		B67F1BA4231B9ED900D71A5E /* TP_target.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_target.scn; sourceTree = "<group>"; };
+		B67F1BA6231B9FE900D71A5E /* TP_target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_target.png; sourceTree = "<group>"; };
 		B6885FF7231AC1BD009098FA /* TP_ground_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png; sourceTree = "<group>"; };
 		B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_edge.scn; sourceTree = "<group>"; };
 		B6885FFD231B3E78009098FA /* RMWeakObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMWeakObject.swift; sourceTree = "<group>"; };
@@ -768,6 +774,7 @@
 				B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */,
 				B67CA121231AB32A00A01646 /* TS_Tree.swift */,
 				B629240C231B88A800955B1E /* TS_Stone.swift */,
+				B67F1BA2231B9B4600D71A5E /* TS_Grass.swift */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -775,6 +782,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B67F1BA6231B9FE900D71A5E /* TP_target.png */,
+				B67F1BA4231B9ED900D71A5E /* TP_target.scn */,
 				B67F1B9E231B9AD200D71A5E /* TP_grass_1x1.png */,
 				B67F1BA0231B9B2600D71A5E /* TP_grass_1x1.scn */,
 				B629240A231B889200955B1E /* TP_stone_1x1.png */,
@@ -783,8 +792,8 @@
 				B67CA127231ABD6C00A01646 /* TP_tree.scn */,
 				B661FA422318D33600D4A3C0 /* TP_target_kari.scn */,
 				B661FA3C2318D2C800D4A3C0 /* TP_target_kari.png */,
-				B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */,
 				B6012DFA2318ACE100DC18CE /* spawner.png */,
+				B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */,
 				B66BD3D72317E73E00E20212 /* enemy_1.scn */,
 				B66BD3D92317E74300E20212 /* enemy_1.png */,
 				B608C497231101120073843E /* wood_wall_1x1.png */,
@@ -1199,6 +1208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B67F1BA7231B9FE900D71A5E /* TP_target.png in Resources */,
 				B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */,
 				B6012E012318B5BB00DC18CE /* TP_spawner_1x1.scn in Resources */,
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
@@ -1233,6 +1243,7 @@
 				B61E93E42300E376008CB325 /* Main.storyboard in Resources */,
 				B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */,
 				B69E8667231625A2004D4272 /* retro_transition_fade_from_centre.fsh in Resources */,
+				B67F1BA5231B9ED900D71A5E /* TP_target.scn in Resources */,
 				B6885FFA231AC2F0009098FA /* TP_ground_edge.scn in Resources */,
 				B67CA12C231ABE0700A01646 /* TP_tree.png in Resources */,
 				B6012DFB2318ACE200DC18CE /* spawner.png in Resources */,
@@ -1337,6 +1348,7 @@
 				B6012DEF23189B1C00DC18CE /* TS_SpawnerBlock.swift in Sources */,
 				B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */,
 				B6996935231790C700CE933B /* TPSBattleSceneModel.swift in Sources */,
+				B67F1BA3231B9B4600D71A5E /* TS_Grass.swift in Sources */,
 				B69E867723168028004D4272 /* TPSandBoxScene.swift in Sources */,
 				B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,

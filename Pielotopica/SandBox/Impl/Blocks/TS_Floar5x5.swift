@@ -1,5 +1,5 @@
 //
-//  NormalFloar5x5.swift
+//  NormalFloar6x6.swift
 //  SandboxSample
 //
 //  Created by yuki on 2019/06/18.
@@ -11,18 +11,18 @@ import RxCocoa
 import RxSwift
 
 // =============================================================== //
-// MARK: - NormalFloar5x5 -
+// MARK: - NormalFloar6x6 -
 
-/// 普通の床です。(5, 1, 5)
-class TS_Floar5x5:TSBlock {
+/// 普通の床です。(6, 1, 6)
+class TS_Floar6x6:TSBlock {
     // =============================================================== //
     // MARK: - Methods -
     override func getOriginalNodeSize() -> TSVector3 {
-        return [5, 1, 5]
+        return [6, 1, 6]
     }
     
     override func shouldRandomRotateWhenPlaced() -> Bool {
-        return true
+        return false
     }
     override func canPlaceBlockOnTop(_ block: TSBlock, at point: TSVector3) -> Bool {
         return true

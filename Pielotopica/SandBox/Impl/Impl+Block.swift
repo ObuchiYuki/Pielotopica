@@ -29,5 +29,7 @@ public extension TSBlock {
     static let tree:TSBlock = TS_Tree(nodeNamed: "TP_tree", index: 19)
     
     static let stone:TSBlock = TS_Stone(nodeNamed: "TP_stone_1x1", index: 21)
+    
+    static let grass:TSBlock = TS_Grass(nodeNamed: "TP_grass_1x1", index: 22)
 }
 
