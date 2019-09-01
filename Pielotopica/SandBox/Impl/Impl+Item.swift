@@ -33,7 +33,7 @@ public extension TSItem {
     
     static let targetKari = TS_KariItem(
         name: "カリのキョテン",
-        textureNamed: "TP_item_thumb_target_kari",
+        textureNamed: "TP_item_thumb_kari",
         block: .targetKari
     )
     

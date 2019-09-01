@@ -17,15 +17,27 @@ class TPBuildItemBarItem: SKSpriteNode {
     
     private let bag = DisposeBag()
     
-    func setItemStack(_ itemStack:TSItemStack) {
+    func setItemStack(_ itemStack:TSItemStack, needShowWhenNone:Bool) {
         iconNode.texture = itemStack.item.itemImage.map{SKTexture.init(image: $0)}
+        
         itemStack.count.subscribe{[unowned self] event in
             guard let num = event.element else {return}
+            self.numLabel.text = "x \(num)"
+            
             if num == 0 {
-                self.numLabel.text = ""
+                self.numLabel.alpha = 0
+                self.iconNode.alpha = 0
             }else{
-                self.numLabel.text = "x \(num)"
+                self.numLabel.alpha = 1
+                self.iconNode.alpha = 1
             }
+            
+            if needShowWhenNone && num == 0 {
+                self.numLabel.alpha = 0.5
+                self.iconNode.alpha = 0.5
+            }
+            
+            
         
         }.disposed(by: bag)
     }

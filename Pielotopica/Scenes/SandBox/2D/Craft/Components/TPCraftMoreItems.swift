@@ -46,11 +46,12 @@ class TPCraftMoreItems: SKSpriteNode {
     // ==================================================================== //
     // MARK: - Private Methods -
     private func _loadItem() {
+        
         for (i, item) in TPCraftMoreItems.showingItems.enumerated() {
-            guard let itemStack = TSInventory.shared.itemStacks.value.first(where: {$0.item == item}) else {return}
+            let itemStack = TSInventory.shared.itemStacks.value.first(where: {$0.item == item}) ?? TSItemStack(item: item, count: 0)
             let itemNode = itemNodes[i]
             
-            itemNode.setItemStack(itemStack)
+            itemNode.setItemStack(itemStack, needShowWhenNone: true)
         }
     }
     private func _setupItems(){

@@ -158,7 +158,7 @@ class TPBuildItemBar: GKSpriteNode {
             guard let self = self else {return}
             
             for (i, baritem) in self.allBarItems.enumerated() {
-                baritem.setItemStack(itemStack[i])
+                baritem.setItemStack(itemStack[i], needShowWhenNone: false)
             }
         }.disposed(by: bag)
     }
