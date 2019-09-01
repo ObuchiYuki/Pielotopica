@@ -154,6 +154,7 @@
 		B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B68E14342314177E00E973E1 /* Yolov3.mlmodel */; };
 		B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */; };
 		B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E1437231419C600E973E1 /* 5squared-pixel.ttf */; };
+		B6926486231BCD7C00986595 /* TPGameEndData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6926485231BCD7C00986595 /* TPGameEndData.swift */; };
 		B6931446230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */; };
 		B6931448230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6931447230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift */; };
 		B698F16A230FC85C00CAE917 /* PielotopicaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B698F169230FC85C00CAE917 /* PielotopicaTests.swift */; };
@@ -379,6 +380,7 @@
 		B68E14342314177E00E973E1 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
 		B68E1437231419C600E973E1 /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
 		B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korneuburg-Slab-Bold.ttf"; sourceTree = "<group>"; };
+		B6926485231BCD7C00986595 /* TPGameEndData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameEndData.swift; sourceTree = "<group>"; };
 		B6931445230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBarItem.swift; sourceTree = "<group>"; };
 		B6931447230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandBoxRootSceneModel.swift; sourceTree = "<group>"; };
 		B698F167230FC85C00CAE917 /* PielotopicaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PielotopicaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -830,7 +832,7 @@
 		B6227A6F23023983009EF60F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B65D5CA8231BA8DD009E4171 /* GameClear */,
+				B65D5CA8231BA8DD009E4171 /* GameEnd */,
 				B64EB3912313E278000EC6F7 /* Router */,
 				B6E8826923128429003F3124 /* CaptureScene */,
 				B61E93FA2300E390008CB325 /* StartScene */,
@@ -858,13 +860,13 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		B65D5CA8231BA8DD009E4171 /* GameClear */ = {
+		B65D5CA8231BA8DD009E4171 /* GameEnd */ = {
 			isa = PBXGroup;
 			children = (
 				B65D5CA9231BA8F7009E4171 /* TPClearScene.swift */,
 				B65D5CAB231BB2C3009E4171 /* Components */,
 			);
-			path = GameClear;
+			path = GameEnd;
 			sourceTree = "<group>";
 		};
 		B65D5CAB231BB2C3009E4171 /* Components */ = {
@@ -881,6 +883,7 @@
 			children = (
 				B65D5CB1231BBC79009E4171 /* TPStageData.swift */,
 				B65D5CB3231BBC85009E4171 /* TPClearAward.swift */,
+				B6926485231BCD7C00986595 /* TPGameEndData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1451,6 +1454,7 @@
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
 				B6F8C5122313653100264EBF /* TSFuelData.swift in Sources */,
 				B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */,
+				B6926486231BCD7C00986595 /* TPGameEndData.swift in Sources */,
 				B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */,
 				B66093992315526500B528E5 /* TPCraftMoreItems.swift in Sources */,
 				B6012DFF2318B11500DC18CE /* TS_SpawnerItem.swift in Sources */,

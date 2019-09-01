@@ -9,8 +9,11 @@
 import SpriteKit
 import SceneKit
 
+
 class TPGameController {
     
+    
+    public static weak var initirized: TPGameController?
     // ===================================================================== //
     // MARK: - Properties -
     private let scene:SCNScene
@@ -48,15 +51,28 @@ class TPGameController {
     }
     func end() {
         self.entityWorld.end()
+        
+        let award = stageManager.award(on: stageManager.getDay())
+        // TODO - 直せ
+        
+        RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: TPGameEndData(state: .clear, award: award))
     }
     
     // ===================================================================== //
     // MARK: - Private -
     
+    private func _gameClear() {
+        
+    }
+    private func _gameEndData() {
+        
+    }
+    
     // 毎秒呼ばれる。
     private func _update() {
         print("call", timeRemain)
         self.timeRemain -= 1
+        
         
         guard let battleSceneModel = battleSceneModel else { return }
         
@@ -67,6 +83,8 @@ class TPGameController {
     // MARK: - Constructor -
     init(scene: SCNScene) {
         self.scene = scene
+        
+        TPGameController.initirized = self
     }
 }
 
@@ -85,4 +103,8 @@ extension TPGameController: TSEntityWorldDelegate {
     func addNode(_ node: SCNNode) {
         self.scene.rootNode.addChildNode(node)
     }
+}
+
+extension RMBinder.Name where Object == TPGameEndData {
+    static let TPGameControllerGameDidEnd = RMBinder.Name(rawValue: "__TPGameControllerGameDidEnd__")
 }

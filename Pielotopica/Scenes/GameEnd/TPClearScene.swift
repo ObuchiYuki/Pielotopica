@@ -19,7 +19,7 @@ class TPClearScene:GKSafeScene {
     private let modal = TPClearModal()
     
     override func sceneDidLoad() {
-        
+        TPSandBoxRootSceneModel.shared
         titleLabel.fontSize = 50
         titleLabel.fontColor = TPCommon.Color.text
         titleLabel.position = [0, 230]
