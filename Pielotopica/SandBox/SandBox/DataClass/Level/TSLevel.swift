@@ -21,7 +21,13 @@ internal let kArrayAccessMargin = kLevelMaxX / 2
 // =============================================================== //
 // MARK: - TSLevelDelegate -
 
-public class TSLevelDelegate {
+public protocol TSLevelDelegate {
+    func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool)
+    func level(_ level:TSLevel, levelWillDestoryBlockAt position:TSVector3)
+    func level(_ level:TSLevel, levelDidDestoryBlockAt position:TSVector3)
+}
+
+extension TSLevelDelegate {
     func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool) {}
     func level(_ level:TSLevel, levelWillDestoryBlockAt position:TSVector3) {}
     func level(_ level:TSLevel, levelDidDestoryBlockAt position:TSVector3) {}
@@ -36,7 +42,7 @@ public class TSLevel {
     // =============================================================== //
     // MARK: - Properties -
     
-    public var delegates = RMWeakObjectSet<TSLevelDelegate>()
+    public var delegates = NSHashTable<AnyObject>.weakObjects()
     
     /// このマップに対するNodeGaneratorです。
     internal weak var nodeGenerator:TSNodeGenerator?

@@ -10,83 +10,62 @@ import Foundation
 
 /// 弱参照のObjectをまとめて扱えます。
 /// Objc由来のNSWeakCollectionと異なり方安全で使用できます。
-public class RMWeakObjectSet<T: AnyObject> {
+public class RMWeakObjectSet<T> {
 
-    private var _objects: Set<_RMWeakObject<T>>
+     
+    private var _objects = NSHashTable<AnyObject>.weakObjects() // Set<_RMWeakObject<T>>
 
     internal var objects: [T] {
-        return _objects.compactMap{ $0.object }
-    }
-
-    public init() {
-        self._objects = Set<_RMWeakObject<T>>([])
+        
+        return _objects.allObjects.compactMap{$0 as? T}
     }
 
     public init(_ objects: [T]) {
-        self._objects = Set<_RMWeakObject<T>>(objects.map{ _RMWeakObject($0) })
+        for object in objects {
+            _objects.add(object as AnyObject)
+        }
     }
 
     public var all: [T] {
-        return _objects.compactMap{ $0.object }
+        return objects
     }
 
     public func contains(object: T) -> Bool {
-        return self._objects.contains(_RMWeakObject(object))
+        return _objects.contains(object as AnyObject)
     }
 
     public func append(_ object: T) {
-        self._objects.insert(_RMWeakObject(object))
+        
+        self._objects.add(object as AnyObject)
     }
 
     public func append(objects: [T]) {
-        self._objects.formUnion(objects.map{ _RMWeakObject($0) })
+        for object in objects {
+            _objects.add(object as AnyObject)
+        }
     }
 
-    @discardableResult
-    public func remove(_ object: T) -> T? {
-        self._objects.remove(_RMWeakObject<T>(object))?.object
+    public func remove(_ object: T)  {
+        _objects.remove(object as AnyObject)
     }
-
 }
 
 extension RMWeakObjectSet : Sequence {
     public typealias Iterator = _RMWeakObjectSetIterator
     
     public func makeIterator() -> Iterator {
-        return _RMWeakObjectSetIterator(iterator: self._objects.makeIterator())
+        return _RMWeakObjectSetIterator(iterator: self.objects.makeIterator())
     }
     
     public struct _RMWeakObjectSetIterator: Sequence, IteratorProtocol {
-        private var _iterator: Set<_RMWeakObject<T>>.Iterator
+        private var _iterator: Array<T>.Iterator
         
-        fileprivate init(iterator: Set<_RMWeakObject<T>>.Iterator) {
+        fileprivate init(iterator: Array<T>.Iterator) {
             self._iterator = iterator
         }
         
         mutating public func next() -> T? {
-            return _iterator.next()?.object
+            return _iterator.next()
         }
-    }
-}
-
-
-private class _RMWeakObject<T: AnyObject> {
-
-    weak var object: T?
-
-    init(_ object: T) {
-        self.object = object
-    }
-}
-
-extension _RMWeakObject: Hashable {
-    func hash(into hasher: inout Hasher) {
-        guard let object = object else { return }
-        hasher.combine(ObjectIdentifier(object))
-    }
-}
-extension _RMWeakObject: Equatable {
-    fileprivate static func == <T> (lhs: _RMWeakObject<T>, rhs: _RMWeakObject<T>) -> Bool {
-        return lhs.object === rhs.object
     }
 }

@@ -44,7 +44,7 @@ protocol TPSandboxSceneModelBinder: class {
 
 /// ゲームシステムとの仲介役です。
 /// イベントを受け取って管理します。
-class TPSandBox3DSceneModel {
+class TPSandBox3DSceneModel: TSLevelDelegate {
     
     static weak var initirized:TPSandBox3DSceneModel?
     
@@ -179,7 +179,7 @@ class TPSandBox3DSceneModel {
     func sceneDidLoad() {
         let levelData = TSLevelData.load(stageNamed: "ground")
         
-        level.delegate = self
+        level.delegates.append(self)
         level.loadLevelData(levelData)
         level.nodeGenerator = self.nodeGenerator
         
