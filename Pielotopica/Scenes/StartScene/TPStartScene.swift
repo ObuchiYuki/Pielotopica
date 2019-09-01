@@ -43,7 +43,7 @@ class TPStartScene:GKSafeScene {
     // =============================================================== //
     // MARK: - Methods -
     override func sceneDidAppear() {
-        (self.gkViewContoller as! GameViewController).showingScene = .startScene
+        (self.gkViewContoller as! GameViewController).showingScene = .start
     }
     
     override func sceneDidLoad() {

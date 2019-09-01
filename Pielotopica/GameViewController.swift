@@ -12,11 +12,12 @@ import SpriteKit
 class GameViewController: GKGameViewController {
     
     enum Scene {
-        case startScene
+        case start
         case sandbox
+        case clear
     }
     
-    var showingScene = Scene.sandbox
+    var showingScene = Scene.start
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +25,11 @@ class GameViewController: GKGameViewController {
         //scnView.allowsCameraControl = true
         
         switch showingScene {
-        case .startScene:
+        case .start:
             self.presentScene(with: .startScene)
         case .sandbox:
             self.presentScene(with: .sandboxScene)
+        default:fatalError()
         }
         
     }
