@@ -9,8 +9,31 @@
 import SpriteKit
 
 class TPClearModal: SKSpriteNode {
+    private let iron = TSClearModalMaterial(textureName: "TP_clear_wood_frame")
+    private let wood = TSClearModalMaterial(textureName: "TP_clear_iron_frame")
+    private let circit = TSClearModalMaterial(textureName: "TP_clear_circuit_frame")
+    private let fuel = TSClearModalMaterial(textureName: "TP_clear_fuel_frame")
+    
+    private let scoreLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
+    
+    private var allMaterials:[TSClearModalMaterial] {[iron, wood, circit, fuel]}
+    
     init() {
         super.init(texture: .init(imageNamed: "TP_clear_modal_bacground"), color: .clear, size: [308, 418])
+        
+        scoreLabel.fontColor = TPCommon.Color.text
+        scoreLabel.fontSize = 14
+        scoreLabel.horizontalAlignmentMode = .right
+        scoreLabel.position = [ 95, -97]
+        scoreLabel.run(.typewriter("1297192", withDuration: 0.5))
+        
+        self.addChild(scoreLabel)
+        
+        for (i, mat) in allMaterials.enumerated() {
+            mat.position = [0, 115 - i.f * 48]
+            
+            self.addChild(mat)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

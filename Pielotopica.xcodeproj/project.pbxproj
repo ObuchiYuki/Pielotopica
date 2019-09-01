@@ -850,8 +850,8 @@
 		B65D5CA8231BA8DD009E4171 /* GameClear */ = {
 			isa = PBXGroup;
 			children = (
-				B65D5CAB231BB2C3009E4171 /* Components */,
 				B65D5CA9231BA8F7009E4171 /* TPClearScene.swift */,
+				B65D5CAB231BB2C3009E4171 /* Components */,
 			);
 			path = GameClear;
 			sourceTree = "<group>";

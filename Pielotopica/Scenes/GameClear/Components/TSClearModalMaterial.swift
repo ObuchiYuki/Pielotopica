@@ -9,5 +9,13 @@
 import SpriteKit
 
 class TSClearModalMaterial: SKSpriteNode {
+    init(textureName:String) {
+        super.init(texture: .init(imageNamed: textureName), color: .clear, size: [197, 24])
+        
+        
+    }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
