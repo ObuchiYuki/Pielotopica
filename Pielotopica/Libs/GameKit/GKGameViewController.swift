@@ -22,7 +22,7 @@ public class GKGameViewController: UIViewController {
         return self.view as! SCNView
     }
     
-    private var _transitionSKView = SKView()
+    var skView = SKView()
     
     /// 現在のSafeSceneです。
     private var safeScene:GKSafeScene!
@@ -37,15 +37,13 @@ public class GKGameViewController: UIViewController {
             self.view = SCNView()
         }
         
+        skView.allowsTransparency = true
+        skView.backgroundColor = .clear
+        skView.frame.size = self.view.frame.size
+        self.view.addSubview(skView)
+        
         let scene = SKScene(size: [375, 700])
         scene.backgroundColor = .clear
-        
-        self._transitionSKView.allowsTransparency = true
-        self._transitionSKView.frame.size = self.view.frame.size
-        self._transitionSKView.presentScene(scene)
-        self._transitionSKView.isPaused = true
-        
-        self.scnView.addSubview(_transitionSKView)
     }
     
     /// Sceneを変更します。
@@ -76,9 +74,9 @@ public class GKGameViewController: UIViewController {
     
     /// OverlayのノードのうちneedsHandleReactionがtrueのものを返します。
     private func _nodesOnOverlayScene(at point:CGPoint) -> SKNode? {
-        guard let ps = scnView.overlaySKScene?.convertPoint(fromView: point) else {return nil}
+        guard let ps = skView.scene?.convertPoint(fromView: point) else {return nil}
         
-        return scnView.overlaySKScene?.nodes(at: ps).first{$0.needsHandleReaction}
+        return skView.scene?.nodes(at: ps).first{$0.needsHandleReaction}
     }
     
     /// 2D画面が被さってた場合は、2Dに通知、そうでなければ3Dに通知
@@ -149,15 +147,15 @@ public class GKGameViewController: UIViewController {
     /// 背景シーンを読み込みます。
     private func _loadBackgroundScene(_ sceneHolder:GKSceneHolder) {
         if let scenebackground = sceneHolder.generateBackgronudScene() {
-            self.scnView.overlaySKScene = scenebackground
+            skView.presentScene(scenebackground)
         }else{
-            self.scnView.overlaySKScene = SKScene()
-            self.scnView.overlaySKScene?.backgroundColor = .clear
+            skView.presentScene(SKScene())
+            skView.scene?.backgroundColor = .clear
         }
         
-        self.scnView.overlaySKScene?.isUserInteractionEnabled = false
-        self.scnView.overlaySKScene?.size = GKSafeScene.sceneSize
-        self.scnView.overlaySKScene?.scaleMode = .aspectFill
+        skView.scene?.isUserInteractionEnabled = false
+        skView.scene?.size = GKSafeScene.sceneSize
+        skView.scene?.scaleMode = .aspectFill
     }
     
     /// UIシーンを読み込みます。
@@ -182,7 +180,7 @@ public class GKGameViewController: UIViewController {
         let rootNodeScale = _calculateRootNodeScale(with: UIScreen.main.bounds.size)
         rootNode.setScale(rootNodeScale)
         
-        self.scnView.overlaySKScene?.addChild(rootNode)
+        skView.scene?.addChild(rootNode)
     }
     
     /// 実際にシーンを変更します。

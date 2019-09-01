@@ -23,7 +23,7 @@ class TPSCraftScene: GKSafeScene {
     private let craftMenu = TPCraftMenu()
     private let moreItem = TPCraftMoreItems()
     
-    private var backgroundScene:SKScene { gkViewContoller.scnView.overlaySKScene! }
+    private var backgroundScene:SKScene { gkViewContoller.skView.scene! }
     
     // ===================================================================== //
     // MARK: - Handler -
@@ -60,7 +60,7 @@ class TPSCraftScene: GKSafeScene {
     // MARK: - Private Methods -
         
     private func _createOverlay() -> SKSpriteNode {
-        let node = SKSpriteNode(color: UIColor.init(hex: 0, alpha: 0.95), size: backgroundScene.size)
+        let node = SKSpriteNode(color: UIColor.init(hex: 0, alpha: 0.5), size: backgroundScene.size)
         node.position = backgroundScene.size.point / 2
         return node
     }
