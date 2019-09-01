@@ -23,6 +23,10 @@ class TPClearModal: SKSpriteNode {
         disabledTexture: nil
     )
     
+    func load(_ gameEndData:TPGameEndData) {
+        
+    }
+    
     private var allMaterials:[TSClearModalMaterial] {[iron, wood, circit, fuel]}
     
     init() {

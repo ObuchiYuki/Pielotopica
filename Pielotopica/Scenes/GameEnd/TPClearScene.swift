@@ -15,11 +15,11 @@ public extension GKSceneHolder {
 
 class TPClearScene:GKSafeScene {
     private let titleLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
-    
     private let modal = TPClearModal()
     
     override func sceneDidLoad() {
-        TPSandBoxRootSceneModel.shared
+        guard let endData = TPGameController.lastGameEndData else { return showDebugMessage("どうやってここにきたの...？")}
+        
         titleLabel.fontSize = 50
         titleLabel.fontColor = TPCommon.Color.text
         titleLabel.position = [0, 230]

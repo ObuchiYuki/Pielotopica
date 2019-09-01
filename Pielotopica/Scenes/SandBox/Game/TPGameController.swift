@@ -56,8 +56,10 @@ class TPGameController {
         self.level.delegates.remove(self)
         
         let award = stageManager.award(on: stageManager.getDay())
+        let data = TPGameEndData(state: state, award: award)
         
-        TPGameController.lastGameEndData = TPGameEndData(state: state, award: award)
+        TPGameController.lastGameEndData = data
+        RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: data)
     }
     
     // ===================================================================== //
