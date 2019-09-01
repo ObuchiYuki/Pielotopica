@@ -23,9 +23,9 @@ class TPGameStageManager {
         return day
     }
     func timeAmount(on day:Int) -> Int {
-        return dataList[day].time
+        return dataList[day - 1].time
     }
     func award(on day:Int) -> TPClearAward {
-        dataList[day].award
+        dataList[day - 1].award
     }
 }

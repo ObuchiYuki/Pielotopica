@@ -11,6 +11,7 @@ import SceneKit
 
 
 class TPGameController {
+    static var lastGameEndData:TPGameEndData?
     
     // ===================================================================== //
     // MARK: - Properties -
@@ -51,12 +52,12 @@ class TPGameController {
     }
     func end(with state: TPGameEndData.State) {
         self.entityWorld.end()
+        self.updateTimer?.invalidate()
+        self.level.delegates.remove(self)
         
         let award = stageManager.award(on: stageManager.getDay())
         
-        print("END with state: \(state)")
-        
-        RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: TPGameEndData(state: state, award: award))
+        TPGameController.lastGameEndData = TPGameEndData(state: state, award: award)
     }
     
     // ===================================================================== //

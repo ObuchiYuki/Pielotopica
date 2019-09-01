@@ -79,6 +79,19 @@ class TPSandboxSceneController: GK3DSceneController {
     override func sceneDidLoad() {
         self.sceneModel.sceneDidLoad()
         
+        RMBindCenter.default.addObserver(forName: .TPGameControllerGameDidEnd) {[weak self] end in
+            let state = end.object.state
+            switch state {
+            case .interruption:
+                break
+            case .clear:
+                self?.gkViewController.presentScene(with: .gameClear)
+            case .gameover:
+                break
+                //self?.gkViewController.presentScene(with: .gameOver)
+            }
+        }
+        
         self.addGestureRecognizer(pinchGestureRecognizer)
         self.addGestureRecognizer(panGestureRecognizer)
         self.addGestureRecognizer(tapGestureRecognizer)
