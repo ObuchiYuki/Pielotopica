@@ -104,6 +104,8 @@
 		B65D5CAA231BA8F7009E4171 /* TPClearScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D5CA9231BA8F7009E4171 /* TPClearScene.swift */; };
 		B65D5CAD231BB2D1009E4171 /* TPClearModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D5CAC231BB2D1009E4171 /* TPClearModal.swift */; };
 		B65D5CAF231BB434009E4171 /* TSClearModalMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D5CAE231BB434009E4171 /* TSClearModalMaterial.swift */; };
+		B65D5CB2231BBC79009E4171 /* TPStageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D5CB1231BBC79009E4171 /* TPStageData.swift */; };
+		B65D5CB4231BBC85009E4171 /* TPClearAward.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D5CB3231BBC85009E4171 /* TPClearAward.swift */; };
 		B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660938E2314C31400B528E5 /* TSItemStacksData.swift */; };
 		B660939323153B3400B528E5 /* Silom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B660939223153B2800B528E5 /* Silom.ttf */; };
 		B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939423154E6600B528E5 /* TPCraftMenu.swift */; };
@@ -323,6 +325,8 @@
 		B65D5CA9231BA8F7009E4171 /* TPClearScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPClearScene.swift; sourceTree = "<group>"; };
 		B65D5CAC231BB2D1009E4171 /* TPClearModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPClearModal.swift; sourceTree = "<group>"; };
 		B65D5CAE231BB434009E4171 /* TSClearModalMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSClearModalMaterial.swift; sourceTree = "<group>"; };
+		B65D5CB1231BBC79009E4171 /* TPStageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPStageData.swift; sourceTree = "<group>"; };
+		B65D5CB3231BBC85009E4171 /* TPClearAward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPClearAward.swift; sourceTree = "<group>"; };
 		B6604D6A231023BF0077C76A /* Pielotopica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pielotopica.entitlements; sourceTree = "<group>"; };
 		B660938E2314C31400B528E5 /* TSItemStacksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemStacksData.swift; sourceTree = "<group>"; };
 		B660939223153B2800B528E5 /* Silom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silom.ttf; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 		B6012DF42318A66000DC18CE /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				B65D5CB0231BBC70009E4171 /* Data */,
 				B6012DF52318A67F00DC18CE /* TPGameController.swift */,
 				B67135F5231A9A44008F479C /* TPGameStageManager.swift */,
 			);
@@ -863,6 +868,15 @@
 				B65D5CAE231BB434009E4171 /* TSClearModalMaterial.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		B65D5CB0231BBC70009E4171 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B65D5CB1231BBC79009E4171 /* TPStageData.swift */,
+				B65D5CB3231BBC85009E4171 /* TPClearAward.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		B661FA372318CC7000D4A3C0 /* Entity */ = {
@@ -1370,6 +1384,7 @@
 				B65D5CAD231BB2D1009E4171 /* TPClearModal.swift in Sources */,
 				B629240D231B88A800955B1E /* TS_Stone.swift in Sources */,
 				B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */,
+				B65D5CB2231BBC79009E4171 /* TPStageData.swift in Sources */,
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
 				B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */,
 				B6012DEF23189B1C00DC18CE /* TS_SpawnerBlock.swift in Sources */,
@@ -1453,6 +1468,7 @@
 				B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */,
 				B6E8826123121835003F3124 /* TSLevelData.swift in Sources */,
 				B6AA02AD230D7EBE00F0FF48 /* TPHeader.swift in Sources */,
+				B65D5CB4231BBC85009E4171 /* TPClearAward.swift in Sources */,
 				B6002D91231A21FE006C4D94 /* TSNBD.swift in Sources */,
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,

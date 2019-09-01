@@ -19,12 +19,19 @@ class TPClearScene:GKSafeScene {
     private let modal = TPClearModal()
     
     override func sceneDidLoad() {
+        
         titleLabel.fontSize = 50
         titleLabel.fontColor = TPCommon.Color.text
         titleLabel.position = [0, 230]
         titleLabel.run(.typewriter("Stage Clear !!", withDuration: 0.5))
         
+        modal.exitButton.addTarget(self, action: #selector(exitButtonTap), for: .touchUpInside)
+        
         self.rootNode.addChild(titleLabel)
         self.rootNode.addChild(modal)
+    }
+    
+    @objc func exitButtonTap(_ sender:Any) {
+        self.gkViewContoller.presentScene(with: .sandboxScene)
     }
 }
