@@ -102,6 +102,8 @@
 		B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */; };
 		B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */; };
 		B65D5CAA231BA8F7009E4171 /* TPClearScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D5CA9231BA8F7009E4171 /* TPClearScene.swift */; };
+		B65D5CAD231BB2D1009E4171 /* TPClearModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D5CAC231BB2D1009E4171 /* TPClearModal.swift */; };
+		B65D5CAF231BB434009E4171 /* TSClearModalMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65D5CAE231BB434009E4171 /* TSClearModalMaterial.swift */; };
 		B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660938E2314C31400B528E5 /* TSItemStacksData.swift */; };
 		B660939323153B3400B528E5 /* Silom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B660939223153B2800B528E5 /* Silom.ttf */; };
 		B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939423154E6600B528E5 /* TPCraftMenu.swift */; };
@@ -319,6 +321,8 @@
 		B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wood_wall_1x5.png; sourceTree = "<group>"; };
 		B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TP_build_place.mp3; sourceTree = "<group>"; };
 		B65D5CA9231BA8F7009E4171 /* TPClearScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPClearScene.swift; sourceTree = "<group>"; };
+		B65D5CAC231BB2D1009E4171 /* TPClearModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPClearModal.swift; sourceTree = "<group>"; };
+		B65D5CAE231BB434009E4171 /* TSClearModalMaterial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSClearModalMaterial.swift; sourceTree = "<group>"; };
 		B6604D6A231023BF0077C76A /* Pielotopica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pielotopica.entitlements; sourceTree = "<group>"; };
 		B660938E2314C31400B528E5 /* TSItemStacksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemStacksData.swift; sourceTree = "<group>"; };
 		B660939223153B2800B528E5 /* Silom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silom.ttf; sourceTree = "<group>"; };
@@ -846,9 +850,19 @@
 		B65D5CA8231BA8DD009E4171 /* GameClear */ = {
 			isa = PBXGroup;
 			children = (
+				B65D5CAB231BB2C3009E4171 /* Components */,
 				B65D5CA9231BA8F7009E4171 /* TPClearScene.swift */,
 			);
 			path = GameClear;
+			sourceTree = "<group>";
+		};
+		B65D5CAB231BB2C3009E4171 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B65D5CAC231BB2D1009E4171 /* TPClearModal.swift */,
+				B65D5CAE231BB434009E4171 /* TSClearModalMaterial.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		B661FA372318CC7000D4A3C0 /* Entity */ = {
@@ -1353,6 +1367,7 @@
 				B69E868B23168816004D4272 /* TPSCraftSceneModel.swift in Sources */,
 				B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */,
 				B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */,
+				B65D5CAD231BB2D1009E4171 /* TPClearModal.swift in Sources */,
 				B629240D231B88A800955B1E /* TS_Stone.swift in Sources */,
 				B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */,
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
@@ -1362,6 +1377,7 @@
 				B6996935231790C700CE933B /* TPSBattleSceneModel.swift in Sources */,
 				B67F1BA3231B9B4600D71A5E /* TS_Grass.swift in Sources */,
 				B69E867723168028004D4272 /* TPSandBoxScene.swift in Sources */,
+				B65D5CAF231BB434009E4171 /* TSClearModalMaterial.swift in Sources */,
 				B66D41CB230BD218004BBE8E /* RouterViewController.swift in Sources */,
 				B61E93CE2300E36C008CB325 /* Ex+Foundation.swift in Sources */,
 				B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */,
