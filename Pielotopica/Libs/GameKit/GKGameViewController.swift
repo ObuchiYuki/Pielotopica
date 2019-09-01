@@ -40,7 +40,8 @@ public class GKGameViewController: UIViewController {
         skView.allowsTransparency = true
         skView.backgroundColor = .clear
         skView.frame.size = self.view.frame.size
-        self.view.addSubview(skView)
+        
+        self.view.insertSubview(skView, at: 0)
         
         let scene = SKScene(size: [375, 700])
         scene.backgroundColor = .clear
