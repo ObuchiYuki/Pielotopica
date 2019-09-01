@@ -10,25 +10,18 @@ import Foundation
 
 /// 弱参照のObjectをまとめて扱えます。
 /// Objc由来のNSWeakCollectionと異なり方安全で使用できます。
-public class RMWeakObjectSet<T> {
+public class RMWeakSet<T> {
 
-     
-    private var _objects = NSHashTable<AnyObject>.weakObjects() // Set<_RMWeakObject<T>>
-
-    internal var objects: [T] {
-        
-        return _objects.allObjects.compactMap{$0 as? T}
-    }
-
-    public init(_ objects: [T]) {
-        for object in objects {
-            _objects.add(object as AnyObject)
-        }
-    }
-
-    public var all: [T] {
-        return objects
-    }
+    // ==================================================================== //
+    // MARK: - Properties -
+    
+    public var all: [T] { objects }
+    
+    private var _objects = NSHashTable<AnyObject>.weakObjects()
+    private var objects: [T] { _objects.allObjects.compactMap{$0 as? T}}
+    
+    // ==================================================================== //
+    // MARK: - Methods -
 
     public func contains(object: T) -> Bool {
         return _objects.contains(object as AnyObject)
@@ -48,16 +41,26 @@ public class RMWeakObjectSet<T> {
     public func remove(_ object: T)  {
         _objects.remove(object as AnyObject)
     }
+    
+    // ==================================================================== //
+    // MARK: - Constructor -
+    public init() {}
+    
+    public init(_ objects: [T]) {
+        for object in objects {
+            _objects.add(object as AnyObject)
+        }
+    }
 }
 
-extension RMWeakObjectSet : Sequence {
-    public typealias Iterator = _RMWeakObjectSetIterator
+extension RMWeakSet : Sequence {
+    public typealias Iterator = _RMWeakSetIterator
     
     public func makeIterator() -> Iterator {
-        return _RMWeakObjectSetIterator(iterator: self.objects.makeIterator())
+        return _RMWeakSetIterator(iterator: self.objects.makeIterator())
     }
     
-    public struct _RMWeakObjectSetIterator: Sequence, IteratorProtocol {
+    public struct _RMWeakSetIterator: Sequence, IteratorProtocol {
         private var _iterator: Array<T>.Iterator
         
         fileprivate init(iterator: Array<T>.Iterator) {

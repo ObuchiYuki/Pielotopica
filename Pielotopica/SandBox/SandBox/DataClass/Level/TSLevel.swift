@@ -42,7 +42,7 @@ public class TSLevel {
     // =============================================================== //
     // MARK: - Properties -
     
-    public var delegates = NSHashTable<AnyObject>.weakObjects()
+    public var delegates = RMWeakSet<TSLevelDelegate>()
     
     /// このマップに対するNodeGaneratorです。
     internal weak var nodeGenerator:TSNodeGenerator?

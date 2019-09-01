@@ -41,7 +41,7 @@ class TPGameController {
             self._update()
         })
         
-        level.delegate2 = self
+        level.delegates.append(self)
         TSDurablityManager.shared.connect(scene: scene)
         self.entityWorld.start()
                 

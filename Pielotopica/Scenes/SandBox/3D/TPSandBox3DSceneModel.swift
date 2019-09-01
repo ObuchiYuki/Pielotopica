@@ -44,7 +44,7 @@ protocol TPSandboxSceneModelBinder: class {
 
 /// ゲームシステムとの仲介役です。
 /// イベントを受け取って管理します。
-class TPSandBox3DSceneModel: TSLevelDelegate {
+class TPSandBox3DSceneModel {
     
     static weak var initirized:TPSandBox3DSceneModel?
     
