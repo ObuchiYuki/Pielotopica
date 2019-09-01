@@ -87,8 +87,7 @@ class TPSandboxSceneController: GK3DSceneController {
             case .clear:
                 self?.gkViewController.presentScene(with: .gameClear)
             case .gameover:
-                break
-                //self?.gkViewController.presentScene(with: .gameOver)
+                self?.gkViewController.presentScene(with: .gameOver)
             }
         }
         

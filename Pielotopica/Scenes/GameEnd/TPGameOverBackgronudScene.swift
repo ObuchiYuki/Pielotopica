@@ -13,10 +13,10 @@ import SpriteKit
 
 /**
  */
-class TPStartBackgroundScene:SKScene {
+class TPGameOverBackgronudScene:SKScene {
     // =============================================================== //
     // MARK: - Properties -
-    let rootNode = SKSpriteNode(imageNamed: "TP_startmenu_background")
+    let rootNode = SKSpriteNode(imageNamed: "TP_gameover_background")
     
     // =============================================================== //
     // MARK: - Private Properties -
