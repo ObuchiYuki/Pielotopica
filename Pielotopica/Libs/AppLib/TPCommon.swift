@@ -69,8 +69,10 @@ func showDebugMessage(_ message:String) {
 extension GKSoundFile {
     static let buttonLihgt = GKSoundFile(filename: "button_light", exp: "mp3")
     static let place = GKSoundFile(filename: "TP_build_place", exp: "mp3")
+    static let breaking = GKSoundFile(filename: "break", exp: "mp3")
 }
 
 extension GKSoundFile {
-    static let normalMusic = GKSoundFile(filename: "normal_bgm", exp: "wav")
+    static let normalMusic = GKSoundFile(filename: "normal_bgm", exp: "mp3")
+    static let battleMusic = GKSoundFile(filename: "battle_bgm", exp: "mp3")
 }

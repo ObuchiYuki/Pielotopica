@@ -18,7 +18,7 @@ class TPSBattleScene: GKSafeScene {
     private let timeBar = TSBattleTimer()
     
     override func sceneDidLoad() {
-        
+        GKSoundPlayer.shared.playMusic(.battleMusic)
         itemBar.backButton.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
         
         itemBar.placeButton.addTarget(self, action: #selector(placeButtonDidTap), for: .touchUpInside)

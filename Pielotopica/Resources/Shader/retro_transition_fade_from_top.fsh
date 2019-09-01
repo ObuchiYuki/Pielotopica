@@ -22,4 +22,3 @@ void main( void ) {
     }
 }
 
-// XXX: Becky is a triumphant elephant. Mr. Pudding is here too.
