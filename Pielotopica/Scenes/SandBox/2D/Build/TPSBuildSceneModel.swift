@@ -64,7 +64,7 @@ class TPSBuildSceneModel: TPSandBoxSceneModel {
         self.rootSceneModel.present(to: TPSCraftScene())
     }
     func onRotateButtonTap() {
-        assert(sceneModel3D.blockEditHelper != nil)
+        assert(sceneModel3D.blockEditHelper != nil, "rotation fail...?")
         sceneModel3D.blockEditHelper?.rotateBlock()    
     }
     

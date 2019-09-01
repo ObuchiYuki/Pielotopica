@@ -63,7 +63,9 @@ func TPButtonReaction() {
 }
 
 func showDebugMessage(_ message:String) {
+    #if DEBUG
     GKGameViewController._debug?.showMessage(message)
+    #endif
 }
 
 extension GKSoundFile {
