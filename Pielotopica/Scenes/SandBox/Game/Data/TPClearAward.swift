@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct TPClearAward {
+public struct TPClearAward {
     
-    let iron:Int
-    let wood:Int
-    let circit:Int
-    let fuel:Int
-    let score:Int
+    public let iron:Int
+    public let wood:Int
+    public let circit:Int
+    public let fuel:Int
+    public let score:Int
     
 }

@@ -98,7 +98,7 @@ extension TPSandboxSceneController: TPSandboxSceneModelBinder {
         gameController?.start()
     }
     func __endGame() {
-        gameController?.end()
+        gameController?.end(with: .interruption)
         self.gameController = nil
     }
     

@@ -21,7 +21,7 @@ class TSBattleTimer: SKSpriteNode {
     
     /// 0 - 1
     func setTime(_ time:Double) {
-        assert(0 <= time && time <= 1, "time must be between 0 and 4.")
+        guard (0 <= time && time <= 1) else { return }
         let rwidth = time * 214
         
         selected.run(.resize(toWidth: rwidth.f, duration: 0.1))

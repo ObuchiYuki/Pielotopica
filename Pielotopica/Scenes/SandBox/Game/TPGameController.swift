@@ -12,10 +12,10 @@ import SceneKit
 
 class TPGameController {
     
-    
-    public static weak var initirized: TPGameController?
     // ===================================================================== //
     // MARK: - Properties -
+    public static weak var initirized: TPGameController?
+    
     private let scene:SCNScene
     private var level:TSLevel {TSLevel.current!}
     
@@ -49,30 +49,26 @@ class TPGameController {
         self.entityWorld.start()
                 
     }
-    func end() {
+    func end(with state: TPGameEndData.State) {
         self.entityWorld.end()
         
         let award = stageManager.award(on: stageManager.getDay())
-        // TODO - 直せ
         
-        RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: TPGameEndData(state: .clear, award: award))
+        print("END with state: \(state)")
+        
+        RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: TPGameEndData(state: state, award: award))
     }
     
     // ===================================================================== //
     // MARK: - Private -
     
-    private func _gameClear() {
-        
-    }
-    private func _gameEndData() {
-        
-    }
-    
     // 毎秒呼ばれる。
     private func _update() {
-        print("call", timeRemain)
         self.timeRemain -= 1
         
+        if self.timeRemain <= 0 {
+            self.end(with: .clear)
+        }
         
         guard let battleSceneModel = battleSceneModel else { return }
         
