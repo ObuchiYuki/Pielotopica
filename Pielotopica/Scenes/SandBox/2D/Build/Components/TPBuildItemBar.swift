@@ -20,6 +20,8 @@ class TPBuildItemBar: GKSpriteNode {
     let placeButton = TPDropButton(textureNamed: "TP_dropbutton_place")
     let moveButton = TPDropButton(textureNamed: "TP_dropbutton_move")
     let destoryButton = TPDropButton(textureNamed: "TP_dropbutton_destory")
+
+    let titleLabel = GKShadowLabelNode(fontNamed: TPCommon.FontName.hiraBold)
     
     // MARK: - Frame -
     private let selectionFrame = GKSpriteNode(imageNamed: "TP_build_itembar_selection_frame")
@@ -131,6 +133,16 @@ class TPBuildItemBar: GKSpriteNode {
         self.zPosition = 100
         self.position = [-GKSafeScene.sceneSize.width / 2 + 30, -570]
         
+        titleLabel.position = [155, 160]
+        titleLabel.fontColor = .white
+        titleLabel.fontSize = 15
+        titleLabel.horizontalAlignmentMode = .center
+        titleLabel.isHidden = true
+        
+        titleLabel.barnShadow()
+        
+        addChild(titleLabel)
+        
         _setupButtons()
         _setupInventoryNodes()
         _setupBarItems()
@@ -141,6 +153,7 @@ class TPBuildItemBar: GKSpriteNode {
     
     private func _frameSelected(at index:Int) {
         guard 0 <= index && index <= 3 else {return}
+        
         inventory.setSelectedItemIndex(index)
     }
     

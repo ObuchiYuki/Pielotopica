@@ -12,7 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         TSFuelData.shared.setMaxFuel(1000)
@@ -32,9 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(TSBlock.ground5x5)
         print(TSBlock.ground5x5Edge)
         print(TSBlock.woodWall1x5)
-                
-        _ = TSLevel()
         
+        _=TSLevel()
         
         return true
     }

@@ -174,7 +174,6 @@ class TPSandBox3DSceneModel {
             _startBlockDestoring(with: touchedNode)
         }
     }
-
     
     func sceneDidLoad() {
         let levelData = TSLevelData.load(stageNamed: "ground")
@@ -186,23 +185,72 @@ class TPSandBox3DSceneModel {
         binder.__makeDay()
         
         if level.getAllAnchors().isEmpty {
-            /// 床設置 (仮)
-            for x in -3...3 {
-                for z in -3...3 {
-                    
-                    if abs(x) == 3 || abs(z) == 3 {
-                        level.placeBlock(.ground5x5Edge, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
-                    }else {
-                        level.placeBlock(.ground5x5, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
-                    }
-                }
-            }
+            _createStage1(level)
         }
     }
     
 
     // ================================================================== //
     // MARK: - Private Methods -
+    private func _createStage1(_ level: TSLevel) {
+        /// 床設置 (仮)
+        for x in -3...3 {
+            for z in -3...3 {
+                    
+                if abs(x) == 3 || abs(z) == 3 {
+                    level.placeBlock(.ground5x5Edge, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
+                }else {
+                    level.placeBlock(.ground5x5, at: TSVector3(x * 5, 0, z * 5), rotation: .x0, forced: true)
+                }
+            }
+        }
+            
+        level.placeBlock(.targetKari,   at: [  2, 1,   2], rotation: .x0, forced: true)
+        
+        level.placeBlock(.pipotSpawner, at: [ 19, 1,  19], rotation: .x0, forced: true)
+        level.placeBlock(.pipotSpawner, at: [-15, 1,  19], rotation: .x0, forced: true)
+        level.placeBlock(.pipotSpawner, at: [ 19, 1, -15], rotation: .x0, forced: true)
+        level.placeBlock(.pipotSpawner, at: [-15, 1, -15], rotation: .x0, forced: true)
+        
+        level.placeBlock(.grass, at: [ 12, 1, -12], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [  9, 1, -12], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [ -4, 1,   1], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [ 11, 1,  -4], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [  4, 1,  15], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [ 13, 1,   0], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [  6, 1,  -6], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [  4, 1,   2], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [-13, 1,  18], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [ 14, 1,   5], rotation: .x0, forced: true)
+        level.placeBlock(.grass, at: [  9, 1,  12], rotation: .x0, forced: true)
+        
+        level.placeBlock(.stone, at: [ 13 , 1,  11 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ -9 , 1,  -6 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ -10 , 1,  -15 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ -8 , 1,  -10 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ 10 , 1,  -2 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ -14 , 1,  -12 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ -7 , 1,  12 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ -12 , 1,  -14 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ 3 , 1,  -11 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ 7 , 1,  -3 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ 11 , 1,  1 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ -2 , 1,  4 ], rotation: .x0, forced: true)
+        level.placeBlock(.stone, at: [ 5 , 1,  11 ], rotation: .x0, forced: true)
+        
+        level.placeBlock(.tree, at: [ 2 , 1,  13 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ 15 , 1,  -6 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ -14 , 1,  9 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ 1 , 1,  -1 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ 4 , 1,  7 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ -15 , 1,  -11 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ 6 , 1,  7 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ -12 , 1,  -15 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ -2 , 1,  -2 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ 4 , 1,  -4 ], rotation: .x0, forced: true)
+        level.placeBlock(.tree, at: [ -5 , 1,  17 ], rotation: .x0, forced: true)
+    }
+    
     private func _endBlockEditing(forced:Bool) {
         guard let blockEditHelper = blockEditHelper else {return}
         
