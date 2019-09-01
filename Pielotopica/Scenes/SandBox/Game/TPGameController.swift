@@ -45,6 +45,8 @@ class TPGameController {
             self._update()
         })
         
+        TPSandBoxRootSceneModel.shared.isBattle = true
+        
         level.delegates.append(self)
         TSDurablityManager.shared.connect(scene: scene)
         self.entityWorld.start()
@@ -54,6 +56,7 @@ class TPGameController {
         self.entityWorld.end()
         self.updateTimer?.invalidate()
         self.level.delegates.remove(self)
+        TPSandBoxRootSceneModel.shared.isBattle = false
         
         let award = stageManager.award(on: stageManager.getDay())
         let data = TPGameEndData(state: state, award: award)

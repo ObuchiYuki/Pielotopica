@@ -17,7 +17,7 @@ public extension GKSceneHolder {
 
 class TPGameOverScene: GKSafeScene {
     private let titleLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
-    private let modal = TPClearModal()
+    private let modal = TPGameOverModal()
     
     override func sceneDidLoad() {
         
@@ -41,10 +41,10 @@ class TPGameOverScene: GKSafeScene {
         
         let award = endData.award
         
-        TSMaterialData.shared.addIron(award.iron)
-        TSMaterialData.shared.addWood(award.wood)
-        TSMaterialData.shared.addCircit(award.circit)
-        TSFuelData.shared.addFuel(award.fuel)
+        TSMaterialData.shared.addIron(-award.iron)
+        TSMaterialData.shared.addWood(-award.wood)
+        TSMaterialData.shared.addCircit(-award.circit)
+        TSFuelData.shared.addFuel(-award.fuel)
         
     }
     

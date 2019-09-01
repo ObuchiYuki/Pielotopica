@@ -9,13 +9,11 @@
 import SpriteKit
 
 class TPGameOverModal: SKSpriteNode {
-    private let iron = TSClearModalMaterial(textureName: "TP_clear_wood_frame")
-    private let wood = TSClearModalMaterial(textureName: "TP_clear_iron_frame")
-    private let circit = TSClearModalMaterial(textureName: "TP_clear_circuit_frame")
-    private let fuel = TSClearModalMaterial(textureName: "TP_clear_fuel_frame")
-    
-    private let scoreLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
-    
+    private let iron = TSClearModalMaterial(textureName: "TP_clear_wood_frame", gameovered: true)
+    private let wood = TSClearModalMaterial(textureName: "TP_clear_iron_frame", gameovered: true)
+    private let circit = TSClearModalMaterial(textureName: "TP_clear_circuit_frame", gameovered: true)
+    private let fuel = TSClearModalMaterial(textureName: "TP_clear_fuel_frame", gameovered: true)
+        
     let exitButton = GKButtonNode(
         size: [183, 28],
         defaultTexture: .init(imageNamed: "TP_clear_button_exit"),
@@ -28,12 +26,10 @@ class TPGameOverModal: SKSpriteNode {
         let mdata = TSMaterialData.shared
         let fdata = TSFuelData.shared
         
-        iron.setAmount(award.iron, total: award.iron + mdata.ironAmount.value)
-        wood.setAmount(award.wood, total: award.wood + mdata.woodAmount.value)
-        circit.setAmount(award.circit, total: award.circit + mdata.circitAmount.value)
-        fuel.setAmount(award.fuel, total: award.fuel + fdata.fuel.value)
-
-        scoreLabel.run(.numberChanging(from: 0, to: award.score,postfix: " p", withDuration: 2))
+        iron.setAmount(award.iron, total: mdata.ironAmount.value - award.iron, gameovered: true)
+        wood.setAmount(award.wood, total: mdata.woodAmount.value - award.wood, gameovered: true)
+        circit.setAmount(award.circit, total: mdata.circitAmount.value - award.circit, gameovered: true)
+        fuel.setAmount(award.fuel, total: fdata.fuel.value - award.fuel, gameovered: true)
     }
     
     private var allMaterials:[TSClearModalMaterial] {[iron, wood, circit, fuel]}

@@ -76,10 +76,6 @@ class TPSBattleSceneModel: TPSandBoxSceneModel {
         super.init()
         rootSceneModel.isBattle = true
         
-        RMBindCenter.default.addObserver(forName: .TPGameControllerGameDidEnd, using: {[weak self] notice in
-            self?.rootSceneModel.isBattle = false
-        })
-        
         self.binder = binder
         
         self.mode.subscribe{[unowned self] event in
