@@ -9,7 +9,7 @@
 import Foundation
 
 /// 弱参照のObjectをまとめて扱えます。
-/// Objc由来のNSWeakCollectionと異なり方安全で使用できます。
+/// Objc由来のNSWeakCollectionと異なり型安全で使用できます。
 public class RMWeakSet<T> {
 
     // ==================================================================== //

@@ -50,6 +50,8 @@ class TPSandBoxRootSceneModel {
     func present(to scene: TPSandBoxScene) {
         let mode = scene.__sceneMode
         
+        self._willSceneChange(to: mode)
+        
         currentSceneModel = scene.__sceneModel
         let success = self.binder.__present(to: scene, as: mode)
         if success { self.mode.accept(mode) }
@@ -64,14 +66,14 @@ class TPSandBoxRootSceneModel {
     // ========================================================= //
     // MARK: - Private Methods -
     
-    private func _didSceneChanged(to mode: Mode) {
-        switch mode {
-        case .battle:
+    private func _willSceneChange(to mode: Mode) {
+        if mode == .battle && !isBattle {
             sceneModel3D.makeBattleMode()
-        case.mainmenu:
+        }
+    }
+    private func _didSceneChanged(to mode: Mode) {
+        if mode == .mainmenu {
             sceneModel3D.makeNormalMode()
-        default:
-            break
         }
     }
 }

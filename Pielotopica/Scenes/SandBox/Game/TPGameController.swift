@@ -55,10 +55,12 @@ class TPGameController {
     
     // 毎秒呼ばれる。
     private func _update() {
-        guard let battleSceneModel = battleSceneModel else { return }
-        battleSceneModel.setTime(timeRemain, max: maxTime)
-        
+        print("call", timeRemain)
         self.timeRemain -= 1
+        
+        guard let battleSceneModel = battleSceneModel else { return }
+        
+        battleSceneModel.setTime(timeRemain, max: maxTime)
     }
     
     // ===================================================================== //
