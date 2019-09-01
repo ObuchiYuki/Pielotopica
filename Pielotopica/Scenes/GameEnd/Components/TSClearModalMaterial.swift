@@ -14,19 +14,22 @@ class TSClearModalMaterial: SKSpriteNode {
     private let totalAmountLabel = SKLabelNode(fontNamed: TPCommon.FontName.topica)
     
     func setAmount(_ amount:Int, total:Int) {
-        amountLabel.run(.numberChanging(from: 0, to: amount, withDuration: 0.2))
-        totalAmountLabel.run(.numberChanging(from: 0, to: total, withDuration: 0.2))
+        amountLabel.run(.numberChanging(from: 0, to: amount, prefix: "x ", withDuration: 2))
+        totalAmountLabel.run(.numberChanging(from: 0, to: total,prefix: "Total x ", withDuration: 2))
     }
     
     init(textureName:String) {
         super.init(texture: .init(imageNamed: textureName), color: .clear, size: [197, 24])
         
-        amountLabel.position = [-50, 0]
+        amountLabel.position = [-15, -4]
+        amountLabel.horizontalAlignmentMode = .right
         amountLabel.fontSize = 12
         amountLabel.fontColor = TPCommon.Color.text
                 
+        totalAmountLabel.position = [10 , -4]
         totalAmountLabel.fontSize = 12
         totalAmountLabel.fontColor = TPCommon.Color.text
+        totalAmountLabel.horizontalAlignmentMode = .left
         
         self.addChild(amountLabel)
         self.addChild(totalAmountLabel)

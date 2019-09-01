@@ -18,7 +18,6 @@ class TPClearScene:GKSafeScene {
     private let modal = TPClearModal()
     
     override func sceneDidLoad() {
-        guard let endData = TPGameController.lastGameEndData else { return showDebugMessage("どうやってここにきたの...？")}
         
         titleLabel.fontSize = 50
         titleLabel.fontColor = TPCommon.Color.text
@@ -29,6 +28,22 @@ class TPClearScene:GKSafeScene {
         
         self.rootNode.addChild(titleLabel)
         self.rootNode.addChild(modal)
+        
+        self.loadData()
+    }
+    
+    private func loadData() {
+        guard let endData = TPGameController.lastGameEndData else { return showDebugMessage("どうやってここにきたの...？")}
+        
+        modal.load(endData)
+        
+        let award = endData.award
+        
+        TSMaterialData.shared.addIron(award.iron)
+        TSMaterialData.shared.addWood(award.wood)
+        TSMaterialData.shared.addCircit(award.circit)
+        TSFuelData.shared.addFuel(award.fuel)
+        
     }
     
     @objc func exitButtonTap(_ sender:Any) {

@@ -24,7 +24,16 @@ class TPClearModal: SKSpriteNode {
     )
     
     func load(_ gameEndData:TPGameEndData) {
+        let award = gameEndData.award
+        let mdata = TSMaterialData.shared
+        let fdata = TSFuelData.shared
         
+        iron.setAmount(award.iron, total: award.iron + mdata.ironAmount.value)
+        wood.setAmount(award.wood, total: award.wood + mdata.woodAmount.value)
+        circit.setAmount(award.circit, total: award.circit + mdata.circitAmount.value)
+        fuel.setAmount(award.fuel, total: award.fuel + fdata.fuel.value)
+
+        scoreLabel.run(.numberChanging(from: 0, to: award.score,postfix: " p", withDuration: 2))
     }
     
     private var allMaterials:[TSClearModalMaterial] {[iron, wood, circit, fuel]}
@@ -38,7 +47,6 @@ class TPClearModal: SKSpriteNode {
         scoreLabel.fontSize = 14
         scoreLabel.horizontalAlignmentMode = .right
         scoreLabel.position = [ 95, -97]
-        scoreLabel.run(.typewriter("1297192", withDuration: 0.5))
         
         self.addChild(scoreLabel)
         

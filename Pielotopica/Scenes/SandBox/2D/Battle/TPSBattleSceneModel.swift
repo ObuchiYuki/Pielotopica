@@ -43,7 +43,7 @@ class TPSBattleSceneModel: TPSandBoxSceneModel {
         let alert = TPAlert(theme: .dark, text: "戦闘を始める前に戻ります。")
         
         alert.setAction1(TPAlertAction(texture: "TP_alertbutton_back_red") {[weak self] in
-            self?.rootSceneModel.isBattle = true
+            self?.rootSceneModel.isBattle = false
             self?.rootSceneModel.present(to: TPSMainMenuScene())
             alert.hide()
         })
@@ -75,6 +75,10 @@ class TPSBattleSceneModel: TPSandBoxSceneModel {
     init(_ binder:TPSBattleSceneModelBinder) {
         super.init()
         rootSceneModel.isBattle = true
+        
+        RMBindCenter.default.addObserver(forName: .TPGameControllerGameDidEnd, using: {[weak self] notice in
+            self?.rootSceneModel.isBattle = false
+        })
         
         self.binder = binder
         

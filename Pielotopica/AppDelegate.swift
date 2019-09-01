@@ -15,6 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        TSFuelData.shared.setMaxFuel(1000)
+        TSFuelData.shared.setMaxHeart(100)
+        
         TSItemManager.shared.register(.none)
         TSItemManager.shared.register(.japaneseHouse2)
         TSItemManager.shared.register(.woodWall1x5)
