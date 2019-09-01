@@ -17,7 +17,7 @@ class GameViewController: GKGameViewController {
         case clear
     }
     
-    var showingScene = Scene.clear
+    var showingScene = Scene.sandbox
     
     override func viewDidLoad() {
         super.viewDidLoad()
