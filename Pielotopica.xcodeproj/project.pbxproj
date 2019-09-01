@@ -25,7 +25,7 @@
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
-		B6102371231A64FC009252E1 /* TSDurableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102370231A64FC009252E1 /* TSDurableManager.swift */; };
+		B6102371231A64FC009252E1 /* TSDurablityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102370231A64FC009252E1 /* TSDurablityManager.swift */; };
 		B6102373231A68B0009252E1 /* TSE_DurablitySprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */; };
 		B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_Wall1x5.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
@@ -133,6 +133,7 @@
 		B6885FFA231AC2F0009098FA /* TP_ground_edge.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */; };
 		B6885FFC231AC311009098FA /* TP_ground_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6885FFB231AC311009098FA /* TP_ground_5x5.scn */; };
 		B6885FFE231B3E78009098FA /* RMWeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885FFD231B3E78009098FA /* RMWeakObject.swift */; };
+		B6886000231B569D009098FA /* GKRealTimeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885FFF231B569D009098FA /* GKRealTimeTimer.swift */; };
 		B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B68E14342314177E00E973E1 /* Yolov3.mlmodel */; };
 		B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */; };
 		B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E1437231419C600E973E1 /* 5squared-pixel.ttf */; };
@@ -228,7 +229,7 @@
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
-		B6102370231A64FC009252E1 /* TSDurableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDurableManager.swift; sourceTree = "<group>"; };
+		B6102370231A64FC009252E1 /* TSDurablityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDurablityManager.swift; sourceTree = "<group>"; };
 		B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE_DurablitySprite.swift; sourceTree = "<group>"; };
 		B614C235230F731F00DA7093 /* TS_Wall1x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Wall1x5.swift; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,6 +341,7 @@
 		B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_edge.scn; sourceTree = "<group>"; };
 		B6885FFB231AC311009098FA /* TP_ground_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_5x5.scn; sourceTree = "<group>"; };
 		B6885FFD231B3E78009098FA /* RMWeakObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMWeakObject.swift; sourceTree = "<group>"; };
+		B6885FFF231B569D009098FA /* GKRealTimeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKRealTimeTimer.swift; sourceTree = "<group>"; };
 		B68E14342314177E00E973E1 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
 		B68E1437231419C600E973E1 /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
 		B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korneuburg-Slab-Bold.ttf"; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 				B61E93F22300E38A008CB325 /* GKSafeScene.swift */,
 				B61E94192300FEFA008CB325 /* GK3DSceneController.swift */,
 				B61E93EF2300E38A008CB325 /* GKActionTimingMode.swift */,
+				B6885FFF231B569D009098FA /* GKRealTimeTimer.swift */,
 				B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */,
 				B6AA02B1230E119A00F0FF48 /* Node */,
 				B61E93F02300E38A008CB325 /* Extensions */,
@@ -921,7 +924,7 @@
 			isa = PBXGroup;
 			children = (
 				B69E866F231627B9004D4272 /* TSItemManager.swift */,
-				B6102370231A64FC009252E1 /* TSDurableManager.swift */,
+				B6102370231A64FC009252E1 /* TSDurablityManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1368,6 +1371,7 @@
 				B61E93CB2300E36C008CB325 /* RMBindCenter.swift in Sources */,
 				B6227A372301AB84009EF60F /* TSBlock.swift in Sources */,
 				B6931448230E992000C1B4D7 /* TPSandBoxRootSceneModel.swift in Sources */,
+				B6886000231B569D009098FA /* GKRealTimeTimer.swift in Sources */,
 				B6012DFD2318ADDB00DC18CE /* Impl+Entity.swift in Sources */,
 				B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */,
 				B61E94172300E395008CB325 /* TPSandBoxRootScene.swift in Sources */,
@@ -1396,7 +1400,7 @@
 				B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
 				B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */,
-				B6102371231A64FC009252E1 /* TSDurableManager.swift in Sources */,
+				B6102371231A64FC009252E1 /* TSDurablityManager.swift in Sources */,
 				B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */,
 				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
 				B6227A6423023732009EF60F /* TS_Floar.swift in Sources */,

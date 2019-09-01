@@ -58,7 +58,7 @@ class TSDurablityManager {
         let size = block.getSize(at: anchorPoint)
         let rotation = TSBlockRotation(data: level.getBlockData(at: anchorPoint))
         
-        return (anchorPoint + rotation.nodeModifier).scnVector3 + SCNVector3(size.x.d / 2, 1.5, size.z.d / 2)
+        return (anchorPoint + rotation.nodeModifier).scnVector3 + SCNVector3(size.x.d / 2, size.y.d , size.z.d / 2)
     }
     
     private func check(at anchorPoint:TSVector3) {
