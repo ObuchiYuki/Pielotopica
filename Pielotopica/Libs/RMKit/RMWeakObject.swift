@@ -54,21 +54,9 @@ public class RMWeakSet<T> {
 }
 
 extension RMWeakSet : Sequence {
-    public typealias Iterator = _RMWeakSetIterator
+    public typealias Iterator = Array<T>.Iterator
     
     public func makeIterator() -> Iterator {
-        return _RMWeakSetIterator(iterator: self.objects.makeIterator())
-    }
-    
-    public struct _RMWeakSetIterator: Sequence, IteratorProtocol {
-        private var _iterator: Array<T>.Iterator
-        
-        fileprivate init(iterator: Array<T>.Iterator) {
-            self._iterator = iterator
-        }
-        
-        mutating public func next() -> T? {
-            return _iterator.next()
-        }
+        return self.objects.makeIterator()
     }
 }
