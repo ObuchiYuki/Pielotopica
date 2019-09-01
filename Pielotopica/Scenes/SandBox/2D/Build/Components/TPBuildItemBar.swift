@@ -150,11 +150,23 @@ class TPBuildItemBar: GKSpriteNode {
     
     // ============================================================ //
     // MARK: - Private Methods -
-    
+    private var __hideTag = UUID()
     private func _frameSelected(at index:Int) {
         guard 0 <= index && index <= 3 else {return}
         
         inventory.setSelectedItemIndex(index)
+        
+        titleLabel.isHidden = false
+        titleLabel.text = inventory.selectedItemStack.item.name
+        
+        let id = UUID()
+        __hideTag = id
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            if id == self.__hideTag {
+                self.titleLabel.isHidden = true
+            }
+        })
     }
     
     private func _setupInventoryNodes() {

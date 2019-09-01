@@ -23,13 +23,13 @@ struct TSMaterialData: RMAutoSavable {
     var circitAmount = BehaviorRelay(value: 0)
     
     mutating func addIron(_ amount:Int) {
-        ironAmount += amount
+        ironAmount.accept(max(ironAmount.value + amount, 0))
     }
     mutating func addWood(_ amount:Int) {
-        woodAmount += amount
+        woodAmount.accept(max(ironAmount.value + amount, 0))
     }
     mutating func addCircit(_ amount:Int) {
-        circitAmount += amount
+        circitAmount.accept(max(ironAmount.value + amount, 0))
     }
 }
 

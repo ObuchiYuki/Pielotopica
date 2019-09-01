@@ -19,15 +19,15 @@ struct TSFuelData: RMAutoSavable {
     var maxFuel = BehaviorRelay(value: 100)
     
     mutating func addHeart(_ amount:Int) {
-        heart += amount
+        heart.accept(max(heart.value + amount, 0))
     }
     mutating func setMaxHeart(_ amount:Int) {
-        maxHeart.accept(amount)
+        maxHeart.accept(max(maxHeart.value + amount, 0))
     }
     mutating func addFuel(_ amount:Int) {
-        fuel += amount
+        fuel.accept(max(fuel.value + amount, 0))
     }
     mutating func setMaxFuel(_ amount:Int) {
-        maxFuel.accept(amount)
+        maxFuel.accept(max(maxFuel.value + amount, 0))
     }
 }

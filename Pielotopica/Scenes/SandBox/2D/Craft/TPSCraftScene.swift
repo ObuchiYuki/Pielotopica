@@ -60,12 +60,8 @@ class TPSCraftScene: GKSafeScene {
     // MARK: - Private Methods -
         
     private func _createOverlay() -> SKSpriteNode {
-        let node = GKButtonNode(size: backgroundScene.size)
-        node.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        node.color = UIColor.init(hex: 0, alpha: 0.95)
-        node.zPosition = -1
+        let node = SKSpriteNode(color: UIColor.init(hex: 0, alpha: 0.95), size: backgroundScene.size)
         node.position = backgroundScene.size.point / 2
-        
         return node
     }
 }
@@ -94,6 +90,7 @@ extension TPSCraftScene: TPSandBoxScene {
     var __sceneModel: TPSandBoxSceneModel { sceneModel }
     
     func show(from oldScene: TPSandBoxRootSceneModel.Mode?) {
+        overrayNode.removeFromParent()
         self.backgroundScene.addChild(overrayNode)
     }
     func hide(to newScene: TPSandBoxRootSceneModel.Mode, _ completion: @escaping () -> Void) {

@@ -39,8 +39,8 @@ class TPCraftMoreItems: SKSpriteNode {
         
         let location = touch.location(in: touch.view)
         
-        touchX(location)
-
+        self.touchX(location)
+        
     }
     
     // ==================================================================== //
@@ -65,8 +65,9 @@ class TPCraftMoreItems: SKSpriteNode {
         }
     }
     private func _moveSelectionFrame(x:Int, y:Int) {
-        let ry = 3 - y
-        selectionFrame.position = [(CGFloat(x) * 57.5) - 149, CGFloat(ry) * 57.5 - 150]
+        selectionFrame.position = [(CGFloat(x) * 57.5) - 149, CGFloat(3 - y) * 57.5 - 150]
+        
+        print(selectionFrame.position)
     }
     
     private func _frameTouched(x:Int, y:Int) {
@@ -110,6 +111,7 @@ class TPCraftMoreItems: SKSpriteNode {
     init() {
         super.init(texture: .init(imageNamed: "TP_craft_moreitems_background"), color: .clear, size: [314, 198])
         
+        selectionFrame.zPosition = 101
         self.zPosition = 100
         self.position = [0, -80]
         
