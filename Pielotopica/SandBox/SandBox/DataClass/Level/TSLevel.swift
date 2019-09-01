@@ -22,13 +22,13 @@ internal let kArrayAccessMargin = kLevelMaxX / 2
 // MARK: - TSLevelDelegate -
 
 public protocol TSLevelDelegate {
-    func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool)
+    func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation)
     func level(_ level:TSLevel, levelWillDestoryBlockAt position:TSVector3)
     func level(_ level:TSLevel, levelDidDestoryBlockAt position:TSVector3)
 }
 
 extension TSLevelDelegate {
-    func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool) {}
+    func level(_ level:TSLevel, levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation) {}
     func level(_ level:TSLevel, levelWillDestoryBlockAt position:TSVector3) {}
     func level(_ level:TSLevel, levelDidDestoryBlockAt position:TSVector3) {}
 }
@@ -142,9 +142,29 @@ public class TSLevel {
             guard block.canPlace(at: anchorPoint) else {return}
         }
         
-        _realPlaceBlock(block, at: anchorPoint, rotation: rotation)
+        var rotation = rotation
+        var anchorPoint = anchorPoint
         
-        delegates.forEach{$0.level(self, levelDidUpdateBlockAt: anchorPoint, needsAnimation: true)}
+        if block.shouldRandomRotateWhenPlaced() {
+            
+            rotation = TSBlockRotation.random
+            
+            anchorPoint = TSModelRotator.shared.calcurateAnchorPoint(
+                blockSize: block.getSize(at: anchorPoint),
+                initial: anchorPoint,
+                for: rotation
+            )
+        }
+        
+        self._writeRotation(rotation, at: anchorPoint)
+        
+        block.willPlace(at: anchorPoint)
+        
+        self.anchorMap.insert(anchorPoint)
+        self._setAnchoBlockMap(block, at: anchorPoint)
+        self._fillFillMap(with: block, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
+        
+        delegates.forEach{$0.level(self, levelDidUpdateBlockAt: anchorPoint, needsAnimation: true, withRotation: rotation)}
         
         block.didPlaced(at: anchorPoint)
         
@@ -190,12 +210,11 @@ public class TSLevel {
         self.anchorMap = Set(data.anchorSet)
         
         for anchor in anchorMap {
-            let blockdata = getBlockData(at: anchor)
             let block = getAnchorBlock(at: anchor)
-            
-            _realPlaceBlock(block, at: anchor, rotation: TSBlockRotation(data: blockdata))
-            
-            delegates.forEach{$0.level(self, levelDidUpdateBlockAt: anchor, needsAnimation: false)}
+                        
+            block.willPlace(at: anchor)
+            let rotation = TSBlockRotation(data: getBlockData(at: anchor))
+            delegates.forEach{$0.level(self, levelDidUpdateBlockAt: anchor, needsAnimation: false, withRotation: rotation)}
             
             block.didPlaced(at: anchor)
         }
@@ -216,16 +235,6 @@ public class TSLevel {
     
     private func _save() {
         getLevelData().save(stageNamed: "ground")
-    }
-    private func _realPlaceBlock(_ block:TSBlock, at anchorPoint:TSVector3, rotation:TSBlockRotation) {
-        self._writeRotation(rotation, at: anchorPoint)
-        
-        block.willPlace(at: anchorPoint)
-        
-        self.anchorMap.insert(anchorPoint)
-        self._setAnchoBlockMap(block, at: anchorPoint)
-        self._fillFillMap(with: block, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
-        
     }
     
     private func _createRange(_ value:Int16) -> Range<Int16> {
@@ -265,13 +274,6 @@ public class TSLevel {
         for xSize in _createRange(size.x16) {
             for ySize in _createRange(size.y16) {
                 for zSize in _createRange(size.z16) {
-                    #if DEBUG
-                    if block.isAir {
-                        //TPSandboxSceneController.removeSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
-                    }else{
-                        //TPSandboxSceneController.addSample(at: anchorPoint + TSVector3(xSize, ySize, zSize))
-                    }
-                    #endif
                     
                     self._setFillMap(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }

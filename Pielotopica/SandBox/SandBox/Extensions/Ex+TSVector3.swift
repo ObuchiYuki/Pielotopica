@@ -110,6 +110,14 @@ extension TSVector3 {
         return TSVector3(left.simd &- right.simd)
     }
     
+    public static func += (left:inout TSVector3, right:TSVector3) {
+        left = left + right
+    }
+    
+    public static func -= (left:inout TSVector3, right:TSVector3) {
+        left = left - right
+    }
+    
     public static func * (left:TSVector3, right:Int16) -> TSVector3 {
         return TSVector3(left.simd &* SIMD(repeating: right))
     }

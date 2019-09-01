@@ -61,6 +61,8 @@ open class TSBlock {
     
     /// 配置時に自動回転して良いかを返してください。
     open func shouldRandomRotateWhenPlaced() -> Bool {return false}
+    
+    open func canRotate() -> Bool {return !shouldRandomRotateWhenPlaced()}
     /// 障害物かどうかを返してください。
     open func isObstacle() -> Bool {return false}
     /// ノード本体の大きさを返してください。置く可能性のあるブロック全てが実装する必要があります。

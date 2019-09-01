@@ -359,7 +359,7 @@ extension TPSandBox3DSceneModel: TPCameraGestureHelperDelegate{
 // ================================================================== //
 // MARK: - Extension for TSLevelDelegate -
 extension TPSandBox3DSceneModel : TSLevelDelegate {
-    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag:Bool) {
+    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag: Bool, withRotation rotation: TSBlockRotation) {
         guard let node = nodeGenerator.getNode(at: position) else {return}
         
         // animation
@@ -369,7 +369,6 @@ extension TPSandBox3DSceneModel : TSLevelDelegate {
         }
         
         // rotation
-        let rotation = TSBlockRotation(data: level.getBlockData(at: position))
         node.eulerAngles = SCNVector3(0, rotation.eulerAngle , 0)
         
         let nodePosition = position + rotation.nodeModifier

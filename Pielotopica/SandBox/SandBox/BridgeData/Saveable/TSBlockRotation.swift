@@ -15,6 +15,15 @@ public enum TSBlockRotation {
     case x2 // (1, 0)
     case x3 // (1, 1)
     
+    static var random:TSBlockRotation {
+        switch Int.random(in: 0...3) {
+        case 0: return .x0
+        case 1: return .x1
+        case 2: return .x2
+        case 3: return .x3
+        default: fatalError()
+        }
+    }
     var rotation:Int {
         switch self {
         case .x0: return 0

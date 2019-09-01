@@ -20,6 +20,10 @@ class TS_Floar5x5:TSBlock {
     override func getOriginalNodeSize() -> TSVector3 {
         return [5, 1, 5]
     }
+    
+    override func shouldRandomRotateWhenPlaced() -> Bool {
+        return true
+    }
     override func canPlaceBlockOnTop(_ block: TSBlock, at point: TSVector3) -> Bool {
         return true
     }

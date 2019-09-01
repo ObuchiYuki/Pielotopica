@@ -27,5 +27,7 @@ public extension TSBlock {
     static let targetKari:TSBlock = TS_TargetBlock(nodeNamed: "TP_target_kari", index: 18)
     
     static let tree:TSBlock = TS_Tree(nodeNamed: "TP_tree", index: 19)
+    
+    static let stone:TSBlock = TS_Stone(nodeNamed: "TP_stone_1x1", index: 21)
 }
 

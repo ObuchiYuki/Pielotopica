@@ -73,9 +73,10 @@ class TPGameController {
 }
 
 extension TPGameController: TSLevelDelegate {
-    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag: Bool) {
+    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation: Bool, withRotation: TSBlockRotation) {
         entityWorld.onPlaceObject(at: position)
     }
+
     
     func level(_ level: TSLevel, levelWillDestoryBlockAt position: TSVector3) {
         entityWorld.onDestoryObject(at: position)

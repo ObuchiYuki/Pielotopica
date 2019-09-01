@@ -8,6 +8,34 @@
 
 import Foundation
 
+///　もしアプリ終了中に呼ばれていたら、値の更新を行いコールバックは1度呼ばれる
+class GKRealTimeValueTimer<T>: GKRealTimeTimer {
+    
+    var value:T
+    private var _initirized = false
+    private var _map: (T) -> T
+    
+    init(_ name: String, interval: TimeInterval, initial:T , map:@escaping (T) -> T, callback: @escaping (GKRealTimeValueTimer) -> Void) {
+        self._map = map
+        self.value = initial
+        
+        super.init(name, interval: interval, callback: {timer in
+            callback(timer as! GKRealTimeValueTimer)
+        })
+        
+        callback(self)
+        _initirized = true
+    }
+    
+    override func _callback() {
+        value = _map(value)
+        
+        if _initirized {
+            super._callback()
+        }
+    }
+}
+
 /// もしアプリ終了中に呼ばれていたら、複数回コールバックが呼ばれる。
 class GKRealTimeTimer {
     // =============================================================== //
@@ -50,8 +78,9 @@ class GKRealTimeTimer {
             
             let remain = (Date().timeIntervalSince1970 - self.lastUpdateTimeStamp.timeIntervalSince1970) / interval
             
-            for _ in 0..<Int(remain) {callback(self)}
-            
+            for _ in 0..<Int(remain) {
+                _callback()
+            }
         }else{
             self.name = name
             self.startTimeStamp = Date()
@@ -71,8 +100,11 @@ class GKRealTimeTimer {
     private func _createData() -> _GKRealTimeTimerData {
         _GKRealTimeTimerData(name: name, startTimeStamp: startTimeStamp, lastUpdateTimeStamp: lastUpdateTimeStamp)
     }
-    private func _update() {
+    fileprivate func _callback() {
         callback(self)
+    }
+    fileprivate func _update() {
+        _callback()
         
         self.lastUpdateTimeStamp = Date()
         RMStorage.shared.store(_createData(), for: _GKRealTimeTimerData.key(for: name))

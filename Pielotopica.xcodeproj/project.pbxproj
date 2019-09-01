@@ -85,11 +85,15 @@
 		B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */; };
 		B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */; };
 		B6227A6323023732009EF60F /* TS_JapaneseHouse2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */; };
-		B6227A6423023732009EF60F /* TS_Floar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6223023732009EF60F /* TS_Floar.swift */; };
+		B6227A6423023732009EF60F /* TS_Floar5x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A6223023732009EF60F /* TS_Floar5x5.swift */; };
 		B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A692302391A009EF60F /* TP_japanese_house_1.scn */; };
 		B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */; };
 		B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A70230239DB009EF60F /* Impl+Item.swift */; };
 		B62521A1231166AA00D0ADD6 /* TPBlockMoveHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62521A0231166AA00D0ADD6 /* TPBlockMoveHelper.swift */; };
+		B6292407231B804700955B1E /* TSModelRotator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6292406231B804700955B1E /* TSModelRotator.swift */; };
+		B6292409231B888C00955B1E /* TP_stone_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6292408231B888C00955B1E /* TP_stone_1x1.scn */; };
+		B629240B231B889300955B1E /* TP_stone_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B629240A231B889200955B1E /* TP_stone_1x1.png */; };
+		B629240D231B88A800955B1E /* TS_Stone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629240C231B88A800955B1E /* TS_Stone.swift */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */; };
 		B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */; };
@@ -291,11 +295,15 @@
 		B6227A5A2301B13C009EF60F /* Ex+SCNMatrix4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNMatrix4.swift"; sourceTree = "<group>"; };
 		B6227A5B2301B13C009EF60F /* Ex+SCNAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+SCNAction.swift"; sourceTree = "<group>"; };
 		B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TS_JapaneseHouse2.swift; sourceTree = "<group>"; };
-		B6227A6223023732009EF60F /* TS_Floar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TS_Floar.swift; sourceTree = "<group>"; };
+		B6227A6223023732009EF60F /* TS_Floar5x5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TS_Floar5x5.swift; sourceTree = "<group>"; };
 		B6227A692302391A009EF60F /* TP_japanese_house_1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_1.scn; sourceTree = "<group>"; };
 		B6227A6A2302391A009EF60F /* TP_japanese_house_2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_japanese_house_2.scn; sourceTree = "<group>"; };
 		B6227A70230239DB009EF60F /* Impl+Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Item.swift"; sourceTree = "<group>"; };
 		B62521A0231166AA00D0ADD6 /* TPBlockMoveHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockMoveHelper.swift; sourceTree = "<group>"; };
+		B6292406231B804700955B1E /* TSModelRotator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSModelRotator.swift; sourceTree = "<group>"; };
+		B6292408231B888C00955B1E /* TP_stone_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_stone_1x1.scn; sourceTree = "<group>"; };
+		B629240A231B889200955B1E /* TP_stone_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_stone_1x1.png; sourceTree = "<group>"; };
+		B629240C231B88A800955B1E /* TS_Stone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Stone.swift; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
 		B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureBottomBar.swift; sourceTree = "<group>"; };
@@ -708,6 +716,7 @@
 				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 				B6002D92231A22FC006C4D94 /* TSNBDData.swift */,
 				B6002D99231A4E93006C4D94 /* TSFillBlock.swift */,
+				B6292406231B804700955B1E /* TSModelRotator.swift */,
 			);
 			path = Level;
 			sourceTree = "<group>";
@@ -750,10 +759,11 @@
 				B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */,
 				B651231323114DFF003129B5 /* TS_Air.swift */,
 				B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */,
-				B6227A6223023732009EF60F /* TS_Floar.swift */,
+				B6227A6223023732009EF60F /* TS_Floar5x5.swift */,
 				B614C235230F731F00DA7093 /* TS_Wall1x5.swift */,
 				B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */,
 				B67CA121231AB32A00A01646 /* TS_Tree.swift */,
+				B629240C231B88A800955B1E /* TS_Stone.swift */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -761,6 +771,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B629240A231B889200955B1E /* TP_stone_1x1.png */,
+				B6292408231B888C00955B1E /* TP_stone_1x1.scn */,
 				B67CA12B231ABE0700A01646 /* TP_tree.png */,
 				B67CA127231ABD6C00A01646 /* TP_tree.scn */,
 				B661FA422318D33600D4A3C0 /* TP_target_kari.scn */,
@@ -1184,11 +1196,13 @@
 				B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */,
 				B6012E012318B5BB00DC18CE /* TP_spawner_1x1.scn in Resources */,
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
+				B6292409231B888C00955B1E /* TP_stone_1x1.scn in Resources */,
 				B6885FF8231AC1BE009098FA /* TP_ground_edge.png in Resources */,
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
 				B66BD3D82317E73E00E20212 /* enemy_1.scn in Resources */,
 				B67CA128231ABD6C00A01646 /* TP_tree.scn in Resources */,
 				B660939323153B3400B528E5 /* Silom.ttf in Resources */,
+				B629240B231B889300955B1E /* TP_stone_1x1.png in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
 				B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */,
 				B6F8C51823136FC500264EBF /* ClassIndex.txt in Resources */,
@@ -1302,11 +1316,13 @@
 				B6DDABEB2318E7D5003F538B /* RMMeasure.swift in Sources */,
 				B6EECD08231815CA005001FB /* TSEntity.swift in Sources */,
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
+				B6292407231B804700955B1E /* TSModelRotator.swift in Sources */,
 				B6002D9A231A4E93006C4D94 /* TSFillBlock.swift in Sources */,
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
 				B69E868B23168816004D4272 /* TPSCraftSceneModel.swift in Sources */,
 				B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */,
 				B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */,
+				B629240D231B88A800955B1E /* TS_Stone.swift in Sources */,
 				B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */,
 				B61E940D2300E390008CB325 /* _TPStartScenePatterns.swift in Sources */,
 				B61E94102300E390008CB325 /* _TPStartSceneRing.swift in Sources */,
@@ -1403,7 +1419,7 @@
 				B6102371231A64FC009252E1 /* TSDurablityManager.swift in Sources */,
 				B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */,
 				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
-				B6227A6423023732009EF60F /* TS_Floar.swift in Sources */,
+				B6227A6423023732009EF60F /* TS_Floar5x5.swift in Sources */,
 				B6002D9E231A5799006C4D94 /* TSSprite.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
