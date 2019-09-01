@@ -132,6 +132,7 @@
 		B6885FF8231AC1BE009098FA /* TP_ground_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = B6885FF7231AC1BD009098FA /* TP_ground_edge.png */; };
 		B6885FFA231AC2F0009098FA /* TP_ground_edge.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */; };
 		B6885FFC231AC311009098FA /* TP_ground_5x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6885FFB231AC311009098FA /* TP_ground_5x5.scn */; };
+		B6885FFE231B3E78009098FA /* RMWeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885FFD231B3E78009098FA /* RMWeakObject.swift */; };
 		B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B68E14342314177E00E973E1 /* Yolov3.mlmodel */; };
 		B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */; };
 		B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E1437231419C600E973E1 /* 5squared-pixel.ttf */; };
@@ -338,6 +339,7 @@
 		B6885FF7231AC1BD009098FA /* TP_ground_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png; sourceTree = "<group>"; };
 		B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_edge.scn; sourceTree = "<group>"; };
 		B6885FFB231AC311009098FA /* TP_ground_5x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_5x5.scn; sourceTree = "<group>"; };
+		B6885FFD231B3E78009098FA /* RMWeakObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMWeakObject.swift; sourceTree = "<group>"; };
 		B68E14342314177E00E973E1 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
 		B68E1437231419C600E973E1 /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
 		B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korneuburg-Slab-Bold.ttf"; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 				B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */,
 				B61E93BF2300E36C008CB325 /* RMStorage.swift */,
 				B61E93C02300E36C008CB325 /* RMBindCenter.swift */,
+				B6885FFD231B3E78009098FA /* RMWeakObject.swift */,
 				B6AA02AA230D78B800F0FF48 /* RMTimeStamp.swift */,
 				B6E8826523126B66003F3124 /* RMLog.swift */,
 				B6DDABEA2318E7D5003F538B /* RMMeasure.swift */,
@@ -1341,6 +1344,7 @@
 				B6F8C51423136E2600264EBF /* TSMaterialValueMap.swift in Sources */,
 				B69E8670231627B9004D4272 /* TSItemManager.swift in Sources */,
 				B69E868923168707004D4272 /* TPSCraftScene.swift in Sources */,
+				B6885FFE231B3E78009098FA /* RMWeakObject.swift in Sources */,
 				B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */,
 				B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */,
 				B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */,

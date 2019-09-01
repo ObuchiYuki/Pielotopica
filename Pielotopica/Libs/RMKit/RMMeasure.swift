@@ -16,14 +16,6 @@ func measure(_ block:()->Void){
 }
 
 class RMMeasure {
-    private var ff:String = ""
-    init(_ infunc:String = #function) {
-        ff = infunc
-        RMMeasure.start(infunc)
-    }
-    deinit {
-        RMMeasure.end(ff)
-    }
     private static var times = [_RMTime]()
     
     static func start(_ label:String = #function) {
