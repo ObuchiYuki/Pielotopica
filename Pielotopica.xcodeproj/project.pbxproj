@@ -482,9 +482,9 @@
 		B6012DF42318A66000DC18CE /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				B65D5CB0231BBC70009E4171 /* Data */,
 				B6012DF52318A67F00DC18CE /* TPGameController.swift */,
 				B67135F5231A9A44008F479C /* TPGameStageManager.swift */,
+				B65D5CB0231BBC70009E4171 /* Data */,
 			);
 			path = Game;
 			sourceTree = "<group>";

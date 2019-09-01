@@ -55,11 +55,7 @@ class TPGameController {
     
     // 毎秒呼ばれる。
     private func _update() {
-        guard let battleSceneModel = battleSceneModel else {
-            self.updateTimer?.invalidate()
-            showDebugMessage("ここには来ないはずだよ-\(#function)")
-            return
-        }
+        guard let battleSceneModel = battleSceneModel else { return }
         battleSceneModel.setTime(timeRemain, max: maxTime)
         
         self.timeRemain -= 1

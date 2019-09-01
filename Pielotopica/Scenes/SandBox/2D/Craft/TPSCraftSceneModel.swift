@@ -32,7 +32,11 @@ class TPSCraftSceneModel: TPSandBoxSceneModel {
     // ===================================================================== //
     // MARK: - Handler -
     func onBackAction() {
-        self.rootSceneModel.present(to: TPSBuildScene())
+        if rootSceneModel.isBattle {
+            self.rootSceneModel.present(to: TPSBattleScene())
+        }else{
+            self.rootSceneModel.present(to: TPSBuildScene())
+        }
     }
     
     func onCraftTap() {

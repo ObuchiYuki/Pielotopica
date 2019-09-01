@@ -33,6 +33,7 @@ class TPSandBoxRootSceneModel {
     
     /// 現在のSceneのモードです。
     var mode = BehaviorRelay(value: Mode.mainmenu)
+    var isBattle = false
     
     /// 現在のシーンモデルです。
     weak var currentSceneModel:TPSandBoxSceneModel!
