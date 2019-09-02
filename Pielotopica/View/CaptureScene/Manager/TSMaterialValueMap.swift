@@ -1,5 +1,5 @@
 //
-//  TSMaterialValueMap.swift
+//  TPMaterialValueMap.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/08/26.
@@ -9,14 +9,14 @@
 import Foundation
 
 
-class TSMaterialValueMap {
+class TPMaterialValueMap {
     static func getValue(for classIndex:Int) -> TSMaterialValue {
         assert(0 <= classIndex && classIndex < 80)
         
         return allValues[classIndex]
     }
     
-    static var needsShowMap:[Bool] = {TSMaterialValueMap.allValues.map{$0.needsShow}}()
+    static var needsShowMap:[Bool] = {TPMaterialValueMap.allValues.map{$0.needsShow}}()
         
     static let allValues = [
         // 0 人

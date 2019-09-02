@@ -25,6 +25,7 @@
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
+		B60C1C83231CC146005A7724 /* TPCaptureVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C1C82231CC146005A7724 /* TPCaptureVisibilityManager.swift */; };
 		B6102371231A64FC009252E1 /* TSDurablityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102370231A64FC009252E1 /* TSDurablityManager.swift */; };
 		B6102373231A68B0009252E1 /* TSE_DurablitySprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */; };
 		B614C236230F731F00DA7093 /* TS_WoodWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_WoodWall.swift */; };
@@ -253,6 +254,7 @@
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
+		B60C1C82231CC146005A7724 /* TPCaptureVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureVisibilityManager.swift; sourceTree = "<group>"; };
 		B6102370231A64FC009252E1 /* TSDurablityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDurablityManager.swift; sourceTree = "<group>"; };
 		B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE_DurablitySprite.swift; sourceTree = "<group>"; };
 		B614C235230F731F00DA7093 /* TS_WoodWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_WoodWall.swift; sourceTree = "<group>"; };
@@ -538,6 +540,15 @@
 				B6002D97231A340E006C4D94 /* Ex+CGPoint.swift */,
 			);
 			path = AppLib;
+			sourceTree = "<group>";
+		};
+		B60C1C81231CC118005A7724 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */,
+				B60C1C82231CC146005A7724 /* TPCaptureVisibilityManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		B61E939623005E28008CB325 = {
@@ -1123,7 +1134,6 @@
 			children = (
 				B6731B2C2314BEDD00B70C3F /* Saveable */,
 				B6EDB124230F8B200042CA02 /* TSBlockData.swift */,
-				B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */,
 			);
 			path = BridgeData;
 			sourceTree = "<group>";
@@ -1131,6 +1141,7 @@
 		B6E8826923128429003F3124 /* CaptureScene */ = {
 			isa = PBXGroup;
 			children = (
+				B60C1C81231CC118005A7724 /* Manager */,
 				B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */,
 				B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */,
 				B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */,
@@ -1400,6 +1411,7 @@
 				B67135F4231A8D2E008F479C /* TPAlert.swift in Sources */,
 				B61E93F72300E38A008CB325 /* Ex+SKAction.swift in Sources */,
 				B61E93F52300E38A008CB325 /* GKGameViewController.swift in Sources */,
+				B60C1C83231CC146005A7724 /* TPCaptureVisibilityManager.swift in Sources */,
 				B67A966323094E6300BD408D /* TPSandBox3DSceneModel.swift in Sources */,
 				B69969312317902400CE933B /* TSButtleTimer.swift in Sources */,
 				B61E93BD2300E368008CB325 /* AppDelegate.swift in Sources */,

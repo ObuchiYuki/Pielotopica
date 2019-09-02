@@ -141,7 +141,7 @@ class TPCaptureViewController: UIViewController {
     // MARK: - Game level -
     
     private func _showPrediction(_ prediction:RKObjectDetector.Prediction) {
-        let value = TSMaterialValueMap.allValues[prediction.classIndex]
+        let value = TPMaterialValueMap.allValues[prediction.classIndex]
         
         TSMaterialData.shared.addIron(value.iron)
         TSMaterialData.shared.addWood(value.wood)

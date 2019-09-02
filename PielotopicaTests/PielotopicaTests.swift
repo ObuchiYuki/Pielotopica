@@ -13,7 +13,7 @@ class TSVector3Test: XCTestCase {
 
     func testValues() {
         for i in 0..<80 {
-            XCTAssertEqual(i, TSMaterialValueMap.getValue(for: i).classIndex) 
+            XCTAssertEqual(i, TPMaterialValueMap.getValue(for: i).classIndex) 
         }
 
     }
