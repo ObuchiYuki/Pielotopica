@@ -100,6 +100,10 @@
 		B64D401B231D072700CA3198 /* TP_fuel_factory.scn in Resources */ = {isa = PBXBuildFile; fileRef = B64D401A231D072700CA3198 /* TP_fuel_factory.scn */; };
 		B64D401D231D072C00CA3198 /* TP_fuel_factory.png in Resources */ = {isa = PBXBuildFile; fileRef = B64D401C231D072C00CA3198 /* TP_fuel_factory.png */; };
 		B64D401F231D076900CA3198 /* TS_FuelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D401E231D076900CA3198 /* TS_FuelFactory.swift */; };
+		B64D4021231D0AB900CA3198 /* TSI_HouseRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D4020231D0AB900CA3198 /* TSI_HouseRed.swift */; };
+		B64D4023231D0ADB00CA3198 /* TSI_HouseBlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D4022231D0ADB00CA3198 /* TSI_HouseBlue.swift */; };
+		B64D4025231D0AF400CA3198 /* TSI_HouseGreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D4024231D0AF400CA3198 /* TSI_HouseGreen.swift */; };
+		B64D4027231D0B2300CA3198 /* TSI_IronWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D4026231D0B2300CA3198 /* TSI_IronWall.swift */; };
 		B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */; };
 		B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */; };
 		B651231423114DFF003129B5 /* TS_Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* TS_Air.swift */; };
@@ -340,6 +344,10 @@
 		B64D401A231D072700CA3198 /* TP_fuel_factory.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_fuel_factory.scn; sourceTree = "<group>"; };
 		B64D401C231D072C00CA3198 /* TP_fuel_factory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TP_fuel_factory.png; path = ../../../../../../Desktop/TP_fuel_factory.png; sourceTree = "<group>"; };
 		B64D401E231D076900CA3198 /* TS_FuelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_FuelFactory.swift; sourceTree = "<group>"; };
+		B64D4020231D0AB900CA3198 /* TSI_HouseRed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_HouseRed.swift; sourceTree = "<group>"; };
+		B64D4022231D0ADB00CA3198 /* TSI_HouseBlue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_HouseBlue.swift; sourceTree = "<group>"; };
+		B64D4024231D0AF400CA3198 /* TSI_HouseGreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_HouseGreen.swift; sourceTree = "<group>"; };
+		B64D4026231D0B2300CA3198 /* TSI_IronWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_IronWall.swift; sourceTree = "<group>"; };
 		B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMaterialSprite.swift; sourceTree = "<group>"; };
 		B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPLoaderScene.swift; sourceTree = "<group>"; };
 		B651231323114DFF003129B5 /* TS_Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Air.swift; sourceTree = "<group>"; };
@@ -1194,6 +1202,10 @@
 				B69E8671231635C6004D4272 /* TSI_WoodWall.swift */,
 				B6012DFE2318B11500DC18CE /* TSI_SpawnerItem.swift */,
 				B661FA442318D40500D4A3C0 /* TSI_TargetKariItem.swift */,
+				B64D4020231D0AB900CA3198 /* TSI_HouseRed.swift */,
+				B64D4022231D0ADB00CA3198 /* TSI_HouseBlue.swift */,
+				B64D4024231D0AF400CA3198 /* TSI_HouseGreen.swift */,
+				B64D4026231D0B2300CA3198 /* TSI_IronWall.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1425,6 +1437,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B64D4021231D0AB900CA3198 /* TSI_HouseRed.swift in Sources */,
 				B69E867C23168129004D4272 /* TPSMainMenuSceneModel.swift in Sources */,
 				B6BEB53D231615610067A4F0 /* TPCraftMenuMaterials.swift in Sources */,
 				B661FA392318CFCD00D4A3C0 /* TS_TargetBlock.swift in Sources */,
@@ -1556,6 +1569,7 @@
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
 				B64D401F231D076900CA3198 /* TS_FuelFactory.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
+				B64D4027231D0B2300CA3198 /* TSI_IronWall.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,
 				B667BA5C230B776C0038B098 /* YOLO+Helpers.swift in Sources */,
 				B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */,
@@ -1569,9 +1583,11 @@
 				B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */,
 				B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */,
 				B6227A6423023732009EF60F /* TS_Floar5x5.swift in Sources */,
+				B64D4023231D0ADB00CA3198 /* TSI_HouseBlue.swift in Sources */,
 				B682B600231C95A300577FD1 /* TPBuildNotice.swift in Sources */,
 				B6002D9E231A5799006C4D94 /* TSSprite.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
+				B64D4025231D0AF400CA3198 /* TSI_HouseGreen.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
 				B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */,
 				B6931446230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift in Sources */,
