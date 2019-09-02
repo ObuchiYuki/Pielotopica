@@ -32,6 +32,9 @@ public class TSItem {
     // MARK: - Methods -
     
     open func visibleOnlyWhileDebug() -> Bool {return false}
+    open func isVisible() -> Bool {
+        (TPCommon.debug || !visibleOnlyWhileDebug()) && materialsForCraft() != nil
+    }
     open func materialsForCraft() -> TSCraftMaterialValue? {nil}
     open func amountCanCreateAtOnce() -> Int {return 1}
     

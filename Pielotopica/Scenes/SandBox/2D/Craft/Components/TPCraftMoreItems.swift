@@ -19,12 +19,12 @@ class TPCraftMoreItems: SKSpriteNode {
     // ==================================================================== //
     // MARK: - Properties -
         
-    static let showingItems = TSItemManager.shared.getCreatableItems()
+    static let showingItems = TSItemManager.shared.visibleItems()
     
     override var needsHandleReaction: Bool { true }
     
     let selectedItemIndex = BehaviorRelay(value: 0)
-    let items = TSItemManager.shared.getCreatableItems()
+    let items = TSItemManager.shared.visibleItems()
     
     // ==================================================================== //
     // MARK: - Private Properties -

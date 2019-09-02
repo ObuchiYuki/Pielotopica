@@ -37,13 +37,13 @@ public extension TSItem {
         block: .targetKari
     )
     
-    static let kiKari = TSI_KariItem(
+    static let kiKari = TSI_Tree(
         name: "カリの木",
         textureNamed: "TP_item_thumb_tree",
         block: .tree
     )
     
-    static let stoneKari = TSI_KariItem(
+    static let stoneKari = TSI_Rock(
         name: "カリの岩",
         textureNamed: "TP_item_thumb_kari",
         block: .stone
@@ -55,7 +55,7 @@ public extension TSItem {
         block: .grass
     )
     
-    static let ironWall = TSI_KariItem(
+    static let ironWall = TSI_IronWall(
         name: "テツのカベ",
         textureNamed: "TP_item_thumb_iron_wall",
         block: .ironWall

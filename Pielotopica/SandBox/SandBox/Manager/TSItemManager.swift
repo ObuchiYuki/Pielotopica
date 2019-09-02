@@ -11,6 +11,9 @@ import Foundation
 class TSItemManager {
     static let shared = TSItemManager()
     
+    func visibleItems() -> [TSItem] {
+        registeredItem.filter{ $0.isVisible() }
+    }
     func getCreatableItems() -> [TSItem] {
         return registeredItem.filter{ $0.materialsForCraft() != nil }
     }
