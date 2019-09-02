@@ -188,7 +188,7 @@ extension TPSandboxSceneController {
     }
     func setupCamera() {
         camera.usesOrthographicProjection = true
-        camera.orthographicScale = 10
+        camera.orthographicScale = 20
         
         camera.automaticallyAdjustsZRange = true
         camera.wantsExposureAdaptation = true
@@ -197,7 +197,7 @@ extension TPSandboxSceneController {
         camera.screenSpaceAmbientOcclusionIntensity = 1
         
         cameraNode.eulerAngles = [-.pi * 0.2, .pi/4, 0]
-        cameraNode.position = [100, 80, 100]
+        cameraNode.position = [100, 100, 100]
     }
 
 }

@@ -22,7 +22,7 @@ class TSEntityWorld {
     
     /// この世界に存在するエンティティ
     var entities = [TSEntityObject]()
-    let maxEntities = 10
+    let maxEntities = 32
     private weak var delegate:TSEntityWorldDelegate!
     
     // ================================================================== //

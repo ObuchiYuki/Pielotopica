@@ -58,7 +58,10 @@ extension String{
     }
 }
 
-
-
+extension Comparable {
+    func into(_ range: ClosedRange<Self>) -> Self {
+        return max(range.lowerBound, min(self, range.upperBound))
+    }
+}
 
 

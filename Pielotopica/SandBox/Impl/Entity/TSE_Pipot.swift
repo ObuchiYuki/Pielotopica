@@ -24,7 +24,9 @@ class TSE_Pipot: TSEntity {
     override func generateNode() -> SCNNode { _generateNode()}
     
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
+        RMMeasure.start()
         let route = world.findPathToTarget(from: object.spown.node!, speed: speed)
+        
         var vector:CGPoint
         
         if object.info["random"] == nil {
@@ -32,7 +34,9 @@ class TSE_Pipot: TSEntity {
         }
         let random = object.info["random"] as! CGPoint
         
+        
         if !route.isEmpty {
+            
             if object.info["index"] == nil {object.info["index"]=0}; let index = object.info["index"] as! Int
             object.info["index"] = index + 1
             
@@ -45,23 +49,26 @@ class TSE_Pipot: TSEntity {
             vector = _routeToTarget(object: object, world: world)
         }
         
+        
         let next = TSVector2(object.position + vector)
         
         if level.getFillBlock(at: next.vector3(y: 1)).isObstacle() {
             let anc = level.getAnchor(ofFill: next.vector3(y: 1))!
             TSDurablityManager.shared.attack(1, at: anc)
             
-            GKSoundPlayer.shared.playSoundEffect(.breaking)
         }else{
             object.node.childNodes[0].runAction(.rotateTo(x: 0, y: _angle(from: vector), z: 0, duration: 0.1))
             object.updatePosition(to: object.position + vector + random, tic: tic)
             
         }
         
+        
         if (object.position).isNear(to: world.getTargetPosition().point, distanceThreshold: 1) {
             TPGameController.initirized?.end(with: .gameover)
             object.removeFromWorld()
         }
+        
+        RMMeasure.end()
     }
     
     // ======================================================================== //
@@ -103,11 +110,11 @@ class TSE_Pipot: TSEntity {
             let battery = scene.rootNode.childNode(withName: "battery", recursively: true)
         else {fatalError()}
                 
-        foot1.eulerAngles = SCNVector3(0, 0, 0.25)
-        foot1.runAction(_createFootAction(t:  1))
+        //foot1.eulerAngles = SCNVector3(0, 0, 0.25)
+        //foot1.runAction(_createFootAction(t:  1))
         
-        foot2.eulerAngles = SCNVector3(0, 0, -0.25)
-        foot2.runAction(_createFootAction(t: -1))
+        //foot2.eulerAngles = SCNVector3(0, 0, -0.25)
+        //foot2.runAction(_createFootAction(t: -1))
         
         wnode.addChildNode(battery)
         wnode.addChildNode(foot1)

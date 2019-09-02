@@ -34,10 +34,10 @@ public class RMTimeStamp {
         
         _timerInitirized = true
         
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: {[weak self] timer in
+        Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true, block: {[weak self] timer in
             guard let self = self else {return timer.invalidate()}
             
-            if !self._timerCalled && !self.isSameFrame() {
+            if !self._timerCalled && !(self.delta() < 0.05) {
                 self._timerCalled = true
                 block?(self)
             }

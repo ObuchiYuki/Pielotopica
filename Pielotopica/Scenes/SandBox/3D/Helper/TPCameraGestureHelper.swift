@@ -21,7 +21,7 @@ class TPSandboxCameraGestureHelper {
     weak var delegate:TPCameraGestureHelperDelegate!
     
     private var timeStamp = RMTimeStamp()
-    private var pinchScale:Float = 1.0
+    private var pinchScale:Float = 0.5
     private var originalPinchScale:Float = 1.0
     private var cameraStartPosition = SCNVector3.zero
     
@@ -37,11 +37,15 @@ class TPSandboxCameraGestureHelper {
     /// ピンチ時に呼び出してください。
     func pinched(to scale:CGFloat) {
         pinchScale = originalPinchScale * Float(scale)
+        pinchScale = pinchScale.into(0.2...3)
+        
         let tscale = 1 / pinchScale
         let rscale = Double(tscale * 10)
         
         delegate.cameraGestureHelper(self, cameraDidchangeZoomedTo: rscale)
     }
+    
+    private var _inertiaVector = CGPoint.zero
     
     /// パン時に呼び出してください。
     func panned(to vector:CGPoint, at velocity:CGPoint) {
@@ -49,10 +53,22 @@ class TPSandboxCameraGestureHelper {
         
         timeStamp.press()
         
-        let dx:Float = Float(vector.x) / 55 * Float(1.0 / pinchScale)
-        let dy:Float = Float(vector.y) / 40 * Float(1.0 / pinchScale)
+        _inertiaVector = velocity
         
-        let p:SCNVector3 = [cameraStartPosition.x - dx, cameraStartPosition.y + dy, cameraStartPosition.z + dx]
+        _realModeCamera(by: vector)
+    }
+    
+    private func _realModeCamera(by vector:CGPoint) {
+        
+        let dx:Float = Float(vector.x) / 55 * Float(1.0 / pinchScale)
+        let dy:Float = Float(vector.y) / 38 * Float(1.0 / pinchScale)
+            
+        var p:SCNVector3 = [cameraStartPosition.x - dx, cameraStartPosition.y + dy, cameraStartPosition.z + dx]
+        
+        p.x = p.x.into(80...110)
+        p.y = p.y.into(70...120)
+        p.z = p.z.into(80...120)
+            
         self.delegate.cameraGestureHelper(self, cameraDidMoveTo: p)
     }
     
