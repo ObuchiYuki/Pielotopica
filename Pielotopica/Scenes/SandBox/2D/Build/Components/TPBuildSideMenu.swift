@@ -17,7 +17,7 @@ class TPBuildSideMenu: GKSpriteNode {
     init() {
         super.init(texture: nil, color: .clear, size: [94, 200])
         
-        self.position = [-170, 40]
+        self.position = [-170, -300]
         rotateItem.position = [-100 , 175]
         
         self.addChild(rotateItem)

@@ -196,7 +196,7 @@ extension TPSandboxSceneController {
         camera.screenSpaceAmbientOcclusionRadius = 1
         camera.screenSpaceAmbientOcclusionIntensity = 1
         
-        cameraNode.eulerAngles = [-.pi/6, .pi/4, 0]
+        cameraNode.eulerAngles = [-.pi * 0.2, .pi/4, 0]
         cameraNode.position = [100, 80, 100]
     }
 

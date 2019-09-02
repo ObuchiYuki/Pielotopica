@@ -21,9 +21,12 @@ class TS_Tree: TSBlock {
         true
     }
     override func canDestroy(at point: TSVector3) -> Bool {
-        return true
+        true
+    }
+    override func shouldRandomRotateWhenPlaced() -> Bool {
+        true
     }
     override func shouldAnimateWhenPlaced(at point: TSVector3) -> Bool {
-        return true
+        true
     }
 }

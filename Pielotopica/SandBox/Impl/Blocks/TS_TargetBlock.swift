@@ -31,12 +31,6 @@ class TS_TargetBlock: TSBlock {
         p1.runAction(_createParticleAction())
         p2.runAction(_createParticleAction())
         p3.runAction(_createParticleAction())
-        
-        let box = SCNBox(width: 1.6, height: 0.1, length: 1.6, chamferRadius: 0)
-        box.firstMaterial?.emission.contents = UIColor.red
-        let boxNode = SCNNode(geometry: box)
-        boxNode.position = [1, 0, 1]
-        node.addChildNode(boxNode)
 
         return node
     }

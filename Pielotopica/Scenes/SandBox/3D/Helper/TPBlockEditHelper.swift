@@ -179,7 +179,7 @@ class TPBlockEditHelper {
                 gnode.name = "gnode"
                 gnode.geometry = SCNBox(width: 0.8, height: 0.1, length: 0.8, chamferRadius: 0)
                 gnode.geometry?.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-                gnode.position = SCNVector3(Double(x) + 0.4, 0, Double(z) + 0.4)
+                gnode.position = SCNVector3(Double(x) + 0.5, 0, Double(z) + 0.5)
                 
                 containerNode.addChildNode(gnode)
             }
