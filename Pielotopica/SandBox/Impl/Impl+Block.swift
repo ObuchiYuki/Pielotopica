@@ -34,5 +34,7 @@ public extension TSBlock {
     
     static let ironWall:TSBlock = TS_IronWall(nodeNamed: "TP_wall_iron", index: 23)
     
+    static let house:TSBlock = TS_House(nodeNamed: "TP_house", index: 24)
+    
 }
 

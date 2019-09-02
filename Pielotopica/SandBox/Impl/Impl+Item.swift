@@ -60,5 +60,11 @@ public extension TSItem {
         textureNamed: "TP_item_thumb_iron_wall",
         block: .ironWall
     )
+    
+    static let house = TSI_KariItem(
+        name: "ネンリョウシセツ",
+        textureNamed: "TP_item_thumb_house",
+        block: .house
+    )
 }
 
