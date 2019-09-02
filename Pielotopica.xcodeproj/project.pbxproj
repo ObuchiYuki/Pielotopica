@@ -156,6 +156,9 @@
 		B6885FFA231AC2F0009098FA /* TP_ground_edge.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */; };
 		B6885FFE231B3E78009098FA /* RMWeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885FFD231B3E78009098FA /* RMWeakObject.swift */; };
 		B6886000231B569D009098FA /* GKRealTimeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885FFF231B569D009098FA /* GKRealTimeTimer.swift */; };
+		B68A2026231CDB8300F51AFD /* TP_house.scn in Resources */ = {isa = PBXBuildFile; fileRef = B68A2025231CDB8300F51AFD /* TP_house.scn */; };
+		B68A2028231CDB8700F51AFD /* TP_house.png in Resources */ = {isa = PBXBuildFile; fileRef = B68A2027231CDB8700F51AFD /* TP_house.png */; };
+		B68A202A231CDBC200F51AFD /* TS_House.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A2029231CDBC200F51AFD /* TS_House.swift */; };
 		B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B68E14342314177E00E973E1 /* Yolov3.mlmodel */; };
 		B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */; };
 		B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E1437231419C600E973E1 /* 5squared-pixel.ttf */; };
@@ -390,6 +393,9 @@
 		B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_ground_edge.scn; sourceTree = "<group>"; };
 		B6885FFD231B3E78009098FA /* RMWeakObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMWeakObject.swift; sourceTree = "<group>"; };
 		B6885FFF231B569D009098FA /* GKRealTimeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKRealTimeTimer.swift; sourceTree = "<group>"; };
+		B68A2025231CDB8300F51AFD /* TP_house.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_house.scn; sourceTree = "<group>"; };
+		B68A2027231CDB8700F51AFD /* TP_house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_house.png; sourceTree = "<group>"; };
+		B68A2029231CDBC200F51AFD /* TS_House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_House.swift; sourceTree = "<group>"; };
 		B68E14342314177E00E973E1 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
 		B68E1437231419C600E973E1 /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
 		B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korneuburg-Slab-Bold.ttf"; sourceTree = "<group>"; };
@@ -820,6 +826,7 @@
 				B67CA121231AB32A00A01646 /* TS_Tree.swift */,
 				B629240C231B88A800955B1E /* TS_Stone.swift */,
 				B67F1BA2231B9B4600D71A5E /* TS_Grass.swift */,
+				B68A2029231CDBC200F51AFD /* TS_House.swift */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -827,6 +834,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B68A2027231CDB8700F51AFD /* TP_house.png */,
+				B68A2025231CDB8300F51AFD /* TP_house.scn */,
 				B65E5170231C9DC6008CFA00 /* TP_wall_iron.png */,
 				B65E516E231C9DBF008CFA00 /* TP_wall_iron.scn */,
 				B67F1BA6231B9FE900D71A5E /* TP_target.png */,
@@ -1296,6 +1305,7 @@
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
 				B67F1BA1231B9B2600D71A5E /* TP_grass_1x1.scn in Resources */,
 				B6292409231B888C00955B1E /* TP_stone_1x1.scn in Resources */,
+				B68A2028231CDB8700F51AFD /* TP_house.png in Resources */,
 				B6885FF8231AC1BE009098FA /* TP_ground_edge.png in Resources */,
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
 				B66BD3D82317E73E00E20212 /* enemy_1.scn in Resources */,
@@ -1315,6 +1325,7 @@
 				B608C498231101130073843E /* wood_wall_1x1.png in Resources */,
 				B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */,
 				B65D5CBD231BBFEC009E4171 /* break.mp3 in Resources */,
+				B68A2026231CDB8300F51AFD /* TP_house.scn in Resources */,
 				B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */,
 				B661FA432318D33600D4A3C0 /* TP_target_kari.scn in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
@@ -1399,6 +1410,7 @@
 				B6BEB53D231615610067A4F0 /* TPCraftMenuMaterials.swift in Sources */,
 				B661FA392318CFCD00D4A3C0 /* TS_TargetBlock.swift in Sources */,
 				B6DF959D23192D0F005C636B /* AStar.swift in Sources */,
+				B68A202A231CDBC200F51AFD /* TS_House.swift in Sources */,
 				B651231423114DFF003129B5 /* TS_Air.swift in Sources */,
 				B65D5CAA231BA8F7009E4171 /* TPClearScene.swift in Sources */,
 				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,

@@ -12,34 +12,21 @@ import SpriteKit
 class _TPCaptureBottomBar: GKSpriteNode {
     let backButton = TPFlatButton(textureNamed: "TP_flatbutton_back")
     
-    let placeButton = TPDropButton(textureNamed: "TP_dropbutton_place")
-    let moveButton = TPDropButton(textureNamed: "TP_dropbutton_move")
-    let destoryButton = TPDropButton(textureNamed: "TP_dropbutton_destory")
-    
-    private var allDropButtons:[SKSpriteNode] {
-        return [placeButton, moveButton, destoryButton]
-    }
+    let infoButton = GKButtonNode(
+        size: [130, 36],
+        defaultTexture:  .init(imageNamed: "TP_capture_info"),
+        selectedTexture: .init(imageNamed: "TP_capture_info_pressed"),
+        disabledTexture: nil
+    )
     
     func show() {
         isHidden = false
         
-        allDropButtons.enumerated().forEach{(arg) in
-            let (i, e) = arg
-            e.run(SKAction.sequence([
-                SKAction.wait(forDuration: 0.1 * Double(i) + 0.3),
-                SKAction.scale(to: 1, duration: 0.2).setEase(.easeInEaseOut)
-            ]))
-        }
+        infoButton.run(SKAction.scale(to: 1, duration: 0.2).setEase())
     }
     
     func hide() {
-        allDropButtons.enumerated().forEach{(arg) in
-            let (i, e) = arg
-            e.run(SKAction.sequence([
-                SKAction.wait(forDuration: 0.1 * Double(i)),
-                SKAction.scale(to: 0, duration: 0.2).setEase(.easeInEaseOut)
-            ]))
-        }
+        infoButton.run(SKAction.scale(to: 0, duration: 0.2).setEase())
     }
     
     init() {
@@ -60,22 +47,13 @@ class _TPCaptureBottomBar: GKSpriteNode {
         backButton.position = [0, 0]
         backButton.isUserInteractionEnabled = true
         
-        placeButton.position = [CGFloat(312 - 47 - 60 * 2 + 47.0/2), CGFloat(47.0/2)]
-        placeButton.isUserInteractionEnabled = true
-        
-        moveButton.position = [CGFloat(312 - 47 - 60 + 47.0/2), CGFloat(47.0/2)]
-        moveButton.isUserInteractionEnabled = true
-        
-        destoryButton.position = [CGFloat(312 - 47 + 47.0/2), CGFloat(47.0/2)]
-        destoryButton.isUserInteractionEnabled = true
+        infoButton.position = [CGFloat(250), CGFloat(47.0/2 - 3)]
+        infoButton.isUserInteractionEnabled = true
                 
-        placeButton.setScale(0)
-        moveButton.setScale(0)
-        destoryButton.setScale(0)
+        infoButton.setScale(0)
         
         addChild(backButton)
-        //addChild(placeButton)
-        //addChild(moveButton)
-        addChild(destoryButton)
+        addChild(infoButton)
+        
     }
 }
