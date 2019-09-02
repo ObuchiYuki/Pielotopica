@@ -10,7 +10,7 @@ import UIKit
 
 struct TPCommon {
     #if DEBUG
-    static let debug = true
+    static let debug = false
     #else
     static let debug = false
     #endif

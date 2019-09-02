@@ -15,7 +15,7 @@ class TS_Grass: TSBlock {
         return [1, 1, 1]
     }
     override func getHardnessLevel() -> Int {
-        return 20
+        return 5
     }
     override func shouldRandomRotateWhenPlaced() -> Bool {
         return true

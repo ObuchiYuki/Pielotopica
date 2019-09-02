@@ -13,11 +13,11 @@ import Foundation
 public extension TSItem {
     static let none = TSItem(name: "", index: 0, textureNamed: "TP_none")
     
-    static let japaneseHouse2 = TSI_JapaneseHouse(
-        name: "チイサナニホンカオク",
-        textureNamed: "TP_item_thumb_japanese_house_2",
-        block: .japaneseHouse2
-    )
+    //static let japaneseHouse2 = TSI_JapaneseHouse(
+    //    name: "チイサナニホンカオク",
+    //    textureNamed: "TP_item_thumb_japanese_house_2",
+    //    block: .japaneseHouse2
+    //)
     
     static let woodWall1x5 = TSI_WoodWall(
         name: "キのヘイ",
@@ -49,7 +49,7 @@ public extension TSItem {
         block: .stone
     )
     
-    static let grassKari = TSI_KariItem(
+    static let grassKari = TSI_Grass(
         name: "カリの茂み",
         textureNamed: "TP_item_thumb_grass",
         block: .grass
@@ -77,7 +77,7 @@ public extension TSItem {
         block: .houseGreen
     )
     
-    static let fuelFactory = TSI_KariItem(
+    static let fuelFactory = TSI_FuelFactory (
         name: "燃料工場",
         textureNamed: "TP_item_thumb_fuel_factory",
         block: .fuelFactory

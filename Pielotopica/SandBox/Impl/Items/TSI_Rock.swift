@@ -13,6 +13,6 @@ public class TSI_Rock: TSBlockItem {
         return  true
     }
     override public func materialsForCraft() -> TSCraftMaterialValue? {
-        return TSCraftMaterialValue(iron: 0, wood: 0, circit: 0, fuel: 5)
+        return TSCraftMaterialValue(iron: 0, wood: 0, circit: 0, fuel: 0)
     }
 }

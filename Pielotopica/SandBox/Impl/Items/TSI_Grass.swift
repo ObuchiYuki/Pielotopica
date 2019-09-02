@@ -1,5 +1,5 @@
 //
-//  TSI_HouseGreen.swift
+//  TSI_Grass.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/09/02.
@@ -8,8 +8,10 @@
 
 import Foundation
 
-public class TSI_HouseGreen: TSBlockItem {
+public class TSI_Grass: TSBlockItem {
+    
     override public func materialsForCraft() -> TSCraftMaterialValue? {
-        return TSCraftMaterialValue(iron: 10, wood: 30, circit: 0, fuel: 30)
+        return TSCraftMaterialValue(iron: 0, wood: 0, circit: 0, fuel: 10)
     }
 }
+

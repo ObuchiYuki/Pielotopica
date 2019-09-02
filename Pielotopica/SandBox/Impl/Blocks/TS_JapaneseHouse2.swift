@@ -22,7 +22,8 @@ class TS_JapaneseHouse2:TSBlock {
         return [3, 2, 3]
     }
     override func dropItemStacks(at point: TSVector3) -> [TSItemStack] {
-        return [TSItemStack(item: .japaneseHouse2)]
+        return []
+        //return [TSItemStack(item: .japaneseHouse2)]
     }
     override func canDestroy(at point: TSVector3) -> Bool {
         return true

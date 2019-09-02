@@ -15,14 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        TSInventory.shared.addItem(.woodWall1x5, count: 100)
-        
+            
         TSFuelData.shared.setMaxFuel(1000)
         TSFuelData.shared.setMaxHeart(100)
         
         TSItemManager.shared.register(.none)
-        TSItemManager.shared.register(.japaneseHouse2)
+        //TSItemManager.shared.register(.japaneseHouse2)
         TSItemManager.shared.register(.woodWall1x5)
         TSItemManager.shared.register(.pipotSpawner)
         TSItemManager.shared.register(.targetKari)
@@ -36,6 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSItemManager.shared.register(.houseGreen)
         
         TSItemManager.shared.register(.fuelFactory)
+        
+        
+        // MARK: - 仮
+        //TSInventory.shared.addItem(.woodWall1x5, count: 20)
+        //TSInventory.shared.addItem(.ironWall, count: 20)
+        //TSInventory.shared.addItem(.fuelFactory, count: 3)
+        //TSInventory.shared.addItem(.houseRed, count: 12)
+        //TSInventory.shared.addItem(.houseBlue, count: 7)
+        //TSInventory.shared.addItem(.houseGreen, count: 3)
 
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)

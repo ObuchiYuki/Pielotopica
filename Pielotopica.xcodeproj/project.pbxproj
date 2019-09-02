@@ -106,6 +106,8 @@
 		B64D4027231D0B2300CA3198 /* TSI_IronWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D4026231D0B2300CA3198 /* TSI_IronWall.swift */; };
 		B64D4029231D0B5D00CA3198 /* TSI_Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D4028231D0B5D00CA3198 /* TSI_Tree.swift */; };
 		B64D402B231D0B8C00CA3198 /* TSI_Rock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D402A231D0B8C00CA3198 /* TSI_Rock.swift */; };
+		B64D402D231D0F9900CA3198 /* TSI_FuelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D402C231D0F9900CA3198 /* TSI_FuelFactory.swift */; };
+		B64D402F231D0FC700CA3198 /* TSI_Grass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D402E231D0FC700CA3198 /* TSI_Grass.swift */; };
 		B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */; };
 		B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */; };
 		B651231423114DFF003129B5 /* TS_Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* TS_Air.swift */; };
@@ -352,6 +354,8 @@
 		B64D4026231D0B2300CA3198 /* TSI_IronWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_IronWall.swift; sourceTree = "<group>"; };
 		B64D4028231D0B5D00CA3198 /* TSI_Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_Tree.swift; sourceTree = "<group>"; };
 		B64D402A231D0B8C00CA3198 /* TSI_Rock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_Rock.swift; sourceTree = "<group>"; };
+		B64D402C231D0F9900CA3198 /* TSI_FuelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_FuelFactory.swift; sourceTree = "<group>"; };
+		B64D402E231D0FC700CA3198 /* TSI_Grass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_Grass.swift; sourceTree = "<group>"; };
 		B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMaterialSprite.swift; sourceTree = "<group>"; };
 		B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPLoaderScene.swift; sourceTree = "<group>"; };
 		B651231323114DFF003129B5 /* TS_Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Air.swift; sourceTree = "<group>"; };
@@ -1212,6 +1216,8 @@
 				B64D4026231D0B2300CA3198 /* TSI_IronWall.swift */,
 				B64D4028231D0B5D00CA3198 /* TSI_Tree.swift */,
 				B64D402A231D0B8C00CA3198 /* TSI_Rock.swift */,
+				B64D402C231D0F9900CA3198 /* TSI_FuelFactory.swift */,
+				B64D402E231D0FC700CA3198 /* TSI_Grass.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1476,6 +1482,7 @@
 				B6DDABEB2318E7D5003F538B /* RMMeasure.swift in Sources */,
 				B6EECD08231815CA005001FB /* TSEntity.swift in Sources */,
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
+				B64D402D231D0F9900CA3198 /* TSI_FuelFactory.swift in Sources */,
 				B6292407231B804700955B1E /* TSModelRotator.swift in Sources */,
 				B6002D9A231A4E93006C4D94 /* TSFillBlock.swift in Sources */,
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
@@ -1611,6 +1618,7 @@
 				B6002D96231A29FC006C4D94 /* AStarNode.swift in Sources */,
 				B667BA60230B776C0038B098 /* RKObjectDetector.swift in Sources */,
 				B6C7F3362314B7120042279C /* TSItemData.swift in Sources */,
+				B64D402F231D0FC700CA3198 /* TSI_Grass.swift in Sources */,
 				B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */,
 				B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */,
 				B61E93CC2300E36C008CB325 /* Ex+UIImage.swift in Sources */,
