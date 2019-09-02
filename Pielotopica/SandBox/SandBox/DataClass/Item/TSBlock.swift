@@ -28,7 +28,7 @@ open class TSBlock {
     // MARK: - TSBlock Public Properties -
     /// `TSBlock`のidetifierです。
     /// 通常はファイル名で初期化されます。
-    public let identifier:String
+    public let nodeFileName:String
     public let index:UInt16
     
     /// 空気かどうかです。
@@ -50,10 +50,10 @@ open class TSBlock {
         return !isAir
     }
     
-    public func createNode() -> SCNNode {
+    open func createNode() -> SCNNode {
         assert(self.canCreateNode(), "TP_Air cannot create SCNNode.")
         
-        return SCNNode(named: identifier)!
+        return SCNNode(named: nodeFileName)!
     }
     
     // ============================= //
@@ -115,7 +115,7 @@ open class TSBlock {
     //========================================================================
     // MARK: - Constructors -
     init(nodeNamed nodeName:String, index:Int) {
-        self.identifier = nodeName
+        self.nodeFileName = nodeName
         self.index = UInt16(index)
         
         assert(!TSBlock._registerdBlock.contains(self), "The Block indexed \(index) already exists. Try use other index")
@@ -123,7 +123,7 @@ open class TSBlock {
         TSBlock._registerdBlock.append(self)
     }
     init() {
-        self.identifier = "TP_Air"
+        self.nodeFileName = "TP_Air"
         self.index = 0
         
         TSBlock._registerdBlock.append(self)
@@ -161,8 +161,8 @@ open class TSBlock {
         assert(!isAir, "TP_Air have no node to render.")
         
         // ノード生成
-        guard let node = SCNNode(named: identifier) else {
-            fatalError("No scn file named \"\(identifier).scn\" found.")
+        guard let node = SCNNode(named: nodeFileName) else {
+            fatalError("No scn file named \"\(nodeFileName).scn\" found.")
         }
         
         return node
@@ -189,7 +189,7 @@ public extension TSBlock {
         return block
     }
     static func block(for identifier:String) -> TSBlock {
-        guard let block = _registerdBlock.first(where: {$0.identifier == identifier}) else {
+        guard let block = _registerdBlock.first(where: {$0.nodeFileName == identifier}) else {
             fatalError("Error in finding TSBlock with identifier: \(identifier)")
         }
         return block
@@ -199,6 +199,6 @@ public extension TSBlock {
 
 extension TSBlock: CustomStringConvertible {
     public var description: String {
-        return "TSBlock(named: \"\(identifier)\")"
+        return "TSBlock(named: \"\(nodeFileName)\")"
     }
 }

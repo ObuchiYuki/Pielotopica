@@ -157,8 +157,10 @@
 		B6885FFE231B3E78009098FA /* RMWeakObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885FFD231B3E78009098FA /* RMWeakObject.swift */; };
 		B6886000231B569D009098FA /* GKRealTimeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6885FFF231B569D009098FA /* GKRealTimeTimer.swift */; };
 		B68A2026231CDB8300F51AFD /* TP_house.scn in Resources */ = {isa = PBXBuildFile; fileRef = B68A2025231CDB8300F51AFD /* TP_house.scn */; };
-		B68A2028231CDB8700F51AFD /* TP_house.png in Resources */ = {isa = PBXBuildFile; fileRef = B68A2027231CDB8700F51AFD /* TP_house.png */; };
+		B68A2028231CDB8700F51AFD /* TP_house_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = B68A2027231CDB8700F51AFD /* TP_house_blue.png */; };
 		B68A202A231CDBC200F51AFD /* TS_House.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A2029231CDBC200F51AFD /* TS_House.swift */; };
+		B68A202C231CEF8100F51AFD /* TP_house_green.png in Resources */ = {isa = PBXBuildFile; fileRef = B68A202B231CEF8100F51AFD /* TP_house_green.png */; };
+		B68A202E231CEF8800F51AFD /* TP_house_red.png in Resources */ = {isa = PBXBuildFile; fileRef = B68A202D231CEF8800F51AFD /* TP_house_red.png */; };
 		B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B68E14342314177E00E973E1 /* Yolov3.mlmodel */; };
 		B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */; };
 		B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B68E1437231419C600E973E1 /* 5squared-pixel.ttf */; };
@@ -394,8 +396,10 @@
 		B6885FFD231B3E78009098FA /* RMWeakObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMWeakObject.swift; sourceTree = "<group>"; };
 		B6885FFF231B569D009098FA /* GKRealTimeTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKRealTimeTimer.swift; sourceTree = "<group>"; };
 		B68A2025231CDB8300F51AFD /* TP_house.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_house.scn; sourceTree = "<group>"; };
-		B68A2027231CDB8700F51AFD /* TP_house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_house.png; sourceTree = "<group>"; };
+		B68A2027231CDB8700F51AFD /* TP_house_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_house_blue.png; sourceTree = "<group>"; };
 		B68A2029231CDBC200F51AFD /* TS_House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_House.swift; sourceTree = "<group>"; };
+		B68A202B231CEF8100F51AFD /* TP_house_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_house_green.png; sourceTree = "<group>"; };
+		B68A202D231CEF8800F51AFD /* TP_house_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_house_red.png; sourceTree = "<group>"; };
 		B68E14342314177E00E973E1 /* Yolov3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Yolov3.mlmodel; sourceTree = "<group>"; };
 		B68E1437231419C600E973E1 /* 5squared-pixel.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "5squared-pixel.ttf"; sourceTree = "<group>"; };
 		B68E143923141A8900E973E1 /* Korneuburg-Slab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Korneuburg-Slab-Bold.ttf"; sourceTree = "<group>"; };
@@ -834,7 +838,9 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
-				B68A2027231CDB8700F51AFD /* TP_house.png */,
+				B68A2027231CDB8700F51AFD /* TP_house_blue.png */,
+				B68A202B231CEF8100F51AFD /* TP_house_green.png */,
+				B68A202D231CEF8800F51AFD /* TP_house_red.png */,
 				B68A2025231CDB8300F51AFD /* TP_house.scn */,
 				B65E5170231C9DC6008CFA00 /* TP_wall_iron.png */,
 				B65E516E231C9DBF008CFA00 /* TP_wall_iron.scn */,
@@ -1305,7 +1311,7 @@
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
 				B67F1BA1231B9B2600D71A5E /* TP_grass_1x1.scn in Resources */,
 				B6292409231B888C00955B1E /* TP_stone_1x1.scn in Resources */,
-				B68A2028231CDB8700F51AFD /* TP_house.png in Resources */,
+				B68A2028231CDB8700F51AFD /* TP_house_blue.png in Resources */,
 				B6885FF8231AC1BE009098FA /* TP_ground_edge.png in Resources */,
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
 				B66BD3D82317E73E00E20212 /* enemy_1.scn in Resources */,
@@ -1321,6 +1327,7 @@
 				B6227A312301AB84009EF60F /* bokeh.png in Resources */,
 				B66BD3DA2317E74400E20212 /* enemy_1.png in Resources */,
 				B661FA3D2318D2C800D4A3C0 /* TP_target_kari.png in Resources */,
+				B68A202E231CEF8800F51AFD /* TP_house_red.png in Resources */,
 				B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */,
 				B608C498231101130073843E /* wood_wall_1x1.png in Resources */,
 				B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */,
@@ -1330,6 +1337,7 @@
 				B661FA432318D33600D4A3C0 /* TP_target_kari.scn in Resources */,
 				B61E94122300E390008CB325 /* Assets.xcassets in Resources */,
 				B65D5CBB231BBDBD009E4171 /* battle_bgm.mp3 in Resources */,
+				B68A202C231CEF8100F51AFD /* TP_house_green.png in Resources */,
 				B67F1B99231B99CC00D71A5E /* TP_ground_5x5.scn in Resources */,
 				B65D5CB9231BBDBA009E4171 /* normal_bgm.mp3 in Resources */,
 				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,

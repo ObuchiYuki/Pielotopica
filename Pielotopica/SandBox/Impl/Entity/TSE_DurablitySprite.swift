@@ -8,6 +8,24 @@
 
 import SpriteKit
 
+class TSE_DurablitySprite: TSSprite {
+    
+    var durablity:Int {
+        set {_sprite.durablity = newValue}
+        get {_sprite.durablity}
+    }
+    
+    private let _sprite = DurablitySprite(color: .red)
+    
+    init(max:Int) {
+        
+        super.init(sprite: _sprite)
+        _sprite.maxDurablity = max
+        
+    }
+}
+
+
 private class DurablitySprite: SKSpriteNode {
     
     var durablity:Int = 0 {didSet{_check()}}
@@ -37,22 +55,5 @@ private class DurablitySprite: SKSpriteNode {
         colorNode.run(.resize(toWidth: pwidth, duration: 0.3))
         
         colorNode.zPosition = 100
-    }
-}
-
-class TSE_DurablitySprite: TSSprite {
-    
-    var durablity:Int {
-        set {_sprite.durablity = newValue}
-        get {_sprite.durablity}
-    }
-    
-    private let _sprite = DurablitySprite(color: .red)
-    
-    init(max:Int) {
-        
-        super.init(sprite: _sprite)
-        _sprite.maxDurablity = max
-        
     }
 }

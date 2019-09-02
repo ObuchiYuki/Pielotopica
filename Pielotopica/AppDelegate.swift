@@ -28,8 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSItemManager.shared.register(.stoneKari)
         TSItemManager.shared.register(.grassKari)
         TSItemManager.shared.register(.ironWall)
-        TSItemManager.shared.register(.house)
         
+        TSItemManager.shared.register(.houseRed)
+        TSItemManager.shared.register(.houseBlue)
+        TSItemManager.shared.register(.houseGreen)
         
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)

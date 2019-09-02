@@ -61,10 +61,20 @@ public extension TSItem {
         block: .ironWall
     )
     
-    static let house = TSI_KariItem(
-        name: "ネンリョウシセツ",
-        textureNamed: "TP_item_thumb_house",
-        block: .house
+    static let houseRed = TSI_KariItem(
+        name: "赤いイエ",
+        textureNamed: "TP_item_thumb_house_red",
+        block: .houseRed
+    )
+    static let houseBlue = TSI_KariItem(
+        name: "青いイエ",
+        textureNamed: "TP_item_thumb_house_blue",
+        block: .houseBlue
+    )
+    static let houseGreen = TSI_KariItem(
+        name: "緑のイエ",
+        textureNamed: "TP_item_thumb_house_green",
+        block: .houseGreen
     )
 }
 
