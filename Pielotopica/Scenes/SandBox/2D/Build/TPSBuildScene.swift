@@ -21,8 +21,8 @@ class TPSBuildScene: GKSafeScene {
     
     override func sceneDidLoad() {
         
-        RMBindCenter.default.addObserver(forName: .TPBuildNotification) {[weak self] in
-            self?.showNotice($0)
+        RMBindCenter.default.addObserver(forName: .TPBuildNotification) {[weak self] notice in
+            self?.showNotice(notice.object)
         }
         
         noticeLabel.position = [0, -160]

@@ -24,5 +24,5 @@ struct TPBuildNotice {
 }
 
 extension RMBinder.Name where Object == TPBuildNotice {
-    static let TPBuildNotification = RMBinder.Name(rawValue: "TPBuildNotification")
+    static let TPBuildNotification = RMBinder.Name(rawValue: "__TPBuildNotification__")
 }

@@ -1040,7 +1040,6 @@
 				B69E867E2316825B004D4272 /* TPSBuildScene.swift */,
 				B69E86802316828D004D4272 /* TPSBuildSceneModel.swift */,
 				B69E868623168682004D4272 /* Components */,
-				B682B5FF231C95A300577FD1 /* TPBuildNotice.swift */,
 			);
 			path = Build;
 			sourceTree = "<group>";
@@ -1071,6 +1070,7 @@
 		B69E868623168682004D4272 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B682B5FF231C95A300577FD1 /* TPBuildNotice.swift */,
 				B6690596230E245E008AE24F /* TPBuildItemBar.swift */,
 				B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */,
 				B6EDB122230F81350042CA02 /* TPBuildSideMenuItem.swift */,
