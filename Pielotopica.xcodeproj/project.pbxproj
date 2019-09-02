@@ -20,14 +20,14 @@
 		B6012DF62318A67F00DC18CE /* TPGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF52318A67F00DC18CE /* TPGameController.swift */; };
 		B6012DFB2318ACE200DC18CE /* spawner.png in Resources */ = {isa = PBXBuildFile; fileRef = B6012DFA2318ACE100DC18CE /* spawner.png */; };
 		B6012DFD2318ADDB00DC18CE /* Impl+Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */; };
-		B6012DFF2318B11500DC18CE /* TS_SpawnerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DFE2318B11500DC18CE /* TS_SpawnerItem.swift */; };
+		B6012DFF2318B11500DC18CE /* TSI_SpawnerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DFE2318B11500DC18CE /* TSI_SpawnerItem.swift */; };
 		B6012E012318B5BB00DC18CE /* TP_spawner_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */; };
 		B6030EEE2301A518005C4312 /* Ex+BehaviorRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */; };
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
 		B6102371231A64FC009252E1 /* TSDurablityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102370231A64FC009252E1 /* TSDurablityManager.swift */; };
 		B6102373231A68B0009252E1 /* TSE_DurablitySprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */; };
-		B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_Wall1x5.swift */; };
+		B614C236230F731F00DA7093 /* TS_WoodWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_WoodWall.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93B92300E35E008CB325 /* TPStartBackgroundScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */; };
 		B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93BA2300E361008CB325 /* GameViewController.swift */; };
@@ -109,6 +109,9 @@
 		B65D5CB9231BBDBA009E4171 /* normal_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65D5CB8231BBDBA009E4171 /* normal_bgm.mp3 */; };
 		B65D5CBB231BBDBD009E4171 /* battle_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65D5CBA231BBDBD009E4171 /* battle_bgm.mp3 */; };
 		B65D5CBD231BBFEC009E4171 /* break.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65D5CBC231BBFEC009E4171 /* break.mp3 */; };
+		B65E516F231C9DC0008CFA00 /* TP_wall_iron.scn in Resources */ = {isa = PBXBuildFile; fileRef = B65E516E231C9DBF008CFA00 /* TP_wall_iron.scn */; };
+		B65E5171231C9DC6008CFA00 /* TP_wall_iron.png in Resources */ = {isa = PBXBuildFile; fileRef = B65E5170231C9DC6008CFA00 /* TP_wall_iron.png */; };
+		B65E5173231C9F78008CFA00 /* TS_IronWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65E5172231C9F78008CFA00 /* TS_IronWall.swift */; };
 		B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660938E2314C31400B528E5 /* TSItemStacksData.swift */; };
 		B660939323153B3400B528E5 /* Silom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B660939223153B2800B528E5 /* Silom.ttf */; };
 		B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939423154E6600B528E5 /* TPCraftMenu.swift */; };
@@ -116,7 +119,7 @@
 		B661FA392318CFCD00D4A3C0 /* TS_TargetBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */; };
 		B661FA3D2318D2C800D4A3C0 /* TP_target_kari.png in Resources */ = {isa = PBXBuildFile; fileRef = B661FA3C2318D2C800D4A3C0 /* TP_target_kari.png */; };
 		B661FA432318D33600D4A3C0 /* TP_target_kari.scn in Resources */ = {isa = PBXBuildFile; fileRef = B661FA422318D33600D4A3C0 /* TP_target_kari.scn */; };
-		B661FA452318D40500D4A3C0 /* TS_TargetKariItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661FA442318D40500D4A3C0 /* TS_TargetKariItem.swift */; };
+		B661FA452318D40500D4A3C0 /* TSI_TargetKariItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B661FA442318D40500D4A3C0 /* TSI_TargetKariItem.swift */; };
 		B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA50230B776C0038B098 /* RKRectAdjuster.swift */; };
 		B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA51230B776C0038B098 /* RKImageResizer.swift */; };
 		B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */; };
@@ -173,7 +176,7 @@
 		B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */; };
 		B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */; };
 		B69E8670231627B9004D4272 /* TSItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E866F231627B9004D4272 /* TSItemManager.swift */; };
-		B69E8672231635C6004D4272 /* TS_WoodWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E8671231635C6004D4272 /* TS_WoodWall.swift */; };
+		B69E8672231635C6004D4272 /* TSI_WoodWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E8671231635C6004D4272 /* TSI_WoodWall.swift */; };
 		B69E867723168028004D4272 /* TPSandBoxScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E867623168028004D4272 /* TPSandBoxScene.swift */; };
 		B69E867A2316809D004D4272 /* TPSMainMenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E86792316809D004D4272 /* TPSMainMenuScene.swift */; };
 		B69E867C23168129004D4272 /* TPSMainMenuSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69E867B23168129004D4272 /* TPSMainMenuSceneModel.swift */; };
@@ -208,7 +211,7 @@
 		B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB124230F8B200042CA02 /* TSBlockData.swift */; };
 		B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */; };
 		B6EEB27923160DDF004C5826 /* TSCraftMaterialValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EEB27823160DDF004C5826 /* TSCraftMaterialValue.swift */; };
-		B6EEB27C23160F5E004C5826 /* TS_JapaneseHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EEB27B23160F5E004C5826 /* TS_JapaneseHouse.swift */; };
+		B6EEB27C23160F5E004C5826 /* TSI_JapaneseHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EEB27B23160F5E004C5826 /* TSI_JapaneseHouse.swift */; };
 		B6EECD08231815CA005001FB /* TSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EECD07231815CA005001FB /* TSEntity.swift */; };
 		B6EECD0A23181649005001FB /* TSEntityWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EECD0923181649005001FB /* TSEntityWorld.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
@@ -245,14 +248,14 @@
 		B6012DF52318A67F00DC18CE /* TPGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameController.swift; sourceTree = "<group>"; };
 		B6012DFA2318ACE100DC18CE /* spawner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spawner.png; sourceTree = "<group>"; };
 		B6012DFC2318ADDB00DC18CE /* Impl+Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Impl+Entity.swift"; sourceTree = "<group>"; };
-		B6012DFE2318B11500DC18CE /* TS_SpawnerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_SpawnerItem.swift; sourceTree = "<group>"; };
+		B6012DFE2318B11500DC18CE /* TSI_SpawnerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_SpawnerItem.swift; sourceTree = "<group>"; };
 		B6012E002318B5BB00DC18CE /* TP_spawner_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_spawner_1x1.scn; sourceTree = "<group>"; };
 		B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+BehaviorRelay.swift"; sourceTree = "<group>"; };
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
 		B6102370231A64FC009252E1 /* TSDurablityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDurablityManager.swift; sourceTree = "<group>"; };
 		B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE_DurablitySprite.swift; sourceTree = "<group>"; };
-		B614C235230F731F00DA7093 /* TS_Wall1x5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Wall1x5.swift; sourceTree = "<group>"; };
+		B614C235230F731F00DA7093 /* TS_WoodWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_WoodWall.swift; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61E93B62300E356008CB325 /* TPCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCommon.swift; sourceTree = "<group>"; };
@@ -338,6 +341,9 @@
 		B65D5CB8231BBDBA009E4171 /* normal_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = normal_bgm.mp3; sourceTree = "<group>"; };
 		B65D5CBA231BBDBD009E4171 /* battle_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = battle_bgm.mp3; sourceTree = "<group>"; };
 		B65D5CBC231BBFEC009E4171 /* break.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = break.mp3; sourceTree = "<group>"; };
+		B65E516E231C9DBF008CFA00 /* TP_wall_iron.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wall_iron.scn; sourceTree = "<group>"; };
+		B65E5170231C9DC6008CFA00 /* TP_wall_iron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wall_iron.png; sourceTree = "<group>"; };
+		B65E5172231C9F78008CFA00 /* TS_IronWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_IronWall.swift; sourceTree = "<group>"; };
 		B6604D6A231023BF0077C76A /* Pielotopica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pielotopica.entitlements; sourceTree = "<group>"; };
 		B660938E2314C31400B528E5 /* TSItemStacksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemStacksData.swift; sourceTree = "<group>"; };
 		B660939223153B2800B528E5 /* Silom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silom.ttf; sourceTree = "<group>"; };
@@ -346,7 +352,7 @@
 		B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_TargetBlock.swift; sourceTree = "<group>"; };
 		B661FA3C2318D2C800D4A3C0 /* TP_target_kari.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_target_kari.png; sourceTree = "<group>"; };
 		B661FA422318D33600D4A3C0 /* TP_target_kari.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_target_kari.scn; sourceTree = "<group>"; };
-		B661FA442318D40500D4A3C0 /* TS_TargetKariItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_TargetKariItem.swift; sourceTree = "<group>"; };
+		B661FA442318D40500D4A3C0 /* TSI_TargetKariItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_TargetKariItem.swift; sourceTree = "<group>"; };
 		B667BA50230B776C0038B098 /* RKRectAdjuster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKRectAdjuster.swift; sourceTree = "<group>"; };
 		B667BA51230B776C0038B098 /* RKImageResizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKImageResizer.swift; sourceTree = "<group>"; };
 		B667BA52230B776C0038B098 /* RKObjectNameMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKObjectNameMapper.swift; sourceTree = "<group>"; };
@@ -405,7 +411,7 @@
 		B69E865E231625A2004D4272 /* retro_transition_fade_from_top_left.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_top_left.fsh; sourceTree = "<group>"; };
 		B69E865F231625A2004D4272 /* retro_transition_fade_from_top.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = retro_transition_fade_from_top.fsh; sourceTree = "<group>"; };
 		B69E866F231627B9004D4272 /* TSItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemManager.swift; sourceTree = "<group>"; };
-		B69E8671231635C6004D4272 /* TS_WoodWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_WoodWall.swift; sourceTree = "<group>"; };
+		B69E8671231635C6004D4272 /* TSI_WoodWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_WoodWall.swift; sourceTree = "<group>"; };
 		B69E867623168028004D4272 /* TPSandBoxScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSandBoxScene.swift; sourceTree = "<group>"; };
 		B69E86792316809D004D4272 /* TPSMainMenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSMainMenuScene.swift; sourceTree = "<group>"; };
 		B69E867B23168129004D4272 /* TPSMainMenuSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSMainMenuSceneModel.swift; sourceTree = "<group>"; };
@@ -441,7 +447,7 @@
 		B6EDB124230F8B200042CA02 /* TSBlockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockData.swift; sourceTree = "<group>"; };
 		B6EDB127230F8C980042CA02 /* TSBlockRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSBlockRotation.swift; sourceTree = "<group>"; };
 		B6EEB27823160DDF004C5826 /* TSCraftMaterialValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSCraftMaterialValue.swift; sourceTree = "<group>"; };
-		B6EEB27B23160F5E004C5826 /* TS_JapaneseHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_JapaneseHouse.swift; sourceTree = "<group>"; };
+		B6EEB27B23160F5E004C5826 /* TSI_JapaneseHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_JapaneseHouse.swift; sourceTree = "<group>"; };
 		B6EECD07231815CA005001FB /* TSEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntity.swift; sourceTree = "<group>"; };
 		B6EECD0923181649005001FB /* TSEntityWorld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntityWorld.swift; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
@@ -797,7 +803,8 @@
 				B651231323114DFF003129B5 /* TS_Air.swift */,
 				B6227A6123023732009EF60F /* TS_JapaneseHouse2.swift */,
 				B6227A6223023732009EF60F /* TS_Floar5x5.swift */,
-				B614C235230F731F00DA7093 /* TS_Wall1x5.swift */,
+				B614C235230F731F00DA7093 /* TS_WoodWall.swift */,
+				B65E5172231C9F78008CFA00 /* TS_IronWall.swift */,
 				B661FA382318CFCD00D4A3C0 /* TS_TargetBlock.swift */,
 				B67CA121231AB32A00A01646 /* TS_Tree.swift */,
 				B629240C231B88A800955B1E /* TS_Stone.swift */,
@@ -809,6 +816,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B65E5170231C9DC6008CFA00 /* TP_wall_iron.png */,
+				B65E516E231C9DBF008CFA00 /* TP_wall_iron.scn */,
 				B67F1BA6231B9FE900D71A5E /* TP_target.png */,
 				B67F1BA4231B9ED900D71A5E /* TP_target.scn */,
 				B67F1B9E231B9AD200D71A5E /* TP_grass_1x1.png */,
@@ -1146,10 +1155,10 @@
 		B6EEB27A23160F48004C5826 /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				B6EEB27B23160F5E004C5826 /* TS_JapaneseHouse.swift */,
-				B69E8671231635C6004D4272 /* TS_WoodWall.swift */,
-				B6012DFE2318B11500DC18CE /* TS_SpawnerItem.swift */,
-				B661FA442318D40500D4A3C0 /* TS_TargetKariItem.swift */,
+				B6EEB27B23160F5E004C5826 /* TSI_JapaneseHouse.swift */,
+				B69E8671231635C6004D4272 /* TSI_WoodWall.swift */,
+				B6012DFE2318B11500DC18CE /* TSI_SpawnerItem.swift */,
+				B661FA442318D40500D4A3C0 /* TSI_TargetKariItem.swift */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -1314,6 +1323,8 @@
 				B6012DFB2318ACE200DC18CE /* spawner.png in Resources */,
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
 				B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */,
+				B65E516F231C9DC0008CFA00 /* TP_wall_iron.scn in Resources */,
+				B65E5171231C9DC6008CFA00 /* TP_wall_iron.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1398,6 +1409,7 @@
 				B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */,
 				B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */,
 				B69E867A2316809D004D4272 /* TPSMainMenuScene.swift in Sources */,
+				B65E5173231C9F78008CFA00 /* TS_IronWall.swift in Sources */,
 				B6DDABEB2318E7D5003F538B /* RMMeasure.swift in Sources */,
 				B6EECD08231815CA005001FB /* TSEntity.swift in Sources */,
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
@@ -1461,8 +1473,8 @@
 				B6E8826623126B66003F3124 /* RMLog.swift in Sources */,
 				B6012DF62318A67F00DC18CE /* TPGameController.swift in Sources */,
 				B6227A6323023732009EF60F /* TS_JapaneseHouse2.swift in Sources */,
-				B69E8672231635C6004D4272 /* TS_WoodWall.swift in Sources */,
-				B6EEB27C23160F5E004C5826 /* TS_JapaneseHouse.swift in Sources */,
+				B69E8672231635C6004D4272 /* TSI_WoodWall.swift in Sources */,
+				B6EEB27C23160F5E004C5826 /* TSI_JapaneseHouse.swift in Sources */,
 				B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
 				B6227A71230239DB009EF60F /* Impl+Item.swift in Sources */,
@@ -1471,7 +1483,7 @@
 				B6926486231BCD7C00986595 /* TPGameEndData.swift in Sources */,
 				B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */,
 				B66093992315526500B528E5 /* TPCraftMoreItems.swift in Sources */,
-				B6012DFF2318B11500DC18CE /* TS_SpawnerItem.swift in Sources */,
+				B6012DFF2318B11500DC18CE /* TSI_SpawnerItem.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
 				B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */,
 				B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */,
@@ -1486,7 +1498,7 @@
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
 				B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,
-				B661FA452318D40500D4A3C0 /* TS_TargetKariItem.swift in Sources */,
+				B661FA452318D40500D4A3C0 /* TSI_TargetKariItem.swift in Sources */,
 				B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */,
 				B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */,
 				B61E94092300E390008CB325 /* _TPStartSceneTabItem.swift in Sources */,
@@ -1507,7 +1519,7 @@
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
 				B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,
-				B614C236230F731F00DA7093 /* TS_Wall1x5.swift in Sources */,
+				B614C236230F731F00DA7093 /* TS_WoodWall.swift in Sources */,
 				B6102371231A64FC009252E1 /* TSDurablityManager.swift in Sources */,
 				B6926488231BE2FD00986595 /* TPGameOverScene.swift in Sources */,
 				B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */,

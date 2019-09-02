@@ -27,12 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSItemManager.shared.register(.kiKari)
         TSItemManager.shared.register(.stoneKari)
         TSItemManager.shared.register(.grassKari)
+        TSItemManager.shared.register(.ironWall)
+        
         
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)
         print(TSBlock.ground5x5)
         print(TSBlock.ground5x5Edge)
-        print(TSBlock.woodWall1x5)
+        print(TSBlock.woodWall)
+        print(TSBlock.ironWall)
         
         _=TSLevel()
         

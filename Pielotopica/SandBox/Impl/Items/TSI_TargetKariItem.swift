@@ -1,5 +1,5 @@
 //
-//  TS_SpawnerItem.swift
+//  TS_TargetKariItem.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/08/30.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TS_SpawnerItem: TSBlockItem {
+public class TSI_KariItem: TSBlockItem {
     override public func materialsForCraft() -> TSCraftMaterialValue? {
         return TSCraftMaterialValue(iron: 0, wood: 0, circit: 0, fuel: 0)
     }

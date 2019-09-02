@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TS_WoodWall: TSBlockItem {
+public class TSI_WoodWall: TSBlockItem {
     override public func materialsForCraft() -> TSCraftMaterialValue? {
         return TSCraftMaterialValue(iron: 0, wood: 5, circit: 0, fuel: 5)
     }

@@ -11,48 +11,54 @@ import Foundation
 
 // TSItemへの登録
 public extension TSItem {
-    static let none = TSItem(name: "<none>", index: 0, textureNamed: "TP_none")
+    static let none = TSItem(name: "", index: 0, textureNamed: "TP_none")
     
-    static let japaneseHouse2 = TS_JapaneseHouse(
+    static let japaneseHouse2 = TSI_JapaneseHouse(
         name: "チイサナニホンカオク",
         textureNamed: "TP_item_thumb_japanese_house_2",
         block: .japaneseHouse2
     )
     
-    static let woodWall1x5 = TS_WoodWall(
+    static let woodWall1x5 = TSI_WoodWall(
         name: "キのヘイ",
         textureNamed: "TP_item_thumb_wood_wall_1x5",
-        block: .woodWall1x5
+        block: .woodWall
     )
     
-    static let pipotSpawner = TS_SpawnerItem(
+    static let pipotSpawner = TSI_SpawnerItem(
         name: "ピポットのスポナー",
         textureNamed: "TP_item_thumb_spawner",
         block: .pipotSpawner
     )
     
-    static let targetKari = TS_KariItem(
+    static let targetKari = TSI_KariItem(
         name: "カリのキョテン",
         textureNamed: "TP_item_thumb_kari",
         block: .targetKari
     )
     
-    static let kiKari = TS_KariItem(
+    static let kiKari = TSI_KariItem(
         name: "カリの木",
         textureNamed: "TP_item_thumb_tree",
         block: .tree
     )
     
-    static let stoneKari = TS_KariItem(
+    static let stoneKari = TSI_KariItem(
         name: "カリの岩",
         textureNamed: "TP_item_thumb_kari",
         block: .stone
     )
     
-    static let grassKari = TS_KariItem(
+    static let grassKari = TSI_KariItem(
         name: "カリの茂み",
         textureNamed: "TP_item_thumb_grass",
         block: .grass
+    )
+    
+    static let ironWall = TSI_KariItem(
+        name: "テツのカベ",
+        textureNamed: "TP_item_thumb_iron_wall",
+        block: .ironWall
     )
 }
 
