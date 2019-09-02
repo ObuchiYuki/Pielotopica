@@ -22,6 +22,7 @@ class TSEntityWorld {
     
     /// この世界に存在するエンティティ
     var entities = [TSEntityObject]()
+    let maxEntities = 10
     private weak var delegate:TSEntityWorldDelegate!
     
     // ================================================================== //
@@ -187,6 +188,8 @@ class TSEntityWorld {
     }
     
     private func _spawnUpdate() {
+        
+        if entities.count > maxEntities {return}
         
         for (point, spowner) in spowners {
             /// 一回呼ばれるのに何1/2秒かかるか
