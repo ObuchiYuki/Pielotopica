@@ -284,7 +284,10 @@ class TPSandBox3DSceneModel {
         let block = level.getAnchorBlock(at: anchorPoint)
     
         // process
-        guard block.canDestroy(at: anchorPoint) else {return}
+        guard block.canDestroy(at: anchorPoint) else {
+            TPBuildNotice.show(text: "このブロックは破壊できません。", color: TPCommon.Color.dangerous)
+            return
+        }
         
         let action = TSBlockAnimator.generateBlockDestroyAnimation(for: touchedNode) {
             self.binder.__removeNode(touchedNode)
