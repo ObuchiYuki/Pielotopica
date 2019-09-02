@@ -10,12 +10,17 @@ import UIKit
 
 struct TPBuildNotice {
     
-    static func show(_ notice: TPBuildNotice) {
-        RMBindCenter.default.post(name: .TPBuildNotification, object: notice)
+    static func show(text:String, color:UIColor = .white) {
+        RMBindCenter.default.post(name: .TPBuildNotification, object: TPBuildNotice(text: text, color: color))
     }
     
-    let color:UIColor
     let text:String
+    let color:UIColor
+    
+    init(text:String, color:UIColor) {
+        self.text = text
+        self.color = color
+    }
 }
 
 extension RMBinder.Name where Object == TPBuildNotice {

@@ -143,6 +143,7 @@ class TPBuildItemBar: GKSpriteNode {
         
         inventory.setSelectedItemIndex(index)
         
+        TPBuildNotice.show(text: inventory.selectedItemStack.item.name)
     }
     
     private func _setupInventoryNodes() {
