@@ -219,7 +219,7 @@
 		B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */; };
 		B6F8C5102312CCDA00264EBF /* RMAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */; };
 		B6F8C5122313653100264EBF /* TSFuelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C5112313653100264EBF /* TSFuelData.swift */; };
-		B6F8C51423136E2600264EBF /* TSMaterialValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */; };
+		B6F8C51423136E2600264EBF /* TPMaterialValueMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C51323136E2600264EBF /* TPMaterialValueMap.swift */; };
 		B6F8C51823136FC500264EBF /* ClassIndex.txt in Resources */ = {isa = PBXBuildFile; fileRef = B6F8C51723136FC500264EBF /* ClassIndex.txt */; };
 /* End PBXBuildFile section */
 
@@ -456,7 +456,7 @@
 		B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x5.scn; sourceTree = "<group>"; };
 		B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMAutoSave.swift; sourceTree = "<group>"; };
 		B6F8C5112313653100264EBF /* TSFuelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSFuelData.swift; sourceTree = "<group>"; };
-		B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMaterialValueMap.swift; sourceTree = "<group>"; };
+		B6F8C51323136E2600264EBF /* TPMaterialValueMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMaterialValueMap.swift; sourceTree = "<group>"; };
 		B6F8C51723136FC500264EBF /* ClassIndex.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ClassIndex.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -545,7 +545,7 @@
 		B60C1C81231CC118005A7724 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				B6F8C51323136E2600264EBF /* TSMaterialValueMap.swift */,
+				B6F8C51323136E2600264EBF /* TPMaterialValueMap.swift */,
 				B60C1C82231CC146005A7724 /* TPCaptureVisibilityManager.swift */,
 			);
 			path = Manager;
@@ -1474,7 +1474,7 @@
 				B69E867F2316825B004D4272 /* TPSBuildScene.swift in Sources */,
 				B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */,
 				B6731B2B2314BED800B70C3F /* TSInventoryData.swift in Sources */,
-				B6F8C51423136E2600264EBF /* TSMaterialValueMap.swift in Sources */,
+				B6F8C51423136E2600264EBF /* TPMaterialValueMap.swift in Sources */,
 				B69E8670231627B9004D4272 /* TSItemManager.swift in Sources */,
 				B69E868923168707004D4272 /* TPSCraftScene.swift in Sources */,
 				B6885FFE231B3E78009098FA /* RMWeakObject.swift in Sources */,

@@ -9,17 +9,17 @@
 import Foundation
 
 class TPCaptureVisibilityManager {
+    
     static let shared = TPCaptureVisibilityManager()
     
     // visibilityMap[ClassIndex] = Visibility
-    private var visibilityMap:[Bool] {
-        
-    }
+    private var visibilityMap = TPMaterialValueMap.needsShowMap
     
     func isVisible(classIndex:Int) -> Bool {
-        
+        return visibilityMap[classIndex]
     }
+    
     func setVisibility(_ visibility: Bool, for classIndex: Int) {
-        
+        visibilityMap[classIndex] = visibility
     }
 }
