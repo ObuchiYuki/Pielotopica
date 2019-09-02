@@ -17,7 +17,7 @@ class TPDropButton: GKButtonNode {
     
     init(textureNamed name:String) {
         super.init(
-            size: [47, 47],
+            size: [49, 49],
             defaultTexture: .init(imageNamed: name),
             selectedTexture: .init(imageNamed: name+"_pressed"),
             disabledTexture: nil

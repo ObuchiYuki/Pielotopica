@@ -1141,10 +1141,10 @@
 		B6E8826923128429003F3124 /* CaptureScene */ = {
 			isa = PBXGroup;
 			children = (
-				B60C1C81231CC118005A7724 /* Manager */,
 				B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */,
 				B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */,
 				B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */,
+				B60C1C81231CC118005A7724 /* Manager */,
 				B649D39C2312A13200FFE551 /* Components */,
 			);
 			name = CaptureScene;

@@ -12,14 +12,14 @@ class TPFlatButton: GKButtonNode {
     init(textureNamed name:String, useDisable:Bool = false) {
         if useDisable {
             super.init(
-                size: [75, 26],
+                size: [77, 28],
                 defaultTexture: .init(imageNamed: name),
                 selectedTexture: .init(imageNamed: name+"_pressed"),
                 disabledTexture: .init(imageNamed: name+"_disabled")
             )
         }else{
             super.init(
-                size: [75, 26],
+                size: [77, 28],
                 defaultTexture: .init(imageNamed: name),
                 selectedTexture: .init(imageNamed: name+"_pressed"),
                 disabledTexture: nil

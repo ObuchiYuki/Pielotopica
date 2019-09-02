@@ -12,7 +12,7 @@ class TPMainMenuItem: GKButtonNode {
     init(textureNamed textureName: String) {
         
         super.init(
-            size: [76, 76],
+            size: [77, 77],
             defaultTexture: .init(imageNamed: textureName),
             selectedTexture: .init(imageNamed: textureName+"_pressed"),
             disabledTexture: nil

@@ -19,7 +19,7 @@ class TPCaptureVisibilityManager {
         return visibilityMap[classIndex]
     }
     
-    func setVisibility(_ visibility: Bool, for classIndex: Int) {
-        visibilityMap[classIndex] = visibility
+    func didPredictionGet(for classIndex: Int) {
+        visibilityMap[classIndex] = false
     }
 }

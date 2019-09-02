@@ -20,11 +20,11 @@ class TPCaptureViewController: UIViewController {
     private var gameScene = TPCaptureUIScene()
 
     // MARK: - Recognition Level -
+    private let visibilityManager = TPCaptureVisibilityManager.shared
     private var detector:RKObjectDetector!
     private var videoCapture:RKVideoCapture!
     
     private var currentShowingPredictions = [RKObjectDetector.Prediction]()
-    
     
     // ======================================================================== //
     // MARK: - Methods -
@@ -50,7 +50,7 @@ class TPCaptureViewController: UIViewController {
         setupDetector()
         setUpCamera()
         #endif
-        
+
     }
     
     // ======================================================================== //
@@ -64,6 +64,7 @@ class TPCaptureViewController: UIViewController {
         
         guard let prediction = getPrediction(at: location) else {return}
 
+        visibilityManager.didPredictionGet(for: prediction.classIndex)
         _showPrediction(prediction)
     }
     
@@ -82,6 +83,12 @@ class TPCaptureViewController: UIViewController {
         for i in 0..<boundingBoxeProviders.count {
             if i < predictions.count {
                 let prediction = predictions[i]
+                
+                guard visibilityManager.isVisible(classIndex: prediction.classIndex) else {
+                    boundingBoxeProviders[i].hide()
+                    return
+                }
+                 
                 let label = prediction.name
                                 
                 boundingBoxeProviders[i].show(at: prediction.rect(for: previewView.frame.size).origin, with: label)
