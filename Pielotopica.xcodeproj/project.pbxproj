@@ -97,6 +97,9 @@
 		B629240D231B88A800955B1E /* TS_Stone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629240C231B88A800955B1E /* TS_Stone.swift */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */; };
+		B64D401B231D072700CA3198 /* TP_fuel_factory.scn in Resources */ = {isa = PBXBuildFile; fileRef = B64D401A231D072700CA3198 /* TP_fuel_factory.scn */; };
+		B64D401D231D072C00CA3198 /* TP_fuel_factory.png in Resources */ = {isa = PBXBuildFile; fileRef = B64D401C231D072C00CA3198 /* TP_fuel_factory.png */; };
+		B64D401F231D076900CA3198 /* TS_FuelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D401E231D076900CA3198 /* TS_FuelFactory.swift */; };
 		B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */; };
 		B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */; };
 		B651231423114DFF003129B5 /* TS_Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* TS_Air.swift */; };
@@ -334,6 +337,9 @@
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
 		B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureBottomBar.swift; sourceTree = "<group>"; };
+		B64D401A231D072700CA3198 /* TP_fuel_factory.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_fuel_factory.scn; sourceTree = "<group>"; };
+		B64D401C231D072C00CA3198 /* TP_fuel_factory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TP_fuel_factory.png; path = ../../../../../../Desktop/TP_fuel_factory.png; sourceTree = "<group>"; };
+		B64D401E231D076900CA3198 /* TS_FuelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_FuelFactory.swift; sourceTree = "<group>"; };
 		B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMaterialSprite.swift; sourceTree = "<group>"; };
 		B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPLoaderScene.swift; sourceTree = "<group>"; };
 		B651231323114DFF003129B5 /* TS_Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Air.swift; sourceTree = "<group>"; };
@@ -831,6 +837,7 @@
 				B629240C231B88A800955B1E /* TS_Stone.swift */,
 				B67F1BA2231B9B4600D71A5E /* TS_Grass.swift */,
 				B68A2029231CDBC200F51AFD /* TS_House.swift */,
+				B64D401E231D076900CA3198 /* TS_FuelFactory.swift */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -838,6 +845,8 @@
 		B6227A662302391A009EF60F /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				B64D401C231D072C00CA3198 /* TP_fuel_factory.png */,
+				B64D401A231D072700CA3198 /* TP_fuel_factory.scn */,
 				B68A2027231CDB8700F51AFD /* TP_house_blue.png */,
 				B68A202B231CEF8100F51AFD /* TP_house_green.png */,
 				B68A202D231CEF8800F51AFD /* TP_house_red.png */,
@@ -1326,6 +1335,7 @@
 				B67F1B9F231B9AD300D71A5E /* TP_grass_1x1.png in Resources */,
 				B6227A312301AB84009EF60F /* bokeh.png in Resources */,
 				B66BD3DA2317E74400E20212 /* enemy_1.png in Resources */,
+				B64D401D231D072C00CA3198 /* TP_fuel_factory.png in Resources */,
 				B661FA3D2318D2C800D4A3C0 /* TP_target_kari.png in Resources */,
 				B68A202E231CEF8800F51AFD /* TP_house_red.png in Resources */,
 				B6227A6E2302391A009EF60F /* TP_japanese_house_2.scn in Resources */,
@@ -1339,6 +1349,7 @@
 				B65D5CBB231BBDBD009E4171 /* battle_bgm.mp3 in Resources */,
 				B68A202C231CEF8100F51AFD /* TP_house_green.png in Resources */,
 				B67F1B99231B99CC00D71A5E /* TP_ground_5x5.scn in Resources */,
+				B64D401B231D072700CA3198 /* TP_fuel_factory.scn in Resources */,
 				B65D5CB9231BBDBA009E4171 /* normal_bgm.mp3 in Resources */,
 				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,
 				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
@@ -1543,6 +1554,7 @@
 				B65D5CB4231BBC85009E4171 /* TPClearAward.swift in Sources */,
 				B6002D91231A21FE006C4D94 /* TSNBD.swift in Sources */,
 				B61E93CA2300E36C008CB325 /* RMStorage.swift in Sources */,
+				B64D401F231D076900CA3198 /* TS_FuelFactory.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,
 				B667BA5C230B776C0038B098 /* YOLO+Helpers.swift in Sources */,

@@ -76,5 +76,11 @@ public extension TSItem {
         textureNamed: "TP_item_thumb_house_green",
         block: .houseGreen
     )
+    
+    static let fuelFactory = TSI_KariItem(
+        name: "燃料工場",
+        textureNamed: "TP_item_thumb_fuel_factory",
+        block: .fuelFactory
+    )
 }
 

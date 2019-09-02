@@ -9,6 +9,12 @@
 import UIKit
 
 struct TPCommon {
+    #if DEBUG
+    static let debug = true
+    #else
+    static let debug = false
+    #endif
+    
     struct Color {
         static let background:UIColor = #colorLiteral(red: 0.7921568627, green: 0.7725490196, blue: 0.6784313725, alpha: 1)
         static let text:UIColor = #colorLiteral(red: 0.2784313725, green: 0.2666666667, blue: 0.2274509804, alpha: 1)

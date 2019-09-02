@@ -34,12 +34,15 @@ public extension TSBlock {
     
     static let ironWall:TSBlock = TS_IronWall(nodeNamed: "TP_wall_iron", index: 23)
     
+    
     static let houseRed:TSBlock = TS_House(color: .red, nodeNamed: "TP_house", index: 24)
     
     static let houseGreen:TSBlock = TS_House(color: .green, nodeNamed: "TP_house", index: 25)
     
     static let houseBlue:TSBlock = TS_House(color: .blue, nodeNamed: "TP_house", index: 26)
     
+    
+    static let fuelFactory:TSBlock = TS_FuelFactory(nodeNamed: "TP_fuel_factory", index: 27)
     
     
 }

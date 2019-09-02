@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        TSInventory.shared.addItem(.woodWall1x5, count: 100)
+        
         TSFuelData.shared.setMaxFuel(1000)
         TSFuelData.shared.setMaxHeart(100)
         
@@ -33,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSItemManager.shared.register(.houseBlue)
         TSItemManager.shared.register(.houseGreen)
         
+        TSItemManager.shared.register(.fuelFactory)
+
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)
         print(TSBlock.ground5x5)

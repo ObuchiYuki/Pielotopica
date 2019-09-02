@@ -53,7 +53,7 @@ class TPGameController {
                 
     }
     func end(with state: TPGameEndData.State) {
-        self.entityWorld.end()
+
         self.updateTimer?.invalidate()
         self.level.delegates.remove(self)
         TPSandBoxRootSceneModel.shared.isBattle = false
@@ -64,8 +64,12 @@ class TPGameController {
         
         TPGameController.lastGameEndData = data
         if state == .gameover {
-            _moveCamera { RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: data) }
+            _moveCamera {
+                self.entityWorld.end()
+                RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: data)
+            }
         }else{
+            self.entityWorld.end()
             RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: data)
         }
     }
@@ -74,9 +78,13 @@ class TPGameController {
     // MARK: - Private -
     
     private func _moveCamera(_ completion: @escaping ()->()) {
-        // SCNVector3(x: 100, y: 100, z: 100)
-        // 4
-        //TPSandboxSceneController.initirized?.cameraNode.position = []
+        guard let cameraNode = TPSandboxSceneController.initirized?.cameraNode else {return}
+        
+        let a1 = SCNAction.cameraZoom(to: 4, duration: 1)
+        let a2 = SCNAction.move(to: [100, 103, 100], duration: 1)
+        let ar = SCNAction.group([a1, a2]).setEase(.easeInEaseOut)
+        
+        cameraNode.runAction(.sequence([ar, .wait(duration: 3) , .run{_ in completion() }]) )
     }
     // 毎秒呼ばれる。
     private func _update() {
