@@ -14,6 +14,8 @@ class TPSandboxSceneController: GK3DSceneController {
     // ===================================================================== //
     // MARK: - Properies -
     
+    public static var initirized:TPSandboxSceneController?
+    
     public lazy var sceneModel = TPSandBox3DSceneModel(self)
     public var gameController:TPGameController?
     
@@ -28,6 +30,9 @@ class TPSandboxSceneController: GK3DSceneController {
     
     override init() {
         super.init()
+        
+        TPSandboxSceneController.initirized = self
+        
         #if DEBUG
         TPSandboxSceneController._debug = self
         #endif

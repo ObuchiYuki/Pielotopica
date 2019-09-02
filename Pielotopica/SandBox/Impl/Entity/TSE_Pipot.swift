@@ -65,7 +65,7 @@ class TSE_Pipot: TSEntity {
         
         if (object.position).isNear(to: world.getTargetPosition().point, distanceThreshold: 1) {
             TPGameController.initirized?.end(with: .gameover)
-            object.removeFromWorld()
+            
         }
         
         RMMeasure.end()

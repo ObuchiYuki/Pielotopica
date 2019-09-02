@@ -41,7 +41,7 @@ class TPSandboxCameraGestureHelper {
         
         let tscale = 1 / pinchScale
         let rscale = Double(tscale * 10)
-        
+                
         delegate.cameraGestureHelper(self, cameraDidchangeZoomedTo: rscale)
     }
     
@@ -68,7 +68,7 @@ class TPSandboxCameraGestureHelper {
         p.x = p.x.into(80...110)
         p.y = p.y.into(70...120)
         p.z = p.z.into(80...120)
-            
+                
         self.delegate.cameraGestureHelper(self, cameraDidMoveTo: p)
     }
     

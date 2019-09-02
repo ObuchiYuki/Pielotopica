@@ -220,6 +220,7 @@
 		B6EEB27C23160F5E004C5826 /* TSI_JapaneseHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EEB27B23160F5E004C5826 /* TSI_JapaneseHouse.swift */; };
 		B6EECD08231815CA005001FB /* TSEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EECD07231815CA005001FB /* TSEntity.swift */; };
 		B6EECD0A23181649005001FB /* TSEntityWorld.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EECD0923181649005001FB /* TSEntityWorld.swift */; };
+		B6F00E45231CFA1A006F764E /* Ex+SCNAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F00E44231CFA1A006F764E /* Ex+SCNAction.swift */; };
 		B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */; };
 		B6F75ECF23100DD300BD02DA /* TP_wood_wall_1x5.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */; };
 		B6F8C5102312CCDA00264EBF /* RMAutoSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */; };
@@ -462,6 +463,7 @@
 		B6EEB27B23160F5E004C5826 /* TSI_JapaneseHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_JapaneseHouse.swift; sourceTree = "<group>"; };
 		B6EECD07231815CA005001FB /* TSEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntity.swift; sourceTree = "<group>"; };
 		B6EECD0923181649005001FB /* TSEntityWorld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEntityWorld.swift; sourceTree = "<group>"; };
+		B6F00E44231CFA1A006F764E /* Ex+SCNAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SCNAction.swift"; sourceTree = "<group>"; };
 		B6F44DCC230A3734004281E0 /* Ex+SKNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+SKNode.swift"; sourceTree = "<group>"; };
 		B6F75ECE23100DD300BD02DA /* TP_wood_wall_1x5.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x5.scn; sourceTree = "<group>"; };
 		B6F8C50F2312CCDA00264EBF /* RMAutoSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMAutoSave.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 				B6030EED2301A518005C4312 /* Ex+BehaviorRelay.swift */,
 				B69CE2F6230E6CE600CE04E6 /* Ex+UIStoryboard.swift */,
 				B6002D97231A340E006C4D94 /* Ex+CGPoint.swift */,
+				B6F00E44231CFA1A006F764E /* Ex+SCNAction.swift */,
 			);
 			path = AppLib;
 			sourceTree = "<group>";
@@ -1477,6 +1480,7 @@
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
 				B6EECD0A23181649005001FB /* TSEntityWorld.swift in Sources */,
 				B66BD3DD2317E8A800E20212 /* TSE_Pipot.swift in Sources */,
+				B6F00E45231CFA1A006F764E /* Ex+SCNAction.swift in Sources */,
 				B667BA5F230B776C0038B098 /* YOLO.swift in Sources */,
 				B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */,
 				B6690599230E2861008AE24F /* TPDropButton.swift in Sources */,

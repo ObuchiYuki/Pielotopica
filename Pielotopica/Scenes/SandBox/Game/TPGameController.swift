@@ -61,13 +61,23 @@ class TPGameController {
         let award = stageManager.award(on: stageManager.getDay())
         let data = TPGameEndData(state: state, award: award)
         
+        
         TPGameController.lastGameEndData = data
-        RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: data)
+        if state == .gameover {
+            _moveCamera { RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: data) }
+        }else{
+            RMBindCenter.default.post(name: .TPGameControllerGameDidEnd, object: data)
+        }
     }
     
     // ===================================================================== //
     // MARK: - Private -
     
+    private func _moveCamera(_ completion: @escaping ()->()) {
+        // SCNVector3(x: 100, y: 100, z: 100)
+        // 4
+        //TPSandboxSceneController.initirized?.cameraNode.position = []
+    }
     // 毎秒呼ばれる。
     private func _update() {
         self.timeRemain -= 1
