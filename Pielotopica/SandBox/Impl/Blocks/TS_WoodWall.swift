@@ -14,7 +14,7 @@ class TS_WoodWall: TSBlock {
     // =============================================================== //
     // MARK: - Methods -
     override func getOriginalNodeSize() -> TSVector3 {
-        return [1, 1, 5]
+        return [1, 1, 3]
     }
     override func getHardnessLevel() -> Int {
         return 100

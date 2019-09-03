@@ -22,6 +22,9 @@ public struct GKSoundFile {
 
 public class GKSoundPlayer {
 
+    public var musicVolume:Float = 0.5
+    public var seVolume: Float = 0.5
+    
     private var musicPlayer: AVAudioPlayer!
     private var soundPlayer: AVAudioPlayer!
 
@@ -37,6 +40,7 @@ public class GKSoundPlayer {
     public func playMusic(_ file: GKSoundFile) {
         if let url = Bundle.main.url(forResource: file._filename, withExtension: file._exp) {
             musicPlayer = try? AVAudioPlayer(contentsOf: url)
+            musicPlayer.volume = musicVolume
             musicPlayer.numberOfLoops = -1
             musicPlayer.prepareToPlay()
             musicPlayer.play()
@@ -66,6 +70,7 @@ public class GKSoundPlayer {
         if let url = Bundle.main.url(forResource: file._filename, withExtension: file._exp) {
             soundPlayer = try? AVAudioPlayer(contentsOf: url)
             soundPlayer.stop()
+            soundPlayer.volume = seVolume
             soundPlayer.numberOfLoops = 0
             soundPlayer.prepareToPlay()
             soundPlayer.play()

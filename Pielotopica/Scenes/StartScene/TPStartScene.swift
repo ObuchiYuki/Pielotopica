@@ -50,6 +50,7 @@ class TPStartScene:GKSafeScene {
         super.sceneDidLoad()
         
         ring.addTarget(self, action: #selector(onRingSelected), for: .touchUpInside)
+        tabitemSetting.addTarget(self, action: #selector(onSettingTap), for: .touchUpInside)
         
         self._setup()
     }
@@ -59,6 +60,10 @@ class TPStartScene:GKSafeScene {
     
     // =============================== //
     // MARK: - Handlers -
+    @objc private func onSettingTap(_ sender:GKButtonNode) {
+        self.present(to: .setting)
+    }
+    
     @objc private func onRingSelected(_ sender:GKButtonNode) {
         _endup()
         

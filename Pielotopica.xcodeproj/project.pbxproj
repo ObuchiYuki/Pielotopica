@@ -222,6 +222,8 @@
 		B6E8826123121835003F3124 /* TSLevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826023121835003F3124 /* TSLevelData.swift */; };
 		B6E8826623126B66003F3124 /* RMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826523126B66003F3124 /* RMLog.swift */; };
 		B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E88267231280B5003F3124 /* TSMaterialData.swift */; };
+		B6ECA99A231E050A0033FBD8 /* TPSettingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ECA999231E050A0033FBD8 /* TPSettingScene.swift */; };
+		B6ECA99C231E05E70033FBD8 /* TPSettingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ECA99B231E05E70033FBD8 /* TPSettingSlider.swift */; };
 		B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6EDB11C230F78AE0042CA02 /* button_light.mp3 */; };
 		B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */; };
 		B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */; };
@@ -476,6 +478,8 @@
 		B6E8826023121835003F3124 /* TSLevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSLevelData.swift; sourceTree = "<group>"; };
 		B6E8826523126B66003F3124 /* RMLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLog.swift; sourceTree = "<group>"; };
 		B6E88267231280B5003F3124 /* TSMaterialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMaterialData.swift; sourceTree = "<group>"; };
+		B6ECA999231E050A0033FBD8 /* TPSettingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSettingScene.swift; sourceTree = "<group>"; };
+		B6ECA99B231E05E70033FBD8 /* TPSettingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSettingSlider.swift; sourceTree = "<group>"; };
 		B6EDB11C230F78AE0042CA02 /* button_light.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_light.mp3; sourceTree = "<group>"; };
 		B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSoundPlayer.swift; sourceTree = "<group>"; };
 		B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenu.swift; sourceTree = "<group>"; };
@@ -701,6 +705,7 @@
 			children = (
 				B61E93FB2300E390008CB325 /* TPStartScene.swift */,
 				B61E93B82300E35E008CB325 /* TPStartBackgroundScene.swift */,
+				B6ECA998231E04F90033FBD8 /* Setting */,
 				B61E93FC2300E390008CB325 /* Components */,
 				B61E94052300E390008CB325 /* Particle */,
 			);
@@ -1202,6 +1207,15 @@
 			path = ../View/CaptureScene;
 			sourceTree = "<group>";
 		};
+		B6ECA998231E04F90033FBD8 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B6ECA999231E050A0033FBD8 /* TPSettingScene.swift */,
+				B6ECA99B231E05E70033FBD8 /* TPSettingSlider.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		B6EDB11B230F78A40042CA02 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -1565,6 +1579,7 @@
 				B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */,
 				B6926486231BCD7C00986595 /* TPGameEndData.swift in Sources */,
 				B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */,
+				B6ECA99A231E050A0033FBD8 /* TPSettingScene.swift in Sources */,
 				B66093992315526500B528E5 /* TPCraftMoreItems.swift in Sources */,
 				B6012DFF2318B11500DC18CE /* TSI_SpawnerItem.swift in Sources */,
 				B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */,
@@ -1616,6 +1631,7 @@
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B64D4025231D0AF400CA3198 /* TSI_HouseGreen.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
+				B6ECA99C231E05E70033FBD8 /* TPSettingSlider.swift in Sources */,
 				B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */,
 				B6931446230E8EFB00C1B4D7 /* TPBuildItemBarItem.swift in Sources */,
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,

@@ -13,7 +13,7 @@ class TS_IronWall: TSBlock {
     // =============================================================== //
     // MARK: - Methods -
     override func getOriginalNodeSize() -> TSVector3 {
-        return [1, 1, 3]
+        return [1, 1, 5]
     }
     override func getHardnessLevel() -> Int {
         return 200
