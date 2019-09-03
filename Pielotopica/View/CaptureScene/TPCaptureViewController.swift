@@ -91,7 +91,9 @@ class TPCaptureViewController: UIViewController {
             .wait(forDuration: 0.1),
             .run {particle.particleBirthRate = 0},
             .wait(forDuration: 1),
-            .run{particle.removeFromParent()}
+            .run{particle.removeFromParent()},
+            .wait(forDuration: 1),
+            .run{self.effectSKView.isPaused = true},
         ]))
     }
     
