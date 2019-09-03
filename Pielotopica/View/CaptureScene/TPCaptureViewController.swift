@@ -69,10 +69,9 @@ class TPCaptureViewController: UIViewController {
         
         visibilityManager.didPredictionGet(for: prediction.classIndex)
         
-        _showPrediction(prediction)
+        _showPredictionData(prediction)
         _showEffect(at: location)
     }
-    
     
     // ==================================== //
     // MARK: - UI level -
@@ -183,7 +182,7 @@ class TPCaptureViewController: UIViewController {
     // ==================================== //
     // MARK: - Game level -
     
-    private func _showPrediction(_ prediction:RKObjectDetector.Prediction) {
+    private func _showPredictionData(_ prediction:RKObjectDetector.Prediction) {
         let value = TPMaterialValueMap.allValues[prediction.classIndex]
         
         TSMaterialData.shared.addIron(value.iron)
