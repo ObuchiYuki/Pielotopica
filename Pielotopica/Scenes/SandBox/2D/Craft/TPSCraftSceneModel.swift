@@ -13,7 +13,7 @@ protocol TPSCraftSceneModelBinder: class{
     
     func __checkCraftableState()
     func __changeCraftMenu(with item:TSItem)
-    func __placeItemBar(with item: TSItemStack, at index: Int)
+    func __placeItemBar(from inventoryIndex: Int, at index: Int) 
 }
 
 class TPSCraftSceneModel: TPSandBoxSceneModel {
@@ -62,13 +62,13 @@ class TPSCraftSceneModel: TPSandBoxSceneModel {
         if item == .none {return}
         
         if let existingIndex = TSItemBarInventory.itembarShared.itemStacks.value.firstIndex(where: {$0.item == item}) {
-            binder.__placeItemBar(with: .none, at: existingIndex)
+            binder.__placeItemBar(from: -1, at: existingIndex)
         }
         
-        guard let itemStack = TSInventory.shared.itemStacks.value.first(where: {$0.item == item})
+        guard let index = TSInventory.shared.itemStacks.value.firstIndex(where: {$0.item == item})
             else {return}
 
-        binder.__placeItemBar(with: itemStack, at: binder.__itemBarSelectedIndex)
+        binder.__placeItemBar(from: index, at: binder.__itemBarSelectedIndex)
         
     }
 }

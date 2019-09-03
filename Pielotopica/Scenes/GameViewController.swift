@@ -18,12 +18,13 @@ class GameViewController: GKGameViewController {
         case clear
     }
     
-    var showingScene = Scene.sandbox
+    var showingScene = Scene.start
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
                 
+        // for debug
         switch showingScene {
         case .start:
             self.presentScene(with: .startScene)

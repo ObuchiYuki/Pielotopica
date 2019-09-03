@@ -17,7 +17,7 @@ class TPRouterViewController: UIViewController {
         case capture
     }
     
-    var route:Route = .capture
+    var route:Route = .sandBox
     
     // ============================================================ //
     // MARK: -  view -

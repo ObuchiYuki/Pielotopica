@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 import RxCocoa
 
 ///  プレイヤーの持ち物を表します。
@@ -24,6 +25,9 @@ public class TSInventory {
     /// いま持っているアイテム一覧です。
     /// 配列長は常に変わりません。
     public var itemStacks:BehaviorRelay<[TSItemStack]>!
+    
+    
+    private let bag = DisposeBag()
     
     // ===================================================================== //
     // MARK: - Public Methods -
@@ -51,17 +55,6 @@ public class TSInventory {
         _saveSelf()
     }
     
-    /// positionにあるアイテムを指定されたアイテムに入れ替えます。
-    public func placeItemStack(_ itemStack:TSItemStack, at position:Int) {
-        var stacks = self.itemStacks.value
-        stacks.remove(at: position)
-        stacks.insert(itemStack, at: position)
-        
-        self.itemStacks.accept(stacks)
-        
-        _saveSelf()
-    }
-    
     /// アイテムスタックを追加します。
     public func addItemStack(_ itemStack:TSItemStack) {
         
@@ -71,8 +64,24 @@ public class TSInventory {
     func _saveSelf() {
         TSInventory._autosave.value = TSInventoryData(inventory: self)
     }
+    
     func _autosaved() -> [TSItemStack]? {
-        return TSInventory._autosave.value?.itemStacks.map({$0.itemStack})
+        guard let itemStackData = TSInventory._autosave.value?.itemStacks else { return nil }
+        
+        let itemStacks = itemStackData.map { $0.itemStack }
+        
+        return itemStacks
+    }
+    
+    /// positionにあるアイテムを指定されたアイテムに入れ替えます。
+    private func placeItemStack(_ itemStack:TSItemStack, at position:Int) {
+        var stacks = self.itemStacks.value
+        stacks.remove(at: position)
+        stacks.insert(itemStack, at: position)
+        
+        self.itemStacks.accept(stacks)
+        
+        _saveSelf()
     }
     
     private func _realAddItemStack(_ itemStack:TSItemStack) {

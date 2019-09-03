@@ -15,6 +15,31 @@ import RxCocoa
 
 extension Int: RMAutoSavable {}
 
+private struct Movements: RMAutoSavable {
+    private static let _autosave = RMAutoSave<Movements>("__TSItemBarInventory_movement_autosave_key")
+    static var shared:Movements {
+        get{
+            _autosave.value ?? Movements(movements: [])
+        }
+        set{
+            _autosave.value = newValue
+        }
+    }
+    
+    var movements:[Movement]
+    
+    mutating func addMovement(from: Int, to:Int) {
+        movements = movements.filter{$0.from !=  from && $0.to != to}
+        
+        movements.append(Movement(from: from, to: to))
+    }
+    
+}
+private struct Movement: RMAutoSavable {
+    let from:Int
+    let to:Int
+}
+
 public class TSItemBarInventory: TSInventory {
     
     static let itembarShared = TSItemBarInventory(maxAmount: 4)
@@ -61,11 +86,44 @@ public class TSItemBarInventory: TSInventory {
             itemStacks.accept(stack)
         }
         
+        TSInventory.shared._saveSelf()
+    }
+    
+    /// positionにあるアイテムを指定されたアイテムに入れ替えます。
+    public func placeItemStack(from inventoryPosition:Int, at position:Int) {
+        let itemStack:TSItemStack
+        
+        if inventoryPosition < 0 {
+            itemStack = .none
+        }else{
+            itemStack = TSInventory.shared.itemStacks.value[inventoryPosition]
+        }
+        
+        var stacks = self.itemStacks.value
+        stacks.remove(at: position)
+        stacks.insert(itemStack, at: position)
+        
+        Movements.shared.addMovement(from: inventoryPosition, to: position)
+        
+        self.itemStacks.accept(stacks)
+        
         _saveSelf()
     }
     
+    public override init(maxAmount: Int) {
+        super.init(maxAmount: maxAmount)
+        
+        _loadOrder()
+    }
     // ========================================================== //
     // MARK: - Private Methods -
+    
+    private func _loadOrder() {
+        for move in Movements.shared.movements {
+            placeItemStack(from: move.from, at: move.to)
+        }
+    }
+    
     override func _saveSelf() {}
     
     override func _autosaved() -> [TSItemStack]? {

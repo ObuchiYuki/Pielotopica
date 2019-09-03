@@ -78,8 +78,8 @@ extension TPSCraftScene: TPSCraftSceneModelBinder {
     func __changeCraftMenu(with item:TSItem) {
         self.craftMenu.setItem(item)
     }
-    func __placeItemBar(with itemStack: TSItemStack, at index: Int) {
-        TSItemBarInventory.itembarShared.placeItemStack(itemStack, at: index)
+    func __placeItemBar(from inventoryIndex: Int, at index: Int) {
+        TSItemBarInventory.itembarShared.placeItemStack(from: inventoryIndex, at: index)
     }
 }
 

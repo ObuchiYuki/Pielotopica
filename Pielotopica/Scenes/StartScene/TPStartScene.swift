@@ -61,6 +61,7 @@ class TPStartScene:GKSafeScene {
     // =============================== //
     // MARK: - Handlers -
     @objc private func onSettingTap(_ sender:GKButtonNode) {
+        GKSoundPlayer.shared.playSoundEffect(.ring)
         self.present(to: .setting)
     }
     
