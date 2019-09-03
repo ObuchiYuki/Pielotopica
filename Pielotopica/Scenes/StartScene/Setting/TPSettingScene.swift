@@ -23,6 +23,10 @@ class TPSettingScene: GKSafeScene {
     private let mainSlider = TPSettingSlider(title: "Main Volume", volume: 0.3)
     private let seSlider = TPSettingSlider(title: "SE Volume", volume: 0.3)
     
+    @objc private func _back(_ s:Any) {
+        self.present(to: .startScene)
+    }
+    
     override func sceneDidLoad() {
         mainSlider.position = [0, 50]
         seSlider.position = [0, -50]
@@ -35,7 +39,8 @@ class TPSettingScene: GKSafeScene {
             GKSoundPlayer.shared.seVolume = event.element ?? 0
         }
         
-        back.position = [-100, -200]
+        back.position = [-150, -300]
+        back.addTarget(self, action: #selector(_back), for: .touchUpInside)
         
         rootNode.addChild(mainSlider)
         rootNode.addChild(seSlider)
