@@ -10,7 +10,7 @@ import SceneKit
 
 public extension GKSceneHolder {
     static let setting = GKSceneHolder(safeScene: TPSettingScene(), backgroundScene: TPStartBackgroundScene())
-    
+
 }
 
 

@@ -85,6 +85,9 @@
                                     <constraint firstAttribute="width" constant="360" id="hHJ-Lm-juf"/>
                                 </constraints>
                             </imageView>
+                            <skView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-Vc-IcJ">
+                                <rect key="frame" x="27" y="318" width="360" height="362"/>
+                            </skView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -96,14 +99,19 @@
                             <constraint firstItem="FkM-6N-dG5" firstAttribute="trailing" secondItem="Ihe-9w-pPa" secondAttribute="trailing" id="OKF-k8-0Te"/>
                             <constraint firstItem="f35-9B-dOQ" firstAttribute="top" secondItem="R7W-Mn-K7r" secondAttribute="top" id="XEW-w0-cNs"/>
                             <constraint firstItem="jqF-m5-SsP" firstAttribute="centerY" secondItem="R7W-Mn-K7r" secondAttribute="centerY" constant="50" id="YmJ-ss-0la"/>
+                            <constraint firstItem="Loe-Vc-IcJ" firstAttribute="leading" secondItem="Pqm-fI-A3z" secondAttribute="leading" id="ZTb-kH-BSy"/>
                             <constraint firstAttribute="bottom" secondItem="FkM-6N-dG5" secondAttribute="bottom" id="biJ-Rd-ITM"/>
+                            <constraint firstItem="Ihe-9w-pPa" firstAttribute="bottom" secondItem="Loe-Vc-IcJ" secondAttribute="bottom" constant="182" id="iDs-5L-lSt"/>
+                            <constraint firstItem="Loe-Vc-IcJ" firstAttribute="trailing" secondItem="Pqm-fI-A3z" secondAttribute="trailing" id="jEn-cv-FmT"/>
                             <constraint firstAttribute="bottom" secondItem="f35-9B-dOQ" secondAttribute="bottom" id="khs-8o-dFS"/>
                             <constraint firstItem="Pqm-fI-A3z" firstAttribute="centerY" secondItem="R7W-Mn-K7r" secondAttribute="centerY" constant="50" id="mxI-1E-BdB"/>
+                            <constraint firstItem="Loe-Vc-IcJ" firstAttribute="top" secondItem="Ihe-9w-pPa" secondAttribute="top" constant="274" id="r5m-NQ-UQr"/>
                             <constraint firstItem="FkM-6N-dG5" firstAttribute="top" secondItem="R7W-Mn-K7r" secondAttribute="top" id="wGm-S9-Fc1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ihe-9w-pPa"/>
                     </view>
                     <connections>
+                        <outlet property="effectSKView" destination="Loe-Vc-IcJ" id="ad9-Ig-Qnb"/>
                         <outlet property="previewView" destination="jqF-m5-SsP" id="KmO-Yb-YZd"/>
                         <outlet property="skView" destination="f35-9B-dOQ" id="Td1-m1-3WQ"/>
                     </connections>

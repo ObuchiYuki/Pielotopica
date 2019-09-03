@@ -11,6 +11,7 @@ class TPCaptureViewController: UIViewController {
     // MARK: - UI Level -
     @IBOutlet private weak var previewView: UIView!
     @IBOutlet private weak var skView: SKView!
+    @IBOutlet private weak var effectSKView: SKView!
     
     private var boundingBoxeProviders = [TPBoundingBoxProvider]()
     private lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TPCaptureViewController.handleTap))
@@ -41,7 +42,8 @@ class TPCaptureViewController: UIViewController {
         super.viewDidLoad()
         
         TPCaptureViewController.initirized = self
-        
+                
+        _setupEffectView()
         _setupPreviewView()
         _setupGameScene()
         
@@ -63,14 +65,48 @@ class TPCaptureViewController: UIViewController {
         let location = sender.location(in: previewView)
         
         guard let prediction = getPrediction(at: location) else {return}
-
+        guard visibilityManager.isVisible(classIndex: prediction.classIndex) else {return}
+        
         visibilityManager.didPredictionGet(for: prediction.classIndex)
+        
         _showPrediction(prediction)
+        _showEffect(at: location)
     }
     
     
     // ==================================== //
     // MARK: - UI level -
+    
+    private func _showEffect(at location:CGPoint) {
+        let size = previewView.frame.size
+        let location = CGPoint(x: location.x, y: size.height - location.y)
+        
+        let path = Bundle.main.path(forResource: "getItemParticle", ofType: "sks")!
+        let particle = NSKeyedUnarchiver.unarchiveObject(withFile: path) as! SKEmitterNode
+        particle.position = location
+        
+        effectSKView.isPaused = false
+        effectSKView.scene?.addChild(particle)
+        
+        particle.run(.sequence([
+            .wait(forDuration: 0.1),
+            .run {particle.particleBirthRate = 0},
+            .wait(forDuration: 1),
+            .run{particle.removeFromParent()}
+        ]))
+    }
+    
+    private func _setupEffectView() {
+        let scene = SKScene(size: [300, 300])
+        effectSKView.presentScene(scene)
+        effectSKView.scene?.backgroundColor = .clear
+        effectSKView.backgroundColor = .clear
+        effectSKView.allowsTransparency = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.1, execute: {
+            self.effectSKView.isPaused = true
+        })
+    }
     
     private func _setupPreviewView() {
         previewView.clipsToBounds = true

@@ -224,6 +224,8 @@
 		B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E88267231280B5003F3124 /* TSMaterialData.swift */; };
 		B6ECA99A231E050A0033FBD8 /* TPSettingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ECA999231E050A0033FBD8 /* TPSettingScene.swift */; };
 		B6ECA99C231E05E70033FBD8 /* TPSettingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ECA99B231E05E70033FBD8 /* TPSettingSlider.swift */; };
+		B6ECA99F231E0C8D0033FBD8 /* getItemParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = B6ECA99D231E0C8D0033FBD8 /* getItemParticle.sks */; };
+		B6ECA9A0231E0C8D0033FBD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6ECA99E231E0C8D0033FBD8 /* Assets.xcassets */; };
 		B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B6EDB11C230F78AE0042CA02 /* button_light.mp3 */; };
 		B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */; };
 		B6EDB121230F812D0042CA02 /* TPBuildSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */; };
@@ -480,6 +482,8 @@
 		B6E88267231280B5003F3124 /* TSMaterialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMaterialData.swift; sourceTree = "<group>"; };
 		B6ECA999231E050A0033FBD8 /* TPSettingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSettingScene.swift; sourceTree = "<group>"; };
 		B6ECA99B231E05E70033FBD8 /* TPSettingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSettingSlider.swift; sourceTree = "<group>"; };
+		B6ECA99D231E0C8D0033FBD8 /* getItemParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = getItemParticle.sks; sourceTree = "<group>"; };
+		B6ECA99E231E0C8D0033FBD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6EDB11C230F78AE0042CA02 /* button_light.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_light.mp3; sourceTree = "<group>"; };
 		B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSoundPlayer.swift; sourceTree = "<group>"; };
 		B6EDB120230F812D0042CA02 /* TPBuildSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildSideMenu.swift; sourceTree = "<group>"; };
@@ -1202,6 +1206,8 @@
 				B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */,
 				B60C1C81231CC118005A7724 /* Manager */,
 				B649D39C2312A13200FFE551 /* Components */,
+				B6ECA99D231E0C8D0033FBD8 /* getItemParticle.sks */,
+				B6ECA99E231E0C8D0033FBD8 /* Assets.xcassets */,
 			);
 			name = CaptureScene;
 			path = ../View/CaptureScene;
@@ -1371,6 +1377,7 @@
 				B61E94112300E390008CB325 /* TPStartSceneBackgroundParticle.sks in Resources */,
 				B67F1BA1231B9B2600D71A5E /* TP_grass_1x1.scn in Resources */,
 				B6292409231B888C00955B1E /* TP_stone_1x1.scn in Resources */,
+				B6ECA99F231E0C8D0033FBD8 /* getItemParticle.sks in Resources */,
 				B68A2028231CDB8700F51AFD /* TP_house_blue.png in Resources */,
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
 				B66BD3D82317E73E00E20212 /* enemy_1.scn in Resources */,
@@ -1414,6 +1421,7 @@
 				B61E93E32300E376008CB325 /* LaunchScreen.storyboard in Resources */,
 				B6227A6D2302391A009EF60F /* TP_japanese_house_1.scn in Resources */,
 				B65E516F231C9DC0008CFA00 /* TP_wall_iron.scn in Resources */,
+				B6ECA9A0231E0C8D0033FBD8 /* Assets.xcassets in Resources */,
 				B65E5171231C9DC6008CFA00 /* TP_wall_iron.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
