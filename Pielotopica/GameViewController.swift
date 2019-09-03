@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import SceneKit
 
 class GameViewController: GKGameViewController {
     
@@ -19,11 +20,10 @@ class GameViewController: GKGameViewController {
     
     var showingScene = Scene.sandbox
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //scnView.allowsCameraControl = true
-        
+                
         switch showingScene {
         case .start:
             self.presentScene(with: .startScene)
