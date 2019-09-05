@@ -15,6 +15,8 @@ class TPSMainMenuScene: GKSafeScene {
     
     override func sceneDidLoad() {
         
+        GKSoundPlayer.shared.playMusic(.normalMusic)
+        
         mainmenu.menuItem.addTarget(self, action: #selector(menuItemDidTap), for: .touchUpInside)
         mainmenu.buildItem.addTarget(self, action: #selector(buildItemDidTap), for: .touchUpInside)
         mainmenu.captureItem.addTarget(self, action: #selector(captureItemDidTap), for: .touchUpInside)

@@ -202,7 +202,7 @@ public class GKGameViewController: UIViewController {
         
         return rootNodeScale
     }
-    #if DEBUG
+    
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         GKGameViewController._debug = self
@@ -213,11 +213,11 @@ public class GKGameViewController: UIViewController {
     }
     
     static var _debug:GKGameViewController? = nil
-    #endif
+    
 }
 
 extension GKGameViewController {
-    #if DEBUG
+    
     func showMessage(_ message:String) {
         let size = UIScreen.main.bounds.size
         let view = UIView(frame: CGRect(origin: [0, size.height - 50], size: [size.width, 50]))
@@ -235,5 +235,5 @@ extension GKGameViewController {
             view.removeFromSuperview()
         })
     }
-    #endif
+    
 }

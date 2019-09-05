@@ -10,9 +10,9 @@ import UIKit
 
 struct TPCommon {
     #if DEBUG
-    static let debug = false
+    static var debug = true
     #else
-    static let debug = false
+    static var debug = false
     #endif
     
     struct Color {

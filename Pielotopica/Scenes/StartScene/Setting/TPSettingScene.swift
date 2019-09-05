@@ -23,6 +23,17 @@ class TPSettingScene: GKSafeScene {
     private let mainSlider = TPSettingSlider(title: "Main Volume", volume: 0.3)
     private let seSlider = TPSettingSlider(title: "SE Volume", volume: 0.3)
     
+    private let debugButton = GKButtonNode(
+        size: [105, 40],
+        defaultTexture: .init(imageNamed: "TP_setting_debug"),
+        selectedTexture: nil,
+        disabledTexture: nil
+    )
+    
+    @objc private func _debug(_ s:Any) {
+        showDebugMessage("デバッグモードに入りました。")
+        TPCommon.debug = true
+    }
     @objc private func _back(_ s:Any) {
         self.present(to: .startScene)
     }
@@ -38,6 +49,11 @@ class TPSettingScene: GKSafeScene {
         _ = seSlider.value.subscribe {event in
             GKSoundPlayer.shared.seVolume = event.element ?? 0
         }
+        
+        debugButton.addTarget(self, action: #selector(_debug), for: .touchUpInside)
+        debugButton.position = [0, -300]
+        
+        rootNode.addChild(debugButton)
         
         back.position = [-150, -300]
         back.addTarget(self, action: #selector(_back), for: .touchUpInside)

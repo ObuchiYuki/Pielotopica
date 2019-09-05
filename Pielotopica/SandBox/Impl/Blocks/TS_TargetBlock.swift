@@ -63,6 +63,6 @@ class TS_TargetBlock: TSBlock {
     }
     
     override func canDestroy(at point: TSVector3) -> Bool {
-        return true
+        return TPCommon.debug
     }
 }

@@ -36,13 +36,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSItemManager.shared.register(.fuelFactory)
         
         
-        // MARK: - 仮
-        //TSInventory.shared.addItem(.woodWall1x5, count: 20)
-        //TSInventory.shared.addItem(.ironWall, count: 20)
-        //TSInventory.shared.addItem(.fuelFactory, count: 3)
-        //TSInventory.shared.addItem(.houseRed, count: 12)
-        //TSInventory.shared.addItem(.houseBlue, count: 7)
-        //TSInventory.shared.addItem(.houseGreen, count: 3)
+        // MARK: - 審査用の仮 -
+        if TSInventory.shared.itemStacks.value.filter({$0.item != .none}).isEmpty {
+            // 初回ならば
+            TSInventory.shared.addItem(.woodWall1x5, count: 20)
+            TSInventory.shared.addItem(.ironWall, count: 20)
+            TSInventory.shared.addItem(.fuelFactory, count: 3)
+            TSInventory.shared.addItem(.houseRed, count: 12)
+            TSInventory.shared.addItem(.houseBlue, count: 7)
+            TSInventory.shared.addItem(.houseGreen, count: 3)
+            
+            TSMaterialData.shared.addIron(200)
+            TSMaterialData.shared.addWood(100)
+            TSMaterialData.shared.addCircit(20)
+            
+            TSFuelData.shared.addFuel(300)
+            TSFuelData.shared.addHeart(100)
+        }
 
         print(TSBlock.air)
         print(TSBlock.japaneseHouse2)

@@ -29,7 +29,7 @@ class TS_SpawnerBlock: TSBlock {
     }
     
     override func canDestroy(at point: TSVector3) -> Bool {
-        return true
+        return TPCommon.debug
     }
     override func shouldAnimateWhenPlaced(at point: TSVector3) -> Bool {
         return true

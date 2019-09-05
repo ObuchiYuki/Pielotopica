@@ -49,6 +49,8 @@ class TPStartScene:GKSafeScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
+        GKSoundPlayer.shared.playMusic(.normalMusic)
+        
         ring.addTarget(self, action: #selector(onRingSelected), for: .touchUpInside)
         tabitemSetting.addTarget(self, action: #selector(onSettingTap), for: .touchUpInside)
         
@@ -61,11 +63,12 @@ class TPStartScene:GKSafeScene {
     // =============================== //
     // MARK: - Handlers -
     @objc private func onSettingTap(_ sender:GKButtonNode) {
-        GKSoundPlayer.shared.playSoundEffect(.ring)
+        
         self.present(to: .setting)
     }
     
     @objc private func onRingSelected(_ sender:GKButtonNode) {
+        GKSoundPlayer.shared.playSoundEffect(.ring)
         _endup()
         
         self.present(to: .sandboxScene, delayed: 0.1)
