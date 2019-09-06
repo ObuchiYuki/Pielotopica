@@ -213,6 +213,7 @@
 		B6AA02B0230D834000F0FF48 /* TPHeaderSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */; };
 		B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */; };
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
+		B6ABDEEC2321F2F7004FAFA5 /* NBTEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABDEEB2321F2F7004FAFA5 /* NBTEncoder.swift */; };
 		B6BEB53D231615610067A4F0 /* TPCraftMenuMaterials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */; };
 		B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */; };
 		B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */; };
@@ -472,6 +473,7 @@
 		B6AA02AF230D834000F0FF48 /* TPHeaderSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPHeaderSlider.swift; sourceTree = "<group>"; };
 		B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKSpriteNode.swift; sourceTree = "<group>"; };
 		B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKShadowLabelNode.swift; sourceTree = "<group>"; };
+		B6ABDEEB2321F2F7004FAFA5 /* NBTEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBTEncoder.swift; sourceTree = "<group>"; };
 		B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMenuMaterials.swift; sourceTree = "<group>"; };
 		B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockEditHelper.swift; sourceTree = "<group>"; };
 		B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureGotMaterialBar.swift; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 				B6885FFF231B569D009098FA /* GKRealTimeTimer.swift */,
 				B6724455231DE548008AB0D7 /* GKCameraController.swift */,
 				B6EDB11E230F79460042CA02 /* GKSoundPlayer.swift */,
+				B6ABDEEA2321F2DD004FAFA5 /* NBT */,
 				B6AA02B1230E119A00F0FF48 /* Node */,
 				B61E93F02300E38A008CB325 /* Extensions */,
 			);
@@ -1191,6 +1194,14 @@
 			path = Node;
 			sourceTree = "<group>";
 		};
+		B6ABDEEA2321F2DD004FAFA5 /* NBT */ = {
+			isa = PBXGroup;
+			children = (
+				B6ABDEEB2321F2F7004FAFA5 /* NBTEncoder.swift */,
+			);
+			path = NBT;
+			sourceTree = "<group>";
+		};
 		B6E8826423124435003F3124 /* BridgeData */ = {
 			isa = PBXGroup;
 			children = (
@@ -1502,6 +1513,7 @@
 				B67135F6231A9A44008F479C /* TPGameStageManager.swift in Sources */,
 				B69E8684231684DF004D4272 /* TPSandBoxSceneModel.swift in Sources */,
 				B67135F4231A8D2E008F479C /* TPAlert.swift in Sources */,
+				B6ABDEEC2321F2F7004FAFA5 /* NBTEncoder.swift in Sources */,
 				B61E93F72300E38A008CB325 /* Ex+SKAction.swift in Sources */,
 				B61E93F52300E38A008CB325 /* GKGameViewController.swift in Sources */,
 				B60C1C83231CC146005A7724 /* TPCaptureVisibilityManager.swift in Sources */,

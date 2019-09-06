@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct TSLevelData: RMStorable {
+public class TSLevelData: RMStorable {
     public var fillMap:[[[TSFillBlock]]]
     public var anchorBlockMap:[[[UInt16]]]
     public var blockDataMap:[[[UInt8]]]
@@ -17,9 +17,11 @@ public struct TSLevelData: RMStorable {
     func save(stageNamed name:String) {
         RMStorage.shared.store(self, for: ._levelDataKey(for: name))
     }
+    
     static func remove(stageNamed name:String) {
         RMStorage.shared.remove(with: ._levelDataKey(for: name))
     }
+    
     init() {
         fillMap =
             Array(repeating: Array(repeating: Array(repeating: TSFillBlock.zero, count: kLevelMaxZ), count: kLevelMaxY), count: kLevelMaxX)
@@ -37,6 +39,8 @@ public struct TSLevelData: RMStorable {
         self.blockDataMap = blockDataMap
         self.anchorSet = anchorSet
     }
+    
+    
     static func load(stageNamed name:String) -> TSLevelData {
         if let data = RMStorage.shared.get(for: ._levelDataKey(for: name)) {
             return data

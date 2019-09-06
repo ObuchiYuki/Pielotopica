@@ -10,6 +10,7 @@ import UIKit
 import SpriteKit
 import SceneKit
 
+
 class GameViewController: GKGameViewController {
     
     enum Scene {
@@ -20,12 +21,9 @@ class GameViewController: GKGameViewController {
     
     var showingScene = Scene.start
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        scnView.allowsCameraControl = true
-                
+                        
         // for debug
         switch showingScene {
         case .start:
