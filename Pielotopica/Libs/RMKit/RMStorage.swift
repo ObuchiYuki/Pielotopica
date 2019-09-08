@@ -59,7 +59,7 @@ public final class RMStorage {
     /// 引数`value`に与えられた値を保存します。
     /// に保存されます。
     public func store<T: RMStorable>(_ value:T, for key: RMStorage.Key<T>){
-        let data = try! PropertyListEncoder().encode(_RMStorableWrapper(value: value))
+        let data = try! BoxEncoder().encode(_RMStorableWrapper(value: value))
         guard let storePath = _storePath(for: key) else {return}
         
         FileManager.default.createFile(atPath: storePath, contents: data)
@@ -71,7 +71,7 @@ public final class RMStorage {
         guard let storePath = _storePath(for: key) else {return nil}
         guard let data = FileManager.default.contents(atPath: storePath) else {return nil}
         
-        return try? PropertyListDecoder().decode(_RMStorableWrapper<T>.self, from: data).value
+        return try? BoxDecoder().decode(_RMStorableWrapper<T>.self, from: data).value
     }
     
     /// 指定した`Key`の実態を削除します。
@@ -82,7 +82,7 @@ public final class RMStorage {
         guard let data = FileManager.default.contents(atPath: storePath) else {return nil}
         try? FileManager.default.removeItem(atPath: storePath)
         
-        return try? PropertyListDecoder().decode(T.self, from: data)
+        return try? BoxDecoder().decode(T.self, from: data)
     }
     
     /// ===========================================
@@ -99,7 +99,7 @@ public final class RMStorage {
             try? FileManager.default.createDirectory(at: appSupportUrl, withIntermediateDirectories: true)
         }
         
-        return appSupportUrl.appendingPathComponent(key.rawValue).appendingPathExtension("plist").path
+        return appSupportUrl.appendingPathComponent(key.rawValue).appendingPathExtension("box").path
     }
     
     /// macOSであれば
