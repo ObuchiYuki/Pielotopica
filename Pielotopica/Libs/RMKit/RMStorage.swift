@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BoxData
 
 public typealias RMStorable = Codable
 
@@ -51,7 +52,10 @@ public final class RMStorage {
     
     /// シングルトンです。
     public static let shared = RMStorage()
+    
     private init() {}
+    private let encoder = BoxEncoder()
+    private let decoder = BoxDecoder()
     
     // ===========================================
     // ---- RMStorage Methods ----
@@ -59,7 +63,9 @@ public final class RMStorage {
     /// 引数`value`に与えられた値を保存します。
     /// に保存されます。
     public func store<T: RMStorable>(_ value:T, for key: RMStorage.Key<T>){
-        let data = try! BoxEncoder().encode(_RMStorableWrapper(value: value))
+        encoder.useCompression = false
+        encoder.useStructureCache = false
+        let data = try! encoder.encode(value)
         guard let storePath = _storePath(for: key) else {return}
         
         FileManager.default.createFile(atPath: storePath, contents: data)
@@ -67,22 +73,28 @@ public final class RMStorage {
     
     /// `Key`で指定した値を取り出します。
     /// 型キャストに失敗した場合、未保存の場合に`nil`を返します。
-    public func get<T: RMStorable>(for key: RMStorage.Key<T>) -> T?{
+    public func get<T: RMStorable>(for key: RMStorage.Key<T>) -> T? {
         guard let storePath = _storePath(for: key) else {return nil}
         guard let data = FileManager.default.contents(atPath: storePath) else {return nil}
+        print("saved", data)
         
-        return try? BoxDecoder().decode(_RMStorableWrapper<T>.self, from: data).value
+        do {
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            print(error)
+            return nil
+        }
     }
     
     /// 指定した`Key`の実態を削除します。
     /// 削除した値を返り値として返します。
     @discardableResult
-    public func remove<T: RMStorable>(with key:RMStorage.Key<T>) -> T?{
+    public func remove<T: RMStorable>(with key:RMStorage.Key<T>) -> T? {
         guard let storePath = _storePath(for: key) else {return nil}
         guard let data = FileManager.default.contents(atPath: storePath) else {return nil}
         try? FileManager.default.removeItem(atPath: storePath)
         
-        return try? BoxDecoder().decode(T.self, from: data)
+        return try? decoder.decode(T.self, from: data)
     }
     
     /// ===========================================
@@ -122,15 +134,6 @@ public final class RMStorage {
         #endif
         
         return saveUrl
-    }
-}
-
-/// `PropertyListEncoder`は`Single Value`をエンコードできないので、ラッパーでカバーします。
-private final class _RMStorableWrapper<T: RMStorable>: RMStorable{
-    let value:T
-    
-    init(value:T) {
-        self.value = value
     }
 }
 

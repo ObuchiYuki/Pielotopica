@@ -96,9 +96,9 @@ class TPSandboxSceneController: GK3DSceneController {
             }
         }
         
-        //self.addGestureRecognizer(pinchGestureRecognizer)
-        //self.addGestureRecognizer(panGestureRecognizer)
-        //self.addGestureRecognizer(tapGestureRecognizer)
+        self.addGestureRecognizer(pinchGestureRecognizer)
+        self.addGestureRecognizer(panGestureRecognizer)
+        self.addGestureRecognizer(tapGestureRecognizer)
         
         // Scene Settings
         self.setupCamera()

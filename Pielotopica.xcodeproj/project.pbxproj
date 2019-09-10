@@ -214,9 +214,6 @@
 		B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */; };
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
 		B6ABDEEC2321F2F7004FAFA5 /* NBTEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABDEEB2321F2F7004FAFA5 /* NBTEncoder.swift */; };
-		B6B5464F2324BD1000986BA1 /* BoxDataStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B546472324BC3C00986BA1 /* BoxDataStream.swift */; };
-		B6B546502324BD1000986BA1 /* BoxEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B546482324BC3C00986BA1 /* BoxEncoder.swift */; };
-		B6B546512324BD1000986BA1 /* BoxTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B546492324BC3C00986BA1 /* BoxTag.swift */; };
 		B6BEB53D231615610067A4F0 /* TPCraftMenuMaterials.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */; };
 		B6C5085323115E3F005D5916 /* TPBlockEditHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */; };
 		B6C653AB2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */; };
@@ -481,9 +478,6 @@
 		B6B5463F2324BC0900986BA1 /* BoxEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxEncoder.swift; sourceTree = "<group>"; };
 		B6B546402324BC0900986BA1 /* BoxTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxTag.swift; sourceTree = "<group>"; };
 		B6B546412324BC0900986BA1 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		B6B546472324BC3C00986BA1 /* BoxDataStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxDataStream.swift; sourceTree = "<group>"; };
-		B6B546482324BC3C00986BA1 /* BoxEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxEncoder.swift; sourceTree = "<group>"; };
-		B6B546492324BC3C00986BA1 /* BoxTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxTag.swift; sourceTree = "<group>"; };
 		B6BEB53C231615610067A4F0 /* TPCraftMenuMaterials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCraftMenuMaterials.swift; sourceTree = "<group>"; };
 		B6C5085223115E3F005D5916 /* TPBlockEditHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBlockEditHelper.swift; sourceTree = "<group>"; };
 		B6C653AA2313967E00AEF0EE /* _TPCaptureGotMaterialBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureGotMaterialBar.swift; sourceTree = "<group>"; };
@@ -578,7 +572,6 @@
 		B6030EE92301A4D4005C4312 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				B6B546462324BC3C00986BA1 /* BoxData */,
 				B6030EEF2301A523005C4312 /* AppLib */,
 				B667BA4F230B776C0038B098 /* RecognitionKit */,
 				B61E93EC2300E38A008CB325 /* GameKit */,
@@ -1225,16 +1218,6 @@
 			path = BoxData;
 			sourceTree = "<group>";
 		};
-		B6B546462324BC3C00986BA1 /* BoxData */ = {
-			isa = PBXGroup;
-			children = (
-				B6B546472324BC3C00986BA1 /* BoxDataStream.swift */,
-				B6B546482324BC3C00986BA1 /* BoxEncoder.swift */,
-				B6B546492324BC3C00986BA1 /* BoxTag.swift */,
-			);
-			path = BoxData;
-			sourceTree = "<group>";
-		};
 		B6E8826423124435003F3124 /* BridgeData */ = {
 			isa = PBXGroup;
 			children = (
@@ -1532,9 +1515,6 @@
 			files = (
 				B64D4021231D0AB900CA3198 /* TSI_HouseRed.swift in Sources */,
 				B69E867C23168129004D4272 /* TPSMainMenuSceneModel.swift in Sources */,
-				B6B5464F2324BD1000986BA1 /* BoxDataStream.swift in Sources */,
-				B6B546502324BD1000986BA1 /* BoxEncoder.swift in Sources */,
-				B6B546512324BD1000986BA1 /* BoxTag.swift in Sources */,
 				B6BEB53D231615610067A4F0 /* TPCraftMenuMaterials.swift in Sources */,
 				B661FA392318CFCD00D4A3C0 /* TS_TargetBlock.swift in Sources */,
 				B6DF959D23192D0F005C636B /* AStar.swift in Sources */,
