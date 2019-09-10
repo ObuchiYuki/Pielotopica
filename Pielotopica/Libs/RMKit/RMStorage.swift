@@ -63,8 +63,6 @@ public final class RMStorage {
     /// 引数`value`に与えられた値を保存します。
     /// に保存されます。
     public func store<T: RMStorable>(_ value:T, for key: RMStorage.Key<T>){
-        encoder.useCompression = false
-        encoder.useStructureCache = false
         let data = try! encoder.encode(value)
         guard let storePath = _storePath(for: key) else {return}
         
@@ -76,7 +74,6 @@ public final class RMStorage {
     public func get<T: RMStorable>(for key: RMStorage.Key<T>) -> T? {
         guard let storePath = _storePath(for: key) else {return nil}
         guard let data = FileManager.default.contents(atPath: storePath) else {return nil}
-        print("saved", data)
         
         do {
             return try decoder.decode(T.self, from: data)
