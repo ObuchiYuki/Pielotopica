@@ -42,9 +42,12 @@ public class TSLevelData: RMStorable {
     
     
     static func load(stageNamed name:String) -> TSLevelData {
+        print("load")
         if let data = RMStorage.shared.get(for: ._levelDataKey(for: name)) {
+            print("saved")
             return data
         }else{
+            print("unsaved")
             return TSLevelData()
         }
     }
