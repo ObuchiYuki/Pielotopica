@@ -763,7 +763,7 @@
 			children = (
 				B66BD3DB2317E88A00E20212 /* Entity */,
 				B69E866E2316279F004D4272 /* Manager */,
-				B6E8826423124435003F3124 /* BridgeData */,
+				B6E8826423124435003F3124 /* Data */,
 				B6227A0B2301AB83009EF60F /* DataClass */,
 				B6227A262301AB84009EF60F /* Extensions */,
 			);
@@ -819,7 +819,6 @@
 			isa = PBXGroup;
 			children = (
 				B6227A1C2301AB83009EF60F /* TSLevel.swift */,
-				B6E8826023121835003F3124 /* TSLevelData.swift */,
 				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 				B6002D92231A22FC006C4D94 /* TSNBDData.swift */,
 				B6002D99231A4E93006C4D94 /* TSFillBlock.swift */,
@@ -1038,6 +1037,7 @@
 		B6731B2C2314BEDD00B70C3F /* Saveable */ = {
 			isa = PBXGroup;
 			children = (
+				B6E8826023121835003F3124 /* TSLevelData.swift */,
 				B6731B2A2314BED800B70C3F /* TSInventoryData.swift */,
 				B660938E2314C31400B528E5 /* TSItemStacksData.swift */,
 				B6C7F3352314B7120042279C /* TSItemData.swift */,
@@ -1218,13 +1218,13 @@
 			path = BoxData;
 			sourceTree = "<group>";
 		};
-		B6E8826423124435003F3124 /* BridgeData */ = {
+		B6E8826423124435003F3124 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				B6731B2C2314BEDD00B70C3F /* Saveable */,
 				B6EDB124230F8B200042CA02 /* TSBlockData.swift */,
 			);
-			path = BridgeData;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		B6E8826923128429003F3124 /* CaptureScene */ = {

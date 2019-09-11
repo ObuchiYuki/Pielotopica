@@ -1,5 +1,5 @@
 PODS:
-  - BoxData (0.0.2.3)
+  - BoxData (0.0.2.4)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -20,7 +20,7 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
-  BoxData: 707c99ecc77f1f06eb29d3e132e65b9c1baf6bf9
+  BoxData: 0277ace6750a0e5de7686ed72bbe19c03157faba
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
