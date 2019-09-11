@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(*, deprecated)
 class TSNBDManager {
     static let shared = TSNBDManager()
     

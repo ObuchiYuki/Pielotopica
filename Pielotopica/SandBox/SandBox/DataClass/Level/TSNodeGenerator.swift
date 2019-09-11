@@ -13,6 +13,7 @@ import SceneKit
 
 /**
  */
+@available(*, deprecated)
 public class TSNodeGenerator {
     // =============================================================== //
     // MARK: - Properties -

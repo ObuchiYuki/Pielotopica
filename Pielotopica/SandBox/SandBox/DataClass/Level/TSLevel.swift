@@ -38,6 +38,7 @@ extension TSLevelDelegate {
 /**
  次元を管理します。
  */
+@available(*, deprecated, message: "TSLevel is now deprecated. Use TSCheckGenerator instead.")
 public class TSLevel {
     // =============================================================== //
     // MARK: - Properties -
