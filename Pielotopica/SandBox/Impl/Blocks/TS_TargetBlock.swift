@@ -27,10 +27,10 @@ class TS_TargetBlock: TSBlock {
         node.addChildNode(p2)
         node.addChildNode(p3)
         
-        body.runAction(_createBodyAction())
-        p1.runAction(_createParticleAction())
-        p2.runAction(_createParticleAction())
-        p3.runAction(_createParticleAction())
+        //body.runAction(_createBodyAction())
+        //p1.runAction(_createParticleAction())
+        //p2.runAction(_createParticleAction())
+        //p3.runAction(_createParticleAction())
 
         return node
     }

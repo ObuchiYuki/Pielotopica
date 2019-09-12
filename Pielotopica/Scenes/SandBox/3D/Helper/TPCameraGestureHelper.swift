@@ -63,10 +63,9 @@ class TPSandboxCameraGestureHelper {
         let dx:Float = Float(vector.x) / 55 * Float(1.0 / pinchScale)
         let dy:Float = Float(vector.y) / 38 * Float(1.0 / pinchScale)
             
-        var p:SCNVector3 = [cameraStartPosition.x - dx, cameraStartPosition.y + dy, cameraStartPosition.z + dx]
+        var p:SCNVector3 = [cameraStartPosition.x - dx - dy, cameraStartPosition.y, cameraStartPosition.z + dx - dy]
         
         p.x = p.x.into(80...110)
-        p.y = p.y.into(70...120)
         p.z = p.z.into(80...120)
         
         self.delegate.cameraGestureHelper(self, cameraDidMoveTo: p)

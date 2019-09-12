@@ -185,7 +185,7 @@ extension TPSandboxSceneController {
         
         directionalLight.castsShadow = true
         directionalLight.shadowMapSize = [500, 500]
-        directionalLight.maximumShadowDistance = 500
+        directionalLight.maximumShadowDistance = 100
         directionalLight.shadowColor = UIColor.black.withAlphaComponent(0.8)
         
     }
@@ -196,7 +196,7 @@ extension TPSandboxSceneController {
         camera.automaticallyAdjustsZRange = true
         
         cameraNode.eulerAngles = [-.pi * 0.2, .pi/4, 0]
-        cameraNode.position = [100, 100, 100]
+        cameraNode.position = [50, 100, 50]
     }
 
 }
