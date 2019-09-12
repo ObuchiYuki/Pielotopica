@@ -127,18 +127,7 @@
                     <view key="view" contentMode="scaleToFill" id="VMl-9M-HLj" customClass="SCNView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_overray_dark" translatesAutoresizingMaskIntoConstraints="NO" id="hUP-1a-tSX">
-                                <rect key="frame" x="-1" y="0.0" width="415" height="896"/>
-                            </imageView>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="hUP-1a-tSX" firstAttribute="leading" secondItem="IVE-uF-c65" secondAttribute="leading" constant="-1" id="IUx-zZ-xOQ"/>
-                            <constraint firstItem="hUP-1a-tSX" firstAttribute="top" secondItem="VMl-9M-HLj" secondAttribute="top" id="Mg6-zC-wzM"/>
-                            <constraint firstAttribute="bottom" secondItem="hUP-1a-tSX" secondAttribute="bottom" id="bfx-WG-1Cb"/>
-                            <constraint firstItem="hUP-1a-tSX" firstAttribute="trailing" secondItem="IVE-uF-c65" secondAttribute="trailing" id="r9q-Uf-SSD"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="IVE-uF-c65"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -153,6 +142,5 @@
         <image name="TP_cap_background" width="375" height="667"/>
         <image name="TP_cap_preview_frame" width="364" height="365"/>
         <image name="TP_fullscreen_frame" width="355" height="652"/>
-        <image name="TP_overray_dark" width="375" height="667"/>
     </resources>
 </document>

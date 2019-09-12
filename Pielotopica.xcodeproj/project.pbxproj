@@ -95,6 +95,7 @@
 		B6292409231B888C00955B1E /* TP_stone_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6292408231B888C00955B1E /* TP_stone_1x1.scn */; };
 		B629240B231B889300955B1E /* TP_stone_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B629240A231B889200955B1E /* TP_stone_1x1.png */; };
 		B629240D231B88A800955B1E /* TS_Stone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629240C231B88A800955B1E /* TS_Stone.swift */; };
+		B639C5A6232A006B00A1C030 /* Artboard.png in Resources */ = {isa = PBXBuildFile; fileRef = B639C5A5232A006B00A1C030 /* Artboard.png */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */; };
 		B64D401B231D072700CA3198 /* TP_fuel_factory.scn in Resources */ = {isa = PBXBuildFile; fileRef = B64D401A231D072700CA3198 /* TP_fuel_factory.scn */; };
@@ -204,7 +205,6 @@
 		B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */; };
-		B6A91D60231DFC94002FFC83 /* TP_ground.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A91D5F231DFC94002FFC83 /* TP_ground.png */; };
 		B6A91D64231DFCC0002FFC83 /* TP_ground_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A91D63231DFCC0002FFC83 /* TP_ground_edge.png */; };
 		B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */; };
 		B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02A8230D6ED400F0FF48 /* TPMainMenu.swift */; };
@@ -349,6 +349,7 @@
 		B6292408231B888C00955B1E /* TP_stone_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_stone_1x1.scn; sourceTree = "<group>"; };
 		B629240A231B889200955B1E /* TP_stone_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_stone_1x1.png; sourceTree = "<group>"; };
 		B629240C231B88A800955B1E /* TS_Stone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Stone.swift; sourceTree = "<group>"; };
+		B639C5A5232A006B00A1C030 /* Artboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artboard.png; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
 		B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureBottomBar.swift; sourceTree = "<group>"; };
@@ -463,7 +464,6 @@
 		B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBoundingBoxProvider.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCaptureViewController.swift; sourceTree = "<group>"; };
-		B6A91D5F231DFC94002FFC83 /* TP_ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground.png; sourceTree = "<group>"; };
 		B6A91D63231DFCC0002FFC83 /* TP_ground_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png; sourceTree = "<group>"; };
 		B6AA02A4230D66EB00F0FF48 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMainMenuItem.swift; sourceTree = "<group>"; };
@@ -1028,7 +1028,7 @@
 			children = (
 				B6885FF9231AC2F0009098FA /* TP_ground_edge.scn */,
 				B6A91D63231DFCC0002FFC83 /* TP_ground_edge.png */,
-				B6A91D5F231DFC94002FFC83 /* TP_ground.png */,
+				B639C5A5232A006B00A1C030 /* Artboard.png */,
 				B6724458231DF231008AB0D7 /* TP_ground_5x5.scn */,
 			);
 			path = ground;
@@ -1399,6 +1399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B639C5A6232A006B00A1C030 /* Artboard.png in Resources */,
 				B67F1BA7231B9FE900D71A5E /* TP_target.png in Resources */,
 				B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */,
 				B6724459231DF231008AB0D7 /* TP_ground_5x5.scn in Resources */,
@@ -1442,7 +1443,6 @@
 				B61E93E22300E376008CB325 /* Assets.xcassets in Resources */,
 				B6724454231D5B0C008AB0D7 /* TP_fuel_factory.png in Resources */,
 				B61E93E42300E376008CB325 /* Main.storyboard in Resources */,
-				B6A91D60231DFC94002FFC83 /* TP_ground.png in Resources */,
 				B68E143C23141B1600E973E1 /* 5squared-pixel.ttf in Resources */,
 				B69E8667231625A2004D4272 /* retro_transition_fade_from_center.fsh in Resources */,
 				B67F1BA5231B9ED900D71A5E /* TP_target.scn in Resources */,
