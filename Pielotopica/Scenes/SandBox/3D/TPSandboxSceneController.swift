@@ -195,10 +195,6 @@ extension TPSandboxSceneController {
         camera.orthographicScale = 20
         
         camera.automaticallyAdjustsZRange = true
-        camera.wantsExposureAdaptation = true
-        
-        camera.screenSpaceAmbientOcclusionRadius = 1
-        camera.screenSpaceAmbientOcclusionIntensity = 1
         
         cameraNode.eulerAngles = [-.pi * 0.2, .pi/4, 0]
         cameraNode.position = [100, 100, 100]
