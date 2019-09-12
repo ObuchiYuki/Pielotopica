@@ -27,7 +27,7 @@ class GameViewController: GKGameViewController {
         scnView.overlaySKScene = nil
         scnView.autoenablesDefaultLighting = false
         scnView.antialiasingMode = .none
-        scnView
+        scnView.rendersContinuously = false 
         
         // for debug
         switch showingScene {

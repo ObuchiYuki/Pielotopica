@@ -32,6 +32,12 @@ class TS_TargetBlock: TSBlock {
         p2.runAction(_createParticleAction())
         p3.runAction(_createParticleAction())
 
+        p1.castsShadow = false
+        p2.castsShadow = false
+        p3.castsShadow = false
+        
+        body.castsShadow = false
+        node.castsShadow = false
         return node
     }
     
