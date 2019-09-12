@@ -23,9 +23,10 @@ class GameViewController: GKGameViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                    
+        scnView.overlaySKScene = nil
+        scnView
         
-        scnView.preferredFramesPerSecond = 40
-                        
         // for debug
         switch showingScene {
         case .start:
