@@ -8,7 +8,6 @@
 
 import Foundation
 
-@available(*, deprecated)
 public class TSFillBlock: RMAutoSavable {
     
     static let zero:TSFillBlock = TSFillBlock(anchor: .zero, index: 0)
