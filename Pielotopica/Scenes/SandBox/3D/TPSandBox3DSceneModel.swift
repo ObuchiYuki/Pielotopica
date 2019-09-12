@@ -194,7 +194,11 @@ class TPSandBox3DSceneModel {
     // MARK: - Private Methods -
     private func _createStage1(_ level: TSLevel) {
         /// 床設置 (仮)
-        level.placeBlock(.ground5x5, at: TSVector3(0, 0, 0), rotation: .x0, forced: true)
+        for x in -3...3 {
+            for z in -3...3 {
+                level.placeBlock(.ground5x5, at: TSVector3(5 * x, 0, 5 * z), rotation: .x0, forced: true)
+            }
+        }
     }
     
     private func _endBlockEditing(forced:Bool) {

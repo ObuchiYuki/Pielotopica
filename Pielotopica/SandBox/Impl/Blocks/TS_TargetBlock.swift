@@ -16,7 +16,7 @@ class TS_TargetBlock: TSBlock {
         guard let rootNode = SCNScene(named: "TP_target.scn")?.rootNode else {fatalError()}
         
         guard
-            let body = rootNode.childNode(withName: "body", recursively: true),
+            let body = rootNode.childNode(withName: "_palette", recursively: true),
             let p1 = rootNode.childNode(withName: "particle1", recursively: true),
             let p2 = rootNode.childNode(withName: "particle2", recursively: true),
             let p3 = rootNode.childNode(withName: "particle3", recursively: true)
