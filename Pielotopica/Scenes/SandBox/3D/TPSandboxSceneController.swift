@@ -185,8 +185,8 @@ extension TPSandboxSceneController {
         
         directionalLight.castsShadow = true
         directionalLight.shadowMapSize = [500, 500]
+        directionalLight.maximumShadowDistance = 500
         directionalLight.shadowColor = UIColor.black.withAlphaComponent(0.8)
-        directionalLight.shadowSampleCount = 1
         
     }
     func setupCamera() {
