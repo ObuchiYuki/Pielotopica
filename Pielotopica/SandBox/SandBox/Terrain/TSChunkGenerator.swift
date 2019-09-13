@@ -9,7 +9,7 @@
 import Foundation
 
 
-class TSLevelGenerator {
+class TSChunkGenerator {
     static let shared = TSLevelGenerator()
 
     func chunk(at point: TSChunkPoint) -> TSChunk {

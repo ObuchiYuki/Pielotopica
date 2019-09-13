@@ -8,60 +8,8 @@
 
 import BoxData
 
-private struct _TSChunkData: Codable {
-    
-    struct Section: Codable {
-        let data: UInt8
-        let fill: UInt16
-        let anchor: UInt16
-    }
-    
-    /// 16 x 4 x 16 = 1024 size array
-    var sections = [Section?].init(repeating: nil, count: 1024)
-    
-    var chunk:TSChunk {
-        let chunk = TSChunk()
-        
-        for x in 0..<Int(TSChunk.sideWidth) {
-            for y in 0..<Int(TSChunk.height) {
-                for z in 0..<Int(TSChunk.sideWidth) {
-                    let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
-                    let section = sections[index]!
-                    
-                    chunk.data[x][y][z] = section.data
-                    chunk.fillmap[x][y][z] = section.fill
-                    chunk.anchorMap[x][y][z] = section.anchor
-                    
-                    if section.fill == section.anchor {
-                        chunk.anchors.insert(TSVector3(x, y, z))
-                    }
-                }
-            }
-        }
-        
-        return chunk
-    }
-    
-    init(chunk: TSChunk) {
-        for x in 0..<Int(TSChunk.sideWidth) {
-            for y in 0..<Int(TSChunk.height) {
-                for z in 0..<Int(TSChunk.sideWidth) {
-                    let data = chunk.data[x][y][z]
-                    let fill = chunk.fillmap[x][y][z]
-                    let anchor = chunk.anchorMap[x][y][z]
-                    
-                    let section = Section(data: data, fill: fill, anchor: anchor)
-                    
-                    let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
-                    sections[index] = section
-                }
-            }
-        }
-    }
-}
-
  
-public class TSLevelFileLoader {
+public class TSChunkFileLoader {
     public static let shared = TSLevelFileLoader()
     
     private var encoder: BoxEncoder {
@@ -132,5 +80,57 @@ public class TSLevelFileLoader {
     }
     private func _filename(of point: TSChunkPoint) -> String {
         return "r.\(point.x).\(point.z).box"
+    }
+}
+
+private struct _TSChunkData: Codable {
+    
+    struct Section: Codable {
+        let data: UInt8
+        let fill: UInt16
+        let anchor: UInt16
+    }
+    
+    /// 16 x 4 x 16 = 1024 size array
+    var sections = [Section?].init(repeating: nil, count: 1024)
+    
+    var chunk:TSChunk {
+        let chunk = TSChunk()
+        
+        for x in 0..<Int(TSChunk.sideWidth) {
+            for y in 0..<Int(TSChunk.height) {
+                for z in 0..<Int(TSChunk.sideWidth) {
+                    let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
+                    let section = sections[index]!
+                    
+                    chunk.data[x][y][z] = section.data
+                    chunk.fillmap[x][y][z] = section.fill
+                    chunk.anchorMap[x][y][z] = section.anchor
+                    
+                    if section.fill == section.anchor {
+                        chunk.anchors.insert(TSVector3(x, y, z))
+                    }
+                }
+            }
+        }
+        
+        return chunk
+    }
+    
+    init(chunk: TSChunk) {
+        for x in 0..<Int(TSChunk.sideWidth) {
+            for y in 0..<Int(TSChunk.height) {
+                for z in 0..<Int(TSChunk.sideWidth) {
+                    let data = chunk.data[x][y][z]
+                    let fill = chunk.fillmap[x][y][z]
+                    let anchor = chunk.anchorMap[x][y][z]
+                    
+                    let section = Section(data: data, fill: fill, anchor: anchor)
+                    
+                    let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
+                    sections[index] = section
+                }
+            }
+        }
     }
 }
