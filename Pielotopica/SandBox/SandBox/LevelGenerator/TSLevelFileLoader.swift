@@ -12,6 +12,8 @@ private struct _TSChunkData: Codable {
     init(chunk: TSChunk) {
         
     }
+    
+    var chunk:TSChunk
 }
 
 
@@ -41,8 +43,22 @@ class TSLevelFileLoader {
         return true
     }
     
-    func loadChunk(at point:TSChunkPoint) -> TSChunk {
+    func loadChunk(at point:TSChunkPoint) -> TSChunk? {
+        guard var url = _prepareDirectory() else { return nil }
         
+        url.appendPathComponent(_filename(of: point))
+        
+        guard let data = FileManager.default.contents(atPath: url.path) else { return nil }
+        
+        do {
+            let _data = try decoder.decode(_TSChunkData.self, from: data)
+            return _data.chunk
+            
+        }catch {
+            log.error(error)
+        }
+        
+        return nil
     }
     
     private func _saveData(_ data: Data, at point: TSChunkPoint) {
@@ -52,7 +68,6 @@ class TSLevelFileLoader {
         
         FileManager.default.createFile(atPath: url.path, contents: data)
     }
-    
     
     private func _prepareDirectory() -> URL? {
         guard var documentDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
