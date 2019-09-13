@@ -11,7 +11,7 @@ import simd
 // MARK: - TSChunkPoint -
 public struct TSChunkPoint {
     public var simd:SIMD2<Int16>
-
+    
 }
 
 // MARK: - Properties -
@@ -39,7 +39,7 @@ extension TSChunkPoint {
     }
 }
 
-// MARK: - Equatable & Hashable - 
+// MARK: - Equatable & Hashable -
 extension TSChunkPoint: Equatable {
     @inline(__always)
     public static func == (left: TSChunkPoint, right: TSChunkPoint) -> Bool {
@@ -48,6 +48,7 @@ extension TSChunkPoint: Equatable {
 }
 
 extension TSChunkPoint: Hashable {
+    @inline(__always)
     public func hash(into hasher: inout Hasher) {
         hasher.combine(simd)
     }
