@@ -30,19 +30,16 @@ public struct TSVector3 {
     
     // =============================================================== //
     // MARK: - Constructors -
-    @inlinable
     @inline(__always)
     public init(_ simd: SIMD = SIMD.zero) {
         self.simd = simd
     }
     
-    @inlinable
     @inline(__always)
     public init(_ x:Int, _ y:Int, _ z:Int) {
         self.simd = SIMD(Int16(x), Int16(y), Int16(z))
     }
     
-    @inlinable
     @inline(__always)
     public init(_ x:Int16, _ y:Int16, _ z:Int16) {
         self.simd = SIMD(x, y, z)
@@ -57,50 +54,44 @@ extension TSVector3 {
     // MARK: - Int components
     
     /// x component of TSVector3
-    @inlinable
     @inline(__always)
     public var x:Int {
-        @inlinable @inline(__always) get{return Int(simd.x)}
-        @inlinable @inline(__always) set{self.simd.x = Int16(newValue)}
+        @inline(__always) get{return Int(simd.x)}
+        @inline(__always) set{self.simd.x = Int16(newValue)}
     }
     
-    @inlinable
     @inline(__always)
     /// y component of TSVector3
     public var y:Int {
-        @inlinable @inline(__always) get{return Int(simd.y)}
-        @inlinable @inline(__always) set{self.simd.y = Int16(newValue)}
+        @inline(__always) get{return Int(simd.y)}
+        @inline(__always) set{self.simd.y = Int16(newValue)}
     }
     /// z component of TSVector3
-    @inlinable
     @inline(__always)
     public var z:Int {
-        @inlinable @inline(__always) get{return Int(simd.z)}
-        @inlinable @inline(__always) set{self.simd.z = Int16(newValue)}
+        @inline(__always) get{return Int(simd.z)}
+        @inline(__always) set{self.simd.z = Int16(newValue)}
     }
     
     // ============================ //
     // MARK: - Int16 components
     
-    @inlinable
     @inline(__always)
     public var x16:Int16 {
-        @inlinable @inline(__always) get{return simd.x}
-        @inlinable @inline(__always) set{simd.x = newValue}
+        @inline(__always) get{return simd.x}
+        @inline(__always) set{simd.x = newValue}
     }
     
-    @inlinable
     @inline(__always)
     public var y16:Int16 {
-        @inlinable @inline(__always) get{return simd.y}
-        @inlinable @inline(__always) set{simd.y = newValue}
+        @inline(__always) get{return simd.y}
+        @inline(__always) set{simd.y = newValue}
     }
     
-    @inlinable
     @inline(__always)
     public var z16:Int16 {
-        @inlinable @inline(__always) get{return simd.z}
-        @inlinable @inline(__always) set{simd.z = newValue}
+        @inline(__always) get{return simd.z}
+        @inline(__always) set{simd.z = newValue}
     }
 }
 
@@ -135,7 +126,7 @@ extension TSVector3: Codable {
 // MARK: - Extension for CustomStringConvertible -
 
 extension TSVector3: CustomStringConvertible {
-    @inlinable @inline(__always)
+    @inline(__always)
     public var description: String {
         return "TSVecto3(x: \(x), y: \(y), z: \(z))"
     }
