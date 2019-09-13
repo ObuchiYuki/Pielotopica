@@ -10,10 +10,15 @@ import Foundation
 
 
 class TSChunkManager {
+    
     static let shared = TSChunkManager()
 
+    // MARK: - Properties -
+    private var loadedChunks = [TSChunk]()
+    
     // MARK: - Methods -
     
+    public func didCameraMoved(_ ) 
     public func chunk(contains point: TSVector2) -> TSChunk {
         let chunkPoint = _calcurateChunkPoint(from: point)
         

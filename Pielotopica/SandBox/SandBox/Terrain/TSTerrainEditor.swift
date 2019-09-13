@@ -18,7 +18,7 @@ public class TSTerrainEditor {
     
     @discardableResult
     public func placeBlock(_ block:TSBlock, at anchor:TSVector3, rotation:TSBlockRotation, forced:Bool = false) -> Bool {
-        
+        return true
     }
     
     @discardableResult
@@ -29,6 +29,8 @@ public class TSTerrainEditor {
     // MARK: - Privates -
     
     private func _placeAnchor(_ block: TSBlock, anchor:TSVector3) {
-        TSChunkManager.shared
+        let chunk = TSChunkManager.shared.chunk(contains: anchor.vector2)
+        
+        //...
     }
 }
