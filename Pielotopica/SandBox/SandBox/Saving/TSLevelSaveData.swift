@@ -25,10 +25,6 @@ public class TSLevelSaveData: Codable {
         
     }
     
-    private init() {
-        
-    }
-    
     private init(levelName: String, generatorName: GeneratorName, randomSeed: String) {
         self.levelName = levelName
         self.generatorName = generatorName
