@@ -15,9 +15,11 @@ public class TSChunk {
     var anchors = Set<TSVector3>()
     var anchorFill = [TSVector3: TSVector3]()
     
+    
 }
 
 extension TSChunk {
     public static let sideWidth: Int16 = 16
     public static let height: Int16 = 4
+    
 }

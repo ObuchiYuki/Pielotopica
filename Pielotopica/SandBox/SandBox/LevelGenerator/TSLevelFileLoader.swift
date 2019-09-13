@@ -10,7 +10,12 @@ import Foundation
 
 class TSLevelFileLoader {
     
-    static func savedChunk(at point:TSChunkPoint) -> TSChunk {
+    @discardableResult
+    static func saveChunk(_ chunk:TSChunk, for point: TSChunkPoint) -> Bool {
+        
+    }
+    
+    static func loadChunk(at point:TSChunkPoint) -> TSChunk {
         
     }
 }
