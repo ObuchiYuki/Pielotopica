@@ -12,8 +12,8 @@ import RxSwift
 
 // =============================================================== //
 // MARK: - Constants -
-internal let kLevelMaxX = Int(60)
-internal let kLevelMaxZ = Int(60)
+internal let kLevelMaxX = Int(400)
+internal let kLevelMaxZ = Int(400)
 internal let kLevelMaxY = Int(4)
 
 internal let kArrayAccessMargin = kLevelMaxX / 2
@@ -168,7 +168,7 @@ public class TSLevel {
         
         block.didPlaced(at: anchorPoint)
         
-        self._save()
+        //self._save()
     }
     
     /// アンカーポイントのブロックを破壊します。

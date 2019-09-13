@@ -13,7 +13,6 @@ class GKTransitionNode: SKSpriteNode {
     
     init(size:CGSize) {
         super.init(texture: nil, color: .red, size: size)
-        print(size)
         self.zPosition = 1000
         
     }

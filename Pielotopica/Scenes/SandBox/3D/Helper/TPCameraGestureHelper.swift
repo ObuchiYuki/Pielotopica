@@ -37,7 +37,7 @@ class TPSandboxCameraGestureHelper {
     /// ピンチ時に呼び出してください。
     func pinched(to scale:CGFloat) {
         pinchScale = originalPinchScale * Float(scale)
-        pinchScale = pinchScale.into(0.2...3)
+        //pinchScale = pinchScale.into(0.2...3)
         
         let tscale = 1 / pinchScale
         let rscale = Double(tscale * 10)
