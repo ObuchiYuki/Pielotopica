@@ -39,6 +39,7 @@ extension TSChunkPoint {
     }
 }
 
+// MARK: - Equatable & Hashable - 
 extension TSChunkPoint: Equatable {
     @inline(__always)
     public static func == (left: TSChunkPoint, right: TSChunkPoint) -> Bool {
@@ -50,7 +51,6 @@ extension TSChunkPoint: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(simd)
     }
-    
 }
 
 // MARK:  - Operator -
