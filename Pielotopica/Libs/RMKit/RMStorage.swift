@@ -147,7 +147,7 @@ extension RMStorage {
         fileprivate let rawValue:String
         fileprivate let additionalDirectory: String?
         
-        public init(rawValue: String, additionalDirectory: String = nil){
+        public init(rawValue: String, additionalDirectory: String? = nil){
             self.additionalDirectory = additionalDirectory
             self.rawValue = rawValue
         }

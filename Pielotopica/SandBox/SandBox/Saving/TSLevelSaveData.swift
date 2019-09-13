@@ -126,12 +126,12 @@ extension TSLevelSaveData: TSTickBasedSavable {
     }
     
     public func save() {
-        RMStorage.shared.store(self, for: ._TSLevelSaveDataKey)
+        RMStorage.shared.store(self, for: ._levelSaveDataKey(for: self.levelName))
     }
 }
 
 extension RMStorage.Key {
-    fileprivate static var _TSLevelSaveDataKey:RMStorage.Key<TSLevelSaveData> {
-        return RMStorage.Key(rawValue: "level.box")
+    fileprivate static func _levelSaveDataKey(for levelName: String) -> RMStorage.Key<TSLevelSaveData> {
+        return RMStorage.Key(rawValue: "level.box", additionalDirectory: "r.\(levelName)")
     }
 }
