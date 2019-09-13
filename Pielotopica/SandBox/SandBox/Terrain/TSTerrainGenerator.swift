@@ -12,6 +12,8 @@ public class TSTerrainGenerator {
     static let shared = TSTerrainGenerator()
     
     public func generateChunk(for point: TSChunkPoint) -> TSChunk {
+        let chunk = TSChunk()
+        
         
     }
 }
