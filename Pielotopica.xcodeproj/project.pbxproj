@@ -938,6 +938,17 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		B637CB08232B7AC000C97964 /* Chunk */ = {
+			isa = PBXGroup;
+			children = (
+				B6B9CE83232B2E8700441094 /* TSChunk.swift */,
+				B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */,
+				B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */,
+				B6B9CE85232B352800441094 /* TSChunkFileLoader.swift */,
+			);
+			path = Chunk;
+			sourceTree = "<group>";
+		};
 		B649D39C2312A13200FFE551 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1232,10 +1243,7 @@
 		B6B9CE7E232B2BA000441094 /* Terrain */ = {
 			isa = PBXGroup;
 			children = (
-				B6B9CE83232B2E8700441094 /* TSChunk.swift */,
-				B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */,
-				B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */,
-				B6B9CE85232B352800441094 /* TSChunkFileLoader.swift */,
+				B637CB08232B7AC000C97964 /* Chunk */,
 				B637CB06232B7A9A00C97964 /* TSTerrainGenerator.swift */,
 			);
 			path = Terrain;
