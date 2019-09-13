@@ -10,7 +10,7 @@ import BoxData
 
  
 public class TSChunkFileLoader {
-    public static let shared = TSLevelFileLoader()
+    public static let shared = TSChunkFileLoader()
     
     private var encoder: BoxEncoder {
         let _encoder = BoxEncoder()

@@ -13,6 +13,6 @@ class TSChunkGenerator {
     static let shared = TSLevelGenerator()
 
     func chunk(at point: TSChunkPoint) -> TSChunk {
-        
+        TSChunkFileLoader.shared
     }
 }
