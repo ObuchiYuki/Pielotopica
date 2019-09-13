@@ -28,5 +28,7 @@ public class TSTerrainEditor {
     
     // MARK: - Privates -
     
-    private func _placeAnchor(_ block: TSBlock, anchor:TSVector3) 
+    private func _placeAnchor(_ block: TSBlock, anchor:TSVector3) {
+        TSChunkManager.shared
+    }
 }
