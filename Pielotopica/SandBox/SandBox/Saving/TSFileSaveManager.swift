@@ -9,17 +9,18 @@
 import Foundation
 
 // MARK: - TSOccasionSavable -
-public protocol TSOccasionSavable: Codable {
-    /// The filename of file to save.
-    var saveFilename: String { get }
-    
+public protocol TSOccasionSavable {
     /// Whether it has been edited since the last save
     var isEdited: Bool { get set }
     
     /// The ticks per a saving.
     var tickPerSave: UInt { get }
+    
+    // MARK: - Codable -
+    func encode(to encoder: Encoder) throws
+    
+    init(from decoder: Decoder) throws
 }
-
 
 // MARK: - TSFileSaveManager -
 
@@ -40,7 +41,9 @@ public class TSFileSaveManager {
     }
     
     // MARK: - Privates -
-    private func _
+    private func _save(_ savable: TSOccasionSavable) {
+        
+    }
 }
 
 extension TSFileSaveManager: TSEventLoopDelegate {
