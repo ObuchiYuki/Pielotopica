@@ -103,9 +103,12 @@ public final class RMStorage {
     /// iOSであれば
     /// `$APPROOT/Document/RMStrage/userdata/(Key Identifier).plist`
     private func _storePath<T: RMStorable>(for key:RMStorage.Key<T>) -> String?{
-        guard let _url = _fileSaveingUrl() else {return nil}
+        guard var _url = _fileSaveingUrl() else {return nil}
         
-        _url.appendPathComponent(key.additionalDirectory)
+        if let additionalDirectory = key.additionalDirectory {
+            _url.appendPathComponent(additionalDirectory)
+        }
+        
         
         if !FileManager.default.fileExists(atPath: _url.absoluteString){
             try? FileManager.default.createDirectory(at: _url, withIntermediateDirectories: true)
@@ -142,9 +145,9 @@ extension RMStorage {
     /// 保存する`Value`の`identifier`と型を登録します。
     public struct Key <Value: RMStorable> {
         fileprivate let rawValue:String
-        fileprivate let additionalDirectory: String
+        fileprivate let additionalDirectory: String?
         
-        public init(rawValue: String, additionalDirectory: String){
+        public init(rawValue: String, additionalDirectory: String = nil){
             self.additionalDirectory = additionalDirectory
             self.rawValue = rawValue
         }
