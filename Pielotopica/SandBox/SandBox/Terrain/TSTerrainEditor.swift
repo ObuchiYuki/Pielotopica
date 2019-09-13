@@ -8,22 +8,25 @@
 
 import Foundation
 
+// MARK: - TSTerrainEditor -
+
 public class TSTerrainEditor {
+    // MARK: - Singleton -
     public static let shared = TSChunkEditor()
     
+    // MARK: - Methods -
+    
     @discardableResult
-    public func placeBlock(into chunk: TSChunk, block: TSBlock, at position: TSVector3, rotation: TSBlockRotation) -> Bool {
-        assert(position.x16 < 16, "Given position's 'x' component \(position.x16) excees chunk size.")
-        assert(position.y16 < 16, "Given position's 'y' component \(position.y16) excees chunk size.")
-        assert(position.z16 < 16, "Given position's 'z' component \(position.z16) excees chunk size.")
+    public func placeBlock(_ block:TSBlock, at anchor:TSVector3, rotation:TSBlockRotation, forced:Bool = false) -> Bool {
         
-        
-        
-        return true
     }
     
     @discardableResult
-    public func destoryBlock(from chunk: TSChunk, at position: TSVector3) -> Bool {
+    public func destoryBlock(at anchor: TSVector3) -> Bool {
         return true
     }
+    
+    // MARK: - Privates -
+    
+    private func _placeAnchor(_ block: TSBlock, anchor:TSVector3) 
 }
