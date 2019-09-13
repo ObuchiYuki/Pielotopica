@@ -16,19 +16,17 @@ public struct TSChunkPoint {
 
 // MARK: - Properties -
 extension TSChunkPoint {
-    // 
-    @inlinable
+    /// x component of `TSChunkPoint`
     @inline(__always)
     public var x: Int16 { return simd.x }
     
-    @inlinable
+    /// z component of `TSChunkPoint`
     @inline(__always)
     public var z: Int16 { return simd.y }
     
-    @inlinable
     @inline(__always)
     public var tsVector2: TSVector2 {
-        TSVector2(simd.x * TSChunk.sideWidth, simd.x * TSChunk.sideWidth)
+        return TSVector2(simd.x * TSChunk.sideWidth, simd.x * TSChunk.sideWidth)
     }
     
     

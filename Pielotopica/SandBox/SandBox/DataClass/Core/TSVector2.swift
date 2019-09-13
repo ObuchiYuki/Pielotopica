@@ -28,7 +28,6 @@ public struct TSVector2 {
     public var simd:SIMD
     // =============================================================== //
     // MARK: - Constructor -
-    @inlinable
     @inline(__always)
     init(_ simd:SIMD = SIMD.zero) {
         self.simd = simd

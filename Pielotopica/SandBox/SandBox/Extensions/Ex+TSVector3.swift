@@ -15,6 +15,7 @@ extension TSVector3 {
     
     /// SCNVector3からTSvector3を初期化します。
     /// TSvector3の元の範囲は、Int.min〜Int.maxの範囲です。
+    @inline(__always)
     public init(_ scnVector3:SCNVector3) {
         
         let x = scnVector3.x.rounded()
@@ -26,11 +27,13 @@ extension TSVector3 {
     }
     
     // Converted TSVector3 to SCNVector3
+    @inline(__always)
     public var scnVector3:SCNVector3 {
         return SCNVector3(self.x, self.y, self.z)
     }
     
     /// SIMD vector for SceneKit
+    @inline(__always)
     public var scnSIMD:simd_float3 {
         return simd_float3(simd)
         
@@ -103,22 +106,23 @@ extension TSVector3 {
 // =============================================================== //
 // MARK: - Opetrators Extension -
 extension TSVector3 {
-    
+    @inline(__always)
     public static func + (left:TSVector3, right:TSVector3) -> TSVector3 {
         return TSVector3(left.simd &+ right.simd)
     }
+    @inline(__always)
     public static func - (left:TSVector3, right:TSVector3) -> TSVector3 {
         return TSVector3(left.simd &- right.simd)
     }
-    
+    @inline(__always)
     public static func += (left:inout TSVector3, right:TSVector3) {
         left = left + right
     }
-    
+    @inline(__always)
     public static func -= (left:inout TSVector3, right:TSVector3) {
         left = left - right
     }
-    
+    @inline(__always)
     public static func * (left:TSVector3, right:Int16) -> TSVector3 {
         return TSVector3(left.simd &* SIMD(repeating: right))
     }
@@ -132,12 +136,14 @@ extension TSVector3 {
 }
 
 extension TSVector3 {
+    @inline(__always)
     var vector2:TSVector2 {
         return TSVector2(x16, z16)
     }
 }
 
 extension TSVector3:ExpressibleByArrayLiteral {
+    @inline(__always)
     public init(arrayLiteral elements: Int16...) {
         
         self.simd = SIMD(elements)
