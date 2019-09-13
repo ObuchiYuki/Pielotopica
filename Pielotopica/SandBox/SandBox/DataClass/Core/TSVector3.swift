@@ -57,39 +57,50 @@ extension TSVector3 {
     // MARK: - Int components
     
     /// x component of TSVector3
-    @inlinable @inline(__always)
+    @inlinable
+    @inline(__always)
     public var x:Int {
-        @inlinable @inline(__always)
-        get{return Int(simd.x)}
-        set{self.simd.x = Int16(newValue)}
+        @inlinable @inline(__always) get{return Int(simd.x)}
+        @inlinable @inline(__always) set{self.simd.x = Int16(newValue)}
     }
     
-    @inlinable @inline(__always)
+    @inlinable
+    @inline(__always)
     /// y component of TSVector3
     public var y:Int {
-        get{return Int(simd.y)}
-        set{self.simd.y = Int16(newValue)}
+        @inlinable @inline(__always) get{return Int(simd.y)}
+        @inlinable @inline(__always) set{self.simd.y = Int16(newValue)}
     }
     /// z component of TSVector3
+    @inlinable
+    @inline(__always)
     public var z:Int {
-        get{return Int(simd.z)}
-        set{self.simd.z = Int16(newValue)}
+        @inlinable @inline(__always) get{return Int(simd.z)}
+        @inlinable @inline(__always) set{self.simd.z = Int16(newValue)}
     }
     
     // ============================ //
     // MARK: - Int16 components
     
+    @inlinable
+    @inline(__always)
     public var x16:Int16 {
-        get{return simd.x}
-        set{simd.x = newValue}
+        @inlinable @inline(__always) get{return simd.x}
+        @inlinable @inline(__always) set{simd.x = newValue}
     }
+    
+    @inlinable
+    @inline(__always)
     public var y16:Int16 {
-        get{return simd.y}
-        set{simd.y = newValue}
+        @inlinable @inline(__always) get{return simd.y}
+        @inlinable @inline(__always) set{simd.y = newValue}
     }
+    
+    @inlinable
+    @inline(__always)
     public var z16:Int16 {
-        get{return simd.z}
-        set{simd.z = newValue}
+        @inlinable @inline(__always) get{return simd.z}
+        @inlinable @inline(__always) set{simd.z = newValue}
     }
 }
 
