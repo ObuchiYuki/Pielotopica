@@ -78,7 +78,7 @@ extension TSVector2 {
     
     /// Initirize TSVector2 with Int16 values
     @inline(__always)
-    init(_ x16:Int16, _ z16:Int16) {
+    public init(_ x16:Int16, _ z16:Int16) {
         self.simd = SIMD(x16, z16)
     }
 }
