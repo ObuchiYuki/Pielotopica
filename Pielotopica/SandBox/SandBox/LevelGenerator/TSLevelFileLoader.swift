@@ -28,10 +28,18 @@ private struct _TSChunkData: Codable {
                     let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
                     let section = sections[index]
                     
-                    chunk
+                    chunk.data[x][y][z] = section.data
+                    chunk.fillmap[x][y][z] = section.fill
+                    chunk.anchorMap[x][y][z] = section.anchor
+                    
+                    if section.fill == section.anchor {
+                        chunk.anchors.insert(TSVector3(x, y, z))
+                    }
                 }
             }
         }
+        
+        return chunk
     }
     
     init(chunk: TSChunk) {

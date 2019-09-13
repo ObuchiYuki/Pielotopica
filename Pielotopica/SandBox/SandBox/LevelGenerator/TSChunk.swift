@@ -19,7 +19,6 @@ public class TSChunk {
     public var anchorMap   = [[[UInt16]]]()
 
     public init() {}
-    
 }
 
 extension TSChunk {
