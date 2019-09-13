@@ -20,7 +20,18 @@ private struct _TSChunkData: Codable {
     var sections:[Section]
     
     var chunk:TSChunk {
+        var chunk = TSChunk()
         
+        for x in 0..<Int(TSChunk.sideWidth) {
+            for y in 0..<Int(TSChunk.height) {
+                for z in 0..<Int(TSChunk.sideWidth) {
+                    let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
+                    let section = sections[index]
+                    
+                    chunk
+                }
+            }
+        }
     }
     
     init(chunk: TSChunk) {
