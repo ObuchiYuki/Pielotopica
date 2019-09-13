@@ -30,18 +30,22 @@ public struct TSVector3 {
     
     // =============================================================== //
     // MARK: - Constructors -
+    @inlinable
+    @inline(__always)
     public init(_ simd: SIMD = SIMD.zero) {
         self.simd = simd
-        
     }
     
+    @inlinable
+    @inline(__always)
     public init(_ x:Int, _ y:Int, _ z:Int) {
         self.simd = SIMD(Int16(x), Int16(y), Int16(z))
-        
     }
+    
+    @inlinable
+    @inline(__always)
     public init(_ x:Int16, _ y:Int16, _ z:Int16) {
         self.simd = SIMD(x, y, z)
-        
     }
 }
 
@@ -53,10 +57,14 @@ extension TSVector3 {
     // MARK: - Int components
     
     /// x component of TSVector3
+    @inlinable @inline(__always)
     public var x:Int {
+        @inlinable @inline(__always)
         get{return Int(simd.x)}
         set{self.simd.x = Int16(newValue)}
     }
+    
+    @inlinable @inline(__always)
     /// y component of TSVector3
     public var y:Int {
         get{return Int(simd.y)}

@@ -1,5 +1,5 @@
 //
-//  TSLevelGenerator.swift
+//  TSChunk.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/09/13.
@@ -7,10 +7,8 @@
 //
 
 import Foundation
-
-
-class TSLevelGenerator {
-    static let shared = TSLevelGenerator()
-
-    func chunk(at )
+ 
+public class TSChunk {
+    @usableFromInline
+    static let sideWidth: Int16 = 16
 }
