@@ -16,10 +16,8 @@ public protocol TSOccasionSavable {
     /// The ticks per a saving.
     var tickPerSave: UInt { get }
     
-    // MARK: - Codable -
-    func encode(to encoder: Encoder) throws
-    
-    init(from decoder: Decoder) throws
+    /// Implemention of saving.
+    func save()
 }
 
 // MARK: - TSFileSaveManager -
