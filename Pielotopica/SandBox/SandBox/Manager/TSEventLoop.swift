@@ -1,5 +1,5 @@
 //
-//  TSTic.swift
+//  TSEventLoop.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/09/13.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-class TSTic {
+class TSEventLoop {
+    static let shared = TSEventLoop()
     
 }

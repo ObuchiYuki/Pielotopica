@@ -217,6 +217,7 @@
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
 		B6ABDEEC2321F2F7004FAFA5 /* NBTEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABDEEB2321F2F7004FAFA5 /* NBTEncoder.swift */; };
 		B6B8B527232B857B003F3F83 /* TSTic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B8B526232B857B003F3F83 /* TSTic.swift */; };
+		B6B8B529232B85A3003F3F83 /* TSEventLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B8B528232B85A3003F3F83 /* TSEventLoop.swift */; };
 		B6B9CE80232B2BBB00441094 /* TSChunkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */; };
 		B6B9CE82232B2D4F00441094 /* TSChunkPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */; };
 		B6B9CE84232B2E8700441094 /* TSChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9CE83232B2E8700441094 /* TSChunk.swift */; };
@@ -488,6 +489,7 @@
 		B6B546402324BC0900986BA1 /* BoxTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxTag.swift; sourceTree = "<group>"; };
 		B6B546412324BC0900986BA1 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		B6B8B526232B857B003F3F83 /* TSTic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSTic.swift; sourceTree = "<group>"; };
+		B6B8B528232B85A3003F3F83 /* TSEventLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSEventLoop.swift; sourceTree = "<group>"; };
 		B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkManager.swift; sourceTree = "<group>"; };
 		B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkPoint.swift; sourceTree = "<group>"; };
 		B6B9CE83232B2E8700441094 /* TSChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunk.swift; sourceTree = "<group>"; };
@@ -1128,6 +1130,7 @@
 				B6B8B526232B857B003F3F83 /* TSTic.swift */,
 				B69E866F231627B9004D4272 /* TSItemManager.swift */,
 				B6102370231A64FC009252E1 /* TSDurablityManager.swift */,
+				B6B8B528232B85A3003F3F83 /* TSEventLoop.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1673,6 +1676,7 @@
 				B6012DFD2318ADDB00DC18CE /* Impl+Entity.swift in Sources */,
 				B667BA59230B776C0038B098 /* RKRectAdjuster.swift in Sources */,
 				B61E94172300E395008CB325 /* TPSandBoxRootScene.swift in Sources */,
+				B6B8B529232B85A3003F3F83 /* TSEventLoop.swift in Sources */,
 				B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */,
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
 				B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */,
