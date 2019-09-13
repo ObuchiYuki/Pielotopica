@@ -51,6 +51,8 @@ public class TSEventLoop {
     
     // MARK: - Privates -
     private func _update() {
+        TSTick.shared.update()
+        
         for delegate in delegates {
             delegate.update(self, at: TSTick.shared)
         }

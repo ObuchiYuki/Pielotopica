@@ -12,6 +12,10 @@ public class TSTick {
     public var value: UInt = 0 {
         didSet { self._tickDidUpdated(to: value) }
     }
+     
+    public func update() {
+        value += 1
+    }
     
     private func _tickDidUpdated(to value: UInt) {
         fatalError()
