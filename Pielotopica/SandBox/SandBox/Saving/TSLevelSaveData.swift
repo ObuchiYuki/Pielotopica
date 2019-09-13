@@ -42,11 +42,11 @@ public class TSLevelSaveData {
         
         /// 現在のプレイヤー位置
         public var positionX: Int16 = 0
-        var positionY: Int16 = 0
-        var positionZ: Int16 = 0
+        public var positionY: Int16 = 0
+        public var positionZ: Int16 = 0
         
-        /// プレイヤーが存在するディメンション。今のところ 0 (= 地上のみ)
-        var dimension: UInt8
+        /// プレイヤーが存在するディメンション。今のところ 0 (= 地上) のみ
+        public var dimension: UInt8 = 0
         
         /// 現在のスコア
         var score: Int32
