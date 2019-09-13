@@ -41,32 +41,32 @@ extension TSChunkPoint {
 
 extension TSChunkPoint: Equatable {
     @inline(__always)
-    static func == (left: TSChunkPoint, right: TSChunkPoint) -> Bool {
+    public static func == (left: TSChunkPoint, right: TSChunkPoint) -> Bool {
         return left.simd == right.simd
     }
     
     @inline(__always)
-    static func + (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+    public static func + (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
         return TSChunkPoint(simd: left.simd &+ right.simd)
     }
     
     @inline(__always)
-    static func - (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+    public static func - (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
         return TSChunkPoint(simd: left.simd &- right.simd)
     }
     
     @inline(__always)
-    static func * (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+    public static func * (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
         return TSChunkPoint(simd: left.simd &* right.simd)
     }
     
     @inline(__always)
-    static func += (left: inout TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+    public static func += (left: inout TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
         left = TSChunkPoint(simd: left.simd &+ right.simd)
     }
     
     @inline(__always)
-    static func -= (left: inout TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+    public static func -= (left: inout TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
         left = TSChunkPoint(simd: left.simd & right.simd)
     }
 }
