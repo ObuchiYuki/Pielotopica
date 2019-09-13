@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSEventLoop.shared.start()
         
         TSFileSaveManager.shared.initirize()
+        TSFileSaveManager.shared.register(TSLevelSaveData.current)
         
         TSFuelData.shared.setMaxFuel(1000)
         TSFuelData.shared.setMaxHeart(100)
