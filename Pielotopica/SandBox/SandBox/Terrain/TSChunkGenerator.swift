@@ -13,6 +13,6 @@ class TSLevelGenerator {
     static let shared = TSLevelGenerator()
 
     func chunk(at point: TSChunkPoint) -> TSChunk {
-        fatalError()
+        
     }
 }
