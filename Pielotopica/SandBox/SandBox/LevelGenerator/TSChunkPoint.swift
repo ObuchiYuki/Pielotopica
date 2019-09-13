@@ -77,12 +77,12 @@ extension TSChunkPoint {
     }
     
     @inline(__always)
-    public static func += (left: inout TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+    public static func += (left: inout TSChunkPoint, right: TSChunkPoint) {
         left = TSChunkPoint(simd: left.simd &+ right.simd)
     }
     
     @inline(__always)
-    public static func -= (left: inout TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+    public static func -= (left: inout TSChunkPoint, right: TSChunkPoint)  {
         left = TSChunkPoint(simd: left.simd & right.simd)
     }
 }
