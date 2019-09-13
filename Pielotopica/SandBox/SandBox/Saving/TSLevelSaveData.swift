@@ -21,6 +21,7 @@ public class TSLevelSaveData: Codable {
         }
     }
     
+    /// 新規世界を作ります。
     public static func createNew(levelName: String, generatorName: GeneratorName, randomSeed: String) {
         TSLevelSaveData.current = TSLevelSaveData(
             levelName: levelName,
@@ -55,16 +56,16 @@ public class TSLevelSaveData: Codable {
     public var randomSeed: String
     
     ///  The game rules.
-    public var gameRules: GameRules
+    public var gameRules = GameRules()
     
     public struct GameRules: Codable {
         /// whether the debug mode on.
-        public var debug: Bool
+        public var debug: Bool = false
             
     }
     
     /// プレイヤーデータ
-    public var player:Player
+    public var player = Player()
     
     public struct Player: Codable {
         
