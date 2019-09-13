@@ -41,6 +41,11 @@ extension TSChunkPoint {
 
 extension TSChunkPoint: Equatable {
     @inline(__always)
+    static func == (left: TSChunkPoint, right: TSChunkPoint) -> Bool {
+        return left.simd == right.simd
+    }
+    
+    @inline(__always)
     static func + (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
         return TSChunkPoint(simd: left.simd &+ right.simd)
     }
