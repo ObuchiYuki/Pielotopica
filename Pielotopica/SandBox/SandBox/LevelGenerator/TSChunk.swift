@@ -18,6 +18,7 @@ public class TSChunk {
     public var anchors     = Set<TSVector3>()
     public var anchorMap   = [[[UInt16]]]()
 
+    public init() {}
     
 }
 
