@@ -769,7 +769,7 @@
 		B62279BE2301AB2D009EF60F /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
-				B6B9CE7E232B2BA000441094 /* LevelGenerator */,
+				B6B9CE7E232B2BA000441094 /* Terrain */,
 				B66BD3DB2317E88A00E20212 /* Entity */,
 				B69E866E2316279F004D4272 /* Manager */,
 				B6E8826423124435003F3124 /* Data */,
@@ -1227,15 +1227,15 @@
 			path = BoxData;
 			sourceTree = "<group>";
 		};
-		B6B9CE7E232B2BA000441094 /* LevelGenerator */ = {
+		B6B9CE7E232B2BA000441094 /* Terrain */ = {
 			isa = PBXGroup;
 			children = (
+				B6B9CE83232B2E8700441094 /* TSChunk.swift */,
 				B6B9CE7F232B2BBB00441094 /* TSLevelGenerator.swift */,
 				B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */,
-				B6B9CE83232B2E8700441094 /* TSChunk.swift */,
 				B6B9CE85232B352800441094 /* TSLevelFileLoader.swift */,
 			);
-			path = LevelGenerator;
+			path = Terrain;
 			sourceTree = "<group>";
 		};
 		B6E8826423124435003F3124 /* Data */ = {
