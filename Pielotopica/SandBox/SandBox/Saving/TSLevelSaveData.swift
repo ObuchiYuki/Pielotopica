@@ -114,6 +114,10 @@ public class TSLevelSaveData: Codable {
     }
 }
 
+extension TSLevelSaveData: TSOccasionallySavable {
+    
+}
+
 extension RMStorage.Key {
     fileprivate static var _TSLevelSaveDataKey:RMStorage.Key<TSLevelSaveData> { return RMStorage.Key(rawValue: "level.box") }
 }

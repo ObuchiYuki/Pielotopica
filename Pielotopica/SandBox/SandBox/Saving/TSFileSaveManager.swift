@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - TSOccasionSavable -
-public protocol TSOccasionSavable {
+public protocol TSTickBasedSavable {
     /// Whether it has been edited since the last save
     var isEdited: Bool { get set }
     
@@ -26,21 +26,16 @@ public class TSFileSaveManager {
     public static let shared = TSFileSaveManager()
     
     // MARK: - Privates -
-    private var savables = RMWeakSet<TSOccasionSavable>()
+    private var savables = RMWeakSet<TSTickBasedSavable>()
     
     // MARK: - Methods -
     /// 弱参照
-    public func register(_ clazz: TSOccasionSavable) {
+    public func register(_ clazz: TSTickBasedSavable) {
         savables.append(clazz)
     }
     
     public func initirize() {
         TSEventLoop.shared.register(self)
-    }
-    
-    // MARK: - Privates -
-    private func _save(_ savable: TSOccasionSavable) {
-        
     }
 }
 
@@ -48,7 +43,7 @@ extension TSFileSaveManager: TSEventLoopDelegate {
     public func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         for savable in savables {
             if tick.value % savable.tickPerSave == 0 {
-                
+                savable.save()
             }
         }
     }
