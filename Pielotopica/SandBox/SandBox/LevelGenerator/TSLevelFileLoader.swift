@@ -9,11 +9,29 @@
 import BoxData
 
 private struct _TSChunkData: Codable {
-    init(chunk: TSChunk) {
-        
+    
+    struct Section: Codable {
+        let data: UInt8
+        let fill: UInt8
+        let anchor: UInt16
     }
     
-    var chunk:TSChunk
+    /// 16 x 4 x 16 = 1024 size array
+    var sessions:[Section]
+    
+    var chunk:TSChunk {
+        
+    }
+    init(chunk: TSChunk) {
+        for x in 0..<TSChunk.sideWidth {
+            for y in 0..<TSChunk.height {
+                for z in 0..<TSChunk.sideWidth {
+                    
+                    Section(data: <#T##UInt8#>, fill: <#T##UInt8#>, anchor: <#T##UInt16#>)
+                }
+            }
+        }
+    }
 }
 
  
