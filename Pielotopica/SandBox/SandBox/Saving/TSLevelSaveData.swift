@@ -49,39 +49,39 @@ public class TSLevelSaveData {
         public var dimension: UInt8 = 0
         
         /// 現在のスコア
-        var score: Int32
+        public var score: Int32 = 0
         
         /// プレイヤーの選択したホットバーのスロット。
-        var selectedItemSlot: UInt8
+        public var selectedItemSlot: UInt8 = 0
         
         /// 現在のアイテムバーのアイテム
-        var selectedItems: Item
+        public var selectedItems: [Item] = []
         
-        struct Item: Codable {
+        public struct Item: Codable {
             ///  アイテムのスタック数。
-            var count: UInt32
+            public var count: UInt32 = 0
             
             /// アイテムのあるスロット番号。
-            var slot: UInt32
+            public var slot: UInt32 = 0
             
             /// アイテムの `id`
-            var id: UInt16
+            public var id: UInt16 = 0
             
             /// アイテムのデータ値。道具の場合は「ダメージ値」になる。
-            var data:UInt16
+            public var data:UInt16 = 0
         }
     }
     
     /// Information about the Topica version the world was saved in.
-    var version: Version
+    public var version: Version
     
-    struct Version: Codable {
+    public struct Version: Codable {
         /// An identifier for the version.
-        var id: Int32
+        public var id: Int32
         /// The version name as a string, e.g. "tp.1.0.1"
-        var name: String
+        public var name: String
         /// Whether the version is debug
-        var debug: Bool
+        public var debug: Bool
     }
     
     init(levelName: String, generatorName: GeneratorName, randomSeed: String) {
