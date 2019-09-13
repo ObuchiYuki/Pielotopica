@@ -108,7 +108,7 @@ public final class RMStorage {
             try? FileManager.default.createDirectory(at: appSupportUrl, withIntermediateDirectories: true)
         }
         
-        return appSupportUrl.appendingPathComponent(key.rawValue).appendingPathExtension("box").path
+        return appSupportUrl.appendingPathComponent(key.rawValue).path
     }
     
     /// macOSであれば
