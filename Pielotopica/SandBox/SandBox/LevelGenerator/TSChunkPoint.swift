@@ -11,7 +11,7 @@ import simd
 // MARK: - TSChunkPoint -
 public struct TSChunkPoint {
     public var simd:SIMD2<Int16>
-    
+
 }
 
 // MARK: - Properties -
@@ -28,14 +28,25 @@ extension TSChunkPoint {
     public var tsVector2: TSVector2 {
         return TSVector2(simd.x * TSChunk.sideWidth, simd.x * TSChunk.sideWidth)
     }
-    
-    
 }
 
 // MARK: - Constructors -
 extension TSChunkPoint {
-    @inlinable @inline(__always)
+    
+    @inline(__always)
     public init(_ x: Int16, _ z:Int16) {
         self.simd = SIMD2(x, z)
+    }
+}
+
+extension TSChunkPoint: Equatable {
+    @inline(__always)
+    static func + (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+        return TSChunkPoint(simd: left.simd &+ right.simd)
+    }
+    
+    @inline(__always)
+    static func - (left: TSChunkPoint, right: TSChunkPoint) -> TSChunkPoint {
+        return TSChunkPoint(simd: left.simd &+ right.simd)
     }
 }
