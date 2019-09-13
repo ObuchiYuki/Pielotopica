@@ -8,12 +8,14 @@
 
 import Foundation
 
-protocol TSOccasionSavable {
+public protocol TSOccasionSavable {
     var isEdited: Bool { get set }
+    var savePerTick: UInt { get }
 }
 
 public class TSFileSaveManager {
     public static let shared = TSFileSaveManager()
+    
     
     
 }
