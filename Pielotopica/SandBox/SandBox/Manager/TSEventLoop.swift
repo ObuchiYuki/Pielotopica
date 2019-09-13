@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - TSEventLoopDelegate -
+
 public protocol TSEventLoopDelegate {
     func update(_ eventLoop: TSEventLoop, at tick: TSTick)
 }
@@ -31,6 +33,7 @@ public class TSEventLoop {
         delegates.remove(delegate)
     }
     
+    
     public func start() {
         self._timer = _createTimer()
     }
@@ -48,6 +51,8 @@ public class TSEventLoop {
     
     // MARK: - Privates -
     private func _update() {
-        
+        for delegate in delegates {
+            delegate.update(self, at: TSTick...)
+        }
     }
 }
