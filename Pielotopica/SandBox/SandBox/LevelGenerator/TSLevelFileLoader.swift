@@ -17,10 +17,10 @@ private struct _TSChunkData: Codable {
     }
     
     /// 16 x 4 x 16 = 1024 size array
-    var sections:[Section]
+    var sections = [Section].init(unsafeUninitializedCapacity: 1024, initializingWith: {_,_ in})
     
     var chunk:TSChunk {
-        var chunk = TSChunk()
+        let chunk = TSChunk()
         
         for x in 0..<Int(TSChunk.sideWidth) {
             for y in 0..<Int(TSChunk.height) {
@@ -52,10 +52,13 @@ private struct _TSChunkData: Codable {
                     
                     let section = Section(data: data, fill: fill, anchor: anchor)
                     
-                    sections.append(section)
+                    let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
+                    sections[index] = section
                 }
             }
         }
+        
+        
     }
 }
 
