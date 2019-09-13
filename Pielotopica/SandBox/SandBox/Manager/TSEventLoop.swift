@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TSEventLoopDelegate {
+public protocol TSEventLoopDelegate {
     func update(_ eventLoop: TSEventLoop, at tick: TSTick)
 }
 
