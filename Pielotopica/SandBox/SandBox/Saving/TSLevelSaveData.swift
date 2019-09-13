@@ -17,12 +17,16 @@ public class TSLevelSaveData: Codable {
     
     public static func laodSaveData(levelName: String) {
         if let saved = RMStorage.shared.get(for: ._TSLevelSaveDataKey) {
-            
+            TSLevelSaveData.current = saved
         }
     }
     
     public static func createNew(levelName: String, generatorName: GeneratorName, randomSeed: String) {
-        
+        TSLevelSaveData.current = TSLevelSaveData(
+            levelName: levelName,
+            generatorName: generatorName,
+            randomSeed: randomSeed
+        )
     }
     
     private init(levelName: String, generatorName: GeneratorName, randomSeed: String) {
@@ -65,21 +69,21 @@ public class TSLevelSaveData: Codable {
     public struct Player: Codable {
         
         /// 現在のプレイヤー位置
-        public var positionX: Int16
-        public var positionY: Int16
-        public var positionZ: Int16
+        public var positionX: Int16 = 0
+        public var positionY: Int16 = 0
+        public var positionZ: Int16 = 0
         
         /// プレイヤーが存在するディメンション。今のところ 0 (= 地上のみ)
-        public var dimension: UInt8
+        public var dimension: UInt8 = 0
         
         /// 現在のスコア
-        public var score: Int32
+        public var score: Int32 = 0
         
         /// プレイヤーの選択したホットバーのスロット。
-        public var selectedItemSlot: UInt8
+        public var selectedItemSlot: UInt8 = 0
         
         /// 現在のアイテムバーのアイテム
-        public var selectedItems: [Item]
+        public var selectedItems: [Item] = []
         
         public struct Item: Codable {
             ///  アイテムのスタック数。
@@ -97,7 +101,7 @@ public class TSLevelSaveData: Codable {
     }
     
     /// Information about the Topica version the world was saved in.
-    public var version: Version
+    public var version: Version = .current
     
     public struct Version: Codable {
         /// An identifier for the version.
