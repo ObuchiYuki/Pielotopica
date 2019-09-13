@@ -18,16 +18,16 @@ private struct _TSChunkData: Codable {
 class TSLevelFileLoader {
     static let shared = TSLevelFileLoader()
     
-    private static var encoder: BoxEncoder {
+    private var encoder: BoxEncoder {
         let _encoder = BoxEncoder()
         _encoder.compressionLevel = 2
         return _encoder
     }
     
-    private static let decoder = BoxDecoder()
+    private let decoder = BoxDecoder()
     
     @discardableResult
-    static func saveChunk(_ chunk:TSChunk, for point: TSChunkPoint) -> Bool {
+    func saveChunk(_ chunk:TSChunk, for point: TSChunkPoint) -> Bool {
         let _data = _TSChunkData(chunk: chunk)
         
         do {
@@ -41,18 +41,18 @@ class TSLevelFileLoader {
         return true
     }
     
-    static func loadChunk(at point:TSChunkPoint) -> TSChunk {
+    func loadChunk(at point:TSChunkPoint) -> TSChunk {
         
     }
     
     @inline(__always)
-    private static func _saveData(_ data: Data, at point: TSChunkPoint) {
+    private func _saveData(_ data: Data, at point: TSChunkPoint) {
         let name
     }
     
     
     @inline(__always)
-    private static func _filename(of point: TSChunkPoint) -> String {
+    private func _filename(of point: TSChunkPoint) -> String {
         let name = "r.\(point.x).\(point.z).box"
         
         return name
