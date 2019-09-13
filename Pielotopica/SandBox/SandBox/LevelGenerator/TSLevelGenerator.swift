@@ -12,5 +12,7 @@ import Foundation
 class TSLevelGenerator {
     static let shared = TSLevelGenerator()
 
-    func chunk(at )
+    func chunk(at point: TSChunkPoint) -> TSChunk {
+        
+    }
 }
