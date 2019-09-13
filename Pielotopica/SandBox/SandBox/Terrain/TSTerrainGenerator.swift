@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+class TSTerrainGenerator {
+    static let shared = TSTerrainGenerator()
+}
