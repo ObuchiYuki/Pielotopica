@@ -18,7 +18,10 @@ class TSChunkManager {
     
     // MARK: - Methods -
     
-    public func didCameraMoved(_ ) 
+    public func didCameraMoved(to point: TSVector2) {
+        /// ...
+    }
+    
     public func chunk(contains point: TSVector2) -> TSChunk {
         let chunkPoint = _calcurateChunkPoint(from: point)
         
@@ -34,6 +37,14 @@ class TSChunkManager {
     }
     
     // MARK: - Privates -
+    
+    private func _loadChunk(at point: TSChunkPoint) {
+        
+    }
+    private func _unloadChunk(at point: TSChunkPoint) {
+        
+    }
+    
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
