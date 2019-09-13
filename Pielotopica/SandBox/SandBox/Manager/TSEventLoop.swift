@@ -8,21 +8,24 @@
 
 import Foundation
 
+// MARK: - TSEventLoop -
+
 public class TSEventLoop {
+    
+    // MARK: - Singleton -
     public static let shared = TSEventLoop()
     
+    // MARK: - Proeprties -
     private var _timer:Timer!
     
+    // MARK: - Methods -
     public func start() {
-        self.timer = _createTimer()
+        self._timer = _createTimer()
     }
     
     public func stop() {
-        self.timer.in
-    }
-    
-    public func resume() {
-        
+        self._timer.invalidate()
+        self._timer = nil
     }
     
     private func _createTimer() -> Timer {
@@ -31,6 +34,7 @@ public class TSEventLoop {
         })
     }
     
+    // MARK: - Privates -
     private func _update() {
         
     }
