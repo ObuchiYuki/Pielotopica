@@ -10,7 +10,7 @@ import UIKit
 import BoxData
 
 extension TSLevelSaveData.Version {
-    static let current
+    public static let current = TSLevelSaveData.Version(id: 1, name: "tp.0.0.1db", debug: true)
 }
 
 
