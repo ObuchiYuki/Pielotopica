@@ -1,5 +1,5 @@
 //
-//  TSTic.swift
+//  TSTick.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/09/13.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class TSTic {
-    
+public class TSTick {
+    public static let unitSecond =
 }

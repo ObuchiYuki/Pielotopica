@@ -8,7 +8,20 @@
 
 import Foundation
 
-class TSEventLoop {
-    static let shared = TSEventLoop()
+public class TSEventLoop {
+    public static let shared = TSEventLoop()
     
+    private var _timer:Timer!
+    
+    public func start() {
+        self._timer = Timer.scheduledTimer(withTimeInterval: <#T##TimeInterval#>, repeats: <#T##Bool#>, block: <#T##(Timer) -> Void#>)
+    }
+    
+    public func stop() {
+        
+    }
+    
+    public func resume() {
+        
+    }
 }
