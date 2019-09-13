@@ -14,7 +14,7 @@ public class TSChunk {
     public var point: TSChunkPoint
     
     public var fillmap     = [[[UInt16]]]()
-    public var data        = [TSVector3: UInt8]()
+    public var data        = [[[UInt8]]]()
     public var anchors     = Set<TSVector3>()
     public var anchorMap   = [[[UInt16]]]()
 

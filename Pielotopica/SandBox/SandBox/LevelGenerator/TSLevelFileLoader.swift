@@ -12,22 +12,28 @@ private struct _TSChunkData: Codable {
     
     struct Section: Codable {
         let data: UInt8
-        let fill: UInt8
+        let fill: UInt16
         let anchor: UInt16
     }
     
     /// 16 x 4 x 16 = 1024 size array
-    var sessions:[Section]
+    var sections:[Section]
     
     var chunk:TSChunk {
         
     }
+    
     init(chunk: TSChunk) {
-        for x in 0..<TSChunk.sideWidth {
-            for y in 0..<TSChunk.height {
-                for z in 0..<TSChunk.sideWidth {
+        for x in 0..<Int(TSChunk.sideWidth) {
+            for y in 0..<Int(TSChunk.height) {
+                for z in 0..<Int(TSChunk.sideWidth) {
+                    let data = chunk.data[x][y][z]
+                    let fill = chunk.fillmap[x][y][z]
+                    let anchor = chunk.anchorMap[x][y][z]
                     
-                    Section(data: <#T##UInt8#>, fill: <#T##UInt8#>, anchor: <#T##UInt16#>)
+                    let section = Section(data: data, fill: fill, anchor: anchor)
+                    
+                    sections.append(section)
                 }
             }
         }
