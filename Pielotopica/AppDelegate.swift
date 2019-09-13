@@ -22,6 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        TSEventLoop.shared.start()
+        
+        TSFileSaveManager.shared.initirize()
+        
         TSFuelData.shared.setMaxFuel(1000)
         TSFuelData.shared.setMaxHeart(100)
         

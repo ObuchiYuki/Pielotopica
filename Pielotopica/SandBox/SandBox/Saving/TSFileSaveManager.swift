@@ -30,6 +30,12 @@ public class TSFileSaveManager {
     }
     
     public func initirize() {
+        TSEventLoop.shared.register(self)
+    }
+}
+
+extension TSFileSaveManager: TSEventLoopDelegate {
+    public func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
     }
 }
