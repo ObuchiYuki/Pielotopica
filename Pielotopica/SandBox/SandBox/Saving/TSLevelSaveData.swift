@@ -8,10 +8,16 @@
 
 import Foundation
 
-public class TSLevelSaveData: Codable {
+public struct TSLevelSaveData: Codable {
     
     // MARK: - Singleton -
-    public static var current: TSLevelSaveData!
+    public static var current: TSLevelSaveData! {
+        didSet { current.isEdited = true }
+    }
+    
+    // MARK: - Properties -
+    
+    public var isEdited: Bool = false
     
     // MARK: - Methods -
     
@@ -114,8 +120,14 @@ public class TSLevelSaveData: Codable {
     }
 }
 
-extension TSLevelSaveData: TSOccasionallySavable {
+extension TSLevelSaveData: TSTickBasedSavable {
+    public var tickPerSave: UInt {
+        return UInt(10.0 / TSTick.unit)
+    }
     
+    public func save() {
+        
+    }
 }
 
 extension RMStorage.Key {
