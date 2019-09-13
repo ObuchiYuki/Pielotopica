@@ -10,5 +10,10 @@ import Foundation
  
 public class TSChunk {
     
+    
+}
+
+extension TSChunk {
     public static let sideWidth: Int16 = 16
+    
 }
