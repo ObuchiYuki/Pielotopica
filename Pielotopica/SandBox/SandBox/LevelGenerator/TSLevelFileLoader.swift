@@ -45,16 +45,33 @@ class TSLevelFileLoader {
         
     }
     
-    @inline(__always)
     private func _saveData(_ data: Data, at point: TSChunkPoint) {
-        let name
+        guard var url = _prepareDirectory() else {return}
+        
+        url.appendPathComponent(_filename(of: point))
+        
+        FileManager.default.createFile(atPath: url.path, contents: data)
     }
     
     
-    @inline(__always)
-    private func _filename(of point: TSChunkPoint) -> String {
-        let name = "r.\(point.x).\(point.z).box"
+    private func _prepareDirectory() -> URL? {
+        guard var documentDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            log.error("Error in finding documentDirectory.")
+            return nil
+        }
+        documentDir.appendPathComponent("Region")
         
-        return name
+        if !FileManager.default.fileExists(atPath: documentDir.path) {
+            do {
+                try FileManager.default.createDirectory(at: documentDir, withIntermediateDirectories: false)
+            } catch {
+                log.error(error)
+            }
+        }
+        
+        return documentDir
+    }
+    private func _filename(of point: TSChunkPoint) -> String {
+        return "r.\(point.x).\(point.z).box"
     }
 }
