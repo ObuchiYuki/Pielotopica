@@ -9,6 +9,8 @@
 import Foundation
 
 class TSLevelFileLoader {
-    static let shared = TSLevelFileLoader()
     
+    static func savedChunk(at point:TSChunkPoint) -> TSChunk {
+        
+    }
 }
