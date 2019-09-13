@@ -17,12 +17,16 @@ public struct TSChunkPoint {
 // MARK: - Properties -
 extension TSChunkPoint {
     // 
-    @inlinable @inline(__always)
+    @inlinable
+    @inline(__always)
     public var x: Int16 { return simd.x }
-    @inlinable @inline(__always)
+    
+    @inlinable
+    @inline(__always)
     public var z: Int16 { return simd.y }
     
-    @inlinable @inline(__always)
+    @inlinable
+    @inline(__always)
     public var tsVector2: TSVector2 {
         TSVector2(simd.x * TSChunk.sideWidth, simd.x * TSChunk.sideWidth)
     }
