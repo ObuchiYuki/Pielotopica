@@ -26,7 +26,10 @@ public class TSFileSaveManager {
     // MARK: - Methods -
     /// 弱参照
     public func register(_ clazz: TSOccasionSavable) {
-        
+        savable.append(clazz)
     }
     
+    public func initirize() {
+        
+    }
 }
