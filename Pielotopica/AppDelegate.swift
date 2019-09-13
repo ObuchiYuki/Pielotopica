@@ -9,6 +9,11 @@
 import UIKit
 import BoxData
 
+extension TSLevelSaveData.Version {
+    static let current
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
