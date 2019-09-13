@@ -99,7 +99,7 @@ extension TSVector3 {
 // MARK: - Extension for Equatable -
 
 extension TSVector3 :Equatable {
-    @inlinable @inline(__always)
+    @inline(__always)
     public static func == (left:TSVector3, right:TSVector3) -> Bool {
         return left.simd == right.simd
     }
@@ -109,7 +109,7 @@ extension TSVector3 :Equatable {
 // MARK: - Extension for Hashable -
 
 extension TSVector3 :Hashable {
-    @inlinable @inline(__always)
+    @inline(__always)
     public func hash(into hasher: inout Hasher) {
         hasher.combine(simd)
     }
