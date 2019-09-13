@@ -17,7 +17,7 @@ private struct _TSChunkData: Codable {
     }
     
     /// 16 x 4 x 16 = 1024 size array
-    var sections = [Section].init(unsafeUninitializedCapacity: 1024, initializingWith: {_,_ in})
+    var sections = [Section?].init(repeating: nil, count: 1024)
     
     var chunk:TSChunk {
         let chunk = TSChunk()
@@ -26,7 +26,7 @@ private struct _TSChunkData: Codable {
             for y in 0..<Int(TSChunk.height) {
                 for z in 0..<Int(TSChunk.sideWidth) {
                     let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
-                    let section = sections[index]
+                    let section = sections[index]!
                     
                     chunk.data[x][y][z] = section.data
                     chunk.fillmap[x][y][z] = section.fill
@@ -57,8 +57,6 @@ private struct _TSChunkData: Codable {
                 }
             }
         }
-        
-        
     }
 }
 
