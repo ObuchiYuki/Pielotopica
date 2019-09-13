@@ -73,7 +73,7 @@ public class TSLevelSaveData {
     }
     
     /// Information about the Topica version the world was saved in.
-    public var version: Version
+    public var version: Version = .current
     
     public struct Version: Codable {
         /// An identifier for the version.
@@ -85,8 +85,11 @@ public class TSLevelSaveData {
     }
     
     init(levelName: String, generatorName: GeneratorName, randomSeed: String) {
-        
+        self.levelName = levelName
+        self.generatorName = generatorName
+        self.randomSeed = randomSeed
     }
+    
     init() {
         if let stored = RMStorage.shared.get(for: ._TSLevelSaveDataKey) else {
             
