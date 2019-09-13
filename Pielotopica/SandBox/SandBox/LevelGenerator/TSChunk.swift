@@ -9,6 +9,6 @@
 import Foundation
  
 public class TSChunk {
-    @usableFromInline
-    static let sideWidth: Int16 = 16
+    
+    public static let sideWidth: Int16 = 16
 }

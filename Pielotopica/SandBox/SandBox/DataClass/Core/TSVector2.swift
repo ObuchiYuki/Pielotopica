@@ -28,7 +28,8 @@ public struct TSVector2 {
     public var simd:SIMD
     // =============================================================== //
     // MARK: - Constructor -
-    
+    @inlinable
+    @inline(__always)
     init(_ simd:SIMD = SIMD.zero) {
         self.simd = simd
     }
@@ -40,54 +41,65 @@ public struct TSVector2 {
 extension TSVector2 {
     
     /// X component of TSVector2
+    
+    @inlinable
+    @inline(__always)
     public var x:Int {
-        get {return Int(simd.x)}
-        set {simd.x = Int16(newValue)}
+        @inlinable @inline(__always) get {return Int(simd.x)}
+        @inlinable @inline(__always) set {simd.x = Int16(newValue)}
     }
     
     /// Z component of TSVector2
+    @inline(__always)
     public var z:Int {
-        get {return Int(simd.y)}
-        set {simd.y = Int16(newValue)}
+        @inline(__always) get {return Int(simd.y)}
+        @inline(__always) set {simd.y = Int16(newValue)}
     }
     
     /// X component of TSVector2 in Int16
+    @inline(__always)
     public var x16:Int16 {
-        get {return simd.x}
-        set {simd.x = newValue}
+        @inline(__always) get {return simd.x}
+        @inline(__always) set {simd.x = newValue}
     }
     
     /// Z component of TSVector2 in Int16
+    @inline(__always)
     public var z16:Int16 {
-        get {return simd.y}
-        set {simd.y = newValue}
+        @inline(__always) get {return simd.y}
+        @inline(__always) set {simd.y = newValue}
     }
     
     /// Initirize TSVector2 with Int values
+    @inline(__always)
     init(_ x:Int,_ z:Int) {
         self.simd = SIMD(Int16(x), Int16(z))
         
     }
     
     /// Initirize TSVector2 with Int16 values
+    @inline(__always)
     init(_ x16:Int16, _ z16:Int16) {
         self.simd = SIMD(x16, z16)
     }
 }
 
 extension TSVector2:Equatable {
+    @inline(__always)
     public static func == (left:TSVector2, right:TSVector2) -> Bool{
         return left.simd == right.simd
     }
 }
 
 extension TSVector2:Hashable {
+    @inline(__always)
     public func hash(into hasher: inout Hasher) {
         hasher.combine(self.simd)
     }
 }
 
 extension TSVector2: CustomStringConvertible {
+    @inline(__always)
     public var description: String {
         return "TSVector2(x: \(x), z: \(z))"
     }
