@@ -9,12 +9,19 @@
 import Foundation
 
 public class TSTick {
-    public static let shared = TSTick()
+    public var value: UInt = 0 {
+        didSet { self._tickDidUpdated(to: value) }
+    }
     
-    public var value: UInt = 0
+    private func _tickDidUpdated(to value: UInt) {
+        fatalError()
+    }
     
     private init() {}
 }
+
 extension TSTick {
+    public static let shared = TSTick()
+    
     public static let unit = 0.05
 }
