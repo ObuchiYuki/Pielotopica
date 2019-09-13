@@ -8,9 +8,12 @@
 
 import Foundation
 
+// MARK: - TSTerrainGenerator -
 public class TSTerrainGenerator {
+    // MARK: - Singleton -
     static let shared = TSTerrainGenerator()
     
+    // MARK: - Methods -
     public func generateChunk(for point: TSChunkPoint) -> TSChunk {
         let chunk = TSChunk()
         
