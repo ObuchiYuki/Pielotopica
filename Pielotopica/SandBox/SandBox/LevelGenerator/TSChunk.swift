@@ -10,7 +10,8 @@ import Foundation
  
 /// (x, y, z) = (16, 4, 16)
 /// = 1024 blocks
-public class TSChunk {
+public class TSChunk  {
+    var point: TSChunkPoint
     var fillmap = [[[UInt16]]]()
     var anchors = Set<TSVector3>()
     var anchorFill = [TSVector3: TSVector3]()
