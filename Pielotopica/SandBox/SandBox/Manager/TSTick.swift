@@ -9,5 +9,6 @@
 import Foundation
 
 public class TSTick {
-    public static let unitSecond =
+    
+    public static let unitSecond = 0.05
 }
