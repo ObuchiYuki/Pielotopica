@@ -19,5 +19,5 @@ public class TSChunk {
 
 extension TSChunk {
     public static let sideWidth: Int16 = 16
-    
+    public static let height: Int16 = 4
 }
