@@ -39,6 +39,11 @@ extension TSChunkPoint {
     }
 }
 
+extension TSChunkPoint {
+    public static let zero = TSChunkPoint(0, 0)
+    public static let unit = TSChunkPoint(1, 1)
+}
+
 // MARK: - Equatable & Hashable -
 extension TSChunkPoint: Equatable {
     @inline(__always)

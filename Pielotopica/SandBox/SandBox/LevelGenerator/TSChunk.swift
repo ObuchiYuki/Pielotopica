@@ -11,7 +11,7 @@ import Foundation
 /// (x, y, z) = (16, 4, 16)
 /// = 1024 blocks
 public class TSChunk {
-    public var point: TSChunkPoint
+    public var point = TSChunkPoint.zero
     
     public var fillmap     = [[[UInt16]]]()
     public var data        = [[[UInt8]]]()
