@@ -11,11 +11,25 @@ import Foundation
 public class TSLevelSaveData: Codable {
     
     // MARK: - Singleton -
-    public static let shared = TSLevelSaveData()
+    public static var current: TSLevelSaveData!
     
-    // MARK: - Constructor -
+    // MARK: - Methods -
     
-    public init(levelName: String, generatorName: GeneratorName, randomSeed: String) {
+    public static func laodSaveData(levelName: String) {
+        if let saved = RMStorage.shared.get(for: ._TSLevelSaveDataKey) {
+            
+        }
+    }
+    
+    public static func createNew(levelName: String, generatorName: GeneratorName, randomSeed: String) {
+        
+    }
+    
+    private init() {
+        
+    }
+    
+    private init(levelName: String, generatorName: GeneratorName, randomSeed: String) {
         self.levelName = levelName
         self.generatorName = generatorName
         self.randomSeed = randomSeed
@@ -28,7 +42,7 @@ public class TSLevelSaveData: Codable {
     public var saveVersion: Int16 = 0
     
     /// whether the level is properly initialized.
-    public var initialized:Bool = 0
+    public var initialized:Bool = false
     
     ///  The name of the level. defalut is "default".
     public var levelName: String
@@ -100,5 +114,5 @@ public class TSLevelSaveData: Codable {
 }
 
 extension RMStorage.Key {
-    fileprivate static var _TSLevelSaveDataKey:RMStorage.Key<_TSLevelSaveData> { return RMStorage.Key(rawValue: "level.box") }
+    fileprivate static var _TSLevelSaveDataKey:RMStorage.Key<TSLevelSaveData> { return RMStorage.Key(rawValue: "level.box") }
 }
