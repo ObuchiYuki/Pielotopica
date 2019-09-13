@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol TSEventLoopDelegate {
+    func update(_ eventLoop: TSEventLoop, at tick: TSTick)
+}
+
 // MARK: - TSEventLoop -
 
 public class TSEventLoop {
@@ -17,8 +21,16 @@ public class TSEventLoop {
     
     // MARK: - Proeprties -
     private var _timer:Timer!
+    private var delegates = RMWeakSet<TSEventLoopDelegate>()
     
     // MARK: - Methods -
+    public func register(_ delegate: TSEventLoopDelegate) {
+        delegates.append(delegate)
+    }
+    public func unregister(_ delegate: TSEventLoopDelegate) {
+        delegates.remove(delegate)
+    }
+    
     public func start() {
         self._timer = _createTimer()
     }
