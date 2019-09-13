@@ -39,15 +39,14 @@ class TSChunkManager {
     // MARK: - Privates -
     
     private func _loadChunk(at point: TSChunkPoint) {
-        
+        fatalError()
     }
     private func _unloadChunk(at point: TSChunkPoint) {
-        
+        fatalError()
     }
     
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
-    }
-    
+    }    
 }

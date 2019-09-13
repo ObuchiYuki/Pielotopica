@@ -216,6 +216,7 @@
 		B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B2230E11B600F0FF48 /* GKSpriteNode.swift */; };
 		B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02B4230E125100F0FF48 /* GKShadowLabelNode.swift */; };
 		B6ABDEEC2321F2F7004FAFA5 /* NBTEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ABDEEB2321F2F7004FAFA5 /* NBTEncoder.swift */; };
+		B6B8B527232B857B003F3F83 /* TSTic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B8B526232B857B003F3F83 /* TSTic.swift */; };
 		B6B9CE80232B2BBB00441094 /* TSChunkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */; };
 		B6B9CE82232B2D4F00441094 /* TSChunkPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */; };
 		B6B9CE84232B2E8700441094 /* TSChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9CE83232B2E8700441094 /* TSChunk.swift */; };
@@ -486,6 +487,7 @@
 		B6B5463F2324BC0900986BA1 /* BoxEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxEncoder.swift; sourceTree = "<group>"; };
 		B6B546402324BC0900986BA1 /* BoxTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoxTag.swift; sourceTree = "<group>"; };
 		B6B546412324BC0900986BA1 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B6B8B526232B857B003F3F83 /* TSTic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSTic.swift; sourceTree = "<group>"; };
 		B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkManager.swift; sourceTree = "<group>"; };
 		B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkPoint.swift; sourceTree = "<group>"; };
 		B6B9CE83232B2E8700441094 /* TSChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunk.swift; sourceTree = "<group>"; };
@@ -944,9 +946,9 @@
 			isa = PBXGroup;
 			children = (
 				B6B9CE83232B2E8700441094 /* TSChunk.swift */,
+				B6B9CE85232B352800441094 /* TSChunkFileLoader.swift */,
 				B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */,
 				B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */,
-				B6B9CE85232B352800441094 /* TSChunkFileLoader.swift */,
 			);
 			path = Chunk;
 			sourceTree = "<group>";
@@ -1123,6 +1125,7 @@
 		B69E866E2316279F004D4272 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				B6B8B526232B857B003F3F83 /* TSTic.swift */,
 				B69E866F231627B9004D4272 /* TSItemManager.swift */,
 				B6102370231A64FC009252E1 /* TSDurablityManager.swift */,
 			);
@@ -1679,6 +1682,7 @@
 				B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */,
 				B6227A322301AB84009EF60F /* TSBlockAnimator.swift in Sources */,
 				B61E94092300E390008CB325 /* _TPStartSceneTabItem.swift in Sources */,
+				B6B8B527232B857B003F3F83 /* TSTic.swift in Sources */,
 				B69E86812316828D004D4272 /* TPSBuildSceneModel.swift in Sources */,
 				B6227A362301AB84009EF60F /* TSItem.swift in Sources */,
 				B69CE2F7230E6CE600CE04E6 /* Ex+UIStoryboard.swift in Sources */,
