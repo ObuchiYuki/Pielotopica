@@ -142,6 +142,7 @@
 		B667BA60230B776C0038B098 /* RKObjectDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B667BA58230B776C0038B098 /* RKObjectDetector.swift */; };
 		B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690596230E245E008AE24F /* TPBuildItemBar.swift */; };
 		B6690599230E2861008AE24F /* TPDropButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6690598230E2861008AE24F /* TPDropButton.swift */; };
+		B66B8A58232B7BEE00520D00 /* TSChunkEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66B8A57232B7BEE00520D00 /* TSChunkEditor.swift */; };
 		B66BD3D82317E73E00E20212 /* enemy_1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B66BD3D72317E73E00E20212 /* enemy_1.scn */; };
 		B66BD3DA2317E74400E20212 /* enemy_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B66BD3D92317E74300E20212 /* enemy_1.png */; };
 		B66BD3DD2317E8A800E20212 /* TSE_Pipot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66BD3DC2317E8A800E20212 /* TSE_Pipot.swift */; };
@@ -404,6 +405,7 @@
 		B667BA58230B776C0038B098 /* RKObjectDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKObjectDetector.swift; sourceTree = "<group>"; };
 		B6690596230E245E008AE24F /* TPBuildItemBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBuildItemBar.swift; sourceTree = "<group>"; };
 		B6690598230E2861008AE24F /* TPDropButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDropButton.swift; sourceTree = "<group>"; };
+		B66B8A57232B7BEE00520D00 /* TSChunkEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkEditor.swift; sourceTree = "<group>"; };
 		B66BD3D72317E73E00E20212 /* enemy_1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = enemy_1.scn; sourceTree = "<group>"; };
 		B66BD3D92317E74300E20212 /* enemy_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enemy_1.png; sourceTree = "<group>"; };
 		B66BD3DC2317E8A800E20212 /* TSE_Pipot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE_Pipot.swift; sourceTree = "<group>"; };
@@ -945,6 +947,7 @@
 				B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */,
 				B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */,
 				B6B9CE85232B352800441094 /* TSChunkFileLoader.swift */,
+				B66B8A57232B7BEE00520D00 /* TSChunkEditor.swift */,
 			);
 			path = Chunk;
 			sourceTree = "<group>";
@@ -1645,6 +1648,7 @@
 				B6227A6323023732009EF60F /* TS_JapaneseHouse2.swift in Sources */,
 				B64D402B231D0B8C00CA3198 /* TSI_Rock.swift in Sources */,
 				B69E8672231635C6004D4272 /* TSI_WoodWall.swift in Sources */,
+				B66B8A58232B7BEE00520D00 /* TSChunkEditor.swift in Sources */,
 				B6EEB27C23160F5E004C5826 /* TSI_JapaneseHouse.swift in Sources */,
 				B69CE2F5230E2A5E00CE04E6 /* TPFlatButton.swift in Sources */,
 				B61E94082300E390008CB325 /* TPStartScene.swift in Sources */,
