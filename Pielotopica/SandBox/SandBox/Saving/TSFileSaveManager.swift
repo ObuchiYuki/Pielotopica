@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol TSOccasionSavable {
+public protocol TSOccasionSavable: Codable {
     var isEdited: Bool { get set }
     var savePerTick: UInt { get }
 }
