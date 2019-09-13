@@ -14,14 +14,24 @@ public class TSEventLoop {
     private var _timer:Timer!
     
     public func start() {
-        self._timer = Timer.scheduledTimer(withTimeInterval: <#T##TimeInterval#>, repeats: <#T##Bool#>, block: <#T##(Timer) -> Void#>)
+        self.timer = _createTimer()
     }
     
     public func stop() {
-        
+        self.timer.in
     }
     
     public func resume() {
+        
+    }
+    
+    private func _createTimer() -> Timer {
+        return Timer.scheduledTimer(withTimeInterval: TSTick.unit, repeats: true, block: {[unowned self] timer in
+            self._update()
+        })
+    }
+    
+    private func _update() {
         
     }
 }

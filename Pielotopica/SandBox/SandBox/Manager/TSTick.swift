@@ -10,5 +10,5 @@ import Foundation
 
 public class TSTick {
     
-    public static let unitSecond = 0.05
+    public static let unit = 0.05
 }
