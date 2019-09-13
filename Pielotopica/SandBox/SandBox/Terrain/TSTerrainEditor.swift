@@ -12,7 +12,7 @@ import Foundation
 
 public class TSTerrainEditor {
     // MARK: - Singleton -
-    public static let shared = TSChunkEditor()
+    public static let shared = TSTerrainEditor()
     
     // MARK: - Methods -
     

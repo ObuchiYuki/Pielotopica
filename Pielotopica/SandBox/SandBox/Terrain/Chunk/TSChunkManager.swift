@@ -29,9 +29,9 @@ class TSChunkManager {
     }
     
     // MARK: - Privates -
-        
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
     }
+    
 }
