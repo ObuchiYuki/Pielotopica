@@ -62,6 +62,39 @@ public class TSTerrainEditor {
     
     // MARK: - Privates -
     
+    private func _createRange(_ value:Int16) -> Range<Int16> {
+        if value > 0 {
+            return Range(uncheckedBounds: (lower: 0       , upper: value))
+        }else{
+            return Range(uncheckedBounds: (lower: value+1 , upper: 1    ))
+        }
+    }
+    
+    private func _writeRotation(_ rotation:TSBlockRotation, at point:TSVector3) {
+        var data = TSBlockData()
+        rotation.setData(to: &data)
+        
+        setBlockData(data, at: point)
+    }
+    
+    private func _conflictionExsists(about block:TSBlock, at anchorPoint:TSVector3, at rotation:TSBlockRotation) -> Bool {
+        let size = block.getSize(at: anchorPoint, at: rotation)
+        
+        for x in _createRange(size.x16) {
+            for y in _createRange(size.y16) {
+                for z in _createRange(size.z16) {
+                    
+                    if _getFillMap(at: anchorPoint + TSVector3(x, y, z)) != .air {
+                        return true
+                    }
+                }
+            }
+        }
+        
+        return false
+    }
+
+    
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3, blockSize size:TSVector3) {
         
         for xSize in _createRange(size.x16) {
