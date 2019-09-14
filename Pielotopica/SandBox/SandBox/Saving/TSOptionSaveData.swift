@@ -9,17 +9,15 @@
 import Foundation
 
 public struct TSOptionSaveData {
-    static let shared = TSOptionSaveData() {
-        didSet {
-            
-        }
+    static var shared = TSOptionSaveData() {
+        didSet { shared.isEdited = true }
     }
     
     /// 編集済みか
     var isEdited: Bool = false
     
     /// 設定ファイルのバージョン番号。
-    var version: String
+    var version: String = "op.1.0"
     
     /// プレイヤーから見えるチャンクの描画距離半径
     var renderDistance: Int = 10
