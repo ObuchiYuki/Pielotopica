@@ -28,5 +28,11 @@ class TSOptionSaveData {
 }
 
 extension TSOptionSaveData: TSTickBasedSavable {
+    public var tickPerSave: UInt {
+        return UInt(10.0 / TSTick.unit)
+    }
     
+    public func save() {
+        RMStorage.shared.store(self, for: ._levelSaveDataKey(for: self.levelName))
+    }
 }
