@@ -8,8 +8,15 @@
 
 import Foundation
 
-class TSOptionSaveData {
-    static let shared = TSOptionSaveData()
+public struct TSOptionSaveData {
+    static let shared = TSOptionSaveData() {
+        didSet {
+            
+        }
+    }
+    
+    /// 編集済みか
+    var isEdited: Bool = false
     
     /// 設定ファイルのバージョン番号。
     var version: String
@@ -36,3 +43,4 @@ extension TSOptionSaveData: TSTickBasedSavable {
         RMStorage.shared.store(self, for: ._levelSaveDataKey(for: self.levelName))
     }
 }
+
