@@ -12,5 +12,4 @@ import Foundation
 internal class TSChunkEditor {
     internal static let shared = TSChunkEditor()
     
-    
 }

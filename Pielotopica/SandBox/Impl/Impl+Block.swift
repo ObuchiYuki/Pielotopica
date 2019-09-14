@@ -45,5 +45,6 @@ public extension TSBlock {
     static let fuelFactory:TSBlock = TS_FuelFactory(nodeNamed: "TP_fuel_factory", index: 27)
     
     
+    static let ground:TSBlock = TSBlock(nodeNamed: "TP_ground_16x16", index: 30)
 }
 
