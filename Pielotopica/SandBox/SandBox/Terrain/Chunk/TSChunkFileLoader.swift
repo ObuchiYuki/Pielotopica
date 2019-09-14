@@ -85,13 +85,11 @@ public class TSChunkFileLoader {
 
 private struct _TSChunkData: Codable {
     
-    struct Section: Codable {
-        let data: UInt8
-        let anchor: UInt16
-    }
-    
-    /// 16 x 4 x 16 = 1024 size array
-    var sections = [Section?].init(repeating: nil, count: 1024)
+    /// 16 x 4 x 16 = 1024 size arrays
+    let anchors       = Set<TSVector3>()
+    let fillmap       = [UInt16]()
+    let fillAnchormap = [TSVector3]()
+    let datamap       = [UInt8]()
     
     var chunk:TSChunk {
         let chunk = TSChunk()
@@ -100,15 +98,12 @@ private struct _TSChunkData: Codable {
             for y in 0..<Int(TSChunk.height) {
                 for z in 0..<Int(TSChunk.sideWidth) {
                     let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
-                    let section = sections[index]!
                     
-                    chunk.data[x][y][z] = section.data
-                    chunk.fillmap[x][y][z] = section.fill
-                    chunk.anchormap[x][y][z] = section.anchor
+                    chunk.anchors = anchors
+                    chunk.fillmap[x][y][z] = fillmap[index]
+                    chunk.fillAnchors[x][y][z] = fillAnchormap[index]
+                    chunk.datamap[x][y][z] = datamap[index]
                     
-                    if section.fill == section.anchor {
-                        chunk.anchors.insert(TSVector3(x, y, z))
-                    }
                 }
             }
         }
