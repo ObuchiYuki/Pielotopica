@@ -18,15 +18,11 @@ import simd
  */
 public struct TSVector3 {
     // =============================================================== //
-    // MARK: - Public Properies -
+    // MARK: - Pubulic Properies -
     
-    public typealias SIMD = SIMD3<Int16>
-    
-    /// simd value of TSVector3
-    public var simd:SIMD
-    
-    // =============================================================== //
-    // MARK: - Private Properies -
+    var x16: Int16
+    var y16: Int16
+    var z16: Int16
     
     // =============================================================== //
     // MARK: - Constructors -

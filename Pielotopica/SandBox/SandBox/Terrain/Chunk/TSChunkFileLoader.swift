@@ -87,7 +87,6 @@ private struct _TSChunkData: Codable {
     
     struct Section: Codable {
         let data: UInt8
-        let fill: UInt16
         let anchor: UInt16
     }
     
