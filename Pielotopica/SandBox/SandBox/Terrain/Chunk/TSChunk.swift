@@ -17,11 +17,13 @@ public class TSChunk {
     public var fillmap     = [[[UInt16]]]()
     public var data        = [[[UInt8]]]()
     public var anchors     = Set<TSVector3>()
-    public var anchorMap   = [[[UInt16]]]()
+    public var anchormap   = [[[UInt16]]]()
 
     // MARK: - Methods -
     public func getFillBlock(at chunkPoint: TSVector3) -> TSBlock {
-            
+        let (x, y, z) = chunkPoint.tuple
+        let blockIndex = fillmap[x][y][z]
+        
     }
 }
 

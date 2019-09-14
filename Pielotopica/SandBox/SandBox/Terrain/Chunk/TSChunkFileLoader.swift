@@ -105,7 +105,7 @@ private struct _TSChunkData: Codable {
                     
                     chunk.data[x][y][z] = section.data
                     chunk.fillmap[x][y][z] = section.fill
-                    chunk.anchorMap[x][y][z] = section.anchor
+                    chunk.anchormap[x][y][z] = section.anchor
                     
                     if section.fill == section.anchor {
                         chunk.anchors.insert(TSVector3(x, y, z))
@@ -123,7 +123,7 @@ private struct _TSChunkData: Codable {
                 for z in 0..<Int(TSChunk.sideWidth) {
                     let data = chunk.data[x][y][z]
                     let fill = chunk.fillmap[x][y][z]
-                    let anchor = chunk.anchorMap[x][y][z]
+                    let anchor = chunk.anchormap[x][y][z]
                     
                     let section = Section(data: data, fill: fill, anchor: anchor)
                     
