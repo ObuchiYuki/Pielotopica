@@ -21,6 +21,10 @@ public struct TSLevelSaveData: Codable {
     
     // MARK: - Methods -
     
+    public static func createIfNeeded(levelName: String, generatorName: GeneratorName, randomSeed: String) {
+        
+    }
+    
     public static func laodSaveData(levelName: String) {
         if let saved = RMStorage.shared.get(for: ._levelSaveDataKey(for: levelName)) {
             TSLevelSaveData.current = saved
