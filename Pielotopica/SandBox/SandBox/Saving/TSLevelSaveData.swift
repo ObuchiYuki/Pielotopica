@@ -102,7 +102,7 @@ public struct TSLevelSaveData: Codable {
     }
 }
 
-extension TSLevelData {
+extension TSLevelSaveData {
     // MARK: - Methods -
     
     /// もし同名の世界がなければ作ります。
@@ -113,7 +113,7 @@ extension TSLevelData {
         }
     }
     
-    ///
+
     public static func laodSaveData(levelName: String) {
         if let saved = RMStorage.shared.get(for: ._levelSaveDataKey(for: levelName)) {
             TSLevelSaveData.current = saved
