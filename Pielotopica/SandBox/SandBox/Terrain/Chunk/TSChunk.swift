@@ -43,7 +43,6 @@ public class TSChunk {
     public func getAnchors() -> Set<TSVector3> {
         return anchors
     }
-    
 }
 
 extension TSChunk {
