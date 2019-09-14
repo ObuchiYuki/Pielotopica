@@ -111,6 +111,7 @@
 		B64D402F231D0FC700CA3198 /* TSI_Grass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D402E231D0FC700CA3198 /* TSI_Grass.swift */; };
 		B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */; };
 		B64EB3932313E28F000EC6F7 /* _TPLoaderScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */; };
+		B650F662232C78DD00AFB379 /* TSUserSaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B650F661232C78DD00AFB379 /* TSUserSaveData.swift */; };
 		B651231423114DFF003129B5 /* TS_Air.swift in Sources */ = {isa = PBXBuildFile; fileRef = B651231323114DFF003129B5 /* TS_Air.swift */; };
 		B654AB81230F6AA500819C55 /* TP_wood_wall_1x5.png in Resources */ = {isa = PBXBuildFile; fileRef = B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */; };
 		B65CDA2E2310173C00FD6375 /* TP_build_place.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */; };
@@ -376,6 +377,7 @@
 		B64D402E231D0FC700CA3198 /* TSI_Grass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSI_Grass.swift; sourceTree = "<group>"; };
 		B64EB38F2313D55E000EC6F7 /* TPMaterialSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMaterialSprite.swift; sourceTree = "<group>"; };
 		B64EB3922313E28F000EC6F7 /* _TPLoaderScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPLoaderScene.swift; sourceTree = "<group>"; };
+		B650F661232C78DD00AFB379 /* TSUserSaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSUserSaveData.swift; sourceTree = "<group>"; };
 		B651231323114DFF003129B5 /* TS_Air.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Air.swift; sourceTree = "<group>"; };
 		B654AB80230F6AA300819C55 /* TP_wood_wall_1x5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wood_wall_1x5.png; sourceTree = "<group>"; };
 		B65CDA2D2310173C00FD6375 /* TP_build_place.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TP_build_place.mp3; sourceTree = "<group>"; };
@@ -1257,6 +1259,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B8B52B232B8998003F3F83 /* TSLevelSaveData.swift */,
+				B650F661232C78DD00AFB379 /* TSUserSaveData.swift */,
 				B6B8B52D232BC5AF003F3F83 /* TSFileSaveManager.swift */,
 			);
 			path = Saving;
@@ -1582,6 +1585,7 @@
 				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,
 				B67CA122231AB32A00A01646 /* TS_Tree.swift in Sources */,
 				B67135F6231A9A44008F479C /* TPGameStageManager.swift in Sources */,
+				B650F662232C78DD00AFB379 /* TSUserSaveData.swift in Sources */,
 				B69E8684231684DF004D4272 /* TPSandBoxSceneModel.swift in Sources */,
 				B67135F4231A8D2E008F479C /* TPAlert.swift in Sources */,
 				B6ABDEEC2321F2F7004FAFA5 /* NBTEncoder.swift in Sources */,
