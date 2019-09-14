@@ -1,5 +1,5 @@
 //
-//  TSTerrainGenerator.swift
+//  TSChunkGenerator.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/09/13.
@@ -9,7 +9,7 @@
 import Foundation
 
 // MARK: - TSTerrainGenerator -
-public class TSTerrainGenerator {
+public class TSChunkGenerator {
     // MARK: - Singleton -
     static let shared = TSTerrainGenerator()
     

@@ -95,7 +95,7 @@
 		B6292409231B888C00955B1E /* TP_stone_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6292408231B888C00955B1E /* TP_stone_1x1.scn */; };
 		B629240B231B889300955B1E /* TP_stone_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B629240A231B889200955B1E /* TP_stone_1x1.png */; };
 		B629240D231B88A800955B1E /* TS_Stone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629240C231B88A800955B1E /* TS_Stone.swift */; };
-		B637CB07232B7A9A00C97964 /* TSTerrainGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637CB06232B7A9A00C97964 /* TSTerrainGenerator.swift */; };
+		B637CB07232B7A9A00C97964 /* TSChunkGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637CB06232B7A9A00C97964 /* TSChunkGenerator.swift */; };
 		B639C5A6232A006B00A1C030 /* Artboard.png in Resources */ = {isa = PBXBuildFile; fileRef = B639C5A5232A006B00A1C030 /* Artboard.png */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */; };
@@ -361,7 +361,7 @@
 		B6292408231B888C00955B1E /* TP_stone_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_stone_1x1.scn; sourceTree = "<group>"; };
 		B629240A231B889200955B1E /* TP_stone_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_stone_1x1.png; sourceTree = "<group>"; };
 		B629240C231B88A800955B1E /* TS_Stone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_Stone.swift; sourceTree = "<group>"; };
-		B637CB06232B7A9A00C97964 /* TSTerrainGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSTerrainGenerator.swift; sourceTree = "<group>"; };
+		B637CB06232B7A9A00C97964 /* TSChunkGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkGenerator.swift; sourceTree = "<group>"; };
 		B639C5A5232A006B00A1C030 /* Artboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artboard.png; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
@@ -956,6 +956,7 @@
 		B637CB08232B7AC000C97964 /* Chunk */ = {
 			isa = PBXGroup;
 			children = (
+				B637CB06232B7A9A00C97964 /* TSChunkGenerator.swift */,
 				B6B9CE83232B2E8700441094 /* TSChunk.swift */,
 				B6B9CE85232B352800441094 /* TSChunkFileLoader.swift */,
 				B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */,
@@ -1272,7 +1273,6 @@
 			isa = PBXGroup;
 			children = (
 				B66B8A57232B7BEE00520D00 /* TSTerrainEditor.swift */,
-				B637CB06232B7A9A00C97964 /* TSTerrainGenerator.swift */,
 				B637CB08232B7AC000C97964 /* Chunk */,
 			);
 			path = Terrain;
@@ -1704,7 +1704,7 @@
 				B61E940C2300E390008CB325 /* _TPStartSceneActionIndicator.swift in Sources */,
 				B6B8B52E232BC5AF003F3F83 /* TSFileSaveManager.swift in Sources */,
 				B64EB3902313D55E000EC6F7 /* TPMaterialSprite.swift in Sources */,
-				B637CB07232B7A9A00C97964 /* TSTerrainGenerator.swift in Sources */,
+				B637CB07232B7A9A00C97964 /* TSChunkGenerator.swift in Sources */,
 				B61E93D32300E36C008CB325 /* RMTapicEngine.swift in Sources */,
 				B661FA452318D40500D4A3C0 /* TSI_TargetKariItem.swift in Sources */,
 				B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */,
