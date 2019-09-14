@@ -60,10 +60,12 @@ public class TSChunkManager {
     // MARK: - Privates -
     
     private func _loadChunk(_ chunk: TSChunk) {
-        fatalError()
+        delegates.forEach{ $0.chunkDidLoad(chunk) }
     }
     private func _unloadChunk(_ chunk: TSChunk) {
-        fatalError()
+        self.loadedChunks.remove
+        
+        delegates.forEach{ $0.chunkDidUnload(chunk) }
     }
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {

@@ -36,12 +36,24 @@ extension Array where Element: Equatable & Hashable {
     ///
     /// - Parameter element: Element to removed
     /// - Returns: Removed element
-    @discardableResult public mutating func remove(of element:Element) -> Element?{
+    @inline(__always)
+    @discardableResult
+    public mutating func remove(of element:Element) -> Element?{
     if let index = firstIndex(of: element){
             return remove(at: index)
         }
         
         return nil
+    }
+    
+    @inline(__always)
+    @discardableResult
+    public mutating func removeFirst(_ condition: (Element)->Bool) -> Element? {
+        for element in self {
+            if condition(element) {
+                return self.remove(of: element)
+            }
+        }
     }
 }
 

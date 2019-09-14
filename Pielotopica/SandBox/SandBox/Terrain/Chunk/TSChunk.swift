@@ -26,3 +26,9 @@ extension TSChunk {
     public static let height: Int16 = 4
     
 }
+
+extension TSChunk: Equatable {
+    public static func == (left: TSChunk, right: TSChunk) -> Bool {
+        return left.point == right.point
+    }
+}
