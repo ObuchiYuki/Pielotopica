@@ -70,55 +70,25 @@ extension TSVector3 {
     // MARK: - Int16 components
     
     @inline(__always)
-    public var x16:Int16 {
-        @inline(__always) get{return simd.x}
-        @inline(__always) set{simd.x = newValue}
-    }
-    
-    @inline(__always)
-    public var y16:Int16 {
-        @inline(__always) get{return simd.y}
-        @inline(__always) set{simd.y = newValue}
-    }
-    
-    @inline(__always)
-    public var z16:Int16 {
-        @inline(__always) get{return simd.z}
-        @inline(__always) set{simd.z = newValue}
-    }
-    
-    @inline(__always)
     public var tuple:(Int, Int, Int) {
         return (x, y, z)
+    }
+    
+    @inline(__always)
+    public var tuple16:(Int16, Int16, Int16) {
+        return (x16, y16, z16)
     }
 }
 
 // =============================================================== //
 // MARK: - Extension for Equatable -
 
-extension TSVector3 :Equatable {
-    @inline(__always)
-    public static func == (left:TSVector3, right:TSVector3) -> Bool {
-        return left.simd == right.simd
-    }
-}
-
-// =============================================================== //
-// MARK: - Extension for Hashable -
-
-extension TSVector3 :Hashable {
-    @inline(__always)
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(simd)
-    }
-}
+extension TSVector3 :Equatable & Hashable {}
 
 // =============================================================== //
 // MARK: - Extension for Codable -
 
-extension TSVector3: Codable {
-    
-}
+extension TSVector3: Codable {}
 
 // =============================================================== //
 // MARK: - Extension for CustomStringConvertible -
