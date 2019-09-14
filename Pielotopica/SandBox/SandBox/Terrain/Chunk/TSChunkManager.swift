@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol TSChunkManagerDelegate {
+    func chunkDidLoad(_ chunk: TSChunk)
+}
+
 
 class TSChunkManager {
     
