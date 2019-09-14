@@ -6,7 +6,7 @@
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
-import Foundation
+import SceneKit
 
 // MARK: - TSChunkNodeGenerator -
 
@@ -14,6 +14,12 @@ public class TSChunkNodeGenerator {
     // MARK: - Singleton -
     public static let shared = TSChunkNodeGenerator()
     
-    priavte
+    // MARK: - Privates -
+    /// 生成済みのノードです。
+    private var nodeMap = [TSVector3: SCNNode]()
+    
+    public func asycPrepareChunk(_ chunk: TSChunk) {
+        
+    }
     
 }
