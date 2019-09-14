@@ -55,15 +55,15 @@ extension TSVector3 {
     /// y component of TSVector3
     @inline(__always)
     public var y:Int {
-        @inline(__always) get{return Int(xy16)}
+        @inline(__always) get{return Int(y16)}
         @inline(__always) set{self.y16 = Int16(newValue)}
     }
     
     /// z component of TSVector3
     @inline(__always)
     public var z:Int {
-        @inline(__always) get{return Int(simd.z)}
-        @inline(__always) set{self.simd.z = Int16(newValue)}
+        @inline(__always) get{return Int(z16)}
+        @inline(__always) set{self.z16 = Int16(newValue)}
     }
     
     // ============================ //
