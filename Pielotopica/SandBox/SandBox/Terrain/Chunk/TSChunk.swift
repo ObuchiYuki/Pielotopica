@@ -14,10 +14,10 @@ public class TSChunk {
     // MARK: - Properties -
     public var point = TSChunkPoint.zero
     
-    private var fillmap     = [[[UInt16]]]()
-    private var data        = [[[UInt8]]]()
-    private var anchors     = Set<TSVector3>()
-    private var anchormap   = [[[UInt16]]]()
+    internal var fillmap     = [[[UInt16]]]()
+    internal var datamap     = [[[UInt8]]]()
+    internal var fillAnchors = [[[TSVector3]]]()
+    internal var anchors     = Set<TSVector3>()
 
     // MARK: - Methods -
     public func getFillBlock(at chunkPoint: TSVector3) -> TSBlock {
@@ -29,13 +29,12 @@ public class TSChunk {
     
     public func getBlockData(at chunkPoint: TSVector3) -> TSBlockData {
         let (x, y, z) = chunkPoint.tuple
-        let blockData = fillmap[x][y][z]
-        
+        let blockData = datamap[x][y][z]
         
         return TSBlockData(value: blockData)
     }
     
-    public func getAnchorPoint(offill chunkPoint: TSVector3) -> TSVector3 {
+    public func getAnchorPoint(ofFill chunkPoint: TSVector3) -> TSVector3 {
         
     }
     
