@@ -27,9 +27,22 @@ public class TSChunk {
         return TSBlock.block(for: blockIndex)
     }
     
+    public func getBlockData(at chunkPoint: TSVector3) -> TSBlockData {
+        let (x, y, z) = chunkPoint.tuple
+        let blockData = fillmap[x][y][z]
+        
+        
+        return TSBlockData(value: blockData)
+    }
+    
+    public func getAnchorPoint(offill chunkPoint: TSVector3) -> TSVector3 {
+        
+    }
+    
     public func getAnchors() -> Set<TSVector3> {
         return anchors
     }
+    
 }
 
 extension TSChunk {
