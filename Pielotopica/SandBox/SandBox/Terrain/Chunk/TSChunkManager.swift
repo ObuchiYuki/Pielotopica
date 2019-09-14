@@ -10,6 +10,7 @@ import Foundation
 
 public protocol TSChunkManagerDelegate {
     func chunkDidLoad(_ chunk: TSChunk)
+    func chunkDidUnload(_ chunk: TSChunk)
 }
 
 
