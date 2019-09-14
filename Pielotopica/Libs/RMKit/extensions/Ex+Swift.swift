@@ -30,6 +30,7 @@ extension Array where Element: Equatable & Hashable {
         return Array(Set(self))
     }
 }
+
 extension Array where Element: Equatable {
     
     @inline(__always)

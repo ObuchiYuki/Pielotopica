@@ -63,7 +63,11 @@ public class TSChunkManager {
         delegates.forEach{ $0.chunkDidLoad(chunk) }
     }
     private func _unloadChunk(_ chunk: TSChunk) {
-        self.loadedChunks.remove
+        let success = (self.loadedChunks.remove(of: chunk) != nil)
+        
+        guard success else { return log.error("Unload chunk failed. \(loadedChunks)") }
+        
+        
         
         delegates.forEach{ $0.chunkDidUnload(chunk) }
     }
