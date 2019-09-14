@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TSTerrainEditorDelegate {
+public protocol TSTerrainEditorDelegate {
     func editor(levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation)
     func editor(levelWillDestoryBlockAt position:TSVector3)
     func editor(levelDidDestoryBlockAt position:TSVector3)
