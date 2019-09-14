@@ -120,16 +120,10 @@ private struct _TSChunkData: Codable {
                 for z in 0..<Int(TSChunk.sideWidth) {
                     let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
                     
-                    datamap[index] = chunk.datamap[x][y][z]
-                    
-                    
-                    let fill = chunk.fillmap[x][y][z]
-                    let anchor = chunk.anchormap[x][y][z]
-                    
-                    let section = Section(data: data, fill: fill, anchor: anchor)
-                    
-                    
-                    sections[index] = section
+                    datamap[index]          = chunk.datamap[x][y][z]
+                    fillAnchormap[index]    = chunk.fillAnchors[x][y][z]
+                    datamap[index]          = chunk.datamap[x][y][z]
+
                 }
             }
         }
