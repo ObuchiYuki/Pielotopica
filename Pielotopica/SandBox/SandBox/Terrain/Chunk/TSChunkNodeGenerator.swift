@@ -8,8 +8,12 @@
 
 import Foundation
 
-class TSChunkNodeGenerator {
-    static let shared = TSChunkNodeGenerator()
+// MARK: - TSChunkNodeGenerator -
+
+public class TSChunkNodeGenerator {
+    // MARK: - Singleton -
+    public static let shared = TSChunkNodeGenerator()
     
+    priavte
     
 }
