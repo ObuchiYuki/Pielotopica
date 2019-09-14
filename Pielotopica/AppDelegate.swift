@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         TSFileSaveManager.shared.initirize()
         
-        TSLevelSaveData.createNew(levelName: "ground", generatorName: .flat, randomSeed: "default-seed")
+        TSLevelSaveData.createIfNeeded(levelName: "ground", generatorName: .flat, randomSeed: "default-seed")
         
         
         TSFuelData.shared.setMaxFuel(1000)

@@ -22,7 +22,10 @@ public struct TSLevelSaveData: Codable {
     // MARK: - Methods -
     
     public static func createIfNeeded(levelName: String, generatorName: GeneratorName, randomSeed: String) {
-        
+        laodSaveData(levelName: levelName)
+        if TSLevelSaveData.current == nil {
+            createNew(levelName: levelName, generatorName: generatorName, randomSeed: randomSeed)
+        }
     }
     
     public static func laodSaveData(levelName: String) {
