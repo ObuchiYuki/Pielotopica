@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct TSOptionSaveData {
+public struct TSOptionSaveData: Codable {
     public static var shared = TSOptionSaveData() {
         didSet { shared.isEdited = true }
     }
@@ -38,7 +38,13 @@ extension TSOptionSaveData: TSTickBasedSavable {
     }
     
     public func save() {
-        RMStorage.shared.store(self, for: ._levelSaveDataKey(for: self.levelName))
+        RMStorage.shared.store(self, for: ._optionSaveDataKey)
     }
 }
 
+
+extension RMStorage.Key {
+    fileprivate static var _optionSaveDataKey: RMStorage.Key<TSOptionSaveData> {
+        return RMStorage.Key(rawValue: "options.box")
+    }
+}
