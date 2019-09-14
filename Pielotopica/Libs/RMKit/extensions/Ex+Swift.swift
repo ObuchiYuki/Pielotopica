@@ -57,6 +57,8 @@ extension Array where Element: Equatable & Hashable {
                 return self.remove(of: element)
             }
         }
+        
+        return nil
     }
 }
 
