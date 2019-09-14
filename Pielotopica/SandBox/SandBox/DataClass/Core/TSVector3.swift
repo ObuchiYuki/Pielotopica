@@ -26,14 +26,10 @@ public struct TSVector3 {
     
     // =============================================================== //
     // MARK: - Constructors -
-    @inline(__always)
-    public init(_ simd: SIMD = SIMD.zero) {
-        self.simd = simd
-    }
     
     @inline(__always)
     public init(_ x:Int, _ y:Int, _ z:Int) {
-        self.simd = SIMD(Int16(x), Int16(y), Int16(z))
+        (x16, y16, z16) = (Int16(x), Int16(y), Int16(z))
     }
     
     @inline(__always)
