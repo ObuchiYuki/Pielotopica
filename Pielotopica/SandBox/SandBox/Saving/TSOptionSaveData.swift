@@ -1,5 +1,5 @@
 //
-//  TSUserSaveData.swift
+//  TSOptionSaveData.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/09/14.
@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+class TSOptionSaveData {
+    static let shared = TSOptionSaveData()
+    
+    
+}
