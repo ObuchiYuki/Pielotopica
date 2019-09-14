@@ -36,7 +36,7 @@ public class TSChunkManager {
         }
         
         for loadablePoint in loadablePoints {
-            if !loadedChunks.map({$0.point}).contains(loadablePoint) {
+            if !loadedChunks.contains(where: {$0.point == loadablePoint}) {
                 
                 _loadChunk(chunk(at: loadablePoint))
             }
