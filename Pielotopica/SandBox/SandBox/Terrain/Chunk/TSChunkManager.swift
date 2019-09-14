@@ -52,6 +52,9 @@ public class TSChunkManager {
         fatalError()
     }
     
+    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
+        
+    }
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
