@@ -11,6 +11,7 @@ import Foundation
 /// (x, y, z) = (16, 4, 16)
 /// = 1024 blocks
 public class TSChunk {
+    // MARK: - Properties -
     public var point = TSChunkPoint.zero
     
     public var fillmap     = [[[UInt16]]]()
@@ -18,7 +19,10 @@ public class TSChunk {
     public var anchors     = Set<TSVector3>()
     public var anchorMap   = [[[UInt16]]]()
 
-    public init() {}
+    // MARK: - Methods -
+    func getFillBlock(at chunkPoint: TSVector3) -> TSBlock {
+        
+    }
 }
 
 extension TSChunk {
