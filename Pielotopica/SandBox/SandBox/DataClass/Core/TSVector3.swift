@@ -93,6 +93,11 @@ extension TSVector3 {
         @inline(__always) get{return simd.z}
         @inline(__always) set{simd.z = newValue}
     }
+    
+    @inline(__always)
+    public var tuple:(Int, Int, Int) {
+        return (x, y, z)
+    }
 }
 
 // =============================================================== //

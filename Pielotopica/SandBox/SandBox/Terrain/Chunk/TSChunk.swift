@@ -20,8 +20,8 @@ public class TSChunk {
     public var anchorMap   = [[[UInt16]]]()
 
     // MARK: - Methods -
-    func getFillBlock(at chunkPoint: TSVector3) -> TSBlock {
-        
+    public func getFillBlock(at chunkPoint: TSVector3) -> TSBlock {
+            
     }
 }
 
