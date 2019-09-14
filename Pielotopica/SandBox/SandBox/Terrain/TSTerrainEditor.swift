@@ -35,22 +35,22 @@ public class TSTerrainEditor {
             
             anchorPoint = TSModelRotator.shared.calcurateAnchorPoint(
                 blockSize: block.getSize(at: anchorPoint),
-                initial: anchorPoint,
+                initial: anchor,
                 for: rotation
             )
         }
         
-        self._writeRotation(rotation, at: anchorPoint)
+        self._writeRotation(rotation, at: anchor)
         
-        block.willPlace(at: anchorPoint)
+        block.willPlace(at: anchor)
         
         self.anchorMap.insert(anchorPoint)
-        self._setAnchoBlockMap(block, at: anchorPoint)
-        self._fillFillMap(with: block, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
+        self._setAnchoBlockMap(block, at: anchor)
+        self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
-        delegates.forEach{$0.level(self, levelDidUpdateBlockAt: anchorPoint, needsAnimation: true, withRotation: rotation)}
+        delegates.forEach{$0.level(self, levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
         
-        block.didPlaced(at: anchorPoint)
+        block.didPlaced(at: anchor)
         
         //self._save()
     }
