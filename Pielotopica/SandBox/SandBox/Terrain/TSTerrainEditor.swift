@@ -48,7 +48,7 @@ public class TSTerrainEditor {
         self._setAnchoBlockMap(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
-        delegates.forEach{$0.level(self, levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
+        delegates.forEach{$0.editor(levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
         
         block.didPlaced(at: anchor)
         
@@ -62,9 +62,15 @@ public class TSTerrainEditor {
     
     // MARK: - Privates -
     
-    private func _placeAnchor(_ block: TSBlock, anchor:TSVector3) {
-        let chunk = TSChunkManager.shared.chunk(contains: anchor.vector2)
+    private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3, blockSize size:TSVector3) {
         
-        //...
+        for xSize in _createRange(size.x16) {
+            for ySize in _createRange(size.y16) {
+                for zSize in _createRange(size.z16) {
+                    
+                    self._setFillMap(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                }
+            }
+        }
     }
 }
