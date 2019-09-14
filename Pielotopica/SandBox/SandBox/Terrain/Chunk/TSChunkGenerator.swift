@@ -18,6 +18,7 @@ public class TSChunkGenerator {
         let chunk = TSChunk()
         
         chunk.anchors.insert(.zero)
+        
         for x in 0..<Int(TSChunk.sideWidth) {
             for z in 0..<Int(TSChunk.sideWidth) {
                 chunk.fillmap[x][0][z] = TSBlock.ground.index
