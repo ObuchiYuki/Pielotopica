@@ -86,10 +86,10 @@ public class TSChunkFileLoader {
 private struct _TSChunkData: Codable {
     
     /// 16 x 4 x 16 = 1024 size arrays
-    let anchors       = Set<TSVector3>()
-    let fillmap       = [UInt16]()
-    let fillAnchormap = [TSVector3]()
-    let datamap       = [UInt8]()
+    var anchors       = Set<TSVector3>()
+    var fillmap       = [UInt16]()
+    var fillAnchormap = [TSVector3]()
+    var datamap       = [UInt8]()
     
     var chunk:TSChunk {
         let chunk = TSChunk()
