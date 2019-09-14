@@ -9,27 +9,27 @@
 import Foundation
 
 public struct TSOptionSaveData {
-    static var shared = TSOptionSaveData() {
+    public static var shared = TSOptionSaveData() {
         didSet { shared.isEdited = true }
     }
     
     /// 編集済みか
-    var isEdited: Bool = false
+    public var isEdited: Bool = false
     
     /// 設定ファイルのバージョン番号。
-    var version: String = "op.1.0"
+    public var version: String = "op.1.0"
     
     /// プレイヤーから見えるチャンクの描画距離半径
-    var renderDistance: Int = 10
+    public var renderDistance: Int = 10
     
     /// 音楽の音量
-    var musicVolume: Float = 0.5
+    public var musicVolume: Float = 0.5
     
     /// 効果音の音量
-    var seVolume: Float = 0.5
+    public var seVolume: Float = 0.5
     
     /// 影を表示するかどうか
-    var shadow: Bool = true
+    public var shadow: Bool = true
 }
 
 extension TSOptionSaveData: TSTickBasedSavable {
