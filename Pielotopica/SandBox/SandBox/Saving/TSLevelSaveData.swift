@@ -19,38 +19,11 @@ public struct TSLevelSaveData: Codable {
     
     public var isEdited: Bool = false
     
-    // MARK: - Methods -
-    
-    public static func createIfNeeded(levelName: String, generatorName: GeneratorName, randomSeed: String) {
-        laodSaveData(levelName: levelName)
-        if TSLevelSaveData.current == nil {
-            createNew(levelName: levelName, generatorName: generatorName, randomSeed: randomSeed)
-        }
-    }
-    
-    public static func laodSaveData(levelName: String) {
-        if let saved = RMStorage.shared.get(for: ._levelSaveDataKey(for: levelName)) {
-            TSLevelSaveData.current = saved
-            TSFileSaveManager.shared.register(TSLevelSaveData.current)
-        }
-    }
-    
-    /// 新規世界を作ります。
-    public static func createNew(levelName: String, generatorName: GeneratorName, randomSeed: String) {
-        TSLevelSaveData.current = TSLevelSaveData(
-            levelName: levelName,
-            generatorName: generatorName,
-            randomSeed: randomSeed
-        )
-        TSFileSaveManager.shared.register(TSLevelSaveData.current)
-    }
-    
     private init(levelName: String, generatorName: GeneratorName, randomSeed: String) {
         self.levelName = levelName
         self.generatorName = generatorName
         self.randomSeed = randomSeed
     }
-    
     
     // MARK: - Properties -
     
@@ -129,6 +102,36 @@ public struct TSLevelSaveData: Codable {
     }
 }
 
+extension TSLevelData {
+    // MARK: - Methods -
+    
+    /// もし同名の世界がなければ作ります。
+    public static func createIfNeeded(levelName: String, generatorName: GeneratorName, randomSeed: String) {
+        laodSaveData(levelName: levelName)
+        if TSLevelSaveData.current == nil {
+            createNew(levelName: levelName, generatorName: generatorName, randomSeed: randomSeed)
+        }
+    }
+    
+    ///
+    public static func laodSaveData(levelName: String) {
+        if let saved = RMStorage.shared.get(for: ._levelSaveDataKey(for: levelName)) {
+            TSLevelSaveData.current = saved
+            TSFileSaveManager.shared.register(TSLevelSaveData.current)
+        }
+    }
+    
+    /// 新規世界を作ります。
+    public static func createNew(levelName: String, generatorName: GeneratorName, randomSeed: String) {
+        TSLevelSaveData.current = TSLevelSaveData(
+            levelName: levelName,
+            generatorName: generatorName,
+            randomSeed: randomSeed
+        )
+        TSFileSaveManager.shared.register(TSLevelSaveData.current)
+    }
+}
+
 extension TSLevelSaveData: TSTickBasedSavable {
     public var tickPerSave: UInt {
         return UInt(10.0 / TSTick.unit)
@@ -138,6 +141,7 @@ extension TSLevelSaveData: TSTickBasedSavable {
         RMStorage.shared.store(self, for: ._levelSaveDataKey(for: self.levelName))
     }
 }
+
 
 extension RMStorage.Key {
     fileprivate static func _levelSaveDataKey(for levelName: String) -> RMStorage.Key<TSLevelSaveData> {
