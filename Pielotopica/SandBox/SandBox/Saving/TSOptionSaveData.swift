@@ -26,3 +26,7 @@ class TSOptionSaveData {
     /// 影を表示するかどうか
     var shadow: Bool = true
 }
+
+extension TSOptionSaveData: TSTickBasedSavable {
+    
+}
