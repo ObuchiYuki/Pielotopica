@@ -34,11 +34,10 @@ public class TSChunk {
         return TSBlockData(value: blockData)
     }
     
-    public func getAnchorPoint(ofFill chunkPoint: TSVector3) -> TSBlock {
+    public func getAnchorPoint(ofFill chunkPoint: TSVector3) -> TSVector3 {
         let (x, y, z) = chunkPoint.tuple
-        let fillAnchor = fillAnchors[x][y][z]
         
-        
+        return fillAnchors[x][y][z]
     }
     
     public func getAnchors() -> Set<TSVector3> {
