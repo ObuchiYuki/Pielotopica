@@ -25,9 +25,12 @@ extension Array{
 extension Array where Element: Equatable & Hashable {
     
     /// Returns an array without duplication.
+    @inline(__always)
     public var unique: [Element] {
         return Array(Set(self))
     }
+    
+    @inline(__always)
     public var uniqueWithOrder: [Element] {
         return reduce(into: [Element]()) {$0.contains($1) ? nil : $0.append($1)}
     }
