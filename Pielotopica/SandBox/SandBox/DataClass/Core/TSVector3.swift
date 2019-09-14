@@ -34,7 +34,7 @@ public struct TSVector3 {
     
     @inline(__always)
     public init(_ x:Int16, _ y:Int16, _ z:Int16) {
-        self.simd = SIMD(x, y, z)
+        (x16, y16, z16) = (x, y, z)
     }
 }
 
