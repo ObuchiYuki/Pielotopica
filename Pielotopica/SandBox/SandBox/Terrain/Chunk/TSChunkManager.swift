@@ -26,8 +26,21 @@ public class TSChunkManager {
     // MARK: - Methods -
     
     public func didPlayerMoved(to point: TSVector2) {
-        let chunkPoint = _calcurateChunkPoint(from: point)
+        let playerPoint = _calcurateChunkPoint(from: point)
+        let loadablePoints = _calcurateLoadablePoints(from: playerPoint)
         
+        for loadedChunk in loadedChunks {
+            if !loadablePoints.contains(loadedChunk.point) {
+                _unloadChunk(loadedChunk)
+            }
+        }
+        
+        for loadablePoint in loadablePoints {
+            if !loadedChunks.map({$0.point}).contains(loadablePoint) {
+                chunk(at: <#T##TSChunkPoint#>)
+                _loadChunk(<#T##chunk: TSChunk##TSChunk#>)
+            }
+        }
     }
     
     public func chunk(contains point: TSVector2) -> TSChunk {
@@ -46,10 +59,10 @@ public class TSChunkManager {
     
     // MARK: - Privates -
     
-    private func _loadChunk(at point: TSChunkPoint) {
+    private func _loadChunk(_ chunk: TSChunk) {
         fatalError()
     }
-    private func _unloadChunk(at point: TSChunkPoint) {
+    private func _unloadChunk(_ chunk: TSChunk) {
         fatalError()
     }
     
@@ -59,8 +72,8 @@ public class TSChunkManager {
         var points = [TSChunkPoint]()
         
         for xd in -distance...distance {
-            for xd in -distance...distance {
-                points.append(TSChunkPoint(Int16(xd), Int16(xd)))
+            for zd in -distance...distance {
+                points.append(TSChunkPoint(Int16(xd), Int16(zd)))
             }
         }
         
