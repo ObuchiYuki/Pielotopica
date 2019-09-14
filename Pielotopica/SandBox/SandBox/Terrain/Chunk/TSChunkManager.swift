@@ -28,7 +28,6 @@ public class TSChunkManager {
     public func didPlayerMoved(to point: TSVector2) {
         let chunkPoint = _calcurateChunkPoint(from: point)
         
-        
     }
     
     public func chunk(contains point: TSVector2) -> TSChunk {
@@ -55,7 +54,17 @@ public class TSChunkManager {
     }
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
+        let distance = TSOptionSaveData.shared.renderDistance
         
+        var points = [TSChunkPoint]()
+        
+        for xd in -distance...distance {
+            for xd in -distance...distance {
+                points.append(TSChunkPoint(Int16(xd), Int16(xd)))
+            }
+        }
+        
+        return points
     }
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
