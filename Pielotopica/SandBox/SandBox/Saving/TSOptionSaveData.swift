@@ -30,6 +30,10 @@ public struct TSOptionSaveData: Codable {
     
     /// 影を表示するかどうか
     public var shadow: Bool = true
+    
+    init() {
+        TSFileSaveManager.shared.register(TSOptionSaveData.shared)
+    }
 }
 
 extension TSOptionSaveData: TSTickBasedSavable {
