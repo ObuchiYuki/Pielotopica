@@ -8,6 +8,9 @@
 
 import Foundation
 
-public class TSChunkEditor {
-    public static let shared = TSChunkEditor()
+/// あるチャンクを超えない範囲で物体を設置します。
+internal class TSChunkEditor {
+    internal static let shared = TSChunkEditor()
+    
+    
 }
