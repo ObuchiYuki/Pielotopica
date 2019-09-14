@@ -20,6 +20,9 @@ class TSOptionSaveData {
     /// 音楽の音量
     var musicVolume: Float = 0.5
     
-    /// 効果音の音量　
+    /// 効果音の音量
     var seVolume: Float = 0.5
+    
+    /// 影を表示するかどうか
+    var shadow: Bool = true
 }
