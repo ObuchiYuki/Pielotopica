@@ -29,6 +29,8 @@ extension Array where Element: Equatable & Hashable {
     public var unique: [Element] {
         return Array(Set(self))
     }
+}
+extension Array where Element: Equatable {
     
     @inline(__always)
     public var uniqueWithOrder: [Element] {
