@@ -37,8 +37,8 @@ public class TSChunkManager {
         
         for loadablePoint in loadablePoints {
             if !loadedChunks.map({$0.point}).contains(loadablePoint) {
-                chunk(at: <#T##TSChunkPoint#>)
-                _loadChunk(<#T##chunk: TSChunk##TSChunk#>)
+                
+                _loadChunk(chunk(at: loadablePoint))
             }
         }
     }
