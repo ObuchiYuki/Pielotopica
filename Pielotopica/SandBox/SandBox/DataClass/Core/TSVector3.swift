@@ -52,12 +52,13 @@ extension TSVector3 {
         @inline(__always) set{self.x16 = Int16(newValue)}
     }
     
-    @inline(__always)
     /// y component of TSVector3
+    @inline(__always)
     public var y:Int {
-        @inline(__always) get{return Int(simd.y)}
-        @inline(__always) set{self.simd.y = Int16(newValue)}
+        @inline(__always) get{return Int(xy16)}
+        @inline(__always) set{self.y16 = Int16(newValue)}
     }
+    
     /// z component of TSVector3
     @inline(__always)
     public var z:Int {
