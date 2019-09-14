@@ -60,7 +60,7 @@ public class TSChunkManager {
     // MARK: - Privates -
     
     private func _loadChunk(_ chunk: TSChunk) {
-        loadedChunks.append(contentsOf: chunk)
+        loadedChunks.append(chunk)
         
         delegates.forEach{ $0.chunkDidLoad(chunk) }
     }

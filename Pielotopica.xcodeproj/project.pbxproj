@@ -208,6 +208,7 @@
 		B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */; };
+		B6A912C0232C887400145DB6 /* TSChunkNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A912BF232C887400145DB6 /* TSChunkNodeGenerator.swift */; };
 		B6A91D64231DFCC0002FFC83 /* TP_ground_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A91D63231DFCC0002FFC83 /* TP_ground_edge.png */; };
 		B6AA02A7230D6E6E00F0FF48 /* TPMainMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */; };
 		B6AA02A9230D6ED400F0FF48 /* TPMainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02A8230D6ED400F0FF48 /* TPMainMenu.swift */; };
@@ -478,6 +479,7 @@
 		B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBoundingBoxProvider.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCaptureViewController.swift; sourceTree = "<group>"; };
+		B6A912BF232C887400145DB6 /* TSChunkNodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkNodeGenerator.swift; sourceTree = "<group>"; };
 		B6A91D63231DFCC0002FFC83 /* TP_ground_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png; sourceTree = "<group>"; };
 		B6AA02A4230D66EB00F0FF48 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B6AA02A6230D6E6E00F0FF48 /* TPMainMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPMainMenuItem.swift; sourceTree = "<group>"; };
@@ -958,6 +960,7 @@
 				B6B9CE85232B352800441094 /* TSChunkFileLoader.swift */,
 				B6B9CE7F232B2BBB00441094 /* TSChunkManager.swift */,
 				B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */,
+				B6A912BF232C887400145DB6 /* TSChunkNodeGenerator.swift */,
 			);
 			path = Chunk;
 			sourceTree = "<group>";
@@ -1654,6 +1657,7 @@
 				B6B9CE80232B2BBB00441094 /* TSChunkManager.swift in Sources */,
 				B69969332317908C00CE933B /* TPSBattleScene.swift in Sources */,
 				B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */,
+				B6A912C0232C887400145DB6 /* TSChunkNodeGenerator.swift in Sources */,
 				B6F8C5102312CCDA00264EBF /* RMAutoSave.swift in Sources */,
 				B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */,
 				B61E940B2300E390008CB325 /* _TPStartSceneEdgeBar.swift in Sources */,
