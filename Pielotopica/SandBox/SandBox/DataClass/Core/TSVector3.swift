@@ -48,8 +48,8 @@ extension TSVector3 {
     /// x component of TSVector3
     @inline(__always)
     public var x:Int {
-        @inline(__always) get{return Int(simd.x)}
-        @inline(__always) set{self.simd.x = Int16(newValue)}
+        @inline(__always) get{return Int(x16)}
+        @inline(__always) set{self.x16 = Int16(newValue)}
     }
     
     @inline(__always)
