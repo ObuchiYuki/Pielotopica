@@ -16,10 +16,20 @@ public class TSChunkNodeGenerator {
     
     // MARK: - Privates -
     /// 生成済みのノードです。
+    /// [globalPoint: Node]
     private var nodeMap = [TSVector3: SCNNode]()
     
+    // MARK: - Methods -
     public func asycPrepareChunk(_ chunk: TSChunk) {
         
     }
     
+    /// 生成済みならそのNodeを未生成なら生成して返します。空気は返さない
+    public func getNode(at globalPoint:TSVector3) -> SCNNode? {
+        if let loaded = nodeMap[globalPoint] {
+            return loaded
+        }
+        
+        TSChunkManager.shared.chunk(contains: point)
+    }
 }
