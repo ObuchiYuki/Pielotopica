@@ -8,16 +8,18 @@
 
 import Foundation
 
-protocol TSChunkManagerDelegate {
+public protocol TSChunkManagerDelegate {
     func chunkDidLoad(_ chunk: TSChunk)
 }
 
 
-class TSChunkManager {
+public class TSChunkManager {
     
-    static let shared = TSChunkManager()
+    public static let shared = TSChunkManager()
 
     // MARK: - Properties -
+    public var delegates = RMWeakSet<TSChunkManagerDelegate>()
+    
     private var loadedChunks = [TSChunk]()
     
     // MARK: - Methods -
