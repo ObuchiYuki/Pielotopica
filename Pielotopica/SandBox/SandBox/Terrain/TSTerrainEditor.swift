@@ -61,7 +61,7 @@ public class TSTerrainEditor {
         guard block.canDestroy(at: anchor) else { return }
                 
         block.willDestroy(at: anchor)
-        delegates.forEach{$0.level(self, levelWillDestoryBlockAt: anchor)}
+        delegates.forEach{ $0.editor(levelWillDestoryBlockAt: anchor) }
         
         self.nodeGenerator?.destoryNode(at: anchor)
         self.anchorMap.remove(anchor)
