@@ -32,7 +32,6 @@ public class TSTerrainManager {
     
     public func didPlayerMoved(to point: TSVector2) {
         let playerPoint = _calcurateChunkPoint(from: point)
-        print("playerPoint:", playerPoint)
         let loadablePoints = _calcurateLoadablePoints(from: playerPoint)
         
         for loadedChunk in loadedChunks {

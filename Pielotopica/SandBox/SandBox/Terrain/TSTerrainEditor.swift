@@ -163,9 +163,7 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
             let global = chunk.makeGlobal(anchor)
             
             assert(TSTerrainManager.shared.getAnchorBlock(at: global) != .air)
-            
-            print("Place anchor", global, TSTerrainManager.shared.getAnchorBlock(at: global))
-            
+                        
             delegates.forEach{$0.editor(editorDidUpdateBlockAt: global, needsAnimation: false, withRotation: rotation)}
         }
     }
@@ -173,7 +171,8 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
     public func chunkDidUnload(_ chunk: TSChunk) {
         
         for anchor in chunk.anchors {
-            delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: chunk.makeGlobal(anchor), needsAnimation: false) }
+            delegates.forEach{ $0.editor(editorWillDestoroyBlockAt: chunk.makeGlobal(anchor), needsAnimation: false) }
+            delegates.forEach{ $0.editor(editorDidDestoroyBlockAt:  chunk.makeGlobal(anchor), needsAnimation: false) }
         }
     }
 }
