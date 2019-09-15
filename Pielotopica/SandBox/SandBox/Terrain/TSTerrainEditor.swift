@@ -158,7 +158,7 @@ public class TSTerrainEditor {
 extension TSTerrainEditor: TSTerrainManagerDelegate {
     public func chunkDidLoad(_ chunk: TSChunk) {
         for anchor in chunk.anchors {
-            let data = 
+            let rotation = chunk.getRotation(at: anchor)
             delegates.forEach{$0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: false, withRotation: rotation)}
         }
     }
