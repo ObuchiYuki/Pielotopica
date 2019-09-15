@@ -134,11 +134,11 @@ public class TSTerrainEditor {
         return TSBlock.block(for: chunk.fillmap[x][y][z])
     }
     
-    private func _setAnchoBlockMap(_ block:TSBlock, at point:TSVector3) {
+    private func _setAnchoBlock(_ block:TSBlock, at point:TSVector3) {
         let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        
+        chunk.fillmap[x][y][z] = block.index
     }
     
     private func _setBlockDataMap(_ data: UInt8, at point:TSVector3) {
