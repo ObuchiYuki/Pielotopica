@@ -15,7 +15,6 @@ public protocol TSTerrainManagerDelegate {
     func chunkDidUnload(_ chunk: TSChunk)
 }
 
-
 // ======================================================================== //
 // MARK: - TSTerrainManager -
 public class TSTerrainManager {
@@ -33,6 +32,7 @@ public class TSTerrainManager {
     
     public func didPlayerMoved(to point: TSVector2) {
         let playerPoint = _calcurateChunkPoint(from: point)
+        print("playerPoint:", playerPoint)
         let loadablePoints = _calcurateLoadablePoints(from: playerPoint)
         
         for loadedChunk in loadedChunks {
@@ -42,8 +42,8 @@ public class TSTerrainManager {
         }
         
         for loadablePoint in loadablePoints {
+            print(loadablePoint)
             if !loadedChunks.contains(where: {$0.point == loadablePoint}) {
-                
                 _loadChunk(chunk(at: loadablePoint))
             }
         }
