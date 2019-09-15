@@ -177,9 +177,11 @@ class TPSandBox3DSceneModel {
     }
     
     func sceneDidLoad() {
-        TSTerrainEditor.shared.delegates.append(self)
-        // MARK: For debug
-        TSTerrainManager.shared.didPlayerMoved(to: .zero)
+        
+        editor.delegates.append(self)
+        
+        manager.delegates.append(self)
+        manager.didPlayerMoved(to: .zero)
         
         binder.__makeDay()
         

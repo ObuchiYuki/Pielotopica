@@ -109,6 +109,13 @@ public class TSTerrainEditor {
     }
     
     // ======================================================================== //
+    // MARK: - Constructor -
+    
+    private init() {
+        
+    }
+    
+    // ======================================================================== //
     // MARK: - Privates -
     
     private func _conflictionExsists(about block:TSBlock, at anchorPoint:TSVector3, at rotation:TSBlockRotation) -> Bool {
