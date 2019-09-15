@@ -56,14 +56,14 @@ public class TSChunkManager {
     }
     
     public func chunk(at point: TSChunkPoint) -> TSChunk {
-        if let chunk = loadedChunks.first(where: {$0.point == point}) {
+        if let chunk = loadedChunks.first(where: {$0.point == point}) { // load済み
             return chunk
         }
         
-        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {
+        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
             return saved
         }else{
-            return TSChunkGenerator.shared.generateChunk(for: point)
+            return TSChunkGenerator.shared.generateChunk(for: point)    // 
         }
     }
     
