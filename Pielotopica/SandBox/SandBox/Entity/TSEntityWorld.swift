@@ -27,6 +27,8 @@ class TSEntityWorld {
     
     // ================================================================== //
     // MARK: - Private Properties -
+    private let manager = TSTerrainManager.shared
+    
     private var graph:WorldGraph!
     
     private var spowners = [TSVector2: TSSpawner]()
@@ -62,7 +64,7 @@ class TSEntityWorld {
     func onDestoryObject(at anchor:TSVector3) {
         
         DispatchQueue.global().async {
-            self._removeObstacles(at: self.level.getFills(at: anchor, layerY: 1).map{$0.vector2})
+            self._removeObstacles(at: TSTerrainManager.shared.getFilled(byBlockAt: anchor, layerY: 1).map{$0.vector2})
         }
     }
     func onPlaceObject(at anchor:TSVector3) {
