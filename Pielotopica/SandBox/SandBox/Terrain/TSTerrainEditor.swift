@@ -53,8 +53,7 @@ public class TSTerrainEditor {
         self._writeRotation(rotation, at: anchor)
         
         block.willPlace(at: anchor)
-        
-        self._setAnchoBlock(block, at: anchor)
+        TSChunkManager.shared.setAnchoBlock(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
         delegates.forEach{$0.editor(levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
@@ -66,7 +65,7 @@ public class TSTerrainEditor {
     
     @discardableResult
     public func destoryBlock(at anchor: TSVector3) -> Bool {
-        let block = _getAnchorBlock(at: anchor)
+        let block = TSChunkManager.shared.getAnchorBlock(at: anchor)
         
         guard block.canDestroy(at: anchor) else { return false }
                 
@@ -74,24 +73,16 @@ public class TSTerrainEditor {
         delegates.forEach{ $0.editor(levelWillDestoryBlockAt: anchor) }
         
         //self.nodeGenerator?.destoryNode(at: anchor)
-        self._removeAnchorBlock(anchor)
-        self._setAnchoBlock(.air, at: anchor)
+        TSChunkManager.shared.removeAnchorBlock(anchor)
+        TSChunkManager.shared.setAnchoBlock(.air, at: anchor)
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
-        self._setBlockData(0, at: anchor)
+        TSChunkManager.shared.setBlockData(TSBlockData() , at: anchor)
         
         delegates.forEach{ $0.editor(levelDidDestoryBlockAt: anchor) }
         
         block.didDestroy(at: anchor)
         
         return true
-    }
-    
-    public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
-        self._setBlockData(data.value, at: point)
-    }
-    
-    public func getBlockData(at point:TSVector3) -> TSBlockData {
-        return TSBlockData(value: self._getBlockData(at: point))
     }
     
     // ======================================================================== //
@@ -104,7 +95,7 @@ public class TSTerrainEditor {
             for y in _createRange(size.y16) {
                 for z in _createRange(size.z16) {
                     
-                    if _getFill(at: anchorPoint + TSVector3(x, y, z)) != .air {
+                    if TSChunkManager.shared.getFill(at: anchorPoint + TSVector3(x, y, z)) != .air {
                         return true
                     }
                 }
@@ -135,7 +126,7 @@ public class TSTerrainEditor {
             for ySize in _createRange(size.y16) {
                 for zSize in _createRange(size.z16) {
                     
-                    self._setFill(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    TSChunkManager.shared.setFill(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
             }
         }
