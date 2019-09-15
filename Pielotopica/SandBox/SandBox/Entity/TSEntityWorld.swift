@@ -64,12 +64,12 @@ class TSEntityWorld {
     func onDestoryObject(at anchor:TSVector3) {
         
         DispatchQueue.global().async {
-            self._removeObstacles(at: TSTerrainManager.shared.getFilled(byBlockAt: anchor, layerY: 1).map{$0.vector2})
+            self._removeObstacles(at: manager.getFilled(byBlockAt: anchor, layerY: 1).map{$0.vector2})
         }
     }
     func onPlaceObject(at anchor:TSVector3) {
         DispatchQueue.global().async {
-            self._addObsracles(at: self.level.getFills(at: anchor, layerY: 1).map{$0.vector2})
+            self._addObsracles(at: manager.getFilled(byBlockAt: anchor, layerY: 1).map{$0.vector2})
         }
     }
     
