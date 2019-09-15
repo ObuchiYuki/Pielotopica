@@ -86,11 +86,12 @@ extension TSVector3 {
 extension TSVector3 {
     @inline(__always)
     public static func + (left:TSVector3, right:TSVector3) -> TSVector3 {
-        return TSVector3(left.simd &+ right.simd)
+        return TSVector3(left.x16 + right.x16, left.y16 + right.y16, left.z16 + right.z16
     }
+    
     @inline(__always)
     public static func - (left:TSVector3, right:TSVector3) -> TSVector3 {
-        return TSVector3(left.simd &- right.simd)
+        return TSVector3(left.x16 - right.x16, left.y16 - right.y16, left.z16 - right.z16
     }
     @inline(__always)
     public static func += (left:inout TSVector3, right:TSVector3) {
