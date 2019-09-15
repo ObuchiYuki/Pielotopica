@@ -36,6 +36,11 @@ public struct TSVector3 {
     public init(_ x:Int16, _ y:Int16, _ z:Int16) {
         (x16, y16, z16) = (x, y, z)
     }
+    
+    @inline(__always)
+    public init() {
+        (x16, y16, z16) = (0, 0, 0)
+    }
 }
 
 // =============================================================== //
