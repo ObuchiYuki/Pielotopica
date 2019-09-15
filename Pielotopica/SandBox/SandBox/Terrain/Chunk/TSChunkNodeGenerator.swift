@@ -11,14 +11,18 @@ import SceneKit
 // MARK: - TSChunkNodeGenerator -
 
 public class TSChunkNodeGenerator {
+    
+    // ======================================================================== //
     // MARK: - Singleton -
     public static let shared = TSChunkNodeGenerator()
     
+    // ======================================================================== //
     // MARK: - Privates -
     /// 生成済みのノードです。
     /// [globalPoint: Node]
     private var cache = [TSVector3: SCNNode]()
     
+    // ======================================================================== //
     // MARK: - Methods -
     public func asycPrepareChunk(_ chunk: TSChunk) {
         
@@ -39,6 +43,13 @@ public class TSChunkNodeGenerator {
         return node
     }
     
+    public func destoryNode(at anchorPoint:TSVector3) {
+        let node = nodeMap.removeValue(forKey: anchorPoint)
+        node?.removeFromParentNode()
+    }
+    
+    // ======================================================================== //
+    // MARK: - Private -
     private func _cacheNode(_ node: SCNNode, at point: TSVector3) {
         cache[point] = node
     }
