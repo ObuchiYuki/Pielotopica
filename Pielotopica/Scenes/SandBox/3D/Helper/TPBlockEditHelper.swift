@@ -45,7 +45,7 @@ public class TPBlockEditHelper {
     // Gesture
     private var _dragCheckTimeStamp = RMTimeStamp()
     private var _dragStartingPosition = TSVector2()
-    private var _initialNodePosition = TSVector3()
+    private var _initialNodePosition = TSVector3.zero
     
     // manager
     internal var _nodePosition = TSVector3() { didSet{ _checkBlockPlaceability() } }
