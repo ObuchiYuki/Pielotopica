@@ -57,7 +57,8 @@ public class TSTerrainEditor {
         delegates.forEach{$0.editor(levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
         
         block.didPlaced(at: anchor)
-    
+        
+        return true
     }
     
     @discardableResult
