@@ -56,7 +56,7 @@ public class TSChunk {
     }
     
     public func makeGlobal(_ chunkPoint: TSVector3) -> TSVector3 {
-        return self.point.vector3 + chunkPoint
+        return self.point.vector3(y: 0) + chunkPoint
     }
 }
 
