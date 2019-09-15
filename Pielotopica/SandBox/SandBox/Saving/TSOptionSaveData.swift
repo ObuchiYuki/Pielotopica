@@ -20,7 +20,7 @@ public struct TSOptionSaveData: Codable {
     public var version: String = "op.1.0"
     
     /// プレイヤーから見えるチャンクの描画距離半径
-    public var renderDistance: Int = 10
+    public var renderDistance: Int = 4
     
     /// 音楽の音量
     public var musicVolume: Float = 0.5
