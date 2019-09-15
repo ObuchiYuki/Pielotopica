@@ -14,9 +14,15 @@ public class TSChunk {
     // MARK: - Properties -
     public var point = TSChunkPoint.zero
     
-    internal var fillmap     = [[[UInt16]]]()
-    internal var datamap     = [[[UInt8]]]()
-    internal var fillAnchors = [[[TSVector3]]]()
+    internal var fillmap:[[[UInt16]]] =
+        Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
+    
+    internal var datamap:[[[UInt8]]] =
+        Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
+    
+    internal var fillAnchors:[[[TSVector3?]]] =
+        Array(repeating: Array(repeating: Array(repeating: nil, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
+        
     internal var anchors     = Set<TSVector3>()
 
     // MARK: - Methods -
