@@ -65,8 +65,8 @@ class TPSandBox3DSceneModel {
     // MARK: - Private -
     
     // - Level -
-    private var level:TSLevel { return TSLevel.current! }
-    internal lazy var nodeGenerator = TSNodeGenerator(level: level)
+    private var manager:TSTerrainEditor { return TSTerrainEditor.shared }
+    private var nodeGenerator = TSChunkNodeGenerator()
     
     // - Binder -
     private weak var binder:TPSandboxSceneModelBinder!

@@ -76,7 +76,6 @@
 		B6227A372301AB84009EF60F /* TSBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A182301AB83009EF60F /* TSBlock.swift */; };
 		B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A192301AB83009EF60F /* TSItemBarInventory.swift */; };
 		B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1A2301AB83009EF60F /* TSItemStack.swift */; };
-		B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A202301AB83009EF60F /* TSNodeGenerator.swift */; };
 		B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A272301AB84009EF60F /* Ex+TSVector3.swift */; };
 		B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A282301AB84009EF60F /* Ex+TSVector2.swift */; };
 		B6227A4E2301AE37009EF60F /* Impl+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A4B2301AE37009EF60F /* Impl+Block.swift */; };
@@ -344,7 +343,6 @@
 		B6227A182301AB83009EF60F /* TSBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBlock.swift; sourceTree = "<group>"; };
 		B6227A192301AB83009EF60F /* TSItemBarInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemBarInventory.swift; sourceTree = "<group>"; };
 		B6227A1A2301AB83009EF60F /* TSItemStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemStack.swift; sourceTree = "<group>"; };
-		B6227A202301AB83009EF60F /* TSNodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSNodeGenerator.swift; sourceTree = "<group>"; };
 		B6227A272301AB84009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A282301AB84009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
 		B6227A4B2301AE37009EF60F /* Impl+Block.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Impl+Block.swift"; sourceTree = "<group>"; };
@@ -1277,7 +1275,6 @@
 		B6B9CE7E232B2BA000441094 /* Terrain */ = {
 			isa = PBXGroup;
 			children = (
-				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 				B66B8A57232B7BEE00520D00 /* TSTerrainEditor.swift */,
 				B637CB08232B7AC000C97964 /* Chunk */,
 			);
@@ -1624,7 +1621,6 @@
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
 				B69E868B23168816004D4272 /* TPSCraftSceneModel.swift in Sources */,
 				B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */,
-				B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */,
 				B65D5CAD231BB2D1009E4171 /* TPClearModal.swift in Sources */,
 				B629240D231B88A800955B1E /* TS_Stone.swift in Sources */,
 				B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */,
