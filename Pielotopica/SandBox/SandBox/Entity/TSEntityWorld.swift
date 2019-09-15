@@ -64,12 +64,12 @@ class TSEntityWorld {
     func onDestoryObject(at anchor:TSVector3) {
         
         DispatchQueue.global().async {
-            self._removeObstacles(at: manager.getFilled(byBlockAt: anchor, layerY: 1).map{$0.vector2})
+            self._removeObstacles(at: self.manager.getFilled(byBlockAt: anchor, layerY: 1).map{$0.vector2})
         }
     }
     func onPlaceObject(at anchor:TSVector3) {
         DispatchQueue.global().async {
-            self._addObsracles(at: manager.getFilled(byBlockAt: anchor, layerY: 1).map{$0.vector2})
+            self._addObsracles(at: self.manager.getFilled(byBlockAt: anchor, layerY: 1).map{$0.vector2})
         }
     }
     
@@ -86,9 +86,7 @@ class TSEntityWorld {
     }
     
     func getTargetPosition() -> TSVector2 {
-        let level = TSLevel.current!
-        
-        let pos = level.getAllAnchors().first(where: {level.getAnchorBlock(at: $0) is TS_TargetBlock})
+        let pos = manager.getAllAnchors().first(where: {level.getAnchorBlock(at: $0) is TS_TargetBlock})
         assert(pos != nil, "You must set single target in level.")
         
         return pos!.vector2
