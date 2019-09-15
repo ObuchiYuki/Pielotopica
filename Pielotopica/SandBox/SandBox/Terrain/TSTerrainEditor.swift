@@ -35,6 +35,7 @@ public class TSTerrainEditor {
         var anchor = anchor
         
         guard block.canPlace(at: anchor) else { return false }
+        guard _conflictionExsists(about: block, at: anchor, at: rotation) else { return false }
         
         if block.shouldRandomRotateWhenPlaced() {
             
