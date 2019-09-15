@@ -110,12 +110,12 @@ class TPGameController {
 }
 
 extension TPGameController: TSTerrainEditorDelegate {
-    func editor(levelDidUpdateBlockAt position: TSVector3, needsAnimation: Bool, withRotation: TSBlockRotation) {
+    func editor(editorDidUpdateBlockAt position: TSVector3, needsAnimation: Bool, withRotation: TSBlockRotation) {
         entityWorld.onPlaceObject(at: position)
     }
 
     
-    func editor(levelWilldestoroyBlockAt position: TSVector3) {
+    func editor(editorWillDestoroyBlockAt position: TSVector3) {
         entityWorld.onDestoryObject(at: position)
     }
 }

@@ -12,16 +12,16 @@ import Foundation
 // ======================================================================== //
 // MARK: - TSTerrainEditorDelegate -
 public protocol TSTerrainEditorDelegate {
-    func editor(levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation)
-    func editor(levelWillDestoroyBlockAt position:TSVector3)
-    func editor(levelDidDestoroyBlockAt position:TSVector3)
+    func editor(editorDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation)
+    func editor(editorWillDestoroyBlockAt position:TSVector3)
+    func editor(editorDidDestoroyBlockAt position:TSVector3)
 }
 
 // MARK: - Make Optional -
 public extension TSTerrainEditorDelegate {
-    func editor(levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation) {}
-    func editor(levelWillDestoroyBlockAt position:TSVector3) {}
-    func editor(levelDidDestoroyBlockAt position:TSVector3) {}
+    func editor(editorDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation) {}
+    func editor(editorWillDestoroyBlockAt position:TSVector3) {}
+    func editor(editorDidDestoroyBlockAt position:TSVector3) {}
 }
 
 // ======================================================================== //

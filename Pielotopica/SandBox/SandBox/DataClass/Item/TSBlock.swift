@@ -111,9 +111,9 @@ open class TSBlock {
     
     /// 自身のNBDデータを返します。 書き込みと同時に保存します。
     /// 8ビット分の書き込みデータは BlockData にあるので、そちらを使用してください。
-    open func getNBD(at point: TSVector3) -> TSNBD {
+    //open func getNBD(at point: TSVector3) -> TSNBD {
         //TSNBDManager.shared.getNBD(at: point)
-    }
+    //}
     
     //========================================================================
     // MARK: - Constructors -
