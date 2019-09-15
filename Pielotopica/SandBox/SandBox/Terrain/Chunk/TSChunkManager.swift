@@ -71,6 +71,62 @@ public class TSChunkManager {
         return _calcurateChunkPosition(from: point)
     }
     
+    
+    // ============================================= //
+    // MARK: - FillMap Getter and Setter -
+    
+    // All points below is global points.
+    
+    public func getFill(at point:TSVector3) -> TSBlock {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
+        
+        return TSBlock.block(for: chunk.fillmap[x][y][z])
+    }
+    public func setFill(_ block:TSBlock,_ anchor:TSVector3, at point:TSVector3) {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
+        
+        chunk.fillmap[x][y][z] = block.index
+    }
+    
+    // MARK: - anchoBlock Getter and Setter -
+    public func removeAnchorBlock(_ point: TSVector3) {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        
+        chunk.anchors.remove(point)
+    }
+    
+    public func getAnchorBlock(at point:TSVector3) -> TSBlock {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
+        
+        guard chunk.anchors.contains(point) else { return .air }
+        
+        return TSBlock.block(for: chunk.fillmap[x][y][z])
+    }
+    
+    public func setAnchoBlock(_ block:TSBlock, at point:TSVector3) {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
+        
+        chunk.anchors.insert(point)
+        chunk.fillmap[x][y][z] = block.index
+    }
+    
+    public func setBlockData(_ data: UInt8, at point:TSVector3) {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
+        
+        chunk.datamap[x][y][z] = data
+    }
+    
+    public func getBlockData(at point:TSVector3) -> UInt8 {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
+        
+        return chunk.datamap[x][y][z]
+    }
     // ======================================================================== //
     // MARK: - Privates -
     
@@ -110,5 +166,7 @@ public class TSChunkManager {
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
-    }    
+    }
+    
+    
 }
