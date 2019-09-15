@@ -17,6 +17,13 @@ public protocol TSTerrainEditorDelegate {
     func editor(levelDidDestoryBlockAt position:TSVector3)
 }
 
+// MARK: - Make Optional -
+public extension TSTerrainEditorDelegate {
+    func editor(levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation) {}
+    func editor(levelWillDestoryBlockAt position:TSVector3) {}
+    func editor(levelDidDestoryBlockAt position:TSVector3) {}
+}
+
 // ======================================================================== //
 // MARK: - TSTerrainEditor -
 
