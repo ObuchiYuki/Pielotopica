@@ -31,7 +31,7 @@ public class TSChunkNodeGenerator {
                 
                 let block = TSBlock.block(for: chunk.fillmap[x][y][z])
                 
-                cache[anchor] = _createNode(of: block, at: anchor)
+                self.cache[anchor] = self._createNode(of: block, at: anchor)
             }
         }
     }
