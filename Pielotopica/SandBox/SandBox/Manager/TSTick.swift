@@ -18,7 +18,7 @@ public class TSTick {
     }
     
     private func _tickDidUpdated(to value: UInt) {
-        fatalError()
+        // update function
     }
     
     private init() {}
