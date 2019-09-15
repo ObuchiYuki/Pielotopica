@@ -17,13 +17,14 @@ extension GKGraphNode2D {
 }
 
 class TSE_Pipot: TSEntity {
+    private let manager = TSTerrainManager.shared
     let speed:CGFloat = 1
     
     // ======================================================================== //
     // MARK: - Methods -
     override func generateNode() -> SCNNode { _generateNode()}
     
-    override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld, level:TSLevel) {
+    override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld) {
         RMMeasure.start()
         let route = world.findPathToTarget(from: object.spown.node!, speed: speed)
         
@@ -52,8 +53,9 @@ class TSE_Pipot: TSEntity {
         
         let next = TSVector2(object.position + vector)
         
-        if level.getFillBlock(at: next.vector3(y: 1)).isObstacle() {
-            let anc = level.getAnchor(ofFill: next.vector3(y: 1))!
+        
+        if manager.getFill(at: next.vector3(y: 1)).isObstacle() {
+            let anc = manager.getAnchor(ofFill: next.vector3(y: 1))!
             TSDurablityManager.shared.attack(1, at: anc)
             
         }else{

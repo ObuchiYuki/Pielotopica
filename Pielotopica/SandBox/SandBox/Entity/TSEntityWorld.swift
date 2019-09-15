@@ -114,7 +114,7 @@ class TSEntityWorld {
     
     private func _generateGraph() -> WorldGraph {
         
-        let graph = WorldGraph(obstacles: _generateObstacles(from: TSLevel.current), bufferRadius: 0.45)
+        let graph = WorldGraph(obstacles: _generateObstacles(), bufferRadius: 0.45)
         
         
         for (pos, spowner) in _getAllSpawners() {
@@ -214,9 +214,9 @@ class TSEntityWorld {
     
     private func _getAllSpawners() -> [(TSVector2, TSSpawner)] {
         if let getAllSpawnersMemo = __getAllSpawnersMemo {return getAllSpawnersMemo}
-                
+        
         let spawnerBlocks = TSTerrainManager.shared.getAllAnchors()
-            .map{($0, level.getAnchorBlock(at: $0))}
+            .map{($0, manager.getAnchorBlock(at: $0))}
             .filter { $1 is TS_SpawnerBlock }
             
         let spawnerPositions = spawnerBlocks
