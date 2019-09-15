@@ -1,5 +1,5 @@
 //
-//  TSChunkManager.swift
+//  TSTerrainManager.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/09/13.
@@ -9,22 +9,22 @@
 import Foundation
 
 // ======================================================================== //
-// MARK: - TSChunkManagerDelegate -
-public protocol TSChunkManagerDelegate {
+// MARK: - TSTerrainManagerDelegate -
+public protocol TSTerrainManagerDelegate {
     func chunkDidLoad(_ chunk: TSChunk)
     func chunkDidUnload(_ chunk: TSChunk)
 }
 
 
 // ======================================================================== //
-// MARK: - TSChunkManager -
-public class TSChunkManager {
+// MARK: - TSTerrainManager -
+public class TSTerrainManager {
     
-    public static let shared = TSChunkManager()
+    public static let shared = TSTerrainManager()
 
     // ======================================================================== //
     // MARK: - Properties -
-    public var delegates = RMWeakSet<TSChunkManagerDelegate>()
+    public var delegates = RMWeakSet<TSTerrainManagerDelegate>()
     
     private var loadedChunks = [TSChunk]()
     

@@ -66,7 +66,7 @@ public class TSTerrainEditor {
         self._writeRotation(rotation, at: anchor)
         
         block.willPlace(at: anchor)
-        TSChunkManager.shared.setAnchoBlock(block, at: anchor)
+        TSTerrainManager.shared.setAnchoBlock(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
         delegates.forEach{$0.editor(levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
@@ -78,7 +78,7 @@ public class TSTerrainEditor {
     
     @discardableResult
     public func destoryBlock(at anchor: TSVector3) -> Bool {
-        let block = TSChunkManager.shared.getAnchorBlock(at: anchor)
+        let block = TSTerrainManager.shared.getAnchorBlock(at: anchor)
         
         guard block.canDestroy(at: anchor) else {
             log.error("Block destraction failed.")
@@ -89,10 +89,10 @@ public class TSTerrainEditor {
         delegates.forEach{ $0.editor(levelWillDestoryBlockAt: anchor) }
         
         //self.nodeGenerator?.destoryNode(at: anchor)
-        TSChunkManager.shared.removeAnchorBlock(anchor)
-        TSChunkManager.shared.setAnchoBlock(.air, at: anchor)
+        TSTerrainManager.shared.removeAnchorBlock(anchor)
+        TSTerrainManager.shared.setAnchoBlock(.air, at: anchor)
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
-        TSChunkManager.shared.setBlockData(TSBlockData() , at: anchor)
+        TSTerrainManager.shared.setBlockData(TSBlockData() , at: anchor)
         
         delegates.forEach{ $0.editor(levelDidDestoryBlockAt: anchor) }
         
@@ -111,7 +111,7 @@ public class TSTerrainEditor {
             for y in _createRange(size.y16) {
                 for z in _createRange(size.z16) {
                     
-                    if TSChunkManager.shared.getFill(at: anchorPoint + TSVector3(x, y, z)) != .air {
+                    if TSTerrainManager.shared.getFill(at: anchorPoint + TSVector3(x, y, z)) != .air {
                         return true
                     }
                 }
@@ -133,7 +133,7 @@ public class TSTerrainEditor {
         var data = TSBlockData()
         rotation.setData(to: &data)
         
-        TSChunkManager.shared.setBlockData(data, at: point)
+        TSTerrainManager.shared.setBlockData(data, at: point)
     }
     
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3, blockSize size:TSVector3) {
@@ -142,7 +142,7 @@ public class TSTerrainEditor {
             for ySize in _createRange(size.y16) {
                 for zSize in _createRange(size.z16) {
                     
-                    TSChunkManager.shared.setFill(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    TSTerrainManager.shared.setFill(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
             }
         }

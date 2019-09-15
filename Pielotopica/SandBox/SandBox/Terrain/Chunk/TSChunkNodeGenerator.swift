@@ -41,7 +41,7 @@ public class TSChunkNodeGenerator {
             return loaded
         }
         
-        let block = TSChunkManager.shared.getAnchorBlock(at: point)
+        let block = TSTerrainManager.shared.getAnchorBlock(at: point)
         
         return _createNode(of: block, at: point)
     }
