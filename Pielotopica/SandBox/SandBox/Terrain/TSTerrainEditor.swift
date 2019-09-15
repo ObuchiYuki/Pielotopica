@@ -111,13 +111,13 @@ public class TSTerrainEditor {
     // MARK: - FillMap Getter and Setter -
     // All points below is global points.
     
-    private func _getFillMap(at point:TSVector3) -> TSBlock {
+    private func _getFill(at point:TSVector3) -> TSBlock {
         let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
         return TSBlock.block(for: chunk.fillmap[x][y][z])
     }
-    private func _setFillMap(_ block:TSBlock,_ anchor:TSVector3, at point:TSVector3) {
+    private func _setFill(_ block:TSBlock,_ anchor:TSVector3, at point:TSVector3) {
         let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
@@ -153,14 +153,5 @@ public class TSTerrainEditor {
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
         return chunk.datamap[x][y][z]
-    }
-    
-    
-    /// TSVector3を配列アクセス用のIndexに変換します。
-    public func _convertGlobalVector3(_ vector3:TSVector3) -> (Int, Int, Int, TSChunk) {
-        let chunk = TSChunkManager.shared.chunk(contains: vector3.vector2)
-        
-        
-        return (vector3.x + kArrayAccessMargin, vector3.y, vector3.z + kArrayAccessMargin)
     }
 }
