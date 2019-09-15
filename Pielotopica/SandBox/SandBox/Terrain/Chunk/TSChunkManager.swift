@@ -56,6 +56,10 @@ public class TSChunkManager {
     }
     
     public func chunk(at point: TSChunkPoint) -> TSChunk {
+        if let chunk = loadedChunks.first(where: {$0.point == point}) {
+            return chunk
+        }
+        
         if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {
             return saved
         }else{
