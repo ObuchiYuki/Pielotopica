@@ -150,13 +150,13 @@ class TSEntityWorld {
         ]
     }
     /// -20 ~ 20 で探索
-    private func _generateObstacles(from level:TSLevel) -> [GKPolygonObstacle] {
+    private func _generateObstacles() -> [GKPolygonObstacle] {
         var obstacles = [GKPolygonObstacle]()
     
         for x in -20...20 {
             for z in -20...20 {
                 let pos = TSVector3(x, 1, z)
-                let block = level.getFillBlock(at: pos)
+                let block = TSTerrainManager.shared.getFill(at: pos)
                 if block.isObstacle() {
                     let pos2 = pos.vector2
                     let obs = _createObstacle1x1(at: pos2)
@@ -182,7 +182,7 @@ class TSEntityWorld {
     
     private func _update() {
         for entity in entities  {
-            entity.entity.update(tic: updateInterval, object: entity, world: self, level: TSLevel.current)
+            entity.entity.update(tic: updateInterval, object: entity, world: self)
         }
     }
     
@@ -214,10 +214,8 @@ class TSEntityWorld {
     
     private func _getAllSpawners() -> [(TSVector2, TSSpawner)] {
         if let getAllSpawnersMemo = __getAllSpawnersMemo {return getAllSpawnersMemo}
-        
-        let level = TSLevel.current!
-        
-        let spawnerBlocks = level.getAllAnchors()
+                
+        let spawnerBlocks = TSTerrainManager.shared.getAllAnchors()
             .map{($0, level.getAnchorBlock(at: $0))}
             .filter { $1 is TS_SpawnerBlock }
             
