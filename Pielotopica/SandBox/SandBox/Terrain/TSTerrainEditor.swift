@@ -84,7 +84,7 @@ public class TSTerrainEditor {
             for y in _createRange(size.y16) {
                 for z in _createRange(size.z16) {
                     
-                    if _getFillMap(at: anchorPoint + TSVector3(x, y, z)) != .air {
+                    if _getFill(at: anchorPoint + TSVector3(x, y, z)) != .air {
                         return true
                     }
                 }
