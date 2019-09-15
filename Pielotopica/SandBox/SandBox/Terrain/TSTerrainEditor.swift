@@ -158,6 +158,7 @@ public class TSTerrainEditor {
 extension TSTerrainEditor: TSTerrainManagerDelegate {
     public func chunkDidLoad(_ chunk: TSChunk) {
         print("============================================")
+        print(chunk.point)
         for anchor in chunk.anchors {
             let rotation = chunk.getRotation(at: anchor)
             let global = chunk.makeGlobal(anchor)

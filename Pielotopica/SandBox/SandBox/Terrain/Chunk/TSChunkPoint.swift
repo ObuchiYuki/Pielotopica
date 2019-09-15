@@ -100,3 +100,9 @@ extension TSChunkPoint {
         left = TSChunkPoint(simd: left.simd & right.simd)
     }
 }
+
+extension TSChunkPoint: CustomStringConvertible {
+    public var description: String {
+        return "TSChunkPoint(x: \(x), y: \(z))"
+    }
+}
