@@ -26,11 +26,16 @@ public class TSChunk {
     internal var anchors     = Set<TSVector3>()
 
     // MARK: - Methods -
+    
     public func getFillBlock(at chunkPoint: TSVector3) -> TSBlock {
         let (x, y, z) = chunkPoint.tuple
         let blockIndex = fillmap[x][y][z]
             
         return TSBlock.block(for: blockIndex)
+    }
+    
+    public func getRotation(at chunkPoint: TSVector3) -> TSBlockRotation {
+        
     }
     
     public func getBlockData(at chunkPoint: TSVector3) -> TSBlockData {
