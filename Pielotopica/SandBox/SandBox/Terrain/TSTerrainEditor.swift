@@ -44,7 +44,7 @@ public class TSTerrainEditor {
         
         block.willPlace(at: anchor)
         
-        self._setAnchoBlock(blcok, at: anchor)
+        self._setAnchoBlock(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
         delegates.forEach{$0.editor(levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
