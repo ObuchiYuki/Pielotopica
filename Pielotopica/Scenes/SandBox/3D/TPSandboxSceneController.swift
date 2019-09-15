@@ -183,10 +183,10 @@ extension TPSandboxSceneController {
     func setupDirectionalLight() {
         directionalLightNode.eulerAngles = [-.pi/4, -.pi/4, 0]
         
-        //directionalLight.castsShadow = true
-        //directionalLight.shadowMapSize = [500, 500]
-        //directionalLight.maximumShadowDistance = 1000
-        //directionalLight.shadowColor = UIColor.black.withAlphaComponent(0.8)
+        directionalLight.castsShadow = true
+        directionalLight.shadowMapSize = [500, 500]
+        directionalLight.maximumShadowDistance = 1000
+        directionalLight.shadowColor = UIColor.black.withAlphaComponent(0.8)
     }
     func setupCamera() {
         camera.usesOrthographicProjection = true
