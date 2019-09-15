@@ -114,7 +114,7 @@ public class GKGameViewController: UIViewController {
     }
     
     override public func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchesEnded(touches, with: event)
+        
     }
     
     // =============================================================== //
