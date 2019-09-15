@@ -32,10 +32,6 @@ class TPBlockEditHelper {
     /// ブロック仮設置用ノードです。
     public lazy var guideNode:SCNNode = _createGuideNode(from: self.block)
     
-    var level:TSLevel {
-        return TSLevel.current!
-    }
-
     // =============================================================== //
     // MARK: - Private Properties -
     

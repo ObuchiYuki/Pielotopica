@@ -13,5 +13,4 @@ struct TPStageData {
     /// 秒数
     let time:Int
     let award:TPClearAward
-    let updateLevel: (TSLevel)->()
 }

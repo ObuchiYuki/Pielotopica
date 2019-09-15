@@ -65,7 +65,7 @@ class TPSandBox3DSceneModel {
     // MARK: - Private -
     
     // - Level -
-    private var editor:TSTerrainEditor { return TSeditor.shared }
+    private var editor:TSTerrainEditor { return TSTerrainManager.shared }
     private var nodeGenerator = TSChunkNodeGenerator()
     
     // - Binder -
@@ -227,7 +227,7 @@ class TPSandBox3DSceneModel {
         
         let nodeRotation = TSBlockRotation(rotation: nodeRotationInt)
         let anchor = TSVector3(touchedNode.worldPosition) - nodeRotation.nodeModifier
-        let block = TSChunkManager.shared.getAnchorBlock(at: anchor)
+        let block = TSTerrainManager.shared.getAnchorBlock(at: anchor)
     
         // process
         guard block.canDestroy(at: anchor) else {
@@ -251,7 +251,7 @@ class TPSandBox3DSceneModel {
         
         let nodeRotation = TSBlockRotation(rotation: nodeRotationInt)
         let anchorPoint = TSVector3(touchedNode.worldPosition) - nodeRotation.nodeModifier
-        let block = level.getAnchorBlock(at: anchorPoint)
+        let block = TSTerrainManager.shared.getAnchorBlock(at: anchorPoint)
         
         // process
         guard block.canDestroy(at: anchorPoint) else {return}
@@ -360,7 +360,7 @@ extension TPSandBox3DSceneModel : TSTerrainEditorDelegate {
         guard let node = nodeGenerator.getNode(atGlobal: position) else {return}
         
         // animation
-        if animiationFlag && TSChunkManager.shared.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {
+        if animiationFlag && TSTerrainManager.shared.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {
             let action = TSBlockAnimator.generateBlockPlaceAnimation(for: node)
             node.runAction(action)
         }

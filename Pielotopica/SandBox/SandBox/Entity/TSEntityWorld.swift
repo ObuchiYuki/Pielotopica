@@ -34,7 +34,6 @@ class TSEntityWorld {
     private var updateInterval = 0.5
     private var timer:Timer? = nil
     
-    private var level:TSLevel {TSLevel.current!}
     private var targetNode:GKGraphNode2D!
     private var fillObstacles = [TSVector2: GKPolygonObstacle]()
      

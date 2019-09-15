@@ -20,9 +20,8 @@ class TPGameStageManager {
     private lazy var dataList = [
         TPStageData(
             time: 120,
-            award: .init(iron: 120, wood: 120, circit: 10, fuel: 200, score: 12919),
-            updateLevel: {[weak self] in self?._createStage1($0)}
-        ),
+            award: .init(iron: 120, wood: 120, circit: 10, fuel: 200, score: 12919)
+        )
     ]
     
     func getDay() -> Int {
