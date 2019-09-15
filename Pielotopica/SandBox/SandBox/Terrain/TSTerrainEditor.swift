@@ -60,11 +60,11 @@ public class TSTerrainEditor {
     }
     
     public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
-        self._setBlockDataMap(data.value, at: point)
+        self._setBlockData(data.value, at: point)
     }
     
     public func getBlockData(at point:TSVector3) -> TSBlockData {
-        return TSBlockData(value: self._getBlockDataMap(at: point))
+        return TSBlockData(value: self._getBlockData(at: point))
     }
     
     
