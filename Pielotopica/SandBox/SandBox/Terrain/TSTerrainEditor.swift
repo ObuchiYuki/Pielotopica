@@ -36,6 +36,13 @@ public class TSTerrainEditor {
     // ======================================================================== //
     // MARK: - Methods -
     
+    public func canPlaceBlock(_ block:TSBlock, at anchor:TSVector3, rotation:TSBlockRotation) -> Bool {
+        guard block.canPlace(at: anchor) else { return false }
+        guard !_conflictionExsists(about: block, at: anchor, at: rotation) else { return false }
+        
+        return true
+    }
+    
     @discardableResult
     public func placeBlock(_ block:TSBlock, at anchor:TSVector3, rotation:TSBlockRotation, forced:Bool = false) -> Bool {
         var rotation = rotation
