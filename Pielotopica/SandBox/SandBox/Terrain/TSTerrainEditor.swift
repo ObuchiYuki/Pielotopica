@@ -84,7 +84,7 @@ public class TSTerrainEditor {
     }
     
     @discardableResult
-    public func destoryBlock(at anchor: TSVector3) -> Bool {
+    public func destoroyBlock(at anchor: TSVector3) -> Bool {
         let block = TSTerrainManager.shared.getAnchorBlock(at: anchor)
         
         guard block.canDestroy(at: anchor) else {
@@ -93,7 +93,7 @@ public class TSTerrainEditor {
         }
                 
         block.willDestroy(at: anchor)
-        delegates.forEach{ $0.editor(levelWillDestoryBlockAt: anchor) }
+        delegates.forEach{ $0.editor(levelWillDestoroyBlockAt: anchor) }
         
         //self.nodeGenerator?.destoryNode(at: anchor)
         TSTerrainManager.shared.removeAnchorBlock(anchor)
@@ -101,7 +101,7 @@ public class TSTerrainEditor {
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
         TSTerrainManager.shared.setBlockData(TSBlockData() , at: anchor)
         
-        delegates.forEach{ $0.editor(levelDidDestoryBlockAt: anchor) }
+        delegates.forEach{ $0.editor(levelDidDestoroyBlockAt: anchor) }
         
         block.didDestroy(at: anchor)
         
