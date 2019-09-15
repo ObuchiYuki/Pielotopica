@@ -176,11 +176,7 @@ class TPSandBox3DSceneModel {
     }
     
     func sceneDidLoad() {
-        let levelData = TSLevelData.load(stageNamed: "ground")
-        
-        level.delegates.append(self)
-        level.loadLevelData(levelData)
-        level.nodeGenerator = self.nodeGenerator
+        TSTerrainEditor.shared.delegates.append(self)
         
         binder.__makeDay()
         
