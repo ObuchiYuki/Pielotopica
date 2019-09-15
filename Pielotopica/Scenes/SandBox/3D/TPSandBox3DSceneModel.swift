@@ -226,11 +226,11 @@ class TPSandBox3DSceneModel {
         let nodeRotationInt = Int(touchedNode.parent!.eulerAngles.y / (.pi/2))
         
         let nodeRotation = TSBlockRotation(rotation: nodeRotationInt)
-        let anchorPoint = TSVector3(touchedNode.worldPosition) - nodeRotation.nodeModifier
-        let block = editor level.getAnchorBlock(at: anchorPoint)
+        let anchor = TSVector3(touchedNode.worldPosition) - nodeRotation.nodeModifier
+        let block = TSChunkManager.shared.getAnchorBlock(at: anchor)
     
         // process
-        guard block.canDestroy(at: anchorPoint) else {
+        guard block.canDestroy(at: anchor) else {
             TPBuildNotice.show(text: "このブロックは破壊できません。", color: TPCommon.Color.dangerous)
             return
         }
@@ -240,9 +240,9 @@ class TPSandBox3DSceneModel {
         }
         touchedNode.runAction(action)
         
-        block.dropItemStacks(at: anchorPoint).forEach(itemBarInventory.addItemStack)
+        block.dropItemStacks(at: anchor).forEach(itemBarInventory.addItemStack)
         
-        level.destroyBlock(at: anchorPoint)
+        editor.destoryBlock(at: anchor)
     }
     
     private func _startBlockMoving(with touchedNode: SCNNode) {

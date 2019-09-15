@@ -74,7 +74,10 @@ public class TSTerrainEditor {
     public func destoryBlock(at anchor: TSVector3) -> Bool {
         let block = TSChunkManager.shared.getAnchorBlock(at: anchor)
         
-        guard block.canDestroy(at: anchor) else { return false }
+        guard block.canDestroy(at: anchor) else {
+            log.error("Block destraction failed.")
+            return false
+        }
                 
         block.willDestroy(at: anchor)
         delegates.forEach{ $0.editor(levelWillDestoryBlockAt: anchor) }
