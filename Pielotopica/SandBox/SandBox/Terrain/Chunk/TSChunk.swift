@@ -35,7 +35,7 @@ public class TSChunk {
     }
     
     public func getRotation(at chunkPoint: TSVector3) -> TSBlockRotation {
-        
+        return TSBlockRotation(data: getBlockData(at: chunkPoint))
     }
     
     public func getBlockData(at chunkPoint: TSVector3) -> TSBlockData {
