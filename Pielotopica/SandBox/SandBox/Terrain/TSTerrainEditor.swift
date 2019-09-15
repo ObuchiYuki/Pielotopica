@@ -12,7 +12,7 @@ import Foundation
 // ======================================================================== //
 // MARK: - TSTerrainEditorDelegate -
 public protocol TSTerrainEditorDelegate {
-    func editor(editorDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation)
+    func editor(editorDidUpdateBlockAt position:TSVector3, needsAnimation :Bool, withRotation rotation:TSBlockRotation)
     func editor(editorWillDestoroyBlockAt position:TSVector3)
     func editor(editorDidDestoroyBlockAt position:TSVector3)
 }
@@ -164,6 +164,6 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
     }
     
     public func chunkDidUnload(_ chunk: TSChunk) {
-        
+        delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: anchor) }
     }
 }
