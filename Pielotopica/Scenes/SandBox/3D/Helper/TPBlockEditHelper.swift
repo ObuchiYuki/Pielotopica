@@ -35,6 +35,9 @@ class TPBlockEditHelper {
     // =============================================================== //
     // MARK: - Private Properties -
     
+    /// TSTerrainEditor
+    private let editor = TSTerrainEditor.shared
+    
     // Editが終わったかどうか（この時点でこのHelperはもう使われない）
     private var isEdtingEnd = false
     
