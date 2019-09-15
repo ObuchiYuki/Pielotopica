@@ -159,14 +159,14 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
     public func chunkDidLoad(_ chunk: TSChunk) {
         for anchor in chunk.anchors {
             let rotation = chunk.getRotation(at: anchor)
-            delegates.forEach{$0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: false, withRotation: rotation)}
+            delegates.forEach{$0.editor(editorDidUpdateBlockAt: chunk.makeGlobal(anchor), needsAnimation: false, withRotation: rotation)}
         }
     }
     
     public func chunkDidUnload(_ chunk: TSChunk) {
         
         for anchor in chunk.anchors {
-            delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: anchor, needsAnimation: false) }
+            delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: chunk.makeGlobal(anchor), needsAnimation: false) }
         }
     }
 }
