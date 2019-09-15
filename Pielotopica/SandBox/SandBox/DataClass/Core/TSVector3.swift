@@ -124,6 +124,11 @@ extension TSVector3 {
     var hasNegative:Bool {
         return x16 < 0 || y16 < 0 || z16 < 0
     }
+    
+    @inline(__always)
+    var positive: TSVector3 {
+        return TSVector3(abs(x16), abs(y16), abs(z16))
+    }
 }
 
 extension TSVector3: ExpressibleByArrayLiteral {
@@ -158,4 +163,7 @@ extension TSVector3: CustomStringConvertible {
     }
 }
 
+func abs(_ vector3: TSVector3) -> CGFloat {
+    return sqrt(CGFloat(vector3.x16 * vector3.x16 + vector3.y16 * vector3.y16 + vector3.z16 * vector3.z16))
+}
 
