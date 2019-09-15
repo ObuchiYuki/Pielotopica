@@ -112,9 +112,10 @@ public class TSTerrainEditor {
     // All points below is global points.
     
     private func _getFillMap(at point:TSVector3) -> TSBlock {
-        let (x, y, z) = _convertVector3(point)
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        return fillMap.at(x)?.at(y)?.at(z).map{TSBlock.block(for: $0.index)} ?? .air
+        return TSBlock.block(for: chunk.fillmap[x][y][z])
     }
     private func _setFillMap(_ block:TSBlock,_ anchor:TSVector3, at point:TSVector3) {
         let (x, y, z) = _convertVector3(point)
