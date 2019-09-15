@@ -71,6 +71,9 @@ public class TSTerrainManager {
         return _calcurateChunkPosition(from: point)
     }
     
+    public func getAllAnchors() -> [TSVector3] {
+        
+    }
     
     // ============================================= //
     // MARK: - FillMap Getter and Setter -
