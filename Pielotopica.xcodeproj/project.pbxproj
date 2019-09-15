@@ -76,7 +76,6 @@
 		B6227A372301AB84009EF60F /* TSBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A182301AB83009EF60F /* TSBlock.swift */; };
 		B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A192301AB83009EF60F /* TSItemBarInventory.swift */; };
 		B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1A2301AB83009EF60F /* TSItemStack.swift */; };
-		B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A1C2301AB83009EF60F /* TSLevel.swift */; };
 		B6227A3D2301AB84009EF60F /* TSNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A202301AB83009EF60F /* TSNodeGenerator.swift */; };
 		B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A272301AB84009EF60F /* Ex+TSVector3.swift */; };
 		B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A282301AB84009EF60F /* Ex+TSVector2.swift */; };
@@ -345,7 +344,6 @@
 		B6227A182301AB83009EF60F /* TSBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSBlock.swift; sourceTree = "<group>"; };
 		B6227A192301AB83009EF60F /* TSItemBarInventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemBarInventory.swift; sourceTree = "<group>"; };
 		B6227A1A2301AB83009EF60F /* TSItemStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSItemStack.swift; sourceTree = "<group>"; };
-		B6227A1C2301AB83009EF60F /* TSLevel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSLevel.swift; sourceTree = "<group>"; };
 		B6227A202301AB83009EF60F /* TSNodeGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSNodeGenerator.swift; sourceTree = "<group>"; };
 		B6227A272301AB84009EF60F /* Ex+TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector3.swift"; sourceTree = "<group>"; };
 		B6227A282301AB84009EF60F /* Ex+TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ex+TSVector2.swift"; sourceTree = "<group>"; };
@@ -850,7 +848,6 @@
 		B6227A1B2301AB83009EF60F /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				B6227A1C2301AB83009EF60F /* TSLevel.swift */,
 				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 				B6002D92231A22FC006C4D94 /* TSNBDData.swift */,
 				B6002D99231A4E93006C4D94 /* TSFillBlock.swift */,
@@ -1596,7 +1593,6 @@
 				B6EDB125230F8B200042CA02 /* TSBlockData.swift in Sources */,
 				B67A965C23094AEF00BD408D /* TPSandboxSceneController.swift in Sources */,
 				B692648A231BE70700986595 /* TPGameOverBackgronudScene.swift in Sources */,
-				B6227A3A2301AB84009EF60F /* TSLevel.swift in Sources */,
 				B67CA122231AB32A00A01646 /* TS_Tree.swift in Sources */,
 				B67135F6231A9A44008F479C /* TPGameStageManager.swift in Sources */,
 				B650F662232C78DD00AFB379 /* TSOptionSaveData.swift in Sources */,
