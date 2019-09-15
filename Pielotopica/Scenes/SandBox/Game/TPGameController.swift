@@ -18,7 +18,6 @@ class TPGameController {
     public static weak var initirized: TPGameController?
     
     private let scene:SCNScene
-    private var level:TSLevel {TSLevel.current!}
     
     /// 敵の目的地
     private lazy var entityWorld = TSEntityWorld(delegate: self)
@@ -108,13 +107,13 @@ class TPGameController {
     }
 }
 
-extension TPGameController: TSLevelDelegate {
-    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation: Bool, withRotation: TSBlockRotation) {
+extension TPGameController: TSTerrainEditorDelegate {
+    func editor(levelDidUpdateBlockAt position: TSVector3, needsAnimation: Bool, withRotation: TSBlockRotation) {
         entityWorld.onPlaceObject(at: position)
     }
 
     
-    func level(_ level: TSLevel, levelWillDestoryBlockAt position: TSVector3) {
+    func editor(levelWillDestoryBlockAt position: TSVector3) {
         entityWorld.onDestoryObject(at: position)
     }
 }
