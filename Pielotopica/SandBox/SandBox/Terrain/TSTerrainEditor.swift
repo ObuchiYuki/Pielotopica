@@ -56,23 +56,23 @@ public class TSTerrainEditor {
     
     @discardableResult
     public func destoryBlock(at anchor: TSVector3) -> Bool {
-        let block = _getAnchorBlockMap(at: anchorPoint)
+        let block = _getAnchorBlock(at: anchor)
         
-        guard block.canDestroy(at: anchorPoint) else {return}
+        guard block.canDestroy(at: anchor) else { return }
                 
-        block.willDestroy(at: anchorPoint)
-        delegates.forEach{$0.level(self, levelWillDestoryBlockAt: anchorPoint)}
+        block.willDestroy(at: anchor)
+        delegates.forEach{$0.level(self, levelWillDestoryBlockAt: anchor)}
         
-        self.nodeGenerator?.destoryNode(at: anchorPoint)
-        self.anchorMap.remove(anchorPoint)
-        self._setAnchoBlockMap(.air, at: anchorPoint)
-        self._fillFillMap(with: .air, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
-        self._setBlockDataMap(0, at: anchorPoint)
+        self.nodeGenerator?.destoryNode(at: anchor)
+        self.anchorMap.remove(anchor)
+        self._setAnchoBlockMap(.air, at: anchor)
+        self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
+        self._setBlockDataMap(0, at: anchor)
         
-        delegates.forEach{$0.level(self, levelDidDestoryBlockAt: anchorPoint)}
+        delegates.forEach{$0.level(self, levelDidDestoryBlockAt: anchor)}
         
         self._save()
-        block.didDestroy(at: anchorPoint)
+        block.didDestroy(at: anchor)
     }
     
     public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
