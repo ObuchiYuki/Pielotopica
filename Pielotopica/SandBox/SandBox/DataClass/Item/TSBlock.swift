@@ -46,7 +46,7 @@ open class TSBlock {
     
     // =============================================================== //
     // MARK: - Methods -
-    public func getBlockData() -> TSBlockData {
+    public func getBlockData(at point: TSVector3) -> TSBlockData {
         return TSTerrainManager.shared.getBlockData(at: point)
     }
     public func canCreateNode() -> Bool {
