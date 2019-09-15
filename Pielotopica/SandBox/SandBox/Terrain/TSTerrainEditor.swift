@@ -13,14 +13,14 @@ import Foundation
 // MARK: - TSTerrainEditorDelegate -
 public protocol TSTerrainEditorDelegate {
     func editor(editorDidUpdateBlockAt position:TSVector3, needsAnimation :Bool, withRotation rotation:TSBlockRotation)
-    func editor(editorWillDestoroyBlockAt position:TSVector3)
+    func editor(editorWillDestoroyBlockAt position:TSVector3, needsAnimation :Bool)
     func editor(editorDidDestoroyBlockAt position:TSVector3)
 }
 
 // MARK: - Make Optional -
 public extension TSTerrainEditorDelegate {
     func editor(editorDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation) {}
-    func editor(editorWillDestoroyBlockAt position:TSVector3) {}
+    func editor(editorWillDestoroyBlockAt position:TSVector3, needsAnimation :Bool) {}
     func editor(editorDidDestoroyBlockAt position:TSVector3) {}
 }
 
