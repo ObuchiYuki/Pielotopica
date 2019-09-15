@@ -115,8 +115,7 @@ class TPBlockEditHelper {
 
     /// 現在の場所にブロックを設置できるかを返します。
     public func canEndBlockEditing() -> Bool {
-        
-        return level.canPlace(block, at: _nodePosition, atRotation: _roataion)
+        return editor.canPlaceBlock(block, at: _nodePosition, rotation: _roataion)
     }
     
     /// 編集モード完了時に呼びだしてください。
