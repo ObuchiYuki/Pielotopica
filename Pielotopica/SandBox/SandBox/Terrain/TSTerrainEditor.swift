@@ -118,24 +118,27 @@ public class TSTerrainEditor {
         return TSBlock.block(for: chunk.fillmap[x][y][z])
     }
     private func _setFillMap(_ block:TSBlock,_ anchor:TSVector3, at point:TSVector3) {
-        let (x, y, z) = _convertVector3(point)
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        fillMap[x][y][z] = TSFillBlock(anchor: anchor, index: block.index)
-        
+        chunk.fillmap[x][y][z] = block.index
     }
     
-    // MARK: - AnchoBlockMap Getter and Setter -
-    private func _getAnchorBlockMap(at point:TSVector3) -> TSBlock {
-        let (x, y, z) = _convertVector3(point)
+    // MARK: - anchoBlock Getter and Setter -
+    private func _getAnchorBlock(at point:TSVector3) -> TSBlock {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        let id = anchorBlockMap.at(x)?.at(y)?.at(z) ?? 0
-        return TSBlock.block(for: id)
+        guard chunk.anchors.contains(point) else { return .air }
+        
+        return TSBlock.block(for: chunk.fillAnchors[x][y][z])
     }
     
     private func _setAnchoBlockMap(_ block:TSBlock, at point:TSVector3) {
-        let (x, y, z) = _convertVector3(point)
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        anchorBlockMap[x][y][z] = block.index
+        
     }
     
     private func _setBlockDataMap(_ data: UInt8, at point:TSVector3) {
