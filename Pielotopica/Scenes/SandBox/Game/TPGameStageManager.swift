@@ -13,7 +13,7 @@ class TPGameStageManager {
     
     private var day = 1
     
-    private func _createStage1(_ level: TSLevel) {
+    private func _createStage1() {
         
     }
     

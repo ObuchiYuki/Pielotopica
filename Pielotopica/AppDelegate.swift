@@ -22,13 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        TSEventLoop.shared.start()
-        
-        TSFileSaveManager.shared.initirize()
-        
-        TSLevelSaveData.createIfNeeded(levelName: "ground", generatorName: .flat, randomSeed: "default-seed")
-        
-        
         TSFuelData.shared.setMaxFuel(1000)
         TSFuelData.shared.setMaxHeart(100)
         
@@ -74,7 +67,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(TSBlock.woodWall)
         print(TSBlock.ironWall)
         
-        _=TSLevel()
+        TSEventLoop.shared.start()
+        
+        TSFileSaveManager.shared.initirize()
+        
+        TSLevelSaveData.createIfNeeded(levelName: "ground", generatorName: .flat, randomSeed: "default-seed")
+        
         
         return true
     }
