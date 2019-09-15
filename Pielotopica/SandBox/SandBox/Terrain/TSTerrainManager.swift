@@ -185,11 +185,9 @@ public class TSTerrainManager {
     }
     
     private func _calcurateChunkPosition(from globalPoint: TSVector3) -> TSVector3 {
-        let position = globalPoint - _calcurateChunkPoint(from: globalPoint.vector2).vector3(y: 0)
+        let nposition = globalPoint - _calcurateChunkPoint(from: globalPoint.vector2).vector3(y: 0)
         
-        assert(!position.hasNegative, "A ChunkPosition must not have negative component.")
-        
-        return position
+        return nposition.positive
     }
     
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
