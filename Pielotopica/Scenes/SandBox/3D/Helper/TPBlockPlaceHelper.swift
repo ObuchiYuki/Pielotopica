@@ -19,6 +19,7 @@ class TPBlockPlaceHelper: TPBlockEditHelper {
     
     func startBlockPlacing(at position:TSVector3) -> Bool {
         guard
+            
             TSLevel.current.canPlace(block, at: position, atRotation: .x0),
             let initialPosition = TSLevel.current.calculatePlacablePosition(for: block, at: position.vector2)
         else {

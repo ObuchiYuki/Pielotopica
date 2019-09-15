@@ -8,7 +8,7 @@
 
 import SceneKit
 
-protocol TPBlockEditHelperDelegate: class{
+public protocol TPBlockEditHelperDelegate: class{
     /// ガイドノードを設置してください。
     func blockEditHelper(placeGuideNodeWith node: SCNNode, at position: TSVector3)
     
@@ -19,9 +19,12 @@ protocol TPBlockEditHelperDelegate: class{
     func blockEditHelper(moveNodeWith node:SCNNode, to position: TSVector3)
 }
 
-class TPBlockEditHelper {
+public class TPBlockEditHelper {
     // =============================================================== //
     // MARK: - Properties -
+    
+    /// TSTerrainEditor
+    public let editor = TSTerrainEditor.shared
     
     /// delegate of BlockEditHelper
     public weak var delegate:TPBlockEditHelperDelegate!
@@ -34,9 +37,6 @@ class TPBlockEditHelper {
     
     // =============================================================== //
     // MARK: - Private Properties -
-    
-    /// TSTerrainEditor
-    private let editor = TSTerrainEditor.shared
     
     // Editが終わったかどうか（この時点でこのHelperはもう使われない）
     private var isEdtingEnd = false
