@@ -53,8 +53,12 @@ public class TSChunkManager {
         if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {
             return saved
         }else{
-            return TSTerrainGenerator.shared.generateChunk(for: point)
+            return TSChunkGenerator.shared.generateChunk(for: point)
         }
+    }
+    
+    public func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {
+        return _calcurateChunkPosition(from: point)
     }
     
     // MARK: - Privates -
@@ -84,6 +88,11 @@ public class TSChunkManager {
         }
         
         return points
+    }
+    
+    private func _calcurateChunkPosition(from globalPoint: TSVector3) -> TSVector3 {
+        
+        return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
     }
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         

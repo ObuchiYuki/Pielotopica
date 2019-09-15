@@ -106,4 +106,55 @@ public class TSTerrainEditor {
             }
         }
     }
+        
+    
+    // MARK: - FillMap Getter and Setter -
+    // All points below is global points.
+    
+    private func _getFillMap(at point:TSVector3) -> TSBlock {
+        let (x, y, z) = _convertVector3(point)
+        
+        return fillMap.at(x)?.at(y)?.at(z).map{TSBlock.block(for: $0.index)} ?? .air
+    }
+    private func _setFillMap(_ block:TSBlock,_ anchor:TSVector3, at point:TSVector3) {
+        let (x, y, z) = _convertVector3(point)
+        
+        fillMap[x][y][z] = TSFillBlock(anchor: anchor, index: block.index)
+        
+    }
+    
+    // MARK: - AnchoBlockMap Getter and Setter -
+    private func _getAnchorBlockMap(at point:TSVector3) -> TSBlock {
+        let (x, y, z) = _convertVector3(point)
+        
+        let id = anchorBlockMap.at(x)?.at(y)?.at(z) ?? 0
+        return TSBlock.block(for: id)
+    }
+    
+    private func _setAnchoBlockMap(_ block:TSBlock, at point:TSVector3) {
+        let (x, y, z) = _convertVector3(point)
+        
+        anchorBlockMap[x][y][z] = block.index
+    }
+    
+    private func _setBlockDataMap(_ data: UInt8, at point:TSVector3) {
+        let (x, y, z) = _convertVector3(point)
+        
+        blockDataMap[x][y][z] = data
+    }
+    
+    private func _getBlockDataMap(at point:TSVector3) -> UInt8 {
+        let (x, y, z) = _convertVector3(point)
+        
+        return blockDataMap.at(x)?.at(y)?.at(z) ?? 0
+    }
+    
+    
+    /// TSVector3を配列アクセス用のIndexに変換します。
+    public func _convertGlobalVector3(_ vector3:TSVector3) -> (Int, Int, Int, TSChunk) {
+        let chunk = TSChunkManager.shared.chunk(contains: vector3.vector2)
+        
+        
+        return (vector3.x + kArrayAccessMargin, vector3.y, vector3.z + kArrayAccessMargin)
+    }
 }

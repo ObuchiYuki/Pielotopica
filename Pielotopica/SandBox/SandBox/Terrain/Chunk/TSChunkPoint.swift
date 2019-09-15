@@ -24,10 +24,6 @@ extension TSChunkPoint {
     @inline(__always)
     public var z: Int16 { return simd.y }
     
-    @inline(__always)
-    public var tsVector2: TSVector2 {
-        return TSVector2(simd.x * TSChunk.sideWidth, simd.x * TSChunk.sideWidth)
-    }
 }
 
 // MARK: - Constructors -
@@ -36,6 +32,24 @@ extension TSChunkPoint {
     @inline(__always)
     public init(_ x: Int16, _ z:Int16) {
         self.simd = SIMD2(x, z)
+    }
+}
+
+extension TSChunkPoint {
+    
+    @inline(__always)
+    var vector2: TSVector2 {
+        return TSVector2(simd.x * TSChunk.sideWidth, simd.x * TSChunk.sideWidth)
+    }
+    
+    @inline(__always)
+    func vector3(y: Int16) -> TSVector3 {
+        return TSVector3(simd.x * TSChunk.sideWidth, y, simd.x * TSChunk.sideWidth)
+    }
+    
+    @inline(__always)
+    func vector3(y: Int) -> TSVector3 {
+        return self.vector3(y: Int16(y))
     }
 }
 
