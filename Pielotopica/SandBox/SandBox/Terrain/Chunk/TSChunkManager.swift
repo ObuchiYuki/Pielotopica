@@ -14,15 +14,19 @@ public protocol TSChunkManagerDelegate {
 }
 
 
+// ======================================================================== //
+// MARK: - TSChunkManager -
 public class TSChunkManager {
     
     public static let shared = TSChunkManager()
 
+    // ======================================================================== //
     // MARK: - Properties -
     public var delegates = RMWeakSet<TSChunkManagerDelegate>()
     
     private var loadedChunks = [TSChunk]()
     
+    // ======================================================================== //
     // MARK: - Methods -
     
     public func didPlayerMoved(to point: TSVector2) {
@@ -61,6 +65,7 @@ public class TSChunkManager {
         return _calcurateChunkPosition(from: point)
     }
     
+    // ======================================================================== //
     // MARK: - Privates -
     
     private func _loadChunk(_ chunk: TSChunk) {
@@ -68,6 +73,7 @@ public class TSChunkManager {
         
         delegates.forEach{ $0.chunkDidLoad(chunk) }
     }
+    
     private func _unloadChunk(_ chunk: TSChunk) {
         let success = (self.loadedChunks.remove(of: chunk) != nil)
         guard success else { return log.error("Unload chunk failed. \(loadedChunks)") }
@@ -94,6 +100,7 @@ public class TSChunkManager {
         
         return globalPoint - _calcurateChunkPoint(from: globalPoint.vector2).vector3(y: 0)
     }
+    
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
