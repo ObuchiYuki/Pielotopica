@@ -117,7 +117,7 @@ public class TSTerrainEditor {
         var data = TSBlockData()
         rotation.setData(to: &data)
         
-        setBlockData(data, at: point)
+        TSChunkManager.shared.setBlockData(data, at: point)
     }
     
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3, blockSize size:TSVector3) {
