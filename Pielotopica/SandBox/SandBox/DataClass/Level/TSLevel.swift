@@ -134,6 +134,64 @@ public class TSLevel {
         return nil
     }
     
+    /// アンカーポイントにブロックを設置します。
+    /// 指定するanchorPointは事前に`calculatePlacablePosition(for:, at:)`で計算されたものである必要があります。
+    public func placeBlock(_ block:TSBlock, at anchorPoint:TSVector3, rotation:TSBlockRotation, forced:Bool = false) {
+        if !forced { // 強制でないなら
+            assert(canPlace(block, at: anchorPoint, atRotation: rotation), "Error placing block. use calculatePlacablePosition(for: ,at:) to find place to place.")
+            guard block.canPlace(at: anchorPoint) else {return}
+        }
+        
+        var rotation = rotation
+        var anchorPoint = anchorPoint
+        
+        if block.shouldRandomRotateWhenPlaced() {
+            
+            rotation = TSBlockRotation.random
+            
+            anchorPoint = TSModelRotator.shared.calcurateAnchorPoint(
+                blockSize: block.getSize(at: anchorPoint),
+                initial: anchorPoint,
+                for: rotation
+            )
+        }
+        
+        self._writeRotation(rotation, at: anchorPoint)
+        
+        block.willPlace(at: anchorPoint)
+        
+        self.anchorMap.insert(anchorPoint)
+        self._setAnchoBlockMap(block, at: anchorPoint)
+        self._fillFillMap(with: block, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
+        
+        delegates.forEach{$0.level(self, levelDidUpdateBlockAt: anchorPoint, needsAnimation: true, withRotation: rotation)}
+        
+        block.didPlaced(at: anchorPoint)
+        
+        //self._save()
+    }
+    
+    /// アンカーポイントのブロックを破壊します。
+    public func destroyBlock(at anchorPoint:TSVector3) {
+        let block = _getAnchorBlockMap(at: anchorPoint)
+        
+        guard block.canDestroy(at: anchorPoint) else {return}
+                
+        block.willDestroy(at: anchorPoint)
+        delegates.forEach{$0.level(self, levelWillDestoryBlockAt: anchorPoint)}
+        
+        self.nodeGenerator?.destoryNode(at: anchorPoint)
+        self.anchorMap.remove(anchorPoint)
+        self._setAnchoBlockMap(.air, at: anchorPoint)
+        self._fillFillMap(with: .air, at: anchorPoint, blockSize: block.getSize(at: anchorPoint))
+        self._setBlockDataMap(0, at: anchorPoint)
+        
+        delegates.forEach{$0.level(self, levelDidDestoryBlockAt: anchorPoint)}
+        
+        self._save()
+        block.didDestroy(at: anchorPoint)
+    }
+    
     /// アンカーポイントにあるブロックを返します。
     public func getAnchorBlock(at anchorPoint:TSVector3) -> TSBlock {
         return _getAnchorBlockMap(at: anchorPoint)
