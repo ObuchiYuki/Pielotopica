@@ -139,12 +139,9 @@ open class TSBlock {
         if let rotation = rotation {
             
             return _rotatedNodeSize(at: point, at: rotation)
-        }else if let data = self.getBlockData(at: point){
-            
-            return _rotatedNodeSize(at: point, at: TSBlockRotation(data: data))
         }else {
-            
-            return getOriginalNodeSize()
+            let data = self.getBlockData(at: point)
+            return _rotatedNodeSize(at: point, at: TSBlockRotation(data: data))
         }
     }
     private func _rotatedNodeSize(at point:TSVector3, at rotation:TSBlockRotation) -> TSVector3 {
