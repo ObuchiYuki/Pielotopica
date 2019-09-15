@@ -137,6 +137,7 @@ public class TSTerrainEditor {
         let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
+        chunk.anchors.insert(point)
         chunk.fillmap[x][y][z] = block.index
     }
     
