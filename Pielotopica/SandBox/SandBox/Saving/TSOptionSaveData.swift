@@ -32,7 +32,7 @@ public struct TSOptionSaveData: Codable {
     public var shadow: Bool = true
     
     init() {
-        TSFileSaveManager.shared.register(TSOptionSaveData.shared)
+        TSFileSaveManager.shared.register(self)
     }
 }
 
