@@ -180,7 +180,6 @@ class TPSandBox3DSceneModel {
         
         editor.delegates.append(self)
         
-        manager.delegates.append(self)
         manager.didPlayerMoved(to: .zero)
         
         binder.__makeDay()

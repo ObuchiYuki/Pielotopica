@@ -93,7 +93,7 @@ public class TSTerrainEditor {
         }
                 
         block.willDestroy(at: anchor)
-        delegates.forEach{ $0.editor(editorWillDestoroyBlockAt: anchor, need) }
+        delegates.forEach{ $0.editor(editorWillDestoroyBlockAt: anchor, needsAnimation: true) }
         
         //self.nodeGenerator?.destoryNode(at: anchor)
         TSTerrainManager.shared.removeAnchorBlock(anchor)
@@ -101,7 +101,7 @@ public class TSTerrainEditor {
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
         TSTerrainManager.shared.setBlockData(TSBlockData() , at: anchor)
         
-        delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: anchor) }
+        delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: anchor, needsAnimation: true) }
         
         block.didDestroy(at: anchor)
         
@@ -164,6 +164,9 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
     }
     
     public func chunkDidUnload(_ chunk: TSChunk) {
-        delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: anchor) }
+        
+        for anchor in chunk.anchors {
+            delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: anchor, needsAnimation: false) }
+        }
     }
 }
