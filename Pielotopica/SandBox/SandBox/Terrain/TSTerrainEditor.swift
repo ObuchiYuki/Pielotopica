@@ -76,7 +76,7 @@ public class TSTerrainEditor {
         TSTerrainManager.shared.setAnchoBlock(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
-        delegates.forEach{$0.editor(levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
+        delegates.forEach{$0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
         
         block.didPlaced(at: anchor)
         
@@ -93,7 +93,7 @@ public class TSTerrainEditor {
         }
                 
         block.willDestroy(at: anchor)
-        delegates.forEach{ $0.editor(levelWillDestoroyBlockAt: anchor) }
+        delegates.forEach{ $0.editor(editorWillDestoroyBlockAt: anchor) }
         
         //self.nodeGenerator?.destoryNode(at: anchor)
         TSTerrainManager.shared.removeAnchorBlock(anchor)
@@ -101,7 +101,7 @@ public class TSTerrainEditor {
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
         TSTerrainManager.shared.setBlockData(TSBlockData() , at: anchor)
         
-        delegates.forEach{ $0.editor(levelDidDestoroyBlockAt: anchor) }
+        delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: anchor) }
         
         block.didDestroy(at: anchor)
         
