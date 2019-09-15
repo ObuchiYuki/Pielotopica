@@ -19,7 +19,6 @@ class TSDurablityManager {
     private var spriteMap = [TSVector3: TSE_DurablitySprite]()
     
     private weak var scene:SCNScene?
-    private let level = TSLevel.current!
     
     // ===================================================================== //
     // MARK: - Methods -
@@ -28,7 +27,7 @@ class TSDurablityManager {
     }
     
     func getMaxDurablity(at anchorPoint:TSVector3) -> Int{
-        return level.getAnchorBlock(at: anchorPoint).getHardnessLevel()
+        return TSTerrainManager.shared.getAnchorBlock(at: anchorPoint).getHardnessLevel()
     }
     
     func getRatio(at anchorPoint:TSVector3) -> Double {
@@ -54,9 +53,9 @@ class TSDurablityManager {
     // ===================================================================== //
     // MARK: - Private Methods -
     public func _calcSpritePosition(of anchorPoint:TSVector3) -> SCNVector3 {
-        let block = level.getAnchorBlock(at: anchorPoint)
+        let block = TSTerrainManager.shared.getAnchorBlock(at: anchorPoint)
         let size = block.getSize(at: anchorPoint)
-        let rotation = TSBlockRotation(data: level.getBlockData(at: anchorPoint))
+        let rotation = TSBlockRotation(data: TSTerrainManager.shared.getBlockData(at: anchorPoint))
         
         return (anchorPoint + rotation.nodeModifier).scnVector3 + SCNVector3(size.x.d / 2, size.y.d , size.z.d / 2)
     }
@@ -64,7 +63,8 @@ class TSDurablityManager {
     private func check(at anchorPoint:TSVector3) {
         
         if getDurablity(at: anchorPoint) <= 0 {
-            level.destroyBlock(at: anchorPoint)
+            TSTerrainEditor.shared.destoryBlock(at: anchorPoint)
+            
             durablityMap.removeValue(forKey: anchorPoint)
             spriteMap.removeValue(forKey: anchorPoint)
             
