@@ -114,9 +114,9 @@ public class TSTerrainEditor {
     private func _conflictionExsists(about block:TSBlock, at anchorPoint:TSVector3, at rotation:TSBlockRotation) -> Bool {
         let size = block.getSize(at: anchorPoint, at: rotation)
         
-        for x in _createRange(size.x16) {
-            for y in _createRange(size.y16) {
-                for z in _createRange(size.z16) {
+        for x in OptimazedRange(size.x16) {
+            for y in OptimazedRange(size.y16) {
+                for z in OptimazedRange(size.z16) {
                     
                     if TSTerrainManager.shared.getFill(at: anchorPoint + TSVector3(x, y, z)) != .air {
                         return true
@@ -137,9 +137,9 @@ public class TSTerrainEditor {
     
     private func _fillFillMap(with block:TSBlock, at anchorPoint:TSVector3, blockSize size:TSVector3) {
         
-        for xSize in _createRange(size.x16) {
-            for ySize in _createRange(size.y16) {
-                for zSize in _createRange(size.z16) {
+        for xSize in OptimazedRange(size.x16) {
+            for ySize in OptimazedRange(size.y16) {
+                for zSize in OptimazedRange(size.z16) {
                     
                     TSTerrainManager.shared.setFill(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
