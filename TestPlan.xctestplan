@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "2B92C0D3-35F3-40D0-8137-147875B86452",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Pielotopica.xcodeproj",
+        "identifier" : "B698F166230FC85C00CAE917",
+        "name" : "PielotopicaTests"
+      }
+    }
+  ],
+  "version" : 1
+}
