@@ -65,7 +65,7 @@ class TPSandBox3DSceneModel {
     // MARK: - Private -
     
     // - Level -
-    private var manager:TSTerrainEditor { return TSTerrainEditor.shared }
+    private var terrainEditor:TSTerrainEditor { return TSTerrainEditor.shared }
     private var nodeGenerator = TSChunkNodeGenerator()
     
     // - Binder -
@@ -192,11 +192,11 @@ class TPSandBox3DSceneModel {
 
     // ================================================================== //
     // MARK: - Private Methods -
-    private func _createStage1(_ level: TSLevel) {
+    private func _createStage1() {
         /// 床設置 (仮)
         for x in -20...20 {
             for z in -20...20 {
-                level.placeBlock(.ground5x5, at: TSVector3(5 * x, 0, 5 * z), rotation: .x0, forced: true)
+                terrainEditor.placeBlock(.ground5x5, at: TSVector3(5 * x, 0, 5 * z), rotation: .x0, forced: true)
             }
         }
     }
