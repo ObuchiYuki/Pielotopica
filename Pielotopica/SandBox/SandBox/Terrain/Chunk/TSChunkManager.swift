@@ -92,7 +92,7 @@ public class TSChunkManager {
     
     private func _calcurateChunkPosition(from globalPoint: TSVector3) -> TSVector3 {
         
-        return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
+        return globalPoint - _calcurateChunkPoint(from: globalPoint.vector2).vector3(y: 0)
     }
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
