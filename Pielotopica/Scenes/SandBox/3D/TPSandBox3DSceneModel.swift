@@ -363,6 +363,11 @@ extension TPSandBox3DSceneModel: TPCameraGestureHelperDelegate{
 // ================================================================== //
 // MARK: - Extension for TSLevelDelegate -
 extension TPSandBox3DSceneModel : TSTerrainEditorDelegate {
+    func editor(editorDidDestoroyBlockAt position: TSVector3, needsAnimation: Bool) {
+        nodeGenerator.destoryNode(at: position)
+        
+    }
+    
     func editor(editorDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag: Bool, withRotation rotation: TSBlockRotation) {
         guard let node = nodeGenerator.getNode(atGlobal: position) else {return}
         
