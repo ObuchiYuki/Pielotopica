@@ -25,11 +25,14 @@ public class TSChunkNodeGenerator {
     // ======================================================================== //
     // MARK: - Methods -
     public func asycPrepareChunk(_ chunk: TSChunk) {
-        for anchor in chunk.anchors {
-            let (x, y, z) = anchor.tuple
-            
-            let block = TSBlock.block(for: chunk.fillmap[x][y][z])
-
+        DispatchQueue.global().async {
+            for anchor in chunk.anchors {
+                let (x, y, z) = anchor.tuple
+                
+                let block = TSBlock.block(for: chunk.fillmap[x][y][z])
+                
+                cache[anchor] = _createNode(of: block, at: anchor)
+            }
         }
     }
     /// 生成済みならそのNodeを未生成なら生成して返します。空気は返さない
