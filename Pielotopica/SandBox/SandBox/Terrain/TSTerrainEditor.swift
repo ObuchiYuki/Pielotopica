@@ -112,7 +112,7 @@ public class TSTerrainEditor {
     // MARK: - Constructor -
     
     private init() {
-        
+        TSTerrainManager.shared.delegates.append(self)
     }
     
     // ======================================================================== //
@@ -152,5 +152,15 @@ public class TSTerrainEditor {
                 }
             }
         }
+    }
+}
+
+extension TSTerrainEditor: TSTerrainManagerDelegate {
+    public func chunkDidLoad(_ chunk: TSChunk) {
+        
+    }
+    
+    public func chunkDidUnload(_ chunk: TSChunk) {
+        
     }
 }
