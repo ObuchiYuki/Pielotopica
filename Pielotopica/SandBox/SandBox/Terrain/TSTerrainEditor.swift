@@ -33,8 +33,8 @@ public class TSTerrainEditor {
             
             rotation = TSBlockRotation.random
             
-            anchorPoint = TSModelRotator.shared.calcurateAnchorPoint(
-                blockSize: block.getSize(at: anchorPoint),
+            anchor = TSModelRotator.shared.calcurateAnchorPoint(
+                blockSize: block.getSize(at: anchor),
                 initial: anchor,
                 for: rotation
             )
@@ -44,8 +44,7 @@ public class TSTerrainEditor {
         
         block.willPlace(at: anchor)
         
-        self.anchorMap.insert(anchorPoint)
-        self._setAnchoBlockMap(block, at: anchor)
+        self._setAnchoBlock(blcok, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
         delegates.forEach{$0.editor(levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
