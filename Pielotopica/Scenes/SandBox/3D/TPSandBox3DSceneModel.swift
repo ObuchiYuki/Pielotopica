@@ -65,7 +65,8 @@ class TPSandBox3DSceneModel {
     // MARK: - Private -
     
     // - Level -
-    private var editor:TSTerrainEditor { return TSTerrainEditor.shared }
+    private let manager = TSTerrainManager.shared
+    private var editor = TSTerrainEditor.shared
     private var nodeGenerator = TSChunkNodeGenerator()
     
     // - Binder -
