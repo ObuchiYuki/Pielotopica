@@ -184,9 +184,9 @@ class TPSandBox3DSceneModel {
         
         binder.__makeDay()
         
-        if level.getAllAnchors().isEmpty {
-            _createStage1(level)
-        }
+        //if first luanch {
+            _createStage1()
+        //}
     }
     
 
