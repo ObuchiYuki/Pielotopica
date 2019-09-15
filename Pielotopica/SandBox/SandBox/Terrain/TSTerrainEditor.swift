@@ -8,12 +8,16 @@
 
 import Foundation
 
+
+// ======================================================================== //
+// MARK: - TSTerrainEditorDelegate -
 public protocol TSTerrainEditorDelegate {
     func editor(levelDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation)
     func editor(levelWillDestoryBlockAt position:TSVector3)
     func editor(levelDidDestoryBlockAt position:TSVector3)
 }
 
+// ======================================================================== //
 // MARK: - TSTerrainEditor -
 
 public class TSTerrainEditor {
@@ -22,6 +26,7 @@ public class TSTerrainEditor {
     
     public var delegates = RMWeakSet<TSTerrainEditorDelegate>()
     
+    // ======================================================================== //
     // MARK: - Methods -
     
     @discardableResult
@@ -85,7 +90,7 @@ public class TSTerrainEditor {
         return TSBlockData(value: self._getBlockData(at: point))
     }
     
-    
+    // ======================================================================== //
     // MARK: - Privates -
     
     private func _conflictionExsists(about block:TSBlock, at anchorPoint:TSVector3, at rotation:TSBlockRotation) -> Bool {
@@ -150,8 +155,9 @@ public class TSTerrainEditor {
         }
     }
         
-    
+    // ============================================= //
     // MARK: - FillMap Getter and Setter -
+    
     // All points below is global points.
     
     private func _getFill(at point:TSVector3) -> TSBlock {
