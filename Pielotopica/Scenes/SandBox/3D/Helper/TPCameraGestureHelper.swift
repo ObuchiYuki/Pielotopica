@@ -37,7 +37,6 @@ class TPSandboxCameraGestureHelper {
     /// ピンチ時に呼び出してください。
     func pinched(to scale:CGFloat) {
         pinchScale = originalPinchScale * Float(scale)
-        //pinchScale = pinchScale.into(0.2...3)
         
         let tscale = 1 / pinchScale
         let rscale = Double(tscale * 10)
@@ -49,9 +48,6 @@ class TPSandboxCameraGestureHelper {
     
     /// パン時に呼び出してください。
     func panned(to vector:CGPoint, at velocity:CGPoint) {
-        guard timeStamp.isSameFrame()  else { return } // まあ、Appleのバグなので...
-        
-        timeStamp.press()
         
         _inertiaVector = velocity
         
@@ -76,6 +72,5 @@ class TPSandboxCameraGestureHelper {
         originalPinchScale = pinchScale
         cameraStartPosition = position
         
-        timeStamp.press()
     }
 }

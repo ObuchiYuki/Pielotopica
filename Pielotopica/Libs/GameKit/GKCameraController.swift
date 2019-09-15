@@ -25,7 +25,6 @@ public class GKCameraController {
     
     
     @objc private func _handlePan(_ sender: UIPanGestureRecognizer) {
-        print("pan")
         cameraNavigationController!.perform(NSSelectorFromString("_handlePan:"), with: sender)
     }
     
