@@ -101,7 +101,7 @@ public class TSTerrainEditor {
             for ySize in _createRange(size.y16) {
                 for zSize in _createRange(size.z16) {
                     
-                    self._setFillMap(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    self._setFill(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
             }
         }
