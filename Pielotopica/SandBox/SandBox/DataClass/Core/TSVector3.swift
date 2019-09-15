@@ -121,11 +121,14 @@ extension TSVector3 {
     }
 }
 
-extension TSVector3:ExpressibleByArrayLiteral {
+extension TSVector3: ExpressibleByArrayLiteral {
     @inline(__always)
     public init(arrayLiteral elements: Int16...) {
+        assert(elements.count == 3, "Initirization of TSVector3 require '3' elements.")
         
-        self.simd = SIMD(elements)
+        self.x16 = elements[0]
+        self.y16 = elements[1]
+        self.z16 = elements[2]
     }
 }
 
