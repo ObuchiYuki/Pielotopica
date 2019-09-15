@@ -65,7 +65,7 @@ class TPSandBox3DSceneModel {
     // MARK: - Private -
     
     // - Level -
-    private var terrainEditor:TSTerrainEditor { return TSTerrainEditor.shared }
+    private var editor:TSTerrainEditor { return TSeditor.shared }
     private var nodeGenerator = TSChunkNodeGenerator()
     
     // - Binder -
@@ -176,7 +176,7 @@ class TPSandBox3DSceneModel {
     }
     
     func sceneDidLoad() {
-        TSTerrainEditor.shared.delegates.append(self)
+        TSeditor.shared.delegates.append(self)
         
         binder.__makeDay()
         
@@ -192,7 +192,7 @@ class TPSandBox3DSceneModel {
         /// 床設置 (仮)
         for x in -20...20 {
             for z in -20...20 {
-                terrainEditor.placeBlock(.ground5x5, at: TSVector3(5 * x, 0, 5 * z), rotation: .x0, forced: true)
+                editor.placeBlock(.ground5x5, at: TSVector3(5 * x, 0, 5 * z), rotation: .x0, forced: true)
             }
         }
     }
@@ -227,7 +227,7 @@ class TPSandBox3DSceneModel {
         
         let nodeRotation = TSBlockRotation(rotation: nodeRotationInt)
         let anchorPoint = TSVector3(touchedNode.worldPosition) - nodeRotation.nodeModifier
-        let block = level.getAnchorBlock(at: anchorPoint)
+        let block = editor level.getAnchorBlock(at: anchorPoint)
     
         // process
         guard block.canDestroy(at: anchorPoint) else {
