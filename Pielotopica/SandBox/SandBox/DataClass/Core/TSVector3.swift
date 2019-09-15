@@ -119,6 +119,11 @@ extension TSVector3 {
     var vector2:TSVector2 {
         return TSVector2(x16, z16)
     }
+    
+    @inline(__always)
+    var hasNegative:Bool {
+        return x16 < 0 || y16 < 0 || z16 < 0
+    }
 }
 
 extension TSVector3: ExpressibleByArrayLiteral {
