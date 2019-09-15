@@ -64,10 +64,10 @@ public class TSTerrainEditor {
         delegates.forEach{ $0.editor(levelWillDestoryBlockAt: anchor) }
         
         self.nodeGenerator?.destoryNode(at: anchor)
-        self.anchorMap.remove(anchor)
-        self._setAnchoBlockMap(.air, at: anchor)
+        self._removeAnchorBlock(anchor)
+        self._setAnchoBlock(.air, at: anchor)
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
-        self._setBlockDataMap(0, at: anchor)
+        self._setBlockData(0, at: anchor)
         
         delegates.forEach{$0.level(self, levelDidDestoryBlockAt: anchor)}
         
@@ -149,6 +149,12 @@ public class TSTerrainEditor {
     }
     
     // MARK: - anchoBlock Getter and Setter -
+    private func _removeAnchorBlock(_ point: TSVector3) {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        
+        chunk.anchors.remove(point)
+    }
+    
     private func _getAnchorBlock(at point:TSVector3) -> TSBlock {
         let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
