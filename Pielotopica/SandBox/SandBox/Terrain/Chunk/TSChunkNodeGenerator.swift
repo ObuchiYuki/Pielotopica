@@ -40,11 +40,7 @@ public class TSChunkNodeGenerator {
         
         let block = TSChunkManager.shared.getAnchorBlock(at: point)
         
-        guard block.canCreateNode() else { return nil }
-        
-        let node = block.createNode()
-        
-        return node
+        return _createNode(of: block, at: point)
     }
     
     public func destoryNode(at anchorPoint:TSVector3) {
@@ -55,8 +51,12 @@ public class TSChunkNodeGenerator {
     // ======================================================================== //
     // MARK: - Private -
     
-    private func _createNode(of block: TSBlock, at point: TSVector3) -> SCNNode {
+    private func _createNode(of block: TSBlock, at point: TSVector3) -> SCNNode? {
+        guard block.canCreateNode() else { return nil }
         
+        let node = block.createNode()
+        
+        return node
     }
     
     private func _cacheNode(_ node: SCNNode, at point: TSVector3) {
