@@ -39,12 +39,12 @@ extension TSChunkPoint {
     
     @inline(__always)
     var vector2: TSVector2 {
-        return TSVector2(simd.x * TSChunk.sideWidth, simd.x * TSChunk.sideWidth)
+        return TSVector2(simd.x * TSChunk.sideWidth, simd.y * TSChunk.sideWidth)
     }
     
     @inline(__always)
     func vector3(y: Int16) -> TSVector3 {
-        return TSVector3(simd.x * TSChunk.sideWidth, y, simd.x * TSChunk.sideWidth)
+        return TSVector3(simd.x * TSChunk.sideWidth, y, simd.y * TSChunk.sideWidth)
     }
     
     @inline(__always)
