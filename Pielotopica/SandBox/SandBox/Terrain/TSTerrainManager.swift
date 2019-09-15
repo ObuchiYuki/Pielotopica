@@ -135,8 +135,8 @@ public class TSTerrainManager {
         let size = getAnchorBlock(at: anchorPoint).getSize(at: anchorPoint)
         
         var points = [TSVector3]()
-        for x in _createRange(size.x16) {
-            for z in _createRange(size.z16) {
+        for x in OptimazedRange(size.x16) {
+            for z in OptimazedRange(size.z16) {
                 points.append(anchorPoint + TSVector3(x, layerY, z))
                  
             }
