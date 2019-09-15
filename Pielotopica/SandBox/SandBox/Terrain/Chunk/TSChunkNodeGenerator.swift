@@ -25,12 +25,14 @@ public class TSChunkNodeGenerator {
     }
     
     /// 生成済みならそのNodeを未生成なら生成して返します。空気は返さない
-    public func getNode(at globalPoint:TSVector3) -> SCNNode? {
-        if let loaded = nodeMap[globalPoint] {
+    public func getNode(atGlobal point:TSVector3) -> SCNNode? {
+        if let loaded = nodeMap[point] {
             return loaded
         }
         
-        let chunk = TSChunkManager.shared.chunk(contains: globalPoint.vector2)
+        let block = TSChunkManager.shared.getAnchorBlock(at: point)
+        
+        guard block.canPlace(at: point)
         
     }
 }
