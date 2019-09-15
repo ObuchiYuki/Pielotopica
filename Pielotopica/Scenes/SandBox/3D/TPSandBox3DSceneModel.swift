@@ -359,12 +359,12 @@ extension TPSandBox3DSceneModel: TPCameraGestureHelperDelegate{
 
 // ================================================================== //
 // MARK: - Extension for TSLevelDelegate -
-extension TPSandBox3DSceneModel : TSLevelDelegate {
-    func level(_ level: TSLevel, levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag: Bool, withRotation rotation: TSBlockRotation) {
-        guard let node = nodeGenerator.getNode(at: position) else {return}
+extension TPSandBox3DSceneModel : TSTerrainEditorDelegate {
+    func editor(levelDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag: Bool, withRotation rotation: TSBlockRotation) {
+        guard let node = nodeGenerator.getNode(atGlobal: position) else {return}
         
         // animation
-        if animiationFlag && level.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {
+        if animiationFlag && TSChunkManager.shared.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {
             let action = TSBlockAnimator.generateBlockPlaceAnimation(for: node)
             node.runAction(action)
         }
