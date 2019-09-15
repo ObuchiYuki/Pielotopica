@@ -9,10 +9,8 @@
 /* Begin PBXBuildFile section */
 		458B447EA9D788ED15D0E224 /* Pods_Pielotopica.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */; };
 		B6002D91231A21FE006C4D94 /* TSNBD.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D90231A21FE006C4D94 /* TSNBD.swift */; };
-		B6002D93231A22FC006C4D94 /* TSNBDData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D92231A22FC006C4D94 /* TSNBDData.swift */; };
 		B6002D96231A29FC006C4D94 /* AStarNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D95231A29FC006C4D94 /* AStarNode.swift */; };
 		B6002D98231A340E006C4D94 /* Ex+CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D97231A340E006C4D94 /* Ex+CGPoint.swift */; };
-		B6002D9A231A4E93006C4D94 /* TSFillBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D99231A4E93006C4D94 /* TSFillBlock.swift */; };
 		B6002D9E231A5799006C4D94 /* TSSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6002D9D231A5799006C4D94 /* TSSprite.swift */; };
 		B6012DEF23189B1C00DC18CE /* TS_SpawnerBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */; };
 		B6012DF123189D1700DC18CE /* TSSpawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6012DF023189D1700DC18CE /* TSSpawner.swift */; };
@@ -234,7 +232,6 @@
 		B6C7F3362314B7120042279C /* TSItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C7F3352314B7120042279C /* TSItemData.swift */; };
 		B6DDABEB2318E7D5003F538B /* RMMeasure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DDABEA2318E7D5003F538B /* RMMeasure.swift */; };
 		B6DF959D23192D0F005C636B /* AStar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6DF959C23192D0F005C636B /* AStar.swift */; };
-		B6E8826123121835003F3124 /* TSLevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826023121835003F3124 /* TSLevelData.swift */; };
 		B6E8826623126B66003F3124 /* RMLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8826523126B66003F3124 /* RMLog.swift */; };
 		B6E88268231280B5003F3124 /* TSMaterialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E88267231280B5003F3124 /* TSMaterialData.swift */; };
 		B6ECA99A231E050A0033FBD8 /* TPSettingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ECA999231E050A0033FBD8 /* TPSettingScene.swift */; };
@@ -275,10 +272,8 @@
 		1C61BDA478C66F0C795B92AE /* Pods-Pielotopica.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pielotopica.debug.xcconfig"; path = "Target Support Files/Pods-Pielotopica/Pods-Pielotopica.debug.xcconfig"; sourceTree = "<group>"; };
 		82F1EF92ABB8E7B55377BAFB /* Pods_Pielotopica.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pielotopica.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6002D90231A21FE006C4D94 /* TSNBD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSNBD.swift; sourceTree = "<group>"; };
-		B6002D92231A22FC006C4D94 /* TSNBDData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSNBDData.swift; sourceTree = "<group>"; };
 		B6002D95231A29FC006C4D94 /* AStarNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStarNode.swift; sourceTree = "<group>"; };
 		B6002D97231A340E006C4D94 /* Ex+CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ex+CGPoint.swift"; sourceTree = "<group>"; };
-		B6002D99231A4E93006C4D94 /* TSFillBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSFillBlock.swift; sourceTree = "<group>"; };
 		B6002D9D231A5799006C4D94 /* TSSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSprite.swift; sourceTree = "<group>"; };
 		B6012DEE23189B1C00DC18CE /* TS_SpawnerBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_SpawnerBlock.swift; sourceTree = "<group>"; };
 		B6012DF023189D1700DC18CE /* TSSpawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSpawner.swift; sourceTree = "<group>"; };
@@ -512,7 +507,6 @@
 		B6C7F3352314B7120042279C /* TSItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemData.swift; sourceTree = "<group>"; };
 		B6DDABEA2318E7D5003F538B /* RMMeasure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMMeasure.swift; sourceTree = "<group>"; };
 		B6DF959C23192D0F005C636B /* AStar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AStar.swift; sourceTree = "<group>"; };
-		B6E8826023121835003F3124 /* TSLevelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSLevelData.swift; sourceTree = "<group>"; };
 		B6E8826523126B66003F3124 /* RMLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLog.swift; sourceTree = "<group>"; };
 		B6E88267231280B5003F3124 /* TSMaterialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSMaterialData.swift; sourceTree = "<group>"; };
 		B6ECA999231E050A0033FBD8 /* TPSettingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSettingScene.swift; sourceTree = "<group>"; };
@@ -806,7 +800,6 @@
 				B6227A0C2301AB83009EF60F /* Core */,
 				B6227A102301AB83009EF60F /* Animator */,
 				B6227A142301AB83009EF60F /* Item */,
-				B6227A1B2301AB83009EF60F /* Level */,
 			);
 			path = DataClass;
 			sourceTree = "<group>";
@@ -843,16 +836,6 @@
 				B6002D90231A21FE006C4D94 /* TSNBD.swift */,
 			);
 			path = Item;
-			sourceTree = "<group>";
-		};
-		B6227A1B2301AB83009EF60F /* Level */ = {
-			isa = PBXGroup;
-			children = (
-				B6002D92231A22FC006C4D94 /* TSNBDData.swift */,
-				B6002D99231A4E93006C4D94 /* TSFillBlock.swift */,
-				B6292406231B804700955B1E /* TSModelRotator.swift */,
-			);
-			path = Level;
 			sourceTree = "<group>";
 		};
 		B6227A262301AB84009EF60F /* Extensions */ = {
@@ -1080,7 +1063,6 @@
 		B6731B2C2314BEDD00B70C3F /* Saveable */ = {
 			isa = PBXGroup;
 			children = (
-				B6E8826023121835003F3124 /* TSLevelData.swift */,
 				B6731B2A2314BED800B70C3F /* TSInventoryData.swift */,
 				B660938E2314C31400B528E5 /* TSItemStacksData.swift */,
 				B6C7F3352314B7120042279C /* TSItemData.swift */,
@@ -1143,6 +1125,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B8B526232B857B003F3F83 /* TSTick.swift */,
+				B6292406231B804700955B1E /* TSModelRotator.swift */,
 				B69E866F231627B9004D4272 /* TSItemManager.swift */,
 				B6102370231A64FC009252E1 /* TSDurablityManager.swift */,
 				B6B8B528232B85A3003F3F83 /* TSEventLoop.swift */,
@@ -1609,7 +1592,6 @@
 				B64D4029231D0B5D00CA3198 /* TSI_Tree.swift in Sources */,
 				B61E93BD2300E368008CB325 /* AppDelegate.swift in Sources */,
 				B6012DF123189D1700DC18CE /* TSSpawner.swift in Sources */,
-				B6002D93231A22FC006C4D94 /* TSNBDData.swift in Sources */,
 				B69E864E23161D56004D4272 /* GKTransitionNode.swift in Sources */,
 				B6F44DCD230A3734004281E0 /* Ex+SKNode.swift in Sources */,
 				B6227A5F2301B13C009EF60F /* Ex+SCNAction.swift in Sources */,
@@ -1621,7 +1603,6 @@
 				B6227A5C2301B13C009EF60F /* Ex+SCNVector3.swift in Sources */,
 				B64D402D231D0F9900CA3198 /* TSI_FuelFactory.swift in Sources */,
 				B6292407231B804700955B1E /* TSModelRotator.swift in Sources */,
-				B6002D9A231A4E93006C4D94 /* TSFillBlock.swift in Sources */,
 				B61E93F42300E38A008CB325 /* GKSceneHolder.swift in Sources */,
 				B69E868B23168816004D4272 /* TPSCraftSceneModel.swift in Sources */,
 				B6227A5E2301B13C009EF60F /* Ex+SCNMatrix4.swift in Sources */,
@@ -1722,7 +1703,6 @@
 				B6227A362301AB84009EF60F /* TSItem.swift in Sources */,
 				B69CE2F7230E6CE600CE04E6 /* Ex+UIStoryboard.swift in Sources */,
 				B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */,
-				B6E8826123121835003F3124 /* TSLevelData.swift in Sources */,
 				B6AA02AD230D7EBE00F0FF48 /* TPHeader.swift in Sources */,
 				B65D5CB4231BBC85009E4171 /* TPClearAward.swift in Sources */,
 				B6002D91231A21FE006C4D94 /* TSNBD.swift in Sources */,

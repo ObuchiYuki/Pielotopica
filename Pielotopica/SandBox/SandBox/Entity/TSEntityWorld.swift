@@ -86,7 +86,7 @@ class TSEntityWorld {
     }
     
     func getTargetPosition() -> TSVector2 {
-        let pos = manager.getAllAnchors().first(where: {level.getAnchorBlock(at: $0) is TS_TargetBlock})
+        let pos = manager.getAllAnchors().first(where: {manager.getAnchorBlock(at: $0) is TS_TargetBlock})
         assert(pos != nil, "You must set single target in level.")
         
         return pos!.vector2
