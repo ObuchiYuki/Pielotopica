@@ -131,6 +131,15 @@ public class TSTerrainManager {
         return TSBlockData(value: chunk.datamap[x][y][z])
     }
     
+    public func getAnchor(ofFill fillPoint: TSVector3) -> TSVector3? {
+        let chunk = self.chunk(contains: fillPoint.vector2)
+        let (x, y, z) = self.chunkPosition(fromGlobal: fillPoint).tuple
+        
+        guard chunk.fillmap[x][y][z] != TSBlock.air.index else { return nil }
+        
+        return chunk.fillAnchors[x][y][z]
+    }
+    
     public func getFilled(byBlockAt anchorPoint:TSVector3, layerY: Int16) -> [TSVector3] {
         let size = getAnchorBlock(at: anchorPoint).getSize(at: anchorPoint)
         
