@@ -145,13 +145,14 @@ public class TSTerrainEditor {
         let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        chunk.datamap [x][y][z] = data
+        chunk.datamap[x][y][z] = data
     }
     
-    private func _getBlockDataMap(at point:TSVector3) -> UInt8 {
-        let (x, y, z) = _convertVector3(point)
+    private func _getBlockData(at point:TSVector3) -> UInt8 {
+        let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
+        let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        return blockDataMap.at(x)?.at(y)?.at(z) ?? 0
+        return chunk.datamap[x][y][z]
     }
     
     
