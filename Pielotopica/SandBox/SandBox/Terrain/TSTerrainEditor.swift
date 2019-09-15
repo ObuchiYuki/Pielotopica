@@ -131,7 +131,7 @@ public class TSTerrainEditor {
         
         guard chunk.anchors.contains(point) else { return .air }
         
-        return TSBlock.block(for: chunk.fillAnchors[x][y][z])
+        return TSBlock.block(for: chunk.fillmap[x][y][z])
     }
     
     private func _setAnchoBlockMap(_ block:TSBlock, at point:TSVector3) {
