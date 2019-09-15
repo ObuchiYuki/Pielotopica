@@ -22,7 +22,7 @@ extension TSVector3 {
         let y = scnVector3.y.rounded()
         let z = scnVector3.z.rounded()
         
-        self.simd = SIMD(Int16(x), Int16(y), Int16(z))
+        (x16, y16, z16) = (Int16(x), Int16(y), Int16(z))
         
     }
     
@@ -35,7 +35,7 @@ extension TSVector3 {
     /// SIMD vector for SceneKit
     @inline(__always)
     public var scnSIMD:simd_float3 {
-        return simd_float3(simd)
+        return simd_float3.init(Float(x16), Float(y16), Float(z16))
         
     }
 }
