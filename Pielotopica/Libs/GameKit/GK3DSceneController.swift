@@ -98,6 +98,7 @@ open class GK3DSceneController :NSObject {
     }
     
     public func addGestureRecognizer(_ gestureRecognizer:UIGestureRecognizer) {
+        gestureRecognizer.cancelsTouchesInView = false
         self.gkViewController.scnView.addGestureRecognizer(gestureRecognizer)
     }
     public func removeGustureRecognizer(_ gestureRecognizer:UIGestureRecognizer) {
