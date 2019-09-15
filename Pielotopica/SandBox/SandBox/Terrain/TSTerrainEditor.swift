@@ -162,6 +162,10 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
             let rotation = chunk.getRotation(at: anchor)
             let global = chunk.makeGlobal(anchor)
             
+            assert(TSTerrainManager.shared.getAnchorBlock(at: global) != .air)
+            
+            print("Place anchor", global, TSTerrainManager.shared.getAnchorBlock(at: global))
+            
             delegates.forEach{$0.editor(editorDidUpdateBlockAt: global, needsAnimation: false, withRotation: rotation)}
         }
     }

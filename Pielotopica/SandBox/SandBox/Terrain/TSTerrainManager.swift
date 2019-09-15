@@ -101,9 +101,12 @@ public class TSTerrainManager {
     
     public func getAnchorBlock(at point:TSVector3) -> TSBlock {
         let chunk = self.chunk(contains: point.vector2)
-        let (x, y, z) = self.chunkPosition(fromGlobal: point).tuple
+        let chunkPos = self.chunkPosition(fromGlobal: point)
+        let (x, y, z) = chunkPos.tuple
         
-        guard chunk.anchors.contains(point) else { return .air }
+        guard chunk.anchors.contains(chunkPos) else {
+            return .air
+        }
         
         return TSBlock.block(for: chunk.fillmap[x][y][z])
     }
