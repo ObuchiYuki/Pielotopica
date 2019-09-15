@@ -350,6 +350,9 @@ extension TPSandBox3DSceneModel: TPBlockEditHelperDelegate {
 // MARK: - Extension for TPCameraGestureHelperDelegate -
 extension TPSandBox3DSceneModel: TPCameraGestureHelperDelegate{
     func cameraGestureHelper(_ cameraGestureHelper: TPSandboxCameraGestureHelper, cameraDidMoveTo position: SCNVector3) {
+        // ある意味 仮
+        manager.didPlayerMoved(to: position - [100, 0, 100])
+        
         binder.__moveCamera(to: position)
     }
     func cameraGestureHelper(_ cameraGestureHelper: TPSandboxCameraGestureHelper, cameraDidchangeZoomedTo scale: Double) {
