@@ -59,6 +59,15 @@ public class TSTerrainEditor {
         return true
     }
     
+    public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
+        self._setBlockDataMap(data.value, at: point)
+    }
+    
+    public func getBlockData(at point:TSVector3) -> TSBlockData {
+        return TSBlockData(value: self._getBlockDataMap(at: point))
+    }
+    
+    
     // MARK: - Privates -
     
     private func _createRange(_ value:Int16) -> Range<Int16> {
