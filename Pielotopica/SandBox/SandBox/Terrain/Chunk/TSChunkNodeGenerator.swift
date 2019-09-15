@@ -20,7 +20,7 @@ public class TSChunkNodeGenerator {
     // MARK: - Privates -
     /// 生成済みのノードです。
     /// [globalPoint: Node]
-    private var cache = [TSVector3: SCNNode]()
+    fileprivate var cache = [TSVector3: SCNNode]()
     
     // ======================================================================== //
     // MARK: - Methods -
@@ -64,5 +64,12 @@ public class TSChunkNodeGenerator {
     
     private func _cacheNode(_ node: SCNNode, at point: TSVector3) {
         cache[point] = node
+    }
+}
+
+extension TSBlock {
+    /// もし自身が生成済みなら返します。
+    func getOwnNode(at point: TSVector3) -> SCNNode? {
+        return TSChunkNodeGenerator.shared.cache[point]
     }
 }
