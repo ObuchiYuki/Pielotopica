@@ -351,7 +351,7 @@ extension TPSandBox3DSceneModel: TPBlockEditHelperDelegate {
 extension TPSandBox3DSceneModel: TPCameraGestureHelperDelegate{
     func cameraGestureHelper(_ cameraGestureHelper: TPSandboxCameraGestureHelper, cameraDidMoveTo position: SCNVector3) {
         // ある意味 仮
-        manager.didPlayerMoved(to: position - [100, 0, 100])
+        manager.didPlayerMoved(to: TSVector3((position - [100, 0, 100])).vector2)
         
         binder.__moveCamera(to: position)
     }
