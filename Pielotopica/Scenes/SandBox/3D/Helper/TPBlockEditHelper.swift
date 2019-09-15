@@ -131,7 +131,7 @@ public class TPBlockEditHelper {
     
     internal func _placeBlock() {
         if canEndBlockEditing() {
-            self.level.placeBlock(block, at: _nodePosition, rotation: _roataion)
+            editor.placeBlock(block, at: _nodePosition, rotation: _roataion)
         }
     }
     

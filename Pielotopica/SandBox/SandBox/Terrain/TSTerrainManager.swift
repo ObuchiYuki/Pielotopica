@@ -130,6 +130,20 @@ public class TSTerrainManager {
         
         return TSBlockData(value: chunk.datamap[x][y][z])
     }
+    
+    public func getFilled(byBlockAt anchorPoint:TSVector3, layerY: Int16) -> [TSVector3] {
+        let size = getAnchorBlock(at: anchorPoint).getSize(at: anchorPoint)
+        
+        var points = [TSVector3]()
+        for x in _createRange(size.x16) {
+            for z in _createRange(size.z16) {
+                points.append(anchorPoint + TSVector3(x, layerY, z))
+                 
+            }
+        }
+        
+        return points
+    }
     // ======================================================================== //
     // MARK: - Privates -
     

@@ -128,14 +128,6 @@ public class TSTerrainEditor {
         return false
     }
     
-    private func _createRange(_ value:Int16) -> Range<Int16> {
-        if value > 0 {
-            return Range(uncheckedBounds: (lower: 0       , upper: value))
-        }else{
-            return Range(uncheckedBounds: (lower: value+1 , upper: 1    ))
-        }
-    }
-    
     private func _writeRotation(_ rotation:TSBlockRotation, at point:TSVector3) {
         var data = TSBlockData()
         rotation.setData(to: &data)
