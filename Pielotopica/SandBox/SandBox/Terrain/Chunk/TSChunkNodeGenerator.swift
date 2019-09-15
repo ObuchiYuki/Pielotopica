@@ -30,6 +30,8 @@ public class TSChunkNodeGenerator {
             return loaded
         }
         
-        TSChunkManager.shared.chunk(contains: point)
+        let chunk = TSChunkManager.shared.chunk(contains: point)
+        chunk.
+        
     }
 }

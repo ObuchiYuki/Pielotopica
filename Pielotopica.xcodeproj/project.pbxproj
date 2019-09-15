@@ -848,7 +848,6 @@
 		B6227A1B2301AB83009EF60F /* Level */ = {
 			isa = PBXGroup;
 			children = (
-				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 				B6002D92231A22FC006C4D94 /* TSNBDData.swift */,
 				B6002D99231A4E93006C4D94 /* TSFillBlock.swift */,
 				B6292406231B804700955B1E /* TSModelRotator.swift */,
@@ -1278,6 +1277,7 @@
 		B6B9CE7E232B2BA000441094 /* Terrain */ = {
 			isa = PBXGroup;
 			children = (
+				B6227A202301AB83009EF60F /* TSNodeGenerator.swift */,
 				B66B8A57232B7BEE00520D00 /* TSTerrainEditor.swift */,
 				B637CB08232B7AC000C97964 /* Chunk */,
 			);
