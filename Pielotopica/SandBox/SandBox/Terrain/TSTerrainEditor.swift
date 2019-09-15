@@ -73,7 +73,7 @@ public class TSTerrainEditor {
         self._writeRotation(rotation, at: anchor)
         
         block.willPlace(at: anchor)
-        TSTerrainManager.shared.setAnchoBlock(block, at: anchor)
+        TSTerrainManager.shared.setAnchorBlock(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
         delegates.forEach{$0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
@@ -97,7 +97,7 @@ public class TSTerrainEditor {
         
         //self.nodeGenerator?.destoryNode(at: anchor)
         TSTerrainManager.shared.removeAnchorBlock(anchor)
-        TSTerrainManager.shared.setAnchoBlock(.air, at: anchor)
+        TSTerrainManager.shared.setAnchorBlock(.air, at: anchor)
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
         TSTerrainManager.shared.setBlockData(TSBlockData() , at: anchor)
         

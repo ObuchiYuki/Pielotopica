@@ -109,7 +109,7 @@ public class TSTerrainManager {
         return TSBlock.block(for: chunk.fillmap[x][y][z])
     }
     
-    public func setAnchoBlock(_ block:TSBlock, at point:TSVector3) {
+    public func setAnchorBlock(_ block:TSBlock, at point:TSVector3) {
         let chunk = self.chunk(contains: point.vector2)
         let (x, y, z) = self.chunkPosition(fromGlobal: point).tuple
         
