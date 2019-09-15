@@ -23,6 +23,7 @@ public class TPBlockEditHelper {
     // =============================================================== //
     // MARK: - Properties -
     
+    public let manager = TSTerrainManager.shared
     /// TSTerrainEditor
     public let editor = TSTerrainEditor.shared
     

@@ -115,7 +115,7 @@ extension TPGameController: TSTerrainEditorDelegate {
     }
 
     
-    func editor(levelWillDestoryBlockAt position: TSVector3) {
+    func editor(levelWilldestoroyBlockAt position: TSVector3) {
         entityWorld.onDestoryObject(at: position)
     }
 }

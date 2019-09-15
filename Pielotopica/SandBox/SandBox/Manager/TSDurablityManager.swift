@@ -63,7 +63,7 @@ class TSDurablityManager {
     private func check(at anchorPoint:TSVector3) {
         
         if getDurablity(at: anchorPoint) <= 0 {
-            TSTerrainEditor.shared.destoryBlock(at: anchorPoint)
+            TSTerrainEditor.shared.destoroyBlock(at: anchorPoint)
             
             durablityMap.removeValue(forKey: anchorPoint)
             spriteMap.removeValue(forKey: anchorPoint)

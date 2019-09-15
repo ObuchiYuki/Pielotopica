@@ -242,7 +242,7 @@ class TPSandBox3DSceneModel {
         
         block.dropItemStacks(at: anchor).forEach(itemBarInventory.addItemStack)
         
-        editor.destoryBlock(at: anchor)
+        editor.destoroyBlock(at: anchor)
     }
     
     private func _startBlockMoving(with touchedNode: SCNNode) {

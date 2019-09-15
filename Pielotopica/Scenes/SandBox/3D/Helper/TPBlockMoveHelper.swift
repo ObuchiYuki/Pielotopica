@@ -13,22 +13,22 @@ class TPBlockMoveHelper: TPBlockEditHelper {
     private var _backupRotation:TSBlockRotation!
     
     func startMoving(at startPoint:TSVector3) {
-        let blockData = level.getBlockData(at: startPoint)
+        let blockData = manager.getBlockData(at: startPoint)
         let rotation = TSBlockRotation(data: blockData)
         
         _backupStartPoint = startPoint
         _backupRotation = rotation
     
-        level.destroyBlock(at: startPoint)
+        editor.destoroyBlock(at: startPoint)
         
         startEditing(from: startPoint, startRotation: rotation.rotation)
     }
     
     override func _placeBlock() {
         if canEndBlockEditing() {
-            self.level.placeBlock(block, at: _nodePosition, rotation: _roataion)
+            self.editor.placeBlock(block, at: _nodePosition, rotation: _roataion)
         }else{
-            self.level.placeBlock(block, at: _backupStartPoint, rotation: _backupRotation)
+            self.editor.placeBlock(block, at: _backupStartPoint, rotation: _backupRotation)
         }
     }
 }
