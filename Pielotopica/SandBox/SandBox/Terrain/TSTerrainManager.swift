@@ -72,7 +72,7 @@ public class TSTerrainManager {
     }
     
     public func getAllAnchors() -> [TSVector3] {
-        
+        return loadedChunks.flatMap{ $0.anchors }
     }
     
     // ============================================= //
