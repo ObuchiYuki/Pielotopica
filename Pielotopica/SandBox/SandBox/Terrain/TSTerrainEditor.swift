@@ -29,6 +29,8 @@ public class TSTerrainEditor {
         var rotation = rotation
         var anchor = anchor
         
+        guard block.canPlace(at: anchor) else { return false }
+        
         if block.shouldRandomRotateWhenPlaced() {
             
             rotation = TSBlockRotation.random
@@ -50,29 +52,29 @@ public class TSTerrainEditor {
         delegates.forEach{$0.editor(levelDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
         
         block.didPlaced(at: anchor)
-        
-        //self._save()
+    
     }
     
     @discardableResult
     public func destoryBlock(at anchor: TSVector3) -> Bool {
         let block = _getAnchorBlock(at: anchor)
         
-        guard block.canDestroy(at: anchor) else { return }
+        guard block.canDestroy(at: anchor) else { return false }
                 
         block.willDestroy(at: anchor)
         delegates.forEach{ $0.editor(levelWillDestoryBlockAt: anchor) }
         
-        self.nodeGenerator?.destoryNode(at: anchor)
+        //self.nodeGenerator?.destoryNode(at: anchor)
         self._removeAnchorBlock(anchor)
         self._setAnchoBlock(.air, at: anchor)
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
         self._setBlockData(0, at: anchor)
         
-        delegates.forEach{$0.level(self, levelDidDestoryBlockAt: anchor)}
+        delegates.forEach{ $0.editor(levelDidDestoryBlockAt: anchor) }
         
-        self._save()
         block.didDestroy(at: anchor)
+        
+        return true
     }
     
     public func setBlockData(_ data:TSBlockData, at point:TSVector3) {
