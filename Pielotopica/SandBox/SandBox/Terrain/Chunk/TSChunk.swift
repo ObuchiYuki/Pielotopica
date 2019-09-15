@@ -54,6 +54,10 @@ public class TSChunk {
     public func getAnchors() -> Set<TSVector3> {
         return anchors
     }
+    
+    public func makeGlobal(_ chunkPoint: TSVector3) -> TSVector3 {
+        
+    }
 }
 
 extension TSChunk {
