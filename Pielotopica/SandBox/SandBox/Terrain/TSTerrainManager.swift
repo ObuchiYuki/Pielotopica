@@ -194,9 +194,3 @@ public class TSTerrainManager {
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
     }
 }
-
-extension TSBlock {
-    func getBlockData(at point: TSVector3) -> TSBlockData {
-        return TSTerrainManager.shared.getBlockData(at: point)
-    }
-}

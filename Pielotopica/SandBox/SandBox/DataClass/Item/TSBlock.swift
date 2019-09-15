@@ -46,6 +46,9 @@ open class TSBlock {
     
     // =============================================================== //
     // MARK: - Methods -
+    public func getBlockData() -> TSBlockData {
+        return TSTerrainManager.shared.getBlockData(at: point)
+    }
     public func canCreateNode() -> Bool {
         return !isAir
     }
@@ -136,7 +139,7 @@ open class TSBlock {
         if let rotation = rotation {
             
             return _rotatedNodeSize(at: point, at: rotation)
-        }else if let data = getBlockData(at: point){
+        }else if let data = self.getBlockData(at: point){
             
             return _rotatedNodeSize(at: point, at: TSBlockRotation(data: data))
         }else {
