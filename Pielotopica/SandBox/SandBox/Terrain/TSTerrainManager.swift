@@ -42,7 +42,6 @@ public class TSTerrainManager {
         }
         
         for loadablePoint in loadablePoints {
-            print(loadablePoint)
             if !loadedChunks.contains(where: {$0.point == loadablePoint}) {
                 _loadChunk(chunk(at: loadablePoint))
             }
@@ -179,7 +178,7 @@ public class TSTerrainManager {
         
         for xd in -distance...distance {
             for zd in -distance...distance {
-                points.append(TSChunkPoint(Int16(xd), Int16(zd)))
+                points.append(point + TSChunkPoint(Int16(xd), Int16(zd)))
             }
         }
         
