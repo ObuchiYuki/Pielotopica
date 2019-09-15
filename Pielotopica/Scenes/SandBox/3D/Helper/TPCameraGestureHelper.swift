@@ -61,9 +61,6 @@ class TPSandboxCameraGestureHelper {
             
         var p:SCNVector3 = [cameraStartPosition.x - dx - dy, cameraStartPosition.y, cameraStartPosition.z + dx - dy]
         
-        p.x = p.x.into(80...110)
-        p.z = p.z.into(80...120)
-        
         self.delegate.cameraGestureHelper(self, cameraDidMoveTo: p)
     }
     
