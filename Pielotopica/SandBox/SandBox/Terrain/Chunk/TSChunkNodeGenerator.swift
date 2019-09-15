@@ -32,7 +32,10 @@ public class TSChunkNodeGenerator {
         
         let block = TSChunkManager.shared.getAnchorBlock(at: point)
         
-        guard block.canPlace(at: point)
+        guard block.canCreateNode() else { return nil }
         
+        let node = block.createNode()
+        
+        return node
     }
 }
