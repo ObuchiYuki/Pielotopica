@@ -59,7 +59,6 @@ public class TSTerrainManager {
         if let chunk = loadedChunks.first(where: {$0.point == point}) { // load済み
             return chunk
         }
-        
         if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
             return saved
         }else{

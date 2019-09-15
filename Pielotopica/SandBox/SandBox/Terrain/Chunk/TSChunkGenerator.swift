@@ -16,7 +16,8 @@ public class TSChunkGenerator {
     // MARK: - Methods -
     public func generateChunk(for point: TSChunkPoint) -> TSChunk {
         let chunk = TSChunk()
-        
+                
+        chunk.point = point
         chunk.anchors.insert(.zero)
         
         for x in 0..<Int(TSChunk.sideWidth) {
