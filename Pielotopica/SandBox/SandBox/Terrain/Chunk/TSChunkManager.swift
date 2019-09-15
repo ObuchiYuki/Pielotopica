@@ -114,18 +114,18 @@ public class TSChunkManager {
         chunk.fillmap[x][y][z] = block.index
     }
     
-    public func setBlockData(_ data: UInt8, at point:TSVector3) {
+    public func setBlockData(_ data: TSBlockData, at point:TSVector3) {
         let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        chunk.datamap[x][y][z] = data
+        chunk.datamap[x][y][z] = data.value
     }
     
-    public func getBlockData(at point:TSVector3) -> UInt8 {
+    public func getBlockData(at point:TSVector3) -> TSBlockData {
         let chunk = TSChunkManager.shared.chunk(contains: point.vector2)
         let (x, y, z) = TSChunkManager.shared.chunkPosition(fromGlobal: point).tuple
         
-        return chunk.datamap[x][y][z]
+        return TSBlockData(value: chunk.datamap[x][y][z])
     }
     // ======================================================================== //
     // MARK: - Privates -
