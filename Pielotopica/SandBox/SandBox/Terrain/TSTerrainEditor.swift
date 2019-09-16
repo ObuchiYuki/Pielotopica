@@ -33,6 +33,7 @@ public class TSTerrainEditor {
     
     public var delegates = RMWeakSet<TSTerrainEditorDelegate>()
     
+    private let manager = TSTerrainManager.shared
     // ======================================================================== //
     // MARK: - Methods -
     
@@ -73,7 +74,7 @@ public class TSTerrainEditor {
         self._writeRotation(rotation, at: anchor)
         
         block.willPlace(at: anchor)
-        TSTerrainManager.shared.setAnchorBlock(block, at: anchor)
+        manager.setAnchorBlock(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
         delegates.forEach{$0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
