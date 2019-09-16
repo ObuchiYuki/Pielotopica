@@ -26,6 +26,7 @@ public class TSTick {
     // MARK: - Methods -
     public func next(_ block: @escaping (TSTick)->()) {
         self.stack.append(block)
+        
     }
     public func update() {
         value += 1
