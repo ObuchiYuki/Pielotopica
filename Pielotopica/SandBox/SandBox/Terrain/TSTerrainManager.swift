@@ -144,6 +144,7 @@ public class TSTerrainManager {
         let size = getAnchorBlock(at: anchorPoint).getSize(at: anchorPoint)
         
         var points = [TSVector3]()
+        
         for x in OptimazedRange(size.x16) {
             for z in OptimazedRange(size.z16) {
                 points.append(anchorPoint + TSVector3(x, layerY, z))
@@ -169,14 +170,14 @@ public class TSTerrainManager {
         delegates.forEach{ $0.chunkDidUnload(chunk) }
     }
     
-    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
+    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {
         let distance = TSOptionSaveData.shared.renderDistance
         
-        var points = [TSChunkPoint]()
+        var points = Set<TSChunkPoint>()
         
         for xd in -distance...distance {
             for zd in -distance...distance {
-                points.append(point + TSChunkPoint(Int16(xd), Int16(zd)))
+                points.insert(point + TSChunkPoint(Int16(xd), Int16(zd)))
             }
         }
         
