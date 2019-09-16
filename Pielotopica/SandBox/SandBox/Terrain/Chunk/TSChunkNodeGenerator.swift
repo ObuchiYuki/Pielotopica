@@ -54,7 +54,11 @@ public class TSChunkNodeGenerator {
     }
     
     public func destoryNode(at anchorPoint:TSVector3) {
-        guard let node = cache.removeValue(forKey: anchorPoint) else { fatalError() }
+        guard let node = cache.removeValue(forKey: anchorPoint) else {
+            print("anchorPoint", cache.keys.map{$0})
+            
+            fatalError()
+        }
         
         node.removeFromParentNode()
     }
