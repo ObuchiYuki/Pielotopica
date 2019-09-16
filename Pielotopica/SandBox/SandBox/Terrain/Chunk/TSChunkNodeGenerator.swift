@@ -38,7 +38,9 @@ public class TSChunkNodeGenerator {
                 self._cacheNode(node, at: chunk.makeGlobal(anchor))
             }
             
-            completio()
+            DispatchQueue.main.async {
+                completion()
+            }
         }
     }
     /// 生成済みならそのNodeを未生成なら生成して返します。空気は返さない
