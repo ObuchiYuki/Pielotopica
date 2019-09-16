@@ -71,3 +71,9 @@ extension TSChunk: Equatable {
         return left.point == right.point
     }
 }
+
+extension TSChunk: Hashable {
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(point)
+    }
+}
