@@ -36,7 +36,9 @@ public class TSTerrainManager {
         
         for loadedChunk in loadedChunks {
             if !loadablePoints.contains(loadedChunk.point) {
-                _unloadChunk(loadedChunk)
+                loadedChunk.unloadWhenLoaded = {[weak self] in
+                    self?._unloadChunk(loadedChunk)
+                }
             }
         }
         
