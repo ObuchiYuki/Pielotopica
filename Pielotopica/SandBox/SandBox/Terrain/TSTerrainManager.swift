@@ -104,7 +104,6 @@ public class TSTerrainManager {
         let (x, y, z) = chunkPos.tuple
         
         guard chunk.anchors.contains(chunkPos) else {
-            fatalError()
             return .air
         }
         
