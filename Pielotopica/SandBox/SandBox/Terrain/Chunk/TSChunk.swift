@@ -77,3 +77,36 @@ extension TSChunk: Hashable {
         hasher.combine(point)
     }
 }
+
+extension TSChunk: CustomStringConvertible {
+    public func layerDescription(y: Int16) -> String {
+        var u = ""
+        u += "\nLayer \(y)\nx\\z|"
+        for i in 0..<TSChunk.sideWidth {
+            u += String(format: "%02d,", i)
+        }
+        u += "\n___|"
+        for _ in 0..<TSChunk.sideWidth {
+            u += "___"
+        }
+        u += "\n"
+        
+        for x in 0..<TSChunk.sideWidth.i {
+            u += "\(String(format: "%02d ", x))|"
+            for z in 0..<TSChunk.sideWidth.i {
+                u += String(format: "%02d,", self.fillmap[x][y.i][z])
+            }
+            u += "\n"
+        }
+        
+        return u
+    }
+    public var description: String {
+        var u = ""
+        for y in 0..<TSChunk.height  {
+            u += layerDescription(y: y)
+        }
+        
+        return u
+    }
+}

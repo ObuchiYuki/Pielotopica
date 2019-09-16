@@ -83,10 +83,12 @@ public class TSTerrainManager {
         
         return TSBlock.block(for: chunk.fillmap[x][y][z])
     }
-    public func setFill(_ block:TSBlock,_ anchor:TSVector3, at point:TSVector3) {
+    
+    public func setFill(_ block:TSBlock, at point:TSVector3) {
         let chunk = self.chunk(contains: point.vector2)
         let (x, y, z) = self.chunkPosition(fromGlobal: point).tuple
         
+        print("fill:", point)
         chunk.fillmap[x][y][z] = block.index
     }
     

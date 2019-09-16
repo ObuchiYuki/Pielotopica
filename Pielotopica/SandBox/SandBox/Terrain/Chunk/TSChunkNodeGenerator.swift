@@ -31,6 +31,9 @@ public class TSChunkNodeGenerator {
             return loaded
         }
         
+        let c = TSTerrainManager.shared.chunk(contains: point.vector2)
+        
+        print(c.layerDescription(y: 1))
         let block = TSTerrainManager.shared.getAnchorBlock(at: point)
         print(block)
         
