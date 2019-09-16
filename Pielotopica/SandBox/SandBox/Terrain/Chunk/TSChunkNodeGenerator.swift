@@ -74,7 +74,7 @@ public class TSChunkNodeGenerator {
     
     private func _cacheNode(_ node: SCNNode, at point: TSVector3) {
         DispatchQueue.main.async {
-            cache[point] = node
+            self.cache[point] = node
         }
     }
 }
