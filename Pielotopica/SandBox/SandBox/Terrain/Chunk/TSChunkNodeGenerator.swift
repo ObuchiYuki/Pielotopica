@@ -15,6 +15,7 @@ public class TSChunkNodeGenerator {
     // ======================================================================== //
     // MARK: - Singleton -
     public static let shared = TSChunkNodeGenerator()
+    private init() {}
     
     // ======================================================================== //
     // MARK: - Privates -
