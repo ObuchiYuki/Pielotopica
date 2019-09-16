@@ -196,5 +196,4 @@ extension TPSandboxSceneController {
         cameraNode.eulerAngles = [-.pi * 0.2, .pi/4, 0]
         cameraNode.position = [100, 100, 100]
     }
-
 }

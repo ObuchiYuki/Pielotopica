@@ -41,11 +41,9 @@ public class TSChunkNodeGenerator {
     }
     
     public func destoryNode(at anchorPoint:TSVector3) {
-        TSTick.shared.next(1) {
-            guard let node = self.cache.removeValue(forKey: anchorPoint) else { return }
+        guard let node = self.cache.removeValue(forKey: anchorPoint) else { return }
             
-            node.removeFromParentNode()
-        }
+        node.removeFromParentNode()
     }
     
     // ======================================================================== //
@@ -60,9 +58,7 @@ public class TSChunkNodeGenerator {
     }
     
     private func _cacheNode(_ node: SCNNode, at point: TSVector3) {
-        DispatchQueue.main.async {
-            self.cache[point] = node
-        }
+        self.cache[point] = node
     }
 }
 
