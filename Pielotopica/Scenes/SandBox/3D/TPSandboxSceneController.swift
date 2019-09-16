@@ -101,7 +101,6 @@ class TPSandboxSceneController: GK3DSceneController {
         self.addGestureRecognizer(tapGestureRecognizer)
         
         // Scene Settings
-        self.setupScene()
         self.setupCamera()
         self.setupDirectionalLight()
     }
@@ -181,13 +180,6 @@ extension TPSandboxSceneController: TPSandboxSceneModelBinder {
 // MARK: - Extension for Addtinal Methods -
 
 extension TPSandboxSceneController {
-    private func setupScene() {
-        
-        self.scene.fogColor = #colorLiteral(red: 0.8350763797, green: 0.9287299301, blue: 1, alpha: 1)
-        self.scene.fogEndDistance = (TSOptionSaveData.shared.renderDistance * TSChunk.sideWidth.i).f + 10
-        self.scene.fogStartDistance = (TSOptionSaveData.shared.renderDistance * TSChunk.sideWidth.i).f
-        
-    }
     private func setupDirectionalLight() {
         directionalLightNode.eulerAngles = [-.pi/4, -.pi/4, 0]
         
