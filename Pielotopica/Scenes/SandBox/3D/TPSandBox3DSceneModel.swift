@@ -369,7 +369,9 @@ extension TPSandBox3DSceneModel : TSTerrainEditorDelegate {
     }
     
     func editor(editorDidUpdateBlockAt position: TSVector3, needsAnimation animiationFlag: Bool, withRotation rotation: TSBlockRotation) {
+        print("Place delegate")
         guard let node = nodeGenerator.getNode(atGlobal: position) else {return}
+        print(node)
         
         // animation
         if animiationFlag && TSTerrainManager.shared.getAnchorBlock(at: position).shouldAnimateWhenPlaced(at: position) {

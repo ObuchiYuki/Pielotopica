@@ -77,7 +77,8 @@ public class TSTerrainEditor {
         manager.setAnchorBlock(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
-        delegates.forEach{$0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation)}
+        print("placing", anchor, )
+        delegates.forEach{ $0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation) }
         
         block.didPlaced(at: anchor)
         
@@ -149,7 +150,7 @@ public class TSTerrainEditor {
             for ySize in OptimazedRange(size.y16) {
                 for zSize in OptimazedRange(size.z16) {
                     
-                    TSTerrainManager.shared.setFill(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
+                    manager.setFill(block, anchorPoint, at: anchorPoint + TSVector3(xSize, ySize, zSize))
                 }
             }
         }
