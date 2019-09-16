@@ -24,8 +24,8 @@ public class TSTick {
     
     // ================================================================== //
     // MARK: - Methods -
-    public func next(_ block: @escaping ()->()) {
-        self.stack.append({_ in block()})
+    public func next(_ times:Int = 0, _ block: @escaping ()->()) {
+        self.next(times, {_ in block() })
     }
     
     public func next(_ times:Int = 0, _ block: @escaping (TSTick)->()) {
