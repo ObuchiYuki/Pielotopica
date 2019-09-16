@@ -32,7 +32,9 @@ public class TSChunkNodeGenerator {
                 
                 let block = TSBlock.block(for: chunk.fillmap[x][y][z])
                 
-                self.cache[anchor] = self._createNode(of: block, at: anchor)
+                guard let node = self._createNode(of: block, at: anchor) else { return }
+                
+                self._cacheNode(node, at: chunk.makeGlobal(anchor))
             }
         }
     }
@@ -44,7 +46,11 @@ public class TSChunkNodeGenerator {
         
         let block = TSTerrainManager.shared.getAnchorBlock(at: point)
         
-        return _createNode(of: block, at: point)
+        guard let node = _createNode(of: block, at: point) else { return nil }
+        
+        _cacheNode(node, at: point)
+        
+        return node
     }
     
     public func destoryNode(at anchorPoint:TSVector3) {
@@ -63,13 +69,13 @@ public class TSChunkNodeGenerator {
         
         let node = block.createNode()
         
-        _cacheNode(node, at: point)
-        
         return node
     }
     
     private func _cacheNode(_ node: SCNNode, at point: TSVector3) {
-        cache[point] = node
+        DispatchQueue.main.async {
+            cache[point] = node
+        }
     }
 }
 

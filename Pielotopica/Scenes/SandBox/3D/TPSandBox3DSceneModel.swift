@@ -67,7 +67,7 @@ class TPSandBox3DSceneModel {
     // - Level -
     private let manager = TSTerrainManager.shared
     private var editor = TSTerrainEditor.shared
-    private var nodeGenerator = TSChunkNodeGenerator()
+    private var nodeGenerator = TSChunkNodeGenerator.shared
     
     // - Binder -
     private weak var binder:TPSandboxSceneModelBinder!
