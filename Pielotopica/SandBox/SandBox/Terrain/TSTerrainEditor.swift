@@ -158,6 +158,8 @@ public class TSTerrainEditor {
 extension TSTerrainEditor: TSTerrainManagerDelegate {
     public func chunkDidLoad(_ chunk: TSChunk) {
         
+        TSChunkNodeGenerator.shared.asycPrepareChunk(chunk)
+        TSTick
         for anchor in chunk.anchors {
             let rotation = chunk.getRotation(at: anchor)
             let global = chunk.makeGlobal(anchor)

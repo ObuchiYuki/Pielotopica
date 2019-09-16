@@ -9,6 +9,9 @@
 import Foundation
 
 public class TSTick {
+    
+    private var stack = [(TSTick)->()]()
+    
     public var value: UInt = 0 {
         didSet { self._tickDidUpdated(to: value) }
     }
@@ -18,7 +21,9 @@ public class TSTick {
     }
     
     private func _tickDidUpdated(to value: UInt) {
-        // update function
+        for run in stack {
+            run(self)
+        }
     }
     
     private init() {}
