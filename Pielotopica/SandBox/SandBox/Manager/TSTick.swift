@@ -40,11 +40,14 @@ public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
     private func _tickDidUpdated(to value: UInt) {
-        for run in stack {
+        for run in stack[0] ?? [] {
             run(self)
         }
         
-        stack = []
+        stack.removeValue(forKey: 0)
+        for (key, value) in stack {
+            
+        }
     }
     
     private init() {}
