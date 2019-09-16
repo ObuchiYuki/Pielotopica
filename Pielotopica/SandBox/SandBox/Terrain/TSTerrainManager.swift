@@ -104,6 +104,7 @@ public class TSTerrainManager {
         let (x, y, z) = chunkPos.tuple
         
         guard chunk.anchors.contains(chunkPos) else {
+            fatalError()
             return .air
         }
         
@@ -112,9 +113,10 @@ public class TSTerrainManager {
     
     public func setAnchorBlock(_ block:TSBlock, at point:TSVector3) {
         let chunk = self.chunk(contains: point.vector2)
-        let (x, y, z) = self.chunkPosition(fromGlobal: point).tuple
+        let chunkPosition = self.chunkPosition(fromGlobal: point)
+        let (x, y, z) = chunkPosition.tuple
         
-        chunk.anchors.insert(point)
+        chunk.anchors.insert(chunkPosition)
         chunk.fillmap[x][y][z] = block.index
     }
     
