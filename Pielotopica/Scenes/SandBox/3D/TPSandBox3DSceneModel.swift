@@ -335,14 +335,14 @@ class TPSandBox3DSceneModel {
 // ================================================================== //
 // MARK: - Extension for TPBlockPlaceHelperDelegate -
 extension TPSandBox3DSceneModel: TPBlockEditHelperDelegate {
-    func blockEditHelper(placeGuideNodeWith node: SCNNode, at position: TSVector3) {
-        binder.__placeNode(node, at: position)
+    func blockEditHelper(placeGuideNodeWith guideNode: SCNNode, at position: TSVector3) {
+        binder.__placeNode(guideNode, at: position)
     }
-    func blockEditHelper(endBlockPlacingWith node: SCNNode) {
-        binder.__removeNode(node)
+    func blockEditHelper(endBlockPlacingWith guideNode: SCNNode) {
+        binder.__removeNode(guideNode)
     }
-    func blockEditHelper(moveNodeWith node:SCNNode, to position: TSVector3) {
-        binder.__moveNode(node, to: position)
+    func blockEditHelper(moveNodeWith guideNode:SCNNode, to position: TSVector3) {
+        binder.__moveNode(guideNode, to: position)
     }
 }
 
