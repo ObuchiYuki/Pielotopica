@@ -164,7 +164,7 @@ extension TSVector3: Codable {}
 extension TSVector3: CustomStringConvertible {
     @inline(__always)
     public var description: String {
-        return "TSVecto3(x: \(x), y: \(y), z: \(z))"
+        return "TSVector3(x: \(x), y: \(y), z: \(z))"
     }
 }
 
