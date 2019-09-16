@@ -25,17 +25,20 @@ public class TSChunkNodeGenerator {
     
     // ======================================================================== //
     // MARK: - Methods -
-    public func asycPrepareChunk(_ chunk: TSChunk) {
+    public func asycPrepareChunk(_ chunk: TSChunk, _ completion: @escaping ()->() ) {
+        
         DispatchQueue.global().async {
             for anchor in chunk.anchors {
                 let (x, y, z) = anchor.tuple
-                
+                    
                 let block = TSBlock.block(for: chunk.fillmap[x][y][z])
-                
+                    
                 guard let node = self._createNode(of: block, at: anchor) else { return }
-                
+                    
                 self._cacheNode(node, at: chunk.makeGlobal(anchor))
             }
+            
+            completio()
         }
     }
     /// 生成済みならそのNodeを未生成なら生成して返します。空気は返さない
@@ -54,8 +57,8 @@ public class TSChunkNodeGenerator {
     }
     
     public func destoryNode(at anchorPoint:TSVector3) {
-        TSTick.shared.next{ _ in
-            guard let node = self.cache.removeValue(forKey: anchorPoint) else { fatalError() }
+        TSTick.shared.next(1) {
+            guard let node = self.cache.removeValue(forKey: anchorPoint) else { return }
             
             node.removeFromParentNode()
         }
