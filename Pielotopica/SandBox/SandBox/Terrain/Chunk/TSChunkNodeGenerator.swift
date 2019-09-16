@@ -25,24 +25,6 @@ public class TSChunkNodeGenerator {
     
     // ======================================================================== //
     // MARK: - Methods -
-    public func asycPrepareChunk(_ chunk: TSChunk, _ completion: @escaping ()->() ) {
-        
-        DispatchQueue.global().async {
-            for anchor in chunk.anchors {
-                let (x, y, z) = anchor.tuple
-                    
-                let block = TSBlock.block(for: chunk.fillmap[x][y][z])
-                    
-                guard let node = self._createNode(of: block, at: anchor) else { return }
-                    
-                self._cacheNode(node, at: chunk.makeGlobal(anchor))
-            }
-            
-            DispatchQueue.main.async {
-                completion()
-            }
-        }
-    }
     /// 生成済みならそのNodeを未生成なら生成して返します。空気は返さない
     public func getNode(atGlobal point:TSVector3) -> SCNNode? {
         if let loaded = cache[point] {

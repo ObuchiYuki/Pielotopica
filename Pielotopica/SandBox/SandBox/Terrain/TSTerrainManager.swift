@@ -36,9 +36,7 @@ public class TSTerrainManager {
         
         for loadedChunk in loadedChunks {
             if !loadablePoints.contains(loadedChunk.point) {
-                loadedChunk.unloadWhenLoaded = {[weak self] in
-                    self?._unloadChunk(loadedChunk)
-                }
+                self._unloadChunk(loadedChunk)
             }
         }
         
@@ -160,7 +158,6 @@ public class TSTerrainManager {
     // MARK: - Privates -
     
     private func _loadChunk(_ chunk: TSChunk) {
-        chunk.loaded = true
         loadedChunks.insert(chunk)
         
         delegates.forEach{ $0.chunkDidLoad(chunk) }

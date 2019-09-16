@@ -101,6 +101,7 @@ class TPSandboxSceneController: GK3DSceneController {
         self.addGestureRecognizer(tapGestureRecognizer)
         
         // Scene Settings
+        self.setupScene()
         self.setupCamera()
         self.setupDirectionalLight()
     }
@@ -180,7 +181,10 @@ extension TPSandboxSceneController: TPSandboxSceneModelBinder {
 // MARK: - Extension for Addtinal Methods -
 
 extension TPSandboxSceneController {
-    func setupDirectionalLight() {
+    private func setupScene() {
+        
+    }
+    private func setupDirectionalLight() {
         directionalLightNode.eulerAngles = [-.pi/4, -.pi/4, 0]
         
         directionalLight.castsShadow = true
@@ -188,7 +192,7 @@ extension TPSandboxSceneController {
         directionalLight.maximumShadowDistance = 1000
         directionalLight.shadowColor = UIColor.black.withAlphaComponent(0.8)
     }
-    func setupCamera() {
+    private func setupCamera() {
         camera.usesOrthographicProjection = true
         camera.orthographicScale = 20
         camera.automaticallyAdjustsZRange = true

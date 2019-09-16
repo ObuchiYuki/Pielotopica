@@ -13,12 +13,6 @@ import Foundation
 public class TSChunk {
     // MARK: - Properties -
     public var point = TSChunkPoint.zero
-    public var loaded = false {
-        didSet { if loaded { unloadWhenLoaded?() } }
-    }
-    public var unloadWhenLoaded:(()->())? = nil {
-        didSet { if loaded { unloadWhenLoaded?() } }
-    }
     
     internal var fillmap:[[[UInt16]]] =
         Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)

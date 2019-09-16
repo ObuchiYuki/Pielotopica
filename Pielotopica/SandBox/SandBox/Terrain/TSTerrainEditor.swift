@@ -157,16 +157,13 @@ public class TSTerrainEditor {
 
 extension TSTerrainEditor: TSTerrainManagerDelegate {
     public func chunkDidLoad(_ chunk: TSChunk) {
-        
-        TSChunkNodeGenerator.shared.asycPrepareChunk(chunk) {
-            for anchor in chunk.anchors {
-                let rotation = chunk.getRotation(at: anchor)
-                let global = chunk.makeGlobal(anchor)
-                        
-                assert(TSTerrainManager.shared.getAnchorBlock(at: global) != .air)
-                                    
-                self.delegates.forEach{$0.editor(editorDidUpdateBlockAt: global, needsAnimation: false, withRotation: rotation)}
-            }
+        for anchor in chunk.anchors {
+            let rotation = chunk.getRotation(at: anchor)
+            let global = chunk.makeGlobal(anchor)
+                    
+            assert(TSTerrainManager.shared.getAnchorBlock(at: global) != .air)
+                                
+            self.delegates.forEach{$0.editor(editorDidUpdateBlockAt: global, needsAnimation: false, withRotation: rotation)}
         }
     }
     
