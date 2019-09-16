@@ -77,7 +77,7 @@ public class TSTerrainEditor {
         manager.setAnchorBlock(block, at: anchor)
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
-        print("placing", anchor, )
+        print("placing, anchor: ", anchor)
         delegates.forEach{ $0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation) }
         
         block.didPlaced(at: anchor)
