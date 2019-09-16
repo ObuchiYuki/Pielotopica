@@ -76,6 +76,8 @@ public class TSTerrainEditor {
         print("================")
         block.willPlace(at: anchor)
         manager.setAnchorBlock(block, at: anchor)
+        
+        print("chunk pos:", manager.chunkPosition(fromGlobal: anchor))
         self._fillFillMap(with: block, at: anchor, blockSize: block.getSize(at: anchor))
         
         delegates.forEach{ $0.editor(editorDidUpdateBlockAt: anchor, needsAnimation: true, withRotation: rotation) }
