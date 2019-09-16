@@ -48,6 +48,7 @@ public class TSChunkNodeGenerator {
     
     public func destoryNode(at anchorPoint:TSVector3) {
         let node = cache.removeValue(forKey: anchorPoint)
+        print(cache)
         assert(node != nil, "Cannot remove `nil`")
         
         node?.removeFromParentNode()
@@ -60,6 +61,8 @@ public class TSChunkNodeGenerator {
         guard block.canCreateNode() else { return nil }
         
         let node = block.createNode()
+        
+        _cacheNode(node, at: point)
         
         return node
     }
