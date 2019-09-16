@@ -160,6 +160,7 @@ public class TSTerrainManager {
     // MARK: - Privates -
     
     private func _loadChunk(_ chunk: TSChunk) {
+        chunk.loaded = true
         loadedChunks.insert(chunk)
         
         delegates.forEach{ $0.chunkDidLoad(chunk) }
