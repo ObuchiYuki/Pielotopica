@@ -25,7 +25,7 @@ public class TSTerrainManager {
     // MARK: - Properties -
     public var delegates = RMWeakSet<TSTerrainManagerDelegate>()
     
-    private var loadedChunks = [TSChunk]()
+    private var loadedChunks = Set<TSChunk>()
     
     // ======================================================================== //
     // MARK: - Methods -
