@@ -173,8 +173,8 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
     public func chunkDidUnload(_ chunk: TSChunk) {
         
         for anchor in chunk.anchors {
-            delegates.forEach{ $0.editor(editorWillDestoroyBlockAt: chunk.makeGlobal(anchor), needsAnimation: false) }
-            delegates.forEach{ $0.editor(editorDidDestoroyBlockAt:  chunk.makeGlobal(anchor), needsAnimation: false) }
+            self.delegates.forEach{ $0.editor(editorWillDestoroyBlockAt: chunk.makeGlobal(anchor), needsAnimation: false) }
+            self.delegates.forEach{ $0.editor(editorDidDestoroyBlockAt:  chunk.makeGlobal(anchor), needsAnimation: false) }
         }
     }
 }

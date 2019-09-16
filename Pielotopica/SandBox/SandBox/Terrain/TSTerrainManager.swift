@@ -11,7 +11,7 @@ import Foundation
 // ======================================================================== //
 // MARK: - TSTerrainManagerDelegate -
 public protocol TSTerrainManagerDelegate {
-    func chunkDidLoad(_ chunk: TSChunk)
+    func chunkDidLoad(_ chunk: TSChunk, completion: @escaping ()->() )
     func chunkDidUnload(_ chunk: TSChunk)
 }
 
