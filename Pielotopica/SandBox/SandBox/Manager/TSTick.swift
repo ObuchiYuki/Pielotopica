@@ -45,9 +45,13 @@ public class TSTick {
         }
         
         stack.removeValue(forKey: 0)
+        
+        var _stack = [Int: [(TSTick)->()]]()
         for (key, value) in stack {
-            
+            _stack[key - 1] = value
         }
+        
+        self.stack = _stack
     }
     
     private init() {}
