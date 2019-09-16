@@ -14,7 +14,7 @@ public class TSTick {
 
     // ================================================================== //
     // MARK: - Privates -
-    private var stack = [(TSTick)->()]()
+    private var stack = [Int: [(TSTick)->()]]()
     
     // ================================================================== //
     // MARK: - Properties -
@@ -28,10 +28,11 @@ public class TSTick {
         self.stack.append({_ in block()})
     }
     
-    public func next(_ block: @escaping (TSTick)->()) {
-        self.stack.append(block)
-        
+    public func next(_ times:Int = 0, _ block: @escaping (TSTick)->()) {
+        if self.stack[times] == nil {self.stack[times] = []}
+        self.stack[times]?.append(block)
     }
+    
     public func update() {
         value += 1
     }
