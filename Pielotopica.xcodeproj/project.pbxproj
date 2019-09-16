@@ -1128,10 +1128,10 @@
 			isa = PBXGroup;
 			children = (
 				B6B8B526232B857B003F3F83 /* TSTick.swift */,
+				B6B8B528232B85A3003F3F83 /* TSEventLoop.swift */,
 				B6292406231B804700955B1E /* TSModelRotator.swift */,
 				B69E866F231627B9004D4272 /* TSItemManager.swift */,
 				B6102370231A64FC009252E1 /* TSDurablityManager.swift */,
-				B6B8B528232B85A3003F3F83 /* TSEventLoop.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
