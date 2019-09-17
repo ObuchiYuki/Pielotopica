@@ -151,9 +151,6 @@ class TPSandBox3DSceneModel {
     
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
-        TSChunkNodeGenerator.shared
-        return
-        
         guard !isPlacingBlockMode.value else { return }
         guard uiSceneModel.mode.value == .build else { return }
         
