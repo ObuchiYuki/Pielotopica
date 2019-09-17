@@ -226,6 +226,7 @@ public class TSTerrainManager {
         let minX = points.map({$0.x}).min()!.i
         let minZ = points.map({$0.z}).min()!.i
         
+        out += "All Chunks\n"
         out += "x\\z|"
         for z in minZ...(minZ + dist) {
             out += String(format: "%02d ", z)
