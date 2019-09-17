@@ -19,7 +19,7 @@ public class TSTick {
 
     // ================================================================== //
     // MARK: - Privates -
-    private var stack = [Int: [(TSTick)->()]]()
+    private var stack = [Int: [String: [()->()]]]()
     
     // ================================================================== //
     // MARK: - Properties -
@@ -31,10 +31,11 @@ public class TSTick {
     // MARK: - Methods -
     
     public func next(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
-        if self.stack[times] == nil {self.stack[times] = []}
+        if self.stack[times] == nil {self.stack[times] = [:]}
         let value = Value(identifier: identifier, block: block)
         
-        self.stack[times]?.append(value)
+        if self.stack[times]![identifier] == nil {self.stack[times]![identifier] = []}
+        self.stack[times]![identifier]?.append(block)
     }
     
     public func update() {
