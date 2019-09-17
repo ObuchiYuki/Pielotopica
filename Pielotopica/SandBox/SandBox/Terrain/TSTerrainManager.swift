@@ -219,14 +219,14 @@ public class TSTerrainManager {
     }
     
     private func _dump() -> String {
-        let dist = TSOptionSaveData.shared.renderDistance * 2 + 1
+        let dist = TSOptionSaveData.shared.renderDistance * 2 + 2
         let points = loadedChunks.map { $0.point }
         var out = ""
         
-        let minX = points.map({$0.x}).min()!.i
-        let minZ = points.map({$0.z}).min()!.i
+        let minX = points.map({$0.x}).min()!.i - 1
+        let minZ = points.map({$0.z}).min()!.i - 1
         
-        out += "All Chunks\n"
+        out += "\nAll Chunks\n"
         out += "x\\z|"
         for z in minZ...(minZ + dist) {
             out += String(format: "%02d ", z)
