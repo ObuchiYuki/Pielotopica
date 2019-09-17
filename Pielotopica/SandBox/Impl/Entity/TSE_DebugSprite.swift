@@ -15,6 +15,8 @@ class TSE_DebugSprite: TSSprite {
     static func show(at point: TSVector3, with text: String) {
         guard let scene = GKGameViewController._debug?.scnView.scene else {return}
         
+        print(scene)
+        
         let se = TSE_DebugSprite(text: text)
         se.show(at: point.scnVector3, in: scene)
     }

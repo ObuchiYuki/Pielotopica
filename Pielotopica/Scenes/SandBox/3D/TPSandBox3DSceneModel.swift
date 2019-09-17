@@ -155,6 +155,7 @@ class TPSandBox3DSceneModel {
         let anchor = TSChunkNodeGenerator.shared.anchor(of: touchedNode)
         let chunkPoint = TSTerrainManager.shared.chunk(contains: anchor.vector2).point
         TSTerrainManager.shared.dump()
+        
         print(chunkPoint)
         
         let points = TSTerrainManager.shared.loadedChunks.map{$0.point}
@@ -201,6 +202,8 @@ class TPSandBox3DSceneModel {
         manager.didPlayerMoved(to: .zero)
         
         binder.__makeDay()
+        
+        TSTerrainManager.shared.enableDebug()
         
         //if first luanch {
             _createStage1()
