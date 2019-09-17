@@ -166,19 +166,19 @@ public class TSTerrainManager {
     private func _loadChunk(_ chunk: TSChunk) {
         TSChunkNodeGenerator.shared.prepare(for: chunk)
         
-        TSChunkNodeGenerator.chunkPrepareQueue.sync {
+        TSChunkNodeGenerator.chunkPrepareQueue.async {
             DispatchQueue.main.async { self.delegates.forEach{ $0.chunkDidLoad(chunk) } }
         }
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
-        TSChunkNodeGenerator.chunkPrepareQueue.sync {
+        TSChunkNodeGenerator.chunkPrepareQueue.async {
             DispatchQueue.main.async {
                 let success = (self.loadedChunks.remove(chunk) != nil)
                 guard success else { return log.error("Unload chunk failed. \(self.loadedChunks)") }
                     
                 self.delegates.forEach{ $0.chunkDidUnload(chunk) }
-            }}
+            }
         }
     }
     
