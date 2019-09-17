@@ -182,7 +182,7 @@ public class TSTerrainManager {
         }
         
         self.delegates.forEach{ $0.chunkDidUnload(chunk) }
-        TSTick.shared.async {
+        DispatchQueue.global().async {
             TSChunkFileLoader.shared.saveChunk(unloaded)
         }
     }
