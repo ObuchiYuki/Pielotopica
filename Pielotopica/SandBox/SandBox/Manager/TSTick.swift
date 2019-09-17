@@ -28,7 +28,7 @@ public class TSTick {
     
     public func async(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
         self.next(times, identifier: identifier, {
-            asyncQueue.async {
+            self.asyncQueue.async {
                 block()
             }
         })
