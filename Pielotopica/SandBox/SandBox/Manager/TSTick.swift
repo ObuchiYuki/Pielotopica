@@ -11,15 +11,9 @@ import Foundation
 // ================================================================== //
 // MARK: - TSTick -
 public class TSTick {
-    
-    private struct Value {
-        let identifier: String
-        var block: ()->()
-    }
-
     // ================================================================== //
     // MARK: - Privates -
-    private var stack = [Int: [String: [()->()]]]()
+    private var stack = [Int: [String: ()->()]]()
     
     // ================================================================== //
     // MARK: - Properties -
@@ -32,10 +26,8 @@ public class TSTick {
     
     public func next(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
         if self.stack[times] == nil {self.stack[times] = [:]}
-        let value = Value(identifier: identifier, block: block)
         
-        if self.stack[times]![identifier] == nil {self.stack[times]![identifier] = []}
-        self.stack[times]![identifier]?.append(block)
+        self.stack[times]![identifier] = block
     }
     
     public func update() {
@@ -45,13 +37,13 @@ public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
     private func _tickDidUpdated(to value: UInt) {
-        for run in stack[0] ?? [] {
-            run(self)
+        for (_, block) in stack[0] ?? [:] {
+            block()
         }
         
         stack.removeValue(forKey: 0)
         
-        var _stack = [Int: [(TSTick)->()]]()
+        var _stack = [Int: [String: ()->()]]()
         for (key, value) in stack {
             _stack[key - 1] = value
         }
