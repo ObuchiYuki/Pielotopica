@@ -236,13 +236,13 @@ public class TSTerrainManager {
         }
         
         for x in minX...(minX + dist) {
-            out += "\n"
+            out += "\n   |"
             
             for z in minZ...(minZ + dist) {
-                if points.contains(TSChunkPoint(x, z)) {
+                if points.contains(TSChunkPoint(Int16(x), Int16(z))) {
                     out += " * "
                 }else{
-                    out += "   "
+                    out += " - "
                 }
             }
         }
