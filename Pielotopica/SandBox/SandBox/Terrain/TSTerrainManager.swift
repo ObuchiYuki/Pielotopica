@@ -161,8 +161,8 @@ public class TSTerrainManager {
     #if DEBUG
     public func enableDebug() {
         for x in -10...10 {
-            for x in -10...10 {
-                
+            for z in -10...10 {
+                TSE_DebugSprite.show(at: TSVector3(x * 16, 2, z * 16), with: "\(x), \(z)")
             }
         }
     }
