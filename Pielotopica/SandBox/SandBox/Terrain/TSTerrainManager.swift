@@ -213,17 +213,29 @@ public class TSTerrainManager {
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
     }
     
-    private func _dump() {
+    private func _dump() -> String {
         let dist = TSOptionSaveData.shared.renderDistance * 2 + 1
         let points = loadedChunks.map { $0.point }
-        guard let minX = points.map({$0.x}).min()?.i else { return }
-        guard let minZ = points.map({$0.z}).min()?.i else { return }
+        var out = ""
+        
+        let minX = points.map({$0.x}).min()!.i
+        let minZ = points.map({$0.z}).min()!.i
         
         for x in minX...(minX + dist) {
-            for x in minX...(minX + dist) {
+            out += String(format: "%02d ", x)
+        }
+        out += "\n"
+        for _ in minX...(minX + dist) {
+            out += "___"
+        }
+        
+        for x in minX...(minX + dist) {
+            for z in minZ...(minZ + dist) {
                 
             }
         }
+        
+        return out
         
     }
 }
