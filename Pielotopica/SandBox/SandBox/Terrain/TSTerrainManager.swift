@@ -172,12 +172,12 @@ public class TSTerrainManager {
                 self.delegates.forEach{ $0.chunkDidLoad(chunk) }
             }
         }
-        
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
-        let success = (self.loadedChunks.remove(chunk) != nil)
-        guard success else { return log.error("Unload chunk failed. \(self.loadedChunks)") }
+        guard let unloaded = self.loadedChunks.remove(chunk) else {
+            return log.error("Unload chunk failed. \(self.loadedChunks)")
+        }
                     
         self.delegates.forEach{ $0.chunkDidUnload(chunk) }
     }
