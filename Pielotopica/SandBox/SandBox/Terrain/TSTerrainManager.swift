@@ -51,14 +51,14 @@ public class TSTerrainManager {
     }
     
     public func chunk(contains point: TSVector2, _ completion: @escaping (TSChunk)->()) -> TSChunk {
-        let chunkPoint = _calcurateChunkPoint(from: point)
+        let chunkPoint = _calcurateChunkPoint(from: point, completion)
         
-        return chunk(at: chunkPoint, completion)
+        return chunk(at: chunkPoint)
     }
     
-    public func chunk(at point: TSChunkPoint,_ completion: @escaping (TSChunk)->() ) {
-        if let chunk = loadedChunks.first(where: {$0.point == point}) { // load済み
-            completion(chunk)
+    public func chunk(at point: TSChunkPoint) -> TSChunk {
+        if let chunk = loadedChunks.first(where: {$0.point == point}) {
+            return chunk
         }
         
         DispatchQueue.global().async {
@@ -167,16 +167,15 @@ public class TSTerrainManager {
     // MARK: - Privates -
     
     private func _loadChunk(at point: TSChunkPoint) {
-         self.chunk(at: point) { chunk in
+        DispatchQueue.global().async {
+            let chunk = self.chunk(at: point)
             
-            DispatchQueue.global().async {
-                TSChunkNodeGenerator.shared.prepare(for: chunk)
-                
-                DispatchQueue.main.async {
-                    self.loadedChunks.insert(chunk)
-                    self.delegates.forEach {
-                        $0.chunkDidLoad(chunk)
-                    }
+            TSChunkNodeGenerator.shared.prepare(for: chunk)
+            
+            DispatchQueue.main.async {
+                self.loadedChunks.insert(chunk)
+                self.delegates.forEach {
+                    $0.chunkDidLoad(chunk)
                 }
             }
         }
