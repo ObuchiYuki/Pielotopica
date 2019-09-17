@@ -10,11 +10,11 @@ import Foundation
 import SceneKit
 
 /// デバッグ次のみ有効
+
 #if DEBUG
-public extension TSBlock {
-    func illuminantRed(at point:TSVector3) {
-        guard let ownNode = getOwnNode(at: point) else {fatalError("Cannot Idetify own node at \(point)")}
-        
+
+public extension SCNNode {
+    func illuminantRed() {
         let a1 = SCNAction.run{_debugAnchorNode in
             _debugAnchorNode.fmaterial?.selfIllumination.contents = UIColor.red
         }
@@ -23,7 +23,14 @@ public extension TSBlock {
         }
         let ar = SCNAction.sequence([a1, SCNAction.wait(duration: 1), a2])
         
-        ownNode.runAction(ar)
+        self.runAction(ar)
+    }
+}
+public extension TSBlock {
+    func illuminantRed(at point:TSVector3) {
+        guard let ownNode = getOwnNode(at: point) else {fatalError("Cannot Idetify own node at \(point)")}
+        
+        ownNode.illuminantRed()
     }
 }
 
