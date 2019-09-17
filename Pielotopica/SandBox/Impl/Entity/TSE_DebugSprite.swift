@@ -11,6 +11,11 @@ import SpriteKit
 class TSE_DebugSprite: TSSprite {
     private let sprite = DebugSprite()
     
+    public var text:String? {
+        get {sprite.label.text}
+        set {sprite.label.text = newValue}
+    }
+    
     init(text: String) {
         super.init(sprite: sprite)
         
