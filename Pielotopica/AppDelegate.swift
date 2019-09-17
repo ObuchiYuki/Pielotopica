@@ -66,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(TSBlock.ground5x5Edge)
         print(TSBlock.woodWall)
         print(TSBlock.ironWall)
+        print(TSBlock.ground)
         
         TSEventLoop.shared.start()
         
