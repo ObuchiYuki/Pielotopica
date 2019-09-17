@@ -122,6 +122,7 @@
 		B65E516F231C9DC0008CFA00 /* TP_wall_iron.scn in Resources */ = {isa = PBXBuildFile; fileRef = B65E516E231C9DBF008CFA00 /* TP_wall_iron.scn */; };
 		B65E5171231C9DC6008CFA00 /* TP_wall_iron.png in Resources */ = {isa = PBXBuildFile; fileRef = B65E5170231C9DC6008CFA00 /* TP_wall_iron.png */; };
 		B65E5173231C9F78008CFA00 /* TS_IronWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65E5172231C9F78008CFA00 /* TS_IronWall.swift */; };
+		B65F8A3723310B8A006BB0C2 /* TSE_DebugSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65F8A3623310B8A006BB0C2 /* TSE_DebugSprite.swift */; };
 		B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660938E2314C31400B528E5 /* TSItemStacksData.swift */; };
 		B660939323153B3400B528E5 /* Silom.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B660939223153B2800B528E5 /* Silom.ttf */; };
 		B660939523154E6600B528E5 /* TPCraftMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B660939423154E6600B528E5 /* TPCraftMenu.swift */; };
@@ -390,6 +391,7 @@
 		B65E516E231C9DBF008CFA00 /* TP_wall_iron.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wall_iron.scn; sourceTree = "<group>"; };
 		B65E5170231C9DC6008CFA00 /* TP_wall_iron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_wall_iron.png; sourceTree = "<group>"; };
 		B65E5172231C9F78008CFA00 /* TS_IronWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_IronWall.swift; sourceTree = "<group>"; };
+		B65F8A3623310B8A006BB0C2 /* TSE_DebugSprite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSE_DebugSprite.swift; sourceTree = "<group>"; };
 		B6604D6A231023BF0077C76A /* Pielotopica.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pielotopica.entitlements; sourceTree = "<group>"; };
 		B660938E2314C31400B528E5 /* TSItemStacksData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSItemStacksData.swift; sourceTree = "<group>"; };
 		B660939223153B2800B528E5 /* Silom.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Silom.ttf; sourceTree = "<group>"; };
@@ -1008,6 +1010,7 @@
 			children = (
 				B66BD3DC2317E8A800E20212 /* TSE_Pipot.swift */,
 				B6102372231A68B0009252E1 /* TSE_DurablitySprite.swift */,
+				B65F8A3623310B8A006BB0C2 /* TSE_DebugSprite.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1648,6 +1651,7 @@
 				B6B9CE80232B2BBB00441094 /* TSTerrainManager.swift in Sources */,
 				B69969332317908C00CE933B /* TPSBattleScene.swift in Sources */,
 				B68E14352314177E00E973E1 /* Yolov3.mlmodel in Sources */,
+				B65F8A3723310B8A006BB0C2 /* TSE_DebugSprite.swift in Sources */,
 				B6A912C0232C887400145DB6 /* TSChunkNodeGenerator.swift in Sources */,
 				B6F8C5102312CCDA00264EBF /* RMAutoSave.swift in Sources */,
 				B6EDB11F230F79460042CA02 /* GKSoundPlayer.swift in Sources */,
