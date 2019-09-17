@@ -35,6 +35,12 @@ public class TSChunkNodeGenerator {
         }
     }
     
+    public func anchor(of node: SCNNode) -> TSVector3 {
+        guard let vector = cache.first(where: {vector, node in node == node})?.0 else { fatalError() }
+        
+        return vector
+    }
+    
     /// 生成済みならそのNodeを未生成なら生成して返します。空気は返さない
     public func getNode(atGlobal point:TSVector3) -> SCNNode? {
         if let loaded = cache[point] {
@@ -48,7 +54,7 @@ public class TSChunkNodeGenerator {
     }
     
     public func destoryNode(at anchorPoint:TSVector3) {
-        guard let node = self.cache.removeValue(forKey: anchorPoint) else { return }
+        guard let node = self.cache.removeValue(forKey: anchorPoint) else { fatalError() }
             
         node.removeFromParentNode()
     }
