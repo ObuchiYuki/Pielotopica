@@ -28,7 +28,9 @@ public class TSChunkNodeGenerator {
     public func prepare(for chunk: TSChunk) {
         DispatchQueue.global().async {
             for anchor in chunk.anchors {
-                _createNode(of: <#T##TSBlock#>, at: <#T##TSVector3#>)
+                let block = chunk.getFillBlock(at: anchor)
+                
+                 _ = self._createNode(of: block, at: chunk.makeGlobal(anchor))
             }
         }
     }
@@ -41,9 +43,7 @@ public class TSChunkNodeGenerator {
         let block = TSTerrainManager.shared.getAnchorBlock(at: point)
         
         guard let node = _createNode(of: block, at: point) else { return nil }
-        
-        _cacheNode(node, at: point)
-        
+                
         return node
     }
     
