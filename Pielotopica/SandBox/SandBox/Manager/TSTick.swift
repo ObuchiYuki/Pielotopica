@@ -11,10 +11,15 @@ import Foundation
 // ================================================================== //
 // MARK: - TSTick -
 public class TSTick {
+    
+    private struct Key: Hashable, Equatable {
+        let identifier: String
+        var count: Int
+    }
 
     // ================================================================== //
     // MARK: - Privates -
-    private var stack = [Int: [(TSTick)->()]]()
+    private var stack = [Key: [(TSTick)->()]]()
     
     // ================================================================== //
     // MARK: - Properties -
@@ -24,11 +29,11 @@ public class TSTick {
     
     // ================================================================== //
     // MARK: - Methods -
-    public func next(_ times:Int = 0, _ block: @escaping ()->()) {
-        self.next(times, {_ in block() })
+    public func next(_ times:Int = 0, identifier:String = "", _ block: @escaping ()->()) {
+        self.next(times, identifier: identifier, {_ in block() })
     }
     
-    public func next(_ times:Int = 0, _ block: @escaping (TSTick)->()) {
+    public func next(_ times:Int = 0, identifier:String = "",  _ block: @escaping (TSTick)->()) {
         if self.stack[times] == nil {self.stack[times] = []}
         self.stack[times]?.append(block)
     }
