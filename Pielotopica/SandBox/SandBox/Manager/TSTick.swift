@@ -30,7 +30,7 @@ public class TSTick {
     // ================================================================== //
     // MARK: - Methods -
     
-    public func next(_ times:Int = 0, _ block: @escaping ()->()) {
+    public func next(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
         if self.stack[times] == nil {self.stack[times] = []}
         let value = Value(identifier: identifier, block: block)
         
