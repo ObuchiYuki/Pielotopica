@@ -160,9 +160,11 @@ public class TSTerrainManager {
     // MARK: - Privates -
     
     private func _loadChunk(_ chunk: TSChunk) {
-        loadedChunks.insert(chunk)
-        
-        delegates.forEach{ $0.chunkDidLoad(chunk) }
+        TSChunkNodeGenerator.shared.prepare(for: chunk, {
+            self.loadedChunks.insert(chunk)
+            
+            self.delegates.forEach{ $0.chunkDidLoad(chunk) }
+        })
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
