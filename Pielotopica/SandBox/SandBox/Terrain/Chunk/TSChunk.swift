@@ -20,8 +20,8 @@ public class TSChunk {
     internal var datamap:[[[UInt8]]] =
         Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
     
-    internal var fillAnchors:[[[TSVector3?]]] =
-        Array(repeating: Array(repeating: Array(repeating: nil, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
+    internal var fillAnchors:[[[TSVector]]] =
+        Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
         
     internal var anchors     = Set<TSVector3>()
 

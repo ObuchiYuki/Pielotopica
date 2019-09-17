@@ -179,9 +179,9 @@ public class TSTerrainManager {
             return log.error("Unload chunk failed. \(self.loadedChunks)")
         }
         
-        TSChunkFileLoader.shared.saveChunk(unloaded)
-                    
         self.delegates.forEach{ $0.chunkDidUnload(chunk) }
+        TSChunkFileLoader.shared.saveChunk(unloaded)
+        
     }
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {
