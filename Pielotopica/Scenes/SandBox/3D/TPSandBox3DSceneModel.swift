@@ -153,10 +153,17 @@ class TPSandBox3DSceneModel {
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
         
         let anchor = TSChunkNodeGenerator.shared.anchor(of: touchedNode)
+        let chunkPoint = TSTerrainManager.shared.chunk(contains: anchor.vector2).point
+        TSTerrainManager.shared.dump()
+        print(chunkPoint)
+        
+        let points = TSTerrainManager.shared.loadedChunks.map{$0.point}
+        
+        print(points.contains(chunkPoint))
         
         _ = TSTerrainManager.shared.chunk(contains: anchor.vector2)
         
-        print(TSTerrainManager.shared.loadedChunks.map{$0.point}.count)
+
         
         touchedNode.illuminantRed()
         
