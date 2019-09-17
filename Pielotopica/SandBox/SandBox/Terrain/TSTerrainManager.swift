@@ -32,7 +32,7 @@ public class TSTerrainManager {
     
     public func didPlayerMoved(to point: TSVector2) {
         TSTick.shared.next(identifier: "didPlayerMoved") {
-
+            
             let playerPoint = self._calcurateChunkPoint(from: point)
             let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
             
