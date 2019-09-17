@@ -226,17 +226,17 @@ public class TSTerrainManager {
         let minX = points.map({$0.x}).min()!.i
         let minZ = points.map({$0.z}).min()!.i
         
-        out += "   |"
+        out += "x\\z|"
         for z in minZ...(minZ + dist) {
             out += String(format: "%02d ", z)
         }
-        out += "\nx\\z|"
+        out += "\n___|"
         for _ in minZ...(minZ + dist) {
             out += "___"
         }
         
         for x in minX...(minX + dist) {
-            out += "\n\(String(format: "%02d ", x)) |"
+            out += "\n\(String(format: "%02d", x)) |"
             
             for z in minZ...(minZ + dist) {
                 if points.contains(TSChunkPoint(Int16(x), Int16(z))) {
