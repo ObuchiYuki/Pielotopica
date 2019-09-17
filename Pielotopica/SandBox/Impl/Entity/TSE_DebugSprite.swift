@@ -8,6 +8,7 @@
 
 import SpriteKit
 
+#if DEBUG
 class TSE_DebugSprite: TSSprite {
     private let sprite = DebugSprite()
     
@@ -48,3 +49,4 @@ private class DebugSprite: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+#endif
