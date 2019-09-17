@@ -50,8 +50,8 @@ public class TSTerrainManager {
         }
     }
     
-    public func chunk(contains point: TSVector2, _ completion: @escaping (TSChunk)->()) -> TSChunk {
-        let chunkPoint = _calcurateChunkPoint(from: point, completion)
+    public func chunk(contains point: TSVector2) -> TSChunk {
+        let chunkPoint = _calcurateChunkPoint(from: point)
         
         return chunk(at: chunkPoint)
     }
@@ -61,13 +61,11 @@ public class TSTerrainManager {
             return chunk
         }
         
-        DispatchQueue.global().async {
-            if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
-                completion(saved)
-            }else{
-                let chunk = TSChunkGenerator.shared.generateChunk(for: point)
-                completion(chunk)
-            }
+        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+            return saved
+        }else{
+            let chunk = TSChunkGenerator.shared.generateChunk(for: point)
+            return chunk
         }
     }
     
