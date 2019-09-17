@@ -158,6 +158,15 @@ public class TSTerrainManager {
         return points
     }
     
+    #if DEBUG
+    public func enableDebug() {
+        for x in -10...10 {
+            for x in -10...10 {
+                
+            }
+        }
+    }
+    #endif
     public func dump() {
         print(_dump())
     }
