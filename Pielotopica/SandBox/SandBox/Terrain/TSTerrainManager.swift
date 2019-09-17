@@ -42,6 +42,7 @@ public class TSTerrainManager {
                 }
             }
             
+            print("next")
             TSTick.shared.next(identifier: "loadablePoint") {
                 for loadablePoint in loadablePoints {
                     if !self.loadedChunks.contains(where: {$0.point == loadablePoint}) {

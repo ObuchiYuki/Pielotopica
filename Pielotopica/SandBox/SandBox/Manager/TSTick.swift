@@ -33,10 +33,13 @@ public class TSTick {
             }
         })
     }
-    public func next(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
+    public func next(_ times:Int = 0, identifier: String = "default" , _ block: @escaping ()->()) {
         if self.stack[times] == nil {self.stack[times] = [:]}
         
+        
         self.stack[times]![identifier] = block
+        
+        print(self.stack[times]!)
     }
     
     public func update() {
@@ -46,8 +49,15 @@ public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
     private func _tickDidUpdated(to value: UInt) {
-        for (_, block) in stack[0] ?? [:] {
-            block()
+        print("update", stack)
+        
+        if var st = stack[0] {
+            while !st.isEmpty {
+                for (key, value) in st {
+                    st.removeValue(forKey: key)
+                    value()
+                }
+            }
         }
         
         stack.removeValue(forKey: 0)
@@ -59,6 +69,8 @@ public class TSTick {
         }
         
         self.stack = _stack
+        
+        print("updaded", stack)
     }
     
     private init() {}
