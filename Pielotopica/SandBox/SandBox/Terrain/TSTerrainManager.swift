@@ -43,8 +43,7 @@ public class TSTerrainManager {
             
             for loadablePoint in loadablePoints {
                 if !self.loadedChunks.contains(where: {$0.point == loadablePoint}) {
-                    let chunk = self.chunk(at: loadablePoint)
-                    self._loadChunk(chunk)
+                    self._loadChunk(at: loadablePoint)
                 }
             }
             
