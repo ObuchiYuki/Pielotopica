@@ -25,12 +25,16 @@ public class TSChunkNodeGenerator {
     
     // ======================================================================== //
     // MARK: - Methods -
-    public func prepare(for chunk: TSChunk) {
+    public func prepare(for chunk: TSChunk, _ completion: @escaping ()->() ) {
         DispatchQueue.global().async {
             for anchor in chunk.anchors {
                 let block = chunk.getFillBlock(at: anchor)
                 
                  _ = self._createNode(of: block, at: chunk.makeGlobal(anchor))
+            }
+            
+            DispatchQueue.main.async {
+                completion()
             }
         }
     }
