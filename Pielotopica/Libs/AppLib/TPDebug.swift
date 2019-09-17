@@ -16,10 +16,10 @@ import SceneKit
 public extension SCNNode {
     func illuminantRed() {
         let a1 = SCNAction.run{_debugAnchorNode in
-            _debugAnchorNode.fmaterial?.selfIllumination.contents = UIColor.red
+            _debugAnchorNode.geometry!.firstMaterial!.selfIllumination.contents = UIColor.red
         }
         let a2 = SCNAction.run{_debugAnchorNode in
-            _debugAnchorNode.fmaterial?.selfIllumination.contents = UIColor.black
+            _debugAnchorNode.geometry!.firstMaterial!.selfIllumination.contents = UIColor.black
         }
         let ar = SCNAction.sequence([a1, SCNAction.wait(duration: 1), a2])
         

@@ -158,6 +158,8 @@ class TPSandBox3DSceneModel {
         
         print(TSTerrainManager.shared.loadedChunks.map{$0.point}.count)
         
+        touchedNode.illuminantRed()
+        
         return
         
         guard !isPlacingBlockMode.value else { return }
