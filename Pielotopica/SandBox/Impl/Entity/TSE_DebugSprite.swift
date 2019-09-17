@@ -9,7 +9,13 @@
 import SpriteKit
 
 class TSE_DebugSprite: TSSprite {
+    private let sprite = DebugSprite()
     
+    init(text: String) {
+        super.init(sprite: sprite)
+        
+        self.sprite.label.text = text
+    }
 }
 
 private class DebugSprite: SKSpriteNode {
