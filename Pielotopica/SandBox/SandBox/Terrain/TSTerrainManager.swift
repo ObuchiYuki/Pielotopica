@@ -50,21 +50,25 @@ public class TSTerrainManager {
         }
     }
     
-    public func chunk(contains point: TSVector2) -> TSChunk {
-        let chunkPoint = _calcurateChunkPoint(from: point)
+    public func chunk(contains point: TSVector2, _ completion: @escaping (TSChunk)->()) -> TSChunk {
+        let chunkPoint = _calcurateChunkPoint(from: point, completion)
         
         return chunk(at: chunkPoint)
     }
     
-    public func chunk(at point: TSChunkPoint) -> TSChunk {
+    public func chunk(at point: TSChunkPoint,_ completion: @escaping (TSChunk)->() ) {
         if let chunk = loadedChunks.first(where: {$0.point == point}) { // load済み
-            return chunk
+            completion(chunk)
         }
-        //if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
-        //    return saved
-        //}else{
-            return TSChunkGenerator.shared.generateChunk(for: point)    // 
-        //}
+        
+        DispatchQueue.global().async {
+            if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+                completion(saved)
+            }else{
+                let chunk = TSChunkGenerator.shared.generateChunk(for: point)
+                completion(chunk)
+            }
+        }
     }
     
     public func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {
@@ -163,9 +167,9 @@ public class TSTerrainManager {
     // MARK: - Privates -
     
     private func _loadChunk(at point: TSChunkPoint) {
-        DispatchQueue.global().async {
-            let chunk = self.chunk(at: point)
-            
+        let chunk = self.chunk(at: point)
+        
+        DispatchQueue.global().async {    
             TSChunkNodeGenerator.shared.prepare(for: chunk)
             
             DispatchQueue.main.async {
@@ -178,9 +182,9 @@ public class TSTerrainManager {
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
-        guard let unloaded = self.loadedChunks.remove(chunk) else { return }
+        guard let unloaded = self.loadedChunks.remove(chunk) else { fatalError() }
         
-        self.delegates.forEach{ $0.chunkDidUnload(chunk) }
+        self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
         
         DispatchQueue.global().async {
             //TSChunkFileLoader.shared.saveChunk(unloaded)
