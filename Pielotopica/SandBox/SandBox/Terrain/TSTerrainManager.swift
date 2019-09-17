@@ -157,6 +157,11 @@ public class TSTerrainManager {
         
         return points
     }
+    
+    public func dump() {
+        print(_dump())
+    }
+    
     // ======================================================================== //
     // MARK: - Privates -
     
@@ -221,17 +226,18 @@ public class TSTerrainManager {
         let minX = points.map({$0.x}).min()!.i
         let minZ = points.map({$0.z}).min()!.i
         
+        out += "   |"
         for x in minX...(minX + dist) {
             out += String(format: "%02d ", x)
         }
-        out += "\n"
+        out += "\n   |"
         for _ in minX...(minX + dist) {
             out += "___"
         }
         
         for x in minX...(minX + dist) {
             for z in minZ...(minZ + dist) {
-                
+                print("   |")
             }
         }
         

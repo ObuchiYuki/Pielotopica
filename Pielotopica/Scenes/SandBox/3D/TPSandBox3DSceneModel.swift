@@ -151,6 +151,10 @@ class TPSandBox3DSceneModel {
     
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
+        
+        TSTerrainManager.shared.dump()
+        
+        return
         let anchor = TSChunkNodeGenerator.shared.anchor(of: touchedNode)
         
         _ = TSTerrainManager.shared.chunk(contains: anchor.vector2)
