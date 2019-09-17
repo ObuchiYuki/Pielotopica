@@ -151,6 +151,14 @@ class TPSandBox3DSceneModel {
     
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
+        let anchor = TSChunkNodeGenerator.shared.anchor(of: touchedNode)
+        
+        _ = TSTerrainManager.shared.chunk(contains: anchor.vector2)
+        
+        print(TSTerrainManager.shared.loadedChunks.map{$0.point}.count)
+        
+        return
+        
         guard !isPlacingBlockMode.value else { return }
         guard uiSceneModel.mode.value == .build else { return }
         

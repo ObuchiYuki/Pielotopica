@@ -25,7 +25,7 @@ public class TSTerrainManager {
     // MARK: - Properties -
     public var delegates = RMWeakSet<TSTerrainManagerDelegate>()
     
-    private var loadedChunks = Set<TSChunk>()
+    var loadedChunks = Set<TSChunk>()
     
     // ======================================================================== //
     // MARK: - Methods -
@@ -46,7 +46,7 @@ public class TSTerrainManager {
                     self._loadChunk(at: loadablePoint)
                 }
             }
-            
+                        
         }
     }
     
@@ -58,15 +58,17 @@ public class TSTerrainManager {
     
     public func chunk(at point: TSChunkPoint) -> TSChunk {
         if let chunk = loadedChunks.first(where: {$0.point == point}) {
+            print("loaded")
             return chunk
+        }
+        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+            print("saved")
+            return saved
         }
         
-        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
-            return saved
-        }else{
-            let chunk = TSChunkGenerator.shared.generateChunk(for: point)
-            return chunk
-        }
+        print("generate")
+        let chunk = TSChunkGenerator.shared.generateChunk(for: point)
+        return chunk
     }
     
     public func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {
@@ -172,6 +174,7 @@ public class TSTerrainManager {
             
             DispatchQueue.main.async {
                 self.loadedChunks.insert(chunk)
+                
                 self.delegates.forEach {
                     $0.chunkDidLoad(chunk)
                 }
