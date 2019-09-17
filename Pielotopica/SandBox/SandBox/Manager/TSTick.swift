@@ -12,11 +12,9 @@ import Foundation
 // MARK: - TSTick -
 public class TSTick {
     
-    private struct Value: Hashable, Equatable {
+    private struct Value {
         let identifier: String
         var block: ()->()
-        
-        static func == (left: Value, right: Value) -> Bool { return left.identifier == right.identifier }
     }
 
     // ================================================================== //
@@ -31,13 +29,12 @@ public class TSTick {
     
     // ================================================================== //
     // MARK: - Methods -
-    public func next(_ times:Int = 0, identifier:String = "", _ block: @escaping ()->()) {
-        self.next(times, {_ in block() })
-    }
     
-    public func next(_ times:Int = 0, _ block: @escaping (TSTick)->()) {
+    public func next(_ times:Int = 0, _ block: @escaping ()->()) {
         if self.stack[times] == nil {self.stack[times] = []}
-        self.stack[times]?.append(block)
+        let value = Value(identifier: identifier, block: block)
+        
+        self.stack[times]?.append(value)
     }
     
     public func update() {
