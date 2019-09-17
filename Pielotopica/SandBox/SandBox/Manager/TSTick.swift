@@ -51,11 +51,11 @@ public class TSTick {
     private func _tickDidUpdated(to value: UInt) {
         print("update", stack)
         
-        if var st = stack[0] {
-            while !st.isEmpty {
-                for (key, value) in st {
-                    st.removeValue(forKey: key)
+        if stack[0] != nil {
+            while !stack[0]!.isEmpty {
+                for (key, value) in stack[0]! {
                     value()
+                    stack[0]!.removeValue(forKey: key)
                 }
             }
         }
