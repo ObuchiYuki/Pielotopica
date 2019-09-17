@@ -60,11 +60,11 @@ public class TSTerrainManager {
         if let chunk = loadedChunks.first(where: {$0.point == point}) { // load済み
             return chunk
         }
-        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
-            return saved
-        }else{
+        //if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+        //    return saved
+        //}else{
             return TSChunkGenerator.shared.generateChunk(for: point)    // 
-        }
+        //}
     }
     
     public func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {
@@ -178,14 +178,12 @@ public class TSTerrainManager {
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
-        guard let unloaded = self.loadedChunks.remove(chunk) else {
-            return log.error("Unload chunk failed. \(self.loadedChunks)")
-        }
+        guard let unloaded = self.loadedChunks.remove(chunk) else { return }
         
         self.delegates.forEach{ $0.chunkDidUnload(chunk) }
         
         DispatchQueue.global().async {
-            TSChunkFileLoader.shared.saveChunk(unloaded)
+            //TSChunkFileLoader.shared.saveChunk(unloaded)
         }
     }
     
