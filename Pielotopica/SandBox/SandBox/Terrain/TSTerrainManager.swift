@@ -166,20 +166,14 @@ public class TSTerrainManager {
     private func _loadChunk(_ chunk: TSChunk) {
         TSChunkNodeGenerator.shared.prepare(for: chunk)
         
-        TSChunkNodeGenerator.chunkPrepareQueue.async {
-            DispatchQueue.main.async { self.delegates.forEach{ $0.chunkDidLoad(chunk) } }
-        }
+        self.delegates.forEach{ $0.chunkDidLoad(chunk) }
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
-        TSChunkNodeGenerator.chunkPrepareQueue.async {
-            DispatchQueue.main.async {
-                let success = (self.loadedChunks.remove(chunk) != nil)
-                guard success else { return log.error("Unload chunk failed. \(self.loadedChunks)") }
+        let success = (self.loadedChunks.remove(chunk) != nil)
+        guard success else { return log.error("Unload chunk failed. \(self.loadedChunks)") }
                     
-                self.delegates.forEach{ $0.chunkDidUnload(chunk) }
-            }
-        }
+        self.delegates.forEach{ $0.chunkDidUnload(chunk) }
     }
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {

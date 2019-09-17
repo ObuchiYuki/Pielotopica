@@ -28,12 +28,10 @@ public class TSChunkNodeGenerator {
     // ======================================================================== //
     // MARK: - Methods -
     public func prepare(for chunk: TSChunk) {
-        TSChunkNodeGenerator.chunkPrepareQueue.sync {
-            for anchor in chunk.anchors {
-                let block = chunk.getFillBlock(at: anchor)
+        for anchor in chunk.anchors {
+            let block = chunk.getFillBlock(at: anchor)
                 
-                 _ = self._createNode(of: block, at: chunk.makeGlobal(anchor))
-            }
+            _ = self._createNode(of: block, at: chunk.makeGlobal(anchor))
         }
     }
     
