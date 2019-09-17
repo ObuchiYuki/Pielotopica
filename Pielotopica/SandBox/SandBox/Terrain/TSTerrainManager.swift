@@ -31,22 +31,19 @@ public class TSTerrainManager {
     // MARK: - Methods -
     
     public func didPlayerMoved(to point: TSVector2) {
-        TSTick.shared.next(identifier: "didPlayerMoved") {
-            let playerPoint = self._calcurateChunkPoint(from: point)
-            let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
+        let playerPoint = self._calcurateChunkPoint(from: point)
+        let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
         
-            for loadedChunk in self.loadedChunks {
-                if !loadablePoints.contains(loadedChunk.point) {
-                    self._unloadChunk(loadedChunk)
-                }
+        for loadedChunk in self.loadedChunks {
+            if !loadablePoints.contains(loadedChunk.point) {
+                self._unloadChunk(loadedChunk)
             }
+        }
             
-            for loadablePoint in loadablePoints {
-                if !self.loadedChunks.contains(where: {$0.point == loadablePoint}) {
-                    self._loadChunk(at: loadablePoint)
-                }
+        for loadablePoint in loadablePoints {
+            if !self.loadedChunks.contains(where: {$0.point == loadablePoint}) {
+                self._loadChunk(at: loadablePoint)
             }
-                        
         }
     }
     
