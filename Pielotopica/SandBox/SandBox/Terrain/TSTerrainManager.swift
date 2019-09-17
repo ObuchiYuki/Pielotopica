@@ -34,17 +34,25 @@ public class TSTerrainManager {
         let playerPoint = self._calcurateChunkPoint(from: point)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
         
+        print("=================================")
+        print("first", loadedChunks.count)
+        
         for loadedChunk in self.loadedChunks {
             if !loadablePoints.contains(loadedChunk.point) {
                 self._unloadChunk(loadedChunk)
             }
         }
+        
+        print("unloaded", loadedChunks.count)
+        print("loadablePoints", loadablePoints.count)
             
         for loadablePoint in loadablePoints {
             if !self.loadedChunks.contains(where: {$0.point == loadablePoint}) {
                 self._loadChunk(at: loadablePoint)
             }
         }
+        
+        print("loaded", loadedChunks.count)
         
     }
     
