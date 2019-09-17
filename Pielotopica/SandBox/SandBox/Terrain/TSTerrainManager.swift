@@ -42,12 +42,13 @@ public class TSTerrainManager {
                 }
             }
             
-            for loadablePoint in loadablePoints {
-                if !self.loadedChunks.contains(where: {$0.point == loadablePoint}) {
-                    self._loadChunk(self.chunk(at: loadablePoint))
+            TSTick.shared.next(identifier: "loadablePoint") {
+                for loadablePoint in loadablePoints {
+                    if !self.loadedChunks.contains(where: {$0.point == loadablePoint}) {
+                        self._loadChunk(self.chunk(at: loadablePoint))
+                    }
                 }
             }
-            
         }
     }
     
@@ -180,11 +181,9 @@ public class TSTerrainManager {
         }
         
         self.delegates.forEach{ $0.chunkDidUnload(chunk) }
-        TSTick.shared.next {
-            <#code#>
+        TSTick.shared.async {
+            TSChunkFileLoader.shared.saveChunk(unloaded)
         }
-        TSChunkFileLoader.shared.saveChunk(unloaded)
-        
     }
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {

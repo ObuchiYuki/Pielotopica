@@ -53,6 +53,7 @@ public class TSTick {
         stack.removeValue(forKey: 0)
         
         var _stack = [Int: [String: ()->()]]()
+        
         for (key, value) in stack {
             _stack[key - 1] = value
         }
