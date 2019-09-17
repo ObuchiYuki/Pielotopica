@@ -35,7 +35,7 @@ public class TSTerrainManager {
             
             let playerPoint = self._calcurateChunkPoint(from: point)
             let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
-            
+        
             for loadedChunk in self.loadedChunks {
                 if !loadablePoints.contains(loadedChunk.point) {
                     self._unloadChunk(loadedChunk)
@@ -164,9 +164,15 @@ public class TSTerrainManager {
     // MARK: - Privates -
     
     private func _loadChunk(_ chunk: TSChunk) {
-        TSChunkNodeGenerator.shared.prepare(for: chunk)
+        DispatchQueue.global().async {
+            TSChunkNodeGenerator.shared.prepare(for: chunk)
+            
+            DispatchQueue.main.async {
+                self.loadedChunks.insert(chunk)
+                self.delegates.forEach{ $0.chunkDidLoad(chunk) }
+            }
+        }
         
-        self.delegates.forEach{ $0.chunkDidLoad(chunk) }
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
