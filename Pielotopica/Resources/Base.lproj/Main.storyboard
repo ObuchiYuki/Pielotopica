@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
@@ -13,20 +13,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TPRouterViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_fullscreen_frame" translatesAutoresizingMaskIntoConstraints="NO" id="FEZ-jL-Cb9">
-                                <rect key="frame" x="10" y="0.0" width="394" height="896"/>
+                                <rect key="frame" x="10" y="0.0" width="394" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNh-UH-F7E">
-                                <rect key="frame" x="207" y="448" width="0.0" height="0.0"/>
+                                <rect key="frame" x="207" y="368" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                                 <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <skView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaQ-6n-8Wm">
-                                <rect key="frame" x="87" y="187.5" width="240" height="241"/>
+                                <rect key="frame" x="87" y="107.66666666666669" width="240" height="241"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="WOc-MS-VTo"/>
                                     <constraint firstAttribute="height" constant="241" id="vmm-YA-rN3"/>
@@ -61,17 +61,17 @@
             <objects>
                 <viewController storyboardIdentifier="capture" modalPresentationStyle="fullScreen" id="oKs-bt-sWB" customClass="TPCaptureViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R7W-Mn-K7r">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_cap_background" translatesAutoresizingMaskIntoConstraints="NO" id="FkM-6N-dG5">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <skView contentMode="scaleToFill" allowsTransparency="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f35-9B-dOQ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </skView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jqF-m5-SsP">
-                                <rect key="frame" x="50" y="341" width="314" height="314"/>
+                                <rect key="frame" x="50" y="261" width="314" height="314"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="314" id="UMa-8j-wt3"/>
@@ -79,14 +79,14 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TP_cap_preview_frame" translatesAutoresizingMaskIntoConstraints="NO" id="Pqm-fI-A3z">
-                                <rect key="frame" x="27" y="317.5" width="360" height="361"/>
+                                <rect key="frame" x="27" y="237.66666666666663" width="360" height="361"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="361" id="JLS-L1-vFs"/>
                                     <constraint firstAttribute="width" constant="360" id="hHJ-Lm-juf"/>
                                 </constraints>
                             </imageView>
                             <skView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-Vc-IcJ">
-                                <rect key="frame" x="27" y="318" width="360" height="362"/>
+                                <rect key="frame" x="27" y="274" width="360" height="280"/>
                             </skView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -125,7 +125,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="ssd-7Z-w0K" customClass="GameViewController" customModule="Pielotopica" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VMl-9M-HLj" customClass="SCNView">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="IVE-uF-c65"/>

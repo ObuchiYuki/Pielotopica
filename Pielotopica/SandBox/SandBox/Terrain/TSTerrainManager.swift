@@ -45,6 +45,7 @@ public class TSTerrainManager {
                 self._loadChunk(at: loadablePoint)
             }
         }
+        
     }
     
     public func chunk(contains point: TSVector2) -> TSChunk {
