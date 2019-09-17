@@ -18,6 +18,12 @@ private class DebugSprite: SKSpriteNode {
     init() {
         super.init(texture: nil, color: .purple, size: [100, 30])
         
+        label.fontSize = 16
+        label.verticalAlignmentMode = .center
+        label.horizontalAlignmentMode = .center
+        
+        label.fontColor = .white
+        self.addChild(label)
     }
     
     required init?(coder aDecoder: NSCoder) {
