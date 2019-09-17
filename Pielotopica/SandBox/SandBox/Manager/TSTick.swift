@@ -17,6 +17,8 @@ public class TSTick {
     
     // ================================================================== //
     // MARK: - Properties -
+    public let asyncQueue = DispatchQueue(label: "com.topica.TSTick")
+    
     public var value: UInt = 0 {
         didSet { self._tickDidUpdated(to: value) }
     }
@@ -24,6 +26,13 @@ public class TSTick {
     // ================================================================== //
     // MARK: - Methods -
     
+    public func async(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
+        self.next(times, identifier: identifier, {
+            asyncQueue.async {
+                block()
+            }
+        })
+    }
     public func next(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
         if self.stack[times] == nil {self.stack[times] = [:]}
         

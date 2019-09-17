@@ -180,6 +180,9 @@ public class TSTerrainManager {
         }
         
         self.delegates.forEach{ $0.chunkDidUnload(chunk) }
+        TSTick.shared.next {
+            <#code#>
+        }
         TSChunkFileLoader.shared.saveChunk(unloaded)
         
     }
