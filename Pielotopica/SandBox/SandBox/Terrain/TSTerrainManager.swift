@@ -236,8 +236,14 @@ public class TSTerrainManager {
         }
         
         for x in minX...(minX + dist) {
+            out += "\n"
+            
             for z in minZ...(minZ + dist) {
-                print("   |")
+                if points.contains(TSChunkPoint(x, z)) {
+                    out += " * "
+                }else{
+                    out += "   "
+                }
             }
         }
         
