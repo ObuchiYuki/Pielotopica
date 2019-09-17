@@ -12,6 +12,8 @@ import SceneKit
 
 public class TSChunkNodeGenerator {
     
+    public static let chunkPrepareQueue = DispatchQueue(label: "com.topica.chunkPrepareQueue")
+    
     // ======================================================================== //
     // MARK: - Singleton -
     public static let shared = TSChunkNodeGenerator()
@@ -26,7 +28,7 @@ public class TSChunkNodeGenerator {
     // ======================================================================== //
     // MARK: - Methods -
     public func prepare(for chunk: TSChunk, _ completion: @escaping ()->() ) {
-        DispatchQueue.global().async {
+        TSChunkNodeGenerator.chunkPrepareQueue.async {
             for anchor in chunk.anchors {
                 let block = chunk.getFillBlock(at: anchor)
                 
