@@ -178,6 +178,8 @@ public class TSTerrainManager {
         guard let unloaded = self.loadedChunks.remove(chunk) else {
             return log.error("Unload chunk failed. \(self.loadedChunks)")
         }
+        
+        TSChunkFileLoader.shared.saveChunk(unloaded, for: <#T##TSChunkPoint#>)
                     
         self.delegates.forEach{ $0.chunkDidUnload(chunk) }
     }

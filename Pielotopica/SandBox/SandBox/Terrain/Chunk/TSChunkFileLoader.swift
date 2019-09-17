@@ -21,12 +21,12 @@ public class TSChunkFileLoader {
     private let decoder = BoxDecoder()
     
     @discardableResult
-    public func saveChunk(_ chunk:TSChunk, for point: TSChunkPoint) -> Bool {
+    public func saveChunk(_ chunk:TSChunk) -> Bool {
         let _data = _TSChunkData(chunk: chunk)
         
         do {
             let data = try encoder.encode(_data)
-            _saveData(data, at: point)
+            _saveData(data, at: chunk.point)
         } catch {
             log.error(error)
             return false
