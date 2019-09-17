@@ -166,7 +166,7 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
                     
             assert(TSTerrainManager.shared.getAnchorBlock(at: global) != .air)
                                 
-            self.delegates.forEach{$0.editor(editorDidUpdateBlockAt: global, needsAnimation: false, withRotation: rotation)}
+            self.delegates.forEach{ $0.editor(editorDidUpdateBlockAt: global, needsAnimation: false, withRotation: rotation) }
         }
     }
     
