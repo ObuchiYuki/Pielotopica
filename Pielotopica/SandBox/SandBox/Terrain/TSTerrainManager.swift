@@ -55,15 +55,12 @@ public class TSTerrainManager {
     
     public func chunk(at point: TSChunkPoint) -> TSChunk {
         if let chunk = loadedChunks.first(where: {$0.point == point}) {
-            print("loaded")
             return chunk
         }
         if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
-            print("saved")
             return saved
         }
-        
-        print("generate")
+    
         let chunk = TSChunkGenerator.shared.generateChunk(for: point)
         return chunk
     }
@@ -214,5 +211,19 @@ public class TSTerrainManager {
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
+    }
+    
+    private func _dump() {
+        let dist = TSOptionSaveData.shared.renderDistance * 2 + 1
+        let points = loadedChunks.map { $0.point }
+        guard let minX = points.map({$0.x}).min()?.i else { return }
+        guard let minZ = points.map({$0.z}).min()?.i else { return }
+        
+        for x in minX...(minX + dist) {
+            for x in minX...(minX + dist) {
+                
+            }
+        }
+        
     }
 }
