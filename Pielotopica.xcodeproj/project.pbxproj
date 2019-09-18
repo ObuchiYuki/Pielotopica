@@ -94,6 +94,7 @@
 		B637CB07232B7A9A00C97964 /* TSChunkGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637CB06232B7A9A00C97964 /* TSChunkGenerator.swift */; };
 		B639C5A6232A006B00A1C030 /* Artboard.png in Resources */ = {isa = PBXBuildFile; fileRef = B639C5A5232A006B00A1C030 /* Artboard.png */; };
 		B646216223323FBC005EE68E /* RMLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B646216123323FBC005EE68E /* RMLock.swift */; };
+		B646216423324A74005EE68E /* TSChunkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B646216323324A74005EE68E /* TSChunkManager.swift */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */; };
 		B64D401B231D072700CA3198 /* TP_fuel_factory.scn in Resources */ = {isa = PBXBuildFile; fileRef = B64D401A231D072700CA3198 /* TP_fuel_factory.scn */; };
@@ -363,6 +364,7 @@
 		B639C5A5232A006B00A1C030 /* Artboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artboard.png; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B646216123323FBC005EE68E /* RMLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLock.swift; sourceTree = "<group>"; };
+		B646216323324A74005EE68E /* TSChunkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkManager.swift; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
 		B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureBottomBar.swift; sourceTree = "<group>"; };
 		B64D401A231D072700CA3198 /* TP_fuel_factory.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_fuel_factory.scn; sourceTree = "<group>"; };
@@ -949,6 +951,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B9CE83232B2E8700441094 /* TSChunk.swift */,
+				B646216323324A74005EE68E /* TSChunkManager.swift */,
 				B637CB06232B7A9A00C97964 /* TSChunkGenerator.swift */,
 				B6B9CE85232B352800441094 /* TSChunkFileLoader.swift */,
 				B6B9CE81232B2D4F00441094 /* TSChunkPoint.swift */,
@@ -1647,6 +1650,7 @@
 				B6690599230E2861008AE24F /* TPDropButton.swift in Sources */,
 				B6690597230E245E008AE24F /* TPBuildItemBar.swift in Sources */,
 				B67A966123094E4000BD408D /* TPCameraGestureHelper.swift in Sources */,
+				B646216423324A74005EE68E /* TSChunkManager.swift in Sources */,
 				B6AA02B3230E11B600F0FF48 /* GKSpriteNode.swift in Sources */,
 				B6227A342301AB84009EF60F /* TSInventory.swift in Sources */,
 				B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */,
