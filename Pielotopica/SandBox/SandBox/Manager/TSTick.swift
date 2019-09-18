@@ -13,7 +13,7 @@ import Foundation
 public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
-    private var updation = [(Int, ()->())]()
+    private var updation = [(UInt, ()->())]()
     private var stack = [Int: [String: ()->()]]()
     
     // ================================================================== //
@@ -26,7 +26,7 @@ public class TSTick {
     
     // ================================================================== //
     // MARK: - Methods -
-    public func subscribe(_ per:Int , _ block: @escaping ()->()) {
+    public func subscribe(_ per:UInt = 1 , _ block: @escaping ()->()) {
         self.updation.append((per, block))
         
     }
@@ -50,7 +50,11 @@ public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
     private func _tickDidUpdated(to value: UInt) {
-        updation.forEach{ $0() }
+        updation.forEach{ per, block in
+            if value % per == 0 {
+                block()
+            }
+        }
         
         if stack[0] != nil {
             while !stack[0]!.isEmpty {
