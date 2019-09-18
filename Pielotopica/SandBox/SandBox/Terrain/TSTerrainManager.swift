@@ -193,7 +193,6 @@ public class TSTerrainManager {
     // MARK: - Privates -
     
     private func _loadChunk(at point: TSChunkPoint, _ completion: @escaping ()->()) {
-        print(TSChunkNodeGenerator.shared.isFreeChunk(at: point))
         guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
         
         let chunk = self.chunk(at: point)
