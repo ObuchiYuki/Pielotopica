@@ -158,23 +158,6 @@ public class TSTerrainManager {
         }
     }
     #endif
-    
-    // ======================================================================== //
-    // MARK: - Privates -
-    
-    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {
-        let distance = TSOptionSaveData.shared.renderDistance
-        
-        var points = Set<TSChunkPoint>()
-        
-        for xd in -distance...distance {
-            for zd in -distance...distance {
-                points.insert(point + TSChunkPoint(Int16(xd), Int16(zd)))
-            }
-        }
-        
-        return points
-    }
 }
 
 extension TSTerrainManager: TSEventLoopDelegate {
