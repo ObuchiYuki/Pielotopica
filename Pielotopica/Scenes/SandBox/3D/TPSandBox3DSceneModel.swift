@@ -150,23 +150,7 @@ class TPSandBox3DSceneModel {
     }
     
     /// ヒットテストが終わったら呼び出してください。
-    func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
-        print("===================================================")
-        let anchor = TSChunkNodeGenerator.shared.anchor(of: touchedNode)
-        let chunk = TSTerrainManager.shared.chunk(contains: anchor.vector2)
-        
-        let points = TSTerrainManager.shared.loadedChunks.map{$0.point}
-        
-        print("anchor: ", anchor)
-        print("chunkPoint: ", chunk.point)
-        print("loaded contains: ", points.contains(chunk.point))
-        
-        _ = TSTerrainManager.shared.chunk(contains: anchor.vector2)
-        
-        touchedNode.illuminantRed()
-        
-        return
-        
+    func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {        
         guard !isPlacingBlockMode.value else { return }
         guard uiSceneModel.mode.value == .build else { return }
         
