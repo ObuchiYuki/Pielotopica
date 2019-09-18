@@ -24,7 +24,6 @@ class TSChunkLoader {
     
     private var playerPosition = TSVector2.zero
     
-    
     // ======================================================================== //
     // MARK: - Methods -
     public func getAllLoadedChunks() -> Set<TSChunk> {
@@ -142,11 +141,13 @@ extension TSChunkLoader: TSEventLoopDelegate {
         }
         
         if tick.value % TSChunkLoader.savePerTick == TSChunkLoader.savePerTick / 2 {
-            for unloaded in unloadedChunks {
-                TSChunkFileLoader.shared.saveChunk(unloaded)
+            DispatchQueue.global(qos: .background).async {
+                for unloaded in self.unloadedChunks {
+                    TSChunkFileLoader.shared.saveChunk(unloaded)
+                }
             }
-            
         }
+        
+        
     }
-    
 }
