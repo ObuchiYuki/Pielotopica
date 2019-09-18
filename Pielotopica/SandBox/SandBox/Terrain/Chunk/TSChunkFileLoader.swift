@@ -37,6 +37,9 @@ public class TSChunkFileLoader {
     }
     
     public func loadChunk(at point:TSChunkPoint) -> TSChunk? {
+        let key = RMMeasure.makeKey()
+        RMMeasure.start(key)
+        defer { RMMeasure.end(key) }
         
         guard var url = _prepareDirectory() else { return nil }
         

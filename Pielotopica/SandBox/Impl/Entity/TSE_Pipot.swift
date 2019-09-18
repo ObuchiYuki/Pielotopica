@@ -25,7 +25,6 @@ class TSE_Pipot: TSEntity {
     override func generateNode() -> SCNNode { _generateNode()}
     
     override func update(tic:Double, object:TSEntityObject, world:TSEntityWorld) {
-        RMMeasure.start()
         let route = world.findPathToTarget(from: object.spown.node!, speed: speed)
         
         var vector:CGPoint
@@ -69,8 +68,6 @@ class TSE_Pipot: TSEntity {
             TPGameController.initirized?.end(with: .gameover)
             
         }
-        
-        RMMeasure.end()
     }
     
     // ======================================================================== //
