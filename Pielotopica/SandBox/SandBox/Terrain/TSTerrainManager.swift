@@ -44,23 +44,21 @@ public class TSTerrainManager {
     private var _updateChunkCreateLock = RMLock()
     
     private func _updateChunkCreate() {
-        print("Create")
-        if _updateChunkCreateLock.isLocked { return print("Locked") }
+        if _updateChunkCreateLock.isLocked { return }
         _updateChunkCreateLock.lock()
         
         let playerPoint = self._calcurateChunkPoint(from: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
-        for loadablePoint in loadablePoints {
-            DispatchQueue.global(qos: .userInteractive).async {
-                
+        DispatchQueue.global(qos: .userInteractive).async {
+            
+            for loadablePoint in loadablePoints {
                 if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
                     self._loadChunkSync(at: loadablePoint)
                 }
-                
-                print("Create end")
-                self._updateChunkCreateLock.unlock()
             }
+            
+            self._updateChunkCreateLock.unlock()
         }
         
     }
@@ -68,8 +66,7 @@ public class TSTerrainManager {
     private var _updateChunkDestoroyLock = RMLock()
     
     private func _updateChunkDestoroy(){
-        print("Destoroy")
-        if _updateChunkDestoroyLock.isLocked { return print("Locked") }
+        if _updateChunkDestoroyLock.isLocked { return }
         _updateChunkDestoroyLock.lock()
         
         let playerPoint = self._calcurateChunkPoint(from: playerPosition)
@@ -83,7 +80,6 @@ public class TSTerrainManager {
         
         _updateChunkDestoroyLock.unlock()
         
-        print("Destoroy end")
     }
     
     public func didPlayerMoved(to point: TSVector2) {
@@ -109,17 +105,11 @@ public class TSTerrainManager {
     
     public func chunk(at point: TSChunkPoint) -> TSChunk {
         if let chunk = loadedChunks.first(where: {$0.point == point}) {
-            print("loaded")
-            
             return chunk
         }
         if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
-            print("saved", saved.point)
-            
             return saved
         }
-    
-        print("generated")
         
         let chunk = TSChunkGenerator.shared.generateChunk(for: point)
         return chunk
@@ -231,19 +221,12 @@ public class TSTerrainManager {
         }
     }
     #endif
+    
     // ======================================================================== //
     // MARK: - Privates -
-    private var __debugInitialPoints = [TSChunkPoint]()
-    
     private func _loadChunkSync(at point: TSChunkPoint) {
         guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
         
-        if __debugInitialPoints.contains(point) {
-            
-        }
-        
-        __debugInitialPoints.append(point)
-                
         let chunk = self.chunk(at: point)
         
 
