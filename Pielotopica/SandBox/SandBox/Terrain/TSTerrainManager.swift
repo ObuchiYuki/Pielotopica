@@ -22,13 +22,13 @@ public class TSTerrainManager {
         
     }
     
-    public func chunk(contains point: TSVector2) -> TSChunk {
+    public func getChunk(contains point: TSVector2) -> TSChunk {
         let chunkPoint = _calcurateChunkPoint(from: point)
         
         return chunkSync(at: chunkPoint)
     }
     
-    public func chunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->()) {
+    public func getChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->()) {
         DispatchQueue.global(qos: .userInteractive).async {
             let chunk = self.chunkSync(at: point)
             

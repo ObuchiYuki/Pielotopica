@@ -27,7 +27,6 @@ class TSChunkLoader {
     // ======================================================================== //
     // MARK: - Methods -
     
-    
     private var _updateChunkCreateLock = RMLock()
     
     private func _updateChunkCreate() {
