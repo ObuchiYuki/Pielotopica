@@ -115,7 +115,7 @@ public class TSTerrainEditor {
     // MARK: - Constructor -
     
     private init() {
-        TSTerrainManager.shared.delegates.append(self)
+        TSChunkLoader.shared.delegates.append(self)
     }
     
     // ======================================================================== //
@@ -158,7 +158,7 @@ public class TSTerrainEditor {
     }
 }
 
-extension TSTerrainEditor: TSTerrainManagerDelegate {
+extension TSTerrainEditor: TSChunkLoaderDelegate {
     public func chunkDidLoad(_ chunk: TSChunk) {
         for anchor in chunk.anchors {
             let rotation = chunk.getRotation(at: anchor)

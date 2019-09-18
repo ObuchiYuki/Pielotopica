@@ -9,16 +9,16 @@
 import Foundation
 
 // ======================================================================== //
-// MARK: - TSChunkManagerDelegate -
-public protocol TSChunkManagerDelegate {
+// MARK: - TSChunkLoaderDelegate -
+public protocol TSChunkLoaderDelegate {
     func chunkDidLoad(_ chunk: TSChunk)
     func chunkDidUnload(_ chunk: TSChunk)
 }
 
-internal class TSChunkLoader {
+class TSChunkLoader {
     static let shared = TSChunkLoader()
     
-    public var delegates = RMWeakSet<TSChunkManagerDelegate>()
+    public var delegates = RMWeakSet<TSChunkLoaderDelegate>()
     public var loadedChunks = Set<TSChunk>()
     
     private let manager = TSTerrainManager.shared
