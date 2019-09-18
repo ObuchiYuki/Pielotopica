@@ -34,16 +34,22 @@ public class TSTerrainManager {
         let playerPoint = self._calcurateChunkPoint(from: point)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
-        for loadedChunk in self.loadedChunks {
-            if !loadablePoints.contains(loadedChunk.point) {
-                self._unloadChunk(loadedChunk)
-            }
+        let loadPoints = loadablePoints.filter {l in
+            self.loadedChunks.allSatisfy({$0.point != l})
         }
         
-        for loadablePoint in loadablePoints {
-            if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
-                self._loadChunk(at: loadablePoint)
-            }
+        for (i, loadPoint) in loadPoints.enumerated() {
+            
+            self._loadChunk(at: loadPoint, {[i] in
+                if i == loadPoints.count - 1 {
+                    for loadedChunk in self.loadedChunks {
+                        if !loadablePoints.contains(loadedChunk.point) {
+                            self._unloadChunk(loadedChunk)
+                        }
+                    }
+                }
+            })
+            
         }
     }
     
@@ -174,11 +180,11 @@ public class TSTerrainManager {
     // ======================================================================== //
     // MARK: - Privates -
     
-    private func _loadChunk(at point: TSChunkPoint) {
+    private func _loadChunk(at point: TSChunkPoint, _ completion: @escaping ()->()) {
         let chunk = self.chunk(at: point)
         
         DispatchQueue.global().async {
-            TSChunkNodeGenerator.shared.prepare(for: chunk)
+            TSChunkNodeGenerator.shared.prepare(for: chunk, completion)
             
             DispatchQueue.main.async {
                 self.loadedChunks.insert(chunk)
