@@ -17,6 +17,7 @@ public class TSChunkGenerator {
     public func generateChunk(for point: TSChunkPoint) -> TSChunk {
         let chunk = TSChunk()
                 
+        chunk.isEdited = true
         chunk.point = point
         chunk.anchors.insert(.zero)
         

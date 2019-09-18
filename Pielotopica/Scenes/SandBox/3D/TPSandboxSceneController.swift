@@ -41,7 +41,6 @@ class TPSandboxSceneController: GK3DSceneController {
     // ================================ //
     // MARK: - Handler -
     @objc func handlePinchGesture(_ recognizer:UIPinchGestureRecognizer) {
-        print(Date())
         let scale = recognizer.scale
         
         sceneModel.onPinchGesture(with: scale)
@@ -152,7 +151,6 @@ extension TPSandboxSceneController: TPSandboxSceneModelBinder {
     }
     func __zoomCamera(to scale:Double) {
         self.camera.orthographicScale = scale
-        print("camera zoom \(scale)")
     }
     
     // - Stage -

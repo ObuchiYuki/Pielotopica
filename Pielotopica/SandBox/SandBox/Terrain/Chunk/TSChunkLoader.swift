@@ -20,6 +20,7 @@ class TSChunkLoader {
     
     public var delegates = RMWeakSet<TSChunkLoaderDelegate>()
     private var loadedChunks = Set<TSChunk>()
+    private var unloadedChunks = Set<TSChunk>()
     
     private var playerPosition = TSVector2.zero
     
@@ -46,16 +47,14 @@ class TSChunkLoader {
         let playerPoint = TSChunk.convertToChunkPoint(containing: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
-        DispatchQueue.global(qos: .userInteractive).async {
             
-            for loadablePoint in loadablePoints {
-                if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
-                    self._loadChunkSync(at: loadablePoint)
-                }
+        for loadablePoint in loadablePoints {
+            if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
+                self._loadChunkSync(at: loadablePoint)
             }
-            
-            self._updateChunkCreateLock.unlock()
         }
+            
+        self._updateChunkCreateLock.unlock()
         
     }
     
@@ -123,7 +122,7 @@ class TSChunkLoader {
         
         self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
         
-        TSChunkFileLoader.shared.saveChunk(unloaded)
+        unloadedChunks.insert(unloaded)
     }
 }
 
@@ -136,11 +135,18 @@ extension TSChunkLoader: TSEventLoopDelegate {
         if tick.value % TSChunkLoader.savePerTick == 0 {
             for loadedChunk in self.loadedChunks {
                 if loadedChunk.isEdited {
+                    loadedChunk.isEdited = false
                     TSChunkFileLoader.shared.saveChunk(loadedChunk)
                 }
             }
         }
         
+        if tick.value % TSChunkLoader.savePerTick == 50 {
+            for unloaded in unloadedChunks {
+                TSChunkFileLoader.shared.saveChunk(unloaded)
+            }
+            
+        }
     }
     
 }

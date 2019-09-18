@@ -13,7 +13,7 @@ import Foundation
 public class TSChunk {
     // MARK: - Properties -
     
-    public var isEdited = true
+    public var isEdited = false
     
     public var point = TSChunkPoint.zero
     

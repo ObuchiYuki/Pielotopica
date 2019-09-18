@@ -22,7 +22,6 @@ public class TSChunkFileLoader {
     private let decoder = BoxDecoder()
     
     public func saveChunk(_ chunk:TSChunk) {
-        
         DispatchQueue.global(qos: .background).async {
             let _data = _TSChunkData(chunk: chunk)
             
@@ -37,10 +36,6 @@ public class TSChunkFileLoader {
     }
     
     public func loadChunk(at point:TSChunkPoint) -> TSChunk? {
-        let key = RMMeasure.makeKey()
-        RMMeasure.start(key)
-        defer { RMMeasure.end(key) }
-        
         guard var url = _prepareDirectory() else { return nil }
         
         url.appendPathComponent(_filename(of: point))
