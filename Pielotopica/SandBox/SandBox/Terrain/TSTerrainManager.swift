@@ -292,7 +292,9 @@ extension TSTerrainManager: TSEventLoopDelegate {
         
         if tick.value % TSTerrainManager.savePerTick == 0 {
             for loadedChunk in self.loadedChunks {
-                TSChunkFileLoader.shared.saveChunk(loadedChunk)
+                if loadedChunk.isEdited {
+                    TSChunkFileLoader.shared.saveChunk(loadedChunk)
+                }
             }
         }
         
