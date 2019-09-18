@@ -19,7 +19,7 @@ class TPBlockMoveHelper: TPBlockEditHelper {
         _backupStartPoint = startPoint
         _backupRotation = rotation
     
-        editor.destoroyBlock(at: startPoint)
+        editor.destroyBlock(at: startPoint)
         
         startEditing(from: startPoint, startRotation: rotation.rotation)
     }

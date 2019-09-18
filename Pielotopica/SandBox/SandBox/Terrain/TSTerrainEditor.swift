@@ -13,15 +13,15 @@ import Foundation
 // MARK: - TSTerrainEditorDelegate -
 public protocol TSTerrainEditorDelegate {
     func editor(editorDidUpdateBlockAt position:TSVector3, needsAnimation :Bool, withRotation rotation:TSBlockRotation)
-    func editor(editorWillDestoroyBlockAt position:TSVector3, needsAnimation :Bool)
-    func editor(editorDidDestoroyBlockAt position:TSVector3, needsAnimation :Bool)
+    func editor(editorWillDestroyBlockAt position:TSVector3, needsAnimation :Bool)
+    func editor(editorDidDestroyBlockAt position:TSVector3, needsAnimation :Bool)
 }
 
 // MARK: - Make Optional -
 public extension TSTerrainEditorDelegate {
     func editor(editorDidUpdateBlockAt position:TSVector3, needsAnimation animiationFlag:Bool, withRotation rotation:TSBlockRotation) {}
-    func editor(editorWillDestoroyBlockAt position:TSVector3, needsAnimation :Bool) {}
-    func editor(editorDidDestoroyBlockAt position:TSVector3, needsAnimation :Bool) {}
+    func editor(editorWillDestroyBlockAt position:TSVector3, needsAnimation :Bool) {}
+    func editor(editorDidDestroyBlockAt position:TSVector3, needsAnimation :Bool) {}
 }
 
 // ======================================================================== //
@@ -87,7 +87,7 @@ public class TSTerrainEditor {
     }
     
     @discardableResult
-    public func destoroyBlock(at anchor: TSVector3) -> Bool {
+    public func destroyBlock(at anchor: TSVector3) -> Bool {
         let block = TSTerrainManager.shared.getAnchorBlock(at: anchor)
         
         guard block.canDestroy(at: anchor) else {
@@ -96,7 +96,7 @@ public class TSTerrainEditor {
         }
                 
         block.willDestroy(at: anchor)
-        delegates.forEach{ $0.editor(editorWillDestoroyBlockAt: anchor, needsAnimation: true) }
+        delegates.forEach{ $0.editor(editorWillDestroyBlockAt: anchor, needsAnimation: true) }
         
         //self.nodeGenerator?.destoryNode(at: anchor)
         TSTerrainManager.shared.removeAnchorBlock(anchor)
@@ -104,7 +104,7 @@ public class TSTerrainEditor {
         self._fillFillMap(with: .air, at: anchor, blockSize: block.getSize(at: anchor))
         TSTerrainManager.shared.setBlockData(TSBlockData() , at: anchor)
         
-        delegates.forEach{ $0.editor(editorDidDestoroyBlockAt: anchor, needsAnimation: true) }
+        delegates.forEach{ $0.editor(editorDidDestroyBlockAt: anchor, needsAnimation: true) }
         
         block.didDestroy(at: anchor)
         
@@ -173,8 +173,8 @@ extension TSTerrainEditor: TSTerrainManagerDelegate {
     public func chunkDidUnload(_ chunk: TSChunk) {
         
         for anchor in chunk.anchors {
-            self.delegates.forEach{ $0.editor(editorWillDestoroyBlockAt: chunk.makeGlobal(anchor), needsAnimation: false) }
-            self.delegates.forEach{ $0.editor(editorDidDestoroyBlockAt:  chunk.makeGlobal(anchor), needsAnimation: false) }
+            self.delegates.forEach{ $0.editor(editorWillDestroyBlockAt: chunk.makeGlobal(anchor), needsAnimation: false) }
+            self.delegates.forEach{ $0.editor(editorDidDestroyBlockAt:  chunk.makeGlobal(anchor), needsAnimation: false) }
         }
     }
 }

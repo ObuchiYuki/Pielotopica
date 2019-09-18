@@ -262,7 +262,7 @@ class TPSandBox3DSceneModel {
         
         block.dropItemStacks(at: anchor).forEach(itemBarInventory.addItemStack)
         
-        editor.destoroyBlock(at: anchor)
+        editor.destroyBlock(at: anchor)
     }
     
     private func _startBlockMoving(with touchedNode: SCNNode) {
@@ -379,7 +379,7 @@ extension TPSandBox3DSceneModel: TPCameraGestureHelperDelegate{
 // ================================================================== //
 // MARK: - Extension for TSLevelDelegate -
 extension TPSandBox3DSceneModel : TSTerrainEditorDelegate {
-    func editor(editorDidDestoroyBlockAt position: TSVector3, needsAnimation: Bool) {
+    func editor(editorDidDestroyBlockAt position: TSVector3, needsAnimation: Bool) {
         nodeGenerator.destoryNode(at: position)
         
     }

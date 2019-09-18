@@ -89,8 +89,10 @@ public class TSChunkNodeGenerator {
     }
     
     private func _cacheNode(_ node: SCNNode, at point: TSVector3) {
+        
         DispatchQueue.main.async {
-            if let beforeNode = cache[point] {
+            if let beforeNode = self.cache[point] {
+                log.debug("Why don't you destroy node before create new one.")
                 beforeNode.removeFromParentNode()
             }
             
