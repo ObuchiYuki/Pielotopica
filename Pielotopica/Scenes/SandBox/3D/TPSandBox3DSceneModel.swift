@@ -199,9 +199,6 @@ class TPSandBox3DSceneModel {
         manager.didPlayerMoved(to: .zero)
         
         binder.__makeDay()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
-            TSTerrainManager.shared.enableDebug()
-        })
         
         //if first luanch {
             _createStage1()
