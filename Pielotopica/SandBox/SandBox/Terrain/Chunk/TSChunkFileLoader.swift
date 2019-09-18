@@ -37,6 +37,7 @@ public class TSChunkFileLoader {
     }
     
     public func loadChunk(at point:TSChunkPoint) -> TSChunk? {
+        
         guard var url = _prepareDirectory() else { return nil }
         
         url.appendPathComponent(_filename(of: point))
