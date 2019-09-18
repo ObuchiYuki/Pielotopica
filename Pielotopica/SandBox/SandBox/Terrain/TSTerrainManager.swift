@@ -9,13 +9,6 @@
 import Foundation
 
 // ======================================================================== //
-// MARK: - TSTerrainManagerDelegate -
-public protocol TSTerrainManagerDelegate {
-    func chunkDidLoad(_ chunk: TSChunk)
-    func chunkDidUnload(_ chunk: TSChunk)
-}
-
-// ======================================================================== //
 // MARK: - TSTerrainManager -
 public class TSTerrainManager {
     
