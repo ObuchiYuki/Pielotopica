@@ -153,14 +153,15 @@ class TPSandBox3DSceneModel {
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
         
         let anchor = TSChunkNodeGenerator.shared.anchor(of: touchedNode)
-        let chunkPoint = TSTerrainManager.shared.chunk(contains: anchor.vector2).point
+        let chunk = TSTerrainManager.shared.chunk(contains: anchor.vector2)
         TSTerrainManager.shared.dump()
-        
-        print(chunkPoint)
+        print(chunk.layerDescription(y: 0))
         
         let points = TSTerrainManager.shared.loadedChunks.map{$0.point}
         
-        print(points.contains(chunkPoint))
+        print("anchor: ", anchor)
+        print("chunkPoint: ", chunk.point)
+        print("loaded contains: ", points.contains(chunk.point))
         
         _ = TSTerrainManager.shared.chunk(contains: anchor.vector2)
         
@@ -202,10 +203,9 @@ class TPSandBox3DSceneModel {
         manager.didPlayerMoved(to: .zero)
         
         binder.__makeDay()
-        
-        TSTick.shared.next {
+        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
             TSTerrainManager.shared.enableDebug()
-        }
+        })
         
         //if first luanch {
             _createStage1()

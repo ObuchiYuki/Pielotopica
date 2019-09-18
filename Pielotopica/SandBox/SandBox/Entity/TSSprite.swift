@@ -15,6 +15,8 @@ class TSSprite {
     
     init(sprite: SKSpriteNode) {
         self.sprite = sprite
+        self.sprite.xScale = 1
+        self.sprite.yScale = -1
     }
     
     deinit {

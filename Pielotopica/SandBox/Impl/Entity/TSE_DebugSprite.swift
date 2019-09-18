@@ -10,7 +10,7 @@ import SpriteKit
 
 #if DEBUG
 class TSE_DebugSprite: TSSprite {
-    static var initirizedList = RMWeakSet<TSE_DebugSprite>()
+    static var initirizedList = [TSE_DebugSprite]()
     
     private let sprite = DebugSprite()
     
@@ -27,8 +27,9 @@ class TSE_DebugSprite: TSSprite {
     }
     
     init(text: String) {
-        self.sprite.label.text = text
         super.init(sprite: sprite)
+        
+        self.sprite.label.text = text
         TSE_DebugSprite.initirizedList.append(self)
     }
 }
@@ -42,6 +43,7 @@ private class DebugSprite: SKSpriteNode {
         label.fontSize = 20
         label.verticalAlignmentMode = .center
         label.horizontalAlignmentMode = .center
+        label.fontName = TPCommon.FontName.hiraBold
         label.fontColor = .white
         
         self.addChild(label)

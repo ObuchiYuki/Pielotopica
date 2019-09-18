@@ -46,7 +46,6 @@ public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
     private func _tickDidUpdated(to value: UInt) {
-        print("update")
         
         if stack[0] != nil {
             while !stack[0]!.isEmpty {
