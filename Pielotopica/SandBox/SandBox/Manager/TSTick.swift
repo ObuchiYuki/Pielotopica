@@ -13,7 +13,7 @@ import Foundation
 public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
-    private var updation = [()->()]()
+    private var updation = [(Int, ()->())]()
     private var stack = [Int: [String: ()->()]]()
     
     // ================================================================== //
@@ -26,8 +26,8 @@ public class TSTick {
     
     // ================================================================== //
     // MARK: - Methods -
-    public func subscribe( _ block: @escaping ()->()) {
-        self.updation.append(block)
+    public func subscribe(_ per:Int , _ block: @escaping ()->()) {
+        self.updation.append((per, block))
         
     }
     public func async(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
