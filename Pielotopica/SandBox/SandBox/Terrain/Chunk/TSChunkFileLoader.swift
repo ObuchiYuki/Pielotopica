@@ -14,14 +14,16 @@ public class TSChunkFileLoader {
     
     private var encoder: BoxEncoder {
         let _encoder = BoxEncoder()
-        _encoder.compressionLevel = 2
+        _encoder.compressionLevel = 0
+        _encoder.useStructureCache = false
         return _encoder
     }
     
     private let decoder = BoxDecoder()
     
     public func saveChunk(_ chunk:TSChunk) {
-        DispatchQueue(label: "com.topica.saveChunk").async {
+        
+        DispatchQueue.global(qos: .background).async {
             let _data = _TSChunkData(chunk: chunk)
             
             do {

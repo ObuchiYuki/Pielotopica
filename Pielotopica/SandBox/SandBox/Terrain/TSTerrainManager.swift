@@ -31,7 +31,7 @@ public class TSTerrainManager {
     
     // ======================================================================== //
     // MARK: - Methods -
-    init() {
+    public init() {
         TSTick.shared.subscribe {
             self._updateChunkCreate()
             self._updateChunkDesktoroy()
@@ -73,19 +73,26 @@ public class TSTerrainManager {
         return chunk(at: chunkPoint)
     }
     
-    public func chunk(at point: TSChunkPoint) -> TSChunk {
+    public func chunk(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->() ) {
         if let chunk = loadedChunks.first(where: {$0.point == point}) {
             print("loaded")
-            return chunk
+            completion(chunk)
         }
-        //if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
-        //    print("saved")
-        //    return saved
-        //}
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+                print("saved")
+                
+                completion(saved)
+            }else{
+                print("generated")
+                
+                let chunk = TSChunkGenerator.shared.generateChunk(for: point)
+                completion(chunk)
+            }
+        }
     
-        print("generated")
-        let chunk = TSChunkGenerator.shared.generateChunk(for: point)
-        return chunk
+        
     }
     
     public func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {
