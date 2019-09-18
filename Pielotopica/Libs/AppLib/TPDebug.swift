@@ -11,6 +11,14 @@ import SceneKit
 
 /// デバッグ次のみ有効
 
+func debug(_ item: Any...) {
+    #if DEBUG
+    
+    print(item)
+    
+    #endif
+}
+
 #if DEBUG
 
 public extension SCNNode {

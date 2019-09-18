@@ -675,8 +675,8 @@
 				B6AA02AA230D78B800F0FF48 /* RMTimeStamp.swift */,
 				B6E8826523126B66003F3124 /* RMLog.swift */,
 				B6DDABEA2318E7D5003F538B /* RMMeasure.swift */,
-				B61E93C12300E36C008CB325 /* extensions */,
 				B646216123323FBC005EE68E /* RMLock.swift */,
+				B61E93C12300E36C008CB325 /* extensions */,
 			);
 			path = RMKit;
 			sourceTree = "<group>";
