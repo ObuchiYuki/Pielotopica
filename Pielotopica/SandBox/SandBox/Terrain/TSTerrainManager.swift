@@ -195,16 +195,12 @@ public class TSTerrainManager {
     private func _loadChunk(at point: TSChunkPoint, _ completion: @escaping ()->()) {
         let chunk = self.chunk(at: point)
         
-        DispatchQueue.global().async {
-            TSChunkNodeGenerator.shared.prepare(for: chunk, completion)
-            
-            DispatchQueue.main.async {
-                self.delegates.forEach {
-                    $0.chunkDidLoad(chunk)
-                }
-                
-                self.loadedChunks.insert(chunk)
+        TSChunkNodeGenerator.shared.prepare(for: chunk) {
+            self.delegates.forEach {
+                $0.chunkDidLoad(chunk)
             }
+                    
+            self.loadedChunks.insert(chunk)
         }
     }
     
