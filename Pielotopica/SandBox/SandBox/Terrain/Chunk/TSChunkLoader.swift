@@ -20,6 +20,8 @@ class TSChunkLoader {
     
     public var delegates = RMWeakSet<TSChunkManagerDelegate>()
     
+    private let manager = TSTerrainManager.shared
+    
     var playerPosition = TSVector2.zero
     
     var loadedChunks = Set<TSChunk>()
@@ -68,13 +70,24 @@ class TSChunkLoader {
         
     }
     
+    private init() {
+        TSEventLoop.shared.register(self)
+        
+        TSTick.shared.subscribe(10) {
+            self._updateChunkCreate()
+            self._updateChunkDestoroy()
+        }
+        
+        TSEventLoop.shared.register(self)
+    }
+    
     // ======================================================================== //
     // MARK: - Private -
     
     private func _loadChunkSync(at point: TSChunkPoint) {
         guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
         
-        let chunk = self.chunkSync(at: point)
+        let chunk = manager.getChunkSync(at: point)
         
         TSChunkNodeGenerator.shared.prepare(for: chunk) {
             self.loadedChunks.insert(chunk)
@@ -91,18 +104,25 @@ class TSChunkLoader {
         TSChunkFileLoader.shared.saveChunk(unloaded)
     }
     
-    public init() {
-        TSEventLoop.shared.register(self)
+    
+    private func _calcurateChunkPosition(from globalPoint: TSVector3) -> TSVector3 {
+        let chunkPoint = _calcurateChunkPoint(from: globalPoint.vector2).vector3(y: 0)
         
-        TSTick.shared.subscribe(10) {
-            self._updateChunkCreate()
-            self._updateChunkDestoroy()
-        }
+        let position = (globalPoint - chunkPoint).positive
         
-        TSEventLoop.shared.register(self)
+        return position
+    }
+    
+    private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
+        
+        return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
     }
 }
 
 extension TSChunkLoader: TSEventLoopDelegate {
+    func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
+        
+    }
+    
     
 }

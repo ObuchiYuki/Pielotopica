@@ -175,19 +175,6 @@ public class TSTerrainManager {
         
         return points
     }
-    
-    private func _calcurateChunkPosition(from globalPoint: TSVector3) -> TSVector3 {
-        let chunkPoint = _calcurateChunkPoint(from: globalPoint.vector2).vector3(y: 0)
-        
-        let position = (globalPoint - chunkPoint).positive
-        
-        return position
-    }
-    
-    private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
-        
-        return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
-    }
 }
 
 extension TSTerrainManager: TSEventLoopDelegate {
