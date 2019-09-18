@@ -36,6 +36,8 @@ public class TSTerrainManager {
             self._updateChunkCreate()
             self._updateChunkDesktoroy()
         }
+        
+        TSEventLoop.shared.register(self)
     }
     
     private func _updateChunkCreate() {
