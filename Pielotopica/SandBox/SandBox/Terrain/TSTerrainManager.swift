@@ -82,6 +82,7 @@ public class TSTerrainManager {
             }
         }
     }
+    
     public func chunk(at point: TSChunkPoint) -> TSChunk {
         if let chunk = loadedChunks.first(where: {$0.point == point}) {
             print("loaded")
