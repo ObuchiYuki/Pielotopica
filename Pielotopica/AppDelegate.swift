@@ -22,16 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        TSTick.shared.subscribe {
-            guard let scene = GKGameViewController._debug?.scnView.scene else {return}
-            
-            TSTick.shared.next(1) {
-                assert(scene.rootNode.childNodes.count == 84, "\(scene.rootNode.childNodes.count) is not 84")
-                print("root", scene.rootNode.childNodes.count)
-                print("acas", TSChunkNodeGenerator.shared.cache.count)
-            }
-        }
-        
         TSFuelData.shared.setMaxFuel(1000)
         TSFuelData.shared.setMaxHeart(100)
         
