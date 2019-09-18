@@ -13,6 +13,7 @@ import Foundation
 public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
+    private var updation = [()->()]()
     private var stack = [Int: [String: ()->()]]()
     
     // ================================================================== //
@@ -25,7 +26,10 @@ public class TSTick {
     
     // ================================================================== //
     // MARK: - Methods -
-    
+    public func subscribe( _ block: @escaping ()->()) {
+        self.updation.append(block)
+        
+    }
     public func async(_ times:Int = 0, identifier: String = "" , _ block: @escaping ()->()) {
         self.next(times, identifier: identifier, {
             self.asyncQueue.async {
@@ -46,6 +50,7 @@ public class TSTick {
     // ================================================================== //
     // MARK: - Privates -
     private func _tickDidUpdated(to value: UInt) {
+        updation.forEach{ $0() }
         
         if stack[0] != nil {
             while !stack[0]!.isEmpty {

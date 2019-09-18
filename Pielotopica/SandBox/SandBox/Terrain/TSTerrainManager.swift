@@ -29,15 +29,16 @@ public class TSTerrainManager {
     
     // ======================================================================== //
     // MARK: - Methods -
-    
+    init() {
+        TSTick.shared
+    }
     public func didPlayerMoved(to point: TSVector2) {
         let playerPoint = self._calcurateChunkPoint(from: point)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
         for loadablePoint in loadablePoints {
-            var completion = {}
             if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
-
+                _loadChunk(at: loadablePoint, {})
             }
         }
         
