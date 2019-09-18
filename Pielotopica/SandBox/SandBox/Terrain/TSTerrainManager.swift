@@ -73,12 +73,15 @@ public class TSTerrainManager {
     
     public func chunk(at point: TSChunkPoint) -> TSChunk {
         if let chunk = loadedChunks.first(where: {$0.point == point}) {
+            print("loaded")
             return chunk
         }
         if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+            print("saved")
             return saved
         }
     
+        print("generated")
         let chunk = TSChunkGenerator.shared.generateChunk(for: point)
         return chunk
     }
