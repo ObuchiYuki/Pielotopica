@@ -33,11 +33,12 @@ public class TSTerrainManager {
     // MARK: - Methods -
     init() {
         TSTick.shared.subscribe {
-            self._update()
+            self._updateChunkCreate()
+            self._updateChunkDesktoroy()
         }
     }
     
-    private func _update() {
+    private func _updateChunkCreate() {
         let playerPoint = self._calcurateChunkPoint(from: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
@@ -46,6 +47,11 @@ public class TSTerrainManager {
                 _loadChunk(at: loadablePoint, {})
             }
         }
+    }
+    
+    private func _updateChunkDesktoroy(){
+        let playerPoint = self._calcurateChunkPoint(from: playerPosition)
+        let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
         
         for loadedChunk in self.loadedChunks {
             if !loadablePoints.contains(loadedChunk.point) {
@@ -193,11 +199,11 @@ public class TSTerrainManager {
             TSChunkNodeGenerator.shared.prepare(for: chunk, completion)
             
             DispatchQueue.main.async {
-                self.loadedChunks.insert(chunk)
-                
                 self.delegates.forEach {
                     $0.chunkDidLoad(chunk)
                 }
+                
+                self.loadedChunks.insert(chunk)
             }
         }
     }
