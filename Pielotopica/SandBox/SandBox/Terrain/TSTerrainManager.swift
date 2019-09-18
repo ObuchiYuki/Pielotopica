@@ -41,7 +41,7 @@ public class TSTerrainManager {
     }
     
     public func getChunkSync(at point: TSChunkPoint) -> TSChunk {
-        if let chunk = loader.loadedChunks.first(where: {$0.point == point}) {
+        if let chunk = loader.getChunkSync(at: point) {
             return chunk
         }
         if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
@@ -53,7 +53,7 @@ public class TSTerrainManager {
     }
     
     public func getAllAnchors() -> [TSVector3] {
-        return loader.loadedChunks.flatMap{ $0.anchors }
+        return loader.getAllLoadedChunks().flatMap{ $0.anchors }
     }
     
     private func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {

@@ -19,13 +19,19 @@ class TSChunkLoader {
     static let shared = TSChunkLoader()
     
     public var delegates = RMWeakSet<TSChunkLoaderDelegate>()
-    public var loadedChunks = Set<TSChunk>()
+    private var loadedChunks = Set<TSChunk>()
     
     private var playerPosition = TSVector2.zero
     
     
     // ======================================================================== //
     // MARK: - Methods -
+    public func getAllLoadedChunks() -> Set<TSChunk> {
+        return loadedChunks
+    }
+    public func getChunkSync(at point: TSChunkPoint) -> TSChunk? {
+        return loadedChunks.first(where: {$0.point == point})
+    }
     
     public func playerDidMove(to point: TSVector2) {
         playerPosition = point
