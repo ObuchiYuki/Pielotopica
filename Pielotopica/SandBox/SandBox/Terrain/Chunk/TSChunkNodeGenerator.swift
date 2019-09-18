@@ -10,6 +10,12 @@ import SceneKit
 
 // MARK: - TSChunkNodeGenerator -
 
+extension SCNNode {
+    static func == (left: SCNNode, right: SCNNode) -> Bool {
+        return left === right
+    }
+}
+
 public class TSChunkNodeGenerator {
     
     public static let chunkPrepareQueue = DispatchQueue(label: "com.topica.chunkPrepareQueue")
