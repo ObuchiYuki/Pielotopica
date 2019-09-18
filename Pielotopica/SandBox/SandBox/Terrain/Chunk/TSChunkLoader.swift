@@ -19,13 +19,18 @@ class TSChunkLoader {
     static let shared = TSChunkLoader()
     
     public var delegates = RMWeakSet<TSChunkManagerDelegate>()
+    public var loadedChunks = Set<TSChunk>()
     
     private let manager = TSTerrainManager.shared
     private var playerPosition = TSVector2.zero
-    private var loadedChunks = Set<TSChunk>()
+    
     
     // ======================================================================== //
     // MARK: - Methods -
+    
+    public func movePlayer(to point: TSVector2) {
+        playerPosition = point
+    }
     
     private var _updateChunkCreateLock = RMLock()
     

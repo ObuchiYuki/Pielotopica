@@ -20,6 +20,7 @@ public class TSTerrainManager {
     // MARK: - Methods -
     
     public func didPlayerMoved(to point: TSVector2) {
+        loader
         playerPosition = point
         
     }
@@ -27,12 +28,12 @@ public class TSTerrainManager {
     public func getChunk(contains point: TSVector2) -> TSChunk {
         let chunkPoint = _calcurateChunkPoint(from: point)
         
-        return chunkSync(at: chunkPoint)
+        return getChunkSync(at: chunkPoint)
     }
     
     public func getChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->()) {
         DispatchQueue.global(qos: .userInteractive).async {
-            let chunk = self.chunkSync(at: point)
+            let chunk = self.getChunkSync(at: point)
             
             DispatchQueue.main.async {
                 completion(chunk)
@@ -54,10 +55,6 @@ public class TSTerrainManager {
     
     public func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {
         return _calcurateChunkPosition(from: point)
-    }
-    
-    public func getAllAnchors() -> [TSVector3] {
-        return loadedChunks.flatMap{ $0.anchors }
     }
     
     // ============================================= //
