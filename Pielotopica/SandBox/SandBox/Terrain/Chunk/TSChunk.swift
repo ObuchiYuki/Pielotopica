@@ -113,3 +113,17 @@ extension TSChunk: CustomStringConvertible {
         return u
     }
 }
+
+extension TSChunk {
+    static func convertToChunkPoint(containing point: TSVector2) -> TSChunkPoint {
+        return TSChunkPoint(point.x16 / TSChunk.sideWidth, point.z16 / TSChunk.sideWidth)
+    }
+    
+    static func convertToChunkPosition(fromGlobal globalPoint: TSVector3) -> TSVector3 {
+        let chunkPoint = convertToChunkPoint(containing: globalPoint.vector2).vector3(y: 0)
+        
+        let position = (globalPoint - chunkPoint).positive
+        
+        return position
+    }
+}

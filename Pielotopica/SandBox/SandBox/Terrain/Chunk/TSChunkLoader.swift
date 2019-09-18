@@ -38,7 +38,7 @@ internal class TSChunkLoader {
         if _updateChunkCreateLock.isLocked { return }
         _updateChunkCreateLock.lock()
         
-        let playerPoint = self._calcurateChunkPoint(from: playerPosition)
+        let playerPoint = TSChunk.convertToChunkPoint(containing: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
         DispatchQueue.global(qos: .userInteractive).async {
@@ -60,7 +60,7 @@ internal class TSChunkLoader {
         if _updateChunkDestoroyLock.isLocked { return }
         _updateChunkDestoroyLock.lock()
         
-        let playerPoint = self._calcurateChunkPoint(from: playerPosition)
+        let playerPoint = TSChunk.convertToChunkPoint(containing: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
         
         for loadedChunk in self.loadedChunks {
@@ -119,20 +119,6 @@ internal class TSChunkLoader {
         self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
         
         TSChunkFileLoader.shared.saveChunk(unloaded)
-    }
-    
-    
-    private func _calcurateChunkPosition(from globalPoint: TSVector3) -> TSVector3 {
-        let chunkPoint = _calcurateChunkPoint(from: globalPoint.vector2).vector3(y: 0)
-        
-        let position = (globalPoint - chunkPoint).positive
-        
-        return position
-    }
-    
-    private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
-        
-        return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
     }
 }
 

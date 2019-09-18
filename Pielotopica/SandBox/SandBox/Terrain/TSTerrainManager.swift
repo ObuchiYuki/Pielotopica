@@ -20,12 +20,12 @@ public class TSTerrainManager {
     // MARK: - Methods -
     
     public func didPlayerMoved(to point: TSVector2) {
-        loader.playerDidMove(to: point)        
         
+        loader.playerDidMove(to: point)
     }
     
     public func getChunk(contains point: TSVector2) -> TSChunk {
-        let chunkPoint = _calcurateChunkPoint(from: point)
+        let chunkPoint = TSChunk.convertToChunkPoint(containing: point)
         
         return getChunkSync(at: chunkPoint)
     }
@@ -52,8 +52,8 @@ public class TSTerrainManager {
         return chunk
     }
     
-    public func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {
-        return _calcurateChunkPosition(from: point)
+    private func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {
+        return TSChunk.convertToChunkPosition(fromGlobal: point)
     }
     
     // ============================================= //
