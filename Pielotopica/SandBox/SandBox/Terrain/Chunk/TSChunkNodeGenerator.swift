@@ -23,7 +23,7 @@ public class TSChunkNodeGenerator {
     // MARK: - Privates -
     /// 生成済みのノードです。
     /// [globalPoint: Node]
-    private var cache = [TSVector3: SCNNode]()
+    fileprivate var cache = [TSVector3: SCNNode]()
     
     private var preparingChunk = Set<TSChunk>()
     
@@ -48,6 +48,7 @@ public class TSChunkNodeGenerator {
             
             DispatchQueue.main.async {
                 self.preparingChunk.remove(chunk)
+                
                 completion()
             }
         }
