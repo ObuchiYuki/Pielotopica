@@ -32,7 +32,7 @@ public class TSTerrainManager {
     // ======================================================================== //
     // MARK: - Methods -
     public init() {
-        TSTick.shared.subscribe {
+        TSTick.shared.subscribe(10) {
             self._updateChunkCreate()
             self._updateChunkDesktoroy()
         }
@@ -40,7 +40,13 @@ public class TSTerrainManager {
         TSEventLoop.shared.register(self)
     }
     
+    
+    private var _updateChunkCreateLock = RMLock()
+    
     private func _updateChunkCreate() {
+        if _updateChunkCreateLock.isLocked { return }
+        _updateChunkCreateLock.lock()
+        
         let playerPoint = self._calcurateChunkPoint(from: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
@@ -49,9 +55,16 @@ public class TSTerrainManager {
                 _loadChunk(at: loadablePoint, {})
             }
         }
+        
+        _updateChunkCreateLock.unlock()
     }
     
+    private var _updateChunkDesktoroyLock = RMLock()
+    
     private func _updateChunkDesktoroy(){
+        if _updateChunkDesktoroyLock.isLocked { return }
+        _updateChunkDesktoroyLock.lock()
+        
         let playerPoint = self._calcurateChunkPoint(from: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
         
@@ -60,6 +73,8 @@ public class TSTerrainManager {
                 self._unloadChunk(loadedChunk)
             }
         }
+        
+        _updateChunkDesktoroyLock.unlock()
     }
     
     public func didPlayerMoved(to point: TSVector2) {

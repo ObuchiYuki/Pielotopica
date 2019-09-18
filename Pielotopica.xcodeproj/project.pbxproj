@@ -93,6 +93,7 @@
 		B629240D231B88A800955B1E /* TS_Stone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629240C231B88A800955B1E /* TS_Stone.swift */; };
 		B637CB07232B7A9A00C97964 /* TSChunkGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B637CB06232B7A9A00C97964 /* TSChunkGenerator.swift */; };
 		B639C5A6232A006B00A1C030 /* Artboard.png in Resources */ = {isa = PBXBuildFile; fileRef = B639C5A5232A006B00A1C030 /* Artboard.png */; };
+		B646216223323FBC005EE68E /* RMLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B646216123323FBC005EE68E /* RMLock.swift */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B649D39E2312A14E00FFE551 /* _TPCaptureBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */; };
 		B64D401B231D072700CA3198 /* TP_fuel_factory.scn in Resources */ = {isa = PBXBuildFile; fileRef = B64D401A231D072700CA3198 /* TP_fuel_factory.scn */; };
@@ -361,6 +362,7 @@
 		B637CB06232B7A9A00C97964 /* TSChunkGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkGenerator.swift; sourceTree = "<group>"; };
 		B639C5A5232A006B00A1C030 /* Artboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Artboard.png; sourceTree = "<group>"; };
 		B63FD47223019E480020EEC1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B646216123323FBC005EE68E /* RMLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLock.swift; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
 		B649D39D2312A14E00FFE551 /* _TPCaptureBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _TPCaptureBottomBar.swift; sourceTree = "<group>"; };
 		B64D401A231D072700CA3198 /* TP_fuel_factory.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_fuel_factory.scn; sourceTree = "<group>"; };
@@ -674,6 +676,7 @@
 				B6E8826523126B66003F3124 /* RMLog.swift */,
 				B6DDABEA2318E7D5003F538B /* RMMeasure.swift */,
 				B61E93C12300E36C008CB325 /* extensions */,
+				B646216123323FBC005EE68E /* RMLock.swift */,
 			);
 			path = RMKit;
 			sourceTree = "<group>";
@@ -1717,6 +1720,7 @@
 				B64D401F231D076900CA3198 /* TS_FuelFactory.swift in Sources */,
 				B61E93B72300E356008CB325 /* TPCommon.swift in Sources */,
 				B64D4027231D0B2300CA3198 /* TSI_IronWall.swift in Sources */,
+				B646216223323FBC005EE68E /* RMLock.swift in Sources */,
 				B61E93F62300E38A008CB325 /* GKActionTimingMode.swift in Sources */,
 				B667BA5C230B776C0038B098 /* YOLO+Helpers.swift in Sources */,
 				B6B9CE84232B2E8700441094 /* TSChunk.swift in Sources */,
