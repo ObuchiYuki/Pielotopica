@@ -151,8 +151,8 @@ class TPSandBox3DSceneModel {
     
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {
-        
-        let anchor = TSChunkNodeGenerator.shared.anchor(of: touchedNode)
+        print("===================================================")
+        let anchor = nodeGenerator.anchor(of: touchedNode)
         let chunk = TSTerrainManager.shared.chunk(contains: anchor.vector2)
         TSTerrainManager.shared.dump()
         print(chunk.layerDescription(y: 0))
@@ -164,8 +164,6 @@ class TPSandBox3DSceneModel {
         print("loaded contains: ", points.contains(chunk.point))
         
         _ = TSTerrainManager.shared.chunk(contains: anchor.vector2)
-        
-
         
         touchedNode.illuminantRed()
         

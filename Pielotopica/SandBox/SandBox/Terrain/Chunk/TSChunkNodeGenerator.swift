@@ -10,12 +10,6 @@ import SceneKit
 
 // MARK: - TSChunkNodeGenerator -
 
-extension SCNNode {
-    static func == (left: SCNNode, right: SCNNode) -> Bool {
-        return left === right
-    }
-}
-
 public class TSChunkNodeGenerator {
     
     public static let chunkPrepareQueue = DispatchQueue(label: "com.topica.chunkPrepareQueue")
@@ -42,7 +36,14 @@ public class TSChunkNodeGenerator {
     }
     
     public func anchor(of node: SCNNode) -> TSVector3 {
-        guard let vector = cache.first(where: {vector, node in node == node})?.0 else { fatalError() }
+        print(cache.keys.map{$0})
+        guard let vector = cache.first(where: {vector, _node in _node == node})?.0 else {
+            guard let vector = cache.first(where: {vector, _node in _node == node.parent})?.0 else {
+                fatalError()
+            }
+            
+            return vector
+        }
         
         return vector
     }
