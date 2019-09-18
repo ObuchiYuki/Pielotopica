@@ -23,11 +23,19 @@ public class TSChunkNodeGenerator {
     // MARK: - Privates -
     /// 生成済みのノードです。
     /// [globalPoint: Node]
-    var cache = [TSVector3: SCNNode]()
+    private var cache = [TSVector3: SCNNode]()
+    
+    private var preparingChunk = Set<TSChunk>()
     
     // ======================================================================== //
     // MARK: - Methods -
+    public func isFreeChunk(at chunkPoint: TSChunkPoint) -> Bool {
+        
+    }
     public func prepare(for chunk: TSChunk, _ completion: @escaping ()->() ) {
+        
+        preparingChunk.insert(chunk)
+        
         DispatchQueue.global().async {
 
             for anchor in chunk.anchors {
@@ -37,6 +45,7 @@ public class TSChunkNodeGenerator {
             }
             
             DispatchQueue.main.async {
+                self.preparingChunk.remove(chunk)
                 completion()
             }
         }
