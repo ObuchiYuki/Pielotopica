@@ -30,7 +30,9 @@ public class TSTerrainManager {
     // ======================================================================== //
     // MARK: - Methods -
     init() {
-        TSTick.shared
+        TSTick.shared.subscribe {
+            
+        }
     }
     public func didPlayerMoved(to point: TSVector2) {
         let playerPoint = self._calcurateChunkPoint(from: point)
