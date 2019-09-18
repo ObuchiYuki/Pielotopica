@@ -25,17 +25,20 @@ public class TSTerrainManager {
     // MARK: - Properties -
     public var delegates = RMWeakSet<TSTerrainManagerDelegate>()
     
+    var playerPosition = TSVector2.zero
+    
     var loadedChunks = Set<TSChunk>()
     
     // ======================================================================== //
     // MARK: - Methods -
     init() {
         TSTick.shared.subscribe {
-            
+            self._update()
         }
     }
-    public func didPlayerMoved(to point: TSVector2) {
-        let playerPoint = self._calcurateChunkPoint(from: point)
+    
+    private func _update() {
+        let playerPoint = self._calcurateChunkPoint(from: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
         for loadablePoint in loadablePoints {
@@ -49,6 +52,11 @@ public class TSTerrainManager {
                 self._unloadChunk(loadedChunk)
             }
         }
+    }
+    
+    public func didPlayerMoved(to point: TSVector2) {
+        playerPosition = point
+        
     }
     
     public func chunk(contains point: TSVector2) -> TSChunk {
