@@ -27,16 +27,22 @@ public class TSChunkNodeGenerator {
     
     // ======================================================================== //
     // MARK: - Methods -
-    public func prepare(for chunk: TSChunk) {
-        for anchor in chunk.anchors {
-            let block = chunk.getFillBlock(at: anchor)
-                
-            _ = self._createNode(of: block, at: chunk.makeGlobal(anchor))
+    public func prepare(for chunk: TSChunk, _ completion: @escaping ()->() ) {
+        DispatchQueue.global().async {
+
+            for anchor in chunk.anchors {
+                let block = chunk.getFillBlock(at: anchor)
+                    
+                _ = self._createNode(of: block, at: chunk.makeGlobal(anchor))
+            }
+            
+            DispatchQueue.main.async {
+                completion()
+            }
         }
     }
     
     public func anchor(of node: SCNNode) -> TSVector3 {
-        print(cache.keys.map{$0})
         guard let vector = cache.first(where: {vector, _node in _node == node})?.0 else {
             guard let vector = cache.first(where: {vector, _node in _node == node.parent})?.0 else {
                 fatalError()
@@ -61,9 +67,12 @@ public class TSChunkNodeGenerator {
     }
     
     public func destoryNode(at anchorPoint:TSVector3) {
-        guard let node = self.cache.removeValue(forKey: anchorPoint) else { fatalError() }
-            
-        node.removeFromParentNode()
+        DispatchQueue.main.async {
+
+            guard let node = self.cache.removeValue(forKey: anchorPoint) else { fatalError() }
+                
+            node.removeFromParentNode()
+        }
     }
     
     // ======================================================================== //
