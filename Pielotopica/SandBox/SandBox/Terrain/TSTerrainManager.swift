@@ -44,7 +44,7 @@ public class TSTerrainManager {
     private var _updateChunkCreateLock = RMLock()
     
     private func _updateChunkCreate() {
-        if _updateChunkCreateLock.isLocked { return }
+        if _updateChunkCreateLock.isLocked { return print("Locked") }
         _updateChunkCreateLock.lock()
         
         let playerPoint = self._calcurateChunkPoint(from: playerPosition)
@@ -62,7 +62,7 @@ public class TSTerrainManager {
     private var _updateChunkDesktoroyLock = RMLock()
     
     private func _updateChunkDesktoroy(){
-        if _updateChunkDesktoroyLock.isLocked { return }
+        if _updateChunkDesktoroyLock.isLocked { return print("Locked") }
         _updateChunkDesktoroyLock.lock()
         
         let playerPoint = self._calcurateChunkPoint(from: playerPosition)
@@ -221,11 +221,11 @@ public class TSTerrainManager {
             }
         }
     }
-    #endif
+    
     public func dump() {
         print(_dump())
     }
-    
+    #endif
     // ======================================================================== //
     // MARK: - Privates -
     
