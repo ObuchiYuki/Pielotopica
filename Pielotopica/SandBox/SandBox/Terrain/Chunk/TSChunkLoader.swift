@@ -21,10 +21,8 @@ class TSChunkLoader {
     public var delegates = RMWeakSet<TSChunkManagerDelegate>()
     
     private let manager = TSTerrainManager.shared
-    
-    var playerPosition = TSVector2.zero
-    
-    var loadedChunks = Set<TSChunk>()
+    private var playerPosition = TSVector2.zero
+    private var loadedChunks = Set<TSChunk>()
     
     // ======================================================================== //
     // MARK: - Methods -
@@ -82,7 +80,21 @@ class TSChunkLoader {
     }
     
     // ======================================================================== //
-    // MARK: - Private -
+    // MARK: - Privates -
+    
+    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {
+        let distance = TSOptionSaveData.shared.renderDistance
+        
+        var points = Set<TSChunkPoint>()
+        
+        for xd in -distance...distance {
+            for zd in -distance...distance {
+                points.insert(point + TSChunkPoint(Int16(xd), Int16(zd)))
+            }
+        }
+        
+        return points
+    }
     
     private func _loadChunkSync(at point: TSChunkPoint) {
         guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
