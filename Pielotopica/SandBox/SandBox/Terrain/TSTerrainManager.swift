@@ -20,8 +20,7 @@ public class TSTerrainManager {
     // MARK: - Methods -
     
     public func didPlayerMoved(to point: TSVector2) {
-        loader
-        playerPosition = point
+        loader.playerDidMove(to: point)        
         
     }
     

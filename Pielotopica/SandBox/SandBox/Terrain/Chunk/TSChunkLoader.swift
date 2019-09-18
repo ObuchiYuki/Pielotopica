@@ -15,7 +15,7 @@ public protocol TSChunkManagerDelegate {
     func chunkDidUnload(_ chunk: TSChunk)
 }
 
-class TSChunkLoader {
+internal class TSChunkLoader {
     static let shared = TSChunkLoader()
     
     public var delegates = RMWeakSet<TSChunkManagerDelegate>()
@@ -28,7 +28,7 @@ class TSChunkLoader {
     // ======================================================================== //
     // MARK: - Methods -
     
-    public func movePlayer(to point: TSVector2) {
+    public func playerDidMove(to point: TSVector2) {
         playerPosition = point
     }
     
