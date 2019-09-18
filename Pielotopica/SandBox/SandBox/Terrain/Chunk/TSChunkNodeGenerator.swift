@@ -29,9 +29,11 @@ public class TSChunkNodeGenerator {
     
     // ======================================================================== //
     // MARK: - Methods -
+    
     public func isFreeChunk(at chunkPoint: TSChunkPoint) -> Bool {
-        
+        return preparingChunk.contains(where: { $0.point == chunkPoint })
     }
+    
     public func prepare(for chunk: TSChunk, _ completion: @escaping ()->() ) {
         
         preparingChunk.insert(chunk)
