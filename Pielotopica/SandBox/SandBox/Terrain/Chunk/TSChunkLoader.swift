@@ -141,7 +141,7 @@ extension TSChunkLoader: TSEventLoopDelegate {
             }
         }
         
-        if tick.value % TSChunkLoader.savePerTick == 50 {
+        if tick.value % TSChunkLoader.savePerTick == TSChunkLoader.savePerTick / 2 {
             for unloaded in unloadedChunks {
                 TSChunkFileLoader.shared.saveChunk(unloaded)
             }
