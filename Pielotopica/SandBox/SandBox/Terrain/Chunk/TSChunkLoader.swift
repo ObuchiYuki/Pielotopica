@@ -134,7 +134,14 @@ class TSChunkLoader {
 extension TSChunkLoader: TSEventLoopDelegate {
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
+        if tick.value % TSTerrainManager.savePerTick == 0 {
+            for loadedChunk in self.loadedChunks {
+                if loadedChunk.isEdited {
+                    TSChunkFileLoader.shared.saveChunk(loadedChunk)
+                }
+            }
+        }
+        
     }
-    
     
 }
