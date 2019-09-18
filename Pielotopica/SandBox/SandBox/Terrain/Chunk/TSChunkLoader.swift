@@ -21,7 +21,6 @@ class TSChunkLoader {
     public var delegates = RMWeakSet<TSChunkLoaderDelegate>()
     public var loadedChunks = Set<TSChunk>()
     
-    private let manager = TSTerrainManager.shared
     private var playerPosition = TSVector2.zero
     
     
@@ -104,7 +103,7 @@ class TSChunkLoader {
     private func _loadChunkSync(at point: TSChunkPoint) {
         guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
         
-        let chunk = manager.getChunkSync(at: point)
+        let chunk = TSTerrainManager.shared.getChunkSync(at: point)
         
         TSChunkNodeGenerator.shared.prepare(for: chunk) {
             self.loadedChunks.insert(chunk)
