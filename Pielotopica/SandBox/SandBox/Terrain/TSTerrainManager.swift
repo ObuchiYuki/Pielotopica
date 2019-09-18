@@ -73,6 +73,15 @@ public class TSTerrainManager {
         return chunk(at: chunkPoint)
     }
     
+    public func chunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->()) {
+        DispatchQueue.global(qos: .userInteractive).async {
+            let chunk = self.chunk(at: point)
+            
+            DispatchQueue.main.async {
+                completion(chunk)
+            }
+        }
+    }
     public func chunk(at point: TSChunkPoint) -> TSChunk {
         if let chunk = loadedChunks.first(where: {$0.point == point}) {
             print("loaded")
