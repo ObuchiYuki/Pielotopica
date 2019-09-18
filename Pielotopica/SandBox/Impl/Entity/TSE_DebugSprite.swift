@@ -43,8 +43,8 @@ private class DebugSprite: SKSpriteNode {
         label.fontSize = 16
         label.verticalAlignmentMode = .center
         label.horizontalAlignmentMode = .center
-        
         label.fontColor = .white
+        
         self.addChild(label)
     }
     

@@ -222,7 +222,6 @@ extension GK3DSceneController: SCNSceneRendererDelegate{
         self.willRenderScene()
     }
     public func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval) {
-    
         self.didRenderScene()
     }
 }

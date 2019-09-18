@@ -152,7 +152,7 @@ extension TPSandboxSceneController: TPSandboxSceneModelBinder {
     }
     func __zoomCamera(to scale:Double) {
         self.camera.orthographicScale = scale
-        
+        print("camera zoom \(scale)")
     }
     
     // - Stage -
@@ -169,6 +169,7 @@ extension TPSandboxSceneController: TPSandboxSceneModelBinder {
             UIImage(named: "sky-5"),
         ]
     }
+    
     func __makeNight() {
         directionalLight.intensity = 50
         ambientLight.intensity = 50
