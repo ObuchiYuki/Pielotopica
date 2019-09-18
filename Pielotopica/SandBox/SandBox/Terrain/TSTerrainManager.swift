@@ -78,10 +78,10 @@ public class TSTerrainManager {
             print("loaded")
             return chunk
         }
-        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
-            print("saved")
-            return saved
-        }
+        //if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+        //    print("saved")
+        //    return saved
+        //}
     
         print("generated")
         let chunk = TSChunkGenerator.shared.generateChunk(for: point)
@@ -220,11 +220,7 @@ public class TSTerrainManager {
         
         self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
         
-        DispatchQueue.global().async {
-            print("save")
-            //TSChunkFileLoader.shared.saveChunk(unloaded)
-            print("saved")
-        }
+        TSChunkFileLoader.shared.saveChunk(unloaded)
     }
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {
@@ -300,7 +296,6 @@ extension TSTerrainManager: TSEventLoopDelegate {
                     //TSChunkFileLoader.shared.saveChunk(loadedChunk)
                 }
             }
-            
         }
         
     }
