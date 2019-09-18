@@ -223,7 +223,7 @@ public class TSTerrainManager {
     }
     
     public func dump() {
-        print(_dump())
+        debugPrint(_dump())
     }
     #endif
     // ======================================================================== //
