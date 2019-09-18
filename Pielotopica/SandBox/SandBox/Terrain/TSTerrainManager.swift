@@ -212,7 +212,9 @@ public class TSTerrainManager {
         self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
         
         DispatchQueue.global().async {
-            //TSChunkFileLoader.shared.saveChunk(unloaded)
+            print("save")
+            TSChunkFileLoader.shared.saveChunk(unloaded)
+            print("saved")
         }
     }
     
