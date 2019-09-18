@@ -286,3 +286,20 @@ public class TSTerrainManager {
         
     }
 }
+
+extension TSTerrainManager: TSEventLoopDelegate {
+    static let savePerTick:UInt = 100
+    
+    public func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
+        
+        if tick.value % TSTerrainManager.savePerTick == 0 {
+            DispatchQueue.global().async {
+                for loadedChunk in loadedChunks {
+                    TSChunkFileLoader.shared.saveChunk(loadedChunk)
+                }
+            }
+            
+        }
+        
+    }
+}

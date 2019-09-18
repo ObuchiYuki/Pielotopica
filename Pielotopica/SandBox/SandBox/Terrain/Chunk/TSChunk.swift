@@ -63,17 +63,6 @@ public class TSChunk {
     }
 }
 
-extension TSChunk: TSEventLoopDelegate {
-    static let savePerTick:UInt = 100
-    public func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
-        
-        if tick.value % TSChunk.savePerTick {
-            
-        }
-        
-    }
-}
-
 extension TSChunk {
     public static let sideWidth: Int16 = 16
     public static let height: Int16 = 4
