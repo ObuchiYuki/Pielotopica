@@ -26,6 +26,8 @@ class TSChunkLoader {
     var loadedChunks = Set<TSChunk>()
     
     public init() {
+        TSEventLoop.shared.register(self)
+        
         TSTick.shared.subscribe(10) {
             self._updateChunkCreate()
             self._updateChunkDestoroy()
@@ -33,4 +35,8 @@ class TSChunkLoader {
         
         TSEventLoop.shared.register(self)
     }
+}
+
+extension TSChunkLoader: TSEventLoopDelegate {
+    
 }
