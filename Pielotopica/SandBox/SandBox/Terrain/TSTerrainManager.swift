@@ -222,7 +222,7 @@ public class TSTerrainManager {
         
         DispatchQueue.global().async {
             print("save")
-            TSChunkFileLoader.shared.saveChunk(unloaded)
+            //TSChunkFileLoader.shared.saveChunk(unloaded)
             print("saved")
         }
     }
@@ -296,8 +296,8 @@ extension TSTerrainManager: TSEventLoopDelegate {
         
         if tick.value % TSTerrainManager.savePerTick == 0 {
             DispatchQueue.global().async {
-                for loadedChunk in loadedChunks {
-                    TSChunkFileLoader.shared.saveChunk(loadedChunk)
+                for loadedChunk in self.loadedChunks {
+                    //TSChunkFileLoader.shared.saveChunk(loadedChunk)
                 }
             }
             
