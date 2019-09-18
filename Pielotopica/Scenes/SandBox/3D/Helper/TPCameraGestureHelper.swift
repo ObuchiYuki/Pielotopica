@@ -20,7 +20,6 @@ class TPSandboxCameraGestureHelper {
     
     weak var delegate:TPCameraGestureHelperDelegate!
     
-    private var timeStamp = RMTimeStamp()
     private var pinchScale:Float = 0.5
     private var originalPinchScale:Float = 1.0
     private var cameraStartPosition = SCNVector3.zero
@@ -70,4 +69,5 @@ class TPSandboxCameraGestureHelper {
         cameraStartPosition = position
         
     }
+    
 }

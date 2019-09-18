@@ -203,7 +203,9 @@ class TPSandBox3DSceneModel {
         
         binder.__makeDay()
         
-        TSTerrainManager.shared.enableDebug()
+        TSTick.shared.next {
+            TSTerrainManager.shared.enableDebug()
+        }
         
         //if first luanch {
             _createStage1()

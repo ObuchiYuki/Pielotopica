@@ -10,12 +10,12 @@ import SpriteKit
 
 #if DEBUG
 class TSE_DebugSprite: TSSprite {
+    static var initirizedList = [TSE_DebugSprite]()
+    
     private let sprite = DebugSprite()
     
     static func show(at point: TSVector3, with text: String) {
         guard let scene = GKGameViewController._debug?.scnView.scene else {return}
-        
-        print(scene)
         
         let se = TSE_DebugSprite(text: text)
         se.show(at: point.scnVector3, in: scene)
@@ -28,6 +28,7 @@ class TSE_DebugSprite: TSSprite {
     
     init(text: String) {
         super.init(sprite: sprite)
+        TSE_DebugSprite.initirizedList.append(self)
         
         self.sprite.label.text = text
     }

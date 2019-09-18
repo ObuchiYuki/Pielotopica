@@ -27,7 +27,7 @@ class TSSprite {
     
     func show(at position:SCNVector3, in scene:SCNScene) {
         let plane = SCNPlane(width: sprite.size.width / 100, height: sprite.size.height / 100)
-        plane.firstMaterial?.emission.contents = _createSKScene()
+        plane.firstMaterial?.diffuse.contents = _createSKScene()
         
         _node.geometry = plane
         _node.position = position
