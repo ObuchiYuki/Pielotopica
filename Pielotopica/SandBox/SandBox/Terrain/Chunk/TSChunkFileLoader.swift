@@ -45,7 +45,10 @@ public class TSChunkFileLoader {
         
         do {
             let _data = try decoder.decode(_TSChunkData.self, from: data)
-            return _data.chunk
+            let chunk = _data.chunk
+            chunk.point = point
+            
+            return chunk
             
         }catch {
             log.error(error)

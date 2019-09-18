@@ -90,6 +90,7 @@ public class TSTerrainManager {
             return chunk
         }
         if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+            print("read from: ", point)
             print("saved", saved.point)
             
             return saved
