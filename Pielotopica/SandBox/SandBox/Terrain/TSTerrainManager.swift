@@ -34,22 +34,17 @@ public class TSTerrainManager {
         let playerPoint = self._calcurateChunkPoint(from: point)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
-        let loadPoints = loadablePoints.filter {l in
-            self.loadedChunks.allSatisfy({$0.point != l})
+        for loadablePoint in loadablePoints {
+            var completion = {}
+            if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
+
+            }
         }
         
-        for (i, loadPoint) in loadPoints.enumerated() {
-            
-            self._loadChunk(at: loadPoint, {[i] in
-                if i == loadPoints.count - 1 {
-                    for loadedChunk in self.loadedChunks {
-                        if !loadablePoints.contains(loadedChunk.point) {
-                            self._unloadChunk(loadedChunk)
-                        }
-                    }
-                }
-            })
-            
+        for loadedChunk in self.loadedChunks {
+            if !loadablePoints.contains(loadedChunk.point) {
+                self._unloadChunk(loadedChunk)
+            }
         }
     }
     
