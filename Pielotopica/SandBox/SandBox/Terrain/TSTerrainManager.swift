@@ -195,6 +195,8 @@ public class TSTerrainManager {
     private func _loadChunk(at point: TSChunkPoint, _ completion: @escaping ()->()) {
         let chunk = self.chunk(at: point)
         
+        guard TSChunkNodeGenerator.shared.isFreeChunk(at: chunk) else { return }
+        
         TSChunkNodeGenerator.shared.prepare(for: chunk) {
             self.delegates.forEach {
                 $0.chunkDidLoad(chunk)
