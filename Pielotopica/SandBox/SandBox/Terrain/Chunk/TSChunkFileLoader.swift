@@ -25,8 +25,8 @@ public class TSChunkFileLoader {
             let _data = _TSChunkData(chunk: chunk)
             
             do {
-                let data = try encoder.encode(_data)
-                _saveData(data, at: chunk.point)
+                let data = try self.encoder.encode(_data)
+                self._saveData(data, at: chunk.point)
             } catch {
                 log.error(error)
                 return

@@ -291,10 +291,8 @@ extension TSTerrainManager: TSEventLoopDelegate {
     public func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
         if tick.value % TSTerrainManager.savePerTick == 0 {
-            DispatchQueue.global().async {
-                for loadedChunk in self.loadedChunks {
-                    //TSChunkFileLoader.shared.saveChunk(loadedChunk)
-                }
+            for loadedChunk in self.loadedChunks {
+                //TSChunkFileLoader.shared.saveChunk(loadedChunk)
             }
         }
         
