@@ -13,6 +13,8 @@ import Foundation
 public class TSTerrainManager {
     
     public static let shared = TSTerrainManager()
+    
+    private let loader = TSChunkLoader.shared
 
     // ======================================================================== //
     // MARK: - Methods -
@@ -39,10 +41,10 @@ public class TSTerrainManager {
     }
     
     public func getChunkSync(at point: TSChunkPoint) -> TSChunk {
-        if let chunk = loadedChunks.first(where: {$0.point == point}) {
+        if let chunk = loader.loadedChunks.first(where: {$0.point == point}) {
             return chunk
         }
-        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+        if let saved = loader.loadChunk(at: point) {  // 保存済み
             return saved
         }
         
@@ -159,25 +161,6 @@ public class TSTerrainManager {
     
     // ======================================================================== //
     // MARK: - Privates -
-    private func _loadChunkSync(at point: TSChunkPoint) {
-        guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
-        
-        let chunk = self.chunkSync(at: point)
-        
-        TSChunkNodeGenerator.shared.prepare(for: chunk) {
-            self.loadedChunks.insert(chunk)
-                
-            self.delegates.forEach { $0.chunkDidLoad(chunk) }
-        }
-    }
-    
-    private func _unloadChunk(_ chunk: TSChunk) {
-        guard let unloaded = self.loadedChunks.remove(chunk) else { fatalError() }
-        
-        self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
-        
-        TSChunkFileLoader.shared.saveChunk(unloaded)
-    }
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {
         let distance = TSOptionSaveData.shared.renderDistance

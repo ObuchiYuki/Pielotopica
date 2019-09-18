@@ -68,6 +68,29 @@ class TSChunkLoader {
         
     }
     
+    // ======================================================================== //
+    // MARK: - Private -
+    
+    private func _loadChunkSync(at point: TSChunkPoint) {
+        guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
+        
+        let chunk = self.chunkSync(at: point)
+        
+        TSChunkNodeGenerator.shared.prepare(for: chunk) {
+            self.loadedChunks.insert(chunk)
+                
+            self.delegates.forEach { $0.chunkDidLoad(chunk) }
+        }
+    }
+    
+    private func _unloadChunk(_ chunk: TSChunk) {
+        guard let unloaded = self.loadedChunks.remove(chunk) else { fatalError() }
+        
+        self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
+        
+        TSChunkFileLoader.shared.saveChunk(unloaded)
+    }
+    
     public init() {
         TSEventLoop.shared.register(self)
         
