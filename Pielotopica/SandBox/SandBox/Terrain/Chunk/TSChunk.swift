@@ -12,6 +12,9 @@ import Foundation
 /// = 1024 blocks
 public class TSChunk {
     // MARK: - Properties -
+    
+    public var isEdited = true
+    
     public var point = TSChunkPoint.zero
     
     internal var fillmap:[[[UInt16]]] =
