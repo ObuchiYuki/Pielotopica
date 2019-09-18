@@ -78,13 +78,6 @@ class TSChunkLoader {
     
     private init() {
         TSEventLoop.shared.register(self)
-        
-        TSTick.shared.subscribe(10) {
-            self._updateChunkCreate()
-            self._updateChunkDestoroy()
-        }
-        
-        TSEventLoop.shared.register(self)
     }
     
     // ======================================================================== //
@@ -123,6 +116,7 @@ class TSChunkLoader {
         
         unloadedChunks.insert(unloaded)
     }
+    
 }
 
 extension TSChunkLoader: TSEventLoopDelegate {
@@ -130,6 +124,11 @@ extension TSChunkLoader: TSEventLoopDelegate {
     static let savePerTick:UInt = 200
     
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
+        
+        if tick.value % 10 == 0 {
+            self._updateChunkCreate()
+            self._updateChunkDestoroy()
+        }
         
         if tick.value % TSChunkLoader.savePerTick == 0 {
             for loadedChunk in self.loadedChunks {
