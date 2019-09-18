@@ -1,5 +1,5 @@
 //
-//  TSChunkManager.swift
+//  TSChunkLoader.swift
 //  Pielotopica
 //
 //  Created by yuki on 2019/09/18.
@@ -15,8 +15,14 @@ public protocol TSChunkManagerDelegate {
     func chunkDidUnload(_ chunk: TSChunk)
 }
 
-class TSChunkManager {
+class TSChunkLoader {
     static let shared = TSChunkManager()
     
 
+    public var delegates = RMWeakSet<TSTerrainManagerDelegate>()
+    
+    var playerPosition = TSVector2.zero
+    
+    var loadedChunks = Set<TSChunk>()
+    
 }
