@@ -23,7 +23,7 @@ public class TSChunkNodeGenerator {
     // MARK: - Privates -
     /// 生成済みのノードです。
     /// [globalPoint: Node]
-    fileprivate var cache = [TSVector3: SCNNode]()
+    var cache = [TSVector3: SCNNode]()
     
     // ======================================================================== //
     // MARK: - Methods -
