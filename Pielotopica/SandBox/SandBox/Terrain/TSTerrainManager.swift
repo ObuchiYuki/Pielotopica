@@ -221,25 +221,27 @@ public class TSTerrainManager {
             }
         }
     }
-    
-    public func dump() {
-        debugPrint(_dump())
-    }
     #endif
     // ======================================================================== //
     // MARK: - Privates -
-    
+    private var __debugInitialPoints = [TSChunkPoint]()
     private func _loadChunk(at point: TSChunkPoint, _ completion: @escaping ()->()) {
         guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
+        
+        if __debugInitialPoints.contains(point) {
+            
+        }
+        
+        __debugInitialPoints.append(point)
+        
+        
         
         self.chunkAsync(at: point) { chunk in
 
             TSChunkNodeGenerator.shared.prepare(for: chunk) {
                 self.loadedChunks.insert(chunk)
                 
-                self.delegates.forEach {
-                    $0.chunkDidLoad(chunk)
-                }
+                self.delegates.forEach { $0.chunkDidLoad(chunk) }
             }
         }
     }
@@ -277,40 +279,6 @@ public class TSTerrainManager {
     private func _calcurateChunkPoint(from pointContaining: TSVector2) -> TSChunkPoint {
         
         return TSChunkPoint(pointContaining.x16 / TSChunk.sideWidth, pointContaining.z16 / TSChunk.sideWidth)
-    }
-    
-    private func _dump() -> String {
-        let dist = TSOptionSaveData.shared.renderDistance * 2 + 2
-        let points = loadedChunks.map { $0.point }
-        var out = ""
-        
-        let minX = points.map({$0.x}).min()!.i - 1
-        let minZ = points.map({$0.z}).min()!.i - 1
-        
-        out += "\nAll Chunks\n"
-        out += "x\\z |"
-        for z in minZ...(minZ + dist) {
-            out += String(format: "%03d ", z)
-        }
-        out += "\n____|"
-        for _ in minZ...(minZ + dist) {
-            out += "____"
-        }
-        
-        for x in minX...(minX + dist) {
-            out += "\n\(String(format: "%03d", x)) |"
-            
-            for z in minZ...(minZ + dist) {
-                if points.contains(TSChunkPoint(Int16(x), Int16(z))) {
-                    out += "  * "
-                }else{
-                    out += "  - "
-                }
-            }
-        }
-        
-        return out
-        
     }
 }
 
