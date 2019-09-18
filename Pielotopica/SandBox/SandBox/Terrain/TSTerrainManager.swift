@@ -52,13 +52,17 @@ public class TSTerrainManager {
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
         for loadablePoint in loadablePoints {
-            if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
-                _loadChunk(at: loadablePoint, {})
+            DispatchQueue.global(qos: .userInteractive).async {
+                
+                if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
+                    self._loadChunkSync(at: loadablePoint)
+                }
+                
+                print("Create end")
+                self._updateChunkCreateLock.unlock()
             }
         }
         
-        print("Create end")
-        _updateChunkCreateLock.unlock()
     }
     
     private var _updateChunkDestoroyLock = RMLock()
@@ -230,7 +234,8 @@ public class TSTerrainManager {
     // ======================================================================== //
     // MARK: - Privates -
     private var __debugInitialPoints = [TSChunkPoint]()
-    private func _loadChunk(at point: TSChunkPoint, _ completion: @escaping ()->()) {
+    
+    private func _loadChunkSync(at point: TSChunkPoint) {
         guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
         
         if __debugInitialPoints.contains(point) {
@@ -238,17 +243,16 @@ public class TSTerrainManager {
         }
         
         __debugInitialPoints.append(point)
-        
-        
-        
-        self.chunkAsync(at: point) { chunk in
-
-            TSChunkNodeGenerator.shared.prepare(for: chunk) {
-                self.loadedChunks.insert(chunk)
                 
-                self.delegates.forEach { $0.chunkDidLoad(chunk) }
-            }
+        let chunk = self.chunk(at: point)
+        
+
+        TSChunkNodeGenerator.shared.prepare(for: chunk) {
+            self.loadedChunks.insert(chunk)
+                
+            self.delegates.forEach { $0.chunkDidLoad(chunk) }
         }
+        
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
