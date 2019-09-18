@@ -17,48 +17,6 @@ public class TSTerrainManager {
     // ======================================================================== //
     // MARK: - Methods -
     
-    
-    private var _updateChunkCreateLock = RMLock()
-    
-    private func _updateChunkCreate() {
-        if _updateChunkCreateLock.isLocked { return }
-        _updateChunkCreateLock.lock()
-        
-        let playerPoint = self._calcurateChunkPoint(from: playerPosition)
-        let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
-
-        DispatchQueue.global(qos: .userInteractive).async {
-            
-            for loadablePoint in loadablePoints {
-                if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
-                    self._loadChunkSync(at: loadablePoint)
-                }
-            }
-            
-            self._updateChunkCreateLock.unlock()
-        }
-        
-    }
-    
-    private var _updateChunkDestoroyLock = RMLock()
-    
-    private func _updateChunkDestoroy(){
-        if _updateChunkDestoroyLock.isLocked { return }
-        _updateChunkDestoroyLock.lock()
-        
-        let playerPoint = self._calcurateChunkPoint(from: playerPosition)
-        let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
-        
-        for loadedChunk in self.loadedChunks {
-            if !loadablePoints.contains(loadedChunk.point) {
-                self._unloadChunk(loadedChunk)
-            }
-        }
-        
-        _updateChunkDestoroyLock.unlock()
-        
-    }
-    
     public func didPlayerMoved(to point: TSVector2) {
         playerPosition = point
         
