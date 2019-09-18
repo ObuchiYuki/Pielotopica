@@ -108,6 +108,7 @@ public class TSTerrainManager {
     
     public func setFill(_ block:TSBlock, at point:TSVector3) {
         let chunk = self.chunk(contains: point.vector2)
+        chunk.isEdited = true
         let (x, y, z) = self.chunkPosition(fromGlobal: point).tuple
         
         chunk.fillmap[x][y][z] = block.index
@@ -116,6 +117,7 @@ public class TSTerrainManager {
     // MARK: - anchoBlock Getter and Setter -
     public func removeAnchorBlock(_ point: TSVector3) {
         let chunk = self.chunk(contains: point.vector2)
+        chunk.isEdited = true
         
         chunk.anchors.remove(point)
     }
@@ -134,6 +136,7 @@ public class TSTerrainManager {
     
     public func setAnchorBlock(_ block:TSBlock, at point:TSVector3) {
         let chunk = self.chunk(contains: point.vector2)
+        chunk.isEdited = true
         let chunkPosition = self.chunkPosition(fromGlobal: point)
         let (x, y, z) = chunkPosition.tuple
         
@@ -143,6 +146,7 @@ public class TSTerrainManager {
     
     public func setBlockData(_ data: TSBlockData, at point:TSVector3) {
         let chunk = self.chunk(contains: point.vector2)
+        chunk.isEdited = true
         let (x, y, z) = self.chunkPosition(fromGlobal: point).tuple
         
         chunk.datamap[x][y][z] = data.value
