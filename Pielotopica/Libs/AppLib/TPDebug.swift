@@ -36,9 +36,6 @@ func measure<T>(_ block: ()->T ) -> T {
     
 }
 
-func measure(_ block: ()->Void) {
-    measure<Void>(block)
-}
 
 
 public extension SCNNode {
