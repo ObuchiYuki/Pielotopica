@@ -159,7 +159,11 @@ public class TSTerrainEditor {
 }
 
 extension TSTerrainEditor: TSChunkLoaderDelegate {
+    static let start = Date()
+    
     public func chunkDidLoad(_ chunk: TSChunk) {
+        print("sec, ", Date().timeIntervalSince(TSTerrainEditor.start))
+        
         for anchor in chunk.anchors {
             let rotation = chunk.getRotation(at: anchor)
             let global = chunk.makeGlobal(anchor)

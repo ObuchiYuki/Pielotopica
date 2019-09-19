@@ -51,13 +51,20 @@ class TSChunkLoader {
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
+        // コールバック地獄ぇぇ async await 早く導入して...
+        
         DispatchQueue.global(qos: .userInteractive).async {
             
             for loadablePoint in loadablePoints {
-                let needsToLoad = self.loadedChunks.allSatisfy({$0.point != loadablePoint})
-                
-                if needsToLoad {
-                    self._loadChunkSync(at: loadablePoint)
+                DispatchQueue.main.async {
+                    let needsToLoad = self.loadedChunks.allSatisfy({$0.point != loadablePoint})
+                    
+                    DispatchQueue.global(qos: .userInteractive).async {
+
+                        if needsToLoad {
+                            self._loadChunkSync(at: loadablePoint)
+                        }
+                    }
                 }
             }
             
@@ -107,14 +114,17 @@ class TSChunkLoader {
     }
     
     private func _loadChunkSync(at point: TSChunkPoint) {
-        guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
-        
-        let chunk = TSTerrainManager.shared.getChunkSync(at: point)
-        
-        TSChunkNodeGenerator.shared.prepare(for: chunk) {
-            DispatchQueue.main.async {
-                self.loadedChunks.insert(chunk)
-                self.delegates.forEach { $0.chunkDidLoad(chunk) }
+        DispatchQueue.main.async {
+            guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
+            DispatchQueue.global(qos: .userInteractive).async {
+                let chunk = TSTerrainManager.shared.getChunkSync(at: point)
+                
+                TSChunkNodeGenerator.shared.prepare(for: chunk) {
+                    DispatchQueue.main.async {
+                        self.loadedChunks.insert(chunk)
+                        self.delegates.forEach { $0.chunkDidLoad(chunk) }
+                    }
+                }
             }
         }
     }
@@ -135,10 +145,8 @@ extension TSChunkLoader: TSEventLoopDelegate {
     
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
-        if tick.value % 10 == 0 {
-            self._updateChunkCreate()
-            self._updateChunkDestoroy()
-        }
+        self._updateChunkCreate()
+        self._updateChunkDestoroy()
         
         // save edited
         if tick.value % TSChunkLoader.savePerTick == 0 {
