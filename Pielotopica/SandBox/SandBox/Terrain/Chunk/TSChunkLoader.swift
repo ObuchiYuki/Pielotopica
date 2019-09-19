@@ -38,18 +38,18 @@ class TSChunkLoader {
     }
     
     private var _updateChunkCreateLock = RMLock()
-    
     private func _updateChunkCreate() {
-        if _updateChunkCreateLock.isLocked { return }
-        _updateChunkCreateLock.lock()
+        if _updateChunkCreateLock.isLocked { return } ;_updateChunkCreateLock.lock()
+        
         
         let playerPoint = TSChunk.convertToChunkPoint(containing: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
-            
         for loadablePoint in loadablePoints {
             if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
-                self._loadChunkSync(at: loadablePoint)
+                DispatchQueue.global(qos: .userInteractive).async {
+                    self._loadChunkSync(at: loadablePoint)
+                }
             }
         }
             
@@ -57,11 +57,10 @@ class TSChunkLoader {
         
     }
     
-    private var _updateChunkDestoroyLock = RMLock()
     
+    private var _updateChunkDestoroyLock = RMLock()
     private func _updateChunkDestoroy(){
-        if _updateChunkDestoroyLock.isLocked { return }
-        _updateChunkDestoroyLock.lock()
+        if _updateChunkDestoroyLock.isLocked { return } ;_updateChunkDestoroyLock.lock()
         
         let playerPoint = TSChunk.convertToChunkPoint(containing: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
@@ -103,7 +102,8 @@ class TSChunkLoader {
         let chunk = TSTerrainManager.shared.getChunkSync(at: point)
         
         TSChunkNodeGenerator.shared.prepare(for: chunk) {
-            self.loadedChunks.insert(chunk)
+            DispatchQueue.main.async { self.loadedChunks.insert(chunk) }
+            
                 
             self.delegates.forEach { $0.chunkDidLoad(chunk) }
         }
@@ -134,7 +134,7 @@ extension TSChunkLoader: TSEventLoopDelegate {
             for loadedChunk in self.loadedChunks {
                 if loadedChunk.isEdited {
                     loadedChunk.isEdited = false
-                    TSChunkFileLoader.shared.saveChunk(loadedChunk)
+                    TSChunkFileLoader.shared.saveChunkAsync(loadedChunk)
                 }
             }
         }
@@ -142,7 +142,7 @@ extension TSChunkLoader: TSEventLoopDelegate {
         if tick.value % TSChunkLoader.savePerTick == TSChunkLoader.savePerTick / 2 {
             DispatchQueue.global(qos: .background).async {
                 for unloaded in self.unloadedChunks {
-                    TSChunkFileLoader.shared.saveChunk(unloaded)
+                    TSChunkFileLoader.shared.saveChunkAsync(unloaded)
                 }
             }
         }

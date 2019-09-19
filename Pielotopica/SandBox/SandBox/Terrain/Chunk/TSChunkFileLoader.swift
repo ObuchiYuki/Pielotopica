@@ -21,7 +21,7 @@ public class TSChunkFileLoader {
     
     private let decoder = BoxDecoder()
     
-    public func saveChunk(_ chunk:TSChunk) {
+    public func saveChunkAsync(_ chunk:TSChunk) {
         DispatchQueue.global(qos: .background).async {
             let _data = _TSChunkData(chunk: chunk)
             
