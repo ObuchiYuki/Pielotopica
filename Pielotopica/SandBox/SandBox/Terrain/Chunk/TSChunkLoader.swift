@@ -16,9 +16,14 @@ public protocol TSChunkLoaderDelegate {
 }
 
 class TSChunkLoader {
+    // ======================================================================== //
+    // MARK: - Properties -
+    
     static let shared = TSChunkLoader()
     
     public var delegates = RMWeakSet<TSChunkLoaderDelegate>()
+    
+    // MARK: - Privates -
     private var loadedChunks = Set<TSChunk>()
     private var unloadedChunks = Set<TSChunk>()
     
@@ -26,10 +31,12 @@ class TSChunkLoader {
     
     // ======================================================================== //
     // MARK: - Methods -
+    
     public func getAllLoadedChunks() -> Set<TSChunk> {
         return loadedChunks
     }
-    public func getChunkSync(at point: TSChunkPoint) -> TSChunk? {
+    
+    public func getLoadedChunkSync(at point: TSChunkPoint) -> TSChunk? {
         return loadedChunks.first(where: {$0.point == point})
     }
     
