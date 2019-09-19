@@ -41,6 +41,7 @@ public class TSTerrainManager {
     }
     
     public func getChunkSync(at point: TSChunkPoint) -> TSChunk {
+        print(#function)
         if let chunk = loader.getLoadedChunkSync(at: point) {
             return chunk
         }
@@ -49,7 +50,7 @@ public class TSTerrainManager {
             return saved
         }
         
-        print(Date().timeIntervalSince(start), "s")
+        print("load saved. takes ", Date().timeIntervalSince(start), "s")
         
         let chunk = TSChunkGenerator.shared.generateChunk(for: point)
         return chunk
