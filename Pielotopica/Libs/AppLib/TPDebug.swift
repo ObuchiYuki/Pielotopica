@@ -21,6 +21,20 @@ func debug(_ item: Any...) {
 
 #if DEBUG
 
+func measure<T>(_ block: rethrows ()->T) -> T {
+    print("Start Mesurement")
+    let start = Date()
+    let returns = block()
+    print(Date().timeIntervalSince(start))
+    
+    return  returns
+}
+
+func measure(_ block: rethrows ()->Void) {
+    measure<Void>(block)
+}
+
+
 public extension SCNNode {
     func illuminantRed() {
         

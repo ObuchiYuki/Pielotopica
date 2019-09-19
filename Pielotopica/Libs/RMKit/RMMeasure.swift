@@ -7,14 +7,6 @@
 //
 
 import Foundation
-
-func measure(_ block:()->Void){
-    print("Start Mesurement")
-    let start = Date()
-    block()
-    print(Date().timeIntervalSince(start))
-}
-
 class RMMeasure {
     private static var times = [_RMTime]()
     
