@@ -46,13 +46,14 @@ class TSChunkLoader {
     
     private var _updateChunkCreateLock = RMLock()
     private func _updateChunkCreate() {
-        if _updateChunkCreateLock.isLocked { return } ;_updateChunkCreateLock.lock()
+        if _updateChunkCreateLock.isLocked { return } ; _updateChunkCreateLock.lock()
         
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
         for loadablePoint in loadablePoints {
-            if self.loadedChunks.allSatisfy({$0.point != loadablePoint}) {
+            let needsToLoad = self.loadedChunks.allSatisfy({$0.point != loadablePoint})
+            if needsToLoad {
                 DispatchQueue.global(qos: .userInteractive).async {
                     self._loadChunkSync(at: loadablePoint)
                 }
@@ -108,10 +109,10 @@ class TSChunkLoader {
         let chunk = TSTerrainManager.shared.getChunkSync(at: point)
         
         TSChunkNodeGenerator.shared.prepare(for: chunk) {
-            DispatchQueue.main.async { self.loadedChunks.insert(chunk) }
-            
-                
-            self.delegates.forEach { $0.chunkDidLoad(chunk) }
+            DispatchQueue.main.async {
+                self.loadedChunks.insert(chunk)
+                self.delegates.forEach { $0.chunkDidLoad(chunk) }
+            }
         }
     }
     
