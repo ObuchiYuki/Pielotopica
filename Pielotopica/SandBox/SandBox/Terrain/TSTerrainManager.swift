@@ -25,7 +25,7 @@ public class TSTerrainManager {
     }
     
     public func getChunkSync(contains point: TSVector2) -> TSChunk {
-        let chunkPoint = TSChunk.convertToChunkPoint(containing: point)
+        let chunkPoint = TSChunk.convertToChunkPoint(fromGlobal: point)
         
         return getChunkSync(at: chunkPoint)
     }
@@ -44,9 +44,12 @@ public class TSTerrainManager {
         if let chunk = loader.getChunkSync(at: point) {
             return chunk
         }
-        if let saved = TSChunkFileLoader.shared.loadChunk(at: point) {  // 保存済み
+        let start = Date()
+        if let saved = TSChunkFileLoader.shared.loadChunkSync(at: point) {  // 保存済み
             return saved
         }
+        
+        print(Date().timeIntervalSince(start), "s")
         
         let chunk = TSChunkGenerator.shared.generateChunk(for: point)
         return chunk

@@ -41,8 +41,7 @@ class TSChunkLoader {
     private func _updateChunkCreate() {
         if _updateChunkCreateLock.isLocked { return } ;_updateChunkCreateLock.lock()
         
-        
-        let playerPoint = TSChunk.convertToChunkPoint(containing: playerPosition)
+        let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
         for loadablePoint in loadablePoints {
@@ -62,7 +61,7 @@ class TSChunkLoader {
     private func _updateChunkDestoroy(){
         if _updateChunkDestoroyLock.isLocked { return } ;_updateChunkDestoroyLock.lock()
         
-        let playerPoint = TSChunk.convertToChunkPoint(containing: playerPosition)
+        let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
         
         for loadedChunk in self.loadedChunks {
