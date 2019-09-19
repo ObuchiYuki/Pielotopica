@@ -41,7 +41,6 @@ public class TSTerrainManager {
     }
     
     public func getChunkSync(at point: TSChunkPoint) -> TSChunk {
-        print(#function)
         if let chunk = loader.getLoadedChunkSync(at: point) {
             return chunk
         }

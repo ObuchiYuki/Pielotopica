@@ -19,8 +19,8 @@ public struct TSOptionSaveData: Codable {
     /// 設定ファイルのバージョン番号。
     public var version: String = "op.1.0"
     
-    /// プレイヤーから見えるチャンクの描画距離半径
-    public var renderDistance: Int = 4
+    /// プレイヤーから見える = チャンクの描画距離半径
+    public var renderDistance: Int = 1
     
     /// 音楽の音量
     public var musicVolume: Float = 0.5
