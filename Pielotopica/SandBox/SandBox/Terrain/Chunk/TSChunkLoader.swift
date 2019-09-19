@@ -52,12 +52,12 @@ class TSChunkLoader {
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
 
         DispatchQueue.global(qos: .userInteractive).async {
+            
             for loadablePoint in loadablePoints {
                 let needsToLoad = self.loadedChunks.allSatisfy({$0.point != loadablePoint})
+                
                 if needsToLoad {
-                    measure{
-                        self._loadChunkSync(at: loadablePoint)
-                    }
+                    self._loadChunkSync(at: loadablePoint)
                 }
             }
             
