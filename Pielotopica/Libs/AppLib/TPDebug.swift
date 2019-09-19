@@ -21,16 +21,22 @@ func debug(_ item: Any...) {
 
 #if DEBUG
 
-func measure<T>(_ block: rethrows ()->T) -> T {
-    print("Start Mesurement")
+func measure<T>(_ block: ()->T ) -> T {
+    #if DEBUG
+    debug("Start Mesurement")
     let start = Date()
+
     let returns = block()
-    print(Date().timeIntervalSince(start))
+    debug(Date().timeIntervalSince(start))
+    return returns
     
-    return  returns
+    #else
+    return block()
+    #endif
+    
 }
 
-func measure(_ block: rethrows ()->Void) {
+func measure(_ block: ()->Void) {
     measure<Void>(block)
 }
 
