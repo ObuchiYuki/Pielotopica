@@ -129,6 +129,7 @@ extension TSChunkLoader: TSEventLoopDelegate {
             self._updateChunkDestoroy()
         }
         
+        // save edited
         if tick.value % TSChunkLoader.savePerTick == 0 {
             for loadedChunk in self.loadedChunks {
                 if loadedChunk.isEdited {
@@ -138,14 +139,12 @@ extension TSChunkLoader: TSEventLoopDelegate {
             }
         }
         
+        // save unloaded
         if tick.value % TSChunkLoader.savePerTick == TSChunkLoader.savePerTick / 2 {
-            DispatchQueue.global(qos: .background).async {
-                for unloaded in self.unloadedChunks {
-                    TSChunkFileLoader.shared.saveChunkAsync(unloaded)
-                }
+            for unloaded in self.unloadedChunks {
+                TSChunkFileLoader.shared.saveChunkAsync(unloaded)
             }
         }
-        
         
     }
 }
