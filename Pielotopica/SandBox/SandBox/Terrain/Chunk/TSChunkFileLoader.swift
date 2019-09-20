@@ -36,7 +36,7 @@ public class TSChunkFileLoader {
         }
     }
     
-    public func laodChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk?)->() ) {
+    public func loadChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk?)->() ) {
         DispatchQueue.global(qos: .userInteractive).async {
             let chunk = self.loadChunkSync(at: point)
             
@@ -45,6 +45,7 @@ public class TSChunkFileLoader {
             }
         }
     }
+    
     public func loadChunkSync(at point:TSChunkPoint) -> TSChunk? {
         guard var url = _prepareDirectory() else { return nil }
         

@@ -38,28 +38,12 @@ public class TSTerrainManager {
     /// 呼び出しスレッドはどこでも構いません。
     public func getChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->()) {
         DispatchQueue.global(qos: .userInteractive).async {
-            let chunk = self.getChunkSync(at: point)
+            let chunk = self._getChunkSync_Asnyc(at: point)
             
             DispatchQueue.main.async {
                 completion(chunk)
             }
         }
-    }
-    
-    
-    public func _getChunkSync_Asnyc(at point: TSChunkPoint, _ completion: @escaping (TSChunk) -> () ) {
-        TSChunkLoader.shared.getLoadedChunkAsunc(at: point) { chunk in
-            if let chunk = chunk {
-                completion(chunk)
-            }
-        }
-        
-        if let saved = TSChunkFileLoader.shared.loadChunkSync(at: point) {  // 保存済み
-            return saved
-        }
-        
-        let chunk = TSChunkGenerator.shared.generateChunk(for: point)
-        return chunk
     }
     
     ///　チャンクを非同期的に取得します。
@@ -175,6 +159,29 @@ public class TSTerrainManager {
         
         return points
     }
+    
+    
+    // ======================================================================== //
+    // MARK: - Privates -
+    
+    /// チャンクを非同期に読み込みます。 非同期の読み込み用です。
+    private func _getChunkSync_Asnyc(at point: TSChunkPoint, _ completion: @escaping (TSChunk) -> () ) {
+        TSChunkLoader.shared.getLoadedChunkAsunc(at: point) { chunk in
+            if let chunk = chunk {
+                completion(chunk)
+            } else {
+                TSChunkFileLoader.shared.loadChunkAsync(at: point) { chunk in
+                    if let chunk = chunk {
+                        completion(chunk)
+                    }else{
+                        let chunk = TSChunkGenerator.shared.generateChunk(for: point)
+                        completion(chunk)
+                    }
+                }
+            }
+        }
+    }
+    
     
     #if DEBUG
     public func enableDebug() {
