@@ -24,19 +24,20 @@ class TSChunkLoader {
     public var delegates = RMWeakSet<TSChunkLoaderDelegate>()
     
     // MARK: - Privates -
-    private var loadedChunks = Set<TSChunk>()
-    private var unloadedChunks = Set<TSChunk>()
+    private var loadedChunks = [TSChunk]()
+    private var unloadedChunks = [TSChunk]()
     
     private var playerPosition = TSVector2.zero
     
     // ======================================================================== //
     // MARK: - Methods -
     
-    public func getAllLoadedChunks() -> Set<TSChunk> {
+    public func getAllLoadedChunks() -> [TSChunk] {
         return loadedChunks
     }
     
     public func getLoadedChunkSync(at point: TSChunkPoint) -> TSChunk? {
+        // thread safe にする..?
         return loadedChunks.first(where: {$0.point == point})
     }
     
@@ -122,7 +123,7 @@ class TSChunkLoader {
                 
                 TSChunkNodeGenerator.shared.prepare(for: chunk) {
                     DispatchQueue.main.async {
-                        self.loadedChunks.insert(chunk)
+                        self.loadedChunks.append(chunk)
                         self.delegates.forEach { $0.chunkDidLoad(chunk) }
                     }
                 }
@@ -131,11 +132,11 @@ class TSChunkLoader {
     }
     
     private func _unloadChunk(_ chunk: TSChunk) {
-        guard let unloaded = self.loadedChunks.remove(chunk) else { fatalError() }
+        guard let unloaded = self.loadedChunks.remove(of: chunk) else { fatalError() }
         
         self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
         
-        unloadedChunks.insert(unloaded)
+        unloadedChunks.append(unloaded)
     }
     
 }

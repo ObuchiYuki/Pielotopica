@@ -12,14 +12,15 @@ import BoxData
 public class TSChunkFileLoader {
     public static let shared = TSChunkFileLoader()
     
-    private var encoder: BoxEncoder {
+    private var encoder = PropertyListEncoder()
+    /*{
         let _encoder = BoxEncoder()
         _encoder.compressionLevel = 0
         _encoder.useStructureCache = false
         return _encoder
-    }
+    }*/
     
-    private let decoder = BoxDecoder()
+    private let decoder = PropertyListDecoder()
     
     public func saveChunkAsync(_ chunk:TSChunk) {
         DispatchQueue.global(qos: .background).async {
