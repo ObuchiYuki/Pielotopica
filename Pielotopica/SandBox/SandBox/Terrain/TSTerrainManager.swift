@@ -38,11 +38,7 @@ public class TSTerrainManager {
     /// 呼び出しスレッドはどこでも構いません。
     public func getChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->()) {
         DispatchQueue.global(qos: .userInteractive).async {
-            let chunk = self._getChunkSync_Asnyc(at: point)
-            
-            DispatchQueue.main.async {
-                completion(chunk)
-            }
+            self._getChunkSync_Asnyc(at: point, completion)
         }
     }
     
