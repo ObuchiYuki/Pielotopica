@@ -65,8 +65,11 @@ class TSChunkLoader {
                         if needsToLoad {
                             self._loadChunkSync(at: loadablePoint)
                         }
+                        
                     }
+                    
                 }
+                
             }
             
         }
