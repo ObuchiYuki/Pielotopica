@@ -12,24 +12,30 @@ import Foundation
 // MARK: - TSTerrainManager -
 public class TSTerrainManager {
     
-    public static let shared = TSTerrainManager()
+    // MARK: - Properties -
     
-    private let loader = TSChunkLoader.shared
+    /// Singlton
+    public static let shared = TSTerrainManager()
 
     // ======================================================================== //
     // MARK: - Methods -
     
-    public func didPlayerMoved(to point: TSVector2) {
+    /// Playerが動いたら呼び出してください。
+    public func playerDidMoved(to point: TSVector2) {
         
-        loader.playerDidMove(to: point)
+        TSChunkLoader.shared.playerDidMove(to: point)
     }
     
+    /// チャンクを同期的に取得します。
+    /// main スレッドがら呼びださいてください。
     public func getChunkSync(contains point: TSVector2) -> TSChunk {
         let chunkPoint = TSChunk.convertToChunkPoint(fromGlobal: point)
         
         return getChunkSync(at: chunkPoint)
     }
     
+    ///　チャンクを非同期的に取得します。
+    /// 呼び出しスレッドはどこでも構いません。
     public func getChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->()) {
         DispatchQueue.global(qos: .userInteractive).async {
             let chunk = self.getChunkSync(at: point)
@@ -40,25 +46,37 @@ public class TSTerrainManager {
         }
     }
     
-    public func getChunkSync(at point: TSChunkPoint) -> TSChunk {
-        if let chunk = loader.getLoadedChunkSync(at: point) {
-            print("loaded")
+    
+    public func _getChunkSync_Asnyc(at point: TSChunkPoint) -> TSChunk {
+        if let chunk = TSChunkLoader.shared.getLoadedChunkSync(at: point) {
             return chunk
         }
         
         if let saved = TSChunkFileLoader.shared.loadChunkSync(at: point) {  // 保存済み
-            print("saved")
             return saved
         }
         
-        print("generate")
+        let chunk = TSChunkGenerator.shared.generateChunk(for: point)
+        return chunk
+    }
+    
+    ///　チャンクを非同期的に取得します。
+    /// main スレッドがら呼びださいてください。
+    public func getChunkSync(at point: TSChunkPoint) -> TSChunk {
+        if let chunk = TSChunkLoader.shared.getLoadedChunkSync(at: point) {
+            return chunk
+        }
+        
+        if let saved = TSChunkFileLoader.shared.loadChunkSync(at: point) {  // 保存済み
+            return saved
+        }
         
         let chunk = TSChunkGenerator.shared.generateChunk(for: point)
         return chunk
     }
     
     public func getAllAnchors() -> [TSVector3] {
-        return loader.getAllLoadedChunks().flatMap{ $0.anchors }
+        return TSChunkLoader.shared.getAllLoadedChunks().flatMap{ $0.anchors }
     }
     
     private func chunkPosition(fromGlobal point: TSVector3) -> TSVector3 {

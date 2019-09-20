@@ -42,21 +42,17 @@ extension Array where Element: Equatable {
     ///
     /// - Parameter element: Element to removed
     /// - Returns: Removed element
-    @inline(__always)
-    @discardableResult
-    public mutating func remove(of element:Element) -> Element?{
-    if let index = firstIndex(of: element){
+    @inline(__always) @inlinable @discardableResult public mutating func remove(of element:Element) -> Element?{
+    if let index = firstIndex(of: element) {
             return remove(at: index)
         }
         
         return nil
     }
     
-    @inline(__always)
-    @discardableResult
-    public mutating func removeFirst(_ condition: (Element)->Bool) -> Element? {
+    @inline(__always) @inlinable @discardableResult public mutating func removeFirst(_ condition: (Element) throws -> Bool) rethrows -> Element? {
         for element in self {
-            if condition(element) {
+            if try condition(element) {
                 return self.remove(of: element)
             }
         }
@@ -73,7 +69,7 @@ extension String{
     ///
     /// - Parameter item: String to delete.
     /// - Returns: String with specific String removed.
-    public func removed(_ chars:String)->String{
+    public func removed(_ chars:String) -> String{
         return self.replacingOccurrences(of: chars, with: "")
     }
 }

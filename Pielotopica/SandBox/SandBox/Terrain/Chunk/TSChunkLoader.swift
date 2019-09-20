@@ -6,6 +6,7 @@
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
+
 import Foundation
 
 // ======================================================================== //
@@ -15,6 +16,8 @@ public protocol TSChunkLoaderDelegate {
     func chunkDidUnload(_ chunk: TSChunk)
 }
 
+/// `Async` と書いてあるものは非同期スレッドから呼びだしていい
+/// `Sync`と書いてあるのはmainからしか呼び出せない
 class TSChunkLoader {
     // ======================================================================== //
     // MARK: - Properties -
@@ -34,6 +37,23 @@ class TSChunkLoader {
     
     public func getAllLoadedChunks() -> [TSChunk] {
         return loadedChunks
+    }
+    
+    public func getLoadedChunkAsunc(at point: TSChunkPoint,_  completion: @escaping (TSChunk?) -> () ) {
+        
+        DispatchQueue.main.async {
+            if let unloaded = self.unloadedChunks.first(where: {$0.point == point}) {
+                
+                self.unloadedChunks.remove(of: unloaded)
+                self.loadedChunks.append(unloaded)
+                
+                completion(unloaded)
+            }
+            let loaded = self.loadedChunks.first(where: {$0.point == point})
+            
+            completion(loaded)
+        }
+        
     }
     
     public func getLoadedChunkSync(at point: TSChunkPoint) -> TSChunk? {
