@@ -75,24 +75,24 @@ class TSChunkLoader {
 
         // コールバック地獄ぇぇ async await 早く導入して...
         
-        DispatchQueue.global(qos: .userInteractive).async {
+        let loadedPoints = self.loadedChunks.map{ $0.point }
             
-            for loadablePoint in loadablePoints {
-                DispatchQueue.main.async {
-                    let needsToLoad = self.loadedChunks.allSatisfy({$0.point != loadablePoint})
-                    
-                    DispatchQueue.global(qos: .userInteractive).async {
-
-                        if needsToLoad {
-                            self._loadChunkSync_Async(at: loadablePoint) {
-                                self._updateChunkCreateLock.unlock()
-                            }
-                        }
-                    }
+        var loadPoints = loadablePoints.filter { loadable in loadedPoints.allSatisfy({ $0 != loadable }) }
+        
+        func _loadChunk() {
+            DispatchQueue.main.async {
+                guard let loadPoint = loadPoints.popFirst() else { return }
+                
+                DispatchQueue.global(qos: .userInteractive).async {
+                    self._loadChunkSync_Async(at: loadPoint) { _loadChunk() }
                 }
             }
         }
+        
+        _loadChunk()
     }
+    
+    
     
     
     private var _updateChunkDestoroyLock = RMLock()
