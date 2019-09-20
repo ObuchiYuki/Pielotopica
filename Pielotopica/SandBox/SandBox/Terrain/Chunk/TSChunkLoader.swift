@@ -39,7 +39,7 @@ class TSChunkLoader {
     public func getLoadedChunkSync(at point: TSChunkPoint) -> TSChunk? {
         if let unloaded = unloadedChunks.first(where: {$0.point == point}) {
             unloadedChunks.remove(of: unloaded)
-            loadedChunks.append(contentsOf: unloaded)
+            loadedChunks.append(unloaded)
             
             return unloaded
         }
@@ -171,8 +171,12 @@ extension TSChunkLoader: TSEventLoopDelegate {
         
         // save unloaded
         if tick.value % TSChunkLoader.savePerTick == TSChunkLoader.savePerTick / 2 {
-            for unloaded in self.unloadedChunks {
-                TSChunkFileLoader.shared.saveChunkAsync(unloaded)
+            while !unloadedChunks.isEmpty {
+                guard let last = unloadedChunks.popLast() else {
+                    return
+                }
+                
+                TSChunkFileLoader.shared.saveChunkAsync(last)
             }
         }
         
