@@ -22,17 +22,20 @@ public class TSChunkFileLoader {
     
     private let decoder = PropertyListDecoder()
     
+    public func saveChunkSync_Async(_ chunk: TSChunk) {
+        let _data = _TSChunkData(chunk: chunk)
+        
+        do {
+            let data = try self.encoder.encode(_data)
+            self._saveData(data, at: chunk.point)
+        } catch {
+            log.error(error)
+            return
+        }
+    }
     public func saveChunkAsync(_ chunk:TSChunk) {
         DispatchQueue.global(qos: .background).async {
-            let _data = _TSChunkData(chunk: chunk)
-            
-            do {
-                let data = try self.encoder.encode(_data)
-                self._saveData(data, at: chunk.point)
-            } catch {
-                log.error(error)
-                return
-            }
+            self.saveChunkSync_Async(chunk)
         }
     }
     

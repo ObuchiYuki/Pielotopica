@@ -18,6 +18,8 @@ public protocol TSChunkLoaderDelegate {
 
 /// `Async` と書いてあるものは非同期スレッドから呼びだしていい
 /// `Sync`と書いてあるのはmainからしか呼び出せない
+/// `Sync_Async`と書いてあるのは同期的に動くが非同期スレッドから呼びだしていい
+/// あらゆるコールバックは main で行われる必要がある。
 class TSChunkLoader {
     // ======================================================================== //
     // MARK: - Properties -
@@ -39,7 +41,7 @@ class TSChunkLoader {
         return loadedChunks
     }
     
-    public func getLoadedChunkAsunc(at point: TSChunkPoint,_  completion: @escaping (TSChunk?) -> () ) {
+    public func getLoadedChunkAsync(at point: TSChunkPoint,_  completion: @escaping (TSChunk?) -> () ) {
         
         DispatchQueue.main.async {
             let chunk = self.getLoadedChunkSync(at: point)
@@ -82,19 +84,14 @@ class TSChunkLoader {
                     DispatchQueue.global(qos: .userInteractive).async {
 
                         if needsToLoad {
-                            self._loadChunkSync_Async(at: loadablePoint)
+                            self._loadChunkSync_Async(at: loadablePoint) {
+                                self._updateChunkCreateLock.unlock()
+                            }
                         }
-                        
                     }
-                    
                 }
-                
             }
-            
         }
-            
-        self._updateChunkCreateLock.unlock()
-        
     }
     
     
@@ -136,17 +133,17 @@ class TSChunkLoader {
         return points
     }
     
-    private func _loadChunkSync_Async(at point: TSChunkPoint) {
+    private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->()) {
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
             
             TSTerrainManager.shared.getChunkAsync(at: point) { chunk in
                 
                 TSChunkNodeGenerator.shared.prepareAsync(for: chunk) {
-                    DispatchQueue.main.async {
-                        self.loadedChunks.append(chunk)
-                        self.delegates.forEach { $0.chunkDidLoad(chunk) }
-                    }
+                    self.loadedChunks.append(chunk)
+                    self.delegates.forEach { $0.chunkDidLoad(chunk) }
+                    
+                    completion()
                 }
                 
             }
@@ -186,12 +183,12 @@ extension TSChunkLoader: TSEventLoopDelegate {
         
         // save unloaded
         if tick.value % TSChunkLoader.savePerTick == TSChunkLoader.savePerTick / 2 {
-            while !unloadedChunks.isEmpty {
-                guard let last = unloadedChunks.popLast() else {
-                    return
+            DispatchQueue.global(qos: .background).async {
+                while true {
+                    guard let last = unloadedChunks.popLast() else { break }
+                    
+                    TSChunkFileLoader.shared.saveChunkSync_Async(last)
                 }
-                
-                TSChunkFileLoader.shared.saveChunkAsync(last)
             }
         }
         
