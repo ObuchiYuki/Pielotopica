@@ -36,7 +36,9 @@ public class TSChunkNodeGenerator {
     
     public func prepare(for chunk: TSChunk, _ completion: @escaping ()->() ) {
         
-        preparingChunk.insert(chunk)
+        DispatchQueue.main.async {
+            self.preparingChunk.insert(chunk)
+        }
         
         DispatchQueue.global().async {
 
@@ -81,7 +83,9 @@ public class TSChunkNodeGenerator {
     public func destoryNode(at anchorPoint:TSVector3) {
         DispatchQueue.main.async {
 
-            guard let node = self.cache.removeValue(forKey: anchorPoint) else { fatalError() }
+            guard let node = self.cache.removeValue(forKey: anchorPoint) else {
+                return debug("This node already removed.")
+            }
                 
             node.removeFromParentNode()
         }

@@ -116,6 +116,7 @@ class TSChunkLoader {
     private func _loadChunkSync(at point: TSChunkPoint) {
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
+            
             DispatchQueue.global(qos: .userInteractive).async {
                 let chunk = TSTerrainManager.shared.getChunkSync(at: point)
                 
