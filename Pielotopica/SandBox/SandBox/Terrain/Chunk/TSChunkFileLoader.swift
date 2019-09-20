@@ -43,10 +43,15 @@ public class TSChunkFileLoader {
         guard let data = FileManager.default.contents(atPath: url.path) else { return nil }
         
         do {
+
+            
             let _data = try decoder.decode(_TSChunkData.self, from: data)
+            let start = Date()
+            
             let chunk = _data.chunk
             chunk.point = point
             
+            print(Date().timeIntervalSince(start), "s")
             return chunk
             
         }catch {
