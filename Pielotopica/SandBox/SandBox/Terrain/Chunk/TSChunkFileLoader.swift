@@ -33,11 +33,6 @@ public class TSChunkFileLoader {
             return
         }
     }
-    public func saveChunkAsync(_ chunk:TSChunk) {
-        DispatchQueue.global(qos: .background).async {
-            self.saveChunkSync_Async(chunk)
-        }
-    }
     
     public func loadChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk?)->() ) {
         DispatchQueue.global(qos: .userInteractive).async {

@@ -162,7 +162,40 @@ class TSChunkLoader {
 
 extension TSChunkLoader: TSEventLoopDelegate {
     
-    static let savePerTick:UInt = 200
+    static let savePerTick:UInt = 300
+    
+    private func _saveAllChunk() {
+        DispatchQueue.main.async {
+    
+            guard let last = self.unloadedChunks.popLast() else { return }
+            
+            DispatchQueue.global(qos: .background).async {
+                TSChunkFileLoader.shared.saveChunkSync_Async(last)
+                    
+                self._saveAllChunk()
+            }
+        }
+    }
+    
+    private func _saveEditedChunk() {
+        __saveEditedChunk(0)
+    }
+    
+    private func __saveEditedChunk(_ repeatIndex: Int) {
+        DispatchQueue.main.async {
+            guard let loaded = self.loadedChunks.at(repeatIndex) else { return }
+            if loaded.isEdited {
+                loaded.isEdited = false
+                
+                DispatchQueue.global(qos: .background).async {
+                    TSChunkFileLoader.shared.saveChunkSync_Async(loaded)
+                    
+                    self.__saveEditedChunk(repeatIndex + 1)
+                }
+            }
+            
+        }
+    }
     
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
@@ -173,23 +206,12 @@ extension TSChunkLoader: TSEventLoopDelegate {
         
         // save edited
         if tick.value % TSChunkLoader.savePerTick == 0 {
-            for loadedChunk in self.loadedChunks {
-                if loadedChunk.isEdited {
-                    loadedChunk.isEdited = false
-                    TSChunkFileLoader.shared.saveChunkAsync(loadedChunk)
-                }
-            }
+            self._saveEditedChunk()
         }
         
         // save unloaded
         if tick.value % TSChunkLoader.savePerTick == TSChunkLoader.savePerTick / 2 {
-            DispatchQueue.global(qos: .background).async {
-                while true {
-                    guard let last = unloadedChunks.popLast() else { break }
-                    
-                    TSChunkFileLoader.shared.saveChunkSync_Async(last)
-                }
-            }
+            self._saveAllChunk()
         }
         
     }
