@@ -37,7 +37,12 @@ class TSChunkLoader {
     }
     
     public func getLoadedChunkSync(at point: TSChunkPoint) -> TSChunk? {
-        // thread safe にする..?
+        if let unloaded = unloadedChunks.first(where: {$0.point == point}) {
+            unloadedChunks.remove(of: unloaded)
+            loadedChunks.append(contentsOf: unloaded)
+            
+            return unloaded
+        }
         return loadedChunks.first(where: {$0.point == point})
     }
     
@@ -130,6 +135,7 @@ class TSChunkLoader {
                         self.delegates.forEach { $0.chunkDidLoad(chunk) }
                     }
                 }
+                
             }
         }
     }
