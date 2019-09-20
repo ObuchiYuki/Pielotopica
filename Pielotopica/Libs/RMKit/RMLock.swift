@@ -9,20 +9,27 @@
 import Foundation
 
 public class RMLock {
+    // ================================================================ //
+    // MARK: - Properties -
     private var _isLocked: Bool
+    private var _method: (()->())?
     
     public var isLocked:Bool {
         return _isLocked
     }
+    // ================================================================ //
+    // MARK: - Methods -
     
-    public func lock() {
+    public func call() {
         _isLocked = true
-    }
-    public func unlock() {
+        _method()
         _isLocked = false
     }
     
-    public init(_ first:Bool = false) {
+    // ================================================================ //
+    // MARK: - Constructor -
+    public init(_ first:Bool = false, method: @escaping ()->()) {
         self._isLocked = first
+        self._method = method
     }
 }
