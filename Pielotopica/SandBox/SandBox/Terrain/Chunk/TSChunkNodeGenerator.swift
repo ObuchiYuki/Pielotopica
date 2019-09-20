@@ -108,7 +108,7 @@ public class TSChunkNodeGenerator {
         
         DispatchQueue.main.async {
             if let beforeNode = self.cache[point] {
-                log.debug("Why don't you destroy node before create new one. This will make program slower.")
+                log.debug("Why don't you destroy node before create new one at \(point). This will make program slower.")
                 beforeNode.removeFromParentNode()
             }
             
