@@ -156,8 +156,10 @@ extension TSChunkLoader: TSEventLoopDelegate {
     
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
-        self._updateChunkCreate()
-        self._updateChunkDestoroy()
+        if tick.value % 10 == 0 {
+            self._updateChunkCreate()
+            self._updateChunkDestoroy()
+        }
         
         // save edited
         if tick.value % TSChunkLoader.savePerTick == 0 {
