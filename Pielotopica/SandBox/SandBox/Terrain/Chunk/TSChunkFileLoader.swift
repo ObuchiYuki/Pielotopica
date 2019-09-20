@@ -44,14 +44,14 @@ public class TSChunkFileLoader {
         
         do {
 
-            
-            let _data = try decoder.decode(_TSChunkData.self, from: data)
             let start = Date()
+            let _data = try decoder.decode(_TSChunkData.self, from: data)
+            print(Date().timeIntervalSince(start), "s")
             
             let chunk = _data.chunk
             chunk.point = point
             
-            print(Date().timeIntervalSince(start), "s")
+            
             return chunk
             
         }catch {
