@@ -34,7 +34,7 @@ public class TSChunkNodeGenerator {
         return preparingChunk.allSatisfy({ $0.point != chunkPoint })
     }
     
-    public func prepare(for chunk: TSChunk, _ completion: @escaping ()->() ) {
+    public func prepareAsync(for chunk: TSChunk, _ completion: @escaping ()->() ) {
         
         DispatchQueue.main.async {
             self.preparingChunk.insert(chunk)

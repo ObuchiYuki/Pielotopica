@@ -56,6 +56,7 @@ class TSChunkLoader {
             
             return unloaded
         }
+        
         return loadedChunks.first(where: {$0.point == point})
     }
     
@@ -81,7 +82,7 @@ class TSChunkLoader {
                     DispatchQueue.global(qos: .userInteractive).async {
 
                         if needsToLoad {
-                            self._loadChunkSync(at: loadablePoint)
+                            self._loadChunkSync_Async(at: loadablePoint)
                         }
                         
                     }
@@ -135,14 +136,13 @@ class TSChunkLoader {
         return points
     }
     
-    private func _loadChunkSync(at point: TSChunkPoint) {
+    private func _loadChunkSync_Async(at point: TSChunkPoint) {
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
             
-            DispatchQueue.global(qos: .userInteractive).async {
-                let chunk = TSTerrainManager.shared.getChunkSync(at: point)
+            TSTerrainManager.shared.getChunkAsync(at: point) { chunk in
                 
-                TSChunkNodeGenerator.shared.prepare(for: chunk) {
+                TSChunkNodeGenerator.shared.prepareAsync(for: chunk) {
                     DispatchQueue.main.async {
                         self.loadedChunks.append(chunk)
                         self.delegates.forEach { $0.chunkDidLoad(chunk) }
