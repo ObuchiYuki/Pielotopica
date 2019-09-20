@@ -42,16 +42,9 @@ class TSChunkLoader {
     public func getLoadedChunkAsunc(at point: TSChunkPoint,_  completion: @escaping (TSChunk?) -> () ) {
         
         DispatchQueue.main.async {
-            if let unloaded = self.unloadedChunks.first(where: {$0.point == point}) {
-                
-                self.unloadedChunks.remove(of: unloaded)
-                self.loadedChunks.append(unloaded)
-                
-                completion(unloaded)
-            }
-            let loaded = self.loadedChunks.first(where: {$0.point == point})
+            let chunk = self.getLoadedChunkSync(at: point)
             
-            completion(loaded)
+            completion(chunk)
         }
         
     }
