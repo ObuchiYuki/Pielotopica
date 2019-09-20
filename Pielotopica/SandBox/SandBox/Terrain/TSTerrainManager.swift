@@ -47,9 +47,11 @@ public class TSTerrainManager {
     }
     
     
-    public func _getChunkSync_Asnyc(at point: TSChunkPoint) -> TSChunk {
-        if let chunk = TSChunkLoader.shared.getLoadedChunkSync(at: point) {
-            return chunk
+    public func _getChunkSync_Asnyc(at point: TSChunkPoint, _ completion: @escaping (TSChunk) -> () ) {
+        TSChunkLoader.shared.getLoadedChunkAsunc(at: point) { chunk in
+            if let chunk = chunk {
+                completion(chunk)
+            }
         }
         
         if let saved = TSChunkFileLoader.shared.loadChunkSync(at: point) {  // 保存済み
