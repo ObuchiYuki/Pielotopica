@@ -21,7 +21,6 @@ public struct TSOptionSaveData: Codable {
     
     /// プレイヤーから見える = チャンクの描画距離半径
     public var renderDistance: Int = 5
-    
 
     /// メモリ内に読み込む範囲
     public var loadingDistance: Int = 8

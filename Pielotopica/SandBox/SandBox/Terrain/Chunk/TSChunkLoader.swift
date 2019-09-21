@@ -12,6 +12,7 @@ import Foundation
 // ======================================================================== //
 // MARK: - TSChunkLoaderDelegate -
 public protocol TSChunkLoaderDelegate {
+    func renderChunk(_ chunk: TSChunk)
     func chunkDidLoad(_ chunk: TSChunk)
     func chunkDidUnload(_ chunk: TSChunk)
 }
@@ -113,14 +114,21 @@ class TSChunkLoader {
         TSEventLoop.shared.register(self)
     }
     
-    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {
-        let distance = TSOptionSaveData.shared.renderDistance
+    private func _calcurateRenderablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
+        return _calcuratePoints(from: point, distance: TSOptionSaveData.shared.renderDistance)
+    }
+    
+    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
+        return _calcuratePoints(from: point, distance: TSOptionSaveData.shared.loadingDistance)
+    }
+    
+    private func _calcuratePoints(from point: TSChunkPoint, distance: Int) -> [TSChunkPoint] {
         
-        var points = Set<TSChunkPoint>()
+        var points = [TSChunkPoint]()
         
         for xd in -distance...distance {
             for zd in -distance...distance {
-                points.insert(point + TSChunkPoint(Int16(xd), Int16(zd)))
+                points.append(point + TSChunkPoint(Int16(xd), Int16(zd)))
             }
         }
         
