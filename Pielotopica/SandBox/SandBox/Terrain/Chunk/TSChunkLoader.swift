@@ -69,11 +69,17 @@ class TSChunkLoader {
     public func playerDidMove(to point: TSVector2) {
         playerPosition = point
     }
-    
+        
+    // ======================================================================== //
+    // MARK: - Constructors -
+    private init() {
+        TSEventLoop.shared.register(self)
+    }
     
     // ======================================================================== //
     // MARK: - Privates -
     
+    // MARK: - Load chunk handlers -
     private var _renderChunkLock = RMLock()
     private func _renderChunk() {
         if _renderChunkLock.isLocked { return } ; _renderChunkLock.lock()
@@ -98,9 +104,6 @@ class TSChunkLoader {
             }
         }
         
-        
-        
-        _renderChunkLock.unlock()
     }
     
     private var _updateChunkCreateLock = RMLock()
@@ -141,10 +144,6 @@ class TSChunkLoader {
         for unloadChunk in unloadChunks {
             self._unloadChunkSync(unloadChunk)
         }
-    }
-    
-    private init() {
-        TSEventLoop.shared.register(self)
     }
     
     private func _calcurateRenderablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
