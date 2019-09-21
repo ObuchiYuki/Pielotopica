@@ -80,6 +80,7 @@ class TSChunkLoader {
     // MARK: - Privates -
     
     // MARK: - Load chunk handlers -
+    
     private var _renderChunkLock = RMLock()
     private func _renderChunk() {
         if _renderChunkLock.isLocked { return } ; _renderChunkLock.lock()
@@ -133,8 +134,6 @@ class TSChunkLoader {
         _loadChunk()
     }
     
-    
-    // Sync
     private func _updateChunkDestoroy(){
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
@@ -146,6 +145,7 @@ class TSChunkLoader {
         }
     }
     
+    // MARK: - Calcuration Methods -
     private func _calcurateRenderablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
         return _calcuratePoints(from: point, distance: TSOptionSaveData.shared.renderDistance)
     }
@@ -167,8 +167,20 @@ class TSChunkLoader {
         return points
     }
     
+    // MARK: - Real Loading Methods -
     private func _renderChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
-        
+        DispatchQueue.main.async {
+            if let chunk = self.loadedChunks.first(where: { $0.point == point }) {
+                self.delegates.forEach{ $0.renderChunk(chunk) }
+                
+                completion()
+            } else {
+                self._loadChunkSync_Async(at: point) {
+                    
+                    self._renderChunkSync_Async(at: point, completion)
+                }
+            }
+        }
     }
     
     private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
