@@ -12,13 +12,11 @@ import BoxData
 public class TSChunkFileLoader {
     public static let shared = TSChunkFileLoader()
     
-    private var encoder = PropertyListEncoder()
-    /*{
-        let _encoder = BoxEncoder()
-        _encoder.compressionLevel = 0
-        _encoder.useStructureCache = false
-        return _encoder
-    }*/
+    private var encoder: PropertyListEncoder = {
+        let encoder = PropertyListEncoder()
+        encoder.outputFormat = .binary
+        return encoder
+    }()
     
     private let decoder = PropertyListDecoder()
     
@@ -52,12 +50,11 @@ public class TSChunkFileLoader {
         guard let data = FileManager.default.contents(atPath: url.path) else { return nil }
         
         do {
-
-            let start = Date()
             let _data = try decoder.decode(_TSChunkData.self, from: data)
-            print(Date().timeIntervalSince(start), "s")
             
             let chunk = _data.chunk
+            
+
             chunk.point = point
             
             

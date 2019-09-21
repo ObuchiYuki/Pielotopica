@@ -66,14 +66,16 @@ class TSChunkLoader {
         playerPosition = point
     }
     
+    
+    // ======================================================================== //
+    // MARK: - Privates -
+    
     private var _updateChunkCreateLock = RMLock()
     private func _updateChunkCreate() {
         if _updateChunkCreateLock.isLocked { return } ; _updateChunkCreateLock.lock()
         
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
-
-        // コールバック地獄ぇぇ async await 早く導入して...
         
         let loadedPoints = self.loadedChunks.map{ $0.point }
             
@@ -81,10 +83,12 @@ class TSChunkLoader {
         
         func _loadChunk() {
             DispatchQueue.main.async {
-                guard let loadPoint = loadPoints.popFirst() else { return }
+                guard let loadPoint = loadPoints.popFirst() else { return self._updateChunkCreateLock.unlock() }
                 
                 DispatchQueue.global(qos: .userInteractive).async {
-                    self._loadChunkSync_Async(at: loadPoint) { _loadChunk() }
+                    self._loadChunkSync_Async(at: loadPoint) {
+                        _loadChunk()
+                    }
                 }
             }
         }
@@ -93,31 +97,21 @@ class TSChunkLoader {
     }
     
     
-    
-    
-    private var _updateChunkDestoroyLock = RMLock()
+    // Sync
     private func _updateChunkDestoroy(){
-        if _updateChunkDestoroyLock.isLocked { return } ;_updateChunkDestoroyLock.lock()
-        
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
         
-        for loadedChunk in self.loadedChunks {
-            if !loadablePoints.contains(loadedChunk.point) {
-                self._unloadChunk(loadedChunk)
-            }
+        let unloadChunks = loadedChunks.filter{ loadedChunk in !loadablePoints.contains(loadedChunk.point)}
+        
+        for unloadChunk in unloadChunks {
+            self._unloadChunkSync(unloadChunk)
         }
-        
-        _updateChunkDestoroyLock.unlock()
-        
     }
     
     private init() {
         TSEventLoop.shared.register(self)
     }
-    
-    // ======================================================================== //
-    // MARK: - Privates -
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> Set<TSChunkPoint> {
         let distance = TSOptionSaveData.shared.renderDistance
@@ -150,7 +144,7 @@ class TSChunkLoader {
         }
     }
     
-    private func _unloadChunk(_ chunk: TSChunk) {
+    private func _unloadChunkSync(_ chunk: TSChunk) {
         guard let unloaded = self.loadedChunks.remove(of: chunk) else { fatalError() }
         
         self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
