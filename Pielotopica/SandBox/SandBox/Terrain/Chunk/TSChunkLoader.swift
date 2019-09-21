@@ -30,8 +30,11 @@ class TSChunkLoader {
     public var delegates = RMWeakSet<TSChunkLoaderDelegate>()
     
     // MARK: - Privates -
+    
     private var loadedChunks = [TSChunk]()
     private var unloadedChunks = [TSChunk]()
+    
+    private var renderingPoints = [TSChunkPoint]()
     
     private var playerPosition = TSVector2.zero
     
@@ -71,6 +74,35 @@ class TSChunkLoader {
     // ======================================================================== //
     // MARK: - Privates -
     
+    private var _renderChunkLock = RMLock()
+    private func _renderChunk() {
+        if _renderChunkLock.isLocked { return } ; _renderChunkLock.lock()
+        
+        let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
+        let rendablePoints = self._calcurateRenderablePoints(from: playerPoint)
+        
+        var renderPoints = rendablePoints.filter { rendable in
+            renderingPoints.allSatisfy{ $0 != rendable }
+        }
+        
+        func _renderChunk() {
+            DispatchQueue.main.async {
+                guard let renderPoint = renderPoints.popLast() else { return self._renderChunkLock.unlock() }
+                
+                DispatchQueue.global(qos: .userInteractive).async {
+                    self._renderChunkSync_Async(at: renderPoint) {
+                        _renderChunk()
+                    }
+                }
+                
+            }
+        }
+        
+        
+        
+        _renderChunkLock.unlock()
+    }
+    
     private var _updateChunkCreateLock = RMLock()
     private func _updateChunkCreate() {
         if _updateChunkCreateLock.isLocked { return } ; _updateChunkCreateLock.lock()
@@ -84,10 +116,11 @@ class TSChunkLoader {
         
         func _loadChunk() {
             DispatchQueue.main.async {
-                guard let loadPoint = loadPoints.popFirst() else { return self._updateChunkCreateLock.unlock() }
+                guard let loadPoint = loadPoints.popLast() else { return self._updateChunkCreateLock.unlock() }
                 
-                DispatchQueue.global(qos: .userInteractive).async {
+                DispatchQueue.global(qos: .userInitiated).async {
                     self._loadChunkSync_Async(at: loadPoint) {
+                        
                         _loadChunk()
                     }
                 }
@@ -135,7 +168,11 @@ class TSChunkLoader {
         return points
     }
     
-    private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->()) {
+    private func _renderChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
+        
+    }
+    
+    private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
             
