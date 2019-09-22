@@ -30,6 +30,7 @@ class TSChunkLoader {
     
     // MARK: - Privates -
     
+    private var renderingPoints = [TSChunkPoint]()
     private var loadedChunks = [TSChunk]()
     private var unloadedChunks = [TSChunk]()
     
@@ -82,6 +83,10 @@ class TSChunkLoader {
     private func _updateChunkRender() {
         if _updateChunkRenderLock.isLocked { return } ; _updateChunkRenderLock.lock()
         
+        let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
+        let rendalablePoints = self._calcurateRendalablePoints(from: playerPoint)
+            
+        var loadPoints = loadablePoints.filter { loadable in loadedPoints.allSatisfy({ $0 != loadable }) }
         
         _updateChunkRenderLock.unlock()
     }
