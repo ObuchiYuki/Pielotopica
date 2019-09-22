@@ -78,6 +78,15 @@ class TSChunkLoader {
     
     // MARK: - Load chunk handlers -
     
+    private var _updateChunkRenderLock = RMLock()
+    private func _updateChunkRender() {
+        if _updateChunkRenderLock.isLocked { return } ; _updateChunkRenderLock.lock()
+        
+        
+        _updateChunkRenderLock.unlock()
+    }
+    
+    
     private var _updateChunkCreateLock = RMLock()
     private func _updateChunkCreate() {
         if _updateChunkCreateLock.isLocked { return } ; _updateChunkCreateLock.lock()
@@ -117,10 +126,19 @@ class TSChunkLoader {
     }
     
     // MARK: - Calcuration Methods -
-    
-    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
+    private func _calcurateRendalablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
         let distance = TSOptionSaveData.shared.renderDistance
         
+        return _calcuratePoints(from: point, distance: distance)
+    }
+    
+    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
+        let distance = TSOptionSaveData.shared.loadingDistance
+        
+        return _calcuratePoints(from: point, distance: distance)
+    }
+    
+    private func _calcuratePoints(from point: TSChunkPoint, distance: Int) -> [TSChunkPoint] {
         var points = [TSChunkPoint]()
         
         for xd in -distance...distance {
@@ -132,11 +150,11 @@ class TSChunkLoader {
         return points
     }
     
+    
     // MARK: - Real Loading Methods -
     private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
-            let start = Date()
             
             TSTerrainManager.shared.getChunkAsync(at: point) { chunk in
                 
@@ -144,8 +162,6 @@ class TSChunkLoader {
                     self.loadedChunks.append(chunk)
                     self.delegates.forEach { $0.chunkDidLoad(chunk) }
                     completion()
-                    
-                    print(Date().timeIntervalSince(start), "s")
                 }
                 
             }
