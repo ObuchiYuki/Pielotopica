@@ -159,7 +159,7 @@ public class TSTerrainEditor {
 }
 
 extension TSTerrainEditor: TSChunkLoaderDelegate {
-    public func chunkDidLoad(_ chunk: TSChunk) {
+    public func renderChunk(_ chunk: TSChunk) {
         for anchor in chunk.anchors {
             let rotation = chunk.getRotation(at: anchor)
             let global = chunk.makeGlobal(anchor)
@@ -168,8 +168,7 @@ extension TSTerrainEditor: TSChunkLoaderDelegate {
         }
     }
     
-    public func chunkDidUnload(_ chunk: TSChunk) {
-        
+    public func unrenderChunk(_ chunk: TSChunk) {
         for anchor in chunk.anchors {
             self.delegates.forEach{ $0.editor(editorWillDestroyBlockAt: chunk.makeGlobal(anchor), needsAnimation: false) }
             self.delegates.forEach{ $0.editor(editorDidDestroyBlockAt:  chunk.makeGlobal(anchor), needsAnimation: false) }

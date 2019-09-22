@@ -12,8 +12,8 @@ import Foundation
 // ======================================================================== //
 // MARK: - TSChunkLoaderDelegate -
 public protocol TSChunkLoaderDelegate {
-    func chunkDidLoad(_ chunk: TSChunk)
-    func chunkDidUnload(_ chunk: TSChunk)
+    func renderChunk(_ chunk: TSChunk)
+    func unrenderChunk(_ chunk: TSChunk)
 }
 
 /// `Async` と書いてあるものは非同期スレッドから呼びだしていい
@@ -93,9 +93,11 @@ class TSChunkLoader {
                 guard let renderPoint = renderPoints.popLast() else { return self._updateChunkRenderLock.unlock() }
                 
                 DispatchQueue.global(qos: .userInitiated).async {
-                    self._loadChunkSync_Async(at: loadPoint) {
-                        
-                        _loadChunk()
+                    
+                    guard let chunk = self.loadedChunks.first(where: { $0.point == renderPoint }) else { return }
+                    
+                    self._renderChunkSync_Async(chunk) {
+                        _renderChunk()
                     }
                 }
             }
@@ -132,6 +134,19 @@ class TSChunkLoader {
         }
         
         _loadChunk()
+    }
+    
+    private func _updateChunkUnrender() {
+        let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
+        let rendalablePoints = self._calcurateRendalablePoints(from: playerPoint)
+        
+        let unrenderPoints = renderingPoints.filter{ rendered in !rendalablePoints.contains(rendered)}
+        
+        for unrenderPoint in unrenderPoints {
+            guard let unrender = loadedChunks.first(where: { $0.point ==  unrenderPoint }) else { return }
+            
+            self._unrenderChunkSync(unrender)
+        }
     }
     
     private func _updateChunkDestoroy(){
@@ -173,7 +188,11 @@ class TSChunkLoader {
     
     // MARK: - Real Loading Methods -
     private func _renderChunkSync_Async(_ chunk: TSChunk, completion: @escaping ()->()) {
-        
+        DispatchQueue.main.async {
+            self.delegates.forEach { $0.renderChunk(chunk) }
+            
+            completion()
+        }
     }
     
     private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
@@ -184,7 +203,6 @@ class TSChunkLoader {
                 
                 TSChunkNodeGenerator.shared.prepareAsync(for: chunk) {
                     self.loadedChunks.append(chunk)
-                    self.delegates.forEach { $0.chunkDidLoad(chunk) }
                     completion()
                 }
                 
@@ -192,10 +210,14 @@ class TSChunkLoader {
         }
     }
     
+    private func _unrenderChunkSync(_ chunk: TSChunk) {
+        guard let _ = renderingPoints.remove(of: chunk.point) else { fatalError() }
+        
+        self.delegates.forEach{ $0.unrenderChunk(chunk) }
+    }
+    
     private func _unloadChunkSync(_ chunk: TSChunk) {
         guard let unloaded = self.loadedChunks.remove(of: chunk) else { fatalError() }
-        
-        self.delegates.forEach{ $0.chunkDidUnload(unloaded) }
         
         unloadedChunks.append(unloaded)
     }
@@ -244,6 +266,8 @@ extension TSChunkLoader: TSEventLoopDelegate {
         if tick.value % 10 == 0 {
             self._updateChunkCreate()
             self._updateChunkDestoroy()
+            self._updateChunkRender()
+            self._updateChunkUnrender()
         }
         
         // save edited
