@@ -118,14 +118,14 @@ private class _TSChunkSerialization {
         try stream.write(UInt16(chunk.anchors.count))
         
         for var anchor in chunk.anchors {
-            try _writeVector(dos: stream, &anchor)
+            try stream.write(anchor)
         }
         
         for x in 0..<Int(TSChunk.sideWidth) {
             for y in 0..<Int(TSChunk.height) {
                 for z in 0..<Int(TSChunk.sideWidth) {
                     try stream.write(chunk.fillmap[x][y][z])
-                    try _writeVector(dos: stream, &chunk.fillAnchors[x][y][z])
+                    try stream.write(chunk.fillAnchors[x][y][z])
                     try stream.write(chunk.datamap[x][y][z])
                 }
             }
@@ -136,22 +136,33 @@ private class _TSChunkSerialization {
         return stream.data!
     }
     
-    func chunk(from data: Data) throws -> TSChunk {
+    func chunk(from data: Data, at point: TSChunkPoint) throws -> TSChunk {
         let stream = ChunkDataReadStream(data: data)
         
         let chunk = TSChunk()
+        chunk.point = point
         
         guard try stream.uInt8() == _TSChunkSerialization.header else {
             throw DecodingError.dataCorrupted( .init(codingPath: [], debugDescription: "This data is not leyer format data."))
         }
         
         let anchorCount = try stream.uint16()
-        
+
         for _ in 0..<anchorCount {
-            
-            chunk.anchors.insert()
+            chunk.anchors.insert(try stream.vector3())
         }
         
+        for x in 0..<Int(TSChunk.sideWidth) {
+            for y in 0..<Int(TSChunk.height) {
+                for z in 0..<Int(TSChunk.sideWidth) {
+                    chunk.fillmap[x][y][z] = try stream.uint16()
+                    chunk.fillAnchors[x][y][z] = try stream.vector3()
+                    chunk.datamap[x][y][z] = try stream.uInt8()
+                }
+            }
+        }
+        
+        return chunk
     }
 }
 
