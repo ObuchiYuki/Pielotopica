@@ -104,20 +104,12 @@ public class TSChunkFileLoader {
  
  - Header: `'L'` (aka `0x4c`)
  - anchors: `size: (UInt16) TSVector3...`
- - fillmap: `UInt16[1024]`
- - fillAnchormap: `TSVector3[1024]`
- - datamap: `UInt8[1024]`
- 
+ - fillmap, fillAnchormap, datamap: `UInt16[1024]`, `TSVector3[1024]`, `UInt8[1024]`
+
  */
 private class _TSChunkSerialization {
     
     static let header = UInt8(0x4c)
-    
-    private func _writeVector(dos: ChunkDataWriteStream, _ vector3: inout TSVector3) throws {
-        try dos.write(vector3.x16)
-        try dos.write(vector3.y16)
-        try dos.write(vector3.z16)
-    }
     
     func data(from chunk: TSChunk) throws -> Data {
         let stream = ChunkDataWriteStream()
@@ -129,12 +121,36 @@ private class _TSChunkSerialization {
             try _writeVector(dos: stream, &anchor)
         }
         
-        for i in 0..<1024 {
-            
+        for x in 0..<Int(TSChunk.sideWidth) {
+            for y in 0..<Int(TSChunk.height) {
+                for z in 0..<Int(TSChunk.sideWidth) {
+                    try stream.write(chunk.fillmap[x][y][z])
+                    try _writeVector(dos: stream, &chunk.fillAnchors[x][y][z])
+                    try stream.write(chunk.datamap[x][y][z])
+                }
+            }
         }
+        
+        guard stream.data != nil else{ throw ChunkDataStreamError.writeError }
+        
+        return stream.data!
     }
     
     func chunk(from data: Data) throws -> TSChunk {
+        let stream = ChunkDataReadStream(data: data)
+        
+        let chunk = TSChunk()
+        
+        guard try stream.uInt8() == _TSChunkSerialization.header else {
+            throw DecodingError.dataCorrupted( .init(codingPath: [], debugDescription: "This data is not leyer format data."))
+        }
+        
+        let anchorCount = try stream.uint16()
+        
+        for _ in 0..<anchorCount {
+            
+            chunk.anchors.insert()
+        }
         
     }
 }
@@ -185,10 +201,11 @@ internal class ChunkDataReadStream {
         offset += valueSize
         return valuePointer.pointee
     }
-
-    func int8() throws -> Int8 {
-        return try self.readBytes()
+    
+    func vector3() throws -> TSVector3 {
+        return TSVector3(try int16(), try int16(), try int16())
     }
+
     func uInt8() throws -> UInt8 {
         return try self.readBytes()
     }
@@ -201,60 +218,6 @@ internal class ChunkDataReadStream {
         let value:UInt16 = try self.readBytes()
         return CFSwapInt16BigToHost(value)
     }
-
-    func int32() throws -> Int32 {
-        let value:UInt32 = try self.readBytes()
-        return Int32(bitPattern: CFSwapInt32BigToHost(value))
-    }
-    func uInt32() throws -> UInt32 {
-        let value:UInt32 = try self.readBytes()
-        return CFSwapInt32BigToHost(value)
-    }
-
-    func int64() throws -> Int64 {
-        let value:UInt64 = try self.readBytes()
-        return Int64(bitPattern: CFSwapInt64BigToHost(value))
-    }
-    func uInt64() throws -> UInt64 {
-        let value:UInt64 = try self.readBytes()
-        return CFSwapInt64BigToHost(value)
-    }
-
-    func float() throws -> Float {
-        let value:CFSwappedFloat32 = try self.readBytes()
-        return CFConvertFloatSwappedToHost(value)
-    }
-
-    func double() throws -> Double {
-        let value:CFSwappedFloat64 = try self.readBytes()
-        return CFConvertFloat64SwappedToHost(value)
-    }
-
-    func data(count: Int) throws -> Data {
-        var buffer = [UInt8](repeating: 0, count: count)
-        if self.inputStream.read(&buffer, maxLength: count) != count {
-            
-            throw ChunkDataStreamError.readError
-        }
-        offset += count
-        return Data(buffer)
-    }
-    
-    func string() throws -> String {
-        let count = try uInt8()
-        
-        guard let string = String(bytes: try self.data(count: Int(count)), encoding: .utf8) else {
-            throw ChunkDataStreamError.readError
-        }
-        
-        return string
-    }
-
-    func bit() throws -> Bool {
-        let byte = try self.uInt8() as UInt8
-        return byte != 0
-    }
-    
 }
 
 @usableFromInline
