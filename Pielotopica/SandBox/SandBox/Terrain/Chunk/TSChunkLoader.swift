@@ -137,12 +137,15 @@ class TSChunkLoader {
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
             let start = Date()
+            
             TSTerrainManager.shared.getChunkAsync(at: point) { chunk in
                 
                 TSChunkNodeGenerator.shared.prepareAsync(for: chunk) {
                     self.loadedChunks.append(chunk)
                     self.delegates.forEach { $0.chunkDidLoad(chunk) }
                     completion()
+                    
+                    print(Date().timeIntervalSince(start), "s")
                 }
                 
             }

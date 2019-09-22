@@ -11,20 +11,10 @@ import BoxData
  
 public class TSChunkFileLoader {
     public static let shared = TSChunkFileLoader()
-    
-    private var encoder: BoxEncoder = {
-        let encoder = BoxEncoder()
 
-        return encoder
-    }()
-    
-    private let decoder = BoxDecoder()
-    
     public func saveChunkSync_Async(_ chunk: TSChunk) {
-        let _data = _TSChunkData(chunk: chunk)
-        
         do {
-            let data = try self.encoder.encode(_data)
+            let data = try _TSChunkSerialization.data(from: chunk)
             self._saveData(data, at: chunk.point)
         } catch {
             log.error(error)
@@ -48,13 +38,7 @@ public class TSChunkFileLoader {
         guard let data = FileManager.default.contents(atPath: url.path) else { return nil }
         
         do {
-            let start = Date()
-            let _data = try decoder.decode(_TSChunkData.self, from: data)
-            print(Date().timeIntervalSince(start), "s")
-            
-            let chunk = _data.chunk
-            
-            chunk.point = point
+            let chunk = try _TSChunkSerialization.chunk(from: data, at: point)
                         
             return chunk
             
@@ -109,15 +93,12 @@ public class TSChunkFileLoader {
  */
 private class _TSChunkSerialization {
     
-    static let header = UInt8(0x4c)
-    
-    func data(from chunk: TSChunk) throws -> Data {
+    static func data(from chunk: TSChunk) throws -> Data {
         let stream = ChunkDataWriteStream()
         
-        try stream.write(_TSChunkSerialization.header)
         try stream.write(UInt16(chunk.anchors.count))
         
-        for var anchor in chunk.anchors {
+        for anchor in chunk.anchors {
             try stream.write(anchor)
         }
         
@@ -136,15 +117,11 @@ private class _TSChunkSerialization {
         return stream.data!
     }
     
-    func chunk(from data: Data, at point: TSChunkPoint) throws -> TSChunk {
+    static func chunk(from data: Data, at point: TSChunkPoint) throws -> TSChunk {
         let stream = ChunkDataReadStream(data: data)
         
         let chunk = TSChunk()
         chunk.point = point
-        
-        guard try stream.uInt8() == _TSChunkSerialization.header else {
-            throw DecodingError.dataCorrupted( .init(codingPath: [], debugDescription: "This data is not leyer format data."))
-        }
         
         let anchorCount = try stream.uint16()
 
