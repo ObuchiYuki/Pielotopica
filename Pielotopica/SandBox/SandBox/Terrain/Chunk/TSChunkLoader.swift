@@ -86,7 +86,22 @@ class TSChunkLoader {
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let rendalablePoints = self._calcurateRendalablePoints(from: playerPoint)
             
-        var loadPoints = loadablePoints.filter { loadable in loadedPoints.allSatisfy({ $0 != loadable }) }
+        var renderPoints = rendalablePoints.filter { rendalable in renderingPoints.allSatisfy({ $0 != rendalable }) }
+        
+        func _renderChunk() {
+            DispatchQueue.main.async {
+                guard let renderPoint = renderPoints.popLast() else { return self._updateChunkRenderLock.unlock() }
+                
+                DispatchQueue.global(qos: .userInitiated).async {
+                    self._loadChunkSync_Async(at: loadPoint) {
+                        
+                        _loadChunk()
+                    }
+                }
+            }
+        }
+        
+        _renderChunk()
         
         _updateChunkRenderLock.unlock()
     }
@@ -157,6 +172,10 @@ class TSChunkLoader {
     
     
     // MARK: - Real Loading Methods -
+    private func _renderChunkSync_Async(_ chunk: TSChunk, completion: @escaping ()->()) {
+        
+    }
+    
     private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
