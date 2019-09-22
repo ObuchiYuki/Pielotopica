@@ -117,15 +117,9 @@ class TSChunkLoader {
     }
     
     // MARK: - Calcuration Methods -
-    private func _calcurateRenderablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
-        return _calcuratePoints(from: point, distance: TSOptionSaveData.shared.renderDistance)
-    }
     
     private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
-        return _calcuratePoints(from: point, distance: TSOptionSaveData.shared.loadingDistance)
-    }
-    
-    private func _calcuratePoints(from point: TSChunkPoint, distance: Int) -> [TSChunkPoint] {
+        let distance = TSOptionSaveData.shared.renderDistance
         
         var points = [TSChunkPoint]()
         
@@ -142,13 +136,12 @@ class TSChunkLoader {
     private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
-            
+            let start = Date()
             TSTerrainManager.shared.getChunkAsync(at: point) { chunk in
                 
                 TSChunkNodeGenerator.shared.prepareAsync(for: chunk) {
                     self.loadedChunks.append(chunk)
                     self.delegates.forEach { $0.chunkDidLoad(chunk) }
-                    
                     completion()
                 }
                 

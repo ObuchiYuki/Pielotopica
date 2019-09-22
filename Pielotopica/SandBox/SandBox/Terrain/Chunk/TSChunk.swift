@@ -17,15 +17,19 @@ public class TSChunk {
     
     public var point = TSChunkPoint.zero
     
+    /// local
     internal var fillmap:[[[UInt16]]] =
         Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
     
+    /// local
     internal var datamap:[[[UInt8]]] =
         Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
     
+    /// global
     internal var fillAnchors:[[[TSVector3]]] =
         Array(repeating: Array(repeating: Array(repeating: .zero, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
         
+    /// local
     internal var anchors     = Set<TSVector3>()
 
     // MARK: - Methods -

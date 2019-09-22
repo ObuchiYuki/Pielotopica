@@ -12,13 +12,13 @@ import BoxData
 public class TSChunkFileLoader {
     public static let shared = TSChunkFileLoader()
     
-    private var encoder: PropertyListEncoder = {
-        let encoder = PropertyListEncoder()
-        encoder.outputFormat = .binary
+    private var encoder: BoxEncoder = {
+        let encoder = BoxEncoder()
+
         return encoder
     }()
     
-    private let decoder = PropertyListDecoder()
+    private let decoder = BoxDecoder()
     
     public func saveChunkSync_Async(_ chunk: TSChunk) {
         let _data = _TSChunkData(chunk: chunk)
@@ -44,20 +44,18 @@ public class TSChunkFileLoader {
     
     public func loadChunkSync(at point:TSChunkPoint) -> TSChunk? {
         guard var url = _prepareDirectory() else { return nil }
-        
         url.appendPathComponent(_filename(of: point))
-        
         guard let data = FileManager.default.contents(atPath: url.path) else { return nil }
         
         do {
+            let start = Date()
             let _data = try decoder.decode(_TSChunkData.self, from: data)
+            print(Date().timeIntervalSince(start), "s")
             
             let chunk = _data.chunk
             
-
             chunk.point = point
-            
-            
+                        
             return chunk
             
         }catch {
