@@ -267,50 +267,10 @@ internal class ChunkDataWriteStream {
         try writeBytes(value: CFSwapInt16HostToBig(value))
     }
 
-    func write(_ value: Int32) throws {
-        try writeBytes(value: CFSwapInt32HostToBig(UInt32(bitPattern: value)))
-    }
-    func write(_ value: UInt32) throws {
-        try writeBytes(value: CFSwapInt32HostToBig(value))
-    }
-
-    func write(_ value: Int64) throws {
-        try writeBytes(value: CFSwapInt64HostToBig(UInt64(bitPattern: value)))
-    }
-    func write(_ value: UInt64) throws {
-        try writeBytes(value: CFSwapInt64HostToBig(value))
-    }
-    
-    func write(_ value: Float32) throws {
-        try writeBytes(value: CFConvertFloatHostToSwapped(value))
-    }
-    func write(_ value: Float64) throws {
-        try writeBytes(value: CFConvertFloat64HostToSwapped(value))
-    }
-    func write(_ data: Data) throws {
-        var bytesWritten = 0
-        
-        withUnsafeBytes(of: data, {
-            
-            bytesWritten = outputStream.write($0.bindMemory(to: UInt8.self).baseAddress!, maxLength: data.count)
-        })
-        
-        if bytesWritten != data.count {
-            
-            throw ChunkDataStreamError.writeError
-        }
-    }
-    
-    func write(_ string:String) throws {
-        if string.isEmpty { return }
-        guard let data = string.data(using: .utf8) else {return}
-        
-        try self.write(UInt8(data.count))
-        try self.write(data)
-    }
-    
-    func write(_ value: Bool) throws {
-        try writeBytes(value: UInt8(value ? 0xff : 0x00))
+    func write(_ value: TSVector3) throws {
+        try write(value.x16)
+        try write(value.y16)
+        try write(value.z16)
     }
 }
 
