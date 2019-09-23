@@ -89,23 +89,24 @@ class TSChunkLoader {
         var renderPoints = rendalablePoints.filter { rendalable in renderingPoints.allSatisfy({ $0 != rendalable }) }
         
         func _renderChunk() {
+            let start = Date()
             DispatchQueue.main.async {
                 guard let renderPoint = renderPoints.popLast() else { return self._updateChunkRenderLock.unlock() }
                 
-                DispatchQueue.global(qos: .userInitiated).async {
-                    
-                    guard let chunk = self.loadedChunks.first(where: { $0.point == renderPoint }) else { return }
+                DispatchQueue.global(qos: .userInteractive).async {
+                    guard let chunk = self.loadedChunks.first(where: { $0.point == renderPoint }) else { return _renderChunk() }
                     
                     self._renderChunkSync_Async(chunk) {
+                        self.renderingPoints.append(renderPoint)
                         _renderChunk()
+                        print(Date().timeIntervalSince(start), "s")
                     }
                 }
             }
         }
         
         _renderChunk()
-        
-        _updateChunkRenderLock.unlock()
+    
     }
     
     
@@ -143,7 +144,7 @@ class TSChunkLoader {
         let unrenderPoints = renderingPoints.filter{ rendered in !rendalablePoints.contains(rendered)}
         
         for unrenderPoint in unrenderPoints {
-            guard let unrender = loadedChunks.first(where: { $0.point ==  unrenderPoint }) else { return }
+            guard let unrender = loadedChunks.first(where: { $0.point ==  unrenderPoint }) else { continue }
             
             self._unrenderChunkSync(unrender)
         }
@@ -264,10 +265,10 @@ extension TSChunkLoader: TSEventLoopDelegate {
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
         if tick.value % 10 == 0 {
-            self._updateChunkCreate()
             self._updateChunkDestoroy()
-            self._updateChunkRender()
             self._updateChunkUnrender()
+            self._updateChunkCreate()
+            self._updateChunkRender()
         }
         
         // save edited
