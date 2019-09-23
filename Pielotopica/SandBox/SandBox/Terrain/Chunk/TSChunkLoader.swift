@@ -30,7 +30,10 @@ class TSChunkLoader {
     
     // MARK: - Privates -
     
-    private var renderingPoints = [TSChunkPoint]()
+    private var renderingPoints = [TSChunkPoint]() {
+        didSet { assert(renderingPoints.count <= 121)}
+    }
+    
     private var loadedChunks = [TSChunk]()
     private var unloadedChunks = [TSChunk]()
     
@@ -89,7 +92,6 @@ class TSChunkLoader {
         var renderPoints = rendalablePoints.filter { rendalable in renderingPoints.allSatisfy({ $0 != rendalable }) }
         
         func _renderChunk() {
-            let start = Date()
             DispatchQueue.main.async {
                 guard let renderPoint = renderPoints.popLast() else { return self._updateChunkRenderLock.unlock() }
                 
@@ -99,7 +101,6 @@ class TSChunkLoader {
                     self._renderChunkSync_Async(chunk) {
                         self.renderingPoints.append(renderPoint)
                         _renderChunk()
-                        print(Date().timeIntervalSince(start), "s")
                     }
                 }
             }
@@ -197,15 +198,14 @@ class TSChunkLoader {
     }
     
     private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
+        
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
             
             TSTerrainManager.shared.getChunkAsync(at: point) { chunk in
-                
-                TSChunkNodeGenerator.shared.prepareAsync(for: chunk) {
-                    self.loadedChunks.append(chunk)
-                    completion()
-                }
+
+                self.loadedChunks.append(chunk)
+                completion()
                 
             }
         }

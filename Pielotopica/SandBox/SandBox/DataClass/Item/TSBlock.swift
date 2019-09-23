@@ -42,7 +42,16 @@ open class TSBlock {
     }
     // =============================================================== //
     // MARK: - Private Properties -
-    private lazy var _originalNode:SCNNode! = _createNode()
+    private lazy var _originalNode = _createOriginalNode()
+    
+    private func _createOriginalNode() -> SCNNode {
+        guard let node = SCNNode(named: nodeFileName) else {
+            log.error("Cannot load node file named \"\(nodeFileName)\".")
+            return SCNNode()
+        }
+        
+        return node
+    }
     
     // =============================================================== //
     // MARK: - Methods -
@@ -52,11 +61,15 @@ open class TSBlock {
     public func canCreateNode() -> Bool {
         return !isAir
     }
+        
+    open func createUnsharedNode() -> SCNNode {
+        return SCNNode(named: nodeFileName)!
+    }
     
     open func createNode() -> SCNNode {
         assert(self.canCreateNode(), "TP_Air cannot create SCNNode.")
         
-        return SCNNode(named: nodeFileName)!
+        return _originalNode.flattenedClone()
     }
     
     // ============================= //
