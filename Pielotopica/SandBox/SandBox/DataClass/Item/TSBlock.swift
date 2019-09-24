@@ -69,7 +69,11 @@ open class TSBlock {
     open func createNode() -> SCNNode {
         assert(self.canCreateNode(), "TP_Air cannot create SCNNode.")
         
-        return _originalNode.flattenedClone()
+        let node = _originalNode.clone()
+        node.geometry = _originalNode.geometry?.copy() as? SCNGeometry
+        
+        
+        return node
     }
     
     // ============================= //
