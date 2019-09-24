@@ -227,7 +227,6 @@ class TSChunkLoader {
     
     private func _unloadChunkSync(_ chunk: TSChunk) {
         guard let unloaded = self.loadedChunks.remove(of: chunk) else { fatalError() }
-        print("unload", loadedChunks.count, unloadedChunks.count)
         unloadedChunks.append(unloaded)
     }
     
@@ -273,8 +272,8 @@ extension TSChunkLoader: TSEventLoopDelegate {
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
         if tick.value % 10 == 0 {
-            self._updateChunkDestoroy()
             self._updateChunkUnrender()
+            self._updateChunkDestoroy()
             self._updateChunkCreate()
             self._updateChunkRender()
         }
