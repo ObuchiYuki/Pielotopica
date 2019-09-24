@@ -30,8 +30,12 @@ class TSChunkLoader {
     
     // MARK: - Privates -
     
+    /// `renderingPoints` に含まれる点は全て`loadedChunks`に含まれるチャンクの点である必要がある。
     private var renderingPoints = [TSChunkPoint]() {
-        didSet { assert(renderingPoints.count <= 121)}
+        didSet {
+            let flag = renderingPoints.allSatisfy{ self.loadedChunks.map{$0.point}.contains($0) }
+            assert(flag, "RenderingPoints must all satisfy to contains loaded chunks' points.")
+        }
     }
     
     private var loadedChunks = [TSChunk]()
@@ -91,22 +95,22 @@ class TSChunkLoader {
             
         var renderPoints = rendalablePoints.filter { rendalable in renderingPoints.allSatisfy({ $0 != rendalable }) }
         
-        func _renderChunk() {
+        func _renderChunkSync() {
             DispatchQueue.main.async {
                 guard let renderPoint = renderPoints.popLast() else { return self._updateChunkRenderLock.unlock() }
                 
                 DispatchQueue.global(qos: .userInteractive).async {
-                    guard let chunk = self.loadedChunks.first(where: { $0.point == renderPoint }) else { return _renderChunk() }
+                    guard let chunk = self.loadedChunks.first(where: { $0.point == renderPoint }) else { return _renderChunkSync() }
                     
                     self._renderChunkSync_Async(chunk) {
                         self.renderingPoints.append(renderPoint)
-                        _renderChunk()
+                        _renderChunkSync()
                     }
                 }
             }
         }
         
-        _renderChunk()
+        _renderChunkSync()
     
     }
     
@@ -142,10 +146,13 @@ class TSChunkLoader {
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let rendalablePoints = self._calcurateRendalablePoints(from: playerPoint)
         
-        let unrenderPoints = renderingPoints.filter{ rendered in !rendalablePoints.contains(rendered)}
+        let unrenderPoints = renderingPoints.filter{ rendered in !rendalablePoints.contains(rendered) }
         
         for unrenderPoint in unrenderPoints {
-            guard let unrender = loadedChunks.first(where: { $0.point ==  unrenderPoint }) else { continue }
+            guard let unrender = loadedChunks.first(where: { $0.point ==  unrenderPoint }) else {
+                debug("This must be fatal.")
+                continue
+            }
             
             self._unrenderChunkSync(unrender)
         }
@@ -155,7 +162,7 @@ class TSChunkLoader {
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
         
-        let unloadChunks = loadedChunks.filter{ loadedChunk in !loadablePoints.contains(loadedChunk.point)}
+        let unloadChunks = loadedChunks.filter{ loadedChunk in !loadablePoints.contains(loadedChunk.point) }
         
         for unloadChunk in unloadChunks {
             self._unloadChunkSync(unloadChunk)
@@ -215,11 +222,12 @@ class TSChunkLoader {
         guard let _ = renderingPoints.remove(of: chunk.point) else { fatalError() }
         
         self.delegates.forEach{ $0.unrenderChunk(chunk) }
+
     }
     
     private func _unloadChunkSync(_ chunk: TSChunk) {
         guard let unloaded = self.loadedChunks.remove(of: chunk) else { fatalError() }
-        
+        print("unload", loadedChunks.count, unloadedChunks.count)
         unloadedChunks.append(unloaded)
     }
     
