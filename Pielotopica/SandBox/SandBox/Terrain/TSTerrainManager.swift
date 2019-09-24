@@ -161,7 +161,7 @@ public class TSTerrainManager {
     // MARK: - Privates -
     
     /// チャンクを非同期に読み込みます。 非同期の読み込み用です。
-    private func _getChunkSync_Asnyc(at point: TSChunkPoint, _ completion: @escaping (TSChunk) -> () ) {        
+    private func _getChunkSync_Asnyc(at point: TSChunkPoint, _ completion: @escaping (TSChunk) -> () ) {
         TSChunkLoader.shared.getLoadedChunkAsync(at: point) { chunk in
             if let chunk = chunk {
                 completion(chunk)

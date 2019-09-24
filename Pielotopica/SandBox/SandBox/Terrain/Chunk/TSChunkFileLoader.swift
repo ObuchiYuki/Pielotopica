@@ -13,13 +13,8 @@ public class TSChunkFileLoader {
     public static let shared = TSChunkFileLoader()
 
     public func saveChunkSync_Async(_ chunk: TSChunk) {
-        do {
-            let data = try _TSChunkSerialization.data(from: chunk)
-            self._saveData(data, at: chunk.point)
-        } catch {
-            log.error(error)
-            return
-        }
+        let data = _TSChunkSerialization.data(from: chunk)
+        self._saveData(data, at: chunk.point)
     }
     
     public func loadChunkAsync(at point: TSChunkPoint, _ completion: @escaping (TSChunk?)->() ) {
@@ -35,18 +30,13 @@ public class TSChunkFileLoader {
     public func loadChunkSync(at point:TSChunkPoint) -> TSChunk? {
         guard var url = _prepareDirectory() else { return nil }
         url.appendPathComponent(_filename(of: point))
+        
         guard let data = FileManager.default.contents(atPath: url.path) else { return nil }
         
-        do {
-            let chunk = try _TSChunkSerialization.chunk(from: data, at: point)
-                        
-            return chunk
-            
-        }catch {
-            log.error(error)
-        }
-        
-        return nil
+        let start = RMMeasure()
+        let chunk = _TSChunkSerialization.chunk(from: data, at: point)
+        start.end()
+        return chunk
     }
     
     private func _saveData(_ data: Data, at point: TSChunkPoint) {
@@ -93,48 +83,46 @@ public class TSChunkFileLoader {
  */
 private class _TSChunkSerialization {
     
-    static func data(from chunk: TSChunk) throws -> Data {
+    static func data(from chunk: TSChunk) -> Data {
         let stream = ChunkDataWriteStream()
         
-        try stream.write(UInt16(chunk.anchors.count))
+        stream.write(UInt16(chunk.anchors.count))
         
         for anchor in chunk.anchors {
-            try stream.write(anchor)
+            stream.write(anchor)
         }
         
         for x in 0..<Int(TSChunk.sideWidth) {
             for y in 0..<Int(TSChunk.height) {
                 for z in 0..<Int(TSChunk.sideWidth) {
-                    try stream.write(chunk.fillmap[x][y][z])
-                    try stream.write(chunk.fillAnchors[x][y][z])
-                    try stream.write(chunk.datamap[x][y][z])
+                    stream.write(chunk.fillmap[x][y][z])
+                    stream.write(chunk.fillAnchors[x][y][z])
+                    stream.write(chunk.datamap[x][y][z])
                 }
             }
         }
         
-        guard stream.data != nil else{ throw ChunkDataStreamError.writeError }
-        
         return stream.data!
     }
     
-    static func chunk(from data: Data, at point: TSChunkPoint) throws -> TSChunk {
+    static func chunk(from data: Data, at point: TSChunkPoint) -> TSChunk {
         let stream = ChunkDataReadStream(data: data)
         
         let chunk = TSChunk()
         chunk.point = point
         
-        let anchorCount = try stream.uint16()
+        let anchorCount = stream.uint16()
 
         for _ in 0..<anchorCount {
-            chunk.anchors.insert(try stream.vector3())
+            chunk.anchors.insert(stream.vector3())
         }
         
         for x in 0..<Int(TSChunk.sideWidth) {
             for y in 0..<Int(TSChunk.height) {
                 for z in 0..<Int(TSChunk.sideWidth) {
-                    chunk.fillmap[x][y][z] = try stream.uint16()
-                    chunk.fillAnchors[x][y][z] = try stream.vector3()
-                    chunk.datamap[x][y][z] = try stream.uInt8()
+                    chunk.fillmap[x][y][z] = stream.uint16()
+                    chunk.fillAnchors[x][y][z] = stream.vector3()
+                    chunk.datamap[x][y][z] = stream.uInt8()
                 }
             }
         }
@@ -143,46 +131,34 @@ private class _TSChunkSerialization {
     }
 }
 
-enum ChunkDataStreamError: Error {
-    case readError
-    case writeError
-}
-
 
 @usableFromInline
 internal class ChunkDataReadStream {
-
+    
     private var inputStream: InputStream
     private let bytes: Int
     private var offset: Int = 0
     
+    @usableFromInline
     init(data: Data) {
         self.inputStream = InputStream(data: data)
         self.inputStream.open()
         self.bytes = data.count
     }
 
+    @usableFromInline
     deinit {
         self.inputStream.close()
     }
-
-    var hasBytesAvailable: Bool {
-        return self.inputStream.hasBytesAvailable
-    }
     
-    var bytesAvailable: Int {
-        return self.bytes - self.offset
-    }
-    
-    func readBytes<T>() throws -> T {
-        let valueSize = MemoryLayout<T>.size
+    @inline(__always)
+    func readBytes<T>(_ valueSize:Int) -> T {
         let valuePointer = UnsafeMutablePointer<T>.allocate(capacity: 1)
         var buffer = [UInt8](repeating: 0, count: MemoryLayout<T>.stride)
         let bufferPointer = UnsafeMutablePointer<UInt8>(&buffer)
-        if self.inputStream.read(bufferPointer, maxLength: valueSize) != valueSize {
-            
-            throw ChunkDataStreamError.readError
-        }
+        
+        self.inputStream.read(bufferPointer, maxLength: valueSize)
+        
         bufferPointer.withMemoryRebound(to: T.self, capacity: 1) {
             valuePointer.pointee = $0.pointee
         }
@@ -190,21 +166,26 @@ internal class ChunkDataReadStream {
         return valuePointer.pointee
     }
     
-    func vector3() throws -> TSVector3 {
-        return TSVector3(try int16(), try int16(), try int16())
+    @inline(__always)
+    func vector3() -> TSVector3 {
+        return TSVector3(int16(), int16(), int16())
     }
 
-    func uInt8() throws -> UInt8 {
-        return try self.readBytes()
+    @inline(__always)
+    func uInt8() -> UInt8 {
+        return self.readBytes(1)
     }
 
-    func int16() throws -> Int16 {
-        let value:UInt16 = try self.readBytes()
-        return Int16(bitPattern: CFSwapInt16BigToHost(value))
+    @inline(__always)
+    func int16() -> Int16 {
+        let value:UInt16 = self.readBytes(2)
+        return Int16(bitPattern: value)
     }
-    func uint16() throws -> UInt16 {
-        let value:UInt16 = try self.readBytes()
-        return CFSwapInt16BigToHost(value)
+    
+    @inline(__always)
+    func uint16() -> UInt16 {
+        let value:UInt16 = self.readBytes(2)
+        return value
     }
 }
 
@@ -226,86 +207,33 @@ internal class ChunkDataWriteStream {
         return self.outputStream.property(forKey: .dataWrittenToMemoryStreamKey) as? Data
     }
     
-    func writeBytes<T>(value: T) throws {
+    func writeBytes<T>(value: T) {
         let valueSize = MemoryLayout<T>.size
         var value = value
-        var result = 0
         
         let valuePointer = UnsafeMutablePointer<T>(&value)
         _ = valuePointer.withMemoryRebound(to: UInt8.self, capacity: valueSize) {
-            result = outputStream.write($0, maxLength: valueSize)
-        }
-            
-        if result < 0 {
-            throw ChunkDataStreamError.writeError
+            outputStream.write($0, maxLength: valueSize)
         }
     }
 
-    func write(_ value: Int8) throws {
-        try writeBytes(value: value)
+    func write(_ value: Int8) {
+        writeBytes(value: value)
     }
-    func write(_ value: UInt8) throws {
-        try writeBytes(value: value)
-    }
-
-    func write(_ value: Int16) throws {
-        try writeBytes(value: CFSwapInt16HostToBig(UInt16(bitPattern: value)))
-    }
-    func write(_ value: UInt16) throws {
-        try writeBytes(value: CFSwapInt16HostToBig(value))
+    func write(_ value: UInt8) {
+        writeBytes(value: value)
     }
 
-    func write(_ value: TSVector3) throws {
-        try write(value.x16)
-        try write(value.y16)
-        try write(value.z16)
+    func write(_ value: Int16) {
+        writeBytes(value: UInt16(bitPattern: value))
     }
-}
-
-
-private struct _TSChunkData: Codable {
-    
-    /// 16 x 4 x 16 = 1024 size arrays
-    var anchors: Set<TSVector3>
-    var fillmap       = [UInt16?](repeating: nil, count: 1024)
-    var fillAnchormap = [TSVector3?](repeating: nil, count: 1024)
-    var datamap       = [UInt8?](repeating: nil, count: 1024)
-    
-    var chunk:TSChunk {
-        let chunk = TSChunk()
-        
-        for x in 0..<Int(TSChunk.sideWidth) {
-            for y in 0..<Int(TSChunk.height) {
-                for z in 0..<Int(TSChunk.sideWidth) {
-                    let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
-                    
-                    chunk.anchors = anchors
-                    chunk.fillmap[x][y][z] = fillmap[index]!
-                    chunk.fillAnchors[x][y][z] = fillAnchormap[index]!
-                    chunk.datamap[x][y][z] = datamap[index]!
-                    
-                }
-            }
-        }
-        
-        return chunk
+    func write(_ value: UInt16) {
+        writeBytes(value: value)
     }
-    
-    init(chunk: TSChunk) {
-        
-        anchors = chunk.anchors
-        
-        for x in 0..<Int(TSChunk.sideWidth) {
-            for y in 0..<Int(TSChunk.height) {
-                for z in 0..<Int(TSChunk.sideWidth) {
-                    let index = x * Int(TSChunk.height * TSChunk.sideWidth) + y * Int(TSChunk.sideWidth) + z
-                    
-                    fillmap[index]          = chunk.fillmap[x][y][z]
-                    fillAnchormap[index]    = chunk.fillAnchors[x][y][z]
-                    datamap[index]          = chunk.datamap[x][y][z]
 
-                }
-            }
-        }
+    func write(_ value: TSVector3) {
+        write(value.x16)
+        write(value.y16)
+        write(value.z16)
     }
 }

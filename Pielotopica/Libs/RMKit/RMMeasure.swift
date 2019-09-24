@@ -7,36 +7,17 @@
 //
 
 import Foundation
-class RMMeasure {
-    private static var times = [_RMTime]()
+
+public class RMMeasure {
+    private let _start: Date
     
-    static func makeKey() -> String {
-        return UUID().uuidString
+    public init() {
+        self._start = Date()
     }
     
-    static func start(_ label:String) {
-        print("Start Measurement \"\(label)\"")
-        times.append(_RMTime(label: label, start: Date()))
-    }
-    
-    static func end(_ label:String) {
-        guard let time = times.first(where: {$0.label == label}) else {return debugPrint("No time named \(label) found.")}
+    public func end(_ message: String = "") {
+        let interval = Date().timeIntervalSince(_start)
         
-        times.remove(of: time)
-        print(Date().timeIntervalSince(time.start))
-    }
-}
-
-private struct _RMTime {
-    let label:String
-    let start:Date
-}
-
-extension _RMTime: Equatable & Hashable {
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(label)
-    }
-    static func == (left:_RMTime, right:_RMTime) -> Bool {
-        left.label == right.label
-    }
+        print(message, interval, "s")
+    }    
 }

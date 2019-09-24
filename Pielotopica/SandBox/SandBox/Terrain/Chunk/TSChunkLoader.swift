@@ -98,7 +98,9 @@ class TSChunkLoader {
         var loadPoints = loadablePoints.filter { loadable in loadedPoints.allSatisfy({ $0 != loadable }) }
         
         func _loadChunk() {
+            
             DispatchQueue.main.async {
+                print("=============================================")
                 guard let loadPoint = loadPoints.popLast() else { return self._updateChunkCreateLock.unlock() }
                 
                 DispatchQueue.global(qos: .userInitiated).async {
@@ -161,7 +163,6 @@ class TSChunkLoader {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
             
             TSTerrainManager.shared.getChunkAsync(at: point) { chunk in
-
                 self.loadedChunks.append(chunk)
                 completion(chunk)
                 
@@ -226,10 +227,8 @@ extension TSChunkLoader: TSEventLoopDelegate {
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
         if tick.value % 10 == 0 {
-            //self._updateChunkUnrender()
             self._updateChunkDestoroy()
             self._updateChunkCreate()
-            //self._updateChunkRender()
         }
         
         // save edited
