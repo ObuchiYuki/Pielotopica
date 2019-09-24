@@ -100,7 +100,6 @@ class TSChunkLoader {
         func _loadChunk() {
             
             DispatchQueue.main.async {
-                print("=============================================")
                 guard let loadPoint = loadPoints.popLast() else { return self._updateChunkCreateLock.unlock() }
                 
                 DispatchQueue.global(qos: .userInitiated).async {
