@@ -86,41 +86,12 @@ class TSChunkLoader {
     
     // MARK: - Load chunk handlers -
     
-    private var _updateChunkRenderLock = RMLock()
-    private func _updateChunkRender() {
-        if _updateChunkRenderLock.isLocked { return } ; _updateChunkRenderLock.lock()
-        
-        let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
-        let rendalablePoints = self._calcurateRendalablePoints(from: playerPoint)
-            
-        var renderPoints = rendalablePoints.filter { rendalable in renderingPoints.allSatisfy({ $0 != rendalable }) }
-        
-        func _renderChunkSync() {
-            DispatchQueue.main.async {
-                guard let renderPoint = renderPoints.popLast() else { return self._updateChunkRenderLock.unlock() }
-                
-                DispatchQueue.global(qos: .userInteractive).async {
-                    guard let chunk = self.loadedChunks.first(where: { $0.point == renderPoint }) else { return _renderChunkSync() }
-                    
-                    self._renderChunkSync_Async(chunk) {
-                        self.renderingPoints.append(renderPoint)
-                        _renderChunkSync()
-                    }
-                }
-            }
-        }
-        
-        _renderChunkSync()
-    
-    }
-    
-    
     private var _updateChunkCreateLock = RMLock()
     private func _updateChunkCreate() {
         if _updateChunkCreateLock.isLocked { return } ; _updateChunkCreateLock.lock()
         
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
-        let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
+        let loadablePoints = self._calcurateRendalablePoints(from: playerPoint)
         
         let loadedPoints = self.loadedChunks.map{ $0.point }
             
@@ -131,9 +102,11 @@ class TSChunkLoader {
                 guard let loadPoint = loadPoints.popLast() else { return self._updateChunkCreateLock.unlock() }
                 
                 DispatchQueue.global(qos: .userInitiated).async {
-                    self._loadChunkSync_Async(at: loadPoint) {
-                        
-                        _loadChunk()
+                    self._loadChunkSync_Async(at: loadPoint) {chunk in
+                        TSChunkNodeGenerator.shared.prepareAsync(for: chunk) {
+                            self.delegates.forEach{ $0.renderChunk(chunk) }
+                            _loadChunk()
+                        }
                     }
                 }
             }
@@ -142,25 +115,9 @@ class TSChunkLoader {
         _loadChunk()
     }
     
-    private func _updateChunkUnrender() {
-        let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
-        let rendalablePoints = self._calcurateRendalablePoints(from: playerPoint)
-        
-        let unrenderPoints = renderingPoints.filter{ rendered in !rendalablePoints.contains(rendered) }
-        
-        for unrenderPoint in unrenderPoints {
-            guard let unrender = loadedChunks.first(where: { $0.point ==  unrenderPoint }) else {
-                debug("This must be fatal.")
-                continue
-            }
-            
-            self._unrenderChunkSync(unrender)
-        }
-    }
-    
     private func _updateChunkDestoroy(){
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
-        let loadablePoints = self._calcurateLoadablePoints(from: playerPoint)
+        let loadablePoints = self._calcurateRendalablePoints(from: playerPoint)
         
         let unloadChunks = loadedChunks.filter{ loadedChunk in !loadablePoints.contains(loadedChunk.point) }
         
@@ -172,12 +129,6 @@ class TSChunkLoader {
     // MARK: - Calcuration Methods -
     private func _calcurateRendalablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
         let distance = TSOptionSaveData.shared.renderDistance
-        
-        return _calcuratePoints(from: point, distance: distance)
-    }
-    
-    private func _calcurateLoadablePoints(from point: TSChunkPoint) -> [TSChunkPoint] {
-        let distance = TSOptionSaveData.shared.loadingDistance
         
         return _calcuratePoints(from: point, distance: distance)
     }
@@ -204,7 +155,7 @@ class TSChunkLoader {
         }
     }
     
-    private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping ()->() ) {
+    private func _loadChunkSync_Async(at point: TSChunkPoint, _ completion: @escaping (TSChunk)->() ) {
         
         DispatchQueue.main.async {
             guard TSChunkNodeGenerator.shared.isFreeChunk(at: point) else { return }
@@ -212,7 +163,7 @@ class TSChunkLoader {
             TSTerrainManager.shared.getChunkAsync(at: point) { chunk in
 
                 self.loadedChunks.append(chunk)
-                completion()
+                completion(chunk)
                 
             }
         }
@@ -227,7 +178,10 @@ class TSChunkLoader {
     
     private func _unloadChunkSync(_ chunk: TSChunk) {
         guard let unloaded = self.loadedChunks.remove(of: chunk) else { fatalError() }
+        
         unloadedChunks.append(unloaded)
+        
+        delegates.forEach{ $0.unrenderChunk(chunk) }
     }
     
 }
@@ -272,10 +226,10 @@ extension TSChunkLoader: TSEventLoopDelegate {
     func update(_ eventLoop: TSEventLoop, at tick: TSTick) {
         
         if tick.value % 10 == 0 {
-            self._updateChunkUnrender()
+            //self._updateChunkUnrender()
             self._updateChunkDestoroy()
             self._updateChunkCreate()
-            self._updateChunkRender()
+            //self._updateChunkRender()
         }
         
         // save edited
