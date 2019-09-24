@@ -19,15 +19,15 @@ public class TSChunk {
     
     /// local
     internal var fillmap:[[[UInt16]]] =
-        Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
+        Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth), count: TSChunk.height), count: TSChunk.sideWidth)
     
     /// local
     internal var datamap:[[[UInt8]]] =
-        Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
+        Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth), count: TSChunk.height), count: TSChunk.sideWidth)
     
     /// global
     internal var fillAnchors:[[[TSVector3]]] =
-        Array(repeating: Array(repeating: Array(repeating: .zero, count: TSChunk.sideWidth.i), count: TSChunk.height.i), count: TSChunk.sideWidth.i)
+        Array(repeating: Array(repeating: Array(repeating: .zero, count: TSChunk.sideWidth), count: TSChunk.height), count: TSChunk.sideWidth)
         
     /// local
     internal var anchors     = Set<TSVector3>()
@@ -68,8 +68,8 @@ public class TSChunk {
 }
 
 extension TSChunk {
-    public static let sideWidth: Int16 = 16
-    public static let height: Int16 = 4
+    public static let sideWidth: Int = 16
+    public static let height: Int = 4
     
 }
 
@@ -111,7 +111,7 @@ extension TSChunk: CustomStringConvertible {
     public var description: String {
         var u = ""
         for y in 0..<TSChunk.height  {
-            u += layerDescription(y: y)
+            u += layerDescription(y: Int16(y))
         }
         
         return u
@@ -120,7 +120,7 @@ extension TSChunk: CustomStringConvertible {
 
 extension TSChunk {
     static func convertToChunkPoint(fromGlobal point: TSVector2) -> TSChunkPoint {
-        return TSChunkPoint(point.x16 / TSChunk.sideWidth, point.z16 / TSChunk.sideWidth)
+        return TSChunkPoint(point.x16 / Int16(TSChunk.sideWidth), point.z16 / Int16(TSChunk.sideWidth))
     }
     
     static func convertToChunkPosition(fromGlobal globalPoint: TSVector3) -> TSVector3 {

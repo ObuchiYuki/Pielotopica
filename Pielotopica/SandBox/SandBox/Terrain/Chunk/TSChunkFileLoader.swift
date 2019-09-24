@@ -92,9 +92,9 @@ private class _TSChunkSerialization {
             stream.write(anchor)
         }
         
-        for x in 0..<Int(TSChunk.sideWidth) {
-            for y in 0..<Int(TSChunk.height) {
-                for z in 0..<Int(TSChunk.sideWidth) {
+        for x in 0..<TSChunk.sideWidth {
+            for y in 0..<TSChunk.height {
+                for z in 0..<TSChunk.sideWidth {
                     stream.write(chunk.fillmap[x][y][z])
                     stream.write(chunk.fillAnchors[x][y][z])
                     stream.write(chunk.datamap[x][y][z])
@@ -117,9 +117,9 @@ private class _TSChunkSerialization {
             chunk.anchors.insert(stream.vector3())
         }
         
-        for x in 0..<Int(TSChunk.sideWidth) {
-            for y in 0..<Int(TSChunk.height) {
-                for z in 0..<Int(TSChunk.sideWidth) {
+        for x in 0..<TSChunk.sideWidth {
+            for y in 0..<TSChunk.height {
+                for z in 0..<TSChunk.sideWidth {
                     chunk.fillmap[x][y][z] = stream.uint16()
                     chunk.fillAnchors[x][y][z] = stream.vector3()
                     chunk.datamap[x][y][z] = stream.uInt8()
