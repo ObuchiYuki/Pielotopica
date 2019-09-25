@@ -27,8 +27,9 @@ class GameViewController: GKGameViewController {
         scnView.overlaySKScene = nil
         scnView.autoenablesDefaultLighting = false
         scnView.antialiasingMode = .none
-        scnView.rendersContinuously = false 
+        scnView.rendersContinuously = false
         
+        // Aglista-X
         // for debug
         switch showingScene {
         case .start:

@@ -164,7 +164,7 @@ public class TPBlockEditHelper {
         
         let containerNode = SCNNode()
         
-        let node = block.createNode()
+        let node = block.createUnsharedNode()
         node.fmaterial?.transparencyMode = .singleLayer
         node.fmaterial?.transparency = 0.5
         containerNode.addChildNode(node)

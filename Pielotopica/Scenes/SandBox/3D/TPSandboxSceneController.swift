@@ -21,6 +21,8 @@ class TPSandboxSceneController: GK3DSceneController {
     
     private let bag = DisposeBag()
     
+    
+    private lazy var rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(handleRotateGesture(_:)))
     private lazy var pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
     private lazy var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
     private lazy var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
@@ -40,6 +42,10 @@ class TPSandboxSceneController: GK3DSceneController {
     
     // ================================ //
     // MARK: - Handler -
+    @objc func handleRotateGesture(_ recognizer: UIRotationGestureRecognizer) {
+        
+    }
+    
     @objc func handlePinchGesture(_ recognizer:UIPinchGestureRecognizer) {
         let scale = recognizer.scale
         
@@ -96,6 +102,7 @@ class TPSandboxSceneController: GK3DSceneController {
             }
         }
         
+        self.addGestureRecognizer(rotateGestureRecognizer)
         self.addGestureRecognizer(pinchGestureRecognizer)
         self.addGestureRecognizer(panGestureRecognizer)
         self.addGestureRecognizer(tapGestureRecognizer)
@@ -195,5 +202,11 @@ extension TPSandboxSceneController {
         
         cameraNode.eulerAngles = [-.pi * 0.2, .pi/4, 0]
         cameraNode.position = [100, 100, 100]
+        
+        /// (仮)
+        let zeroPointNode = SCNNode()
+        self.scene.rootNode.addChildNode(zeroPointNode)
+        
+        cameraNode.constraints = [ SCNLookAtConstraint(target: zeroPointNode) ]
     }
 }
