@@ -33,9 +33,7 @@ public class TSChunkFileLoader {
         
         guard let data = FileManager.default.contents(atPath: url.path) else { return nil }
         
-        let start = RMMeasure()
         let chunk = _TSChunkSerialization.chunk(from: data, at: point)
-        start.end()
         return chunk
     }
     
@@ -96,7 +94,7 @@ private class _TSChunkSerialization {
             for y in 0..<TSChunk.height {
                 for z in 0..<TSChunk.sideWidth {
                     stream.write(chunk.fillmap[x][y][z])
-                    stream.write(chunk.fillAnchors[x][y][z])
+                    stream.write(chunk.fillAnchors[x][y][z]!)
                     stream.write(chunk.datamap[x][y][z])
                 }
             }
@@ -117,6 +115,7 @@ private class _TSChunkSerialization {
             chunk.anchors.insert(stream.vector3())
         }
         
+        let _o_loadChunk = RMMeasure()
         for x in 0..<TSChunk.sideWidth {
             for y in 0..<TSChunk.height {
                 for z in 0..<TSChunk.sideWidth {
@@ -126,6 +125,8 @@ private class _TSChunkSerialization {
                 }
             }
         }
+        _o_loadChunk.end()
+        
         
         return chunk
     }
@@ -136,14 +137,11 @@ private class _TSChunkSerialization {
 internal class ChunkDataReadStream {
     
     private var inputStream: InputStream
-    private let bytes: Int
-    private var offset: Int = 0
     
     @usableFromInline
     init(data: Data) {
         self.inputStream = InputStream(data: data)
         self.inputStream.open()
-        self.bytes = data.count
     }
 
     @usableFromInline
@@ -162,7 +160,6 @@ internal class ChunkDataReadStream {
         bufferPointer.withMemoryRebound(to: T.self, capacity: 1) {
             valuePointer.pointee = $0.pointee
         }
-        offset += valueSize
         return valuePointer.pointee
     }
     
@@ -178,14 +175,12 @@ internal class ChunkDataReadStream {
 
     @inline(__always)
     func int16() -> Int16 {
-        let value:UInt16 = self.readBytes(2)
-        return Int16(bitPattern: value)
+        return Int16(bitPattern: self.readBytes(2))
     }
     
     @inline(__always)
     func uint16() -> UInt16 {
-        let value:UInt16 = self.readBytes(2)
-        return value
+        return self.readBytes(2)
     }
 }
 

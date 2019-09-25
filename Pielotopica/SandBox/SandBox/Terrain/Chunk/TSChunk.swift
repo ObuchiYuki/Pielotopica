@@ -26,8 +26,8 @@ public class TSChunk {
         Array(repeating: Array(repeating: Array(repeating: 0, count: TSChunk.sideWidth), count: TSChunk.height), count: TSChunk.sideWidth)
     
     /// global
-    internal var fillAnchors:[[[TSVector3]]] =
-        Array(repeating: Array(repeating: Array(repeating: .zero, count: TSChunk.sideWidth), count: TSChunk.height), count: TSChunk.sideWidth)
+    internal var fillAnchors:[[[TSVector3?]]] =
+        Array(repeating: Array(repeating: Array(repeating: nil, count: TSChunk.sideWidth), count: TSChunk.height), count: TSChunk.sideWidth)
         
     /// local
     internal var anchors     = Set<TSVector3>()
@@ -68,7 +68,9 @@ public class TSChunk {
 }
 
 extension TSChunk {
+    @inline(__always)
     public static let sideWidth: Int = 16
+    @inline(__always)
     public static let height: Int = 4
     
 }

@@ -89,7 +89,9 @@ class TSChunkLoader {
     /// チャンクをロードしやす。
     private var _updateChunkCreateLock = RMLock()
     private func _updateChunkCreate() {
-        if _updateChunkCreateLock.isLocked { return } ; _updateChunkCreateLock.lock()
+        if _updateChunkCreateLock.isLocked { return }
+        
+        _updateChunkCreateLock.lock()
         
         let playerPoint = TSChunk.convertToChunkPoint(fromGlobal: playerPosition)
         let loadablePoints = self._calcurateRendalablePoints(from: playerPoint)
@@ -108,10 +110,13 @@ class TSChunkLoader {
                         TSChunkNodeGenerator.shared.prepareAsync(for: chunk) {
                             self.delegates.forEach{ $0.renderChunk(chunk) }
                             _loadChunk()
+                            
                         }
                     }
                 }
+                
             }
+            
         }
         
         _loadChunk()

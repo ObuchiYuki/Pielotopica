@@ -11,6 +11,7 @@ import Foundation
 public class RMLock {
     private var _isLocked: Bool
     
+    public var needsNext: Bool = false
     public var isLocked:Bool {
         return _isLocked
     }
