@@ -23,7 +23,8 @@ class GameViewController: GKGameViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        skView.scene = SKScene()
+        /// nodeを消す。
+        skView.presentScene(SKScene())
     }
     
     override func viewDidLoad() {
