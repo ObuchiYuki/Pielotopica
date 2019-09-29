@@ -9,8 +9,8 @@
 import SceneKit
 
 protocol TPCameraGestureHelperDelegate:class {
-    func cameraGestureHelper(_ cameraGestureHelper:TPSandboxCameraGestureHelper, cameraDidMoveTo position:SCNVector3)
-    
+    func cameraGestureHelper(_ cameraGestureHelper:TPSandboxCameraGestureHelper, pointerMoveTo position:SCNVector3)
+    func cameraGestureHelper(_ cameraGestureHelper:TPSandboxCameraGestureHelper, cameraDidMoveTo position:SCNVector3)    
     func cameraGestureHelper(_ cameraGestureHelper:TPSandboxCameraGestureHelper, cameraDidchangeZoomedTo scale:Double)
 }
 
@@ -20,6 +20,7 @@ class TPSandboxCameraGestureHelper {
     
     weak var delegate:TPCameraGestureHelperDelegate!
     
+    public static let initialCameraPosition:SCNVector3 = [100, 100, 100]
     private var pinchScale:Float = 0.5
     private var originalPinchScale:Float = 1.0
     private var cameraStartPosition = SCNVector3.zero

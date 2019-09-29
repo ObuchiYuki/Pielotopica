@@ -21,6 +21,8 @@ class TPSandboxSceneController: GK3DSceneController {
     
     private let bag = DisposeBag()
     
+    /// 仮
+    private let pointerNode = SCNNode()
     
     private lazy var rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: #selector(handleRotateGesture(_:)))
     private lazy var pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture(_:)))
@@ -152,6 +154,9 @@ extension TPSandboxSceneController: TPSandboxSceneModelBinder {
     }
     
     // - Camera -
+    func __moveCameraPointer(to position: SCNVector3) {
+        self.pointerNode.position = position
+    }
     func __moveCamera(to position:SCNVector3) {
         self.cameraNode.position = position
         
@@ -204,9 +209,8 @@ extension TPSandboxSceneController {
         cameraNode.position = [100, 100, 100]
         
         /// (仮)
-        let zeroPointNode = SCNNode()
-        self.scene.rootNode.addChildNode(zeroPointNode)
+        self.scene.rootNode.addChildNode(pointerNode)
         
-        cameraNode.constraints = [ SCNLookAtConstraint(target: zeroPointNode) ]
+        cameraNode.constraints = [ SCNLookAtConstraint(target: pointerNode) ]
     }
 }

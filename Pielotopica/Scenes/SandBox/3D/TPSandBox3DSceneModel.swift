@@ -29,6 +29,7 @@ protocol TPSandboxSceneModelBinder: class {
     func __addParticle(_ particle:SCNParticleSystem, to node:SCNNode)
     
     // MARK: - Camera -
+    func __moveCameraPointer(to position: SCNVector3)
     func __moveCamera(to position:SCNVector3)
     func __zoomCamera(to scale:Double)
     

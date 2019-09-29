@@ -21,13 +21,17 @@ class GameViewController: GKGameViewController {
     
     var showingScene = Scene.sandbox
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        skView.scene = SKScene()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                     
         scnView.overlaySKScene = nil
         scnView.autoenablesDefaultLighting = false
         scnView.antialiasingMode = .none
-        scnView.rendersContinuously = false
         
         // Aglista-X
         // for debug
