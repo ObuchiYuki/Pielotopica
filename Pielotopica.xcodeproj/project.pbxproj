@@ -22,6 +22,8 @@
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
 		B60C1C83231CC146005A7724 /* TPCaptureVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C1C82231CC146005A7724 /* TPCaptureVisibilityManager.swift */; };
+		B61477A0235344A4008EFD6A /* TPGameRootSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614779F235344A4008EFD6A /* TPGameRootSceneModel.swift */; };
+		B61477A223534695008EFD6A /* TPGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61477A123534695008EFD6A /* TPGameScene.swift */; };
 		B614C236230F731F00DA7093 /* TS_WoodWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_WoodWall.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
 		B61E93BB2300E361008CB325 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93BA2300E361008CB325 /* GameViewController.swift */; };
@@ -232,6 +234,8 @@
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
 		B60C1C82231CC146005A7724 /* TPCaptureVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureVisibilityManager.swift; sourceTree = "<group>"; };
+		B614779F235344A4008EFD6A /* TPGameRootSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameRootSceneModel.swift; sourceTree = "<group>"; };
+		B61477A123534695008EFD6A /* TPGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameScene.swift; sourceTree = "<group>"; };
 		B614C235230F731F00DA7093 /* TS_WoodWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_WoodWall.swift; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61E93B023005E2C008CB325 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -786,6 +790,7 @@
 			children = (
 				B62A0CA22352FB6600121F7B /* Components */,
 				B62DBC3A2352C3CC00E00052 /* TPControllerNode.swift */,
+				B61477A123534695008EFD6A /* TPGameScene.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1040,6 +1045,7 @@
 			isa = PBXGroup;
 			children = (
 				B62DBC3C2352C7BB00E00052 /* TPGameRootScene.swift */,
+				B614779F235344A4008EFD6A /* TPGameRootSceneModel.swift */,
 				B62DBC392352C3AC00E00052 /* Common */,
 			);
 			path = 2D;
@@ -1377,6 +1383,7 @@
 				B62521A1231166AA00D0ADD6 /* TPBlockMoveHelper.swift in Sources */,
 				B6227A352301AB84009EF60F /* TSBlockItem.swift in Sources */,
 				B6002D98231A340E006C4D94 /* Ex+CGPoint.swift in Sources */,
+				B61477A0235344A4008EFD6A /* TPGameRootSceneModel.swift in Sources */,
 				B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */,
 				B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */,
 				B667BA60230B776C0038B098 /* RKObjectDetector.swift in Sources */,
@@ -1387,6 +1394,7 @@
 				B6227A432301AB84009EF60F /* Ex+TSVector2.swift in Sources */,
 				B6227A5D2301B13C009EF60F /* Ex+SCNNode.swift in Sources */,
 				B61E93CC2300E36C008CB325 /* Ex+UIImage.swift in Sources */,
+				B61477A223534695008EFD6A /* TPGameScene.swift in Sources */,
 				B61E93D22300E36C008CB325 /* Ex+CoreGraphics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
