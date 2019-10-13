@@ -8,22 +8,42 @@
 
 import SpriteKit
 
+// ======================================================== //
+// MARK: - TPFlatButton -
 class TPFlatButton: GKButtonNode {
     
-    private let label = SKLabelNode(fontNamed: TPCommon.FontName.pixcel)
+    // ======================================================== //
+    // MARK: - Properties -
     private static let buttonSize:CGSize = [55, 55]
     
-    init(defaultTexture :String, selectedTexture: String) {
+    private let _title:String
+    private let _label = SKLabelNode(fontNamed: TPCommon.FontName.pixcelBold)
+    
+    // ======================================================== //
+    // MARK: - Constructor -
+    
+    private func _setup() {
+        
+        _label.text = _title
+        _label.fontSize = 10
+        _label.fontColor = TPCommon.Color.text
+        _label.position = [0, -20]
+        
+        self.addChild(_label)
+    }
+    
+    init(defaultTexture :String, selectedTexture: String, label: String) {
+        _title = label
+        
         super.init(
             size: TPFlatButton.buttonSize,
             defaultTexture: .init(imageNamed: defaultTexture),
             selectedTexture: .init(imageNamed: selectedTexture)
         )
         
+        _setup()
         
     }
     
-    required init(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init(coder: NSCoder) { fatalError() }
 }

@@ -74,6 +74,8 @@
 		B6292409231B888C00955B1E /* TP_stone_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B6292408231B888C00955B1E /* TP_stone_1x1.scn */; };
 		B629240B231B889300955B1E /* TP_stone_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B629240A231B889200955B1E /* TP_stone_1x1.png */; };
 		B629240D231B88A800955B1E /* TS_Stone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B629240C231B88A800955B1E /* TS_Stone.swift */; };
+		B62A0CA7235303DB00121F7B /* PixelMplus12-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B62A0CA62352FD5800121F7B /* PixelMplus12-Bold.ttf */; };
+		B62A0CA8235303DB00121F7B /* PixelMplus12-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B62A0CA52352FD5700121F7B /* PixelMplus12-Regular.ttf */; };
 		B62DBC332352B32C00E00052 /* GKTextNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62DBC322352B32C00E00052 /* GKTextNode.swift */; };
 		B62DBC352352B35F00E00052 /* GKTableNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62DBC342352B35F00E00052 /* GKTableNode.swift */; };
 		B62DBC372352C2F300E00052 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B62DBC362352C2F300E00052 /* Media.xcassets */; };
@@ -1140,6 +1142,10 @@
 				B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */,
 				B6724459231DF231008AB0D7 /* TP_ground_5x5.scn in Resources */,
 				B6A91D64231DFCC0002FFC83 /* TP_ground_edge.png in Resources */,
+				B62A0CA7235303DB00121F7B /* PixelMplus12-Bold.ttf in Resources */,
+				B62A0CA8235303DB00121F7B /* PixelMplus12-Regular.ttf in Resources */,
+				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
+				B660939323153B3400B528E5 /* Silom.ttf in Resources */,
 				B6012E012318B5BB00DC18CE /* TP_spawner_1x1.scn in Resources */,
 				B62DBC372352C2F300E00052 /* Media.xcassets in Resources */,
 				B6ECA9A2231E207A0033FBD8 /* ring.mp3 in Resources */,
@@ -1150,7 +1156,6 @@
 				B6EDB11D230F78AE0042CA02 /* button_light.mp3 in Resources */,
 				B66BD3D82317E73E00E20212 /* enemy_1.scn in Resources */,
 				B67CA128231ABD6C00A01646 /* TP_tree.scn in Resources */,
-				B660939323153B3400B528E5 /* Silom.ttf in Resources */,
 				B629240B231B889300955B1E /* TP_stone_1x1.png in Resources */,
 				B6227A332301AB84009EF60F /* TSBlockPlaceAnimation.scnp in Resources */,
 				B69E866C231625A2004D4272 /* retro_transition_fade_from_top.fsh in Resources */,
@@ -1175,7 +1180,6 @@
 				B64D401B231D072700CA3198 /* TP_fuel_factory.scn in Resources */,
 				B65D5CB9231BBDBA009E4171 /* normal_bgm.mp3 in Resources */,
 				B69E866B231625A2004D4272 /* retro_transition_fade_from_top_left.fsh in Resources */,
-				B68E143A23141B1400E973E1 /* Korneuburg-Slab-Bold.ttf in Resources */,
 				B69E8662231625A2004D4272 /* retro_transition_fade_to_center.fsh in Resources */,
 				B6724454231D5B0C008AB0D7 /* TP_fuel_factory.png in Resources */,
 				B61E93E42300E376008CB325 /* Main.storyboard in Resources */,

@@ -15,10 +15,17 @@ public extension GKSceneHolder {
 
 
 class TPGameRootScene: GKSafeScene {
+    let menuItem = TPFlatButton(
+        defaultTexture: "TP_menu_flatbutton",
+        selectedTexture: "TP_menu_flatbutton_pressed",
+        label: "メニュー"
+    )
     
     override func sceneDidLoad() {
         
         self.rootNode.color = UIColor.black.withAlphaComponent(0.2)
         
+        
+        self.rootNode.addChild(menuItem)
     }
 }

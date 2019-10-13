@@ -25,12 +25,14 @@ public class GKButtonNode: SKSpriteNode {
     
     // =============================================================== //
     // MARK: - Properties -
-    
+
     override var needsHandleReaction: Bool {
         return true
     }
     // ================================= //
     // MARK: - State Controllers -
+    
+    private var needsTapicEngine:Bool = true
     
     /// ボタンが有効かどうかです。
     /// 無効の場合は、disabledTextureが表示されます。
@@ -101,9 +103,7 @@ public class GKButtonNode: SKSpriteNode {
     // MARK: - Overriable -
     
     func buttonDidSelect() {}
-    func buttonDidUnselect() {
-        TPButtonReaction()
-    }
+    func buttonDidUnselect() {}
     
     // =============================== //
     // MARK: - APIs -
@@ -151,7 +151,9 @@ public class GKButtonNode: SKSpriteNode {
         guard isEnabled, let parent = parent else { return }
         
         isSelected = false
-        buttonDidUnselect()
+        if needsTapicEngine {
+            RMTapticEngine.impact.feedback(.medium)
+        }
 
         // touchUpInside
         if (targetTouchUpInside != nil && targetTouchUpInside!.responds(to: actionTouchUpInside!)) {
