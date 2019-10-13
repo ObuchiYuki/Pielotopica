@@ -15,11 +15,11 @@ class GameViewController: GKGameViewController {
     
     enum Scene {
         case start
-        case sandbox
+        case game
         case clear
     }
     
-    var showingScene = Scene.sandbox
+    var showingScene = Scene.game
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,8 +39,8 @@ class GameViewController: GKGameViewController {
         switch showingScene {
         case .start:
             self.presentScene(with: .startScene)
-        case .sandbox:
-            self.presentScene(with: .sandboxScene)
+        case .game:
+            self.presentScene(with: .gameScene)
         case .clear:
             self.presentScene(with: .gameClear)
         }

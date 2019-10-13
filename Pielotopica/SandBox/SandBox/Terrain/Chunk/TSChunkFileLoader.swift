@@ -115,7 +115,6 @@ private class _TSChunkSerialization {
             chunk.anchors.insert(stream.vector3())
         }
         
-        let _o_loadChunk = RMMeasure()
         for x in 0..<TSChunk.sideWidth {
             for y in 0..<TSChunk.height {
                 for z in 0..<TSChunk.sideWidth {
@@ -125,7 +124,6 @@ private class _TSChunkSerialization {
                 }
             }
         }
-        _o_loadChunk.end()
         
         
         return chunk

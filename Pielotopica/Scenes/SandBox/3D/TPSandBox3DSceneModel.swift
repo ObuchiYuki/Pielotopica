@@ -184,23 +184,11 @@ class TPSandBox3DSceneModel {
         manager.playerDidMoved(to: .zero)
         
         binder.__makeDay()
-        
-        //if first luanch {
-            _createStage1()
-        //}
     }
     
 
     // ================================================================== //
     // MARK: - Private Methods -
-    private func _createStage1() {
-        /// 床設置 (仮)
-        //for x in -20...20 {
-        //    for z in -20...20 {
-        //        editor.placeBlock(.ground5x5, at: TSVector3(5 * x, 0, 5 * z), rotation: .x0, forced: true)
-        //    }
-        //}
-    }
     
     private func _endBlockEditing(forced:Bool) {
         guard let blockEditHelper = blockEditHelper else {return}
@@ -351,7 +339,7 @@ extension TPSandBox3DSceneModel: TPBlockEditHelperDelegate {
 // MARK: - Extension for TPCameraGestureHelperDelegate -
 extension TPSandBox3DSceneModel: TPCameraGestureHelperDelegate{
     func cameraGestureHelper(_ cameraGestureHelper: TPSandboxCameraGestureHelper, pointerMoveTo position: SCNVector3) {
-        // 仮　
+        // 仮
         self.binder.__moveCameraPointer(to: position)
     }
     func cameraGestureHelper(_ cameraGestureHelper: TPSandboxCameraGestureHelper, cameraDidMoveTo position: SCNVector3) {

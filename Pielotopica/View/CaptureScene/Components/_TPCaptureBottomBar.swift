@@ -9,7 +9,7 @@
 import SpriteKit
 
 
-class _TPCaptureBottomBar: GKSpriteNode {
+class _TPCaptureBottomBar: SKSpriteNode {
     let backButton = TPFlatButton(textureNamed: "TP_flatbutton_back")
     
     let infoButton = GKButtonNode(
@@ -32,6 +32,7 @@ class _TPCaptureBottomBar: GKSpriteNode {
     init() {
         super.init(texture: nil, color: .clear, size: [312, 47])
         
+        self.anchorPoint = .zero
         self.position = [-GKSafeScene.sceneSize.width / 2 + 31, -300]
         
         _setupButtons()
