@@ -17,7 +17,6 @@ class TPSandboxSceneController: GK3DSceneController {
     public static var initirized:TPSandboxSceneController?
     
     public lazy var sceneModel = TPSandBox3DSceneModel(self)
-    public var gameController:TPGameController?
     
     private let bag = DisposeBag()
     
@@ -92,18 +91,6 @@ class TPSandboxSceneController: GK3DSceneController {
     override func sceneDidLoad() {
         self.sceneModel.sceneDidLoad()
         
-        RMBindCenter.default.addObserver(forName: .TPGameControllerGameDidEnd) {[weak self] end in
-            let state = end.object.state
-            switch state {
-            case .interruption:
-                break
-            case .clear:
-                self?.gkViewController.presentScene(with: .gameClear)
-            case .gameover:
-                self?.gkViewController.presentScene(with: .gameOver)
-            }
-        }
-        
         self.addGestureRecognizer(rotateGestureRecognizer)
         self.addGestureRecognizer(pinchGestureRecognizer)
         self.addGestureRecognizer(panGestureRecognizer)
@@ -119,15 +106,6 @@ class TPSandboxSceneController: GK3DSceneController {
 // MARK: - Extension for SceneModel -
 
 extension TPSandboxSceneController: TPSandboxSceneModelBinder {
-    func __startGame() {
-        self.gameController = TPGameController(scene: scene)
-        gameController?.start()
-    }
-    func __endGame() {
-        gameController?.end(with: .interruption)
-        self.gameController = nil
-    }
-    
     var __cameraPosition: SCNVector3 {
         return self.cameraNode.position
     }

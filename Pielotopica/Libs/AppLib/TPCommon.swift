@@ -32,7 +32,8 @@ struct TPCommon {
     struct FontName {
         static let topica = "KorneuburgSlabBold-Bold"
         static let logo = "Silom"
-        static let pixcel = "5squared-pixel"
+        static let pixcel = "PixelMplus12-Regular"
+        static let pixcelBold = "PixelMplus12-Bold"
         static let hiraBold = "HiraginoSans-W6"
         
     }

@@ -21,9 +21,7 @@ public extension TSBlock {
     static let ground5x5Edge:TSBlock = TS_Floar5x5(nodeNamed: "TP_ground_edge", index: 13)
     
     static let woodWall:TSBlock = TS_WoodWall(nodeNamed: "TP_wood_wall_1x5", index: 14)
-    
-    static let pipotSpawner:TSBlock = TS_SpawnerBlock(frequency: 20, entity: .pipot, index: 17)
-    
+        
     static let targetKari:TSBlock = TS_TargetBlock(nodeNamed: "TP_target_kari", index: 18)
     
     static let tree:TSBlock = TS_Tree(nodeNamed: "TP_tree", index: 19)

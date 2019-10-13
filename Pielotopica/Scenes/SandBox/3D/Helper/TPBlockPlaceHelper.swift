@@ -31,7 +31,7 @@ class TPBlockPlaceHelper: TPBlockEditHelper {
     // =============================================================== //
     // MARK: - Private Methods - 
     private func _didPlaceFail(at position:TSVector3) {
-        TPBuildNotice.show(text: "ここにはブロックを置けません。", color: TPCommon.Color.dangerous)
+        fatalError("TODO show reason")
     }
     
     private func _createFailtureAction() -> SCNAction {

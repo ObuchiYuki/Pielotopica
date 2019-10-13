@@ -36,10 +36,7 @@ protocol TPSandboxSceneModelBinder: class {
     // MARK: - Stage -
     func __makeNight()
     func __makeDay()
-    
-    // MARK: - Game - 
-    func __startGame()
-    func __endGame()
+
     
 }
 
@@ -85,9 +82,9 @@ class TPSandBox3DSceneModel {
         case cameraMoving
     }
     
-    private var uiSceneModel:TPSandBoxRootSceneModel! {
-        return TPSandBoxRootSceneModel.shared
-    }
+    //private var uiSceneModel:TPSandBoxRootSceneModel! {
+    //    return TPSandBoxRootSceneModel.shared
+    //}
     
     private let bag = DisposeBag()
     // ================================================================== //
@@ -95,12 +92,10 @@ class TPSandBox3DSceneModel {
     
     func makeBattleMode() {
         binder.__makeNight()
-        binder.__startGame()
     }
     
     func makeNormalMode() {
         binder.__makeDay()
-        binder.__endGame()
     }
     
     /// ピンチジェスチャーで呼び出してください。
@@ -153,9 +148,10 @@ class TPSandBox3DSceneModel {
     /// ヒットテストが終わったら呼び出してください。
     func hitTestDidEnd(at worldCoordinate:TSVector3, touchedNode:SCNNode) {        
         guard !isPlacingBlockMode.value else { return }
+        /*
         guard uiSceneModel.mode.value == .build else { return }
         
-        let sceneModel = uiSceneModel.currentSceneModel as! TPSBuildSceneModel
+        //let sceneModel = uiSceneModel.currentSceneModel as! TPSBuildSceneModel
         
         switch sceneModel.mode.value {
         case .place:
@@ -174,7 +170,7 @@ class TPSandBox3DSceneModel {
         case .destory:
             
             _startBlockDestoring(with: touchedNode)
-        }
+        }*/
     }
     
     func sceneDidLoad() {
@@ -224,7 +220,8 @@ class TPSandBox3DSceneModel {
     
         // process
         guard block.canDestroy(at: anchor) else {
-            TPBuildNotice.show(text: "このブロックは破壊できません。", color: TPCommon.Color.dangerous)
+            fatalError("TODO show notice.")
+            //TPBuildNotice.show(text: "このブロックは破壊できません。", color: TPCommon.Color.dangerous)
             return
         }
         
@@ -293,24 +290,6 @@ class TPSandBox3DSceneModel {
         TPSandBox3DSceneModel.initirized = self
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
-            
-            self.uiSceneModel.mode.subscribe{[unowned self] event in
-                guard let mode = event.element, mode == .build else {
-                    self.canEnterBlockPlaingMode.accept(false)
-                    return
-                }
-                
-                let sceneModel = self.uiSceneModel.currentSceneModel as! TPSBuildSceneModel
-                
-                sceneModel.mode.subscribe {event in
-                    let mode = event.element!
-                    self.canEnterBlockPlaingMode.accept(mode == .move || mode == .place)
-                    
-                }.disposed(by: self.bag)
-            }.disposed(by: self.bag)
-            
-            
-            
             self.canEnterBlockPlaingMode.subscribe{[unowned self] event in
                 if !event.element! && self.isPlacingBlockMode.value {
                     self._endBlockEditing(forced: true)

@@ -194,7 +194,7 @@ class TPCaptureViewController: UIViewController {
         TSFuelData.shared.addFuel(value.fuel)
         TSFuelData.shared.addHeart(value.heart)
         
-        self.gameScene.showPrediction(withObjectNamed: prediction.name, value: value)
+        //self.gameScene.showPrediction(withObjectNamed: prediction.name, value: value)
     }
     
     private func _setupGameScene() {

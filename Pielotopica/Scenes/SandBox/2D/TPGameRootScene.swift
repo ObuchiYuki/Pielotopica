@@ -6,7 +6,7 @@
 //  Copyright © 2019 yuki. All rights reserved.
 //
 
-import Foundation
+import SpriteKit
 
 public extension GKSceneHolder {
     static let gameScene = GKSceneHolder(safeScene: TPGameRootScene(), background3DScene: TPSandboxSceneController())
@@ -15,7 +15,10 @@ public extension GKSceneHolder {
 
 
 class TPGameRootScene: GKSafeScene {
+    
     override func sceneDidLoad() {
+        
+        self.rootNode.color = UIColor.black.withAlphaComponent(0.2)
         
     }
 }

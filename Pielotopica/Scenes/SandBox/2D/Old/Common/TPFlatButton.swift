@@ -9,24 +9,18 @@
 import SpriteKit
 
 class TPFlatButton: GKButtonNode {
-    init(textureNamed name:String, useDisable:Bool = false) {
-        if useDisable {
-            super.init(
-                size: [77, 28],
-                defaultTexture: .init(imageNamed: name),
-                selectedTexture: .init(imageNamed: name+"_pressed"),
-                disabledTexture: .init(imageNamed: name+"_disabled")
-            )
-        }else{
-            super.init(
-                size: [77, 28],
-                defaultTexture: .init(imageNamed: name),
-                selectedTexture: .init(imageNamed: name+"_pressed"),
-                disabledTexture: nil
-            )
-        }
+    
+    private let label = SKLabelNode(fontNamed: TPCommon.FontName.pixcel)
+    private static let buttonSize:CGSize = [55, 55]
+    
+    init(defaultTexture :String, selectedTexture: String) {
+        super.init(
+            size: TPFlatButton.buttonSize,
+            defaultTexture: .init(imageNamed: defaultTexture),
+            selectedTexture: .init(imageNamed: selectedTexture)
+        )
         
-        self.anchorPoint = .zero
+        
     }
     
     required init(coder: NSCoder) {

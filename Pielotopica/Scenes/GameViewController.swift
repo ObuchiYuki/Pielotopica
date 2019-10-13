@@ -14,18 +14,11 @@ import SceneKit
 class GameViewController: GKGameViewController {
     
     enum Scene {
-        case start
         case game
-        case clear
     }
     
     var showingScene = Scene.game
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        /// nodeを消す。
-        skView.presentScene(SKScene())
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +30,8 @@ class GameViewController: GKGameViewController {
         // Aglista-X
         // for debug
         switch showingScene {
-        case .start:
-            self.presentScene(with: .startScene)
         case .game:
             self.presentScene(with: .gameScene)
-        case .clear:
-            self.presentScene(with: .gameClear)
         }
         
     }

@@ -61,5 +61,5 @@ public class GKSafeScene: SKScene {
 extension GKSafeScene {
     
     /// SceneのSriteKit上でのサイズは常時このサイズです。
-    public static let sceneSize = CGSize(width: 375, height: 700)
+    public static let sceneSize = CGSize(width: 700, height: 375)
 }

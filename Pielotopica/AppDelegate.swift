@@ -26,9 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TSFuelData.shared.setMaxHeart(100)
         
         TSItemManager.shared.register(.none)
-        //TSItemManager.shared.register(.japaneseHouse2)
         TSItemManager.shared.register(.woodWall1x5)
-        TSItemManager.shared.register(.pipotSpawner)
         TSItemManager.shared.register(.targetKari)
         TSItemManager.shared.register(.kiKari)
         TSItemManager.shared.register(.stoneKari)

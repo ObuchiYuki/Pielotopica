@@ -9,5 +9,5 @@
 import Foundation
 
 extension TSEntity {
-    static let pipot:TSEntity = TSE_Pipot()
+    
 }

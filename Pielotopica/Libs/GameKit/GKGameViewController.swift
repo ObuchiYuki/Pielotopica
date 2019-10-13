@@ -172,6 +172,7 @@ public class GKGameViewController: UIViewController {
     /// RootNodeのサイズ変化などを行い読み込みます。・
     private func _loadRootNode(_ rootNode:SKSpriteNode) {
         rootNode.removeFromParent()
+        
         rootNode.name = "root"
         
         rootNode.isUserInteractionEnabled = false
