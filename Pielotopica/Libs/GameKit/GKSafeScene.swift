@@ -24,6 +24,15 @@ public class GKSafeScene: SKScene {
 
     // =============================================================== //
     // MARK: - Methods -
+    public override func sceneDidLoad() {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.01) {
+            self.sceneDidAppear()
+        }
+    }
+    
+    open func sceneDidAppear() {}
+    
+    
     
     /// 次のシーンに切り替えます。
     public func present(to sceneHalder: GKSceneHolder, delayed delay: TimeInterval = 0, with transition: SKTransition? = nil) {

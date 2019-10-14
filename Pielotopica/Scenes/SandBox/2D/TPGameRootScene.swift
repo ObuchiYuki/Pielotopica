@@ -41,21 +41,14 @@ class TPGameRootScene: GKSafeScene {
     private var currentScene:TPGameScene!
     private var _presentLock = false
     
-    // MARK: - Nodes -
-    private let menuItem = TPFlatButton(
-        defaultTexture: "TP_menu_flatbutton",
-        selectedTexture: "TP_menu_flatbutton_pressed",
-        label: "メニュー"
-    )
-    
     // ======================================================== //
     // MARK: - Methods -
     override func sceneDidLoad() {
+        super.sceneDidLoad()
+        
         if TPCommon.debug { self.rootNode.color = UIColor.black.withAlphaComponent(0.2) }
         
         self.sceneModel.initiarize(with: self)
-        
-        self.rootNode.addChild(menuItem)
     }
     
     override func sceneDidAppear() {
@@ -66,7 +59,8 @@ class TPGameRootScene: GKSafeScene {
     // MARK: - Privates -
     /// Sceneを次のSceneに受け渡します。
     private func _showNewScene(with newScene:TPGameScene, from oldScene: TPGameScene?) {
-        
+        newScene.rootNode.removeFromParent()
+        dump(type(of: newScene))
         self.rootNode.addChild(newScene.rootNode)
         
         newScene.show(from: oldScene)

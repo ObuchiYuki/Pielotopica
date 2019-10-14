@@ -10,5 +10,5 @@ import Foundation
 
 protocol TPGameScene: GKSafeScene {
     func show(from oldScene: TPGameScene?)
-    func hide(to newScene: TPGameScene, _ completion: @escaping ()->Void?)
+    func hide(to newScene: TPGameScene, _ completion: @escaping ()->Void)
 }
