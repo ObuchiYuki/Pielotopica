@@ -167,6 +167,8 @@
 		B6A89CB9230B8040007F5416 /* TPBoundingBoxProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */; };
 		B6A89CBA230B8040007F5416 /* RKVideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */; };
 		B6A89CBB230B8040007F5416 /* TPCaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */; };
+		B6A8FFE2235486F6005E8558 /* TPGMainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8FFE1235486F6005E8558 /* TPGMainScene.swift */; };
+		B6A8FFE5235487D3005E8558 /* TPControllerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A8FFE4235487D3005E8558 /* TPControllerNode.swift */; };
 		B6A912C0232C887400145DB6 /* TSChunkNodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A912BF232C887400145DB6 /* TSChunkNodeGenerator.swift */; };
 		B6A91D64231DFCC0002FFC83 /* TP_ground_edge.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A91D63231DFCC0002FFC83 /* TP_ground_edge.png */; };
 		B6AA02AB230D78B800F0FF48 /* RMTimeStamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6AA02AA230D78B800F0FF48 /* RMTimeStamp.swift */; };
@@ -386,6 +388,8 @@
 		B6A89CB6230B803F007F5416 /* TPBoundingBoxProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPBoundingBoxProvider.swift; sourceTree = "<group>"; };
 		B6A89CB7230B8040007F5416 /* RKVideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RKVideoCapture.swift; sourceTree = "<group>"; };
 		B6A89CB8230B8040007F5416 /* TPCaptureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPCaptureViewController.swift; sourceTree = "<group>"; };
+		B6A8FFE1235486F6005E8558 /* TPGMainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGMainScene.swift; sourceTree = "<group>"; };
+		B6A8FFE4235487D3005E8558 /* TPControllerNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPControllerNode.swift; sourceTree = "<group>"; };
 		B6A912BF232C887400145DB6 /* TSChunkNodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkNodeGenerator.swift; sourceTree = "<group>"; };
 		B6A91D63231DFCC0002FFC83 /* TP_ground_edge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TP_ground_edge.png; sourceTree = "<group>"; };
 		B6AA02A4230D66EB00F0FF48 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -924,6 +928,23 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		B6A8FFE0235486D7005E8558 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B6A8FFE3235487C7005E8558 /* Component */,
+				B6A8FFE1235486F6005E8558 /* TPGMainScene.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B6A8FFE3235487C7005E8558 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				B6A8FFE4235487D3005E8558 /* TPControllerNode.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 		B6AA02B1230E119A00F0FF48 /* Node */ = {
 			isa = PBXGroup;
 			children = (
@@ -1044,9 +1065,10 @@
 		B6F425202317598C000372BD /* 2D */ = {
 			isa = PBXGroup;
 			children = (
+				B62DBC392352C3AC00E00052 /* Common */,
+				B6A8FFE0235486D7005E8558 /* Main */,
 				B62DBC3C2352C7BB00E00052 /* TPGameRootScene.swift */,
 				B614779F235344A4008EFD6A /* TPGameRootSceneModel.swift */,
-				B62DBC392352C3AC00E00052 /* Common */,
 			);
 			path = 2D;
 			sourceTree = "<group>";
@@ -1298,6 +1320,7 @@
 				B6EEB27923160DDF004C5826 /* TSCraftMaterialValue.swift in Sources */,
 				B6B8B52C232B8998003F3F83 /* TSLevelSaveData.swift in Sources */,
 				B6227A392301AB84009EF60F /* TSItemStack.swift in Sources */,
+				B6A8FFE2235486F6005E8558 /* TPGMainScene.swift in Sources */,
 				B6EDB128230F8C980042CA02 /* TSBlockRotation.swift in Sources */,
 				B6012DF32318A0C700DC18CE /* TSEntityObject.swift in Sources */,
 				B6227A382301AB84009EF60F /* TSItemBarInventory.swift in Sources */,
@@ -1376,6 +1399,7 @@
 				B6002D9E231A5799006C4D94 /* TSSprite.swift in Sources */,
 				B61E93D02300E36C008CB325 /* Ex+UIKit.swift in Sources */,
 				B64D4025231D0AF400CA3198 /* TSI_HouseGreen.swift in Sources */,
+				B6A8FFE5235487D3005E8558 /* TPControllerNode.swift in Sources */,
 				B61E93CF2300E36C008CB325 /* Ex+SKScene.swift in Sources */,
 				B6AA02B5230E125100F0FF48 /* GKShadowLabelNode.swift in Sources */,
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,

@@ -53,7 +53,7 @@ class TPGameRootScene: GKSafeScene {
     override func sceneDidLoad() {
         if TPCommon.debug { self.rootNode.color = UIColor.black.withAlphaComponent(0.2) }
         
-        self.sceneModel.setBinder(self)
+        self.sceneModel.initiarize(with: self)
         
         self.rootNode.addChild(menuItem)
     }
@@ -76,9 +76,9 @@ class TPGameRootScene: GKSafeScene {
 // ======================================================== //
 // MARK: - Binder -
 extension TPGameRootScene: TPGameRootSceneModelBinder {
-    func __present(to scene: TPGameScene) -> Bool {
+    func __present(to scene: TPGameScene) {
         // lock 機構
-        guard !_presentLock else { return false }; _presentLock = true
+        guard !_presentLock else { return }; _presentLock = true
         
         // show
         
@@ -95,7 +95,5 @@ extension TPGameRootScene: TPGameRootSceneModelBinder {
         }
 
         currentScene = scene
-        
-        return true
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 // ======================================================== //
 // MARK: - TPGameRootSceneModelBinder -
 protocol TPGameRootSceneModelBinder: class {
-    func __present(to scene: TPGameScene) -> Bool
+    func __present(to scene: TPGameScene)
 }
 
 // ======================================================== //
@@ -34,7 +34,7 @@ class TPGameRootSceneModel {
     // MARK: - Methods -
     /// 次の`Scene`へ画面遷移します。
     func present(to scene: TPGameScene) {
-        self.scene.__present(to: scene)
+        let success = self.scene.__present(to: scene)
     }
     
     func initiarize(with scene: TPGameRootSceneModelBinder) {
