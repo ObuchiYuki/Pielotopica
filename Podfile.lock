@@ -1,30 +1,31 @@
 PODS:
   - BoxData (0.0.2.4)
-  - RxCocoa (5.0.0):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
-  - RxRelay (5.0.0):
-    - RxSwift (~> 5)
-  - RxSwift (5.0.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSpriteKit (1.0.0):
+    - RxCocoa (~> 4.1)
+    - RxSwift (~> 4.1)
+  - RxSwift (4.5.0)
 
 DEPENDENCIES:
   - BoxData
   - RxCocoa
+  - RxSpriteKit
   - RxSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BoxData
     - RxCocoa
-    - RxRelay
+    - RxSpriteKit
     - RxSwift
 
 SPEC CHECKSUMS:
   BoxData: 0277ace6750a0e5de7686ed72bbe19c03157faba
-  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
-  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
-  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSpriteKit: 7d9506adec3da63651fe9b5eb409b76de5c99224
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
 
-PODFILE CHECKSUM: bf7b349ced129d53ab9c2987feb1902c57338506
+PODFILE CHECKSUM: c3811ea962f53128a4d110e21557fca608fc82fb
 
 COCOAPODS: 1.7.5

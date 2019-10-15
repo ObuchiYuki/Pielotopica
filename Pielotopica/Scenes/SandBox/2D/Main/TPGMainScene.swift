@@ -22,7 +22,7 @@ class TPGMainScene: GKSafeScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
-        _controller.position = [100, 100]
+        _controller.position = [-240, -100]
         self.rootNode.name = "over"
         self.rootNode.color = .green
         self.rootNode.addChild(_controller)

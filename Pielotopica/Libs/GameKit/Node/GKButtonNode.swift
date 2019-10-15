@@ -32,7 +32,7 @@ public class GKButtonNode: SKSpriteNode {
     // ================================= //
     // MARK: - State Controllers -
     
-    private var needsTapicEngine:Bool = true
+    public var needsTapicEngine:Bool = true
     
     /// ボタンが有効かどうかです。
     /// 無効の場合は、disabledTextureが表示されます。
