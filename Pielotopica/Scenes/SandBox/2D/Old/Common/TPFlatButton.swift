@@ -45,5 +45,9 @@ class TPFlatButton: GKButtonNode {
         
     }
     
+    override func buttonDidSelect() {
+        RMTapticEngine.impact.feedback(.light)
+    }
+    
     required init(coder: NSCoder) { fatalError() }
 }

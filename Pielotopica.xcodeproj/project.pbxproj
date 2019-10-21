@@ -89,6 +89,7 @@
 		B643494023474A290011C131 /* GKScrolleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B643493F23474A290011C131 /* GKScrolleNode.swift */; };
 		B646216223323FBC005EE68E /* RMLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B646216123323FBC005EE68E /* RMLock.swift */; };
 		B646216423324A74005EE68E /* TSChunkLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B646216323324A74005EE68E /* TSChunkLoader.swift */; };
+		B64820E6235D4C6600630AC4 /* TPBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64820E5235D4C6600630AC4 /* TPBadgeButton.swift */; };
 		B649D39B23128CEC00FFE551 /* TPCaptureUIScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */; };
 		B64D401B231D072700CA3198 /* TP_fuel_factory.scn in Resources */ = {isa = PBXBuildFile; fileRef = B64D401A231D072700CA3198 /* TP_fuel_factory.scn */; };
 		B64D401F231D076900CA3198 /* TS_FuelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64D401E231D076900CA3198 /* TS_FuelFactory.swift */; };
@@ -306,6 +307,7 @@
 		B643493F23474A290011C131 /* GKScrolleNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GKScrolleNode.swift; sourceTree = "<group>"; };
 		B646216123323FBC005EE68E /* RMLock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMLock.swift; sourceTree = "<group>"; };
 		B646216323324A74005EE68E /* TSChunkLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSChunkLoader.swift; sourceTree = "<group>"; };
+		B64820E5235D4C6600630AC4 /* TPBadgeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPBadgeButton.swift; sourceTree = "<group>"; };
 		B649D39A23128CEC00FFE551 /* TPCaptureUIScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureUIScene.swift; sourceTree = "<group>"; };
 		B64D401A231D072700CA3198 /* TP_fuel_factory.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_fuel_factory.scn; sourceTree = "<group>"; };
 		B64D401E231D076900CA3198 /* TS_FuelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_FuelFactory.swift; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				B69CE2F4230E2A5E00CE04E6 /* TPFlatButton.swift */,
+				B64820E5235D4C6600630AC4 /* TPBadgeButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1388,6 +1391,7 @@
 				B667BA5C230B776C0038B098 /* YOLO+Helpers.swift in Sources */,
 				B6B9CE84232B2E8700441094 /* TSChunk.swift in Sources */,
 				B61E93CD2300E36C008CB325 /* Ex+Swift.swift in Sources */,
+				B64820E6235D4C6600630AC4 /* TPBadgeButton.swift in Sources */,
 				B6227A422301AB84009EF60F /* Ex+TSVector3.swift in Sources */,
 				B660938F2314C31400B528E5 /* TSItemStacksData.swift in Sources */,
 				B61E93D12300E36C008CB325 /* Ex+UIColor.swift in Sources */,

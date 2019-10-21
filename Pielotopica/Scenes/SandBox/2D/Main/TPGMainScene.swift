@@ -15,6 +15,21 @@ class TPGMainScene: GKSafeScene {
     // MARK: - Nodes -
     
     private let _controller = TPControllerNode.shared
+    private let _buildButton = TPFlatButton(
+        defaultTexture: "TP_build_flatbutton",
+        selectedTexture: "TP_build_flatbutton_pressed",
+        label: "ビルド"
+    )
+    
+    private let _menuButton = TPFlatButton(
+        defaultTexture: "TP_menu_flatbutton",
+        selectedTexture: "TP_menu_flatbutton_pressed",
+        label: "メニュー"
+    )
+    
+    private let _exitButton = TPBadgeButton(
+        iconNamed: "TP_badgebutton_icon_exit"
+    )
     
     // ================================================================ //
     // MARK: - Methods -
@@ -22,11 +37,16 @@ class TPGMainScene: GKSafeScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
-        _controller.position = [-260, -100]
-        self.rootNode.addChild(_controller)
+        _controller.position =  [-260, -100]
+        _menuButton.position =  [290, -130]
+        _buildButton.position = [290, -60]
+        _exitButton.position = [290, 130]
         
-        _controller.speedLevel.subscribe{ print($0) }
-        _controller.vector.subscribe{ print($0) }
+        
+        self.rootNode.addChild(_exitButton)
+        self.rootNode.addChild(_buildButton)
+        self.rootNode.addChild(_menuButton)
+        self.rootNode.addChild(_controller)
     }
     
 }
