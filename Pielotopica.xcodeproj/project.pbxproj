@@ -22,7 +22,7 @@
 		B608C496231101060073843E /* TP_wood_wall_1x1.scn in Resources */ = {isa = PBXBuildFile; fileRef = B608C495231101060073843E /* TP_wood_wall_1x1.scn */; };
 		B608C498231101130073843E /* wood_wall_1x1.png in Resources */ = {isa = PBXBuildFile; fileRef = B608C497231101120073843E /* wood_wall_1x1.png */; };
 		B60C1C83231CC146005A7724 /* TPCaptureVisibilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C1C82231CC146005A7724 /* TPCaptureVisibilityManager.swift */; };
-		B61477A0235344A4008EFD6A /* TPGameRootSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614779F235344A4008EFD6A /* TPGameRootSceneModel.swift */; };
+		B61477A0235344A4008EFD6A /* TPGameSceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614779F235344A4008EFD6A /* TPGameSceneModel.swift */; };
 		B61477A223534695008EFD6A /* TPGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61477A123534695008EFD6A /* TPGameScene.swift */; };
 		B614C236230F731F00DA7093 /* TS_WoodWall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B614C235230F731F00DA7093 /* TS_WoodWall.swift */; };
 		B61E93B72300E356008CB325 /* TPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93B62300E356008CB325 /* TPCommon.swift */; };
@@ -47,6 +47,7 @@
 		B61E93F82300E38A008CB325 /* GKSafeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93F22300E38A008CB325 /* GKSafeScene.swift */; };
 		B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E93F32300E38A008CB325 /* GKButtonNode.swift */; };
 		B61E941A2300FEFA008CB325 /* GK3DSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61E94192300FEFA008CB325 /* GK3DSceneController.swift */; };
+		B61F5DD22355CE9400A50E98 /* TPPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61F5DD12355CE9400A50E98 /* TPPlayerController.swift */; };
 		B62279BD2301A7A7009EF60F /* TPDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62279BC2301A7A7009EF60F /* TPDebug.swift */; };
 		B6227A2E2301AB84009EF60F /* TSVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A0D2301AB83009EF60F /* TSVector3.swift */; };
 		B6227A2F2301AB84009EF60F /* TSVector2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6227A0E2301AB83009EF60F /* TSVector2.swift */; };
@@ -235,7 +236,7 @@
 		B608C495231101060073843E /* TP_wood_wall_1x1.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = TP_wood_wall_1x1.scn; sourceTree = "<group>"; };
 		B608C497231101120073843E /* wood_wall_1x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_wall_1x1.png; sourceTree = "<group>"; };
 		B60C1C82231CC146005A7724 /* TPCaptureVisibilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCaptureVisibilityManager.swift; sourceTree = "<group>"; };
-		B614779F235344A4008EFD6A /* TPGameRootSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameRootSceneModel.swift; sourceTree = "<group>"; };
+		B614779F235344A4008EFD6A /* TPGameSceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameSceneModel.swift; sourceTree = "<group>"; };
 		B61477A123534695008EFD6A /* TPGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPGameScene.swift; sourceTree = "<group>"; };
 		B614C235230F731F00DA7093 /* TS_WoodWall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TS_WoodWall.swift; sourceTree = "<group>"; };
 		B61E939F23005E28008CB325 /* Pielotopica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pielotopica.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +263,7 @@
 		B61E93F22300E38A008CB325 /* GKSafeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKSafeScene.swift; sourceTree = "<group>"; };
 		B61E93F32300E38A008CB325 /* GKButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GKButtonNode.swift; sourceTree = "<group>"; };
 		B61E94192300FEFA008CB325 /* GK3DSceneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GK3DSceneController.swift; sourceTree = "<group>"; };
+		B61F5DD12355CE9400A50E98 /* TPPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPPlayerController.swift; sourceTree = "<group>"; };
 		B62279BC2301A7A7009EF60F /* TPDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDebug.swift; sourceTree = "<group>"; };
 		B6227A0D2301AB83009EF60F /* TSVector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSVector3.swift; sourceTree = "<group>"; };
 		B6227A0E2301AB83009EF60F /* TSVector2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSVector2.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 		B61E94132300E394008CB325 /* SandBox */ = {
 			isa = PBXGroup;
 			children = (
+				B61F5DD12355CE9400A50E98 /* TPPlayerController.swift */,
 				B6F425202317598C000372BD /* 2D */,
 				B6F4251F23175977000372BD /* 3D */,
 			);
@@ -1062,10 +1065,10 @@
 		B6F425202317598C000372BD /* 2D */ = {
 			isa = PBXGroup;
 			children = (
+				B62DBC3C2352C7BB00E00052 /* TPGameRootScene.swift */,
+				B614779F235344A4008EFD6A /* TPGameSceneModel.swift */,
 				B62DBC392352C3AC00E00052 /* Common */,
 				B6A8FFE0235486D7005E8558 /* Main */,
-				B62DBC3C2352C7BB00E00052 /* TPGameRootScene.swift */,
-				B614779F235344A4008EFD6A /* TPGameRootSceneModel.swift */,
 			);
 			path = 2D;
 			sourceTree = "<group>";
@@ -1401,9 +1404,10 @@
 				B61E93F92300E38A008CB325 /* GKButtonNode.swift in Sources */,
 				B667BA5D230B776C0038B098 /* Ex+CVPixelBuffer.swift in Sources */,
 				B62521A1231166AA00D0ADD6 /* TPBlockMoveHelper.swift in Sources */,
+				B61F5DD22355CE9400A50E98 /* TPPlayerController.swift in Sources */,
 				B6227A352301AB84009EF60F /* TSBlockItem.swift in Sources */,
 				B6002D98231A340E006C4D94 /* Ex+CGPoint.swift in Sources */,
-				B61477A0235344A4008EFD6A /* TPGameRootSceneModel.swift in Sources */,
+				B61477A0235344A4008EFD6A /* TPGameSceneModel.swift in Sources */,
 				B667BA5B230B776C0038B098 /* RKObjectNameMapper.swift in Sources */,
 				B667BA5A230B776C0038B098 /* RKImageResizer.swift in Sources */,
 				B667BA60230B776C0038B098 /* RKObjectDetector.swift in Sources */,

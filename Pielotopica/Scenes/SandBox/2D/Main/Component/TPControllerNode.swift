@@ -18,50 +18,76 @@ public class TPControllerNode: SKSpriteNode {
     // MARK: - Singlton -
     static let shared = TPControllerNode()
     
-    // MARK: - Rx -
-    public var isUpSelected: BehaviorRelay<Bool>    { self._upButton.isSelected }
-    public var isDownSelected: BehaviorRelay<Bool>  { self._downButton.isSelected }
-    public var isRightSelected: BehaviorRelay<Bool> { self._rightButton.isSelected }
-    public var isLeftSelected: BehaviorRelay<Bool>  { self._leftButton.isSelected }
-    
     // MARK: - Nodes -
-    private let _upButton = _TPControllerNodeButton(
-        defaultTexture: "TP_controller_up",
-        selectedTexture: "TP_controller_up_pressed"
-    )
+    private let _backgroundNode = SKSpriteNode(imageNamed: "TP_controller_background")
     
-    private let _downButton = _TPControllerNodeButton(
-        defaultTexture: "TP_controller_down",
-        selectedTexture: "TP_controller_down_pressed"
-    )
+    private let _handleNode = SKSpriteNode(imageNamed: "TP_controller_handle")
     
-    private let _rightButton = _TPControllerNodeButton(
-        defaultTexture: "TP_controller_right",
-        selectedTexture: "TP_controller_right_pressed"
-    )
+    // MARK: - Variables -
     
-    private let _leftButton = _TPControllerNodeButton(
-        defaultTexture: "TP_controller_left",
-        selectedTexture: "TP_controller_left_pressed"
-    )
+    private let _handleRadius:CGFloat = 25
+    private let _level1Radius:CGFloat = 10
+    private let _level2Radius:CGFloat = 20
+    private let _edgeRadius:CGFloat = 30
+    
+    private var _touchStartLocation:CGPoint? = nil
+    private var _isMoving = false
+    
+    // ============================================================ //
+    // MARK: - Methods -
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let location = touches.first?.location(in: self) else { return }
+        
+        guard _isStartingLocationHandle(location) else { return }
+        
+        self._startMoving(from: location)
+    }
+    public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let location = touches.first?.location(in: self) else { return }
+        
+        _moveLocation(to: location)
+    }
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        _endMoving()
+    }
+
+    // MARK: - Privates -
+    private func _startMoving(from location: CGPoint) {
+        _touchStartLocation = location
+        _isMoving = true
+    }
+    private func _moveLocation(to location: CGPoint) {
+        guard _isMoving, let touchStartLocation = _touchStartLocation else { return }
+        
+        var delta = location - touchStartLocation
+        
+        /// max指定
+        delta = delta.restrictByDistance(30)
+        if abs(delta) > _level1Radius {  } 
+        
+        self._handleNode.position = delta
+    }
+    private func _endMoving() {
+        _isMoving = false
+        
+        let returnAction = SKAction.move(to: .zero, duration: 0.2)
+        returnAction.timingMode = .easeInEaseOut
+        _handleNode.run(returnAction)
+    }
+    
+    private func _isStartingLocationHandle(_ location:CGPoint) -> Bool {
+        return abs(location) <= _handleRadius
+    }
     // ============================================================ //
     // MARK: - Constructor -
     
     private func _setup() {
         // init
         self.size = [0, 0]
+        self.isUserInteractionEnabled = true
         
-        // add target
-        
-        _upButton.position = [0, 25]
-        _downButton.position = [0, -25]
-        _rightButton.position = [50, 0]
-        _leftButton.position = [-50, 0]
-        
-        self.addChild(_upButton)
-        self.addChild(_downButton)
-        self.addChild(_rightButton)
-        self.addChild(_leftButton)
+        self.addChild(_backgroundNode)
+        self.addChild(_handleNode)
     }
     
     
@@ -76,55 +102,12 @@ public class TPControllerNode: SKSpriteNode {
     }
 }
 
-// ============================================================ //
-// MARK: - _TPControllerNodeButton -
-private class _TPControllerNodeButton: SKSpriteNode {
-        
-    // ============================================================ //
-    // MARK: - Proeprties -
-    
-    fileprivate var isSelected = BehaviorRelay(value: false)
-    
-    // MARK: - Nodes -
-    private let defaultTexture:SKTexture
-    private let selectedTexture: SKTexture
-    
-    private var bag = DisposeBag()
-    
-    // ============================================================ //
-    // MARK: - Constructor -
-    
-    init(defaultTexture: String, selectedTexture: String) {
-        self.defaultTexture = .init(imageNamed: defaultTexture)
-        self.selectedTexture = .init(imageNamed: selectedTexture)
-        
-        super.init(texture: nil, color: .clear, size: [43, 43])
-        
-        self.isUserInteractionEnabled = true
-        
-        // rx binding.
-        self.isSelected
-            .map { $0 ? self.selectedTexture : self.defaultTexture }
-            .bind(to: self.rx.texture)
-            .disposed(by: bag)
-        
-        self.rx.touchesBegan
-            .map{_, _ in true}
-            .bind(to: isSelected)
-            .disposed(by: bag)
-        
-        self.rx.touchesEnded
-            .map{_, _ in false}
-            .bind(to: isSelected)
-            .disposed(by: bag)
-        
-        self.rx.touchesCancelled
-            .map{_, _ in false}
-            .bind(to: isSelected)
-            .disposed(by: bag)
+private extension CGPoint {
+    func restrictByDistance(_ distance: CGFloat) -> CGPoint {
+        if abs(self) <= distance {
+            return self
+        } else {
+            return self.normarized * distance
+        }
     }
-    
-    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }
-
-

@@ -18,6 +18,7 @@ protocol TPGameRootSceneModelBinder: class {
 // MARK: - TPGameRootSceneModel -
 
 /// このクラスは使う前に`TPGameRootScene`から`.initiarize(with: self)`を呼び出される必要があります。
+/// ここの役割は9割外部からの画面遷移
 class TPGameRootSceneModel {
     
     // ======================================================== //
@@ -34,7 +35,7 @@ class TPGameRootSceneModel {
     // MARK: - Methods -
     /// 次の`Scene`へ画面遷移します。
     func present(to scene: TPGameScene) {
-        let success = self.scene.__present(to: scene)
+        self.scene.__present(to: scene)
     }
     
     func initiarize(with scene: TPGameRootSceneModelBinder) {

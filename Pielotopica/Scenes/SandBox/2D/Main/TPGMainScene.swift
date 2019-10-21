@@ -14,7 +14,7 @@ class TPGMainScene: GKSafeScene {
     // ================================================================ //
     // MARK: - Nodes -
     
-    private let _controller = TPControllerNode()
+    private let _controller = TPControllerNode.shared
     
     // ================================================================ //
     // MARK: - Methods -
@@ -22,9 +22,7 @@ class TPGMainScene: GKSafeScene {
     override func sceneDidLoad() {
         super.sceneDidLoad()
         
-        _controller.position = [-240, -100]
-        self.rootNode.name = "over"
-        self.rootNode.color = .green
+        _controller.position = [-260, -100]
         self.rootNode.addChild(_controller)
     }
     
@@ -38,4 +36,8 @@ extension TPGMainScene: TPGameScene {
     func hide(to newScene: TPGameScene, _ completion: @escaping () -> Void) {
         completion()
     }
+}
+
+class TPGMainSceneModel {
+    
 }
