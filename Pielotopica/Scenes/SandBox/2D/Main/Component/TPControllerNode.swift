@@ -98,6 +98,7 @@ public class TPControllerNode: SKNode {
     }
     private func _endMoving() {
         _isSelected.accept(false)
+        _delta.accept(.zero)
         
         let returnAction = SKAction.move(to: .zero, duration: _returnActionDur)
         returnAction.timingMode = .easeInEaseOut

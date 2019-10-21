@@ -23,6 +23,8 @@ extension CGPoint {
     }
     var normarized: CGPoint {
         let a = abs(self)
+        guard a != 0 else { return .zero }
+        
         return CGPoint(x: self.x / a, y: self.y / a)
     }
 }

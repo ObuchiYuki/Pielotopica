@@ -24,6 +24,9 @@ class TPGMainScene: GKSafeScene {
         
         _controller.position = [-260, -100]
         self.rootNode.addChild(_controller)
+        
+        _controller.speedLevel.subscribe{ print($0) }
+        _controller.vector.subscribe{ print($0) }
     }
     
 }
